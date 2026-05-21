@@ -27,7 +27,7 @@ if [ ! -d ".git" ]; then
     echo "    git init"
     echo "    git add ."
     echo "    git commit -m '初始提交'"
-    echo "    git remote add origin https://github.com/你的用户名/你的仓库名.git"
+    echo "    git remote add origin git@github.com:jayyuziyang-lang/yzy.git"
     echo "    git push -u origin main"
     echo ""
     echo "  然后在 GitHub 上启用 Pages:"
@@ -40,7 +40,7 @@ REMOTE=$(git remote -v 2>/dev/null | head -1 || true)
 if [ -z "$REMOTE" ]; then
     echo -e "${YELLOW}[!] 未配置远程仓库${NC}"
     echo "  请添加远程仓库:"
-    echo "    git remote add origin https://github.com/你的用户名/你的仓库名.git"
+    echo "    git remote add origin git@github.com:jayyuziyang-lang/yzy.git"
     exit 1
 fi
 
