@@ -94,10 +94,40 @@ git push 2>&1 || {
 }
 
 echo ""
-echo -e "${GREEN}✅ 部署完成！${NC}"
+echo -e "${GREEN}✅ 推送成功，等待部署...${NC}"
 echo ""
-echo -e "  📡 Pages 地址（等待 1-2 分钟生效）:"
-git remote -v | head -1 | awk '{print $2}' | sed 's/.*github.com[:\/]//;s/\.git//' | xargs -I{} echo "  https://{}.github.io/{}"
+
+# 等待 GitHub Actions 部署完成 + 预热 CDN
+echo -e "⏳ 等待 GitHub Actions 部署..."
+REPO=$(git remote -v | head -1 | awk '{print $2}' | sed 's/.*github.com[:\/]//;s/\.git//')
+OWNER=$(echo "$REPO" | cut -d/ -f1)
+REPO_NAME=$(echo "$REPO" | cut -d/ -f2)
+SITE_URL="https://${OWNER}.github.io/${REPO_NAME}"
+
+# 轮询等待部署完成（最多等 3 分钟）
+for i in $(seq 1 36); do
+    sleep 5
+    HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" "$SITE_URL" 2>/dev/null || echo "000")
+    if [ "$HTTP_CODE" = "200" ]; then
+        echo -e "\r${GREEN}✅ 部署完成！${NC} ($((i*5))秒)"
+        break
+    fi
+    echo -ne "\r  ⏳ 第 $((i*5)) 秒... (HTTP $HTTP_CODE)"
+done
+
+# 预热 CDN：强制刷新所有关键页面的缓存
+echo -e "\n🌐 预热 CDN 缓存..."
+for url in \
+    "$SITE_URL" \
+    "${SITE_URL}data/articles.js" \
+    "${SITE_URL}2026-05-21/wechat-publish/morning/article.html" \
+    "${SITE_URL}2026-05-21/wechat-publish/evening/article.html"; do
+    CODE=$(curl -s -o /dev/null -w "%{http_code}" "$url" 2>/dev/null || echo "000")
+    echo -e "  $CODE  $url"
+done
+
 echo ""
-echo -e "  ⏳ 部署进度:"
-git remote -v | head -1 | awk '{print $2}' | sed 's/.*github.com[:\/]//;s/\.git//' | xargs -I{} echo "  https://github.com/{}/actions"
+echo -e "${GREEN}========================================${NC}"
+echo -e "${GREEN}  ✅ 全部完成！立即访问:${NC}"
+echo -e "${GREEN}  $SITE_URL${NC}"
+echo -e "${GREEN}========================================${NC}"
