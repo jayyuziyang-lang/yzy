@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 220">
+<defs>
+    <!-- 主投影滤镜 -->
+    <filter id="drop-shadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#1E293B" flood-opacity="0.12"/>
+    </filter>
+    <!-- 柔和投影 -->
+    <filter id="soft-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="#1E293B" flood-opacity="0.08"/>
+    </filter>
+    <!-- 品牌蓝色渐变 -->
+    <linearGradient id="brand-blue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1A56DB"/>
+      <stop offset="100%" stop-color="#1E3A7A"/>
+    </linearGradient>
+    <!-- 品牌金色渐变 -->
+    <linearGradient id="brand-gold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#D4A017"/>
+      <stop offset="100%" stop-color="#B8860B"/>
+    </linearGradient>
+    <!-- 对话框渐变 -->
+    <linearGradient id="bubble-bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#F8F9FA"/>
+    </linearGradient>
+    <!-- 高光渐变 -->
+    <linearGradient id="brand-glow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgba(26,86,219,0.15)"/>
+      <stop offset="100%" stop-color="rgba(26,86,219,0.02)"/>
+    </linearGradient>
+    <!-- 背景网格图案 -->
+    <pattern id="dot-grid" width="12" height="12" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="0.5" fill="#E2E8F0" opacity="0.3"/>
+    </pattern>
+  </defs>
+
+  <rect width="300" height="220" fill="#F5F7FA" rx="8"/>
+  <text x="150" y="20" text-anchor="middle" font-family="'Noto Sans SC','PingFang SC',sans-serif" font-size="11" font-weight="bold" fill="#F59E0B">🤔 普通人怎么办</text>
+  <line x1="15" y1="26" x2="285" y2="26" stroke="#E2E8F0" stroke-width="1"/>
+  <!-- 左：实物 -->
+  <rect x="12" y="38" width="132" height="100" rx="8" fill="#D4A017" opacity="0.08" stroke="#D4A017" stroke-width="1" filter="url(#drop-shadow)"/>
+  <text x="78" y="60" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="11" font-weight="bold" fill="#D4A017">🥇 实物黄金</text>
+  <text x="78" y="80" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="9" fill="#1E293B">金条 · 金币</text>
+  <text x="78" y="98" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="9" fill="#1E293B">压箱底配置</text>
+  <text x="78" y="118" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="9" fill="#10B981">✅ 长期抗通胀</text>
+  <!-- 右：ETF -->
+  <rect x="156" y="38" width="132" height="100" rx="8" fill="#EF4444" opacity="0.06" stroke="#EF4444" stroke-width="1" filter="url(#drop-shadow)"/>
+  <text x="222" y="60" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="11" font-weight="bold" fill="#EF4444">📈 黄金ETF</text>
+  <text x="222" y="80" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="9" fill="#1E293B">期货 · 杠杆</text>
+  <text x="222" y="98" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="9" fill="#1E293B">赌金价方向</text>
+  <text x="222" y="118" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="9" fill="#EF4444">❌ 别搞混了</text>
+  <!-- vs -->
+  <circle cx="150" cy="88" r="14" fill="white" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="150" y="93" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="11" font-weight="bold" fill="#64748B">VS</text>
+
+  <!-- 阿扬 -->
+<g transform="translate(150, 200)">
+  <!-- ===== 真实人物肖像 ===== -->
+  <defs>
+    <clipPath id="char-clip-150-200">
+      <ellipse cx="0" cy="-6.3" rx="14.4" ry="19.8"/>
+    </clipPath>
+  </defs>
+  <image href="data:image/jpeg;base64,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" x="-14.4" y="-27.0" width="28.8" height="43.2"
+         preserveAspectRatio="xMidYMin slice" clip-path="url(#char-clip-150-200)"
+         filter="url(#drop-shadow)"/>
+  <!-- ===== 下半身简约处理 ===== -->
+  <rect x="-17.1" y="10.8" width="34.2" height="30.6" rx="9.9" fill="#1A56DB" opacity="0.85" filter="url(#drop-shadow)"/>
+  <polygon points="-6.3,10.8 0,-1.8 6.3,10.8" fill="#FFFFFF" opacity="0.9"/>
+  <polygon points="-2.25,7.2 0,0.0 2.25,7.2" fill="#D4A017"/>
+  <rect x="-1.8" y="8.1" width="3.6" height="7.2" rx="0.9" fill="#D4A017"/>
+</g>
+</svg>

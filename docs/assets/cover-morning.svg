@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 383">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1A56DB"/>
+      <stop offset="100%" style="stop-color:#1E3A7A"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#D4A017"/>
+      <stop offset="100%" style="stop-color:#B8860B"/>
+    </linearGradient>
+    <filter id="drop-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#000" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+  <rect width="900" height="383" fill="url(#bg)"/>
+  <circle cx="750" cy="50" r="150" fill="rgba(255,255,255,0.03)"/>
+  <circle cx="50" cy="350" r="80" fill="rgba(255,255,255,0.02)"/>
+  <text x="40" y="50" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="16" fill="rgba(255,255,255,0.6)">扬说财经 · 2026.05.21</text>
+  <rect x="770" y="35" width="90" height="24" rx="12" fill="rgba(255,255,255,0.1)"/>
+  <text x="815" y="51" text-anchor="middle" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="11" fill="rgba(255,255,255,0.7)">扬说·早报</text>
+  <text x="40" y="110" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="38" font-weight="bold" fill="white">一天狂赚6.4亿美元</text>
+  <text x="40" y="160" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="32" font-weight="bold" fill="#D4A017">英伟达印钞机还在加速</text>
+  <rect x="40" y="185" width="60" height="3" rx="1.5" fill="url(#gold)"/>
+  <text x="40" y="218" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="17" fill="rgba(255,255,255,0.65)">Q1营收$816亿 +85% · 净利$583亿 +211%</text>
+  <rect x="40" y="240" width="56" height="24" rx="12" fill="rgba(239,68,68,0.25)"/>
+  <text x="68" y="256" text-anchor="middle" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="11" fill="#EF4444">AI硬件</text>
+  <rect x="104" y="240" width="56" height="24" rx="12" fill="rgba(16,185,129,0.25)"/>
+  <text x="132" y="256" text-anchor="middle" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="11" fill="#10B981">美股</text>
+<g transform="translate(780, 290)">
+  <!-- ===== 真实人物肖像 ===== -->
+  <defs>
+    <clipPath id="char-clip-780-290">
+      <ellipse cx="0" cy="-6.3" rx="14.4" ry="19.8"/>
+    </clipPath>
+  </defs>
+  <image href="data:image/jpeg;base64,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" x="-14.4" y="-27.0" width="28.8" height="43.2"
+         preserveAspectRatio="xMidYMin slice" clip-path="url(#char-clip-780-290)"
+         filter="url(#drop-shadow)"/>
+  <!-- ===== 下半身简约处理 ===== -->
+  <rect x="-17.1" y="10.8" width="34.2" height="30.6" rx="9.9" fill="#1A56DB" opacity="0.85" filter="url(#drop-shadow)"/>
+  <polygon points="-6.3,10.8 0,-1.8 6.3,10.8" fill="#FFFFFF" opacity="0.9"/>
+  <polygon points="-2.25,7.2 0,0.0 2.25,7.2" fill="#D4A017"/>
+  <rect x="-1.8" y="8.1" width="3.6" height="7.2" rx="0.9" fill="#D4A017"/>
+</g>
+  <rect x="0" y="378" width="900" height="5" fill="url(#gold)"/>
+</svg>

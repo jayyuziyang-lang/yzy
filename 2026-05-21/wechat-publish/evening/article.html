@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>A股天地板：从高开到暴跌，4700只个股下跌背后</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system,"PingFang SC","Microsoft YaHei","Helvetica Neue",sans-serif; background: #F5F7FA; color: #1E293B; line-height: 1.8; font-size: 16px; }
+  .c { max-width: 640px; margin: 0 auto; background: #fff; padding: 0 0 40px; }
+
+  .header { background: linear-gradient(135deg,#D4A017,#B8860B); padding: 20px 20px 16px; color: white; }
+  .header h1 { font-size: 22px; font-weight: 700; line-height: 1.4; margin-bottom: 6px; }
+  .header .meta { font-size: 12px; opacity: 0.8; display: flex; gap: 12px; flex-wrap: wrap; }
+
+  .player { display: flex; align-items: center; gap: 12px; margin-top: 14px; }
+  .player-icon { width: 40px; height: 40px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 18px; }
+  .player-info { flex: 1; }
+  .player-title { font-size: 13px; font-weight: 600; }
+  .player-desc { font-size: 11px; opacity: 0.7; }
+  .player audio { width: 100%; margin-top: 4px; border-radius: 20px; }
+
+  .body { padding: 20px 20px 0; }
+
+  /* Layer 1 */
+  .layer1 { margin-bottom: 28px; }
+  .l1-title { font-size: 16px; font-weight: 700; color: #D4A017; margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
+  .l1-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-bottom: 12px; }
+  .l1-item { background: #F8F9FA; border-radius: 8px; padding: 8px 10px; border-left: 3px solid #1A56DB; }
+  .l1-item .tag { font-size: 10px; font-weight: 700; display: block; margin-bottom: 2px; }
+  .l1-item .txt { font-size: 12px; color: #475569; }
+  .l1-item .pct { font-size: 11px; font-weight: 600; }
+  .l1-gold { border-left-color: #D4A017; } .l1-gold .tag { color: #D4A017; }
+  .l1-red { border-left-color: #EF4444; } .l1-red .tag { color: #EF4444; }
+  .l1-blue { border-left-color: #1A56DB; } .l1-blue .tag { color: #1A56DB; }
+  .l1-green { border-left-color: #10B981; } .l1-green .tag { color: #10B981; }
+  .l1-purple { border-left-color: #8B5CF6; } .l1-purple .tag { color: #8B5CF6; }
+  .l1-orange { border-left-color: #F59E0B; } .l1-orange .tag { color: #D97706; }
+  .l1-comic { margin: 8px -10px 0; }
+  .l1-comic img { width: 100%; border-radius: 10px; border: 1px solid #E2E8F0; }
+  .l1-divider { border: none; border-top: 2px dashed #D4A017; margin: 16px 0; }
+
+  /* Layer 2 */
+  .layer2 { margin-bottom: 24px; }
+  .l2-title { font-size: 16px; font-weight: 700; color: #D4A017; margin-bottom: 14px; display: flex; align-items: center; gap: 6px; }
+
+  /* ★ 自适应漫画网格 */
+  .comic-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 10px; margin: 14px 0; }
+  .comic-grid img { width: 100%; height: auto; border-radius: 8px; border: 1px solid #E2E8F0; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+  @media (max-width:480px) { .comic-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 6px; } }
+
+  .quote { background: #FFF8E7; border-left: 4px solid #D4A017; padding: 12px 14px; margin: 14px 0; border-radius: 0 8px 8px 0; font-size: 14px; color: #8B6914; line-height: 1.7; }
+  h2 { font-size: 17px; font-weight: 700; color: #D4A017; margin: 22px 0 10px; padding-bottom: 6px; border-bottom: 2px solid #D4A017; }
+  h3 { font-size: 15px; font-weight: 600; color: #1A56DB; margin: 16px 0 8px; }
+  p { margin-bottom: 12px; text-align: justify; font-size: 15px; }
+
+  .gold-box { background: linear-gradient(135deg,#FFF8E7,#FFF3D6); border: 1px solid #D4A017; border-radius: 12px; padding: 18px 20px; margin: 22px 0; text-align: center; font-size: 16px; font-weight: 700; color: #B8860B; line-height: 1.5; }
+
+  .analogy { background: #FFFBEB; border: 1px solid #FDE68A; border-radius: 10px; padding: 10px 14px; margin: 12px 0; font-size: 13px; color: #92400E; }
+  .analogy::before { content: "💡 类比一下："; font-weight: 600; color: #D97706; }
+  .insight { background: #EFF6FF; border: 1px solid #BFDBFE; border-radius: 10px; padding: 10px 14px; margin: 10px 0; font-size: 13px; }
+  .insight strong { color: #1A56DB; }
+  .data-box { background: #F0F4FF; border-radius: 10px; padding: 12px 14px; margin: 12px 0; font-size: 13px; border-left: 4px solid #1A56DB; }
+  .divider { border: none; border-top: 2px dashed #E2E8F0; margin: 20px 0; }
+
+  /* Layer 3 */
+  .layer3 { margin-bottom: 24px; }
+  .l3-title { font-size: 16px; font-weight: 700; color: #D4A017; margin-bottom: 10px; }
+  table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 13px; }
+  th { background: #D4A017; color: #fff; padding: 8px 10px; text-align: left; }
+  th:first-child { border-radius: 6px 0 0 0; }
+  th:last-child { border-radius: 0 6px 0 0; }
+  td { padding: 8px 10px; border-bottom: 1px solid #E2E8F0; }
+  tr:nth-child(even) { background: #F8F9FA; }
+  .up { color: #EF4444; font-weight: 600; }
+  .down { color: #10B981; font-weight: 600; }
+
+  .warn { background: #FFF5F5; border: 1px solid #FECACA; border-radius: 10px; padding: 12px 14px; margin-top: 24px; font-size: 12px; color: #991B1B; line-height: 1.5; }
+
+  .chart { margin: 16px 0; background: #F8F9FA; border-radius: 10px; padding: 10px; text-align: center; border: 1px solid #E2E8F0; }
+  .chart img { max-width: 100%; height: auto; border-radius: 6px; }
+  .chart-label { font-size: 12px; color: #64748B; margin-top: 6px; }
+</style>
+</head>
+<body>
+<div class="c">
+
+  <!-- 头部 -->
+  <div class="header">
+    <h1>A股天地板：从高开到暴跌，4700只个股下跌背后</h1>
+    <div class="meta">
+      <span>📅 2026.05.21 晚间</span>
+      <span>🏷️ A股 · 美伊谈判 · 油价</span>
+      <span>👤 主讲：阿扬</span>
+    </div>
+    <div class="player">
+      <div class="player-icon">🎧</div>
+      <div class="player-info">
+        <div class="player-title">音频深度解读</div>
+        <div class="player-desc">边听边看，体验更佳</div>
+        <audio controls preload="none"><source src="audio.mp3" type="audio/mpeg"></audio>
+      </div>
+    </div>
+  </div>
+
+  <div class="body">
+
+    <!-- ════════════════════════════════════════ -->
+    <!-- LAYER 1：今日热点回顾 -->
+    <!-- ════════════════════════════════════════ -->
+    <div class="layer1">
+
+      <div class="l1-title">📋 今日热点回顾 <span style="font-size:12px;color:#64748B;font-weight:400;">— 60秒回顾今天重要信息</span></div>
+
+      <div class="l1-grid">
+        <div class="l1-item l1-red">
+          <span class="tag">A股</span>
+          <span class="txt">沪指跌2.04%失守4100</span>
+          <span class="pct" style="color:#EF4444;">超4700只个股下跌</span>
+        </div>
+        <div class="l1-item l1-red">
+          <span class="tag">半导体</span>
+          <span class="txt">十余股跌超10%</span>
+          <span class="pct" style="color:#EF4444;">科创综指-4.42%</span>
+        </div>
+        <div class="l1-item l1-gold">
+          <span class="tag">美伊谈判</span>
+          <span class="txt">进入最终阶段</span>
+          <span class="pct" style="color:#D4A017;">WTI跌5.66%破100</span>
+        </div>
+        <div class="l1-item l1-green">
+          <span class="tag">美股</span>
+          <span class="txt">道指收复5万点</span>
+          <span class="pct" style="color:#10B981;">纳指+1.54%</span>
+        </div>
+        <div class="l1-item l1-blue">
+          <span class="tag">银行</span>
+          <span class="txt">建行创历史新高</span>
+          <span class="pct" style="color:#1A56DB;">避险资金流入</span>
+        </div>
+        <div class="l1-item l1-orange">
+          <span class="tag">SpaceX</span>
+          <span class="txt">提交IPO申请</span>
+          <span class="pct" style="color:#D97706;">估值1.8万亿美元</span>
+        </div>
+      </div>
+
+      <div class="l1-comic">
+        <img src="comic/panel-000.svg" alt="扬说财经速览">
+        <div style="text-align:center;font-size:11px;color:#64748B;margin-top:4px;">📡 扬说财经 — 今晚这些大事值得关注</div>
+      </div>
+
+      <hr class="l1-divider">
+      <div style="text-align:center;font-size:12px;color:#D4A017;margin-bottom:4px;">▼ 往下翻看今日深度解读 ▼</div>
+    </div>
+
+    <!-- ════════════════════════════════════════ -->
+    <!-- LAYER 2：今日深度解读 -->
+    <!-- ════════════════════════════════════════ -->
+    <div class="layer2">
+
+      <div class="l2-title">🔍 今晚深度专题</div>
+
+      <div class="quote">早盘冲高，午后跳水。3.51万亿巨量成交，超4700只个股下跌。今天A股教了三件事。</div>
+
+      <div class="comic-grid">
+        <img src="comic/panel-001.svg" alt="天翻地覆的一天">
+        <img src="comic/panel-002.svg" alt="半导体崩了">
+        <img src="comic/panel-003.svg" alt="谁在抗跌">
+        <img src="comic/panel-004.svg" alt="美伊谈判">
+      </div>
+
+      <h2>发生了什么</h2>
+      <p>今天A股走出了一个教科书级的<strong>"诱多出货"</strong>行情。</p>
+      <p>早盘三大指数集体高开，半导体延续强势，科创50一度涨超2%，市场一片乐观。但午后两点画风突变——半导体板块率先跳水，恐慌蔓延至全市场。科创综指从+2%直线砸到<strong>-4.42%</strong>，振幅超6个百分点。</p>
+      <p>最终沪指收报<strong>4077.28点，跌2.04%</strong>，失守4100点关口。全市场超<strong>4700只个股下跌</strong>，仅约700只上涨。成交额<strong>3.51万亿元</strong>，较前日放量5308亿元，主力资金净流出1724亿元。</p>
+
+      <h2>为什么今天突然大跌</h2>
+      <p>两个原因，一个表面、一个深层。</p>
+
+      <h3>表面原因：美伊谈判引爆油价暴跌</h3>
+      <p>特朗普表态美伊谈判进入"最后阶段"，协议或数小时内公布。WTI原油应声暴跌<strong>5.66%</strong>至98.26美元/桶，自3月以来首次跌破100美元。</p>
+      <p>在A股，这条消息被解读为"中东出事了"——半导体、通信设备、光模块等高估值板块率先出逃。</p>
+
+      <div class="chart">
+        <img src="../../../docs/charts/oil_price.svg" alt="WTI原油近期走势">
+        <div class="chart-label">WTI原油期货 5日走势 — 美伊谈判冲击下暴跌至98美元</div>
+      </div>
+
+      <div class="analogy">同样的消息，美股解读为"通胀降温利好科技"，A股解读为"风险来了快跑"。这不是谁对谁错，而是A股的散户结构决定了情绪放大效应更显著。</div>
+
+      <h3>深层原因：获利盘借机出货</h3>
+      <p>半导体板块近一周涨超15%，获利盘堆积。美伊谈判给了主力一个完美的出货窗口——早盘拉高吸引跟风盘，午后借利好消息倾泻而出。</p>
+      <p>同时，央行一季度货币政策报告暗示降准降息必要性减弱，美联储纪要偏鹰，内外夹击之下，资金选择了用脚投票。</p>
+
+      <div class="comic-grid">
+        <img src="comic/panel-005.svg" alt="连锁反应">
+        <img src="comic/panel-006.svg" alt="普通人怎么办">
+        <img src="comic/panel-007.svg" alt="金句时刻">
+      </div>
+
+      <h2>接下来怎么看</h2>
+      <p><strong>短期：</strong>调整还没结束。3.51万亿成交+1724亿净流出，空头还没释放完。缩量企稳才是底部信号。</p>
+      <p><strong>中期：</strong>不必恐慌。半导体基本面没变，英伟达财报超预期、新增800亿美元回购，AI产业链景气度持续。调整只是上涨过快需要消化。</p>
+      <p><strong>结构机会已出现：</strong>航空受益油价暴跌、银行创历史新高说明聪明钱已开始避险、白酒底部信号初现。每一次调整都是资金从高位板块向低位板块切换的过程。</p>
+
+      <div class="data-box">
+        <strong>📊 今日资金流向：</strong><br>
+        银行 +23.5亿 | 航运/机场 +8.7亿 | 白酒 +4.2亿<br>
+        半导体 <strong>-287.3亿</strong> | 通信设备 -96.8亿 | 计算机 -78.4亿
+      </div>
+
+      <div class="chart">
+        <img src="../../../docs/charts/astock_indices.svg" alt="A股主要指数涨跌幅">
+        <div class="chart-label">A股主要指数今日全线收跌，科创板块跌幅最大</div>
+      </div>
+
+      <div class="chart">
+        <img src="../../../docs/charts/sector_flow.svg" alt="板块资金流向">
+        <div class="chart-label">板块资金流向分化：银行逆势流入，半导体大幅流出</div>
+      </div>
+
+      <h2>普通人怎么办</h2>
+      <p><strong>第一，</strong>别追高半导体。前面涨了15%你没吃到，现在接飞刀不划算。</p>
+      <p><strong>第二，</strong>关注油价暴跌受益链。航空运输成本直接下降，化工原料成本也在降，利好会逐步体现在财报中。</p>
+      <p><strong>第三，</strong>保持耐心。3.51万亿成交说明市场不缺钱，缺的是方向。等方向明确了再出手，比现在猜底舒服得多。</p>
+
+      <div class="gold-box">今天A股教了三件事：早盘的冲动是魔鬼，午后的恐慌是学费，而真正的机会——等你冷静下来才会出现。</div>
+
+      <hr class="divider">
+    </div>
+
+    <!-- ════════════════════════════════════════ -->
+    <!-- LAYER 3：关键市场数据 -->
+    <!-- ════════════════════════════════════════ -->
+    <div class="layer3">
+      <div class="l3-title">📊 关键市场数据一览</div>
+
+      <table>
+        <tr><th>品种</th><th>最新</th><th>涨跌幅</th></tr>
+        <tr><td>上证指数</td><td>4,077.28</td><td class="down">-2.04%</td></tr>
+        <tr><td>创业板指</td><td>3,829.78</td><td class="down">-2.35%</td></tr>
+        <tr><td>科创50</td><td>—</td><td class="down">-3.70%</td></tr>
+        <tr><td>WTI原油</td><td>$98.26/桶</td><td class="down">-5.66%</td></tr>
+        <tr><td>COMEX黄金</td><td>$4,546/oz</td><td class="up">+0.78%</td></tr>
+        <tr><td>道琼斯</td><td>50,009.35</td><td class="up">+1.31%</td></tr>
+        <tr><td>纳斯达克</td><td>26,270.36</td><td class="up">+1.54%</td></tr>
+        <tr><td>美元指数</td><td>99.13</td><td class="down">-0.18%</td></tr>
+      </table>
+
+      <!-- 品牌信息（含人物写真）-->
+      <div style="background:linear-gradient(135deg,#1A56DB,#1E3A7A);border-radius:12px;padding:16px 20px;margin:22px 0;color:white;text-align:center;">
+        <img src="../../../docs/assets/character/ayang-portrait.jpg" style="width:56px;height:56px;border-radius:50%;object-fit:cover;margin-bottom:8px;border:2px solid rgba(255,255,255,0.3);display:block;margin-left:auto;margin-right:auto;" alt="阿扬">
+        <div style="font-size:14px;font-weight:700;margin-bottom:4px;">📡 扬说财经</div>
+        <div style="font-size:11px;opacity:0.8;margin-bottom:8px;">用漫画看懂财经 — 你好，我是阿扬</div>
+        <div style="display:flex;justify-content:center;gap:16px;font-size:10px;opacity:0.6;">
+          <span>🌅 扬说·早报</span>
+          <span>🌙 扬说·夜读</span>
+          <span>📖 扬说·课堂</span>
+        </div>
+      </div>
+
+      <div class="warn">⚠️ <strong>风险提示：</strong>以上内容仅为信息分享，不构成任何投资建议。市场有风险，投资需谨慎。</div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>

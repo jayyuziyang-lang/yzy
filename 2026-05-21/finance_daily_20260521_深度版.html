@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>每日财经深度解析 — 2026年05月21日</title>
+<style>
+  @page {
+    size: A4;
+    margin: 18mm 20mm;
+    @bottom-center {
+      content: "每日财经深度解析 · 2026.05.21";
+      font-size: 9px;
+      color: #999;
+      font-family: "Microsoft YaHei", sans-serif;
+    }
+  }
+  @page :first {
+    @bottom-center {
+      content: none;
+    }
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Source Han Sans SC", "Noto Sans SC", "Microsoft YaHei", "微软雅黑", sans-serif;
+    color: #1a1a1a;
+    line-height: 1.65;
+    font-size: 12px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .cover {
+    page-break-after: always;
+    text-align: center;
+    padding: 120px 40px 80px;
+    background: linear-gradient(180deg, #1a2a4a 0%, #1a2a4a 60%, #fff 60%, #fff 100%);
+    min-height: 100vh;
+  }
+  .cover-top { padding-top: 60px; }
+  .cover-label {
+    display: inline-block;
+    font-size: 14px;
+    color: #c9a96e;
+    letter-spacing: 6px;
+    font-weight: 600;
+    border: 1px solid #c9a96e;
+    padding: 6px 24px;
+    margin-bottom: 40px;
+  }
+  .cover-title {
+    font-size: 42px;
+    font-weight: 900;
+    color: #fff;
+    letter-spacing: 6px;
+    margin-bottom: 12px;
+  }
+  .cover-subtitle {
+    font-size: 20px;
+    color: #c9a96e;
+    letter-spacing: 4px;
+    font-weight: 400;
+    margin-bottom: 50px;
+  }
+  .cover-date {
+    font-size: 16px;
+    color: rgba(255,255,255,0.7);
+    letter-spacing: 4px;
+    margin-bottom: 80px;
+  }
+  .cover-bottom {
+    background: #fff;
+    padding: 50px 40px 20px;
+  }
+  .cover-highlights {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  .cover-highlight-item {
+    flex: 0 0 200px;
+    text-align: center;
+    padding: 16px;
+    border: 1px solid #e0dbd4;
+    border-radius: 4px;
+  }
+  .cover-highlight-num {
+    font-size: 28px;
+    font-weight: 900;
+    color: #c9a96e;
+  }
+  .cover-highlight-label {
+    font-size: 11px;
+    color: #888;
+    margin-top: 4px;
+  }
+  .cover-risk {
+    margin-top: 40px;
+    font-size: 11px;
+    color: #c62828;
+    border: 1px solid #fbe9e7;
+    background: #fff5f5;
+    padding: 12px 24px;
+    display: inline-block;
+    border-radius: 4px;
+  }
+
+  .toc {
+    page-break-after: always;
+    padding: 50px 0 30px;
+  }
+  .toc-title {
+    font-size: 28px;
+    font-weight: 900;
+    color: #1a2a4a;
+    letter-spacing: 4px;
+    border-bottom: 3px double #1a2a4a;
+    padding-bottom: 16px;
+    margin-bottom: 30px;
+  }
+  .toc-list { list-style: none; }
+  .toc-item {
+    display: flex;
+    align-items: baseline;
+    padding: 10px 0;
+    border-bottom: 1px dotted #ddd;
+  }
+  .toc-num {
+    font-size: 14px;
+    font-weight: 700;
+    color: #c9a96e;
+    min-width: 60px;
+  }
+  .toc-text { flex: 1; font-size: 14px; color: #1a1a1a; }
+  .toc-page { font-size: 13px; color: #888; min-width: 40px; text-align: right; }
+  .toc-section-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1a2a4a;
+    padding: 20px 0 8px;
+    letter-spacing: 2px;
+  }
+
+  .analysis {
+    padding: 18px 0 10px;
+  }
+  .analysis-header {
+    border-bottom: 2px solid #1a2a4a;
+    padding-bottom: 8px;
+    margin-bottom: 12px;
+  }
+  .analysis-num {
+    font-size: 12px;
+    font-weight: 700;
+    color: #c9a96e;
+    letter-spacing: 3px;
+    margin-bottom: 4px;
+  }
+  .analysis-title {
+    font-size: 22px;
+    font-weight: 900;
+    color: #1a2a4a;
+    line-height: 1.4;
+  }
+  .analysis-cover-tag {
+    display: inline-block;
+    font-size: 11px;
+    padding: 2px 10px;
+    border-radius: 3px;
+    margin-left: 8px;
+    font-weight: 600;
+  }
+  .tag-us { background: #e3f2fd; color: #1565c0; }
+  .tag-a { background: #fce4ec; color: #c62828; }
+  .tag-intl { background: #e8f5e9; color: #2e7d32; }
+  .tag-macro { background: #fff3e0; color: #e65100; }
+  .tag-gold { background: #fff8e1; color: #f57f17; }
+
+  .section-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1a2a4a;
+    margin: 12px 0 6px;
+    padding-left: 10px;
+    border-left: 3px solid #c9a96e;
+  }
+  .section-content { font-size: 13px; color: #333; line-height: 1.75; }
+
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 8px 0 10px;
+    font-size: 11px;
+  }
+  .data-table th {
+    background: #1a2a4a;
+    color: #fff;
+    padding: 6px 10px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 10px;
+  }
+  .data-table td {
+    padding: 6px 10px;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  .data-table tr:nth-child(even) td { background: #fafafa; }
+  .data-positive { color: #c62828; font-weight: 700; }
+  .data-negative { color: #2e7d32; font-weight: 700; }
+
+  .impact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin: 8px 0;
+  }
+  .impact-card {
+    border: 1px solid #e0dbd4;
+    border-radius: 4px;
+    padding: 8px 10px;
+  }
+  .impact-card-label {
+    font-size: 10px;
+    color: #c9a96e;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 4px;
+  }
+  .impact-card-content { font-size: 11px; color: #444; line-height: 1.6; }
+
+  .outlook-box {
+    background: #f5f3ef;
+    border-left: 4px solid #c9a96e;
+    padding: 10px 14px;
+    margin: 10px 0;
+  }
+  .outlook-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: #1a2a4a;
+    margin-bottom: 6px;
+  }
+  .outlook-text { font-size: 11px; color: #444; line-height: 1.65; }
+
+  .risk-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 3px;
+    font-size: 10px;
+    font-weight: 700;
+    margin-right: 6px;
+  }
+  .risk-high { background: #ffebee; color: #c62828; }
+  .risk-mid { background: #fff3e0; color: #e65100; }
+  .risk-low { background: #e8f5e9; color: #2e7d32; }
+
+  .appendix {
+    page-break-before: always;
+    padding: 40px 0;
+  }
+  .appendix-title {
+    font-size: 22px;
+    font-weight: 900;
+    color: #1a2a4a;
+    border-bottom: 2px solid #1a2a4a;
+    padding-bottom: 12px;
+    margin-bottom: 22px;
+  }
+  .source-list { list-style: none; font-size: 12px; color: #555; line-height: 2; }
+  .source-cat { font-weight: 700; color: #1a2a4a; }
+  .disclaimer-box {
+    border: 1px solid #c62828;
+    padding: 16px 20px;
+    margin-top: 24px;
+    font-size: 11px;
+    color: #888;
+    line-height: 1.8;
+    border-radius: 4px;
+  }
+</style>
+</head>
+<body>
+
+<!-- ==================== COVER ==================== -->
+<div class="cover">
+  <div class="cover-top">
+    <div class="cover-label">DEEP ANALYSIS</div>
+    <div class="cover-title">每日财经</div>
+    <div class="cover-subtitle">深度解析报告</div>
+    <div class="cover-date">2026年05月21日 · 星期四</div>
+  </div>
+  <div class="cover-bottom">
+    <div class="cover-highlights">
+      <div class="cover-highlight-item">
+        <div class="cover-highlight-num">816<span style="font-size:16px">亿$</span></div>
+        <div class="cover-highlight-label">英伟达Q1营收</div>
+      </div>
+      <div class="cover-highlight-item">
+        <div class="cover-highlight-num">+5<span style="font-size:16px">%</span></div>
+        <div class="cover-highlight-label">韩国KOSPI熔断</div>
+      </div>
+      <div class="cover-highlight-item">
+        <div class="cover-highlight-num">$4544</div>
+        <div class="cover-highlight-label">COMEX黄金/盎司</div>
+      </div>
+    </div>
+    <div class="cover-risk">⚠ 投资风险提示：本报告仅供信息参考，不构成投资建议。市场有风险，投资需谨慎。</div>
+  </div>
+</div>
+
+<!-- ==================== TOC ==================== -->
+<div class="toc">
+  <div class="toc-title">目 录</div>
+
+  <div class="toc-section-title">一、深度分析篇</div>
+  <ul class="toc-list">
+    <li class="toc-item"><span class="toc-num">NO.01</span><span class="toc-text">英伟达Q1财报：AI算力需求无边界</span><span class="toc-page">3</span></li>
+    <li class="toc-item"><span class="toc-num">NO.02</span><span class="toc-text">科创50创历史新高：A股硬科技重估</span><span class="toc-page">4</span></li>
+    <li class="toc-item"><span class="toc-num">NO.03</span><span class="toc-text">韩国股市暴涨熔断：亚太半导体联动</span><span class="toc-page">5</span></li>
+    <li class="toc-item"><span class="toc-num">NO.04</span><span class="toc-text">证券交易印花税暴增：牛市温度计</span><span class="toc-page">6</span></li>
+    <li class="toc-item"><span class="toc-num">NO.05</span><span class="toc-text">国际油价过山车：地缘政治溢价消退</span><span class="toc-page">7</span></li>
+    <li class="toc-item"><span class="toc-num">NO.06</span><span class="toc-text">黄金高位震荡：避险逻辑与利率博弈</span><span class="toc-page">8</span></li>
+  </ul>
+
+  <div class="toc-section-title">二、附录</div>
+  <ul class="toc-list">
+    <li class="toc-item"><span class="toc-num"></span><span class="toc-text">数据来源与方法论说明</span><span class="toc-page">9</span></li>
+    <li class="toc-item"><span class="toc-num"></span><span class="toc-text">免责声明与风险提示</span><span class="toc-page">9</span></li>
+  </ul>
+</div>
+
+<!-- ==================== NO.01 英伟达 ==================== -->
+<div class="analysis">
+  <div class="analysis-header">
+    <div class="analysis-num">NO.01 · 美股</div>
+    <div class="analysis-title">英伟达Q1财报：816亿美元营收 <span class="analysis-cover-tag tag-us">美股</span></div>
+  </div>
+
+  <div class="section-title">① 事件概述</div>
+  <div class="section-content">
+    美东时间5月20日盘后，英伟达发布2027财年第一季度财报（截至2026年4月26日），营收与利润双双创下历史新高，各项核心指标全面超出华尔街分析师一致预期。财报发布后股价盘后先跌逾3%随后转涨，市场对"买预期卖事实"的短暂恐慌迅速被基本面消化。黄仁勋同步表示，对Blackwell和Rubin芯片在2025-2027年实现1万亿美元累计收入充满信心。
+  </div>
+
+  <div class="section-title">② 关键数据</div>
+  <table class="data-table">
+    <tr><th>指标</th><th>实际值</th><th>同比变化</th><th>vs 预期</th></tr>
+    <tr><td>总营收</td><td class="data-positive">816亿美元</td><td class="data-positive">+85%</td><td>超预期3.1%</td></tr>
+    <tr><td>数据中心营收</td><td>752亿美元</td><td class="data-positive">+92%</td><td>超预期2.3%</td></tr>
+    <tr><td>GAAP净利润</td><td class="data-positive">583亿美元</td><td class="data-positive">+211%</td><td>—</td></tr>
+    <tr><td>GAAP毛利率</td><td>74.9%</td><td>—</td><td>—</td></tr>
+    <tr><td>Q2营收指引</td><td>约850亿美元</td><td>—</td><td>超预期</td></tr>
+    <tr><td>新增回购计划</td><td class="data-positive">800亿美元</td><td>—</td><td>—</td></tr>
+  </table>
+
+  <div class="section-title">③ 市场影响</div>
+  <div class="impact-grid">
+    <div class="impact-card">
+      <div class="impact-card-label">A股</div>
+      <div class="impact-card-content">AI算力供应链（光模块/服务器/PCB）直接受益，科创50已提前反映预期（+3.20%创新高），利好兑现后短期或有获利了结压力</div>
+    </div>
+    <div class="impact-card">
+      <div class="impact-card-label">美股</div>
+      <div class="impact-card-content">英伟达盘后波动显示市场分歧——基本面无可挑剔，但估值在高位。$800亿回购提供安全垫。纳指受AI权重股支撑维持强势</div>
+    </div>
+    <div class="impact-card">
+      <div class="impact-card-label">亚太半导体</div>
+      <div class="impact-card-content">日韩半导体板块直接受益——三星+6%、SK海力士+4%，HBM和先进封装需求持续爆发。台积电/联发科等亦受AI订单拉动</div>
+    </div>
+    <div class="impact-card">
+      <div class="impact-card-label">商品</div>
+      <div class="impact-card-content">数据中心电力需求推升铜/铀等工业金属远期预期。AI芯片对稀有金属（镓/锗）需求结构产生长期影响</div>
+    </div>
+  </div>
+
+  <div class="section-title">④ 后市展望</div>
+  <div class="outlook-box">
+    <div class="outlook-title">1-4周展望 · 风险等级：<span class="risk-badge risk-mid">中</span></div>
+    <div class="outlook-text">
+      短期（1-2周）：英伟达股价大概率消化盘后波动后继续上行，$800亿回购提供强力支撑。Q2指引超预期是正面信号。<br>
+      中期（1-3月）：关注Blackwell Ultra量产进度和Vera Rubin路线图兑现。若AI资本开支增速放缓，估值可能承压。<br>
+      风险因素：① AI芯片出口管制升级 ② 云厂商资本开支拐点 ③ 竞争对手（AMD/自研芯片）追赶进度。
+    </div>
+  </div>
+</div>
+
+<!-- ==================== NO.02 科创50 ==================== -->
+<div class="analysis">
+  <div class="analysis-header">
+    <div class="analysis-num">NO.02 · A股</div>
+    <div class="analysis-title">科创50创历史新高：A股硬科技价值重估 <span class="analysis-cover-tag tag-a">A股</span></div>
+  </div>
+
+  <div class="section-title">① 事件概述</div>
+  <div class="section-content">
+    5月20日A股呈现极致分化格局。上证指数在4162点收高位放量十字星（-0.18%），但科创50指数以3.20%的涨幅收于1832.02点，盘中创出历史新高。两市成交2.95万亿元，连续19个交易日突破万亿，资金高度聚焦硬科技主线，高位题材（消费/地产链）集体退潮。这种"指数震荡、结构撕裂"的格局反映市场正在对科技自主可控进行系统性重估。
+  </div>
+
+  <div class="section-title">② 关键数据</div>
+  <table class="data-table">
+    <tr><th>指数</th><th>收盘点位</th><th>涨跌幅</th><th>特征</th></tr>
+    <tr><td>上证指数</td><td>4162.18</td><td class="data-negative">-0.18%</td><td>高位十字星</td></tr>
+    <tr><td>科创50</td><td>1832.02</td><td class="data-positive">+3.20%</td><td>创历史新高</td></tr>
+    <tr><td>深证成指</td><td>15569.98</td><td>0.00%</td><td>平收</td></tr>
+    <tr><td>创业板指</td><td>3921.79</td><td class="data-positive">+0.34%</td><td>—</td></tr>
+    <tr><td>两市成交</td><td>2.95万亿</td><td>—</td><td>连续19日破万亿</td></tr>
+  </table>
+
+  <div class="section-title">③ 市场影响</div>
+  <div class="impact-grid">
+    <div class="impact-card">
+      <div class="impact-card-label">A股结构</div>
+      <div class="impact-card-content">硬科技 vs 传统板块剪刀差扩大。半导体设备/材料/AI芯片获资金集中配置，消费/地产链持续失血。这种分化短期可能加剧</div>
+    </div>
+    <div class="impact-card">
+      <div class="impact-card-label">港股</div>
+      <div class="impact-card-content">恒生科技+1.04%高开，中芯国际/华虹半导体跟涨，但幅度弱于A股科创50。南向资金对硬科技的配置偏好明显</div>
+    </div>
+    <div class="impact-card">
+      <div class="impact-card-label">债市</div>
+      <div class="impact-card-content">A股活跃分流债市资金，但LPR连续12个月不变维持宽松基调，10年期国债收益率在2.7%附近整理</div>
+    </div>
+    <div class="impact-card">
+      <div class="impact-card-label">政策面</div>
+      <div class="impact-card-content">央行Q1报告删除"降准降息"表述，货币政策转向审慎。但科技自主可控政策支持力度不减，大基金三期预期升温</div>
+    </div>
+  </div>
+
+  <div class="section-title">④ 后市展望</div>
+  <div class="outlook-box">
+    <div class="outlook-title">1-4周展望 · 风险等级：<span class="risk-badge risk-mid">中</span></div>
+    <div class="outlook-text">
+      短期（1-2周）：科创50突破历史新高后通常伴随技术性回踩，但回调幅度有限（支撑位1750）。英伟达财报超预期为AI产业链提供基本面支撑。<br>
+      中期（1-3月）：关注科创50能否站稳1800点上方并开启新一轮主升浪。两市成交能否持续维持2万亿+是关键。<br>
+      风险因素：① 获利了结压力（科技股短期涨幅过大） ② 监管层降温信号 ③ 中美科技摩擦升级。
+    </div>
+  </div>
+</div>
+
+<!-- ==================== NO.03 韩国熔断 ==================== -->
+<div class="analysis">
+  <div class="analysis-header">
+    <div class="analysis-num">NO.03 · 国际</div>
+    <div class="analysis-title">韩国股市暴涨触发熔断：亚太半导体板块共振 <span class="analysis-cover-tag tag-intl">国际</span></div>
+  </div>
+
+  <div class="section-title">① 事件概述</div>
+  <div class="section-content">
+    5月21日亚太市场开盘即上演暴涨行情。韩国KOSPI指数大涨超4.58%，盘中一度涨近5%，KOSPI 200期货上涨5%后触发交易所熔断机制（Sidecar），程序化交易暂停5分钟。这已是韩国股市5月内第三次触发熔断，前两次分别发生在5月11日和5月15日。日本日经225指数同步大涨2.64%（+1600点）。半导体板块全面爆发：三星电子+6%、SK海力士+4.5%。
+  </div>
+
+  <div class="section-title">② 关键数据</div>
+  <table class="data-table">
+    <tr><th>市场</th><th>指数</th><th>涨幅</th><th>特征</th></tr>
+    <tr><td>韩国</td><td>KOSPI</td><td class="data-positive">+4.58%</td><td>触发熔断</td></tr>
+    <tr><td>韩国</td><td>三星电子</td><td class="data-positive">+6%</td><td>—</td></tr>
+    <tr><td>韩国</td><td>SK海力士</td><td class="data-positive">+4%</td><td>HBM龙头</td></tr>
+    <tr><td>日本</td><td>日经225</td><td class="data-positive">+2.64%</td><td>+1600点</td></tr>
+  </table>
+
+  <div class="section-title">③ 市场影响</div>
+  <div class="impact-grid">
+    <div class="impact-card">
+      <div class="impact-card-label">半导体产业链</div>
+      <div class="impact-card-content">全球半导体形成正向反馈：英伟达财报超预期 → 日韩半导体供应商受益 → 情绪传导A股科创50 → 进一步提振全球科技风险偏好</div>
+    </div>
+    <div class="impact-card">
+      <div class="impact-card-label">外汇市场</div>
+      <div class="impact-card-content">韩元/日元短线走强，美元指数受中东局势缓和影响回落。新兴市场资金回流亚太迹象明显</div>
+    </div>
+    <div class="impact-card">
+      <div class="impact-card-label">A股映射</div>
+      <div class="impact-card-content">韩国半导体暴涨直接利好A股存储芯片/设备/材料板块。澜起科技、兆易创新、中芯国际等有望跟随</div>
+    </div>
+    <div class="impact-card">
+      <div class="impact-card-label">风险信号</div>
+      <div class="impact-card-content">月内3次熔断说明韩国市场波动率极高，暴涨暴跌交替出现，不宜追高。是机会更是风险</div>
+    </div>
+  </div>
+
+  <div class="section-title">④ 后市展望</div>
+  <div class="outlook-box">
+    <div class="outlook-title">1-4周展望 · 风险等级：<span class="risk-badge risk-high">高</span></div>
+    <div class="outlook-text">
+      短期（1-2周）：暴涨后通常伴随技术性回调。韩股短期超买严重，RSI可能进入极端区域。但AI需求基本面支撑强劲。<br>
+      中期（1-3月）：关注HBM（高带宽内存）供需格局——SK海力士为英伟达HBM独家供应商，三星正在追赶。若HBM产能扩张超预期，存储价格可能承压。<br>
+      风险因素：① 月内第4次熔断可能反向触发（下跌熔断） ② 存储芯片周期拐点 ③ 地缘政治（朝鲜半岛局势）。
+    </div>
+  </div>
+</div>
+
+<!-- ==================== NO.04 印花税 ==================== -->
+<div class="analysis">
+  <div class="analysis-header">
+    <div class="analysis-num">NO.04 · 宏观</div>
+    <div class="analysis-title">证券交易印花税暴增74.8%：牛市的真实温度计 <span class="analysis-cover-tag tag-macro">宏观</span></div>
+  </div>
+
+  <div class="section-title">① 事件概述</div>
+  <div class="section-content">
+    财政部5月20日发布2026年1-4月财政收支数据。证券交易印花税以935亿元的收入、74.8%的同比增速成为最亮眼指标。总印花税2063亿元（+27.8%）。这一数据被视为A股市场活跃度的真实"体温计"——年初以来日均成交维持2万亿+水平，远高于去年同期的约1万亿。与此同时，契税1370亿元（-15.3%）反映房地产市场仍然低迷，资源税1099亿元（+7%）温和增长。
+  </div>
+
+  <div class="section-title">② 关键数据</div>
+  <table class="data-table">
+    <tr><th>税种</th><th>1-4月收入</th><th>同比变化</th><th>信号</th></tr>
+    <tr><td>证券交易印花税</td><td class="data-positive">935亿元</td><td class="data-positive">+74.8%</td><td>A股极度活跃</td></tr>
+    <tr><td>总印花税</td><td>2063亿元</td><td class="data-positive">+27.8%</td><td>—</td></tr>
+    <tr><td>契税</td><td>1370亿元</td><td class="data-negative">-15.3%</td><td>地产低迷</td></tr>
+    <tr><td>资源税</td><td>1099亿元</td><td class="data-positive">+7%</td><td>温和增长</td></tr>
+  </table>
+
+  <div class="section-title">③ 市场影响</div>
+  <div class="impact-grid">
+    <div class="impact-card">
+      <div class="impact-card-label">A股信号</div>
+      <div class="impact-card-content">印花税暴增是滞后确认指标——已发生的高成交已反映在税单中。但74.8%的增速确认了本轮牛市成交量的真实性，对市场信心有正面作用</div>
+    </div>
+    <div class="impact-card">
+      <div class="impact-card-label">政策预期</div>
+      <div class="impact-card-content">高印花税收入可能降低短期降印花税的必要性。但央行Q1报告删除"降准降息"、LPR连续12个月不变，货币政策整体审慎</div>
+    </div>
+    <div class="impact-card">
+      <div class="impact-card-label">财政面</div>
+      <div class="impact-card-content">证券交易印花税贡献财政收入约2.5%，高增速有助于缓解财政压力。但契税下降反映土地财政承压，结构性矛盾仍在</div>
+    </div>
+    <div class="impact-card">
+      <div class="impact-card-label">债券</div>
+      <div class="impact-card-content">股市活跃分流债市资金，但货币政策维持宽松基调（LPR不变但未收紧），债市整体偏震荡</div>
+    </div>
+  </div>
+
+  <div class="section-title">④ 后市展望</div>
+  <div class="outlook-box">
+    <div class="outlook-title">1-4周展望 · 风险等级：<span class="risk-badge risk-low">低</span></div>
+    <div class="outlook-text">
+      短期：印花税数据是利好确认而非新催化剂，市场反应有限。<br>
+      中期：关注5-6月成交额能否维持2万亿+。若出现持续缩量，印花税增速将自然回落。<br>
+      风险因素：① 若成交回落至1.5万亿以下，牛市逻辑松动 ② 监管降温措施（如加强杠杆监管）可能抑制成交活跃度。
+    </div>
+  </div>
+</div>
+
+<!-- ==================== NO.05 油价 ==================== -->
+<div class="analysis">
+  <div class="analysis-header">
+    <div class="analysis-num">NO.05 · 国际/商品</div>
+    <div class="analysis-title">国际油价过山车：地缘政治溢价的消退 <span class="analysis-cover-tag tag-intl">国际/商品</span></div>
+  </div>
+
+  <div class="section-title">① 事件概述</div>
+  <div class="section-content">
+    5月20日国际原油市场经历极端波动：WTI原油盘中闪崩失守97美元/桶，日内最深跌幅达6.91%，创阶段新低。随后在21日亚盘回弹突破99美元，日内涨0.75%。布伦特原油回落至105美元附近。暴跌的导火索是美伊接近达成一份单页停战备忘录——特朗普表示"处理伊朗问题已进入最后阶段"。此前因霍尔木兹海峡封锁担忧累积的大量多头头寸疯狂出逃，形成踩踏式下跌。
+  </div>
+
+  <div class="section-title">② 关键数据</div>
+  <table class="data-table">
+    <tr><th>品种</th><th>价格</th><th>日内波动</th><th>关键事件</th></tr>
+    <tr><td>WTI原油</td><td>$97→$99</td><td class="data-negative">-6.91% → +0.75%</td><td>闪崩后回弹</td></tr>
+    <tr><td>布伦特原油</td><td>~$105</td><td class="data-negative">-5.5%</td><td>—</td></tr>
+    <tr><td>触发因素</td><td colspan="2">美伊停战备忘录</td><td>特朗普"最后阶段"</td></tr>
+  </table>
+
+  <div class="section-title">③ 市场影响</div>
+  <div class="impact-grid">
+    <div class="impact-card">
+      <div class="impact-card-label">能源股</div>
+      <div class="impact-card-content">油价暴跌利空全球能源股（埃克森美孚/雪佛龙/中海油）。但航空股受益——燃料成本下降预期提振航空板块</div>
+    </div>
+    <div class="impact-card">
+      <div class="impact-card-label">通胀预期</div>
+      <div class="impact-card-content">油价回落直接压低通胀预期，降低美联储加息压力。10年期美债收益率随之回落，黄金承压</div>
+    </div>
+    <div class="impact-card">
+      <div class="impact-card-label">新兴市场</div>
+      <div class="impact-card-content">油价下跌利好石油进口国（印度/日本/韩国），改善经常账户。印度卢比/土耳其里拉短期受益</div>
+    </div>
+    <div class="impact-card">
+      <div class="impact-card-label">地缘政治</div>
+      <div class="impact-card-content">美伊和解将重构中东力量格局。若霍尔木兹海峡风险完全解除，油价可能进一步下探$90</div>
+    </div>
+  </div>
+
+  <div class="section-title">④ 后市展望</div>
+  <div class="outlook-box">
+    <div class="outlook-title">1-4周展望 · 风险等级：<span class="risk-badge risk-high">高</span></div>
+    <div class="outlook-text">
+      短期（1-2周）：油价将围绕美伊谈判进展剧烈波动。备忘录签署前后是最大不确定性窗口。WTI可能在$90-$105区间宽幅震荡。<br>
+      中期（1-3月）：若停战协议落地，布伦特可能向$90-$95回归。OPEC+可能通过减产来托底价格。<br>
+      风险因素：① 美伊谈判破裂——油价将暴力反弹回$110+ ② OPEC+减产纪律 ③ 全球经济衰退导致需求萎缩。
+    </div>
+  </div>
+</div>
+
+<!-- ==================== NO.06 黄金 ==================== -->
+<div class="analysis">
+  <div class="analysis-header">
+    <div class="analysis-num">NO.06 · 🥇 黄金/商品</div>
+    <div class="analysis-title">黄金高位震荡：避险退潮 vs 央行买盘 <span class="analysis-cover-tag tag-gold">黄金</span></div>
+  </div>
+
+  <div class="section-title">① 事件概述</div>
+  <div class="section-content">
+    国际金价延续近期震荡下行态势。截至5月21日，COMEX黄金期货主力报4544美元/盎司（日内-0.30%），较2月历史高点5600美元已回落逾20%，进入技术性熊市区域。但4500美元整数关口获得明显支撑。国内方面，上海黄金交易所AU9999报981-998元/克，零售端周大福等品牌金价同步下调。摩根大通认为"真正买盘尚未开始"，短期展望区间4630-4850美元。
+  </div>
+
+  <div class="section-title">② 关键数据</div>
+  <table class="data-table">
+    <tr><th>品种</th><th>价格</th><th>日变动</th><th>参考</th></tr>
+    <tr><td>COMEX期货</td><td>$4544/oz</td><td class="data-negative">-0.30%</td><td>较$5600高点-20%</td></tr>
+    <tr><td>伦敦金现货</td><td>$4544/oz</td><td>—</td><td>—</td></tr>
+    <tr><td>上金所AU9999</td><td>¥981-998/克</td><td class="data-positive">+0.88%</td><td>早盘995.92</td></tr>
+    <tr><td>人民币折算</td><td>¥1,130/克</td><td>—</td><td>在岸汇率</td></tr>
+    <tr><td>摩根大通展望</td><td colspan="2">$4630-$4850</td><td>"买盘尚未开始"</td></tr>
+  </table>
+
+  <div class="section-title">③ 市场影响</div>
+  <div class="impact-grid">
+    <div class="impact-card">
+      <div class="impact-card-label">避险逻辑</div>
+      <div class="impact-card-content">美伊和解预期+美股强劲——双重利空黄金避险需求。金价从$5600回落20%主要受避险溢价消退驱动</div>
+    </div>
+    <div class="impact-card">
+      <div class="impact-card-label">利率逻辑</div>
+      <div class="impact-card-content">美债收益率回落理论上利好黄金，但中东局势缓和的利空效应更强。美联储降息预期是中期支撑</div>
+    </div>
+    <div class="impact-card">
+      <div class="impact-card-label">央行买盘</div>
+      <div class="impact-card-content">全球央行持续增持黄金（中国央行连续18个月增持），这是金价最重要的结构性支撑。摩根大通"真正买盘尚未开始"指向央行</div>
+    </div>
+    <div class="impact-card">
+      <div class="impact-card-label">矿业股</div>
+      <div class="impact-card-content">金价回落压制黄金矿业股（巴里克/纽蒙特），但人民币金价相对坚挺，国内黄金股（山东黄金/紫金矿业）有一定缓冲</div>
+    </div>
+  </div>
+
+  <div class="section-title">④ 后市展望</div>
+  <div class="outlook-box">
+    <div class="outlook-title">1-4周展望 · 风险等级：<span class="risk-badge risk-mid">中</span></div>
+    <div class="outlook-text">
+      短期（1-2周）：4500美元是关键支撑位。若跌破，可能测试4300-4400区间。关税/地缘缓和持续压制金价。<br>
+      中期（1-3月）：央行买盘+全球去美元化趋势构成结构性支撑。摩根大通区间4630-4850是合理中期目标。<br>
+      风险因素：① 美伊谈判破裂 → 金价反弹至$4800+ ② 美联储意外加息 ③ 数字货币分流黄金避险需求。
+    </div>
+  </div>
+</div>
+
+<!-- ==================== APPENDIX ==================== -->
+<div class="appendix">
+  <div class="appendix-title">附录：数据来源与方法论</div>
+
+  <h4 style="font-size:14px; color:#1a2a4a; margin:16px 0 8px;">数据来源</h4>
+  <ul class="source-list">
+    <li><span class="source-cat">美股/财报：</span>英伟达官方财报（investor.nvidia.com）、新浪财经、163.com</li>
+    <li><span class="source-cat">A股/LPR：</span>上海证券交易所、深圳证券交易所、中国人民银行、新浪财经、东方财富、头条财经</li>
+    <li><span class="source-cat">国际股市：</span>韩国交易所（KRX）、东京证券交易所、每日经济新闻、第一财经</li>
+    <li><span class="source-cat">宏观数据：</span>中华人民共和国财政部（mof.gov.cn）、新华财经、四大证券报</li>
+    <li><span class="source-cat">商品/黄金：</span>COMEX（CME Group）、伦敦金银市场协会（LBMA）、上海黄金交易所（SGE）、金投网、新浪财经</li>
+    <li><span class="source-cat">研究机构：</span>摩根大通（J.P. Morgan）、CME FedWatch</li>
+  </ul>
+
+  <h4 style="font-size:14px; color:#1a2a4a; margin:16px 0 8px;">分析方法论</h4>
+  <ul class="source-list">
+    <li>· 所有数据点均经过≥2源交叉验证（Agent 2 事实核查）</li>
+    <li>· 可信度标注为"高"的数据均来自官方披露或成熟财经平台</li>
+    <li>· 市场影响分析采用四维度框架：权益（A股/港股/美股）+ 商品 + 债券 + 外汇</li>
+    <li>· 后市展望基于 1-4周（短期）+ 1-3月（中期）双时间框架</li>
+    <li>· 风险等级：<span class="risk-badge risk-high">高</span> <span class="risk-badge risk-mid">中</span> <span class="risk-badge risk-low">低</span></li>
+  </ul>
+
+  <h4 style="font-size:14px; color:#1a2a4a; margin:16px 0 8px;">团队构成</h4>
+  <ul class="source-list">
+    <li>· 15 Agent协作流水线（v3.3）</li>
+    <li>· Agent 1-13: 新闻采集/核查/编辑/漫画/排版/质检/导出/风格/复盘</li>
+    <li>· Agent 14（新增）: PDF深度分析师 — 四维度深度研报</li>
+    <li>· Agent 15（新增）: PDF排版师 — HTML排版+导出</li>
+    <li>· 三引擎：Trae（主控）+ Claude Code（审查）+ Codex（搜索）</li>
+  </ul>
+
+  <div class="disclaimer-box">
+    <strong>免责声明</strong><br>
+    本报告由15Agent协作流水线自动生成，仅供信息参考，不构成任何投资建议。报告中的数据来源于公开信息，虽经多源交叉验证，但无法保证绝对准确。投资有风险，入市需谨慎。过往表现不代表未来收益。本报告版权归每日财经漫画日报项目所有，未经许可不得转载。
+  </div>
+</div>
+
+</body>
+</html>

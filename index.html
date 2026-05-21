@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>扬说财经</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system,"PingFang SC","Microsoft YaHei","Helvetica Neue",sans-serif; background: #F5F7FA; color: #1E293B; line-height: 1.6; font-size: 15px; }
+  .c { max-width: 640px; margin: 0 auto; padding: 0 16px 40px; }
+
+  .banner { background: linear-gradient(135deg,#1A56DB,#1E3A7A); margin: 0 -16px 20px; padding: 32px 20px 24px; color: white; text-align: center; }
+  .banner h1 { font-size: 24px; font-weight: 700; margin-bottom: 4px; }
+  .banner p { font-size: 13px; opacity: 0.7; }
+  .banner .gold { color: #D4A017; }
+
+  .today { background: #fff; border-radius: 12px; padding: 16px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+  .today h2 { font-size: 16px; color: #D4A017; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px solid #FDE68A; }
+
+  .edition { display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid #F1F5F9; text-decoration: none; color: inherit; }
+  .edition:last-child { border-bottom: none; }
+  .edition-icon { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+  .edition-morning .edition-icon { background: #EFF6FF; }
+  .edition-evening .edition-icon { background: #FFFBEB; }
+  .edition-info { flex: 1; }
+  .edition-title { font-size: 14px; font-weight: 600; color: #1E293B; }
+  .edition-desc { font-size: 12px; color: #64748B; margin-top: 2px; }
+  .edition-arrow { font-size: 16px; color: #94A3B8; }
+  .edition:active { opacity: 0.7; }
+
+  .about { background: #fff; border-radius: 12px; padding: 16px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+  .about h2 { font-size: 14px; color: #1A56DB; margin-bottom: 8px; }
+  .about p { font-size: 13px; color: #475569; margin-bottom: 6px; }
+
+  .no-data { text-align: center; padding: 32px 0; color: #94A3B8; font-size: 13px; }
+  .no-data .big { font-size: 40px; margin-bottom: 12px; display: block; }
+
+  .footer { text-align: center; padding: 16px 0; font-size: 11px; color: #94A3B8; }
+  .footer a { color: #1A56DB; text-decoration: none; }
+
+  .history { background: #fff; border-radius: 12px; padding: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+  .history h2 { font-size: 14px; color: #64748B; margin-bottom: 8px; }
+  .history-item { display: flex; justify-content: space-between; padding: 6px 0; font-size: 13px; border-bottom: 1px solid #F1F5F9; }
+  .history-item:last-child { border-bottom: none; }
+  .history-item a { color: #1A56DB; text-decoration: none; }
+  .history-item .h-date { color: #64748B; }
+</style>
+</head>
+<body>
+<div class="c">
+
+  <div class="banner">
+    <h1>📡 扬说财经</h1>
+    <p>用漫画看懂财经 — <span class="gold">你好，我是阿扬</span></p>
+  </div>
+
+  <!-- 今日内容 -->
+  <div class="today" id="today">
+    <h2>📅 今日内容</h2>
+    <div id="todayContent">
+      <div class="no-data">
+        <span class="big">📭</span>
+        暂无今日内容
+      </div>
+    </div>
+  </div>
+
+  <!-- 关于 -->
+  <div class="about">
+    <h2>📡 关于扬说财经</h2>
+    <p>每日早报 + 晚报，用漫画和音频解读财经大事。</p>
+    <p>📅 每个交易日更新  ·  🎧 边听边看</p>
+  </div>
+
+  <!-- 历史内容 -->
+  <div class="history" id="history">
+    <h2>📖 历史内容</h2>
+    <div id="historyContent">
+      <div class="no-data" style="padding:16px 0;">暂无历史内容</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>📡 扬说财经 · 每日更新</p>
+    <p style="margin-top:4px;">数据来源: 证券时报 · 华尔街见闻 · Investing.com</p>
+  </div>
+
+</div>
+
+<script>
+// 每日内容数据
+const editions = [
+  {
+    date: "2026-05-21",
+    morning: { title: "英伟达单季营收816亿美元", url: "2026-05-21/wechat-publish/morning/article.html" },
+    evening: { title: "A股天地板：4700只个股下跌", url: "2026-05-21/wechat-publish/evening/article.html" }
+  }
+];
+
+// 渲染今日内容
+function renderToday() {
+  const todayStr = new Date().toISOString().slice(0, 10);
+  const container = document.getElementById('todayContent');
+
+  // 找今天的，没有就显示最新的
+  const today = editions.find(e => e.date === todayStr) || editions[0];
+  if (!today) return;
+
+  const hasMorning = today.morning && today.morning.url;
+  const hasEvening = today.evening && today.evening.url;
+
+  let html = '';
+  if (!hasMorning && !hasEvening) {
+    html = '<div class="no-data"><span class="big">📭</span>暂无今日内容</div>';
+  } else {
+    if (hasMorning) {
+      html += `
+        <a class="edition edition-morning" href="${today.morning.url}">
+          <div class="edition-icon">🌅</div>
+          <div class="edition-info">
+            <div class="edition-title">${today.morning.title}</div>
+            <div class="edition-desc">${today.date} · 早报 · 图文+音频</div>
+          </div>
+          <span class="edition-arrow">›</span>
+        </a>`;
+    }
+    if (hasEvening) {
+      html += `
+        <a class="edition edition-evening" href="${today.evening.url}">
+          <div class="edition-icon">🌙</div>
+          <div class="edition-info">
+            <div class="edition-title">${today.evening.title}</div>
+            <div class="edition-desc">${today.date} · 晚报 · 图文+音频</div>
+          </div>
+          <span class="edition-arrow">›</span>
+        </a>`;
+    }
+  }
+  container.innerHTML = html;
+}
+
+// 渲染历史内容
+function renderHistory() {
+  const container = document.getElementById('historyContent');
+  // 只显示历史（非最新一期）
+  const historyList = editions.slice(1);
+  if (historyList.length === 0) {
+    container.innerHTML = '<div class="no-data" style="padding:16px 0;">暂无历史内容</div>';
+    return;
+  }
+  let html = '';
+  for (const item of historyList) {
+    const prefix = item.date;
+    if (item.morning) {
+      html += `<div class="history-item"><span class="h-date">${prefix}</span><a href="${item.morning.url}">🌅 早报</a></div>`;
+    }
+    if (item.evening) {
+      html += `<div class="history-item"><span class="h-date">${prefix}</span><a href="${item.evening.url}">🌙 晚报</a></div>`;
+    }
+  }
+  container.innerHTML = html;
+}
+
+renderToday();
+renderHistory();
+</script>
+</body>
+</html>

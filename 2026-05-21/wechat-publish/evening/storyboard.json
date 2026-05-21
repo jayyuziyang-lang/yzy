@@ -1,0 +1,56 @@
+{
+  "articleTitle": "A股天地板：从高开到暴跌，4700只个股下跌背后",
+  "session": "evening",
+  "date": "2026-05-21",
+  "tags": ["A股", "美伊谈判", "油价", "市场分析"],
+  "panels": [
+    {
+      "id": "panel-000",
+      "titleText": "今日热点速览",
+      "dialogue": "今天A股从高开到暴跌，超4700只个股下跌，发生了什么？",
+      "background": "market-overview"
+    },
+    {
+      "id": "panel-001",
+      "titleText": "天翻地覆的一天",
+      "dialogue": "早盘高开高走 → 午后全线跳水。沪指跌2.04%失守4100点，科创50暴跌3.7%。3.51万亿巨量成交，全市场超4700只个股下跌。",
+      "background": "market-crash"
+    },
+    {
+      "id": "panel-002",
+      "titleText": "谁在领跌？半导体崩了",
+      "dialogue": "半导体板块从早盘领涨变领跌，上海合晶等十余股跌超10%。前两天的涨幅一天就还回去了。",
+      "background": "semiconductor-down"
+    },
+    {
+      "id": "panel-003",
+      "titleText": "谁在抗跌？银行+航运",
+      "dialogue": "建设银行创历史新高！机场航运受益油价暴跌大涨。白酒、玻璃基板、人形机器人也有表现。",
+      "background": "bank-and-shipping"
+    },
+    {
+      "id": "panel-004",
+      "titleText": "导火索：美伊谈判",
+      "dialogue": "美伊谈判进入最后阶段，协议或数小时内公布。霍尔木兹海峡局势缓和，油价暴跌5.66%跌破100美元。",
+      "background": "oil-crash"
+    },
+    {
+      "id": "panel-005",
+      "titleText": "油价暴跌的连锁反应",
+      "dialogue": "原油暴跌 → 通胀预期降温 → 美债收益率回落 → 美股反弹。道指收复5万点，纳指涨1.54%。这是一条完整的传导链。",
+      "background": "market-chain"
+    },
+    {
+      "id": "panel-006",
+      "titleText": "普通人怎么办",
+      "dialogue": "① 半导体追高被套别慌，行业趋势没变 ② 油价下跌利好航空、化工 ③ 银行股创新高说明资金在避险 ④ 别猜底，等企稳信号",
+      "background": "advice"
+    },
+    {
+      "id": "panel-007",
+      "titleText": "金句时刻",
+      "dialogue": "今天A股教了三件事：早盘的冲动是魔鬼，午后的恐慌是学费，而真正的机会——等你冷静下来才会出现。",
+      "background": "closing"
+    }
+  ]
+}

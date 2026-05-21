@@ -1,0 +1,30 @@
+# 扬说财经 · 每日财经内容
+# 排除非公开文件
+
+# 脚本目录（仅供本地开发）
+scripts/
+.handoff/
+archive/
+node_modules/
+*.ps1
+convert.mjs
+
+# Python缓存
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# 操作系统
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# 编辑器
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# 日志
+*.log

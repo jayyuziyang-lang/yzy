@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160">
+  <defs>
+    <filter id="drop-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+<g transform="translate(80, 92)">
+  <!-- ===== 真实人物肖像 ===== -->
+  <defs>
+    <clipPath id="char-clip-80-92">
+      <ellipse cx="0" cy="-14.0" rx="32.0" ry="44.0"/>
+    </clipPath>
+  </defs>
+  <image href="data:image/jpeg;base64,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" x="-32.0" y="-60.0" width="64.0" height="96.0"
+         preserveAspectRatio="xMidYMin slice" clip-path="url(#char-clip-80-92)"
+         filter="url(#drop-shadow)"/>
+  <!-- ===== 下半身简约处理 ===== -->
+  <rect x="-38.0" y="24.0" width="76.0" height="68.0" rx="22.0" fill="#1A56DB" opacity="0.85" filter="url(#drop-shadow)"/>
+  <polygon points="-14.0,24.0 0,-4.0 14.0,24.0" fill="#FFFFFF" opacity="0.9"/>
+  <polygon points="-5.0,16.0 0,0.0 5.0,16.0" fill="#D4A017"/>
+  <rect x="-4.0" y="18.0" width="8.0" height="16.0" rx="2.0" fill="#D4A017"/>
+</g>
+</svg>
