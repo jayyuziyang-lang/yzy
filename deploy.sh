@@ -107,7 +107,7 @@ SITE_URL="https://${OWNER}.github.io/${REPO_NAME}"
 # 轮询等待部署完成（最多等 3 分钟）
 for i in $(seq 1 36); do
     sleep 5
-    HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" "$SITE_URL" 2>/dev/null || echo "000")
+    HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" "${SITE_URL}/" 2>/dev/null || echo "000")
     if [ "$HTTP_CODE" = "200" ]; then
         echo -e "\r${GREEN}✅ 部署完成！${NC} ($((i*5))秒)"
         break
@@ -118,10 +118,10 @@ done
 # 预热 CDN：强制刷新所有关键页面的缓存
 echo -e "\n🌐 预热 CDN 缓存..."
 for url in \
-    "$SITE_URL" \
-    "${SITE_URL}data/articles.js" \
-    "${SITE_URL}2026-05-21/wechat-publish/morning/article.html" \
-    "${SITE_URL}2026-05-21/wechat-publish/evening/article.html"; do
+    "${SITE_URL}/" \
+    "${SITE_URL}/data/articles.js" \
+    "${SITE_URL}/2026-05-21/wechat-publish/morning/article.html" \
+    "${SITE_URL}/2026-05-21/wechat-publish/evening/article.html"; do
     CODE=$(curl -s -o /dev/null -w "%{http_code}" "$url" 2>/dev/null || echo "000")
     echo -e "  $CODE  $url"
 done
