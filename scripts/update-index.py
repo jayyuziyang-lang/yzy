@@ -146,9 +146,41 @@ def generate_holidays():
     print(f'[OK] data/holidays-2026.json — {len(holidays)} entries')
     return holidays
 
+def update_index_html(bj_now):
+    """Inject cache-busting version into index.html script tag so browser always fetches latest articles.js."""
+    path = os.path.join(ROOT, 'index.html')
+    if not os.path.exists(path):
+        print(f'[WARN] index.html not found: {path}')
+        return
+    with open(path, 'r', encoding='utf-8') as f:
+        html = f.read()
+    version = bj_now.replace(':', '').replace('+08:00', '')
+    old = '<script src="data/articles.js">'
+    new = f'<script src="data/articles.js?v={version}">'
+    if old in html:
+        html = html.replace(old, new)
+        with open(path, 'w', encoding='utf-8') as f:
+            f.write(html)
+        print(f'[OK] index.html — cache-busting v={version}')
+    else:
+        # Already has a version parameter; replace it
+        import re
+        html, count = re.subn(
+            r'<script src="data/articles\.js\?v=([^"]+)">',
+            new, html
+        )
+        if count > 0:
+            with open(path, 'w', encoding='utf-8') as f:
+                f.write(html)
+            print(f'[OK] index.html — cache-busting updated v={version}')
+        else:
+            print(f'[WARN] Could not find script tag in index.html')
+
 if __name__ == '__main__':
     articles = scan_articles()
     generate_json(articles)
     holidays = generate_holidays()
     generate_js(articles, holidays)
+    bj_now = datetime.now(timezone(timedelta(hours=8))).strftime('%Y-%m-%dT%H:%M:%S+08:00')
+    update_index_html(bj_now)
     print('[DONE] All data files generated')

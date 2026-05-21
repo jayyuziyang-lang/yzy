@@ -1,4 +1,4 @@
-// Generated: 2026-05-21T22:20:26+08:00
+// Generated: 2026-05-21T22:27:29+08:00
 var ARTICLES_DATA = [{"date": "2026-05-21", "session": "evening", "edition_cn": "晚报", "icon": "🌙", "title": "A股天地板：从高开到暴跌，4700只个股下跌背后", "url": "2026-05-21/wechat-publish/evening/article.html"}, {"date": "2026-05-21", "session": "morning", "edition_cn": "早报", "icon": "🌅", "title": "一天狂赚6.4亿美元，英伟达的印钞机还在加速", "url": "2026-05-21/wechat-publish/morning/article.html"}];
 var ARTICLES_BY_DATE = {"2026-05-21": {"evening": {"date": "2026-05-21", "session": "evening", "edition_cn": "晚报", "icon": "🌙", "title": "A股天地板：从高开到暴跌，4700只个股下跌背后", "url": "2026-05-21/wechat-publish/evening/article.html"}, "morning": {"date": "2026-05-21", "session": "morning", "edition_cn": "早报", "icon": "🌅", "title": "一天狂赚6.4亿美元，英伟达的印钞机还在加速", "url": "2026-05-21/wechat-publish/morning/article.html"}}};
 var ARTICLES_LATEST = "2026-05-21";
