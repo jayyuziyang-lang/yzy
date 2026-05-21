@@ -1,0 +1,42 @@
+{
+  "generated_at": "2026-05-21T00:00:00+08:00",
+  "latest_date": "2026-05-21",
+  "articles": [
+    {
+      "date": "2026-05-21",
+      "session": "evening",
+      "edition_cn": "晚报",
+      "icon": "🌙",
+      "title": "A股天地板：从高开到暴跌，4700只个股下跌背后",
+      "url": "2026-05-21/wechat-publish/evening/article.html"
+    },
+    {
+      "date": "2026-05-21",
+      "session": "morning",
+      "edition_cn": "早报",
+      "icon": "🌅",
+      "title": "一天狂赚6.4亿美元，英伟达的印钞机还在加速",
+      "url": "2026-05-21/wechat-publish/morning/article.html"
+    }
+  ],
+  "by_date": {
+    "2026-05-21": {
+      "evening": {
+        "date": "2026-05-21",
+        "session": "evening",
+        "edition_cn": "晚报",
+        "icon": "🌙",
+        "title": "A股天地板：从高开到暴跌，4700只个股下跌背后",
+        "url": "2026-05-21/wechat-publish/evening/article.html"
+      },
+      "morning": {
+        "date": "2026-05-21",
+        "session": "morning",
+        "edition_cn": "早报",
+        "icon": "🌅",
+        "title": "一天狂赚6.4亿美元，英伟达的印钞机还在加速",
+        "url": "2026-05-21/wechat-publish/morning/article.html"
+      }
+    }
+  }
+}

@@ -7,7 +7,17 @@
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { font-family: -apple-system,"PingFang SC","Microsoft YaHei","Helvetica Neue",sans-serif; background: #F5F7FA; color: #1E293B; line-height: 1.8; font-size: 16px; }
-  .c { max-width: 640px; margin: 0 auto; background: #fff; padding: 0 0 40px; }
+  .c { max-width: 640px; margin: 0 auto; background: #fff; padding: 44px 0 40px; }
+
+  
+  /* 顶部导航栏 */
+  .top-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; max-width: 640px; margin: 0 auto; background: rgba(255,255,255,0.95); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-bottom: 1px solid #E2E8F0; display: flex; align-items: center; padding: 0 16px; height: 44px; }
+  .top-nav .back { display: flex; align-items: center; gap: 4px; color: #1A56DB; text-decoration: none; font-size: 13px; font-weight: 600; }
+  .top-nav .back:active { opacity: 0.6; }
+  .top-nav .nav-date { flex: 1; text-align: center; font-size: 12px; color: #64748B; }
+  .top-nav .nav-edition { font-size: 11px; color: #94A3B8; background: #F1F5F9; padding: 2px 8px; border-radius: 8px; }
+  .top-nav .nav-edition.am { color: #1A56DB; background: #EFF6FF; }
+  .top-nav .nav-edition.pm { color: #D4A017; background: #FFFBEB; }
 
   /* 头部 */
   .header { background: linear-gradient(135deg,#1A56DB,#1E3A7A); padding: 20px 20px 16px; color: white; }
@@ -93,6 +103,13 @@
 <div class="c">
 
   <!-- 头部 -->
+  <!-- 顶部导航栏 -->
+  <div class="top-nav">
+    <a class="back" href="../../../index.html">&larr; 返回首页</a>
+    <span class="nav-date">2026.05.21</span>
+    <span class="nav-edition am">早报</span>
+  </div>
+
   <div class="header">
     <h1>一天狂赚6.4亿美元，英伟达的印钞机还在加速</h1>
     <div class="meta">

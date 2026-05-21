@@ -64,6 +64,14 @@ fi
 # 提交信息
 COMMIT_MSG="${1:-每日财经内容更新 $(date +%Y-%m-%d)}"
 
+# 更新文章索引
+echo -e "\n📊 更新文章索引..."
+python scripts/update-index.py 2>/dev/null || echo "  (skip)"
+
+# 健康检查
+echo -e "\n🏥 站点健康检查..."
+python scripts/site-health.py 2>/dev/null || echo "  (skip)"
+
 echo -e "\n📦 提交信息: $COMMIT_MSG"
 echo ""
 

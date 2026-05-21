@@ -8,6 +8,13 @@ archive/
 node_modules/
 *.ps1
 convert.mjs
+package.json
+package-lock.json
+
+# 临时素材（不提交到 Pages）
+finance_daily_*.jpg
+finance_daily_*.png
+finance_daily_*.pdf
 
 # Python缓存
 __pycache__/
