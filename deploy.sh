@@ -76,6 +76,14 @@ python scripts/update-index.py || {
 echo -e "\n🏥 站点健康检查..."
 python scripts/site-health.py 2>/dev/null || echo "  (skip — 非阻塞)"
 
+# 部署前自动检查
+echo -e "\n🔍 运行部署前检查..."
+if [ -f "scripts/pre-deploy-check.sh" ]; then
+    bash scripts/pre-deploy-check.sh || true  # 仅提示，不阻断部署
+else
+    echo "  (pre-deploy-check.sh 不存在，跳过)"
+fi
+
 echo -e "\n📦 提交信息: $COMMIT_MSG"
 echo ""
 
@@ -117,14 +125,35 @@ done
 
 # 预热 CDN：强制刷新所有关键页面的缓存
 echo -e "\n🌐 预热 CDN 缓存..."
+LATEST_DATE=$(curl -s "${SITE_URL}/data/articles.json" 2>/dev/null | grep -o '"latest_date":"[^"]*"' | cut -d'"' -f4 || echo "")
 for url in \
     "${SITE_URL}/" \
     "${SITE_URL}/data/articles.js" \
-    "${SITE_URL}/2026-05-21/wechat-publish/morning/article.html" \
-    "${SITE_URL}/2026-05-21/wechat-publish/evening/article.html"; do
+    "${SITE_URL}/data/articles.json"; do
     CODE=$(curl -s -o /dev/null -w "%{http_code}" "$url" 2>/dev/null || echo "000")
     echo -e "  $CODE  $url"
 done
+
+# 自动预热最新日期的文章
+if [ -n "$LATEST_DATE" ]; then
+    echo "  (最新日期: $LATEST_DATE)"
+    for url in \
+        "${SITE_URL}/${LATEST_DATE}/wechat-publish/morning/article.html" \
+        "${SITE_URL}/${LATEST_DATE}/wechat-publish/evening/article.html"; do
+        CODE=$(curl -s -o /dev/null -w "%{http_code}" "$url" 2>/dev/null || echo "000")
+        echo -e "  $CODE  $url"
+    done
+fi
+
+# 部署后验证
+echo -e "\n✅ 运行部署后验证..."
+if [ -f "scripts/verify-deploy.sh" ]; then
+    bash scripts/verify-deploy.sh
+else
+    # 简易验证
+    echo "  验证首页..."
+    curl -s -o /dev/null -w "  %{http_code}  $SITE_URL/\n" "$SITE_URL/"
+fi
 
 echo ""
 echo -e "${GREEN}========================================${NC}"
