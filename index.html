@@ -118,7 +118,7 @@
   <!-- Today's Content — pre-rendered (JS enhancement below) -->
   <div class="section">
     <h2>📅 今日内容</h2>
-    <div id="todayContent">
+    <div id="todayContent" data-date="2026-05-21">
       <a class="edition edition-morning" href="2026-05-21/wechat-publish/morning/article.html">
         <div class="edition-icon">🌅</div>
         <div class="edition-info">
@@ -138,11 +138,23 @@
     </div>
   </div>
 
-  <!-- History Archive -->
+  <!-- History Archive — pre-rendered (JS handles "load more") -->
   <div class="section">
     <h2>📖 历史内容</h2>
     <div id="historyContent">
-      <div class="loading"><span class="spinner"></span>加载中...</div>
+      <div class="history-group">
+        <div class="history-date-label">2026年5月21日</div>
+        <div class="history-item">
+          <span class="h-icon">🌅</span>
+          <a href="2026-05-21/wechat-publish/morning/article.html">一天狂赚6.4亿美元，英伟达的印钞机还在加速</a>
+          <span class="h-time">早报</span>
+        </div>
+        <div class="history-item">
+          <span class="h-icon">🌙</span>
+          <a href="2026-05-21/wechat-publish/evening/article.html">A股天地板：从高开到暴跌，4700只个股下跌背后</a>
+          <span class="h-time">晚报</span>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -257,37 +269,26 @@ function scheduleMidnightRefresh() {
 // ============================================================
 function initData() {
   updateHoliday();
-  renderToday();
-  renderHistory();
+  updateCharMsg();
 }
 
 // ============================================================
-// Render: Today's Content
+// Render: Today's Content — pre-rendered in HTML
 // ============================================================
-function renderToday() {
-  const container = document.getElementById('todayContent');
-
+function updateCharMsg() {
   const todayStr = formatDateISO(getBeijingNow());
-  const todayData = ARTICLES_BY_DATE[todayStr];
-
-  if (!todayData) {
-    // Show latest available as "最近更新"
+  // Check if there's content for today (even if pre-rendered might be for a different day)
+  const data = ARTICLES_BY_DATE[todayStr];
+  if (data) {
+    document.getElementById('charMsg').textContent =
+      '📡 每日早报 + 晚报，用漫画和音频解读财经大事。';
+  } else {
     const latestDate = ARTICLES_LATEST;
-    if (latestDate && ARTICLES_BY_DATE[latestDate]) {
-      const ld = ARTICLES_BY_DATE[latestDate];
-      // Update clock to show we're showing latest, not today
+    if (latestDate) {
       document.getElementById('charMsg').textContent =
         `📡 暂无今日内容，显示最近更新（${latestDate}）`;
-      renderEditionList(container, ld, latestDate);
-    } else {
-      container.innerHTML = '<div class="no-data"><span class="big">📭</span>暂无今日内容</div>';
     }
-    return;
   }
-
-  document.getElementById('charMsg').textContent =
-    '📡 每日早报 + 晚报，用漫画和音频解读财经大事。';
-  renderEditionList(container, todayData, todayStr);
 }
 
 function renderEditionList(container, data, dateStr) {
