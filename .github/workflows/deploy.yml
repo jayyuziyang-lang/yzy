@@ -27,6 +27,12 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
+      - name: Auto-generate article index
+        run: python scripts/update-index.py
+
+      - name: Run site health check
+        run: python scripts/site-health.py
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
