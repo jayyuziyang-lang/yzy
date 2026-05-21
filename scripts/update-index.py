@@ -64,13 +64,16 @@ def generate_js(articles, holidays):
     for a in articles:
         by_date.setdefault(a['date'], {})[a['session']] = a
     sorted_dates = sorted(by_date.keys(), reverse=True)
+    bj_now = datetime.now(timezone(timedelta(hours=8))).strftime('%Y-%m-%dT%H:%M:%S+08:00')
 
     articles_js = json.dumps(articles, ensure_ascii=False)
     by_date_js = json.dumps({d: by_date[d] for d in sorted_dates}, ensure_ascii=False)
     latest = f'"{articles[0]["date"]}"' if articles else 'null'
     holidays_js = json.dumps(holidays, ensure_ascii=False)
 
-    js = f'''var ARTICLES_DATA = {articles_js};
+    # Cache-busting: timestamp changes every deploy → new file content → new ETag
+    js = f'''// Generated: {bj_now}
+var ARTICLES_DATA = {articles_js};
 var ARTICLES_BY_DATE = {by_date_js};
 var ARTICLES_LATEST = {latest};
 var HOLIDAYS_DATA = {holidays_js};
