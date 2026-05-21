@@ -216,7 +216,7 @@ def generate_article_html(session, title, panel_count, tags, has_charts=True):
       </div>
 
       <div class="l1-comic">
-        <img src="comic/panel-000.svg" alt="扬说财经速览">
+        <img src="comic/panel-000.svg" alt="扬说财经速览" loading="lazy">
         <div style="text-align:center;font-size:11px;color:#64748B;margin-top:4px;">📡 扬说财经 — 今天这些大事你需要知道</div>
       </div>
 

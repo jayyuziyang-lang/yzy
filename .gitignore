@@ -15,9 +15,9 @@ package.json
 package-lock.json
 
 # 临时素材（不提交到 Pages）
-finance_daily_*.jpg
-finance_daily_*.png
-finance_daily_*.pdf
+finance_daily_*
+2026-05-19/
+2026-05-20/
 
 # 操作系统
 .DS_Store

@@ -54,8 +54,8 @@ def main():
             ('Today section', 'todayContent'),
             ('History section', 'historyContent'),
             ('Character decoration', 'char-decoration'),
-            ('Articles fetch', "fetch('data/articles.json')"),
-            ('Holidays fetch', "fetch('data/holidays-2026.json')"),
+            ('Articles data embedded', 'ARTICLES_BY_DATE'),
+            ('Holidays data embedded', 'HOLIDAYS_DATA'),
             ('Midnight refresh', 'scheduleMidnightRefresh'),
         ]
         for label, needle in checks:

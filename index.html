@@ -91,7 +91,7 @@
   <!-- Banner -->
   <div class="banner">
     <div class="char-row">
-      <img class="char-img" src="assets/character/ayang-sticker.png" alt="阿扬">
+      <img class="char-img" src="assets/character/ayang-sticker.png" alt="阿扬" loading="lazy">
       <div>
         <h1>扬说财经</h1>
         <div class="subtitle">用漫画看懂财经 — <span class="gold">你好，我是阿扬</span></div>
@@ -149,12 +149,12 @@
 
 </div>
 
+<script src="data/articles.js"></script>
 <script>
 // ============================================================
-// Data Store
+// Data — loaded from data/articles.js as globals:
+//   ARTICLES_DATA, ARTICLES_BY_DATE, ARTICLES_LATEST, HOLIDAYS_DATA
 // ============================================================
-let articlesData = null;
-let holidaysData = null;
 
 // ============================================================
 // Beijing Time Clock (UTC+8)
@@ -195,9 +195,8 @@ function updateClock() {
 // Holiday Check
 // ============================================================
 function updateHoliday() {
-  if (!holidaysData) return;
   const today = formatDateISO(getBeijingNow());
-  const todayHolidays = holidaysData.filter(h => h.date === today);
+  const todayHolidays = HOLIDAYS_DATA.filter(h => h.date === today);
 
   const info = document.getElementById('holidayInfo');
   if (todayHolidays.length === 0) {
@@ -239,32 +238,12 @@ function scheduleMidnightRefresh() {
 }
 
 // ============================================================
-// Load Data
+// Render
 // ============================================================
-async function loadHolidays() {
-  try {
-    const res = await fetch('data/holidays-2026.json');
-    holidaysData = await res.json();
-    updateHoliday();
-  } catch (e) {
-    console.warn('Failed to load holidays:', e);
-  }
-}
-
-async function loadArticles() {
-  try {
-    const res = await fetch('data/articles.json');
-    const data = await res.json();
-    articlesData = data;
-    renderToday();
-    renderHistory();
-  } catch (e) {
-    console.error('Failed to load articles:', e);
-    document.getElementById('todayContent').innerHTML =
-      '<div class="no-data"><span class="big">⚠️</span>数据加载失败</div>';
-    document.getElementById('historyContent').innerHTML =
-      '<div class="no-data"><span class="big">⚠️</span>数据加载失败</div>';
-  }
+function initData() {
+  updateHoliday();
+  renderToday();
+  renderHistory();
 }
 
 // ============================================================
@@ -272,19 +251,15 @@ async function loadArticles() {
 // ============================================================
 function renderToday() {
   const container = document.getElementById('todayContent');
-  if (!articlesData || !articlesData.by_date) {
-    container.innerHTML = '<div class="no-data"><span class="big">📭</span>暂无今日内容</div>';
-    return;
-  }
 
   const todayStr = formatDateISO(getBeijingNow());
-  const todayData = articlesData.by_date[todayStr];
+  const todayData = ARTICLES_BY_DATE[todayStr];
 
   if (!todayData) {
     // Show latest available as "最近更新"
-    const latestDate = articlesData.latest_date;
-    if (latestDate && articlesData.by_date[latestDate]) {
-      const ld = articlesData.by_date[latestDate];
+    const latestDate = ARTICLES_LATEST;
+    if (latestDate && ARTICLES_BY_DATE[latestDate]) {
+      const ld = ARTICLES_BY_DATE[latestDate];
       // Update clock to show we're showing latest, not today
       document.getElementById('charMsg').textContent =
         `📡 暂无今日内容，显示最近更新（${latestDate}）`;
@@ -340,13 +315,9 @@ const INITIAL_HISTORY = 5; // Show last 5 dates initially
 
 function renderHistory() {
   const container = document.getElementById('historyContent');
-  if (!articlesData || !articlesData.by_date) {
-    container.innerHTML = '<div class="no-data" style="padding:16px 0;">暂无历史内容</div>';
-    return;
-  }
 
   const todayStr = formatDateISO(getBeijingNow());
-  const dates = Object.keys(articlesData.by_date).filter(d => d !== todayStr);
+  const dates = Object.keys(ARTICLES_BY_DATE).filter(d => d !== todayStr);
 
   if (dates.length === 0) {
     container.innerHTML = '<div class="no-data" style="padding:16px 0;">暂无历史内容</div>';
@@ -365,7 +336,7 @@ function renderHistorySlice(container, dates, start, end) {
   let html = '';
 
   for (const date of slice) {
-    const data = articlesData.by_date[date];
+    const data = ARTICLES_BY_DATE[date];
     const [y, m, d] = date.split('-');
     const displayDate = `${y}年${parseInt(m)}月${parseInt(d)}日`;
 
@@ -402,7 +373,7 @@ function loadMoreHistory(btn) {
   const start = parseInt(btn.dataset.start);
   const end = parseInt(btn.dataset.end);
   const todayStr = formatDateISO(getBeijingNow());
-  const dates = Object.keys(articlesData.by_date).filter(d => d !== todayStr);
+  const dates = Object.keys(ARTICLES_BY_DATE).filter(d => d !== todayStr);
   dates.sort().reverse();
   renderHistorySlice(btn.parentElement, dates, start, end);
 }
@@ -433,8 +404,7 @@ updateClock();
 setInterval(updateClock, 1000);
 setInterval(rotateCharMsg, 6000);
 
-loadHolidays();
-loadArticles();
+initData();
 scheduleMidnightRefresh();
 </script>
 </body>
