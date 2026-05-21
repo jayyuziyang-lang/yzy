@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Scan article directories and generate data files for the homepage."""
 import sys, os, json, re
+from datetime import datetime, timezone, timedelta
 sys.stdout.reconfigure(encoding='utf-8')
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -45,8 +46,9 @@ def generate_json(articles):
     by_date = {}
     for a in articles:
         by_date.setdefault(a['date'], {})[a['session']] = a
+    bj_now = datetime.now(timezone(timedelta(hours=8))).strftime('%Y-%m-%dT%H:%M:%S+08:00')
     output = {
-        'generated_at': '2026-05-21T00:00:00+08:00',
+        'generated_at': bj_now,
         'latest_date': articles[0]['date'] if articles else None,
         'articles': articles,
         'by_date': {d: by_date[d] for d in sorted(by_date.keys(), reverse=True)},

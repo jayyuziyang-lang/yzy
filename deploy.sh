@@ -66,11 +66,15 @@ COMMIT_MSG="${1:-每日财经内容更新 $(date +%Y-%m-%d)}"
 
 # 更新文章索引
 echo -e "\n📊 更新文章索引..."
-python scripts/update-index.py 2>/dev/null || echo "  (skip)"
+python scripts/update-index.py || {
+    echo -e "${YELLOW}[!] 索引更新失败!${NC}"
+    echo "  python scripts/update-index.py 出错，请检查脚本"
+    echo "  跳过索引更新，继续部署..."
+}
 
 # 健康检查
 echo -e "\n🏥 站点健康检查..."
-python scripts/site-health.py 2>/dev/null || echo "  (skip)"
+python scripts/site-health.py 2>/dev/null || echo "  (skip — 非阻塞)"
 
 echo -e "\n📦 提交信息: $COMMIT_MSG"
 echo ""
