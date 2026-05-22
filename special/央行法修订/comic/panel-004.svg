@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 220" fill="none">
+  <rect width="300" height="220" fill="#FAFAFA"/>
+  <!-- Title -->
+  <text x="150" y="18" text-anchor="middle" font-size="11" font-weight="700" fill="#1E293B" font-family="sans-serif">传导链：从会议室到你的钱袋子</text>
+
+  <!-- Step 1: Reservoir / 法律 -->
+  <rect x="110" y="28" width="80" height="24" rx="4" fill="#D4A017" stroke="#B8860B" stroke-width="1.5"/>
+  <text x="150" y="44" text-anchor="middle" font-size="9" font-weight="700" fill="#fff" font-family="sans-serif">央行法修订</text>
+  <!-- Water waves in reservoir -->
+  <path d="M112,48 Q120,44 128,48 Q136,52 144,48 Q152,44 160,48 Q168,52 176,48 Q184,44 190,48" stroke="#FEF3C7" stroke-width="1" fill="none" opacity="0.6"/>
+
+  <!-- Arrow 1 -->
+  <line x1="150" y1="52" x2="150" y2="66" stroke="#3B82F6" stroke-width="1.5"/>
+  <polygon points="150,68 145,62 155,62" fill="#3B82F6"/>
+
+  <!-- Step 2: Channel / 货币政策 -->
+  <rect x="100" y="68" width="100" height="22" rx="4" fill="#2563EB" stroke="#1D4ED8" stroke-width="1.5"/>
+  <text x="150" y="82" text-anchor="middle" font-size="8" font-weight="600" fill="#fff" font-family="sans-serif">重新定义权力边界</text>
+
+  <!-- Arrow 2 -->
+  <line x1="150" y1="90" x2="150" y2="100" stroke="#3B82F6" stroke-width="1.5"/>
+  <polygon points="150,102 145,96 155,96" fill="#3B82F6"/>
+
+  <!-- Step 3: Sluice gate / 商业银行 -->
+  <rect x="90" y="102" width="120" height="22" rx="4" fill="#1E3A5F" stroke="#1A56DB" stroke-width="1.5"/>
+  <text x="150" y="116" text-anchor="middle" font-size="8" font-weight="600" fill="#fff" font-family="sans-serif">商业银行经营行为调整</text>
+  <!-- Sluice gate detail -->
+  <rect x="135" y="104" width="4" height="18" rx="1" fill="#D4A017" opacity="0.5"/>
+
+  <!-- Arrow 3 -->
+  <line x1="150" y1="124" x2="150" y2="135" stroke="#3B82F6" stroke-width="1.5"/>
+  <polygon points="150,137 145,131 155,131" fill="#3B82F6"/>
+
+  <!-- Step 4: Branching pipes / 产品 -->
+  <rect x="50" y="137" width="200" height="16" rx="4" fill="#93C5FD" stroke="#60A5FA" stroke-width="1"/>
+  <!-- Label in the pipe -->
+  <text x="150" y="148" text-anchor="middle" font-size="7" font-weight="600" fill="#1E3A5F" font-family="sans-serif">贷款 · 存款 · 理财 · 数币 · 信用</text>
+
+  <!-- Branch arrows downward -->
+  <line x1="70" y1="153" x2="70" y2="170" stroke="#3B82F6" stroke-width="1" stroke-dasharray="2,1"/>
+  <polygon points="70,172 67,167 73,167" fill="#3B82F6"/>
+  <line x1="150" y1="153" x2="150" y2="170" stroke="#3B82F6" stroke-width="1" stroke-dasharray="2,1"/>
+  <polygon points="150,172 147,167 153,167" fill="#3B82F6"/>
+  <line x1="230" y1="153" x2="230" y2="170" stroke="#3B82F6" stroke-width="1" stroke-dasharray="2,1"/>
+  <polygon points="230,172 227,167 233,167" fill="#3B82F6"/>
+
+  <!-- Step 5: Cups / 你的钱包 -->
+  <rect x="240" y="6" width="50" height="14" rx="3" fill="#D4A017" opacity="0.8"/>
+  <text x="265" y="16" text-anchor="middle" font-size="6" font-weight="600" fill="#fff" font-family="sans-serif">5. 你的钱包</text>
+
+  <!-- Straight right arrow from bottom to the cup label -->
+  <line x1="265" y1="20" x2="265" y2="38" stroke="#D4A017" stroke-width="1" stroke-dasharray="2,1"/>
+
+  <!-- Small cups at bottom -->
+  <path d="M55,172 L55,198 Q55,205 70,205 L70,198 L70,172 Z" fill="none" stroke="#3B82F6" stroke-width="1.5"/>
+  <rect x="53" y="170" width="20" height="5" rx="2" fill="#3B82F6" opacity="0.3"/>
+  <text x="62" y="196" text-anchor="middle" font-size="6" fill="#1E3A5F" font-family="sans-serif">房贷</text>
+  <!-- Water in cup -->
+  <rect x="58" y="190" width="10" height="8" rx="1" fill="#93C5FD" opacity="0.5"/>
+
+  <path d="M135,172 L135,198 Q135,205 150,205 L150,198 L150,172 Z" fill="none" stroke="#3B82F6" stroke-width="1.5"/>
+  <rect x="133" y="170" width="20" height="5" rx="2" fill="#3B82F6" opacity="0.3"/>
+  <text x="142" y="196" text-anchor="middle" font-size="6" fill="#1E3A5F" font-family="sans-serif">存款</text>
+  <rect x="138" y="190" width="10" height="8" rx="1" fill="#93C5FD" opacity="0.5"/>
+
+  <path d="M215,172 L215,198 Q215,205 230,205 L230,198 L230,172 Z" fill="none" stroke="#3B82F6" stroke-width="1.5"/>
+  <rect x="213" y="170" width="20" height="5" rx="2" fill="#3B82F6" opacity="0.3"/>
+  <text x="222" y="196" text-anchor="middle" font-size="6" fill="#1E3A5F" font-family="sans-serif">理财</text>
+  <rect x="218" y="190" width="10" height="8" rx="1" fill="#93C5FD" opacity="0.5"/>
+
+  <!-- Bottom label -->
+  <text x="150" y="215" text-anchor="middle" font-size="7" fill="#64748B" font-family="sans-serif">6-18个月 逐级传导</text>
+</svg>

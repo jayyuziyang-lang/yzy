@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 220" fill="none">
+  <rect width="300" height="220" fill="#FAFAFA"/>
+  <!-- Title -->
+  <text x="150" y="20" text-anchor="middle" font-size="11" font-weight="700" fill="#1E293B" font-family="sans-serif">6扇门：六大修订方向</text>
+
+  <!-- Door 1 - 双支柱 -->
+  <g transform="translate(55, 38)">
+    <path d="M0,60 Q0,0 25,0 L50,0 Q50,0 50,60 Z" fill="#1E3A5F" stroke="#D4A017" stroke-width="1.5"/>
+    <rect x="10" y="10" width="30" height="20" rx="2" fill="#D4A017" opacity="0.15"/>
+    <text x="25" y="22" text-anchor="middle" font-size="6" fill="#D4A017" font-family="sans-serif">双支柱</text>
+    <text x="25" y="36" text-anchor="middle" font-size="5" fill="#94A3B8" font-family="sans-serif">货币+审慎</text>
+    <!-- Crack of light -->
+    <rect x="48" y="5" width="4" height="50" rx="1" fill="#FEF3C7" opacity="0.4"/>
+  </g>
+
+  <!-- Door 2 - 金融稳定 -->
+  <g transform="translate(109, 38)">
+    <path d="M0,60 Q0,0 25,0 L50,0 Q50,0 50,60 Z" fill="#1E3A5F" stroke="#D4A017" stroke-width="1.5"/>
+    <rect x="10" y="10" width="30" height="20" rx="2" fill="#D4A017" opacity="0.15"/>
+    <text x="25" y="22" text-anchor="middle" font-size="6" fill="#D4A017" font-family="sans-serif">金融稳定</text>
+    <text x="25" y="36" text-anchor="middle" font-size="5" fill="#94A3B8" font-family="sans-serif">风险处置</text>
+    <rect x="48" y="5" width="4" height="50" rx="1" fill="#FEF3C7" opacity="0.4"/>
+  </g>
+
+  <!-- Door 3 - 数字人民币 -->
+  <g transform="translate(163, 38)">
+    <path d="M0,60 Q0,0 25,0 L50,0 Q50,0 50,60 Z" fill="#1E3A5F" stroke="#D4A017" stroke-width="1.5"/>
+    <rect x="10" y="10" width="30" height="20" rx="2" fill="#D4A017" opacity="0.15"/>
+    <text x="25" y="22" text-anchor="middle" font-size="6" fill="#D4A017" font-family="sans-serif">数字人民币</text>
+    <text x="25" y="36" text-anchor="middle" font-size="5" fill="#94A3B8" font-family="sans-serif">法定货币</text>
+    <rect x="48" y="5" width="4" height="50" rx="1" fill="#FEF3C7" opacity="0.6"/>
+  </g>
+
+  <!-- Door 4 - 处罚 -->
+  <g transform="translate(30, 110)">
+    <path d="M0,60 Q0,0 25,0 L50,0 Q50,0 50,60 Z" fill="#1E3A5F" stroke="#D4A017" stroke-width="1.5"/>
+    <rect x="10" y="10" width="30" height="20" rx="2" fill="#D4A017" opacity="0.15"/>
+    <text x="25" y="22" text-anchor="middle" font-size="6" fill="#D4A017" font-family="sans-serif">处罚升级</text>
+    <text x="25" y="36" text-anchor="middle" font-size="5" fill="#94A3B8" font-family="sans-serif">30万→数百万</text>
+    <rect x="48" y="5" width="4" height="50" rx="1" fill="#FEF3C7" opacity="0.4"/>
+  </g>
+
+  <!-- Door 5 - 监管 -->
+  <g transform="translate(125, 110)">
+    <path d="M0,60 Q0,0 25,0 L50,0 Q50,0 50,60 Z" fill="#1E3A5F" stroke="#D4A017" stroke-width="1.5"/>
+    <rect x="10" y="10" width="30" height="20" rx="2" fill="#D4A017" opacity="0.15"/>
+    <text x="25" y="22" text-anchor="middle" font-size="6" fill="#D4A017" font-family="sans-serif">监管升级</text>
+    <text x="25" y="36" text-anchor="middle" font-size="5" fill="#94A3B8" font-family="sans-serif">穿透式监管</text>
+    <rect x="48" y="5" width="4" height="50" rx="1" fill="#FEF3C7" opacity="0.5"/>
+  </g>
+
+  <!-- Door 6 - 党的领导 -->
+  <g transform="translate(220, 110)">
+    <path d="M0,60 Q0,0 25,0 L50,0 Q50,0 50,60 Z" fill="#1E3A5F" stroke="#D4A017" stroke-width="1.5"/>
+    <rect x="10" y="10" width="30" height="20" rx="2" fill="#D4A017" opacity="0.15"/>
+    <text x="25" y="22" text-anchor="middle" font-size="6" fill="#D4A017" font-family="sans-serif">党的领导</text>
+    <text x="25" y="36" text-anchor="middle" font-size="5" fill="#94A3B8" font-family="sans-serif">总则法定</text>
+    <rect x="48" y="5" width="4" height="50" rx="1" fill="#FEF3C7" opacity="0.3"/>
+  </g>
+
+  <!-- Central golden glow -->
+  <circle cx="150" cy="140" r="28" fill="#D4A017" opacity="0.08"/>
+  <circle cx="150" cy="140" r="18" fill="#D4A017" opacity="0.12"/>
+  <circle cx="150" cy="140" r="10" fill="#D4A017" opacity="0.15"/>
+
+  <!-- Light beams from center to doors -->
+  <line x1="140" y1="130" x2="75" y2="80" stroke="#D4A017" stroke-width="0.5" opacity="0.2"/>
+  <line x1="150" y1="130" x2="150" y2="80" stroke="#D4A017" stroke-width="0.5" opacity="0.2"/>
+  <line x1="160" y1="130" x2="225" y2="80" stroke="#D4A017" stroke-width="0.5" opacity="0.2"/>
+  <line x1="140" y1="145" x2="65" y2="155" stroke="#D4A017" stroke-width="0.5" opacity="0.2"/>
+  <line x1="155" y1="145" x2="160" y2="155" stroke="#D4A017" stroke-width="0.5" opacity="0.2"/>
+  <line x1="165" y1="145" x2="245" y2="155" stroke="#D4A017" stroke-width="0.5" opacity="0.2"/>
+
+  <!-- Bottom text -->
+  <text x="150" y="185" text-anchor="middle" font-size="8" fill="#64748B" font-family="sans-serif">6扇门依次打开——各有侧重，合为整体</text>
+
+  <!-- Legend bar -->
+  <rect x="50" y="195" width="200" height="15" rx="3" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="0.5"/>
+  <rect x="60" y="198" width="8" height="8" rx="1" fill="#D4A017" opacity="0.5"/>
+  <text x="72" y="205" font-size="6" fill="#64748B" font-family="sans-serif">法律修订方向</text>
+  <rect x="130" y="198" width="8" height="8" rx="1" fill="#1E3A5F"/>
+  <text x="142" y="205" font-size="6" fill="#64748B" font-family="sans-serif">法律条文</text>
+  <rect x="195" y="198" width="8" height="8" rx="1" fill="#FEF3C7"/>
+  <text x="207" y="205" font-size="6" fill="#64748B" font-family="sans-serif">进展空间</text>
+</svg>

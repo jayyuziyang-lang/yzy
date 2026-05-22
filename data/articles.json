@@ -1,7 +1,16 @@
 {
-  "generated_at": "2026-05-22T23:41:31+08:00",
-  "latest_date": "2026-05-22",
+  "generated_at": "2026-05-23T00:02:27+08:00",
+  "latest_date": "2026-05-23",
   "articles": [
+    {
+      "date": "2026-05-23",
+      "session": "special",
+      "edition_cn": "深度",
+      "icon": "📚",
+      "title": "央行法修订：一部法律如何影响你的钱袋子",
+      "url": "special/央行法修订/article.html",
+      "series": "深度"
+    },
     {
       "date": "2026-05-22",
       "session": "evening",
@@ -36,6 +45,17 @@
     }
   ],
   "by_date": {
+    "2026-05-23": {
+      "special": {
+        "date": "2026-05-23",
+        "session": "special",
+        "edition_cn": "深度",
+        "icon": "📚",
+        "title": "央行法修订：一部法律如何影响你的钱袋子",
+        "url": "special/央行法修订/article.html",
+        "series": "深度"
+      }
+    },
     "2026-05-22": {
       "evening": {
         "date": "2026-05-22",
