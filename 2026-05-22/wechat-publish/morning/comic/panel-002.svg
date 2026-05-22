@@ -4,43 +4,40 @@
     <filter id="shadow" x="-10%" y="-10%" width="130%" height="130%">
       <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#1E293B" flood-opacity="0.12"/>
     </filter>
-    <linearGradient id="wave" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#8B5CF6" stop-opacity="0.4"/>
-      <stop offset="50%" stop-color="#7C3AED" stop-opacity="0.25"/>
-      <stop offset="100%" stop-color="#EF4444" stop-opacity="0.15"/>
-    </linearGradient>
   </defs>
-  <rect width="300" height="220" fill="#F5F7FA" rx="8"/>
+  <rect width="300" height="220" fill="#FFF8E7" rx="8"/>
 
-  <!-- Wave path -->
-  <path d="M0,160 C40,120 60,180 100,140 C140,100 160,160 200,120 C240,80 260,140 300,100 L300,220 L0,220 Z" fill="url(#wave)"/>
+  <!-- Title -->
+  <rect x="0" y="0" width="300" height="28" rx="8" fill="#D4A017" filter="url(#shadow)"/>
+  <rect x="0" y="18" width="300" height="10" fill="#D4A017"/>
+  <text x="150" y="19" text-anchor="middle" font-family="'Noto Sans SC','PingFang SC',sans-serif" font-size="12" font-weight="bold" fill="white">今日盯盘</text>
 
-  <!-- Quantum icon -->
-  <circle cx="80" cy="70" r="32" fill="white" stroke="#8B5CF6" stroke-width="2" filter="url(#shadow)"/>
-  <circle cx="80" cy="70" r="26" fill="none" stroke="#8B5CF6" stroke-width="0.8" stroke-dasharray="3,2"/>
-  <text x="80" y="74" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="12" font-weight="bold" fill="#7C3AED">⚛</text>
-  <text x="80" y="118" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="9" font-weight="bold" fill="#7C3AED">量子计算</text>
-  <text x="80" y="132" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="7" fill="#475569">IBM +12%</text>
-  <text x="80" y="143" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="7" fill="#EF4444">D-Wave +33%</text>
+  <!-- Item 1: 4000点 -->
+  <rect x="12" y="38" width="276" height="44" rx="6" fill="white" stroke="#EF4444" stroke-width="1.2" filter="url(#shadow)"/>
+  <rect x="12" y="38" width="4" height="44" rx="2" fill="#EF4444"/>
+  <circle cx="32" cy="60" r="10" fill="#EF4444" opacity="0.12"/>
+  <text x="32" y="64" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="10" font-weight="bold" fill="#DC2626">1</text>
+  <text x="52" y="58" font-family="'Noto Sans SC',sans-serif" font-size="11" font-weight="bold" fill="#1E293B">沪指4000点保卫战</text>
+  <text x="52" y="74" font-family="'Noto Sans SC',sans-serif" font-size="8" fill="#64748B">关注开盘低开后30分钟内资金承接力度</text>
 
-  <!-- Storage chip icon -->
-  <circle cx="220" cy="65" r="32" fill="white" stroke="#EF4444" stroke-width="2" filter="url(#shadow)"/>
-  <rect x="204" y="49" width="32" height="32" rx="4" fill="none" stroke="#DC2626" stroke-width="1.5"/>
-  <text x="220" y="69" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="10" font-weight="bold" fill="#DC2626">💾</text>
-  <text x="220" y="113" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="9" font-weight="bold" fill="#DC2626">存储芯片</text>
-  <text x="220" y="127" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="7" fill="#475569">ARM +16%</text>
-  <text x="220" y="138" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="7" fill="#EF4444">闪迪+10% 希捷+8%</text>
+  <!-- Item 2: 科技线 -->
+  <rect x="12" y="90" width="276" height="44" rx="6" fill="white" stroke="#8B5CF6" stroke-width="1.2" filter="url(#shadow)"/>
+  <rect x="12" y="90" width="4" height="44" rx="2" fill="#8B5CF6"/>
+  <circle cx="32" cy="112" r="10" fill="#8B5CF6" opacity="0.12"/>
+  <text x="32" y="116" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="10" font-weight="bold" fill="#7C3AED">2</text>
+  <text x="52" y="110" font-family="'Noto Sans SC',sans-serif" font-size="11" font-weight="bold" fill="#1E293B">科技线能否传导A股</text>
+  <text x="52" y="126" font-family="'Noto Sans SC',sans-serif" font-size="8" fill="#64748B">量子/存储热度 → 上午10点前有无领涨板块</text>
 
-  <!-- Center: connection arrows -->
-  <path d="M125,75 C140,55 160,55 175,75" fill="none" stroke="#8B5CF6" stroke-width="1.5" marker-end="url(#arrow)"/>
-  <text x="150" y="50" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="14" font-weight="bold" fill="#1A56DB">科技浪潮</text>
-
-  <!-- Bottom tag -->
-  <rect x="60" y="160" width="180" height="22" rx="11" fill="#7C3AED" opacity="0.1"/>
-  <text x="150" y="175" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="8" fill="#7C3AED">AI驱动：GPU扩张 → 存储爆发</text>
+  <!-- Item 3: 外资 -->
+  <rect x="12" y="142" width="276" height="44" rx="6" fill="white" stroke="#10B981" stroke-width="1.2" filter="url(#shadow)"/>
+  <rect x="12" y="142" width="4" height="44" rx="2" fill="#10B981"/>
+  <circle cx="32" cy="164" r="10" fill="#10B981" opacity="0.12"/>
+  <text x="32" y="168" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="10" font-weight="bold" fill="#059669">3</text>
+  <text x="52" y="162" font-family="'Noto Sans SC',sans-serif" font-size="11" font-weight="bold" fill="#1E293B">北向资金流向</text>
+  <text x="52" y="178" font-family="'Noto Sans SC',sans-serif" font-size="8" fill="#64748B">昨天外资净卖出 → 今天是否恢复净流入</text>
 
   <!-- 阿扬 -->
-  <g transform="translate(272, 200)">
+  <g transform="translate(268, 200)">
     <defs><clipPath id="char"><ellipse cx="0" cy="-2.7" rx="6.15" ry="8.45"/></clipPath></defs>
     <image href="data:image/jpeg;base64,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" x="-6.15" y="-11.55" width="12.3" height="20.4" preserveAspectRatio="xMidYMin slice" clip-path="url(#char)" filter="url(#shadow)"/>
   </g>
