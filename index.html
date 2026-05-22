@@ -317,6 +317,7 @@ function renderSpecial() {
 // ============================================================
 function initData() {
   updateHoliday();
+  renderToday();
   renderSpecial();
   updateCharMsg();
 }
@@ -338,6 +339,17 @@ function updateCharMsg() {
         `📡 暂无今日内容，显示最近更新（${latestDate}）`;
     }
   }
+}
+
+function renderToday() {
+  const container = document.getElementById('todayContent');
+  const todayStr = formatDateISO(getBeijingNow());
+  const data = ARTICLES_BY_DATE[todayStr];
+  if (data) {
+    renderEditionList(container, data, todayStr);
+    container.dataset.date = todayStr;
+  }
+  // If no data for today, keep the pre-rendered HTML as fallback
 }
 
 function renderEditionList(container, data, dateStr) {

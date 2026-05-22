@@ -25,7 +25,8 @@ def extract_series_tag(html_path):
         return None
     with open(html_path, encoding='utf-8') as f:
         html = f.read()
-    m = re.search(r'class="series-tag">.*?·\s*(.*?)</span>', html)
+    # Match the · separator AFTER the gold span (not the one inside "扬说·深度")
+    m = re.search(r'class="series-tag">.*?</span>\s*·\s*(.*?)</', html)
     if m:
         return m.group(1).strip()
     return None
