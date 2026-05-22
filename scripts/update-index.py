@@ -19,8 +19,20 @@ def extract_title(html_path):
         return m.group(1).strip()
     return '财经内容'
 
+def extract_series_tag(html_path):
+    """Extract series tag from special article meta."""
+    if not os.path.exists(html_path):
+        return None
+    with open(html_path, encoding='utf-8') as f:
+        html = f.read()
+    m = re.search(r'class="series-tag">.*?·\s*(.*?)</span>', html)
+    if m:
+        return m.group(1).strip()
+    return None
+
 def scan_articles():
     articles = []
+    # Scan daily editions
     for entry in sorted(os.listdir(ROOT)):
         if not re.match(r'^\d{4}-\d{2}-\d{2}$', entry):
             continue
@@ -39,7 +51,30 @@ def scan_articles():
                 'title': title,
                 'url': f'{entry}/wechat-publish/{session}/article.html',
             })
-    articles.sort(key=lambda a: (a['date'], 0 if a['session'] == 'morning' else 1), reverse=True)
+    # Scan special editions
+    special_dir = os.path.join(ROOT, 'special')
+    if os.path.exists(special_dir):
+        for topic_dir in sorted(os.listdir(special_dir)):
+            if topic_dir.startswith('.'):
+                continue
+            html_path = os.path.join(special_dir, topic_dir, 'article.html')
+            if not os.path.exists(html_path):
+                continue
+            title = extract_title(html_path)
+            series_tag = extract_series_tag(html_path)
+            # Use directory mtime for date ordering
+            mtime = os.path.getmtime(os.path.join(special_dir, topic_dir))
+            date_str = datetime.fromtimestamp(mtime).strftime('%Y-%m-%d')
+            articles.append({
+                'date': date_str,
+                'session': 'special',
+                'edition_cn': '深度',
+                'icon': '📚',
+                'title': title,
+                'url': f'special/{topic_dir}/article.html',
+                'series': series_tag or '',
+            })
+    articles.sort(key=lambda a: (a['date'], 0 if a['session'] == 'morning' else 1 if a['session'] == 'evening' else 2), reverse=True)
     return articles
 
 def generate_json(articles):

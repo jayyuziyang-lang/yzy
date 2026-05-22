@@ -138,6 +138,18 @@
     </div>
   </div>
 
+  <!-- Special: Weekly Deep Dive -->
+  <div class="section">
+    <h2>📚 扬说·深度 <span style="font-size: 11px; color: #94A3B8; font-weight: 400;">— 每周六，用逻辑穿透表象</span></h2>
+    <div id="specialContent">
+      <div class="no-data" style="padding:16px 0;">
+        <span class="big" style="font-size: 28px; display: block; margin-bottom: 6px;">📖</span>
+        首期专题即将上线<br>
+        <span style="font-size: 12px; color: #94A3B8;">每周六 · 深度解读 · 图文+音频</span>
+      </div>
+    </div>
+  </div>
+
   <!-- History Archive — pre-rendered (JS handles "load more") -->
   <div class="section">
     <h2>📖 历史内容</h2>
@@ -278,10 +290,39 @@ function scheduleMidnightRefresh() {
 }
 
 // ============================================================
+// Render: Special Editions (Weekly Deep Dive)
+// ============================================================
+function renderSpecial() {
+  const container = document.getElementById('specialContent');
+  const specials = ARTICLES_DATA.filter(a => a.session === 'special');
+
+  if (specials.length === 0) {
+    // Keep the pre-rendered placeholder
+    return;
+  }
+
+  let html = '';
+  for (const s of specials) {
+    const seriesLabel = s.series ? ` · ${s.series}` : '';
+    html += `
+      <a class="edition edition-evening" href="${s.url}" style="border-bottom:none;">
+        <div class="edition-icon" style="background:#FFFBEB;">📚</div>
+        <div class="edition-info">
+          <div class="edition-title">${s.title}</div>
+          <div class="edition-desc">${s.date} · 深度${seriesLabel} · 图文+音频</div>
+        </div>
+        <span class="edition-arrow">›</span>
+      </a>`;
+  }
+  container.innerHTML = html;
+}
+
+// ============================================================
 // Render
 // ============================================================
 function initData() {
   updateHoliday();
+  renderSpecial();
   updateCharMsg();
 }
 
