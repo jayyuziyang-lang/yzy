@@ -105,11 +105,11 @@ def generate_article_html(session, title, panel_count, tags, has_charts=True):
   .layer2 {{ margin-bottom: 24px; }}
   .l2-title {{ font-size: 16px; font-weight: 700; color: {accent_color2}; margin-bottom: 14px; display: flex; align-items: center; gap: 6px; }}
 
-  /* ★ 核心改进：漫画网格使用auto-fill确保每张图最小宽度足够 */
+  /* ★ 固定列数：每行均匀分配，图片宽度足够文字可读 */
   .comic-grid {{
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    gap: 10px;
+    grid-template-columns: {grid_cols};
+    gap: 8px;
     margin: 14px 0;
   }}
   .comic-grid img {{
@@ -119,15 +119,10 @@ def generate_article_html(session, title, panel_count, tags, has_charts=True):
     border: 1px solid #E2E8F0;
     background: #fff;
     box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-    transition: transform 0.2s ease;
   }}
-  .comic-grid img:hover {{
-    transform: scale(1.02);
-  }}
-  /* 手机端：最小宽度降到140px，确保2列布局 */
-  @media (max-width:480px) {{
+  @media (max-width:400px) {{
     .comic-grid {{
-      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      grid-template-columns: 1fr;
       gap: 6px;
     }}
   }}
