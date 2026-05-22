@@ -118,20 +118,12 @@
   <!-- Today's Content — pre-rendered (JS enhancement below) -->
   <div class="section">
     <h2>📅 今日内容</h2>
-    <div id="todayContent" data-date="2026-05-22">
-      <a class="edition edition-evening" href="2026-05-22/wechat-publish/evening/article.html">
-        <div class="edition-icon">🌙</div>
+    <div id="todayContent" data-date="2026-05-23">
+      <a class="edition edition-evening" href="special/央行法修订/article.html">
+        <div class="edition-icon">📚</div>
         <div class="edition-info">
-          <div class="edition-title">A股强势反弹：沪指重返4100，算力硬件全线爆发</div>
-          <div class="edition-desc">2026-05-22 · 晚报 · 图文+音频</div>
-        </div>
-        <span class="edition-arrow">›</span>
-      </a>
-      <a class="edition edition-morning" href="2026-05-22/wechat-publish/morning/article.html">
-        <div class="edition-icon">🌅</div>
-        <div class="edition-info">
-          <div class="edition-title">隔夜风云：道指新高50000点，量子计算与存储芯片双线爆发</div>
-          <div class="edition-desc">2026-05-22 · 早报 · 图文+音频</div>
+          <div class="edition-title">央行法修订：一部法律如何影响你的钱袋子</div>
+          <div class="edition-desc">2026-05-23 · 深度 · 图文+音频</div>
         </div>
         <span class="edition-arrow">›</span>
       </a>
@@ -142,11 +134,14 @@
   <div class="section">
     <h2>📚 扬说·深度 <span style="font-size: 11px; color: #94A3B8; font-weight: 400;">— 每周六，用逻辑穿透表象</span></h2>
     <div id="specialContent">
-      <div class="no-data" style="padding:16px 0;">
-        <span class="big" style="font-size: 28px; display: block; margin-bottom: 6px;">📖</span>
-        首期专题即将上线<br>
-        <span style="font-size: 12px; color: #94A3B8;">每周六 · 深度解读 · 图文+音频</span>
-      </div>
+      <a class="edition edition-evening" href="special/央行法修订/article.html" style="border-bottom:none;">
+        <div class="edition-icon" style="background:#FFFBEB;">📚</div>
+        <div class="edition-info">
+          <div class="edition-title">央行法修订：一部法律如何影响你的钱袋子</div>
+          <div class="edition-desc">2026-05-23 · 深度 · 图文+音频</div>
+        </div>
+        <span class="edition-arrow">›</span>
+      </a>
     </div>
   </div>
 
@@ -349,6 +344,7 @@ function renderEditionList(container, data, dateStr) {
   const sessions = [
     { key: 'morning', icon: '🌅', label: '早报' },
     { key: 'evening', icon: '🌙', label: '晚报' },
+    { key: 'special', icon: '📚', label: '深度' },
   ];
 
   let hasAny = false;
