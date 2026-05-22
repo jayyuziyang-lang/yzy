@@ -4,9 +4,9 @@
   <!-- K-line rising then sharply falling -->
   <polyline points="20,145 45,130 65,135 85,100 105,105 125,80 145,85 160,50 175,58 190,35 200,42" fill="none" stroke="#1E293B" stroke-width="2.8"/>
   <!-- Sharp drop line -->
-  <line x1="200" y1="42" x2="240" y2="165" stroke="#DC2626" stroke-width="3.5"/>
-  <polygon points="240,165 233,152 247,152" fill="#DC2626"/>
-  <polygon points="246,158 233,170 250,172" fill="#DC2626"/>
+  <line x1="200" y1="42" x2="240" y2="165" stroke="#16A34A" stroke-width="3.5"/>
+  <polygon points="240,165 233,152 247,152" fill="#16A34A"/>
+  <polygon points="246,158 233,170 250,172" fill="#16A34A"/>
   <!-- Speed lines on drop -->
   <line x1="210" y1="60" x2="216" y2="50" stroke="#94A3B8" stroke-width="0.7"/>
   <line x1="215" y1="80" x2="224" y2="74" stroke="#94A3B8" stroke-width="0.7"/>
@@ -14,7 +14,7 @@
   <line x1="228" y1="135" x2="237" y2="132" stroke="#94A3B8" stroke-width="0.7"/>
   <!-- Annotations -->
   <text x="195" y="28" text-anchor="end" font-family="'Noto Sans SC',sans-serif" font-size="11" font-weight="900" fill="#1E293B">4199</text>
-  <text x="255" y="170" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="14" font-weight="900" fill="#DC2626">-2.04%</text>
+  <text x="255" y="170" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="14" font-weight="900" fill="#16A34A">-2.04%</text>
   <text x="255" y="185" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="9" fill="#64748B">4077.28</text>
   <!-- Bank building rising -->
   <rect x="10" y="110" width="22" height="60" fill="none" stroke="#1E293B" stroke-width="2.2"/>
@@ -24,10 +24,10 @@
   <rect x="22" y="125" width="5" height="6" fill="none" stroke="#94A3B8" stroke-width="1"/>
   <rect x="14" y="135" width="5" height="6" fill="none" stroke="#94A3B8" stroke-width="1"/>
   <rect x="22" y="135" width="5" height="6" fill="none" stroke="#94A3B8" stroke-width="1"/>
-  <line x1="21" y1="95" x2="21" y2="108" stroke="#16A34A" stroke-width="1.5" stroke-dasharray="3,2"/>
-  <polygon points="14,100 21,90 28,100" fill="none" stroke="#16A34A" stroke-width="1.5"/>
-  <text x="21" y="82" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="7" fill="#16A34A">银行新高</text>
+  <line x1="21" y1="95" x2="21" y2="108" stroke="#DC2626" stroke-width="1.5" stroke-dasharray="3,2"/>
+  <polygon points="14,100 21,90 28,100" fill="none" stroke="#DC2626" stroke-width="1.5"/>
+  <text x="21" y="82" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="7" fill="#DC2626">银行新高</text>
   <!-- Volume bar -->
-  <rect x="262" y="135" width="18" height="55" fill="none" stroke="#DC2626" stroke-width="1.5"/>
+  <rect x="262" y="135" width="18" height="55" fill="none" stroke="#16A34A" stroke-width="1.5"/>
   <text x="271" y="202" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="7" fill="#64748B">3.5万亿</text>
 </svg>

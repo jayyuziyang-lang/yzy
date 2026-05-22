@@ -12,7 +12,7 @@
   <polyline points="20,190 30,175 45,178 55,160 70,165 80,145" fill="none" stroke="#CBD5E1" stroke-width="1.5"/>
   <text x="50" y="145" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="6" fill="#94A3B8">40000</text>
   <!-- Annotation -->
-  <text x="265" y="15" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="9" font-weight="700" fill="#16A34A">历史新高</text>
+  <text x="265" y="15" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="9" font-weight="700" fill="#DC2626">历史新高</text>
   <!-- Dow indicator -->
   <line x1="10" y1="200" x2="290" y2="200" stroke="#E2E8F0" stroke-width="0.8"/>
   <text x="150" y="212" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="10" font-weight="700" fill="#1E293B">道琼斯 50,285.66</text>
