@@ -1,7 +1,15 @@
 {
-  "generated_at": "2026-05-21T22:38:35+08:00",
-  "latest_date": "2026-05-21",
+  "generated_at": "2026-05-22T09:36:36+08:00",
+  "latest_date": "2026-05-22",
   "articles": [
+    {
+      "date": "2026-05-22",
+      "session": "morning",
+      "edition_cn": "早报",
+      "icon": "🌅",
+      "title": "A股放量暴跌：沪指失守4100，量子计算概念逆市爆发",
+      "url": "2026-05-22/wechat-publish/morning/article.html"
+    },
     {
       "date": "2026-05-21",
       "session": "evening",
@@ -20,6 +28,16 @@
     }
   ],
   "by_date": {
+    "2026-05-22": {
+      "morning": {
+        "date": "2026-05-22",
+        "session": "morning",
+        "edition_cn": "早报",
+        "icon": "🌅",
+        "title": "A股放量暴跌：沪指失守4100，量子计算概念逆市爆发",
+        "url": "2026-05-22/wechat-publish/morning/article.html"
+      }
+    },
     "2026-05-21": {
       "evening": {
         "date": "2026-05-21",
