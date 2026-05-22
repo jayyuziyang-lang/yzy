@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>全球科技狂欢：量子计算+存储芯片双线爆发，A股投资者该追吗？</title>
+<title>A股强势反弹：沪指重返4100，算力硬件全线爆发</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { font-family: -apple-system,"PingFang SC","Microsoft YaHei","Helvetica Neue",sans-serif; background: #F5F7FA; color: #1E293B; line-height: 1.8; font-size: 16px; }
@@ -14,6 +14,7 @@
   .top-nav .back:active { opacity: 0.6; }
   .top-nav .nav-date { flex: 1; text-align: center; font-size: 12px; color: #64748B; }
   .top-nav .nav-edition { font-size: 11px; color: #94A3B8; background: #F1F5F9; padding: 2px 8px; border-radius: 8px; }
+  .top-nav .nav-edition.am { color: #1A56DB; background: #EFF6FF; }
   .top-nav .nav-edition.pm { color: #D4A017; background: #FFFBEB; }
 
   .header { background: linear-gradient(135deg,#D4A017,#B8860B); padding: 20px 20px 16px; color: white; }
@@ -31,16 +32,6 @@
 
   .layer1 { margin-bottom: 28px; }
   .l1-title { font-size: 16px; font-weight: 700; color: #D4A017; margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
-  .l1-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-bottom: 12px; }
-  .l1-item { background: #F8F9FA; border-radius: 8px; padding: 8px 10px; border-left: 3px solid #1A56DB; }
-  .l1-item .tag { font-size: 10px; font-weight: 700; display: block; margin-bottom: 2px; }
-  .l1-item .txt { font-size: 12px; color: #475569; }
-  .l1-item .pct { font-size: 11px; font-weight: 600; }
-  .l1-down { border-left-color: #EF4444; } .l1-down .tag { color: #EF4444; }
-  .l1-up { border-left-color: #10B981; } .l1-up .tag { color: #10B981; }
-  .l1-gold { border-left-color: #D4A017; } .l1-gold .tag { color: #D4A017; }
-  .l1-blue { border-left-color: #1A56DB; } .l1-blue .tag { color: #1A56DB; }
-  .l1-purple { border-left-color: #8B5CF6; } .l1-purple .tag { color: #8B5CF6; }
   .l1-comic { margin: 8px -10px 0; }
   .l1-comic img { width: 100%; border-radius: 10px; border: 1px solid #E2E8F0; }
   .l1-divider { border: none; border-top: 2px dashed #D4A017; margin: 16px 0; }
@@ -49,21 +40,30 @@
   .l2-title { font-size: 16px; font-weight: 700; color: #D4A017; margin-bottom: 14px; display: flex; align-items: center; gap: 6px; }
 
   .quote { background: #FFFBEB; border-left: 4px solid #D4A017; padding: 12px 14px; margin: 14px 0; border-radius: 0 8px 8px 0; font-size: 14px; color: #92400E; line-height: 1.7; }
-  h2 { font-size: 17px; font-weight: 700; color: #D4A017; margin: 22px 0 10px; padding-bottom: 6px; border-bottom: 2px solid #D4A017; }
-  h3 { font-size: 15px; font-weight: 600; color: #1A56DB; margin: 16px 0 8px; }
+  h2 { font-size: 17px; font-weight: 700; color: #1A56DB; margin: 22px 0 10px; padding-bottom: 6px; border-bottom: 2px solid #D4A017; }
+  h3 { font-size: 15px; font-weight: 600; color: #F59E0B; margin: 16px 0 8px; }
   p { margin-bottom: 12px; text-align: justify; font-size: 15px; }
 
-  .comic-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin: 14px 0; }
-  .comic-grid img { width: 100%; height: auto; border-radius: 8px; border: 1px solid #E2E8F0; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
-  @media (max-width:400px) { .comic-grid { grid-template-columns: 1fr; gap: 6px; } }
+  .story { margin: 22px 0; }
+  .story-head { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .story-num { width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; color: #fff; flex-shrink: 0; }
+  .story-num.s01 { background: #EF4444; } .story-num.s02 { background: #7C3AED; } .story-num.s03 { background: #F59E0B; }
+  .story-num.s04 { background: #1A56DB; } .story-num.s05 { background: #10B981; } .story-num.s06 { background: #D4A017; }
+  .story-tag { font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 3px; }
+  .story-tag.s01 { background: #FEF2F2; color: #DC2626; } .story-tag.s02 { background: #F5F3FF; color: #7C3AED; }
+  .story-tag.s03 { background: #FFF7ED; color: #D97706; } .story-tag.s04 { background: #EFF6FF; color: #1A56DB; }
+  .story-tag.s05 { background: #F0FDF4; color: #16A34A; } .story-tag.s06 { background: #FFFBEB; color: #B8860B; }
+  .story-title { font-size: 16px; font-weight: 700; color: #1E293B; line-height: 1.4; }
+  .story-badge { display: inline-block; font-size: 11px; padding: 1px 7px; border-radius: 3px; font-weight: 600; margin-left: 5px; vertical-align: middle; }
+  .story-badge.b-red { background: #FEF2F2; color: #DC2626; } .story-badge.b-green { background: #F0FDF4; color: #16A34A; }
+  .story-badge.b-gold { background: #FFFBEB; color: #D97706; } .story-badge.b-blue { background: #EFF6FF; color: #1A56DB; }
+  .story-content { font-size: 14px; color: #334155; line-height: 1.8; margin-bottom: 8px; }
+  .story-content p { margin-bottom: 8px; font-size: 14px; }
+  .story-img { margin: 10px 0 0; border-radius: 8px; border: 1px solid #E2E8F0; overflow: hidden; background: #FAFAFA; }
+  .story-img img { width: 100%; display: block; }
+  .story-divider { border: none; height: 1px; background: linear-gradient(to right, transparent, #E2E8F0, transparent); margin: 6px 0; }
 
   .gold-box { background: linear-gradient(135deg,#FFF8E7,#FFF3D6); border: 1px solid #D4A017; border-radius: 12px; padding: 18px 20px; margin: 22px 0; text-align: center; font-size: 16px; font-weight: 700; color: #B8860B; line-height: 1.5; }
-
-  .analogy { background: #F0FFF4; border: 1px solid #A7F3D0; border-radius: 10px; padding: 10px 14px; margin: 12px 0; font-size: 13px; color: #065F46; }
-  .analogy::before { content: "💡 类比一下："; font-weight: 600; color: #059669; }
-  .fun-fact { background: #FFFBEB; border: 1px solid #FDE68A; border-radius: 10px; padding: 10px 14px; margin: 12px 0; font-size: 13px; color: #92400E; }
-  .fun-fact::before { content: "🤯 你知道么："; font-weight: 600; color: #D97706; }
-  .divider { border: none; border-top: 2px dashed #E2E8F0; margin: 20px 0; }
 
   .layer3 { margin-bottom: 24px; }
   .l3-title { font-size: 16px; font-weight: 700; color: #D4A017; margin-bottom: 10px; }
@@ -73,8 +73,8 @@
   th:last-child { border-radius: 0 6px 0 0; }
   td { padding: 8px 10px; border-bottom: 1px solid #E2E8F0; }
   tr:nth-child(even) { background: #F8F9FA; }
-  .up { color: #EF4444; font-weight: 600; }
-  .down { color: #10B981; font-weight: 600; }
+  .up { color: #DC2626; font-weight: 600; }
+  .down { color: #16A34A; font-weight: 600; }
 
   .warn { background: #FFF5F5; border: 1px solid #FECACA; border-radius: 10px; padding: 12px 14px; margin-top: 24px; font-size: 12px; color: #991B1B; line-height: 1.5; }
   .list { background: #F8F9FA; border-radius: 8px; padding: 10px 14px; margin: 10px 0; }
@@ -97,16 +97,16 @@
   </div>
 
   <div class="header">
-    <h1>全球科技狂欢：量子计算+存储芯片双线爆发，A股投资者该追吗？</h1>
+    <h1>A股强势反弹：沪指重返4100，算力硬件全线爆发</h1>
     <div class="meta">
-      <span>🌙 2026.05.22 晚间</span>
-      <span>🏷️ 科技/AI/全球市场</span>
+      <span>📅 2026.05.22 晚间</span>
+      <span>🏷️ A股/AI科技/宏观</span>
       <span>👤 主讲：阿扬</span>
     </div>
     <div class="player">
       <div class="player-icon">🎧</div>
       <div class="player-info">
-        <div class="player-title">音频解说 · 约3分钟</div>
+        <div class="player-title">音频解说 · 约4分钟</div>
         <div class="player-desc">边听边看，体验更佳</div>
         <audio controls preload="none"><source src="audio.mp3" type="audio/mpeg"></audio>
       </div>
@@ -119,146 +119,166 @@
     <!-- LAYER 1：今日热点速览 -->
     <!-- ════════════════════════════════════════ -->
     <div class="layer1">
-
       <div class="l1-title">📋 今日热点速览 <span style="font-size:12px;color:#64748B;font-weight:400;">— 60秒掌握关键信息</span></div>
-
-      <div class="l1-grid">
-        <div class="l1-item l1-down">
-          <span class="tag">A股</span>
-          <span class="txt">沪指-2.04%失守4100</span>
-          <span class="pct" style="color:#EF4444;">成交3.48万亿放量跌</span>
-        </div>
-        <div class="l1-item l1-up">
-          <span class="tag">道指新高</span>
-          <span class="txt">道指50285点创历史新高</span>
-          <span class="pct" style="color:#10B981;">+0.55%</span>
-        </div>
-        <div class="l1-item l1-up">
-          <span class="tag">⚛️ 量子计算</span>
-          <span class="txt">IBM+12% D-Wave+33%</span>
-          <span class="pct" style="color:#8B5CF6;">白宫20亿扶持</span>
-        </div>
-        <div class="l1-item l1-up">
-          <span class="tag">💾 存储芯片</span>
-          <span class="txt">ARM+16% 闪迪+11%</span>
-          <span class="pct" style="color:#EF4444;">🔥 全线暴涨</span>
-        </div>
-        <div class="l1-item l1-up">
-          <span class="tag">🚗 特斯拉</span>
-          <span class="txt">FSD正式落地中国</span>
-          <span class="pct" style="color:#1A56DB;">智能驾驶利好</span>
-        </div>
-        <div class="l1-item l1-down">
-          <span class="tag">🛒 沃尔玛</span>
-          <span class="txt">-7.27% 财报不及预期</span>
-          <span class="pct" style="color:#EF4444;">消费疲软信号</span>
-        </div>
-      </div>
-
       <div class="l1-comic">
-        <img loading="lazy" src="comic/panel-000.svg" alt="扬说财经晚报速览">
-        <div style="text-align:center;font-size:11px;color:#64748B;margin-top:4px;">🌙 扬说财经晚报 — 今晚这些大事值得关注</div>
+        <img loading="lazy" src="comic/panel-000.svg" alt="扬说财经速览">
+        <div style="text-align:center;font-size:11px;color:#64748B;margin-top:4px;">📡 扬说财经 — 今天这些大事你需要知道</div>
       </div>
-
       <hr class="l1-divider">
-      <div style="text-align:center;font-size:12px;color:#D4A017;margin-bottom:4px;">▼ 往下翻看今晚深度解读 ▼</div>
+      <div style="text-align:center;font-size:12px;color:#D4A017;margin-bottom:4px;">▼ 往下翻看今日深度解读 ▼</div>
     </div>
 
     <!-- ════════════════════════════════════════ -->
-    <!-- LAYER 2：深度解读 -->
+    <!-- LAYER 2：今日深度解读 — 6个编号故事 -->
     <!-- ════════════════════════════════════════ -->
     <div class="layer2">
+      <div class="l2-title">🔍 今日深度专题</div>
 
-      <div class="l2-title">🔍 今晚深度专题</div>
+      <div class="quote">沪指重返4100，算力硬件全线爆发——一场暴跌后的修复反弹，科技股担纲主力。但成交量缩了5800亿，是蓄力还是降温？</div>
 
-      <div class="quote">A股惨跌与美股新高同一天发生。量子计算+存储芯片双线爆发，白宫20亿美元押注——全球科技投资的逻辑正在发生根本性变化。</div>
-
-      <div class="comic-grid">
-        <img loading="lazy" src="comic/panel-001.svg" alt="冰火两重天">
-        <img loading="lazy" src="comic/panel-002.svg" alt="科技双线爆发">
-        <img loading="lazy" src="comic/panel-003.svg" alt="A股投资者指南">
-        <img loading="lazy" src="comic/panel-004.svg" alt="宏观信号">
+      <!-- Story 01: A股复盘 -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s01">1</div>
+          <span class="story-tag s01">A股</span>
+          <div class="story-title">沪指重返4100 · 科技全线反弹 <span class="story-badge b-red" style="color:#DC2626;background:#FEF2F2;">+0.87%</span></div>
+        </div>
+        <div class="story-content">
+          <p>5月22日A股走出修复反弹行情。沪指收报<strong>4,112.90点</strong>，涨0.87%，盘中一度下探后震荡走高，4100点关口失而复得。深成指涨2.30%，创业板指大涨2.84%，科创综指涨2.21%。全市约3865只个股上涨，涨停逾百只。</p>
+          <p>但有一个细节值得警惕——成交额缩至<strong>2.9万亿</strong>，较前一日减少约5800亿。缩量反弹说明追涨意愿不足，更多是恐慌情绪释放后的自然回补，而非增量资金入场。昨天早盘追高、尾盘割肉的投资者，今天大概率是旁观者心态。4000点能否真正企稳，还需要明后天放量确认。</p>
+        </div>
+        <div class="story-img">
+          <img loading="lazy" src="comic/panel-001.svg" alt="A股强势反弹">
+        </div>
       </div>
 
-      <h2>同一片天空，冰火两重天</h2>
-      <p>昨天（5/21）A股经历了惨烈的一天。<strong>上证指数跌2.04%失守4100点</strong>，最惨的科创50暴跌超4%。成交额<strong>3.48万亿</strong>——这几乎是A股有史以来最大的单日成交之一，近4800只个股下跌。</p>
-      <p>但就在同一天晚上，<strong>美股道琼斯指数却创下了收盘历史新高50285点</strong>。标普500和纳斯达克也双双收涨。</p>
+      <hr class="story-divider">
 
-      <div class="fun-fact">3.48万亿是什么概念？这个成交额如果放在全球交易所排名中，超过了东京交易所一整天的交易额。这波放量下跌说明市场分歧达到了极致。</div>
+      <!-- Story 02: 科技/PCB -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s02">2</div>
+          <span class="story-tag s02">科技</span>
+          <div class="story-title">英伟达VR200引爆PCB · 元件+7.85% <span class="story-badge b-red" style="color:#DC2626;background:#FEF2F2;">🔥 全线爆发</span></div>
+        </div>
+        <div class="story-content">
+          <p>今天最核心的一条主线：<strong>PCB（印制电路板）板块爆发</strong>。方邦股份、强达电路等多股涨停20CM，板块超40股涨停或涨超10%。电子元件板块全天获143亿元主力净流入，居全市场首位。</p>
+          <p>导火索是英伟达下一代Vera Rubin（VR200）机架PCB价值量从GB300的约3.5万美元跃升至约<strong>11.7万美元</strong>，增幅233%。半导体板块也午后大逆转——早盘净流出59亿，午后转为净流入48亿，寒武纪、海光信息、中芯国际集体走强。AI硬件正在从"预期驱动"全面转向"业绩兑现"阶段。</p>
+        </div>
+        <div class="story-img">
+          <img loading="lazy" src="comic/panel-002.svg" alt="PCB板块爆发">
+        </div>
+      </div>
 
-      <p>这种反差背后的事实很清楚：<strong>全球资金正在重新配置。</strong>美债收益率飙升至4.57%以上，12月加息概率达42%，美元走强——这都是资金回流美国的信号。</p>
+      <hr class="story-divider">
 
-      <h2>科技双线爆发：量子 + 存储</h2>
-      <p>真正让华尔街沸腾的是两条主线：</p>
+      <!-- Story 03: 市场分化 -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s03">3</div>
+          <span class="story-tag s03">市场</span>
+          <div class="story-title">白酒券商回调 · 资金极致抱团 <span class="story-badge b-green" style="color:#16A34A;background:#F0FDF4;">分化加剧</span></div>
+        </div>
+        <div class="story-content">
+          <p>科技一涨，其他板块就失血。皇台酒业跌超9%，白酒板块整体承压；中信建投等多只券商股跌超2%。</p>
+          <p>背后的逻辑很简单：市场缩量的环境下，资金无法支撑全面行情，只能选择"<strong>抱团最稀缺的方向</strong>"。今天的稀缺性是高端PCB和算力硬件。这种极致分化短期不会结束——机构认为，高增长稀缺既是A股的结构性特征，也是资金从"阶段性交易"演变为"长期常态"的催化剂。但抱团股一旦松动，回撤同样凶猛，追高需谨慎。</p>
+        </div>
+        <div class="story-img">
+          <img loading="lazy" src="comic/panel-003.svg" alt="资金抱团分化">
+        </div>
+      </div>
 
-      <h3>⚛️ 量子计算线：白宫20亿重注</h3>
-      <p>美国商务部宣布向9家量子计算公司提供总额<strong>20亿美元</strong>拨款，附带政府持有股权条款。这是美国政府对量子计算最大的一笔直接投资。</p>
-      <p><strong>IBM</strong>获最大份额（约10亿美元），签署布局量子芯片与晶圆代工意向书，股价暴涨<strong>+12.43%</strong>。<strong>D-Wave Quantum</strong>一口气涨超<strong>+33.54%</strong>，Rigetti Computing涨超<strong>+30.57%</strong>。</p>
+      <hr class="story-divider">
 
-      <div class="analogy">20亿美元放到整个AI产业中不算大数目，但关键在于信号意义——美国政府正式把量子计算从"实验室技术"升级为"国家战略产业"。这就像2018年的AI一样，政策红利往往是产业爆发的第一推动力。</div>
+      <!-- Story 04: 宏观政策 -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s04">4</div>
+          <span class="story-tag s04">宏观</span>
+          <div class="story-title">央行法修订草案通过 · LPR不变 <span class="story-badge b-blue">政策信号</span></div>
+        </div>
+        <div class="story-content">
+          <p>国常会原则通过<strong>《中国人民银行法（修订草案）》</strong>，将提请全国人大常委会审议。这意味着央行制度建设的顶层设计迈出关键一步，金融法治化进程加速。与此同时，5月LPR报价出炉：1年期3.00%，5年期以上3.50%，均持平上月。</p>
+          <p>央行公开市场操作方面，当日开展1530亿元7天逆回购操作，净投放1525亿元，本周累计净投放3015亿元。流动性合理充裕，政策面延续稳增长基调。中长期看，央行法修订是为应对未来复杂金融环境预留法律工具，对A股是制度性利好。</p>
+        </div>
+        <div class="story-img">
+          <img loading="lazy" src="comic/panel-004.svg" alt="宏观政策">
+        </div>
+      </div>
 
-      <h3>💾 存储芯片线：四大巨头集体拉升</h3>
-      <p><strong>ARM</strong>暴涨+16.16%，市值首破<strong>3000亿美元</strong>。闪迪涨近+11%，希捷+7.91%，美光+4.11%。</p>
-      <p>AI对存储的需求正在从"预期"走向"爆发"——大模型的训练和推理对HBM（高带宽内存）和NAND的需求是指数级的。一台AI服务器需要的存储容量是传统服务器的3-5倍。</p>
+      <hr class="story-divider">
 
-      <div class="gold-box">AI基础设施正在经历从GPU单一驱动到"GPU+量子+存储"多元驱动的转折点。</div>
+      <!-- Story 05: 隔夜美股+量子 -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s05">5</div>
+          <span class="story-tag s05">前沿</span>
+          <div class="story-title">量子计算20亿落地 · 道指再创新高 <span class="story-badge b-red" style="color:#DC2626;background:#FEF2F2;">道指50285</span></div>
+        </div>
+        <div class="story-content">
+          <p>隔夜美股延续强势。道指收于<strong>50,285.66点</strong>再创收盘历史新高，标普+0.17%，纳指+0.09%。最大的故事是量子计算——特朗普政府宣布<strong>20亿美元</strong>入股9家量子计算企业，其中IBM获10亿建首座专用量子芯片厂。IBM大涨12%，D-Wave涨超33%。</p>
+          <p>对A股的影响：美股科技热能否传导，取决于两个条件——一是A股自身情绪不能太弱（今天已满足），二是A股要有对应的映射标的（PCB/算力已有）。但量子计算在A股缺乏纯正标的，更多是情绪跟风，选股要精挑。</p>
+        </div>
+        <div class="story-img">
+          <img loading="lazy" src="comic/panel-005.svg" alt="量子计算20亿">
+        </div>
+      </div>
 
-      <h2>A股投资者该追吗？</h2>
-      <p>A股量子概念今天确实高开了——格尔软件涨停，科大国创涨超13%，国盾量子、神州信息涨超10%。但问题来了：A股整体还在下跌通道中（5/22两市成交缩至约1.1万亿，说明资金仍在观望），这种概念炒作能持续吗？</p>
+      <hr class="story-divider">
 
-      <p><strong>理性分析：</strong></p>
-      <p><strong>第一，</strong>A股量子概念与美股的联动更多是情绪层面的。A股公司中真正能从量子计算中获利的不多。概念炒作往往来得快、去得也快。</p>
-      <p><strong>第二，</strong>存储芯片产业链中，国内公司的受益逻辑更清晰。长江存储启动IPO辅导，大普微复牌——这对国内存储产业链是实质性的利好。</p>
-      <p><strong>第三，</strong>特斯拉FSD入华对智能驾驶产业链是实质性利好。从预期博弈进入落地兑现阶段，德赛西威、豪恩汽电等相关个股值得关注。</p>
-      <p><strong>第四，</strong>整体市场环境偏弱，不要追高。恐慌盘还没完全出清，等回调是更理性的选择。</p>
+      <!-- Story 06: 黄金/商品 -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s06">6</div>
+          <span class="story-tag s06">商品</span>
+          <div class="story-title">黄金$4542拉锯 · 美伊谈判反复 <span class="story-badge b-gold">油跌金稳</span></div>
+        </div>
+        <div class="story-content">
+          <p>商品市场进入混沌期。黄金报<strong>4,542美元/盎司</strong>窄幅震荡，沪金993-998元/克。布伦特原油回落至约102美元，WTI跌至约96美元，连续第三天下跌。美伊谈判释放积极信号，战争溢价持续回吐，但浓缩铀和霍尔木兹海峡收费仍是核心分歧。</p>
+          <p>金油的逻辑在打架：油价下跌缓解通胀压力，理论上利空黄金；但美伊反复意味着中东风险并未出清，又构成避险支撑。金价短期在4500-4600区间拉锯，突破需要新的催化剂——要么沃什今晚表态偏鸽（利好），要么美伊彻底谈崩（利空）。</p>
+        </div>
+        <div class="story-img">
+          <img loading="lazy" src="comic/panel-006.svg" alt="黄金原油拉锯">
+        </div>
+      </div>
 
-      <h2>宏观信号：油价跌了，沃尔玛也跌了</h2>
-      <p>油价连续三日下跌，WTI已跌破$97，布伦特跌破$103。美伊和谈预期升温——这是好消息。地缘溢价消退意味着全球风险偏好回升。</p>
-      <p>但黄金仍然坚挺在$4,540以上，说明市场并不完全相信局势已经缓和。</p>
-
-      <p><strong>沃尔玛暴跌7.27%</strong>是一个重要的宏观信号。作为全球最大的零售商，沃尔玛财报不及预期，说明美国消费者的钱包在收紧。这可能会影响美联储的决策——如果消费走弱，加息的动力也会减弱。</p>
-
-      <p>另外值得一提的是，英伟达Q1营收816亿美元（+85%），Q2指引$910亿——全部超出预期。但股价反而跌了1.77%。这就是典型的"买预期卖事实"。华尔街分析师集体上调目标价，最高看至400美元。长期逻辑没有变。</p>
+      <div class="gold-box">今天的反弹，是底气还是陷阱？—— 我是阿扬，我们明天早上见。</div>
 
       <hr class="divider">
     </div>
 
     <!-- ════════════════════════════════════════ -->
-    <!-- LAYER 3：市场数据 -->
+    <!-- LAYER 3：关键市场数据 -->
     <!-- ════════════════════════════════════════ -->
     <div class="layer3">
       <div class="l3-title">📊 关键市场数据一览</div>
 
       <table>
         <tr><th>品种</th><th>最新</th><th>涨跌幅</th></tr>
-        <tr><td>上证指数 (5/21)</td><td>4,077.28</td><td class="down">-2.04%</td></tr>
-        <tr><td>科创50 (5/21)</td><td>1,764.17</td><td class="down">-3.70%</td></tr>
+        <tr><td>上证指数</td><td>4,112.90</td><td class="up">+0.87%</td></tr>
+        <tr><td>深证成指</td><td>15,597.30</td><td class="up">+2.30%</td></tr>
+        <tr><td>创业板指</td><td>3,938.50</td><td class="up">+2.84%</td></tr>
+        <tr><td>科创综指</td><td>2,148.18</td><td class="up">+2.21%</td></tr>
         <tr><td>道琼斯</td><td>50,285.66</td><td class="up">+0.55%</td></tr>
         <tr><td>纳斯达克</td><td>26,293.10</td><td class="up">+0.09%</td></tr>
-        <tr><td>IBM</td><td>—</td><td class="up">+12.43%</td></tr>
-        <tr><td>ARM Holdings</td><td>—</td><td class="up">+16.16%</td></tr>
-        <tr><td>D-Wave Quantum</td><td>—</td><td class="up">+33.54%</td></tr>
-        <tr><td>COMEX黄金</td><td>$4,546.50</td><td class="up">+0.09%</td></tr>
-        <tr><td>WTI原油</td><td>$96.35</td><td class="down">-1.94%</td></tr>
-        <tr><td>布伦特原油</td><td>$102.58</td><td class="down">-2.32%</td></tr>
-        <tr><td>10年美债收益率</td><td>4.570%</td><td class="down">-1.79bp</td></tr>
+        <tr><td>COMEX黄金</td><td>$4,544.20</td><td class="down">-0.20%</td></tr>
+        <tr><td>沪金9999</td><td>¥993-998/克</td><td>— 震荡</td></tr>
+        <tr><td>WTI原油</td><td>~$96</td><td class="down">-1.1%</td></tr>
+        <tr><td>布伦特原油</td><td>~$102</td><td class="down">-0.57%</td></tr>
+        <tr><td>美元指数</td><td>~99.1</td><td class="down">-0.24%</td></tr>
+        <tr><td>在岸人民币</td><td>6.796</td><td class="up">+100基点</td></tr>
       </table>
 
-      <div class="chart">
-        <img loading="lazy" src="../../../docs/charts/astock_indices.svg" alt="A股主要指数涨跌幅">
-        <div class="chart-label">A股主要指数 2026.05.21 涨跌幅</div>
-      </div>
-
       <div class="list">
-        <div class="list-item"><span class="tag-b">⚛️ 量子</span>白宫20亿资助9家公司·IBM+12%·D-Wave+33%·Rigetti+30%</div>
-        <div class="list-item"><span class="tag-b">💾 存储</span>ARM+16%市值破3000亿·闪迪+11%·希捷+8%·美光+4%</div>
-        <div class="list-item"><span class="tag-b">🚗 特斯拉</span>FSD正式入华落地·智能驾驶产业链利好</div>
-        <div class="list-item"><span class="tag-b">🛢️ 商品</span>WTI$96.35·布伦特$102.58·黄金$4,546·美伊和谈升温</div>
+        <div class="list-item"><span class="tag-b">A股</span>沪指+0.87%·深成指+2.3%·创业板+2.84%</div>
+        <div class="list-item"><span class="tag-b">科技</span>元件+7.85%·PCB超40股涨停·143亿净流入</div>
+        <div class="list-item"><span class="tag-b">宏观</span>央行法修订草案通过·LPR不变·本周净投放3015亿</div>
+        <div class="list-item"><span class="tag-b">全球</span>道指新高·量子20亿·美伊谈判反复·金油分化</div>
       </div>
 
       <div style="background:linear-gradient(135deg,#D4A017,#B8860B);border-radius:12px;padding:16px 20px;margin:22px 0;color:white;text-align:center;">
         <img loading="lazy" src="../../../docs/assets/character/ayang-portrait.jpg" style="width:56px;height:56px;border-radius:50%;object-fit:cover;margin-bottom:8px;border:2px solid rgba(255,255,255,0.3);display:block;margin-left:auto;margin-right:auto;" alt="阿扬">
-        <div style="font-size:14px;font-weight:700;margin-bottom:4px;">🌙 扬说财经 · 晚间</div>
+        <div style="font-size:14px;font-weight:700;margin-bottom:4px;">📡 扬说财经</div>
         <div style="font-size:11px;opacity:0.8;margin-bottom:8px;">用漫画看懂财经 — 你好，我是阿扬</div>
         <div style="display:flex;justify-content:center;gap:16px;font-size:10px;opacity:0.6;">
           <span>🌅 扬说·早报</span>
@@ -267,7 +287,7 @@
         </div>
       </div>
 
-      <div class="warn">⚠️ <strong>风险提示：</strong>以上内容仅为信息分享，不构成任何投资建议。市场有风险，投资需谨慎。数据来源于公开信息，如有出入请以官方数据为准。</div>
+      <div class="warn">⚠️ <strong>风险提示：</strong>以上内容仅为信息分享，不构成任何投资建议。市场有风险，投资需谨慎。数据来源于东方财富、新华社、路透社等公开信息，如有出入请以官方数据为准。</div>
     </div>
 
   </div>

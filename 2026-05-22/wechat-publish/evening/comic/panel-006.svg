@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 220">
+  <rect width="300" height="220" fill="#FAFAFA"/>
+  <!-- Balance scale — gold vs oil tug of war -->
+  <!-- Stand -->
+  <line x1="150" y1="80" x2="150" y2="170" stroke="#1E293B" stroke-width="2.5"/>
+  <!-- Beam -->
+  <line x1="60" y1="55" x2="240" y2="55" stroke="#1E293B" stroke-width="2"/>
+  <circle cx="150" cy="55" r="4" fill="none" stroke="#1E293B" stroke-width="1.5"/>
+  <!-- Left pan: Gold (slightly tilted up) -->
+  <path d="M40,55 Q25,65 40,90 Q55,65 40,55" fill="none" stroke="#D4A017" stroke-width="2"/>
+  <rect x="34" y="65" width="12" height="18" fill="none" stroke="#D4A017" stroke-width="1.5"/>
+  <!-- Gold label -->
+  <text x="40" y="46" text-anchor="middle" font-family="'Noto Sans SC','PingFang SC',sans-serif" font-size="9" font-weight="700" fill="#D4A017">黄金</text>
+  <text x="40" y="105" text-anchor="middle" font-family="'Noto Sans SC','PingFang SC',sans-serif" font-size="8" fill="#1E293B">$4,542</text>
+  <text x="40" y="117" text-anchor="middle" font-family="'Noto Sans SC','PingFang SC',sans-serif" font-size="7" fill="#64748B">沪金993-998</text>
+  <!-- Right pan: Oil (tilted down) -->
+  <path d="M260,55 Q275,65 260,95 Q245,65 260,55" fill="none" stroke="#1E293B" stroke-width="2"/>
+  <!-- Oil drop -->
+  <ellipse cx="260" cy="70" rx="5" ry="8" fill="none" stroke="#1E293B" stroke-width="1.5"/>
+  <text x="260" y="46" text-anchor="middle" font-family="'Noto Sans SC','PingFang SC',sans-serif" font-size="9" font-weight="700" fill="#16A34A">原油</text>
+  <text x="260" y="110" text-anchor="middle" font-family="'Noto Sans SC','PingFang SC',sans-serif" font-size="8" fill="#16A34A">布伦特$102</text>
+  <text x="260" y="122" text-anchor="middle" font-family="'Noto Sans SC','PingFang SC',sans-serif" font-size="7" fill="#64748B">WTI $96</text>
+  <!-- Downtrend arrow on oil side -->
+  <text x="260" y="132" text-anchor="middle" font-family="'Noto Sans SC','PingFang SC',sans-serif" font-size="7" fill="#16A34A">三连跌</text>
+  <!-- Bottom annotation -->
+  <text x="150" y="200" text-anchor="middle" font-family="'Noto Sans SC','PingFang SC',sans-serif" font-size="8" fill="#64748B">美伊谈判反复 避险vs通胀拉锯</text>
+  <!-- Middle description -->
+  <text x="150" y="145" text-anchor="middle" font-family="'Noto Sans SC','PingFang SC',sans-serif" font-size="8" fill="#64748B">金油逻辑打架</text>
+  <text x="150" y="158" text-anchor="middle" font-family="'Noto Sans SC','PingFang SC',sans-serif" font-size="7" fill="#64748B">方向选择等待催化剂</text>
+</svg>
