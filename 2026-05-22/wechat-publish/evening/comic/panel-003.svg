@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 220">
+<defs>
+  <filter id="shadow" x="-10%" y="-10%" width="130%" height="130%"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#1E293B" flood-opacity="0.12"/></filter>
+</defs>
+<rect width="300" height="220" fill="#F5F7FA" rx="8"/>
+<rect x="0" y="0" width="300" height="30" rx="8" fill="#1A56DB" filter="url(#shadow)"/>
+<rect x="0" y="20" width="300" height="10" fill="#1A56DB"/>
+<text x="150" y="20" text-anchor="middle" font-family="'Noto Sans SC','PingFang SC',sans-serif" font-size="12" font-weight="bold" fill="white">🧭 A股投资者指南：哪些机会值得关注？</text>
+
+<!-- 建议1 -->
+<rect x="10" y="38" width="280" height="40" rx="6" fill="white" stroke="#EF4444" stroke-width="1" filter="url(#shadow)"/>
+<rect x="10" y="38" width="4" height="40" rx="2" fill="#EF4444"/>
+<text x="22" y="56" font-family="'Noto Sans SC',sans-serif" font-size="10" font-weight="bold" fill="#DC2626">① 不追高！</text>
+<text x="22" y="70" font-family="'Noto Sans SC',sans-serif" font-size="8" fill="#475569">A股整体弱势，概念炒作持续性存疑，等回调再考虑</text>
+
+<!-- 建议2 -->
+<rect x="10" y="84" width="280" height="40" rx="6" fill="white" stroke="#2563EB" stroke-width="1" filter="url(#shadow)"/>
+<rect x="10" y="84" width="4" height="40" rx="2" fill="#2563EB"/>
+<text x="22" y="102" font-family="'Noto Sans SC',sans-serif" font-size="10" font-weight="bold" fill="#1A56DB">② 关注存储国产链</text>
+<text x="22" y="116" font-family="'Noto Sans SC',sans-serif" font-size="8" fill="#475569">长江存储IPO辅导·大普微复牌，国内存储产业链实质利好</text>
+
+<!-- 建议3 -->
+<rect x="10" y="130" width="280" height="40" rx="6" fill="white" stroke="#10B981" stroke-width="1" filter="url(#shadow)"/>
+<rect x="10" y="130" width="4" height="40" rx="2" fill="#10B981"/>
+<text x="22" y="148" font-family="'Noto Sans SC',sans-serif" font-size="10" font-weight="bold" fill="#059669">③ FSD入华落地</text>
+<text x="22" y="162" font-family="'Noto Sans SC',sans-serif" font-size="8" fill="#475569">特斯拉FSD正式入华，智能驾驶产业链迎实质性利好</text>
+
+<!-- 建议4 -->
+<rect x="10" y="176" width="280" height="36" rx="6" fill="white" stroke="#D4A017" stroke-width="1" filter="url(#shadow)"/>
+<rect x="10" y="176" width="4" height="36" rx="2" fill="#D4A017"/>
+<text x="22" y="194" font-family="'Noto Sans SC',sans-serif" font-size="10" font-weight="bold" fill="#B8860B">④ 耐心等待</text>
+<text x="22" y="206" font-family="'Noto Sans SC',sans-serif" font-size="8" fill="#475569">恐慌盘还未完全出清，右侧信号出现再动手</text>
+
+<!-- 角色 -->
+<g transform="translate(270, 198)">
+  <clipPath id="cp3"><ellipse cx="0" cy="-2.7" rx="6.15" ry="8.45"/></clipPath>
+  <image href="data:image/jpeg;base64,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" x="-6.15" y="-11.55" width="12.3" height="20.4" preserveAspectRatio="xMidYMin slice" clip-path="url(#cp3)" filter="url(#shadow)"/>
+  <rect x="-8.55" y="5.4" width="17.1" height="15.3" rx="4.95" fill="#1A56DB" opacity="0.85" filter="url(#shadow)"/>
+  <polygon points="-3.15,5.4 0,-0.9 3.15,5.4" fill="#FFFFFF" opacity="0.9"/>
+  <polygon points="-1.125,3.6 0,0.0 1.125,3.6" fill="#D4A017"/>
+  <rect x="-0.9" y="4.05" width="1.8" height="3.6" rx="0.45" fill="#D4A017"/>
+</g>
+</svg>

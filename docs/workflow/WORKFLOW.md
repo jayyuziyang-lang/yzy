@@ -1,236 +1,114 @@
-# 扬说财经 · 生产工作流程
+# 扬说财经 · 生产工作流程 v3.0
+
+> 版本: v3.0 | 更新: 2026-05-22
+> 核心变更: 10人Agent团队 + Think块/证据块/四原则审计
+
+---
 
 ## 核心原则
 
-- **早晚分离**：早报和晚报是两次独立的生产调用，互不依赖
-- **先审后发**：音频脚本必须经专人审核后才能生成最终音频
-- **质量门禁**：每个环节产出后自动运行质量检查，不通过不进入下一环节
+- **专职核查**：事实核查员独立运作，可阻塞流水线（v2.0最大教训）
+- **独立质检**：质检审查官不参与生产，专门找问题
+- **先假设后验证**：每个Agent启动输出假设，完成输出证据
+- **早晚分离**：早报和晚报是两次独立的生产调用
 - **新闻有源**：每条数据必须标注来源URL，关键数字交叉验证
-- **每日复盘**：当天工作结束后运行复盘Agent，问题不过夜
-- **持续迭代**：每周至少一次竞争分析+漫画风格评估
+- **每日复盘**：附四原则审计，问题不过夜
 
 ---
 
-## 团队架构
+## 五层质量控制体系
 
-扬说财经由 **1位运营总监 (Claude) + 13个AI子Agent** 组成，详见：
-- [团队架构与职责](../team/TEAM.md)
-- [Agent操作手册](../team/AGENT_HANDBOOK.md)
-
----
-
-## 每日完整工作流
-
-### 步骤0：运营总监启动新闻采集（用户说"给我今天的早报"）
-
-```bash
-# 运营总监执行WebSearch采集新闻
-# → 填充 news-collector.sh 生成的模板
-# → 运行事实核查
-bash scripts/agents/fact-checker.sh
 ```
-
-### 步骤1：内容策划（运营总监 + 主编Agent协作）
-编写：
-- `storyboard.json` — 漫画分镜表
-- `article.md` — 文章Markdown（≥3000字）
-- `article.html` — 发布用HTML（三层结构）
-
-### 步骤2：内容验证
-```bash
-bash scripts/agents/content-prep.sh morning
-```
-
-### 步骤3：生产管线
-```bash
-bash scripts/morning.sh
-```
-自动执行：图表 → 品牌 → 漫画 → 脚本 → [人工审核] → 音频
-
-### 步骤4：全量质量检查
-```bash
-python scripts/quality-check.py
-```
-
-### 步骤5：每日复盘（当天工作结束后）
-```bash
-bash scripts/agents/daily-review.sh
+Layer 1: Agent 2（事实核查员）→ 数据来源追溯 ← 新增独立层
+Layer 2: Agent 3（主笔编辑）→ 内容一致性审查  
+Layer 3: Agent 4/5/6/7（生产者）→ 各自模块自检
+Layer 4: Agent 8（质检审查官）→ 客观证据收集 ← 新增独立层
+Layer 5: Claude Code（主编统筹）→ 终审门禁
 ```
 
 ---
 
-## 一、早报流程（用户发起）
+## 晚报生产流程（10阶段）
 
-用户说：*"请给我今天的早报"*
-
-### Phase 1：内容准备（人工 + Claude 协作）
-
-1. 收集当日财经新闻
-2. 确定早报主题（英伟达 / A股 / 宏观等）
-3. 编写 `storyboard.json`（漫画分镜表）
-4. 编写 `article.md` + `article.html`（三层结构文章）
-
-**产出：**
+### Phase 0: 环境验证（主编）
 ```
-wechat-publish/morning/
-├── storyboard.json       # 漫画分镜（必须）
-├── article.md            # 文章Markdown（必须）
-└── article.html          # 文章HTML（必须）
+Think 假设:
+1. [工具链可用性假设]
+2. [数据源可用性假设]
+
+验证:
+→ python --version
+→ git status (仓库干净)
+→ 生产目录就绪
+→ edge-tts 可用 (python -c "import edge_tts")
 ```
 
-### Phase 2：数据图表
+### Phase 1: 新闻采集（Agent 1）
+搜索国内外财经新闻，每条必须含来源URL。
+输出: `docs/review/news-evening-{YYYY-MM-DD}.md`
+完成后输出验证证据块。
 
-```bash
-python scripts/generate-charts.py
-python scripts/quality-check.py charts
-```
+### Phase 2: 事实核查（Agent 2）
+逐条验证新闻的数据点来源，标记可疑数据。
+输出: `docs/review/factcheck-{YYYY-MM-DD}.md`
+**发现编造数据 → 阻塞流水线。**
 
-**产出：** `docs/charts/*.svg`（5张数据图）
+### Phase 3: 主笔编辑（Agent 3）
+撰写 article.html + article.md + storyboard.json。
+**强制调用Claude Code。**
+输出三层结构文章，底部含合规声明。
 
-### Phase 3：品牌资产
+### Phase 4: 漫画设计（Agent 4）
+创建 3-4 格 SVG 漫画面板。
+每个面板 300x220 viewBox，含角色头像。
+调用: upgrade-comic.py 或手动创建。
 
-```bash
-python scripts/rebrand-character.py
-python scripts/quality-check.py brand
-```
+### Phase 5: 音频制作（Agent 5）
+写口播稿 → script.txt → [主编审核] → audio.mp3
+调用: python -m edge_tts --voice zh-CN-YunyangNeural --rate=-5%
 
-**产出：** `docs/assets/*.svg`（含人物图片）
+### Phase 6: 数据可视化（Agent 6）
+调用: python scripts/generate-charts.py
+验证 5+ 个 SVG 图表生成成功。
 
-### Phase 4：漫画分镜
+### Phase 7: PDF深度分析（Agent 7）
+6条精选新闻 × 4维度深度分析。
+输出: finance_daily_{YYYYMMDD}_深度版.html
 
-```bash
-python scripts/upgrade-comic.py
-python scripts/quality-check.py comics
-```
+### Phase 8: 质量审查（Agent 8）
+Agent 8 独立执行质检，收集客观证据。
+**强制调用Claude Code。**
+全部通过才放行，有问题直接驳回。
 
-**产出：** `wechat-publish/morning/comic/panel-*.svg`
+### Phase 9: 发布部署（Agent 9）
+更新索引 → git commit → git push → 验证URL。
 
-### Phase 5：口播脚本
-
-```bash
-python scripts/upgrade-audio.py --script-only morning
-```
-
-**产出：** `wechat-publish/morning/script.txt`
-
-### → 人工审核脚本
-
-1. 打开 `script.txt` 逐行检查
-2. 确认无英文字母、网址、异常符号
-3. 如有修改，直接编辑 `script.txt`
-
-### Phase 6：音频生成
-
-```bash
-python scripts/upgrade-audio.py --from-script morning
-python scripts/quality-check.py audio
-```
-
-**产出：** `wechat-publish/morning/audio.mp3`
-
-### Phase 7：全量验证
-
-```bash
-python scripts/quality-check.py
-```
-
-### 交付物
-
-```
-wechat-publish/morning/
-├── storyboard.json
-├── article.md
-├── article.html          # ← 公众号发布内容
-├── comic/
-│   ├── panel-000.svg ~ panel-004.svg
-├── script.txt
-└── audio.mp3
-```
+### Phase 10: 复盘（Agent 10）
+当日总结 → 四原则审计 → 改进项记录。
+输出: docs/review/daily-{YYYY-MM-DD}.md
 
 ---
 
-## 二、晚报流程（用户发起）
-
-用户说：*"请给我今天的晚报"*
-
-流程与早报一致，session 替换为 `evening`：
-
-```bash
-# Phase 1：内容准备（人工 + Claude）
-# 编写 storyboard.json / article.md / article.html
-
-# Phase 2-4：图表 + 品牌 + 漫画
-python scripts/generate-charts.py
-python scripts/quality-check.py charts
-python scripts/rebrand-character.py
-python scripts/quality-check.py brand
-python scripts/upgrade-comic.py
-python scripts/quality-check.py comics
-
-# Phase 5：口播脚本
-python scripts/upgrade-audio.py --script-only evening
-
-# → 人工审核 script.txt
-
-# Phase 6-7：音频 + 全量验证
-python scripts/upgrade-audio.py --from-script evening
-python scripts/quality-check.py
-```
-
----
-
-## 三、快速命令速查
+## 快速命令速查
 
 | 用途 | 命令 |
 |------|------|
-| 早报全流程 | `bash scripts/morning.sh` |
 | 晚报全流程 | `bash scripts/evening.sh` |
-| 仅出音频脚本 | `python scripts/upgrade-audio.py --script-only morning` |
-| 从脚本生成音频 | `python scripts/upgrade-audio.py --from-script evening` |
+| 数据图表 | `python scripts/generate-charts.py` |
+| 音频合成 | `python -m edge_tts --voice zh-CN-YunyangNeural --rate=-5% --text "..." --write-media audio.mp3` |
 | 完整质量检查 | `python scripts/quality-check.py` |
-| 单模块检查 | `python scripts/quality-check.py audio` |
-| 生产状态预览 | `bash scripts/agents/status.sh` |
+| 索引更新 | `python scripts/update-index.py` |
+| 部署验证 | `bash scripts/verify-deploy.sh` |
 
 ---
 
-## 四、质量门禁标准
+## 事后复盘清单
 
-| 检查项 | 通过标准 | 失败处理 |
-|--------|----------|----------|
-| 品牌资产 | 9项全部通过 | 重新生成品牌资产 |
-| 漫画分镜 | 6项全部通过 | 检查SVG文件、storyboard一致性 |
-| 文章 | 14项全部通过 | 检查三层结构、断链、MD长度 |
-| 图表 | 5项全部通过 | 检查数据源、SVG生成 |
-| 音频 | 8项全部通过 | 检查script.txt内容、SSML纯净度 |
-| 脚本 | 7项全部通过 | 检查文件完整性 |
+每次生产结束后执行：
 
----
-
-## 五、故障排除
-
-**"目录不存在"**
-```bash
-mkdir -p 2026-05-22/wechat-publish/morning/comic
-mkdir -p 2026-05-22/wechat-publish/evening/comic
-```
-
-**"音频质量不佳"**
-1. 编辑 `script.txt` 调整措辞
-2. 重新运行 `python scripts/upgrade-audio.py --from-script morning`
-
-**"SVG漫画未更新"**
-```bash
-python scripts/upgrade-comic.py --dir 2026-05-22/wechat-publish/morning/comic
-```
-
----
-
-## 六、公众号发布检查清单
-
-□ 文章 HTML 在浏览器打开后视觉完整
-□ 漫画 SVG 在浏览器中正常渲染
-□ 音频 MP3 可正常播放、无杂音
-□ 脚本已审核、无英文字母或异常符号
-□ 49项质量检查全部通过
-□ 所有图片引用为相对路径、无断链
-□ 品牌标识（扬说财经）出现在文章中
+- [ ] Think假设块是否输出（每个Agent启动时）
+- [ ] 验证证据块是否输出（每个Agent完成时）
+- [ ] 数据来源是否全部可追溯
+- [ ] 质检是否通过（Agent 8 报告）
+- [ ] 四原则审计是否完成
+- [ ] 改进项是否记录并落实

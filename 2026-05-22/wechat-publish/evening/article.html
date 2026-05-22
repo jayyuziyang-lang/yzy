@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>全球科技狂欢：量子计算+存储芯片双线爆发，A股投资者该追吗？</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system,"PingFang SC","Microsoft YaHei","Helvetica Neue",sans-serif; background: #F5F7FA; color: #1E293B; line-height: 1.8; font-size: 16px; }
+  .c { max-width: 640px; margin: 0 auto; background: #fff; padding: 44px 0 40px; }
+
+  .top-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; max-width: 640px; margin: 0 auto; background: rgba(255,255,255,0.95); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-bottom: 1px solid #E2E8F0; display: flex; align-items: center; padding: 0 16px; height: 44px; }
+  .top-nav .back { display: flex; align-items: center; gap: 4px; color: #1A56DB; text-decoration: none; font-size: 13px; font-weight: 600; }
+  .top-nav .back:active { opacity: 0.6; }
+  .top-nav .nav-date { flex: 1; text-align: center; font-size: 12px; color: #64748B; }
+  .top-nav .nav-edition { font-size: 11px; color: #94A3B8; background: #F1F5F9; padding: 2px 8px; border-radius: 8px; }
+  .top-nav .nav-edition.pm { color: #D4A017; background: #FFFBEB; }
+
+  .header { background: linear-gradient(135deg,#D4A017,#B8860B); padding: 20px 20px 16px; color: white; }
+  .header h1 { font-size: 22px; font-weight: 700; line-height: 1.4; margin-bottom: 6px; }
+  .header .meta { font-size: 12px; opacity: 0.8; display: flex; gap: 12px; flex-wrap: wrap; }
+
+  .player { display: flex; align-items: center; gap: 12px; margin-top: 14px; }
+  .player-icon { width: 40px; height: 40px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 18px; }
+  .player-info { flex: 1; }
+  .player-title { font-size: 13px; font-weight: 600; }
+  .player-desc { font-size: 11px; opacity: 0.7; }
+  .player audio { width: 100%; margin-top: 4px; border-radius: 20px; }
+
+  .body { padding: 20px 20px 0; }
+
+  .layer1 { margin-bottom: 28px; }
+  .l1-title { font-size: 16px; font-weight: 700; color: #D4A017; margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
+  .l1-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-bottom: 12px; }
+  .l1-item { background: #F8F9FA; border-radius: 8px; padding: 8px 10px; border-left: 3px solid #1A56DB; }
+  .l1-item .tag { font-size: 10px; font-weight: 700; display: block; margin-bottom: 2px; }
+  .l1-item .txt { font-size: 12px; color: #475569; }
+  .l1-item .pct { font-size: 11px; font-weight: 600; }
+  .l1-down { border-left-color: #EF4444; } .l1-down .tag { color: #EF4444; }
+  .l1-up { border-left-color: #10B981; } .l1-up .tag { color: #10B981; }
+  .l1-gold { border-left-color: #D4A017; } .l1-gold .tag { color: #D4A017; }
+  .l1-blue { border-left-color: #1A56DB; } .l1-blue .tag { color: #1A56DB; }
+  .l1-purple { border-left-color: #8B5CF6; } .l1-purple .tag { color: #8B5CF6; }
+  .l1-comic { margin: 8px -10px 0; }
+  .l1-comic img { width: 100%; border-radius: 10px; border: 1px solid #E2E8F0; }
+  .l1-divider { border: none; border-top: 2px dashed #D4A017; margin: 16px 0; }
+
+  .layer2 { margin-bottom: 24px; }
+  .l2-title { font-size: 16px; font-weight: 700; color: #D4A017; margin-bottom: 14px; display: flex; align-items: center; gap: 6px; }
+
+  .quote { background: #FFFBEB; border-left: 4px solid #D4A017; padding: 12px 14px; margin: 14px 0; border-radius: 0 8px 8px 0; font-size: 14px; color: #92400E; line-height: 1.7; }
+  h2 { font-size: 17px; font-weight: 700; color: #D4A017; margin: 22px 0 10px; padding-bottom: 6px; border-bottom: 2px solid #D4A017; }
+  h3 { font-size: 15px; font-weight: 600; color: #1A56DB; margin: 16px 0 8px; }
+  p { margin-bottom: 12px; text-align: justify; font-size: 15px; }
+
+  .comic-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 10px; margin: 14px 0; }
+  .comic-grid img { width: 100%; height: auto; border-radius: 8px; border: 1px solid #E2E8F0; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+  @media (max-width:480px) { .comic-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 6px; } }
+
+  .gold-box { background: linear-gradient(135deg,#FFF8E7,#FFF3D6); border: 1px solid #D4A017; border-radius: 12px; padding: 18px 20px; margin: 22px 0; text-align: center; font-size: 16px; font-weight: 700; color: #B8860B; line-height: 1.5; }
+
+  .analogy { background: #F0FFF4; border: 1px solid #A7F3D0; border-radius: 10px; padding: 10px 14px; margin: 12px 0; font-size: 13px; color: #065F46; }
+  .analogy::before { content: "💡 类比一下："; font-weight: 600; color: #059669; }
+  .fun-fact { background: #FFFBEB; border: 1px solid #FDE68A; border-radius: 10px; padding: 10px 14px; margin: 12px 0; font-size: 13px; color: #92400E; }
+  .fun-fact::before { content: "🤯 你知道么："; font-weight: 600; color: #D97706; }
+  .divider { border: none; border-top: 2px dashed #E2E8F0; margin: 20px 0; }
+
+  .layer3 { margin-bottom: 24px; }
+  .l3-title { font-size: 16px; font-weight: 700; color: #D4A017; margin-bottom: 10px; }
+  table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 13px; }
+  th { background: #D4A017; color: #fff; padding: 8px 10px; text-align: left; font-weight: 600; }
+  th:first-child { border-radius: 6px 0 0 0; }
+  th:last-child { border-radius: 0 6px 0 0; }
+  td { padding: 8px 10px; border-bottom: 1px solid #E2E8F0; }
+  tr:nth-child(even) { background: #F8F9FA; }
+  .up { color: #EF4444; font-weight: 600; }
+  .down { color: #10B981; font-weight: 600; }
+
+  .warn { background: #FFF5F5; border: 1px solid #FECACA; border-radius: 10px; padding: 12px 14px; margin-top: 24px; font-size: 12px; color: #991B1B; line-height: 1.5; }
+  .list { background: #F8F9FA; border-radius: 8px; padding: 10px 14px; margin: 10px 0; }
+  .list-item { padding: 5px 0; border-bottom: 1px solid #E2E8F0; font-size: 13px; display: flex; gap: 6px; }
+  .list-item:last-child { border-bottom: none; }
+  .tag-b { display: inline-block; background: #D4A017; color: #fff; font-size: 10px; padding: 1px 7px; border-radius: 8px; white-space: nowrap; }
+
+  .chart { margin: 16px 0; background: #F8F9FA; border-radius: 10px; padding: 10px; text-align: center; border: 1px solid #E2E8F0; }
+  .chart img { max-width: 100%; height: auto; border-radius: 6px; }
+  .chart-label { font-size: 12px; color: #64748B; margin-top: 6px; }
+</style>
+</head>
+<body>
+<div class="c">
+
+  <div class="top-nav">
+    <a class="back" href="../../../index.html">&larr; 返回首页</a>
+    <span class="nav-date">2026.05.22</span>
+    <span class="nav-edition pm">晚报</span>
+  </div>
+
+  <div class="header">
+    <h1>全球科技狂欢：量子计算+存储芯片双线爆发，A股投资者该追吗？</h1>
+    <div class="meta">
+      <span>🌙 2026.05.22 晚间</span>
+      <span>🏷️ 科技/AI/全球市场</span>
+      <span>👤 主讲：阿扬</span>
+    </div>
+    <div class="player">
+      <div class="player-icon">🎧</div>
+      <div class="player-info">
+        <div class="player-title">音频解说 · 约3分钟</div>
+        <div class="player-desc">边听边看，体验更佳</div>
+        <audio controls preload="none"><source src="audio.mp3" type="audio/mpeg"></audio>
+      </div>
+    </div>
+  </div>
+
+  <div class="body">
+
+    <!-- ════════════════════════════════════════ -->
+    <!-- LAYER 1：今日热点速览 -->
+    <!-- ════════════════════════════════════════ -->
+    <div class="layer1">
+
+      <div class="l1-title">📋 今日热点速览 <span style="font-size:12px;color:#64748B;font-weight:400;">— 60秒掌握关键信息</span></div>
+
+      <div class="l1-grid">
+        <div class="l1-item l1-down">
+          <span class="tag">A股</span>
+          <span class="txt">沪指-2.04%失守4100</span>
+          <span class="pct" style="color:#EF4444;">成交3.48万亿放量跌</span>
+        </div>
+        <div class="l1-item l1-up">
+          <span class="tag">道指新高</span>
+          <span class="txt">道指50285点创历史新高</span>
+          <span class="pct" style="color:#10B981;">+0.55%</span>
+        </div>
+        <div class="l1-item l1-up">
+          <span class="tag">⚛️ 量子计算</span>
+          <span class="txt">IBM+12% D-Wave+33%</span>
+          <span class="pct" style="color:#8B5CF6;">白宫20亿扶持</span>
+        </div>
+        <div class="l1-item l1-up">
+          <span class="tag">💾 存储芯片</span>
+          <span class="txt">ARM+16% 闪迪+11%</span>
+          <span class="pct" style="color:#EF4444;">🔥 全线暴涨</span>
+        </div>
+        <div class="l1-item l1-up">
+          <span class="tag">🚗 特斯拉</span>
+          <span class="txt">FSD正式落地中国</span>
+          <span class="pct" style="color:#1A56DB;">智能驾驶利好</span>
+        </div>
+        <div class="l1-item l1-down">
+          <span class="tag">🛒 沃尔玛</span>
+          <span class="txt">-7.27% 财报不及预期</span>
+          <span class="pct" style="color:#EF4444;">消费疲软信号</span>
+        </div>
+      </div>
+
+      <div class="l1-comic">
+        <img loading="lazy" src="comic/panel-000.svg" alt="扬说财经晚报速览">
+        <div style="text-align:center;font-size:11px;color:#64748B;margin-top:4px;">🌙 扬说财经晚报 — 今晚这些大事值得关注</div>
+      </div>
+
+      <hr class="l1-divider">
+      <div style="text-align:center;font-size:12px;color:#D4A017;margin-bottom:4px;">▼ 往下翻看今晚深度解读 ▼</div>
+    </div>
+
+    <!-- ════════════════════════════════════════ -->
+    <!-- LAYER 2：深度解读 -->
+    <!-- ════════════════════════════════════════ -->
+    <div class="layer2">
+
+      <div class="l2-title">🔍 今晚深度专题</div>
+
+      <div class="quote">A股惨跌与美股新高同一天发生。量子计算+存储芯片双线爆发，白宫20亿美元押注——全球科技投资的逻辑正在发生根本性变化。</div>
+
+      <div class="comic-grid">
+        <img loading="lazy" src="comic/panel-001.svg" alt="冰火两重天">
+        <img loading="lazy" src="comic/panel-002.svg" alt="科技双线爆发">
+        <img loading="lazy" src="comic/panel-003.svg" alt="A股投资者指南">
+        <img loading="lazy" src="comic/panel-004.svg" alt="宏观信号">
+      </div>
+
+      <h2>同一片天空，冰火两重天</h2>
+      <p>昨天（5/21）A股经历了惨烈的一天。<strong>上证指数跌2.04%失守4100点</strong>，最惨的科创50暴跌超4%。成交额<strong>3.48万亿</strong>——这几乎是A股有史以来最大的单日成交之一，近4800只个股下跌。</p>
+      <p>但就在同一天晚上，<strong>美股道琼斯指数却创下了收盘历史新高50285点</strong>。标普500和纳斯达克也双双收涨。</p>
+
+      <div class="fun-fact">3.48万亿是什么概念？这个成交额如果放在全球交易所排名中，超过了东京交易所一整天的交易额。这波放量下跌说明市场分歧达到了极致。</div>
+
+      <p>这种反差背后的事实很清楚：<strong>全球资金正在重新配置。</strong>美债收益率飙升至4.57%以上，12月加息概率达42%，美元走强——这都是资金回流美国的信号。</p>
+
+      <h2>科技双线爆发：量子 + 存储</h2>
+      <p>真正让华尔街沸腾的是两条主线：</p>
+
+      <h3>⚛️ 量子计算线：白宫20亿重注</h3>
+      <p>美国商务部宣布向9家量子计算公司提供总额<strong>20亿美元</strong>拨款，附带政府持有股权条款。这是美国政府对量子计算最大的一笔直接投资。</p>
+      <p><strong>IBM</strong>获最大份额（约10亿美元），签署布局量子芯片与晶圆代工意向书，股价暴涨<strong>+12.43%</strong>。<strong>D-Wave Quantum</strong>一口气涨超<strong>+33.54%</strong>，Rigetti Computing涨超<strong>+30.57%</strong>。</p>
+
+      <div class="analogy">20亿美元放到整个AI产业中不算大数目，但关键在于信号意义——美国政府正式把量子计算从"实验室技术"升级为"国家战略产业"。这就像2018年的AI一样，政策红利往往是产业爆发的第一推动力。</div>
+
+      <h3>💾 存储芯片线：四大巨头集体拉升</h3>
+      <p><strong>ARM</strong>暴涨+16.16%，市值首破<strong>3000亿美元</strong>。闪迪涨近+11%，希捷+7.91%，美光+4.11%。</p>
+      <p>AI对存储的需求正在从"预期"走向"爆发"——大模型的训练和推理对HBM（高带宽内存）和NAND的需求是指数级的。一台AI服务器需要的存储容量是传统服务器的3-5倍。</p>
+
+      <div class="gold-box">AI基础设施正在经历从GPU单一驱动到"GPU+量子+存储"多元驱动的转折点。</div>
+
+      <h2>A股投资者该追吗？</h2>
+      <p>A股量子概念今天确实高开了——格尔软件涨停，科大国创涨超13%，国盾量子、神州信息涨超10%。但问题来了：A股整体还在下跌通道中（5/22两市成交缩至约1.1万亿，说明资金仍在观望），这种概念炒作能持续吗？</p>
+
+      <p><strong>理性分析：</strong></p>
+      <p><strong>第一，</strong>A股量子概念与美股的联动更多是情绪层面的。A股公司中真正能从量子计算中获利的不多。概念炒作往往来得快、去得也快。</p>
+      <p><strong>第二，</strong>存储芯片产业链中，国内公司的受益逻辑更清晰。长江存储启动IPO辅导，大普微复牌——这对国内存储产业链是实质性的利好。</p>
+      <p><strong>第三，</strong>特斯拉FSD入华对智能驾驶产业链是实质性利好。从预期博弈进入落地兑现阶段，德赛西威、豪恩汽电等相关个股值得关注。</p>
+      <p><strong>第四，</strong>整体市场环境偏弱，不要追高。恐慌盘还没完全出清，等回调是更理性的选择。</p>
+
+      <h2>宏观信号：油价跌了，沃尔玛也跌了</h2>
+      <p>油价连续三日下跌，WTI已跌破$97，布伦特跌破$103。美伊和谈预期升温——这是好消息。地缘溢价消退意味着全球风险偏好回升。</p>
+      <p>但黄金仍然坚挺在$4,540以上，说明市场并不完全相信局势已经缓和。</p>
+
+      <p><strong>沃尔玛暴跌7.27%</strong>是一个重要的宏观信号。作为全球最大的零售商，沃尔玛财报不及预期，说明美国消费者的钱包在收紧。这可能会影响美联储的决策——如果消费走弱，加息的动力也会减弱。</p>
+
+      <p>另外值得一提的是，英伟达Q1营收816亿美元（+85%），Q2指引$910亿——全部超出预期。但股价反而跌了1.77%。这就是典型的"买预期卖事实"。华尔街分析师集体上调目标价，最高看至400美元。长期逻辑没有变。</p>
+
+      <hr class="divider">
+    </div>
+
+    <!-- ════════════════════════════════════════ -->
+    <!-- LAYER 3：市场数据 -->
+    <!-- ════════════════════════════════════════ -->
+    <div class="layer3">
+      <div class="l3-title">📊 关键市场数据一览</div>
+
+      <table>
+        <tr><th>品种</th><th>最新</th><th>涨跌幅</th></tr>
+        <tr><td>上证指数 (5/21)</td><td>4,077.28</td><td class="down">-2.04%</td></tr>
+        <tr><td>科创50 (5/21)</td><td>1,764.17</td><td class="down">-3.70%</td></tr>
+        <tr><td>道琼斯</td><td>50,285.66</td><td class="up">+0.55%</td></tr>
+        <tr><td>纳斯达克</td><td>26,293.10</td><td class="up">+0.09%</td></tr>
+        <tr><td>IBM</td><td>—</td><td class="up">+12.43%</td></tr>
+        <tr><td>ARM Holdings</td><td>—</td><td class="up">+16.16%</td></tr>
+        <tr><td>D-Wave Quantum</td><td>—</td><td class="up">+33.54%</td></tr>
+        <tr><td>COMEX黄金</td><td>$4,546.50</td><td class="up">+0.09%</td></tr>
+        <tr><td>WTI原油</td><td>$96.35</td><td class="down">-1.94%</td></tr>
+        <tr><td>布伦特原油</td><td>$102.58</td><td class="down">-2.32%</td></tr>
+        <tr><td>10年美债收益率</td><td>4.570%</td><td class="down">-1.79bp</td></tr>
+      </table>
+
+      <div class="chart">
+        <img loading="lazy" src="../../../docs/charts/astock_indices.svg" alt="A股主要指数涨跌幅">
+        <div class="chart-label">A股主要指数 2026.05.21 涨跌幅</div>
+      </div>
+
+      <div class="list">
+        <div class="list-item"><span class="tag-b">⚛️ 量子</span>白宫20亿资助9家公司·IBM+12%·D-Wave+33%·Rigetti+30%</div>
+        <div class="list-item"><span class="tag-b">💾 存储</span>ARM+16%市值破3000亿·闪迪+11%·希捷+8%·美光+4%</div>
+        <div class="list-item"><span class="tag-b">🚗 特斯拉</span>FSD正式入华落地·智能驾驶产业链利好</div>
+        <div class="list-item"><span class="tag-b">🛢️ 商品</span>WTI$96.35·布伦特$102.58·黄金$4,546·美伊和谈升温</div>
+      </div>
+
+      <div style="background:linear-gradient(135deg,#D4A017,#B8860B);border-radius:12px;padding:16px 20px;margin:22px 0;color:white;text-align:center;">
+        <img loading="lazy" src="../../../docs/assets/character/ayang-portrait.jpg" style="width:56px;height:56px;border-radius:50%;object-fit:cover;margin-bottom:8px;border:2px solid rgba(255,255,255,0.3);display:block;margin-left:auto;margin-right:auto;" alt="阿扬">
+        <div style="font-size:14px;font-weight:700;margin-bottom:4px;">🌙 扬说财经 · 晚间</div>
+        <div style="font-size:11px;opacity:0.8;margin-bottom:8px;">用漫画看懂财经 — 你好，我是阿扬</div>
+        <div style="display:flex;justify-content:center;gap:16px;font-size:10px;opacity:0.6;">
+          <span>🌅 扬说·早报</span>
+          <span>🌙 扬说·夜读</span>
+          <span>📖 扬说·课堂</span>
+        </div>
+      </div>
+
+      <div class="warn">⚠️ <strong>风险提示：</strong>以上内容仅为信息分享，不构成任何投资建议。市场有风险，投资需谨慎。数据来源于公开信息，如有出入请以官方数据为准。</div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>

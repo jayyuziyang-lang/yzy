@@ -1,0 +1,42 @@
+{
+  "date": "2026-05-22",
+  "edition": "evening",
+  "title": "全球科技狂欢：量子计算+存储芯片双线爆发",
+  "panels": [
+    {
+      "id": "panel-000",
+      "type": "cover",
+      "title": "今晚速览",
+      "content": "热点：道指新高/量子爆发/存储暴涨/FSD入华/油价下跌",
+      "style": "上1下2三格布局"
+    },
+    {
+      "id": "panel-001",
+      "type": "contrast",
+      "title": "冰火两重天",
+      "content": "左：A股3.48万亿放量暴跌4800股下跌 右：道指50285创历史新高",
+      "style": "左右对比"
+    },
+    {
+      "id": "panel-002",
+      "type": "explosion",
+      "title": "科技双线爆发",
+      "content": "量子线：白宫20亿·IBM+12%·D-Wave+33% | 存储线：ARM+16%·闪迪+11%·美光+4%",
+      "style": "双列对比"
+    },
+    {
+      "id": "panel-003",
+      "type": "guide",
+      "title": "A股投资者指南",
+      "content": "四点建议：不追高·关注存储国产链·FSD落地利好·等回调",
+      "style": "清单式"
+    },
+    {
+      "id": "panel-004",
+      "type": "macro",
+      "title": "宏观信号",
+      "content": "油价连跌3天·黄金坚挺·沃尔玛-7%消费疲软·英伟达超预期反跌",
+      "style": "四分格"
+    }
+  ]
+}

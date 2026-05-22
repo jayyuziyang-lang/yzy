@@ -1,7 +1,15 @@
 {
-  "generated_at": "2026-05-22T09:36:36+08:00",
+  "generated_at": "2026-05-22T10:13:10+08:00",
   "latest_date": "2026-05-22",
   "articles": [
+    {
+      "date": "2026-05-22",
+      "session": "evening",
+      "edition_cn": "晚报",
+      "icon": "🌙",
+      "title": "全球科技狂欢：量子计算+存储芯片双线爆发，A股投资者该追吗？",
+      "url": "2026-05-22/wechat-publish/evening/article.html"
+    },
     {
       "date": "2026-05-22",
       "session": "morning",
@@ -29,6 +37,14 @@
   ],
   "by_date": {
     "2026-05-22": {
+      "evening": {
+        "date": "2026-05-22",
+        "session": "evening",
+        "edition_cn": "晚报",
+        "icon": "🌙",
+        "title": "全球科技狂欢：量子计算+存储芯片双线爆发，A股投资者该追吗？",
+        "url": "2026-05-22/wechat-publish/evening/article.html"
+      },
       "morning": {
         "date": "2026-05-22",
         "session": "morning",
