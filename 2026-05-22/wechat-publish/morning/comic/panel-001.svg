@@ -1,54 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 220">
 <defs>
-    <filter id="drop-shadow" x="-10%" y="-10%" width="130%" height="130%">
+    <filter id="shadow" x="-10%" y="-10%" width="130%" height="130%">
       <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#1E293B" flood-opacity="0.12"/>
     </filter>
-    <linearGradient id="brand-blue" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="sky" x1="0%" y1="0%" x2="0%" y2="100%">
       <stop offset="0%" stop-color="#1A56DB"/>
-      <stop offset="100%" stop-color="#1E3A7A"/>
-    </linearGradient>
-    <linearGradient id="brand-gold" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#D4A017"/>
-      <stop offset="100%" stop-color="#B8860B"/>
+      <stop offset="100%" stop-color="#EFF6FF"/>
     </linearGradient>
   </defs>
+  <rect width="300" height="220" fill="#F0F4FF" rx="8"/>
 
-  <rect width="300" height="220" fill="#F5F7FA" rx="8"/>
-  <circle cx="150" cy="90" r="80" fill="#10B981" opacity="0.06"/>
+  <!-- Mountain visual -->
+  <!-- Left peak (Dow 50000) - tall -->
+  <polygon points="50,190 100,60 150,190" fill="#10B981" opacity="0.2"/>
+  <polygon points="50,190 100,60 150,190" fill="none" stroke="#10B981" stroke-width="2"/>
+  <circle cx="100" cy="60" r="6" fill="#10B981"/>
+  <text x="100" y="54" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="8" font-weight="bold" fill="#059669">道指50000</text>
+
+  <!-- Right peak (A股) - shorter -->
+  <polygon points="130,190 180,110 230,190" fill="#EF4444" opacity="0.15"/>
+  <polygon points="130,190 180,110 230,190" fill="none" stroke="#EF4444" stroke-width="2" stroke-dasharray="4,3"/>
+  <circle cx="180" cy="110" r="6" fill="#EF4444" opacity="0.7"/>
+  <text x="180" y="104" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="8" font-weight="bold" fill="#DC2626">A股4000</text>
+
+  <!-- Ground -->
+  <rect x="30" y="190" width="240" height="2" fill="#CBD5E1" rx="1"/>
 
   <!-- Title -->
-  <text x="150" y="38" text-anchor="middle" font-family="'Noto Sans SC','PingFang SC',sans-serif" font-size="17" font-weight="bold" fill="#059669">道指首破50000点</text>
-  <text x="150" y="58" text-anchor="middle" font-family="'Noto Sans SC','PingFang SC',sans-serif" font-size="11" fill="#1E293B">美股道琼斯指数创收盘历史新高</text>
+  <text x="150" y="30" text-anchor="middle" font-family="'Noto Sans SC','PingFang SC',sans-serif" font-size="16" font-weight="bold" fill="#1A56DB">50000点的风景</text>
+  <text x="150" y="48" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="9" fill="#64748B">同一个天空，两个世界</text>
 
-  <!-- Big number -->
-  <rect x="40" y="72" width="220" height="56" rx="10" fill="#D1FAE5" stroke="#10B981" stroke-width="1.5" filter="url(#drop-shadow)"/>
-  <text x="150" y="98" text-anchor="middle" font-family="'JetBrains Mono','Courier New',monospace" font-size="26" font-weight="bold" fill="#059669">50,285</text>
-  <text x="150" y="118" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="10" fill="#047857">收涨 +0.55% · 年内第15次创新高</text>
-
-  <!-- Context -->
-  <text x="150" y="150" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="10" fill="#64748B">与此同时 标普500 +0.17% | 纳指 +0.09%</text>
+  <!-- Divider arrow -->
+  <text x="150" y="160" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="12" fill="#94A3B8">↕ 差距</text>
+  <text x="150" y="178" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="8" fill="#94A3B8">10000点的距离</text>
 
   <!-- 阿扬角色 -->
-  <g transform="translate(150, 182)">
+  <g transform="translate(150, 200)">
     <defs>
-      <clipPath id="char-clip">
-        <ellipse cx="0" cy="-4.5" rx="10.3" ry="14.1"/>
-      </clipPath>
+      <clipPath id="char"><ellipse cx="0" cy="-2.7" rx="6.15" ry="8.45"/></clipPath>
     </defs>
-    <image href="data:image/jpeg;base64,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" x="-10.3" y="-19.2" width="20.6" height="30.9"
-             preserveAspectRatio="xMidYMin slice" clip-path="url(#char-clip)"
-             filter="url(#drop-shadow)"/>
-    <rect x="-12.35" y="7.8" width="24.7" height="22.1" rx="7.15" fill="#1A56DB" opacity="0.85" filter="url(#drop-shadow)"/>
-    <polygon points="-4.55,7.8 0,-1.3 4.55,7.8" fill="#FFFFFF" opacity="0.9"/>
-    <polygon points="-1.625,5.2 0,0.0 1.625,5.2" fill="#D4A017"/>
-    <rect x="-1.3" y="5.85" width="2.6" height="5.2" rx="0.65" fill="#D4A017"/>
-  </g>
-
-  <!-- 气泡 -->
-  <g transform="translate(210, 132)">
-    <path d="M0,0 Q-8,-12 8,-12 L55,-12 Q68,-12 68,0 L68,18 Q68,26 60,26 L22,26 L14,34 L16,26 L8,26 Q0,26 0,18 Z" fill="white" stroke="#10B981" stroke-width="1"/>
-    <text x="34" y="6" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="7" fill="#1E293B">50000点！</text>
-    <text x="34" y="17" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="7" fill="#1E293B">里程碑时刻 🎉</text>
+    <image href="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCABQADwDASIAAhEBAxEB/8QAHAAAAgIDAQEAAAAAAAAAAAAABgcFCAABBAID/8QAOhAAAgEDBAAEBAIHBwUAAAAAAQIDBAURAAYSIRMxQVEHFCJhCHEVIzJSgZGhFiVCYnKx0TZTc4LB/8QAGAEBAQEBAQAAAAAAAAAAAAAABAMAAgX/xAAlEQABBAICAQMFAAAAAAAAAAABAAIDEQQSITETIlFhBUFCsdH/2gAMAwEAAhEDEQA/ALJb63tbdoVdnp7hSVtQ11qGgiNMgYoRxySucn9odDJ6OunZe6rfuuy0N1t8NRFBW0xqYhMoVuHMoDj2OMg+x0E/iErKalG3RVWKnuyGapfE0mBDxhyG48lDd4BBPYyMd5Ev8F5BPtCwzLDBCGtIHCFyyZ8ZuxyYtg5z9XffYB6CK4tSRfe7xarHQmuvFwp6Gm5BfFnfivI+Q/M4OB66T+7/AMRW0aIz0dnt9fd5QPpkyIYmIP8Amy2Pvx0rvxF78m3BvyqsVNcqtrLRSeGEVlKGVDxdlAAzlvpHIk9HHtpSwpE7SNPUJHGD9ICE8h7n/bR3SG+FYRiuVaHa34g9kXUul0+Zssq8AFlUzKzNkEZRegMDsgdH7HTbSeB4EnSeJopFDI4ccWU9gg+RGqBwJSswaTlG3PDqI8NxJPffr5EfY6Itm32+VFX/AGZobjW/LtC708UVQUEbDtsfUqgEEt2cZ1SKXY0VOWPUWFc+svNqpFLVFfBGB55bQ/U/ErZVPMYpL9Rhh5/rV/51XiqtbMsMl2rrPB4Th5BNcUJYBQMHhzb9rJ++dc1bZrU8itJd7dA3AdR0lUwb754DP8tNbHzyCiCQkWrOfGqor4dvRQ0dZS061DPE6M6LNMcAqqFyAqrhnds5AQdHOpvaENYEpqqeot9ZH4EiJU0PEQzL47GNgF6BKcScdcuWgH8T9HSS2SyV9dcGpIKOrkLBKQVBk5IOuJIGOvf20a/COl+S+HFlpxJBJiAnlDnj2xP8/fHWfLrRvxSfuqnfFP4d7hpvi1f6KpnghoXL3SKskysbQySEKoC5blyYpxAzlc4wdTWw/hNte9WCmulRdhWVUUfg/o5J+CVkyOSMsVDomBxK8crxbJz3qxu/tsLW3Knv6UtPVGKF4J450Yjw3UqWXj3kA+nkMkeuoTa21aCw2sU9lpYlDOksDUxDpG6MWUlicsckkk4znGvJyXOY6l62K1r22q57ssVDu7cN5rBf7TbL5BTLI9FT2+aGBxHHlQjSN2WCqAcDyHv2B7esN2o66nrrlQ1NLDPAZoDNHxEyt0CufMeZyPt76s9u+Dbmyae53RbTbqqorJf1tJRKwMssnJf1khz4SYdzjz9s4A0rt1X6C5zxeHbFp6akUpTQJlgqkqzMWwMtkBQAAAAB+aMHyOeCG+lRzfG1hBd6v77qAidqKOqLUKSy+EY0WZPpQsO2/wBQXJA++fTUaod0U8eYxgH5Un+uvncKuurO6mSUoDywTgZ9z99dIaMIvKaMkjPdy+59tey5pHJ7Xitk8VkDtXb3jtay7rtq0N7phLCjhww4hgAQSoYgkBsAHGCR66HU3NFUNBZNj0lJSUsjlErjT4gTLHk0MIx4nefqPFM57by1K2u/18t7prfVRQFZwTlR2Mfxx/TQ1t2KPaXxArNuSQf3XMBV22do8iBZSeUAb/KysQP3SfbRa1NOV3FxFtWtz3KD4c1Jvv6Qul3K0jveY55jI7rjMcwX9lCr4UhQAEcn/DpP0G977vq/JdKq3W2FZ6+CgpKaGRoo+ThmdnIOZDxCjk2QuRhTk6au8L6a1ZrjPRxiB6TwGgaVWEsLCTlkfusuB3jBxqvewJp6K20XypYOtbNNDGvbORGgQfzQjz7PWD6dxxh8Wzx30owZD3G2mqXjcW7b/BdrvFahGm3ZqzMFNU0y1FOJFPEMCwwHbgWJHn5+mvVu3Bdq22yVcRt0KRITLxt9PlWA/ZAKd9+ugeneoqKamoXuggRI3qh48jeEXWNn4AfvOfpHrltG/wAHttU+5pbwLnPUUUFLHC7PFOFRXdmUKfobLNxyMe2luZq2hxX6XL9nddos3hbdybb29aLsNw08jVwXxI0oKePgzAkcTw8uvX89Ctx3Fumkr6ik/tDOTBI0ZZEj4sQfMfQNMWb4a2qup6WA7srp4YQyU6PXxsqYGSFDJ6D+mspvgpBXxfMUl2r6iIkjxI5YWBPr2BqGJvHHU79jfdUrZBY99xNoJu2//rO2/wDjf/fUj8R9s1N+ssstoqTSXqniJo5euLsCHWNwf8JYDvzGT6EgxFpqYpt3UEsLeII0cMFwW/lnP8dHPzftTzn8wo/3OozCyLXcbi3kKvm47jX7k2TdbjZbDcJZ47eYa9WiaOOiKji8Q6zJIv1YRAQB2xGcaHPhdt+m/QNiuEtTLDWs88tMckGMMeIZex2Quffs++rRzTyTRvF8s31qU+qUeox6Z99JiWhivklltnNSZ6sIG5dI6xuQTj2ZRoX1DIlIZG01ZS8KKMbOI6CAb3s3aW2IJ7pJY7hebu9SDS00DPJ46vlTGECkI2SGz31yGcdacPws2HbNqbO/R3gySTV7/NVvjJxYuwGIyMnpB9I7PkT66jLdM0lzslRgB1rouS8sFWIZGH8zjTH/AFwHdNJ/6lW/+62BK+SM7mza2axrXjUVwoybbtmlwWoYwQSQV6IJAHWPsANdVroKe10vytAvgQ8i3ADIyfPz10GQL+2kqf6o2/415NRB/wB6P+LY06yhrqpaKjpTmmpKeA4xmOMKcfw10HWtZrlZYXVAZHdURPqZmOAoHmSfQaUthqIKreVmip0Yxm5yzq6qSrLwlZWDYwQcjRhfoLvU1pLpV0JrKAphYIgrITk/Uylhy6xjPl3166iJ4rvI9JGFlpaWjkDQQonEpj7KAMn3JOjzQmV7aHRtIilEbXfIUNuSamte7K+lI4yirjqUIHfCR0kB/LnyUffTbYYdvzOl01uNfXVQvNHU1lO4VoDiQMG4cGHJVJx0CAffRRtNr81HEt3QjCEFpQBIcEhSQPUjBOQNaGHxvePc2tNJ5Gt+BSnc48taJ789ZrDpCgF//2Q==" x="-6.15" y="-11.55" width="12.3" height="20.4" preserveAspectRatio="xMidYMin slice" clip-path="url(#char)" filter="url(#shadow)"/>
   </g>
 </svg>
