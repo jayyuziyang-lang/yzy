@@ -63,6 +63,26 @@
   .comic-grid img { width: 100%; height: auto; border-radius: 8px; border: 1px solid #E2E8F0; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
   @media (max-width:400px) { .comic-grid { grid-template-columns: 1fr; gap: 6px; } }
 
+  /* Story cards */
+  .story { margin: 22px 0; }
+  .story-head { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .story-num { width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; color: #fff; flex-shrink: 0; }
+  .story-num.s01 { background: #EF4444; } .story-num.s02 { background: #10B981; } .story-num.s03 { background: #7C3AED; }
+  .story-num.s04 { background: #1A56DB; } .story-num.s05 { background: #D4A017; } .story-num.s06 { background: #F59E0B; }
+  .story-tag { font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 3px; }
+  .story-tag.s01 { background: #FEF2F2; color: #DC2626; } .story-tag.s02 { background: #F0FDF4; color: #16A34A; }
+  .story-tag.s03 { background: #F5F3FF; color: #7C3AED; } .story-tag.s04 { background: #EFF6FF; color: #1A56DB; }
+  .story-tag.s05 { background: #FFFBEB; color: #B8860B; } .story-tag.s06 { background: #FFF7ED; color: #D97706; }
+  .story-title { font-size: 16px; font-weight: 700; color: #1E293B; line-height: 1.4; }
+  .story-badge { display: inline-block; font-size: 11px; padding: 1px 7px; border-radius: 3px; font-weight: 600; margin-left: 5px; vertical-align: middle; }
+  .story-badge.b-red { background: #FEF2F2; color: #DC2626; } .story-badge.b-green { background: #F0FDF4; color: #16A34A; }
+  .story-badge.b-gold { background: #FFFBEB; color: #D97706; } .story-badge.b-blue { background: #EFF6FF; color: #1A56DB; }
+  .story-content { font-size: 14px; color: #334155; line-height: 1.8; margin-bottom: 8px; }
+  .story-content p { margin-bottom: 8px; font-size: 14px; }
+  .story-img { margin: 10px 0 0; border-radius: 8px; border: 1px solid #E2E8F0; overflow: hidden; background: #FAFAFA; }
+  .story-img img { width: 100%; display: block; }
+  .story-divider { border: none; height: 1px; background: linear-gradient(to right, transparent, #E2E8F0, transparent); margin: 6px 0; }
+
   .gold-box { background: linear-gradient(135deg,#FFF8E7,#FFF3D6); border: 1px solid #D4A017; border-radius: 12px; padding: 18px 20px; margin: 22px 0; text-align: center; font-size: 16px; font-weight: 700; color: #B8860B; line-height: 1.5; }
 
   .analogy { background: #F0FFF4; border: 1px solid #A7F3D0; border-radius: 10px; padding: 10px 14px; margin: 12px 0; font-size: 13px; color: #065F46; }
@@ -146,31 +166,113 @@
 
       <div class="l2-title">🔍 今日深度专题</div>
 
-      <div class="quote">全球市场冰火两重天：道指破50000创历史，科技线双线爆发；A股放量回调，短期谨慎</div>
+      <div class="quote">全球冰火两重天：A股放量跳水4000点告急，道指却首次站上50000点。科技赛道双线爆发——量子计算刚获20亿注资，存储芯片又掀起暴涨风暴。</div>
 
-      <div class="comic-grid">
-        <img loading="lazy" src="comic/panel-002.svg" alt="今日盯盘">
-        <img loading="lazy" src="comic/panel-003.svg" alt="风暴前夜">
+      <!-- Story 01: A股 -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s01">1</div>
+          <span class="story-tag s01">A股</span>
+          <div class="story-title">A股4199→4077断崖跳水 <span class="story-badge b-red">-2.04%</span></div>
+        </div>
+        <div class="story-content">
+          <p>5月21日A股上演极端反转——早盘借外围利好冲高4199.53逼近4200，午后却单边跳水重挫逾120点。沪指收报4077.28跌2.04%，创近两月最大单日跌幅；科创50重挫4.42%，芯片算力全面回调。成交额3.5万亿放量5308亿，超4700只个股飘绿。</p>
+          <p>诡异的是——浦发银行、江苏银行、成都银行逆势刷新历史新高。银行板块独立行情说明市场并非全面恐慌，而是资金在剧烈调仓：从高位科技成长切换到低估值红利防御。机构集体喊话"错杀、黄金坑"，但口号不能当饭吃，关键看4000点能否缩量企稳。</p>
+        </div>
+        <div class="story-img">
+          <img loading="lazy" src="comic/panel-001.svg" alt="A股断崖跳水">
+        </div>
       </div>
 
-      <h2>A股速览</h2>
-      <p>昨天A股放量回调：沪指报4077点，跌2.04%；科创50重挫4.42%，芯片算力全面回调。成交额3.5万亿，较前日放量5308亿。完整分析详见昨夜晚报深度复盘。</p>
+      <hr class="story-divider">
 
-      <h2>隔夜市场扫描</h2>
-      <p>隔夜全球市场的关键词是"分化"。美股道琼斯指数收于<strong>50,285.66点</strong>，首次站上50000点大关，涨幅0.55%。与此同时，科技板块更是亮点纷呈——</p>
-      <p><strong>量子计算：</strong>特朗普政府宣布20亿美元量子计算扶持计划，IBM大涨12%，D-Wave暴涨33.4%。这不是科幻——IBM去年已发布1121量子比特的商用处理器，政策资金到位意味着产业化加速。</p>
-      <p><strong>存储芯片：</strong>ARM涨超16%，市值首破3000亿美元；闪迪涨超10%，希捷涨近8%。AI对算力的需求正在从GPU蔓延到存储基础设施，存储芯片成为产业链新增长极。</p>
-      <p>A股和美股的分化，本质上反映了两国经济周期的不同步——美国经济韧性超预期，而A股正处于政策真空期的阵痛中。外围科技热度能否传导到A股，今天盘面见分晓。</p>
+      <!-- Story 02: 美股 -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s02">2</div>
+          <span class="story-tag s02">美股</span>
+          <div class="story-title">道琼斯首破50000点 <span class="story-badge b-green">+0.55%</span></div>
+        </div>
+        <div class="story-content">
+          <p>美股道琼斯指数收于<strong>50,285.66</strong>，首次站上50000点大关。从40000到50000只用不到9个月，速度远超历史均值。但涨幅在收窄——创新高当天纳指几乎平收，标普仅涨0.17%。</p>
+          <p>领涨力量在切换：道指的强势来自传统工业、金融和能源板块的补涨，而非科技龙头带队。"涨指数不涨个股"的现象值得警惕——宽指新高未必等于普涨牛市。</p>
+        </div>
+        <div class="story-img">
+          <img loading="lazy" src="comic/panel-002.svg" alt="道指登顶">
+        </div>
+      </div>
 
-      <h2>宏观风向</h2>
-      <p><strong>美债收益率飙升：</strong>10年期国债收益率升至4.57%以上，30年期突破5.1%，创2007年以来新高。</p>
-      <p><strong>沃什今晚就职：</strong>美联储新主席今晚宣誓就任，市场预期鹰派立场可能加速全球资金回流美国，12月加息概率已达42%。</p>
-      <p><strong>国内政策：</strong>国常会讨论《中国人民银行法（修订草案）》，推进全国统一大市场建设，政策面持续释放积极信号。</p>
+      <hr class="story-divider">
 
-      <h2>今日关注</h2>
-      <p><strong>一看4000点：</strong>放量暴跌后情绪需要时间消化。如果惯性低开后出现资金承接，反而说明有长线资金在底部吸筹——恐慌中往往孕育机会，但抄底要分批，不赌单边。</p>
-      <p><strong>二看科技线：</strong>隔夜美股科技大涨是政策和需求双轮驱动。A股能否跟风，取决于两个条件：市场整体不能太弱 + 上午要有龙头打出赚钱效应。如果没有，耐心等，不追高。</p>
-      <p><strong>三看外资：</strong>昨天外资抛售是避险还是转向？如果今天北向恢复净流入，说明只是情绪波动而非趋势逆转。持续关注两三天再做判断。</p>
+      <!-- Story 03: 存储芯片 -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s03">3</div>
+          <span class="story-tag s03">科技</span>
+          <div class="story-title">ARM暴涨16%市值破3000亿 <span class="story-badge b-blue">芯片扩散</span></div>
+        </div>
+        <div class="story-content">
+          <p>存储芯片板块掀起暴涨行情。ARM飙涨16%创3月来最大单日涨幅，市值首破3000亿美元；闪迪+10%、希捷+8%、西部数据/美光+3%。</p>
+          <p>背后两股力量：一是OpenAI宣布与博通合作部署<strong>10GW自研AI芯片集群</strong>，博通涨近10%；二是AI推理需求爆发，存储带宽成为新瓶颈。AI产业链从"算"到"存"的结构性扩散正在发生——这不是短期炒作，是产业趋势。</p>
+        </div>
+        <div class="story-img">
+          <img loading="lazy" src="comic/panel-003.svg" alt="芯片双线爆发">
+        </div>
+      </div>
+
+      <hr class="story-divider">
+
+      <!-- Story 04: 量子计算 -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s04">4</div>
+          <span class="story-tag s04">前沿</span>
+          <div class="story-title">特朗普20亿砸向量子计算 <span class="story-badge b-blue">IBM+12%</span></div>
+        </div>
+        <div class="story-content">
+          <p>特朗普政府宣布<strong>20亿美元</strong>量子计算扶持计划，美国迄今最大规模的量子专项投资。IBM大涨12%，D-Wave暴涨33.4%。</p>
+          <p>IBM去年已发布1121量子比特商用处理器，政策资金到位意味着从实验室到产业化的关键一跃。量子计算不再是远期支票——对A股的影响有限，但美股量子板块的赚钱效应正在吸引更多资金入场布局。</p>
+        </div>
+        <div class="story-img">
+          <img loading="lazy" src="comic/panel-004.svg" alt="量子计算">
+        </div>
+      </div>
+
+      <hr class="story-divider">
+
+      <!-- Story 05: 宏观 -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s05">5</div>
+          <span class="story-tag s05">宏观</span>
+          <div class="story-title">美债收益率飙至2007年新高 <span class="story-badge b-gold">10Y>4.57%</span></div>
+        </div>
+        <div class="story-content">
+          <p>美债市场刮起风暴：10年期收益率升至4.57%以上，30年期突破5.1%，双双创2007年以来新高。12月加息概率已升至42%，市场正在定价鹰派回归。</p>
+          <p><strong>今晚关键节点：</strong>沃什宣誓就任美联储主席——著名"通胀鹰派"，市场担心他加速缩表甚至重启加息。叠加美伊谈判从曙光到对峙的逆转（特朗普威胁伊朗交出浓缩铀），布伦特原油围绕100美元拉锯。国内方面，国常会推进央行法修订，政策面持续释放稳增长信号。</p>
+        </div>
+        <div class="story-img">
+          <img loading="lazy" src="comic/panel-005.svg" alt="宏观风暴">
+        </div>
+      </div>
+
+      <hr class="story-divider">
+
+      <!-- Story 06: 黄金 -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s06">6</div>
+          <span class="story-tag s06">商品</span>
+          <div class="story-title">黄金$4542震荡拉锯 <span class="story-badge b-gold">国内守千元</span></div>
+        </div>
+        <div class="story-content">
+          <p>黄金延续震荡格局。国际金价报<strong>4,542</strong>美元/盎司（日内-0.15%），上海金交所AU9999约985元/克，深圳水贝足金批发约998元/克。品牌金店维稳，品牌间价差最高达25元/克。</p>
+          <p>避险需求在退潮（美伊反复、美元走强），但央行持续购金构成中期支撑。短期震荡偏弱，中长期逻辑未破。千元关口是多空分水岭——守住则整理后仍有空间，跌破则可能加速调整到950一线。</p>
+        </div>
+        <div class="story-img">
+          <img loading="lazy" src="comic/panel-006.svg" alt="黄金震荡">
+        </div>
+      </div>
 
       <div class="gold-box">隔夜的故事讲完了，今天的剧本才刚刚开始。—— 我是阿扬，我们晚上见。</div>
 
