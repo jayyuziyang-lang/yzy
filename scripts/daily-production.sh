@@ -131,16 +131,24 @@ phase3_content() {
             warn "upgrade-audio.py 不存在，请手动生成音频"
         fi
     fi
+
+    # 漫画SVG叙事性标题增强（FT研究推荐）
+    if [ -d "$dir/comic" ]; then
+        info "为SVG漫画添加叙事性标题..."
+        python scripts/upgrade-comic.py --dir "$dir/comic" 2>/dev/null && \
+            ok "SVG叙事性标题添加完成" || \
+            warn "叙事性标题添加失败（非阻塞）"
+    fi
+
+    # VIX 恐慌指数预抓取（静态渲染用）
+    if [ -f "scripts/fetch-vix-data.py" ]; then
+        info "预抓取VIX恐慌指数..."
+        python scripts/fetch-vix-data.py 2>/dev/null && \
+            ok "VIX数据已预抓取" || \
+            warn "VIX预抓取失败（非阻塞）"
+    fi
 }
 
-	# 漫画SVG叙事性标题增强（FT研究推荐）
-	if [ -d "$dir/comic" ]; then
-	    info "为SVG漫画添加叙事性标题..."
-	    python scripts/upgrade-comic.py --dir "$dir/comic" 2>/dev/null && \
-	        ok "SVG叙事性标题添加完成" || \
-	        warn "叙事性标题添加失败（非阻塞）"
-	fi
-}
 
 # ============================================================
 # Phase 4: 质量审查

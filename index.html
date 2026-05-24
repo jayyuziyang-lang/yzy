@@ -160,16 +160,17 @@
     <div class="char-msg" id="charMsg">📡 每日早报 + 晚报，用漫画和音频解读财经大事。</div>
   </div>
 
-  <!-- VIX Fear & Greed Index -->
+  <!-- VIX Fear & Greed Index (deploy-time pre-fetched) -->
   <div class="vix-card" id="vixCard">
     <div class="vix-header">
       <h3>📊 恐慌贪婪指数</h3>
-      <span class="vix-update" id="vixUpdate">加载中...</span>
+      <span class="vix-update" id="vixUpdate">--</span>
     </div>
     <div class="vix-body" id="vixBody">
-      <div class="vix-loading">正在获取 VIX 数据...</div>
+      <div class="vix-loading">暂无数据</div>
     </div>
   </div>
+  <script src="data/vix-data.js"></script>
 
   <!-- Today's Content — pre-rendered (JS enhancement below) -->
   <div class="section">
@@ -526,70 +527,48 @@ function loadMoreHistory(btn) {
 }
 
 // ============================================================
-// VIX Fear & Greed Index
+// VIX Fear & Greed Index (静态渲染 — 数据由 GitHub Actions 预抓取)
 // ============================================================
-function getVixLevel(vix) {
-  if (vix > 30) return { level: '恐慌', cls: 'fear', pct: Math.min(100, (vix/50)*100) };
-  if (vix > 20) return { level: '中性', cls: 'neutral', pct: 50 + ((vix-20)/10)*50 };
-  return { level: '贪婪', cls: 'greed', pct: Math.max(0, (vix/20)*50) };
-}
-
-async function fetchVix() {
+function renderVix() {
+  const d = window.__VIX_DATA;
   const body = document.getElementById('vixBody');
   const update = document.getElementById('vixUpdate');
+  if (!d || !body) return;
 
-  try {
-    // Try free market data API — Yahoo Finance via query1.finance.yahoo.com
-    const resp = await fetch('https://query1.finance.yahoo.com/v8/finance/chart/%5EVIX?range=5d&interval=1d');
-    if (!resp.ok) throw new Error('API not available');
-    const data = await resp.json();
-    const results = data.chart.result[0];
-    const quotes = results.indicators.quote[0];
-    const timestamps = results.timestamp;
-
-    // Get the last 2 closing prices
-    const closes = quotes.close.filter(c => c !== null);
-    const currentVIX = closes[closes.length - 1];
-    const prevVIX = closes.length > 1 ? closes[closes.length - 2] : currentVIX;
-    const change = currentVIX - prevVIX;
-    const changePct = prevVIX > 0 ? (change / prevVIX) * 100 : 0;
-    const lastDate = timestamps[closes.length - 1] ? new Date(timestamps[closes.length - 1] * 1000) : new Date();
-    update.textContent = `更新: ${lastDate.toLocaleDateString('zh-CN')}`;
-
-    const info = getVixLevel(currentVIX);
-    const changeCls = change >= 0 ? 'vix-change-up' : 'vix-change-down';
-    const changeArrow = change >= 0 ? '↑' : '↓';
-
-    body.innerHTML = `
-      <div class="vix-gauge ${info.cls}">
-        <span class="vix-value">${currentVIX.toFixed(1)}</span>
-        <span class="vix-label">${info.level}</span>
-      </div>
-      <div class="vix-details">
-        <div class="vix-bar">
-          <div class="vix-bar-indicator" style="left: ${info.pct}%;"></div>
-        </div>
-        <div class="vix-stats">
-          <span class="vix-stat">VIX 恐慌指数</span>
-          <span class="vix-stat ${changeCls}">${changeArrow} ${Math.abs(change).toFixed(1)} (${changePct >= 0 ? '+' : ''}${changePct.toFixed(1)}%)</span>
-        </div>
-      </div>`;
-  } catch (e) {
-    console.warn('VIX fetch failed:', e.message);
-    // Fallback: show friendly message
-    body.innerHTML = `
-      <div class="vix-gauge neutral">
-        <span class="vix-value">--</span>
-        <span class="vix-label">待更新</span>
-      </div>
-      <div class="vix-details">
-        <div class="vix-bar" style="opacity:0.3;"></div>
-        <div class="vix-stats">
-          <span class="vix-stat">VIX 数据将在交易时段自动更新</span>
-        </div>
-      </div>`;
-    update.textContent = '非交易时段或无数据';
+  if (d.current == null) {
+    body.innerHTML = '<div class="vix-loading">暂无数据</div>';
+    return;
   }
+
+  update.textContent = d.date;
+
+  const arrow = d.change >= 0 ? '↑' : '↓';
+  const cls = d.change >= 0 ? 'vix-change-up' : 'vix-change-down';
+  const absChg = Math.abs(d.change).toFixed(1);
+  const pctStr = (d.changePct >= 0 ? '+' : '') + d.changePct.toFixed(1) + '%';
+
+  body.innerHTML = [
+    '<div class="vix-gauge ' + d.cls + '">',
+    '  <span class="vix-value">' + d.current.toFixed(1) + '</span>',
+    '  <span class="vix-label">' + d.level + '</span>',
+    '</div>',
+    '<div class="vix-details">',
+    '  <div class="vix-bar">',
+    '    <div class="vix-bar-indicator" style="left: ' + d.pct + '%;"></div>',
+    '  </div>',
+    '  <div class="vix-stats">',
+    '    <span class="vix-stat">前一交易日: ' + d.prev + '</span>',
+    '    <span class="vix-stat ' + cls + '">' + arrow + ' ' + absChg + ' (' + pctStr + ')</span>',
+    '  </div>',
+    '</div>'
+  ].join('');
+}
+
+// DOM ready 后渲染 VIX
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', renderVix);
+} else {
+  renderVix();
 }
 
 // ============================================================
