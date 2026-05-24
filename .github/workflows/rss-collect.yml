@@ -1,0 +1,62 @@
+# 扬说财经 · RSS 新闻自动采集
+# 每天北京时间 6:00 / 12:00 / 18:00 / 22:00 运行
+# 采集财经新闻并自动提交到仓库
+name: RSS News Collector
+
+on:
+  schedule:
+    # 使用UTC时间，北京时间 = UTC+8
+    # 6:00 BJT  = 22:00 UTC (前一天)
+    - cron: '0 22 * * *'
+    # 12:00 BJT = 4:00 UTC
+    - cron: '0 4 * * *'
+    # 18:00 BJT = 10:00 UTC
+    - cron: '0 10 * * *'
+    # 22:00 BJT = 14:00 UTC
+    - cron: '0 14 * * *'
+  # 支持手动触发
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run RSS collector
+        run: python scripts/rss-collector.py
+
+      - name: Commit and push results
+        run: |
+          # 配置 git 用户
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          # 获取当前北京时间日期
+          BJT_DATE=$(TZ='Asia/Shanghai' date +'%Y-%m-%d')
+
+          # 暂存采集结果
+          git add "docs/review/news-rss-${BJT_DATE}.md" 2>/dev/null || true
+
+          # 检查是否有变更
+          if git diff --cached --quiet; then
+            echo "No new RSS content to commit"
+            exit 0
+          fi
+
+          # 提交并推送
+          git commit -m "RSS采集: 自动更新 ${BJT_DATE} 财经新闻"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

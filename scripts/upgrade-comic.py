@@ -43,6 +43,65 @@ def write_svg(path: str, content: str):
     print(f"  ✅ {os.path.basename(path)} ({size_kb:.0f} KB)")
 
 
+def add_narrative_title(svg: str, title: str = None) -> str:
+    """
+    为SVG添加叙事性标题（FT数据记者研究发现：叙事标题+多重标注的图表最受欢迎）
+
+    在SVG顶部添加一个品牌标题栏，包含叙事性标题文本。
+    如果title为None，尝试从SVG内容中提取现有标题。
+    """
+    vb_match = re.search(r'viewBox="([^"]+)"', svg)
+    if not vb_match:
+        return svg
+    vb = vb_match.group(1)
+    parts = vb.split()
+    vb_w = float(parts[2]) if len(parts) >= 3 else 300
+    vb_h = float(parts[3]) if len(parts) >= 4 else 220
+
+    # 如果没提供标题，尝试从SVG内容提取
+    if not title:
+        # 找已有的大号文本作为标题
+        text_match = re.search(r'<text[^>]*font-size="[^"]*(?:1[4-9]|2[0-4])[^"]*"[^>]*>([^<]+)</text>', svg)
+        if text_match:
+            title = text_match.group(1).strip()
+        else:
+            return svg  # 没有可用的标题，跳过
+
+    if len(title) > 40:
+        title = title[:38] + '…'
+
+    # 标题栏高度
+    bar_h = 28
+    new_vb_h = vb_h + bar_h
+
+    # 构建标题栏SVG
+    title_bar = f'''
+    <!-- 叙事性标题栏（FT研究方法） -->
+    <rect x="0" y="0" width="{vb_w}" height="{bar_h}" fill="#1A56DB" rx="0"/>
+    <text x="{vb_w/2}" y="{bar_h/2 + 1}" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="middle" dominant-baseline="middle">{title}</text>
+    <line x1="0" y1="{bar_h}" x2="{vb_w}" y2="{bar_h}" stroke="#D4A017" stroke-width="1.5"/>
+'''
+
+    # 调整viewBox高度
+    svg = svg.replace(f'viewBox="0 0 {vb_w} {vb_h}"', f'viewBox="0 0 {vb_w} {new_vb_h}"')
+
+    # 将现有内容下移
+    # 把所有组和主要元素用g包装并平移
+    svg = re.sub(
+        r'(<rect[^>]*fill="#FAFAFA"[^>]*/>)',
+        rf'\1{title_bar}',
+        svg
+    )
+
+    # 将所有非defs、非metadata内容整体下移
+    # 在</defs>之后插入translate组开始
+    svg = svg.replace('</defs>', '</defs>\n  <g transform="translate(0, {})">'.format(bar_h))
+    # 在</svg>前关闭组
+    svg = svg.replace('</svg>', '  </g>\n</svg>')
+
+    return svg
+
+
 def enhance_svg(svg: str) -> str:
     """
     对SVG漫画分镜进行增强处理：
@@ -151,6 +210,8 @@ def batch_enhance(comic_dir: str):
         path = os.path.join(comic_dir, fname)
         svg = read_svg(path)
         enhanced = enhance_svg(svg)
+        # 自动添加叙事性标题（FT研究：叙事标题+多重标注的图表最受欢迎）
+        enhanced = add_narrative_title(enhanced)
         if enhanced != svg:
             write_svg(path, enhanced)
         else:
@@ -235,6 +296,9 @@ if __name__ == '__main__':
                         help='增强SVG视觉效果（默认开启）')
     parser.add_argument('--generate-characters', action='store_true',
                         help='生成可复用角色组件')
+    parser.add_argument('--add-narrative-titles', action='store_true', default=True,
+                        help='为SVG添加叙事性标题（FT研究推荐，默认开启）')
+    parser.add_argument('--title', help='为单个SVG指定叙事性标题')
     parser.add_argument('--animegan-guide', action='store_true',
                         help='打印AnimeGANv2管线安装指南')
 
@@ -256,7 +320,11 @@ if __name__ == '__main__':
         if os.path.isfile(args.panel):
             svg = read_svg(args.panel)
             enhanced = enhance_svg(svg)
+            if args.add_narrative_titles:
+                enhanced = add_narrative_title(enhanced, title=args.title)
             if enhanced != svg:
+                write_svg(args.panel, enhanced)
+            elif args.title:
                 write_svg(args.panel, enhanced)
             else:
                 print(f"⏭️  {args.panel} (无需增强)")

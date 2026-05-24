@@ -23,7 +23,7 @@ sys.stdout.reconfigure(encoding='utf-8')
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
-def generate_article_html(session, title, panel_count, tags, has_charts=True):
+def generate_article_html(session, title, panel_count, tags, has_charts=True, has_xkcd=False):
     """生成统一排版的文章HTML"""
     today = time.strftime('%Y-%m-%d')
     date_display = time.strftime('%Y.%m.%d')
@@ -55,6 +55,12 @@ def generate_article_html(session, title, panel_count, tags, has_charts=True):
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>{title}</title>
+<meta property="og:title" content="{title}">
+<meta property="og:description" content="扬说财经 · {edition_cn} — {title}。数据图表+漫画+音频，陪你读懂财经世界。">
+<meta property="og:image" content="https://jayyuziyang-lang.github.io/yzy/assets/character/ayang-sticker.png">
+<meta property="og:url" content="https://jayyuziyang-lang.github.io/yzy/">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary_large_image">
 <style>
   * {{ margin: 0; padding: 0; box-sizing: border-box; }}
   body {{ font-family: -apple-system,"PingFang SC","Microsoft YaHei","Helvetica Neue",sans-serif; background: #F5F7FA; color: #1E293B; line-height: 1.8; font-size: 16px; }}
@@ -166,6 +172,11 @@ def generate_article_html(session, title, panel_count, tags, has_charts=True):
   .chart-label {{ font-size: 12px; color: #64748B; margin-top: 6px; }}
   .chart-row {{ display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 16px 0; }}
   @media (max-width:480px) {{ .chart-row {{ grid-template-columns: 1fr; }} }}
+
+      /* xkcd 素描图表 */
+      .xkcd-chart-wrapper {{ margin: 16px 0; background: #fff; border-radius: 10px; padding: 0; text-align: center; border: 1px solid #E2E8F0; overflow: hidden; }}
+      .xkcd-chart-wrapper svg {{ display: block; max-width: 100%; height: auto; }}
+      .xkcd-chart-label {{ font-size: 12px; color: #64748B; margin-top: 6px; padding: 0 10px 10px; }}
 </style>
 </head>
 <body>
@@ -240,6 +251,8 @@ def generate_article_html(session, title, panel_count, tags, has_charts=True):
       <!-- 由内容编辑填充 -->
       [L3_TABLE]
 
+      [XKCD_CHARTS]
+
       <!-- 品牌信息 -->
       <div style="background:linear-gradient(135deg,#1A56DB,#1E3A7A);border-radius:12px;padding:16px 20px;margin:22px 0;color:white;text-align:center;">
         <img src="../../../docs/assets/character/ayang-portrait.jpg" style="width:48px;height:48px;border-radius:50%;object-fit:cover;margin-bottom:6px;border:2px solid rgba(255,255,255,0.3);" alt="阿扬">
@@ -261,19 +274,21 @@ def generate_article_html(session, title, panel_count, tags, has_charts=True):
 </html>'''
 
 
-def write_article(session, title, panel_count, tags, html_content, charts_content=''):
+def write_article(session, title, panel_count, tags, html_content='', charts_content='', xkcd_charts=''):
     """写入article.html到对应的版次目录"""
     today = time.strftime('%Y-%m-%d')
     article_dir = os.path.join(ROOT, today, 'wechat-publish', session)
     os.makedirs(article_dir, exist_ok=True)
 
     # 生成基础HTML框架
-    html = generate_article_html(session, title, panel_count, tags)
+    has_xkcd = bool(xkcd_charts)
+    html = generate_article_html(session, title, panel_count, tags, has_xkcd=has_xkcd)
 
     # 用内容替换占位标记
-    html = html.replace('[L1_ITEMS]', '<!-- 由内容编辑填充Layer1卡片项 -->')
+    html = html.replace('[L1_ITEMS]', html_content if html_content else '<!-- 由内容编辑填充Layer1卡片项 -->')
     html = html.replace('[L2_CONTENT]', '<!-- 由内容编辑填充Layer2深度解读内容 -->')
-    html = html.replace('[L3_TABLE]', '<!-- 由内容编辑填充Layer3数据表格 -->')
+    html = html.replace('[L3_TABLE]', charts_content if charts_content else '<!-- 由内容编辑填充Layer3数据表格 -->')
+    html = html.replace('[XKCD_CHARTS]', xkcd_charts if xkcd_charts else '<!-- xkcd素描风格图表（可选）-->')
 
     output_path = os.path.join(article_dir, 'article.html')
     with open(output_path, 'w', encoding='utf-8') as f:
@@ -291,14 +306,36 @@ if __name__ == '__main__':
     parser.add_argument('--title', required=True, help='文章标题')
     parser.add_argument('--panels', type=int, default=5, help='漫画面板数量')
     parser.add_argument('--tags', default='财经', help='文章标签')
+    parser.add_argument('--xkcd-charts', nargs='*', default=None,
+                        help='图表配置，逗号分隔: type,title,labels,data [type,title,labels,data ...]')
     parser.add_argument('--write', action='store_true', help='写入文件')
 
     args = parser.parse_args()
 
-    html = generate_article_html(args.session, args.title, args.panels, args.tags)
+    # 处理 xkcd charts 参数
+    xkcd_content = ''
+    if args.xkcd_charts is not None:
+        xkcd_parts = []
+        for spec in args.xkcd_charts:
+            parts = spec.split('|')
+            if len(parts) >= 4:
+                chart_type = parts[0]
+                chart_title = parts[1]
+                chart_labels = parts[2]
+                chart_data = parts[3]
+                chart_id = f"xkcd-{chart_type}-{len(xkcd_parts)}"
+                xkcd_parts.append(f'''<!-- xkcd素描图表: {chart_title} -->
+<div class="xkcd-chart-wrapper">
+  <svg id="{chart_id}" style="width:100%;max-width:600px;height:auto;min-height:350px;"></svg>
+  <div class="xkcd-chart-label">📐 {chart_title}（素描风格）</div>
+</div>''')
+        if xkcd_parts:
+            xkcd_content = '\n'.join(['<div class="xkcd-embed">'] + xkcd_parts + ['</div>'])
+
+    html = generate_article_html(args.session, args.title, args.panels, args.tags, has_xkcd=bool(xkcd_content))
 
     if args.write:
-        write_article(args.session, args.title, args.panels, args.tags)
+        write_article(args.session, args.title, args.panels, args.tags, xkcd_charts=xkcd_content)
     else:
         # 输出前200字符预览
         print(html[:500])

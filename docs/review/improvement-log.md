@@ -42,3 +42,8 @@
 | 2026-05-23 | 部署前未运行update-index.py | 数据不同步 | Phase 9新增强制前置步骤(0a-0d) | ✅ |
 | 2026-05-23 | JS renderEditionList函数定义了但从未被调用 | 技术债务 | initData新增renderToday()调用链 | ✅ |
 | 2026-05-23 | 专题音频时长上限不合理(8-15min) | 标准超用户要求 | 修订为6-10分钟 | ✅ |
+| 2026-05-23 | 缺少企业微信自动化入口 | 手工流程效率低 | OpenClaw Gateway+wecom通道搭建 | ✅ |
+| 2026-05-23 | 无定时生产流水线 | 需手动触发 | 配置3个cron jobs(早报/晚报/专题) | ✅ |
+| 2026-05-23 | 无开机自启机制 | 重启后需手动启动 | Startup脚本: openclaw-gateway.vbs | ✅ |
+| 2026-05-23 | OpenClaw工作区未关联项目 | Agent无项目上下文 | USER.md+HEARTBEAT.md+caijing链接 | ✅ |
+| 2026-05-23 | 缺少企业微信集成文档 | 新用户无法上手 | SETUP_GUIDE.md+SETUP_STATUS.md | ✅ |

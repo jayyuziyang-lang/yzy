@@ -31,6 +31,35 @@ FAIL = 0
 
 WARN = 0
 
+FAIL_MSGS = []          # 记录所有FAIL消息，用于硬性门禁匹配
+
+# 硬性门禁关键词：命中任一关键词的FAIL消息，直接触发D级
+HARD_GATE_KEYWORDS = [
+    'article.html缺失',
+    'audio.mp3缺失',
+    'audio.mp3 文件过小',
+    '缺少 Layer1',
+    '缺少 Layer2',
+    '缺少 Layer3',
+    '断链',
+    '含未允许英文词汇',
+]
+
+# 数据编造检测（占位配置，实际规则由事实核查Agent维护）
+SUSPICIOUS_PATTERNS = [
+    r'创.*历史.*纪录',
+    r'历史第\d+次',
+    r'史上最[高低大小]',
+    r'首次突破',
+    r'创\d+年新高',
+]
+KNOWN_FACTS = [
+    '上证指数',
+    '沪深300',
+    '纳斯达克',
+    '标普500',
+]
+
 
 def ok(msg):
     global PASS
@@ -39,8 +68,9 @@ def ok(msg):
 
 
 def fail(msg):
-    global FAIL
+    global FAIL, FAIL_MSGS
     FAIL += 1
+    FAIL_MSGS.append(msg)
     print('  [FAIL] %s' % msg)
 
 
@@ -395,6 +425,86 @@ def check_team_health():
         fail('文章模板缺失: article-template.py')
 
 
+# ================================================================
+# 评分系统
+# ================================================================
+
+def check_hard_gates():
+    """检查硬性门禁项，返回命中列表。任一命中直接D级。"""
+    hits = []
+    for msg in FAIL_MSGS:
+        for kw in HARD_GATE_KEYWORDS:
+            if kw in msg:
+                hits.append(msg)
+                break
+    return hits
+
+
+def check_data_fabrication():
+    """检查数据编造嫌疑。SUSPICIOUS_PATTERNS命中且非KNOWN_FACTS则报警。"""
+    # 扫描 article.html 和 article.md
+    hits = []
+    for edition in ['morning', 'evening']:
+        for ext in ['html', 'md']:
+            path = os.path.join(ROOT, TODAY, 'wechat-publish', edition, 'article.%s' % ext)
+            if not os.path.exists(path):
+                continue
+            with open(path, 'r', encoding='utf-8') as f:
+                content = f.read()
+            for pat in SUSPICIOUS_PATTERNS:
+                for m in re.finditer(pat, content):
+                    matched_text = m.group(0)
+                    # 检查是否命中KNOWN_FACTS(已知事实)
+                    is_known = any(kf in matched_text for kf in KNOWN_FACTS)
+                    if not is_known:
+                        hits.append('%s/%s: %s' % (edition, 'article.%s' % ext, matched_text))
+    return hits
+
+
+def calculate_grade():
+    """计算质量评分和等级。返回 (score, max_score, pct, grade, hard_hits, exit_code, (grade_icon, grade_desc))"""
+    total_items = PASS + FAIL + WARN
+    if total_items == 0:
+        return 0, 0, 0, 'D', [], 3, ('\u274c', '\u65e0\u68c0\u67e5\u9879\uff0c\u65e0\u6cd5\u8bc4\u5206')
+
+    max_score = total_items
+    score = max(0, PASS * 1 + WARN * (-0.5) + FAIL * (-1))
+    pct = round(score / max_score * 100, 1) if max_score > 0 else 0
+
+    # 硬性门禁检查
+    hard_gate_hits = check_hard_gates()
+    fabrication_hits = check_data_fabrication()
+    all_hard_hits = hard_gate_hits + fabrication_hits
+
+    # 如果命中硬性门禁，直接D级
+    if all_hard_hits:
+        grade = 'D'
+    elif pct >= 90:
+        grade = 'A'
+    elif pct >= 80:
+        grade = 'B'
+    elif pct >= 60:
+        grade = 'C'
+    else:
+        grade = 'D'
+
+    # 确定退出码和输出信息
+    grade_info = {
+        'A': ('\U0001f7e2', '优秀，自动放行'),
+        'B': ('\U0001f7e1', '良好，人工确认后可放行'),
+        'C': ('\U0001f7e0', '需整改关键FAIL项后重检'),
+        'D': ('\U0001f534', '阻塞发布，必须全部修复'),
+    }
+
+    exit_codes = {'A': 0, 'B': 0, 'C': 2, 'D': 3}
+
+    return score, max_score, pct, grade, all_hard_hits, exit_codes[grade], grade_info[grade]
+
+
+# ================================================================
+# Main
+# ================================================================
+
 if __name__ == '__main__':
     module_map = {
         'brand': check_brand,
@@ -418,15 +528,27 @@ if __name__ == '__main__':
         for name, fn in module_map.items():
             fn()
 
-    total = PASS + FAIL + WARN
-    print('\n' + '=' * 50)
-    print('   Quality Check Report')
-    print('=' * 50)
-    print('   PASS: %d   FAIL: %d   WARN: %d   Total: %d' % (PASS, FAIL, WARN, total))
-    print('=' * 50)
+    # 评分计算
+    score, max_score, pct, grade, hard_hits, exit_code, (grade_icon, grade_desc) = calculate_grade()
 
-    if FAIL > 0:
-        print('   >>> %d items need attention <<<' % FAIL)
-        sys.exit(1)
+    # 输出报告
+    total = PASS + FAIL + WARN
+    bar = '\u2550' * 40
+    print('\n' + bar)
+    print('   质量检查报告')
+    print(bar)
+    print('   PASS: %d   FAIL: %d   WARN: %d' % (PASS, FAIL, WARN))
+    print(bar)
+    print('   评分: %d/%d = %s%%  \u279c  %s %s级（%s）' % (
+        int(score), max_score, pct, grade_icon, grade, grade_desc))
+    print(bar)
+    if hard_hits:
+        print('   硬性门禁: 命中 \u2717 (%d项)' % len(hard_hits))
+        for h in hard_hits:
+            print('     - %s' % h)
     else:
-        print('   >>> All checks passed! <<<')
+        print('   硬性门禁: 未命中 \u2713')
+    print(bar)
+    print('   建议: %s' % grade_desc)
+
+    sys.exit(exit_code)

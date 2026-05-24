@@ -4,6 +4,18 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>扬说财经 — 用漫画看懂财经</title>
+
+<!-- ===== OG / Social ===== -->
+<meta property="og:title" content="扬说财经 — 用漫画看懂财经">
+<meta property="og:description" content="每日早报+晚报，数据图表+漫画+音频，陪你读懂财经世界。每交易日更新，阿扬带你用逻辑穿透表象。">
+<meta property="og:image" content="https://jayyuziyang-lang.github.io/yzy/assets/character/ayang-sticker.png">
+<meta property="og:image:width" content="400">
+<meta property="og:image:height" content="400">
+<meta property="og:url" content="https://jayyuziyang-lang.github.io/yzy/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://jayyuziyang-lang.github.io/yzy/">
+
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { font-family: -apple-system,"PingFang SC","Microsoft YaHei","Helvetica Neue",sans-serif; background: #F5F7FA; color: #1E293B; line-height: 1.6; font-size: 15px; }
@@ -83,6 +95,39 @@
   .loading { text-align: center; padding: 20px; color: #94A3B8; font-size: 13px; }
   .loading .spinner { display: inline-block; width: 16px; height: 16px; border: 2px solid #E2E8F0; border-top-color: #1A56DB; border-radius: 50%; animation: spin 0.6s linear infinite; margin-right: 6px; vertical-align: middle; }
   @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* ===== VIX Fear & Greed Index ===== */
+  .vix-card { background: #fff; border-radius: 12px; padding: 14px 16px; margin-bottom: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.07); }
+  .vix-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+  .vix-header h3 { font-size: 13px; font-weight: 600; color: #1E293B; }
+  .vix-header .vix-update { font-size: 10px; color: #94A3B8; }
+  .vix-body { display: flex; align-items: center; gap: 14px; }
+  .vix-gauge { width: 72px; height: 72px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; flex-direction: column; }
+  .vix-gauge .vix-value { font-size: 22px; font-weight: 800; line-height: 1; }
+  .vix-gauge .vix-label { font-size: 9px; opacity: 0.8; margin-top: 2px; }
+  .vix-gauge.fear { background: #FEE2E2; color: #DC2626; }
+  .vix-gauge.neutral { background: #FFFBEB; color: #D97706; }
+  .vix-gauge.greed { background: #D1FAE5; color: #059669; }
+  .vix-details { flex: 1; }
+  .vix-bar { height: 6px; border-radius: 3px; background: linear-gradient(to right, #DC2626,#D97706,#10B981); margin-bottom: 6px; position: relative; }
+  .vix-bar-indicator { position: absolute; top: -4px; width: 14px; height: 14px; border-radius: 50%; background: #1E293B; border: 2px solid #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.3); transition: left 0.5s ease; }
+  .vix-stats { display: flex; gap: 12px; font-size: 11px; color: #64748B; }
+  .vix-stats .vix-stat { display: flex; align-items: center; gap: 3px; }
+  .vix-stats .vix-change-up { color: #DC2626; font-weight: 700; }
+  .vix-stats .vix-change-down { color: #10B981; font-weight: 700; }
+  .vix-loading { font-size: 11px; color: #94A3B8; padding: 12px 0; text-align: center; }
+
+  /* ===== QR Share ===== */
+  .share-bar { display: flex; align-items: center; gap: 8px; margin-top: 8px; }
+  .share-btn { display: inline-flex; align-items: center; gap: 4px; padding: 6px 12px; border-radius: 8px; font-size: 11px; font-weight: 600; cursor: pointer; border: none; background: #F1F5F9; color: #475569; transition: all 0.15s; }
+  .share-btn:active { transform: scale(0.95); }
+  .share-btn.wechat { background: #07C160; color: #fff; }
+  .share-qr-modal { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 999; background: rgba(0,0,0,0.5); align-items: center; justify-content: center; }
+  .share-qr-modal.show { display: flex; }
+  .share-qr-box { background: #fff; border-radius: 16px; padding: 24px; text-align: center; max-width: 280px; }
+  .share-qr-box img { width: 180px; height: 180px; border-radius: 8px; margin-bottom: 8px; }
+  .share-qr-box .qr-hint { font-size: 12px; color: #64748B; }
+  .share-qr-box .qr-close { margin-top: 10px; padding: 6px 20px; border-radius: 8px; border: none; background: #F1F5F9; color: #475569; font-size: 12px; cursor: pointer; }
 </style>
 </head>
 <body>
@@ -113,6 +158,17 @@
   <div class="char-decoration">
     <img class="char-thumb" src="assets/character/ayang-square.jpg" alt="阿扬" loading="lazy">
     <div class="char-msg" id="charMsg">📡 每日早报 + 晚报，用漫画和音频解读财经大事。</div>
+  </div>
+
+  <!-- VIX Fear & Greed Index -->
+  <div class="vix-card" id="vixCard">
+    <div class="vix-header">
+      <h3>📊 恐慌贪婪指数</h3>
+      <span class="vix-update" id="vixUpdate">加载中...</span>
+    </div>
+    <div class="vix-body" id="vixBody">
+      <div class="vix-loading">正在获取 VIX 数据...</div>
+    </div>
   </div>
 
   <!-- Today's Content — pre-rendered (JS enhancement below) -->
@@ -178,6 +234,15 @@
     </div>
   </div>
 
+  <!-- Share QR Modal -->
+  <div class="share-qr-modal" id="qrModal" onclick="if(event.target==this)closeQR()">
+    <div class="share-qr-box">
+      <img id="qrImage" src="" alt="分享二维码">
+      <div class="qr-hint">📱 长按或截图分享给朋友</div>
+      <button class="qr-close" onclick="closeQR()">关闭</button>
+    </div>
+  </div>
+
   <!-- About -->
   <div class="about-card">
     <div class="about-row">
@@ -186,6 +251,10 @@
         <strong>扬说财经</strong> · 每个交易日更新<br>
         数据来源: 证券时报 · 华尔街见闻 · Investing.com
       </div>
+    </div>
+    <div class="share-bar">
+      <button class="share-btn wechat" onclick="shareWeChat()">📱 分享到微信</button>
+      <button class="share-btn" onclick="copyLink()">🔗 复制链接</button>
     </div>
   </div>
 
@@ -457,6 +526,112 @@ function loadMoreHistory(btn) {
 }
 
 // ============================================================
+// VIX Fear & Greed Index
+// ============================================================
+function getVixLevel(vix) {
+  if (vix > 30) return { level: '恐慌', cls: 'fear', pct: Math.min(100, (vix/50)*100) };
+  if (vix > 20) return { level: '中性', cls: 'neutral', pct: 50 + ((vix-20)/10)*50 };
+  return { level: '贪婪', cls: 'greed', pct: Math.max(0, (vix/20)*50) };
+}
+
+async function fetchVix() {
+  const body = document.getElementById('vixBody');
+  const update = document.getElementById('vixUpdate');
+
+  try {
+    // Try free market data API — Yahoo Finance via query1.finance.yahoo.com
+    const resp = await fetch('https://query1.finance.yahoo.com/v8/finance/chart/%5EVIX?range=5d&interval=1d');
+    if (!resp.ok) throw new Error('API not available');
+    const data = await resp.json();
+    const results = data.chart.result[0];
+    const quotes = results.indicators.quote[0];
+    const timestamps = results.timestamp;
+
+    // Get the last 2 closing prices
+    const closes = quotes.close.filter(c => c !== null);
+    const currentVIX = closes[closes.length - 1];
+    const prevVIX = closes.length > 1 ? closes[closes.length - 2] : currentVIX;
+    const change = currentVIX - prevVIX;
+    const changePct = prevVIX > 0 ? (change / prevVIX) * 100 : 0;
+    const lastDate = timestamps[closes.length - 1] ? new Date(timestamps[closes.length - 1] * 1000) : new Date();
+    update.textContent = `更新: ${lastDate.toLocaleDateString('zh-CN')}`;
+
+    const info = getVixLevel(currentVIX);
+    const changeCls = change >= 0 ? 'vix-change-up' : 'vix-change-down';
+    const changeArrow = change >= 0 ? '↑' : '↓';
+
+    body.innerHTML = `
+      <div class="vix-gauge ${info.cls}">
+        <span class="vix-value">${currentVIX.toFixed(1)}</span>
+        <span class="vix-label">${info.level}</span>
+      </div>
+      <div class="vix-details">
+        <div class="vix-bar">
+          <div class="vix-bar-indicator" style="left: ${info.pct}%;"></div>
+        </div>
+        <div class="vix-stats">
+          <span class="vix-stat">VIX 恐慌指数</span>
+          <span class="vix-stat ${changeCls}">${changeArrow} ${Math.abs(change).toFixed(1)} (${changePct >= 0 ? '+' : ''}${changePct.toFixed(1)}%)</span>
+        </div>
+      </div>`;
+  } catch (e) {
+    console.warn('VIX fetch failed:', e.message);
+    // Fallback: show friendly message
+    body.innerHTML = `
+      <div class="vix-gauge neutral">
+        <span class="vix-value">--</span>
+        <span class="vix-label">待更新</span>
+      </div>
+      <div class="vix-details">
+        <div class="vix-bar" style="opacity:0.3;"></div>
+        <div class="vix-stats">
+          <span class="vix-stat">VIX 数据将在交易时段自动更新</span>
+        </div>
+      </div>`;
+    update.textContent = '非交易时段或无数据';
+  }
+}
+
+// ============================================================
+// QR Share / WeChat Share
+// ============================================================
+function shareWeChat() {
+  const url = window.location.href;
+  const qrUrl = 'https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=' + encodeURIComponent(url);
+  document.getElementById('qrImage').src = qrUrl;
+  document.getElementById('qrModal').classList.add('show');
+}
+
+function closeQR() {
+  document.getElementById('qrModal').classList.remove('show');
+}
+
+function copyLink() {
+  const url = window.location.href;
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(url).then(() => {
+      alert('✅ 链接已复制，可粘贴发送给朋友');
+    }).catch(() => {
+      fallbackCopy(url);
+    });
+  } else {
+    fallbackCopy(url);
+  }
+}
+
+function fallbackCopy(text) {
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.select();
+  document.execCommand('copy');
+  document.body.removeChild(ta);
+  alert('✅ 链接已复制');
+}
+
+// ============================================================
 // Character message rotation
 // ============================================================
 const CHAR_MSGS = [
@@ -483,6 +658,7 @@ setInterval(updateClock, 1000);
 setInterval(rotateCharMsg, 6000);
 
 initData();
+fetchVix();
 scheduleMidnightRefresh();
 </script>
 </body>

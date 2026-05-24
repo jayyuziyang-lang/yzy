@@ -1,5 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 220">
+<defs>
+    <!-- 主投影滤镜 -->
+    <filter id="drop-shadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#1E293B" flood-opacity="0.12"/>
+    </filter>
+    <!-- 柔和投影 -->
+    <filter id="soft-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="#1E293B" flood-opacity="0.08"/>
+    </filter>
+    <!-- 品牌蓝色渐变 -->
+    <linearGradient id="brand-blue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1A56DB"/>
+      <stop offset="100%" stop-color="#1E3A7A"/>
+    </linearGradient>
+    <!-- 品牌金色渐变 -->
+    <linearGradient id="brand-gold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#D4A017"/>
+      <stop offset="100%" stop-color="#B8860B"/>
+    </linearGradient>
+    <!-- 对话框渐变 -->
+    <linearGradient id="bubble-bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#F8F9FA"/>
+    </linearGradient>
+    <!-- 高光渐变 -->
+    <linearGradient id="brand-glow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgba(26,86,219,0.15)"/>
+      <stop offset="100%" stop-color="rgba(26,86,219,0.02)"/>
+    </linearGradient>
+    <!-- 背景网格图案 -->
+    <pattern id="dot-grid" width="12" height="12" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="0.5" fill="#E2E8F0" opacity="0.3"/>
+    </pattern>
+  </defs>
+
   <rect width="300" height="220" fill="#FAFAFA"/>
   <!-- Mountain peak -->
   <polyline points="15,185 40,155 60,160 85,130 105,135 130,100 150,108 175,80 195,88 220,55 240,65 265,40" fill="none" stroke="#1E293B" stroke-width="2.8"/>
