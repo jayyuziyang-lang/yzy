@@ -411,6 +411,27 @@ chmod +x .git/hooks/pre-push
 
 其中任何一项失败 → 阻塞部署 → 修复后重新运行。
 
+### 关键修复：标题自动同步（5.25事件根因）
+
+**5.25 bug 的完整根因链：**
+1. 文章写完时标题为A → `index.html` 预渲染了标题A
+2. 后来标题改为B → 手动更新了文章HTML文件
+3. 运行 `update-index.py` → `data/articles.js` 正确读到了标题B
+4. 但 `index.html` 的预渲染内容仍为标题A（没人手动改）
+5. **JS逻辑错误**：`renderToday()` 检查"预渲染链接数>=预期数" → return 跳过 → **用户看到旧标题**
+
+**双管齐下修复：**
+
+**修复1 — `update-index.py` 自动更新预渲染（2026-05-25部署）**
+- `update-index.py` 现在会通过 `<!-- TODAY_PRERENDER_START/END -->` 和 `<!-- HISTORY_PRERENDER_START/END -->` 标记位，自动更新 `index.html` 中的预渲染内容
+- 每次运行都会根据最新文章数据生成 todayContent 和 historyContent
+- 部署流程变为：`update-index.py`(含预渲染) → `pre-deploy-check.sh`(6项验证) → 部署
+
+**修复2 — `renderToday()` 永远以数据层为准（2026-05-25部署）**
+- 移除了"预渲染链接数>=预期数就跳过"的逻辑
+- JS 加载后永远用 `ARTICLES_BY_DATE` 数据覆盖预渲染区域
+- 预渲染仅用于首屏展示和SEO，JS数据层才是权威来源
+
 ---
 
-*版本：v5.1 | 核心理念：Claude为质量门，Codex为生产力 | 产品质量是我们的核心竞争力*
+*版本：v5.2 | 核心理念：Claude为质量门，Codex为生产力 | 产品质量是我们的核心竞争力*

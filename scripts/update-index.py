@@ -187,9 +187,83 @@ def generate_holidays():
     print(f'[OK] data/holidays-2026.json — {len(holidays)} entries')
     return holidays
 
+def generate_today_html(articles):
+    """Generate pre-rendered HTML for today's content section in index.html."""
+    bj_now = datetime.now(timezone(timedelta(hours=8)))
+    today_str = bj_now.strftime('%Y-%m-%d')
+    # Find today's articles
+    today_arts = [a for a in articles if a['date'] == today_str]
+    if not today_arts:
+        return ''
+    lines = []
+    for a in sorted(today_arts, key=lambda x: 0 if x['session'] == 'morning' else 1):
+        cls = 'edition-morning' if a['session'] == 'morning' else 'edition-evening'
+        border = '' if a == today_arts[-1] else ''  # last one gets no bottom border
+        style_no_border = ' style="border-bottom:none;"' if a == today_arts[-1] else ''
+        icon_style = '' if a['session'] == 'morning' else ' style="background:#FFFBEB;"'
+        lines.append(f'''      <a class="edition {cls}" href="{a['url']}">
+        <div class="edition-icon"{icon_style}>{a['icon']}</div>
+        <div class="edition-info">
+          <div class="edition-title">{a['title']}</div>
+        </div>
+        <span class="edition-arrow">›</span>
+      </a>''')
+    return '\n'.join(lines)
+
+def generate_history_html(articles):
+    """Generate pre-rendered HTML for history section in index.html."""
+    # Group by date (exclude today — it's in todayContent)
+    bj_now = datetime.now(timezone(timedelta(hours=8)))
+    today_str = bj_now.strftime('%Y-%m-%d')
+    by_date = {}
+    for a in articles:
+        if a['date'] >= today_str:
+            continue
+        by_date.setdefault(a['date'], []).append(a)
+    sorted_dates = sorted(by_date.keys(), reverse=True)
+    # Only show up to 14 most recent dates
+    lines = []
+    for date in sorted_dates[:14]:
+        dt = datetime.strptime(date, '%Y-%m-%d')
+        label = f"{dt.year}年{dt.month}月{dt.day}日"
+        lines.append(f'''      <div class="history-group">
+        <div class="history-date-label">{label}</div>''')
+        for a in sorted(by_date[date], key=lambda x: 0 if x['session'] == 'morning' else 1):
+            lines.append(f'''        <div class="history-item">
+          <span class="h-icon">{a['icon']}</span>
+          <a href="{a['url']}">{a['title']}</a>
+          <span class="h-time">{a['edition_cn']}</span>
+        </div>''')
+        lines.append('      </div>')
+    return '\n'.join(lines)
+
+def regenerate_index_html(articles):
+    """Update pre-rendered sections in index.html from sentinel markers."""
+    path = os.path.join(ROOT, 'index.html')
+    with open(path, encoding='utf-8') as f:
+        html = f.read()
+    today_html = generate_today_html(articles)
+    history_html = generate_history_html(articles)
+    # Replace today section between markers
+    html = re.sub(
+        r'<!-- TODAY_PRERENDER_START -->.*?<!-- TODAY_PRERENDER_END -->',
+        f'<!-- TODAY_PRERENDER_START -->\n{today_html}\n<!-- TODAY_PRERENDER_END -->',
+        html, flags=re.DOTALL
+    )
+    # Replace history section between markers
+    html = re.sub(
+        r'<!-- HISTORY_PRERENDER_START -->.*?<!-- HISTORY_PRERENDER_END -->',
+        f'<!-- HISTORY_PRERENDER_START -->\n{history_html}\n<!-- HISTORY_PRERENDER_END -->',
+        html, flags=re.DOTALL
+    )
+    with open(path, 'w', encoding='utf-8') as f:
+        f.write(html)
+    print(f'[OK] index.html — today + history pre-rendered ({len(articles)} articles)')
+
 if __name__ == '__main__':
     articles = scan_articles()
     generate_json(articles)
     holidays = generate_holidays()
     generate_js(articles, holidays)
+    regenerate_index_html(articles)
     print('[DONE] All data files generated')
