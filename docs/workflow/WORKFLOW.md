@@ -190,8 +190,25 @@ Claude Code（质量门核心） → 定调、终审、复盘、规则更新
 2. 验证 data/articles.json 包含最新文章
 3. grep -n '{{' index.html article.html（检查无模板占位符）
 4. git add → commit → push
-5. 验证URL可访问
+5. 等待 2 分钟（GitHub Pages 构建部署）
+6. 运行验证脚本（验证清单逐一检查）
+7. 告知用户：已推送，约 1-2 分钟后生效
 ```
+
+**部署验证清单（逐一检查）：**
+```
+□ curl index.html | grep data-date → data-date 为当日
+□ curl articles.js | grep latest → latest_date 为当日
+□ curl article.html → HTTP 200 且 > 10KB
+□ curl vix-data.js | grep current → VIX 有数据
+□ 无模板占位符残留（grep -n '{{'）
+```
+
+**关键禁令：**
+- ❌ 禁止手动修改 index.html 的预渲染内容（JS 自动处理）
+- ❌ 禁止运行 update-index.py 前不读代码（理解输入输出）
+- ❌ 禁止移除任何函数/代码行除非100%确认其无用
+- ❌ 禁止推送后不等待部署就断言"没更新"
 
 ### Phase 8: 复盘
 
