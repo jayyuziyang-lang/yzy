@@ -180,7 +180,6 @@
         <div class="edition-icon">🌅</div>
         <div class="edition-info">
           <div class="edition-title">美伊协议"基本谈成"——本周全球市场最大变量</div>
-          <div class="edition-desc">2026-05-25 · 早报 · 图文+音频</div>
         </div>
         <span class="edition-arrow">›</span>
       </a>
@@ -402,10 +401,10 @@ function initData() {
 
 // ============================================================
 // Render: Today's Content — pre-rendered in HTML
+// JS only fills in if pre-rendered content is stale
 // ============================================================
 function updateCharMsg() {
   const todayStr = formatDateISO(getBeijingNow());
-  // Check if there's content for today (even if pre-rendered might be for a different day)
   const data = ARTICLES_BY_DATE[todayStr];
   if (data) {
     document.getElementById('charMsg').textContent =
@@ -422,6 +421,10 @@ function updateCharMsg() {
 function renderToday() {
   const container = document.getElementById('todayContent');
   const todayStr = formatDateISO(getBeijingNow());
+  // If pre-rendered HTML already matches today, keep it (avoid JS overriding correct content)
+  if (container.dataset.date === todayStr) {
+    return;
+  }
   const data = ARTICLES_BY_DATE[todayStr];
   if (data) {
     renderEditionList(container, data, todayStr);
@@ -445,13 +448,11 @@ function renderEditionList(container, data, dateStr) {
     hasAny = true;
     const cls = s.key === 'morning' ? 'edition-morning' : 'edition-evening';
     const title = item.title || '财经内容';
-    const desc = `${dateStr} · ${s.label} · 图文+音频`;
     html += `
       <a class="edition ${cls}" href="${item.url}">
         <div class="edition-icon">${s.icon}</div>
         <div class="edition-info">
           <div class="edition-title">${title}</div>
-          <div class="edition-desc">${desc}</div>
         </div>
         <span class="edition-arrow">›</span>
       </a>`;
