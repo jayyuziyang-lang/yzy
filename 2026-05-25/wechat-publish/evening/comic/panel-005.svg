@@ -1,24 +1,24 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 220">
   <rect width="300" height="220" fill="#FAFAFA"/>
-  <!-- Title -->
   <rect x="0" y="0" width="300" height="26" fill="#10B981"/>
-  <text x="150" y="18" text-anchor="middle" fill="#fff" font-size="11" font-weight="700" font-family="PingFang SC,sans-serif">宏观天平</text>
-  <!-- Balance beam -->
-  <line x1="30" y1="120" x2="270" y2="120" stroke="#1E293B" stroke-width="2.5"/>
-  <!-- Center pivot -->
-  <polygon points="145,120 155,120 150,150" fill="#1E293B"/>
-  <rect x="148" y="150" width="4" height="30" fill="#1E293B"/>
-  <rect x="138" y="178" width="24" height="8" rx="2" fill="#1E293B"/>
-  <!-- Left pan: China (higher) -->
-  <rect x="30" y="50" width="100" height="70" rx="8" fill="#F0FDF4" stroke="#10B981" stroke-width="2"/>
-  <text x="80" y="80" text-anchor="middle" fill="#166534" font-size="20" font-weight="900" font-family="PingFang SC,sans-serif">1.75%</text>
-  <text x="80" y="100" text-anchor="middle" fill="#16A34A" font-size="8" font-weight="700" font-family="PingFang SC,sans-serif">国债收益率</text>
-  <text x="80" y="114" text-anchor="middle" fill="#16A34A" font-size="7" font-family="PingFang SC,sans-serif">逆回购2580亿</text>
-  <!-- Right pan: Fed (lower) -->
-  <rect x="170" y="60" width="100" height="60" rx="8" fill="#FFF5F5" stroke="#DC2626" stroke-width="2"/>
-  <text x="220" y="88" text-anchor="middle" fill="#DC2626" font-size="18" font-weight="900" font-family="PingFang SC,sans-serif">67%</text>
-  <text x="220" y="106" text-anchor="middle" fill="#991B1B" font-size="8" font-weight="700" font-family="PingFang SC,sans-serif">加息定价</text>
-  <!-- Bottom: key events -->
-  <rect x="30" y="195" width="240" height="20" rx="4" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
-  <text x="150" y="209" text-anchor="middle" fill="#64748B" font-size="7" font-family="PingFang SC,sans-serif">周三 Warsh听证 · 周四 核心PCE</text>
+  <text x="150" y="18" text-anchor="middle" fill="#fff" font-size="11" font-weight="700" font-family="PingFang SC,sans-serif">宏观分化</text>
+  <!-- Left: China -->
+  <rect x="20" y="40" width="120" height="120" rx="8" fill="#F0FDF4" stroke="#BBF7D0" stroke-width="1.5"/>
+  <text x="80" y="65" text-anchor="middle" fill="#166534" font-size="9" font-weight="700" font-family="PingFang SC,sans-serif">中国债市</text>
+  <text x="80" y="98" text-anchor="middle" fill="#16A34A" font-size="22" font-weight="900" font-family="PingFang SC,sans-serif">1.75%</text>
+  <text x="80" y="118" text-anchor="middle" fill="#166534" font-size="8" font-family="PingFang SC,sans-serif">10年期国债</text>
+  <text x="80" y="140" text-anchor="middle" fill="#64748B" font-size="7" font-family="PingFang SC,sans-serif">逆回购2580亿</text>
+  <!-- Center: vs -->
+  <text x="155" y="100" text-anchor="middle" fill="#94A3B8" font-size="11" font-weight="700" font-family="PingFang SC,sans-serif">vs</text>
+  <!-- Right: Fed -->
+  <rect x="170" y="40" width="120" height="120" rx="8" fill="#FFF5F5" stroke="#FECACA" stroke-width="1.5"/>
+  <text x="230" y="65" text-anchor="middle" fill="#991B1B" font-size="9" font-weight="700" font-family="PingFang SC,sans-serif">美联储</text>
+  <text x="230" y="98" text-anchor="middle" fill="#DC2626" font-size="22" font-weight="900" font-family="PingFang SC,sans-serif">67%</text>
+  <text x="230" y="118" text-anchor="middle" fill="#991B1B" font-size="8" font-family="PingFang SC,sans-serif">年内加息定价</text>
+  <text x="230" y="140" text-anchor="middle" fill="#64748B" font-size="7" font-family="PingFang SC,sans-serif">沃勒鹰派 · 野村撤降息</text>
+  <!-- Events at bottom -->
+  <rect x="30" y="182" width="250" height="30" rx="6" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="100" y="200" text-anchor="middle" fill="#1E40AF" font-size="8" font-weight="700" font-family="PingFang SC,sans-serif">周三 Warsh听证</text>
+  <line x1="150" y1="185" x2="150" y2="210" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="210" y="200" text-anchor="middle" fill="#1E40AF" font-size="8" font-weight="700" font-family="PingFang SC,sans-serif">周四 核心PCE</text>
 </svg>

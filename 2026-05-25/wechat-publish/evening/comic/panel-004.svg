@@ -1,28 +1,30 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 220">
   <rect width="300" height="220" fill="#FAFAFA"/>
-  <!-- Title -->
   <rect x="0" y="0" width="300" height="26" fill="#1A56DB"/>
   <text x="150" y="18" text-anchor="middle" fill="#fff" font-size="11" font-weight="700" font-family="PingFang SC,sans-serif">美伊框架协议</text>
-  <!-- Puzzle main area -->
-  <!-- 9 filled puzzle pieces (90%) -->
-  <rect x="25" y="45" width="55" height="50" rx="4" fill="#EFF6FF" stroke="#1A56DB" stroke-width="1.5"/>
-  <rect x="85" y="45" width="55" height="50" rx="4" fill="#EFF6FF" stroke="#1A56DB" stroke-width="1.5"/>
-  <rect x="145" y="45" width="55" height="50" rx="4" fill="#EFF6FF" stroke="#1A56DB" stroke-width="1.5"/>
-  <rect x="25" y="100" width="55" height="50" rx="4" fill="#EFF6FF" stroke="#1A56DB" stroke-width="1.5"/>
-  <rect x="85" y="100" width="55" height="50" rx="4" fill="#EFF6FF" stroke="#1A56DB" stroke-width="1.5"/>
-  <rect x="145" y="100" width="55" height="50" rx="4" fill="#EFF6FF" stroke="#1A56DB" stroke-width="1.5"/>
-  <rect x="25" y="155" width="55" height="50" rx="4" fill="#EFF6FF" stroke="#1A56DB" stroke-width="1.5"/>
-  <rect x="85" y="155" width="55" height="50" rx="4" fill="#EFF6FF" stroke="#1A56DB" stroke-width="1.5"/>
-  <rect x="145" y="155" width="55" height="50" rx="4" fill="#EFF6FF" stroke="#1A56DB" stroke-width="1.5"/>
-  <!-- 1 missing piece (10% - israel/nuclear) -->
-  <rect x="205" y="45" width="55" height="50" rx="4" fill="#FFF5F5" stroke="#DC2626" stroke-width="2" stroke-dasharray="4,3"/>
-  <text x="232" y="75" text-anchor="middle" fill="#DC2626" font-size="8" font-weight="700" font-family="PingFang SC,sans-serif">核问题</text>
-  <text x="232" y="88" text-anchor="middle" fill="#991B1B" font-size="6" font-family="PingFang SC,sans-serif">推迟至下一阶段</text>
-  <!-- Remaining 2 pieces for the 10% area -->
-  <rect x="205" y="100" width="55" height="50" rx="4" fill="#FFF5F5" stroke="#FECACA" stroke-width="1.5"/>
-  <text x="232" y="130" text-anchor="middle" fill="#991B1B" font-size="8" font-weight="700" font-family="PingFang SC,sans-serif">以色列</text>
-  <text x="232" y="143" text-anchor="middle" fill="#991B1B" font-size="6" font-family="PingFang SC,sans-serif">最大变量</text>
-  <rect x="205" y="155" width="55" height="50" rx="4" fill="#FFFBEB" stroke="#FDE68A" stroke-width="1.5"/>
-  <text x="232" y="185" text-anchor="middle" fill="#92400E" font-size="7" font-weight="700" font-family="PingFang SC,sans-serif">制裁豁免</text>
-  <text x="232" y="198" text-anchor="middle" fill="#92400E" font-size="6" font-family="PingFang SC,sans-serif">120亿美元</text>
+  <!-- Handshake icon -->
+  <rect x="40" y="40" width="70" height="55" rx="8" fill="#EFF6FF" stroke="#BFDBFE" stroke-width="1.5"/>
+  <line x1="55" y1="60" x2="75" y2="60" stroke="#1A56DB" stroke-width="2"/>
+  <line x1="55" y1="68" x2="75" y2="68" stroke="#1A56DB" stroke-width="2"/>
+  <line x1="60" y1="52" x2="70" y2="52" stroke="#1A56DB" stroke-width="2"/>
+  <line x1="60" y1="76" x2="70" y2="76" stroke="#1A56DB" stroke-width="2"/>
+  <text x="75" y="112" text-anchor="middle" fill="#1E40AF" font-size="9" font-weight="700" font-family="PingFang SC,sans-serif">框架落定 90%</text>
+  <text x="75" y="128" text-anchor="middle" fill="#64748B" font-size="7" font-family="PingFang SC,sans-serif">60天停火 · 30天通航</text>
+  <!-- Divider -->
+  <line x1="125" y1="40" x2="125" y2="180" stroke="#E2E8F0" stroke-width="1" stroke-dasharray="4,3"/>
+  <!-- Right: Unresolved -->
+  <rect x="145" y="40" width="120" height="55" rx="8" fill="#FFF5F5" stroke="#FECACA" stroke-width="1.5"/>
+  <text x="205" y="62" text-anchor="middle" fill="#DC2626" font-size="10" font-weight="800" font-family="PingFang SC,sans-serif">核问题</text>
+  <text x="205" y="80" text-anchor="middle" fill="#991B1B" font-size="7" font-family="PingFang SC,sans-serif">推迟至下一阶段</text>
+  <text x="205" y="96" text-anchor="middle" fill="#64748B" font-size="7" font-family="PingFang SC,sans-serif">30-60天后</text>
+  <!-- Israel risk at bottom -->
+  <rect x="145" y="105" width="120" height="40" rx="6" fill="#FFFBEB" stroke="#FDE68A" stroke-width="1.5"/>
+  <text x="205" y="122" text-anchor="middle" fill="#92400E" font-size="8" font-weight="700" font-family="PingFang SC,sans-serif">以色列</text>
+  <text x="205" y="138" text-anchor="middle" fill="#92400E" font-size="7" font-family="PingFang SC,sans-serif">最大变量 · 不排除单边行动</text>
+  <!-- Key numbers at bottom -->
+  <rect x="20" y="155" width="270" height="55" rx="6" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="80" y="178" text-anchor="middle" fill="#1E40AF" font-size="14" font-weight="800" font-family="PingFang SC,sans-serif">$120亿</text>
+  <text x="80" y="196" text-anchor="middle" fill="#64748B" font-size="7" font-family="PingFang SC,sans-serif">解冻伊朗资产</text>
+  <text x="230" y="178" text-anchor="middle" fill="#DC2626" font-size="14" font-weight="800" font-family="PingFang SC,sans-serif">10%</text>
+  <text x="230" y="196" text-anchor="middle" fill="#64748B" font-size="7" font-family="PingFang SC,sans-serif">未决 · 核问题</text>
 </svg>

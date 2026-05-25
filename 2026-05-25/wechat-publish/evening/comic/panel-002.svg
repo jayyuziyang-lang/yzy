@@ -1,32 +1,37 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 220">
-  <rect width="300" height="220" fill="#1E293B"/>
-  <!-- Title -->
-  <text x="150" y="24" text-anchor="middle" fill="#FCD34D" font-size="11" font-weight="700" font-family="PingFang SC,sans-serif">华为"韬定律"</text>
-  <!-- Chip/PCB visual -->
-  <rect x="60" y="50" width="180" height="100" rx="6" fill="none" stroke="#EA580C" stroke-width="2"/>
-  <!-- Die inside chip -->
-  <rect x="90" y="68" width="120" height="64" rx="3" fill="#EA580C" opacity="0.15"/>
-  <rect x="90" y="68" width="120" height="64" rx="3" fill="none" stroke="#FCD34D" stroke-width="1.5"/>
-  <!-- Stacked layers (logic folding) -->
-  <rect x="100" y="76" width="100" height="6" rx="1" fill="#EA580C" opacity="0.9"/>
-  <rect x="100" y="86" width="100" height="6" rx="1" fill="#EA580C" opacity="0.7"/>
-  <rect x="100" y="96" width="100" height="6" rx="1" fill="#EA580C" opacity="0.5"/>
-  <rect x="100" y="106" width="100" height="6" rx="1" fill="#EA580C" opacity="0.3"/>
-  <rect x="100" y="116" width="100" height="6" rx="1" fill="#EA580C" opacity="0.15"/>
-  <!-- Arrow up -->
-  <polygon points="240,80 255,90 240,100" fill="#DC2626"/>
+  <rect width="300" height="220" fill="#FAFAFA"/>
+  <rect x="0" y="0" width="300" height="26" fill="#7C3AED"/>
+  <text x="150" y="18" text-anchor="middle" fill="#fff" font-size="11" font-weight="700" font-family="PingFang SC,sans-serif">华为韬定律</text>
+  <!-- Circuit traces converging -->
+  <line x1="40" y1="60" x2="100" y2="100" stroke="#E2E8F0" stroke-width="1.5"/>
+  <line x1="40" y1="140" x2="100" y2="100" stroke="#E2E8F0" stroke-width="1.5"/>
+  <line x1="40" y1="100" x2="100" y2="100" stroke="#E2E8F0" stroke-width="1.5"/>
+  <line x1="80" y1="50" x2="100" y2="100" stroke="#E2E8F0" stroke-width="1.5"/>
+  <line x1="80" y1="150" x2="100" y2="100" stroke="#E2E8F0" stroke-width="1.5"/>
+  <!-- Chip -->
+  <rect x="95" y="80" width="60" height="40" rx="4" fill="none" stroke="#7C3AED" stroke-width="2"/>
+  <rect x="110" y="88" width="30" height="24" rx="2" fill="#7C3AED" opacity="0.1" stroke="#7C3AED" stroke-width="1"/>
+  <!-- Stacked layers inside -->
+  <rect x="108" y="90" width="34" height="4" rx="1" fill="#7C3AED" opacity="0.7"/>
+  <rect x="108" y="98" width="34" height="4" rx="1" fill="#7C3AED" opacity="0.5"/>
+  <rect x="108" y="106" width="34" height="4" rx="1" fill="#7C3AED" opacity="0.3"/>
   <!-- Pins -->
-  <rect x="45" y="65" width="15" height="6" rx="1" fill="#FCD34D"/>
-  <rect x="45" y="80" width="15" height="6" rx="1" fill="#FCD34D"/>
-  <rect x="45" y="95" width="15" height="6" rx="1" fill="#FCD34D"/>
-  <rect x="45" y="110" width="15" height="6" rx="1" fill="#FCD34D"/>
-  <rect x="45" y="125" width="15" height="6" rx="1" fill="#FCD34D"/>
-  <rect x="240" y="65" width="15" height="6" rx="1" fill="#FCD34D"/>
-  <rect x="240" y="80" width="15" height="6" rx="1" fill="#FCD34D"/>
-  <rect x="240" y="95" width="15" height="6" rx="1" fill="#FCD34D"/>
-  <rect x="240" y="110" width="15" height="6" rx="1" fill="#FCD34D"/>
-  <rect x="240" y="125" width="15" height="6" rx="1" fill="#FCD34D"/>
-  <!-- Key stat 1 -->
-  <text x="150" y="180" text-anchor="middle" fill="#FCD34D" font-size="16" font-weight="800" font-family="PingFang SC,sans-serif">2.38亿/mm²</text>
-  <text x="150" y="196" text-anchor="middle" fill="#94A3B8" font-size="8" font-family="PingFang SC,sans-serif">晶体管密度 ↑55% · 中芯国际 +18.78%</text>
+  <rect x="160" y="88" width="12" height="5" rx="1" fill="#7C3AED"/>
+  <rect x="160" y="98" width="12" height="5" rx="1" fill="#7C3AED"/>
+  <rect x="160" y="108" width="12" height="5" rx="1" fill="#7C3AED"/>
+  <rect x="78" y="88" width="12" height="5" rx="1" fill="#7C3AED"/>
+  <rect x="78" y="98" width="12" height="5" rx="1" fill="#7C3AED"/>
+  <rect x="78" y="108" width="12" height="5" rx="1" fill="#7C3AED"/>
+  <!-- Label: outputs -->
+  <text x="200" y="62" text-anchor="middle" fill="#7C3AED" font-size="9" font-weight="700" font-family="PingFang SC,sans-serif">晶体管密度</text>
+  <text x="200" y="78" text-anchor="middle" fill="#1E293B" font-size="14" font-weight="800" font-family="PingFang SC,sans-serif">2.38亿/mm²</text>
+  <text x="200" y="94" text-anchor="middle" fill="#DC2626" font-size="8" font-family="PingFang SC,sans-serif">↑55%</text>
+  <!-- Arrows out from chip -->
+  <text x="60" y="180" text-anchor="middle" fill="#DC2626" font-size="8" font-weight="700" font-family="PingFang SC,sans-serif">中芯国际 +18.78%</text>
+  <text x="60" y="194" text-anchor="middle" fill="#64748B" font-size="7" font-family="PingFang SC,sans-serif">成交额372亿 两市第一</text>
+  <text x="240" y="180" text-anchor="middle" fill="#DC2626" font-size="8" font-weight="700" font-family="PingFang SC,sans-serif">华虹 +20%</text>
+  <text x="240" y="194" text-anchor="middle" fill="#64748B" font-size="7" font-family="PingFang SC,sans-serif">寒武纪 +9.37%</text>
+  <!-- Connecting lines from chip to stocks -->
+  <line x1="110" y1="120" x2="60" y2="168" stroke="#E2E8F0" stroke-width="1" stroke-dasharray="3,2"/>
+  <line x1="140" y1="120" x2="240" y2="168" stroke="#E2E8F0" stroke-width="1" stroke-dasharray="3,2"/>
 </svg>
