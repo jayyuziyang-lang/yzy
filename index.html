@@ -440,7 +440,7 @@ function renderEditionList(container, data, dateStr) {
   let hasAny = false;
   let html = '';
   for (const s of sessions) {
-    const item = data[s];
+    const item = data[s.key];
     if (!item) continue;
     hasAny = true;
     const cls = s.key === 'morning' ? 'edition-morning' : 'edition-evening';
