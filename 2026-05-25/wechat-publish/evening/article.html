@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>科创50暴涨5.88%创历史新高，华为"韬定律"引爆半导体</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system,"PingFang SC","Microsoft YaHei","Helvetica Neue",sans-serif; background: #F5F7FA; color: #1E293B; line-height: 1.9; font-size: 16px; }
+  .c { max-width: 640px; margin: 0 auto; background: #fff; padding: 44px 0 40px; }
+
+  .top-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; max-width: 640px; margin: 0 auto; background: rgba(255,255,255,0.95); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-bottom: 1px solid #E2E8F0; display: flex; align-items: center; padding: 0 16px; height: 44px; }
+  .top-nav .back { display: flex; align-items: center; gap: 4px; color: #1A56DB; text-decoration: none; font-size: 13px; font-weight: 600; }
+  .top-nav .back:active { opacity: 0.6; }
+  .top-nav .nav-date { flex: 1; text-align: center; font-size: 12px; color: #64748B; }
+  .top-nav .nav-edition { font-size: 11px; color: #D4A017; background: #FFFBEB; padding: 2px 8px; border-radius: 8px; font-weight: 600; }
+
+  .header { background: linear-gradient(135deg,#DC2626,#991B1B); padding: 20px 20px 16px; color: white; }
+  .header h1 { font-size: 22px; font-weight: 700; line-height: 1.4; margin-bottom: 8px; }
+  .header .meta { font-size: 12px; opacity: 0.8; display: flex; gap: 12px; flex-wrap: wrap; }
+  .header .meta .reading-time { background: rgba(255,255,255,0.1); padding: 1px 8px; border-radius: 8px; }
+
+  .player { display: flex; align-items: center; gap: 12px; margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.15); }
+  .player-icon { width: 40px; height: 40px; background: rgba(255,255,255,0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 18px; }
+  .player-info { flex: 1; }
+  .player-title { font-size: 13px; font-weight: 600; }
+  .player-desc { font-size: 11px; opacity: 0.7; }
+  .player audio { width: 100%; margin-top: 4px; border-radius: 20px; }
+
+  .body { padding: 20px; }
+
+  .lead { font-size: 15px; color: #475569; line-height: 1.8; margin-bottom: 20px; padding: 14px 16px; background: #FFF5F5; border-radius: 10px; border-left: 4px solid #DC2626; }
+  .lead strong { color: #1E293B; }
+
+  .section-block { margin: 28px 0; }
+  .section-num { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; font-size: 13px; font-weight: 700; margin-right: 8px; flex-shrink: 0; color: #fff; }
+  .section-title { font-size: 18px; font-weight: 700; color: #1E293B; margin-bottom: 12px; display: flex; align-items: center; }
+  .section-content { font-size: 15px; color: #334155; line-height: 1.9; margin-bottom: 12px; }
+  .section-content p { margin-bottom: 12px; text-align: justify; }
+  .section-content .highlight { background: #FFFBEB; padding: 1px 4px; border-radius: 2px; font-weight: 600; color: #92400E; }
+  .section-content .key-point { font-weight: 700; color: #1A56DB; }
+
+  .section-img { margin: 14px 0; border-radius: 8px; border: 1px solid #E2E8F0; overflow: hidden; background: #FAFAFA; }
+  .section-img img { width: 100%; display: block; }
+  .section-img .caption { font-size: 12px; color: #64748B; text-align: center; padding: 6px 10px; background: #F8FAFC; }
+
+  .section-divider { border: none; height: 1px; background: linear-gradient(to right, transparent, #D4A017, transparent); margin: 8px 0; }
+
+  .pull-quote { font-size: 16px; font-weight: 700; color: #DC2626; text-align: center; padding: 16px 20px; margin: 16px 0; border-top: 2px solid #FEF2F2; border-bottom: 2px solid #FEF2F2; line-height: 1.6; }
+
+  .sources { background: #FFFBEB; border-radius: 10px; padding: 12px 14px; margin: 16px 0; font-size: 12px; color: #92400E; line-height: 1.6; }
+  .sources h3 { font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+  .sources a { color: #1A56DB; text-decoration: none; }
+
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 13px; }
+  th { background: #DC2626; color: #fff; padding: 8px 10px; text-align: left; font-weight: 600; }
+  th:first-child { border-radius: 6px 0 0 0; }
+  th:last-child { border-radius: 0 6px 0 0; }
+  td { padding: 8px 10px; border-bottom: 1px solid #E2E8F0; }
+  tr:nth-child(even) { background: #F8F9FA; }
+
+  .end-box { background: linear-gradient(135deg,#DC2626,#991B1B); border-radius: 12px; padding: 16px 20px; margin: 22px 0; color: white; text-align: center; }
+  .end-box .end-icon { font-size: 28px; margin-bottom: 4px; }
+  .end-box .end-title { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+  .end-box .end-desc { font-size: 12px; opacity: 0.8; }
+
+  .warn { background: #FFF5F5; border: 1px solid #FECACA; border-radius: 10px; padding: 12px 14px; margin-top: 24px; font-size: 12px; color: #991B1B; line-height: 1.5; }
+
+  .tag { display: inline-flex; align-items: center; font-size: 11px; padding: 2px 10px; border-radius: 10px; font-weight: 600; margin-right: 6px; }
+  .tag-a { background: #FEF2F2; color: #DC2626; } .tag-us { background: #F0FDF4; color: #16A34A; }
+  .tag-tech { background: #FAF5FF; color: #9333EA; } .tag-intl { background: #EFF6FF; color: #1A56DB; }
+  .tag-macro { background: #FFFBEB; color: #D4A017; } .tag-commodity { background: #FFF7ED; color: #EA580C; }
+
+  .up { color: #DC2626; } .down { color: #16A34A; }
+  .data-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 12px 0; }
+  .data-item { background: #F8FAFC; border-radius: 8px; padding: 10px 12px; }
+  .data-item .label { font-size: 11px; color: #94A3B8; }
+  .data-item .value { font-size: 18px; font-weight: 700; margin-top: 2px; }
+</style>
+</head>
+<body>
+<div class="c">
+
+  <div class="top-nav">
+    <a class="back" href="../../index.html">&larr; 返回首页</a>
+    <span class="nav-date">2026年5月25日</span>
+    <span class="nav-edition">晚报</span>
+  </div>
+
+  <div class="header">
+    <h1>科创50暴涨5.88%创历史新高，华为"韬定律"引爆全市场</h1>
+    <div class="meta">
+      <span>📅 2026年5月25日 · 星期一</span>
+      <span>🏷️ 科创50新高 · 韬定律 · 油价暴跌 · 美股休市</span>
+      <span class="reading-time">📖 阅读约 6 分钟</span>
+    </div>
+    <div class="player">
+      <div class="player-icon">🎧</div>
+      <div class="player-info">
+        <div class="player-title">晚报深度复盘 · 约 7 分钟</div>
+        <div class="player-desc">阿扬带你复盘今天的A股行情</div>
+        <audio controls preload="none"><source src="audio.mp3" type="audio/mpeg"></audio>
+      </div>
+    </div>
+  </div>
+
+  <div class="body">
+
+    <!-- Lead -->
+    <div class="lead">
+      <strong>各位朋友晚上好，我是阿扬。</strong> 今天的A股，用"冰火两重天"来形容一点都不夸张。科创50指数暴涨5.88%创下历史新高，中芯国际单日成交372亿——你多久没见过这种场面了？但在另一边，两市超过3200只个股是跌的，大盘资金净流出238亿。这种极致分化背后，是华为发布的一项震撼全球半导体圈的新定律。<br><br>
+      美股今天因阵亡将士纪念日休市，但这并没有让市场安静下来。美伊协议预期推动原油暴跌超4%，黄金在4500美元关口剧烈震荡。这一期晚报，我们来拆解这些变化背后的逻辑。
+    </div>
+
+    <!-- ===== Section 01: A股 ===== -->
+    <div class="section-block">
+      <div class="section-title">
+        <span class="section-num" style="background:#DC2626;">01</span>
+        <span>A股 · 极致分化的一天</span>
+      </div>
+      <div class="section-content">
+        <p>今天A股三大指数集体收涨，但过程远不止数字那么简单。</p>
+
+        <table>
+          <tr><th>指数</th><th>收盘</th><th>涨跌幅</th></tr>
+          <tr><td>上证综指</td><td>4152.57</td><td class="up">+0.96%</td></tr>
+          <tr><td>深证成指</td><td>15856.61</td><td class="up">+1.66%</td></tr>
+          <tr><td>创业板指</td><td>4021.16</td><td class="up">+2.10%</td></tr>
+          <tr><td><strong>科创50</strong></td><td><strong>1896.04</strong></td><td class="up"><strong>+5.88%</strong></td></tr>
+          <tr><td>沪深300</td><td>4921.60</td><td class="up">+1.58%</td></tr>
+        </table>
+
+        <p>科创50暴涨5.88%收于1896.04点，刷新历史最高收盘纪录。两市成交额放大至3.21万亿元，较前一交易日增量约3025亿元（来源：北京商报、每经网）。</p>
+
+        <div class="section-img">
+          <img src="comic/panel-000.svg" alt="华为韬定律" loading="lazy">
+          <div class="caption">华为发布"韬(τ)定律"——用逻辑折叠替代摩尔定律的几何缩微路径</div>
+        </div>
+
+        <p>但表面繁荣之下是极致的结构性分化：<strong>2181家上涨，3225家下跌</strong>，平盘116家。涨停约128只，跌停24只。大盘资金整体净流出238亿元（来源：每经网）。简单说——指数涨了，但多数个股在跌。</p>
+
+        <p><strong>核心驱动力只有一个：华为发布"韬（τ）定律"。</strong></p>
+
+        <div class="data-grid">
+          <div class="data-item"><div class="label">科创50</div><div class="value up">+5.88%</div><div style="font-size:11px;color:#94A3B8;">创历史新高</div></div>
+          <div class="data-item"><div class="label">两市成交</div><div class="value" style="color:#1A56DB;">3.21万亿</div><div style="font-size:11px;color:#94A3B8;">+3025亿</div></div>
+          <div class="data-item"><div class="label">中芯国际</div><div class="value up">+18.78%</div><div style="font-size:11px;color:#94A3B8;">成交372亿</div></div>
+          <div class="data-item"><div class="label">个股涨跌</div><div class="value" style="font-size:15px;">2181↑ 3225↓</div><div style="font-size:11px;color:#94A3B8;">涨少跌多</div></div>
+        </div>
+
+        <p>半导体产业链全线爆发：中芯国际暴涨18.78%，成交额高达372.54亿元，居两市第一；华虹公司涨停20%，长电科技、兆易创新双双涨停。寒武纪涨9.37%，报收1406.50元（来源：每经网）。</p>
+
+        <p>另一面，油气股全面重挫——受美伊和平协议预期冲击，石油板块跌幅居前，中国海油、中国石油等权重股拖累上证指数表现。（来源：九方智投）</p>
+      </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- ===== Section 02: 美股 ===== -->
+    <div class="section-block">
+      <div class="section-title">
+        <span class="section-num" style="background:#16A34A;">02</span>
+        <span>美股 · 休市一日，静待PCE</span>
+      </div>
+      <div class="section-content">
+        <p>今天美股因阵亡将士纪念日全天休市，纽约证券交易所、纳斯达克均关闭。债券市场同步休市（来源：雅虎财经）。</p>
+
+        <p>期货市场提前收盘：布伦特原油期货于北京时间26日01:30结束交易，贵金属、美国原油及股指期货于02:30前收市。</p>
+
+        <p><strong>但本周的重头戏在后半周：</strong></p>
+        <p>周四（5月28日）将发布4月核心PCE物价指数——这是美联储最看重的通胀指标。野村证券已撤销2026年降息预期，市场定价12月前加息概率一度升至60%。同时，周三特朗普提名的美联储主席候选人Warsh将在国会作首场听证，市场高度关注其政策立场（来源：每经网、Investing.com）。</p>
+      </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- ===== Section 03: 科技/AI ===== -->
+    <div class="section-block">
+      <div class="section-title">
+        <span class="section-num" style="background:#9333EA;">03</span>
+        <span>科技/AI · 韬定律与降价风暴</span>
+      </div>
+      <div class="section-content">
+
+        <h3 style="font-size:15px;font-weight:700;color:#1E293B;margin-bottom:8px;">🔬 华为发布"韬（τ）定律"</h3>
+        <p>今天最炸裂的消息来自华为。在上海举行的2026国际电路与系统研讨会上，华为半导体业务部总裁何庭波正式发表<strong>"韬（τ）定律"</strong>——这是中国在全球半导体领域首次提出系统性新理论（来源：搜狐新闻、新浪财经）。</p>
+
+        <p><strong>核心逻辑：</strong>用"时间（τ）缩微"替代摩尔定律的"几何缩微"。通俗说，摩尔定律追求把晶体管越做越小，但华为换了一条路——通过<strong>逻辑折叠（Logic Folding）</strong>把平面电路像折纸一样立体堆叠，大幅缩短信号传输距离，从而提升性能和密度。</p>
+
+        <p>结果：2026款麒麟芯片晶体管密度达到<span class="highlight">2.38亿颗/mm²</span>（上一代1.55亿，提升55%），核心能效提升41%（来源：华为发布会）。</p>
+
+        <p>这是一条被"逼"出来的路。自2019年被列入实体清单后，华为无法使用先进光刻设备，近10年累计研发投入超1.38万亿元。从芯片封锁到理论引领——这条路走了整整7年。</p>
+
+        <div class="pull-quote">"未来一定属于开放合作。期待与全球科学家、工程师和产业伙伴紧密合作。"<br><span style="font-size:12px;color:#64748B;">—— 何庭波，华为半导体业务部总裁</span></div>
+
+        <h3 style="font-size:15px;font-weight:700;color:#1E293B;margin-bottom:8px;">💰 DeepSeek永久降价75%</h3>
+        <p>同一天，AI界也迎来了"价格地震"。DeepSeek宣布：V4-Pro API价格从5月31日起永久调整为原价的1/4，缓存命中输入仅0.025元/百万Tokens，输出6元/百万Tokens——这个价格比GPT-5.5便宜超过30倍（来源：36氪、新浪科技）。</p>
+
+        <p>值得注意的是，这一降价发生在全球AI大模型普遍涨价的背景下——HBM内存半年暴涨超500%，字节、智谱、阿里云等纷纷提价。DeepSeek的底气来自底层架构创新：稀疏注意力机制、混合专家模型和国产算力适配带来的真实成本下降，而非"烧钱换市场"（来源：36氪）。</p>
+
+      </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- ===== Section 04: 前沿/国际 ===== -->
+    <div class="section-block">
+      <div class="section-title">
+        <span class="section-num" style="background:#1A56DB;">04</span>
+        <span>前沿/国际 · 美伊协议：框架落定，核问题悬置</span>
+      </div>
+      <div class="section-content">
+        <p>美伊谈判在周末取得突破性进展。特朗普声称协议"基本谈成"，但实际细节远比口号复杂（来源：环球网、国际在线）。</p>
+
+        <p><strong>已达成共识的部分：</strong></p>
+        <p>双方已就60天停火延长的谅解备忘录框架达成超90%内容。霍尔木兹海峡有望在备忘录签署后30天内全面恢复航运——伊朗方面称已有33艘船只通过海峡，通行状况大幅改善。美国将解冻120亿美元伊朗资产，并出台部分制裁豁免允许伊朗自由出口石油（来源：新浪、华盛顿邮报）。</p>
+
+        <p><strong>致命分歧：核问题被刻意推迟。</strong></p>
+        <p>伊朗外交部发言人巴加埃反复强调：<strong>"当前谈判完全不涉及核问题"</strong>，核问题可能在30-60天后的下一阶段再讨论。伊朗学生通讯社25日援引高级外交官称，草案中双方均未就核问题和浓缩铀问题作出任何承诺（来源：云南网、环球网）。</p>
+
+        <p>美方的表述则存在矛盾——《纽约时报》引述美方官员称协议包含伊朗处置高浓缩铀的原则性承诺。这一信息鸿沟意味着：<strong>框架协议只是开始，最硬的骨头还没啃。</strong></p>
+
+        <p><strong>最大变量：以色列。</strong>以方被排除在谈判核心圈外，认为协议"对其非常不利"，不排除采取单边军事行动（来源：国际在线）。</p>
+      </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- ===== Section 05: 宏观 ===== -->
+    <div class="section-block">
+      <div class="section-title">
+        <span class="section-num" style="background:#D4A017;">05</span>
+        <span>宏观 · 债市平稳，鹰派声音再起</span>
+      </div>
+      <div class="section-content">
+        <p>中国10年期国债收益率今日报1.75%附近，较前一交易日基本持平，整体偏强震荡。早盘受税期影响资金面偏紧，午后边际转松。央行开展2580亿元7天期逆回购操作，中标利率1.40%（来源：中国货币网、新浪财经）。</p>
+
+        <p>人民币汇率日内偏强运行，股汇联动明显。A股大涨对人民币形成支撑，但美伊协议落地后油价暴跌带来的通胀预期降温，也在一定程度上缓解了外部压力。</p>
+
+        <p><strong>美联储这边，鹰派声音明显增多。</strong>理事沃勒公开呼吁摒弃"宽松倾向"，市场对年内加息的定价一度升至67%（来源：每经网）。野村证券已撤销2026年降息预期，这与此前华尔街年初普遍预期的"降息3次"形成鲜明反差。</p>
+
+        <p>核心矛盾在于通胀粘性：油价下跌固然有利于缓解通胀，但核心服务通胀（租金、医疗）依然顽固，劳动力市场未见实质降温。周四的核心PCE数据将给市场一个更清晰的判断依据。</p>
+      </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- ===== Section 06: 商品/黄金 ===== -->
+    <div class="section-block">
+      <div class="section-title">
+        <span class="section-num" style="background:#EA580C;">06</span>
+        <span>商品/黄金 · 油价暴跌，黄金4500拉锯</span>
+      </div>
+      <div class="section-content">
+        <p>商品市场今天经历剧烈重定价，核心驱动只有一个——美伊协议预期。</p>
+
+        <p><strong>原油：</strong>WTI原油盘中暴跌超6%至90.87美元/桶，布伦特原油跌破100美元关口至94.76美元。此前一周美伊谈判传闻已导致油价连续下跌，WTI周跌幅超8%（来源：金融界、Investing.com）。</p>
+
+        <p>逻辑很直白：霍尔木兹海峡重新开放意味着全球约1/5的石油贸易将恢复正常，而伊朗原油出口制裁若逐步解除将进一步增加全球供给。自2月底冲突以来，OPEC+产量已从4277万桶/日骤降至4月的3319万桶/日——这个缺口有望逐步回补。</p>
+
+        <div class="section-img">
+          <img src="comic/panel-001.svg" alt="美伊协议下的商品市场" loading="lazy">
+          <div class="caption">美伊协议预期下原油暴跌、黄金V型反弹，商品市场剧烈重定价</div>
+        </div>
+
+        <p>但中期来看，即便协议落地，油价不会"一夜回到战前"。受损油田和基础设施修复需数月时间，全球每日仍有约680万桶供应缺口。IEA预计10月前市场持续"严重供应不足"。隆众资讯预测6-8月布伦特在87-110美元/桶区间运行（来源：新浪财经、IEA）。</p>
+
+        <p><strong>黄金：</strong>走出"V型"走势。日内从4509美元反弹至4580美元附近，4500美元关口显示较强支撑。美元走弱和油价下跌带来的通胀预期降温共同支撑金价反弹。但美联储鹰派预期压制了涨幅空间。花旗短期看空至4300美元，但维持6-12个月目标价5000美元（来源：21世纪经济报道、每经网）。</p>
+      </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- ===== End ===== -->
+    <div class="end-box">
+      <div class="end-icon">🌙</div>
+      <div class="end-title">今天的复盘就到这里</div>
+      <div class="end-desc">周一A股在半导体带领下放量大涨，但结构性分化需要心里有数。美股休市让全球市场暂时"冷静"一天，但周四的PCE和Warsh听证将不可避免地成为本周焦点。</div>
+    </div>
+
+    <!-- ===== Sources ===== -->
+    <div class="sources">
+      <h3>📌 数据来源</h3>
+      <div style="line-height:2;">
+        · <a href="https://www.nbd.com.cn/articles/2026-05-25/4407308.html">每经网 — A股收盘综述</a><br>
+        · <a href="https://www.bbtnews.com.cn/2026/0525/594275.shtml">北京商报 — 科创50创历史新高</a><br>
+        · <a href="https://finance.jrj.com.cn/2026/05/25103957184789.shtml">金融界 — 美伊谈判油价暴跌</a><br>
+        · <a href="https://www.sohu.com/a/1027420196_393779">搜狐新闻 — 华为发布韬定律</a><br>
+        · <a href="https://finance.sina.com.cn/roll/2026-05-25/doc-inhzchzf5026896.shtml">新浪财经 — 详解华为韬定律</a><br>
+        · <a href="https://36kr.com/p/3824398767120387">36氪 — DeepSeek永久降价分析</a><br>
+        · <a href="https://www.21jingji.com/article/20260525/herald/1ccc76ad04861fba576787e8e2575c8f.html">21世纪经济报道 — 黄金反弹</a><br>
+        · <a href="http://news.cri.cn/20260525/a5d98f4c-3ca2-8cb1-ba44-de64b02ad94f.html">国际在线 — 美伊协议分析</a><br>
+        · <a href="http://news.yunnan.cn/system/2026/05/23/034020282.shtml">云南网 — 伊方核问题立场</a><br>
+        · <a href="https://hk.finance.yahoo.com/news/%E7%BE%8E%E8%82%A1%E5%91%A8-%E5%9B%A0%E9%99%A3%E4%BA%A1%E5%B0%87%E5%A3%AB%E7%B4%80%E5%BF%B5%E6%97%A5%E4%BC%91%E5%B8%82-062007058.html">雅虎财经 — 美股休市</a><br>
+        · <a href="https://www.chinamoney.com.cn/chinese/bkval/">中国货币网 — 国债收益率</a>
+      </div>
+    </div>
+
+    <!-- ===== Warn ===== -->
+    <div class="warn">
+      ⚠️ <strong>风险提示与免责声明</strong>：本文内容仅供参考，不构成投资建议。市场有风险，投资需谨慎。数据来源于公开信息，作者不保证其绝对准确性。
+    </div>
+
+  </div>
+
+</div>
+</body>
+</html>

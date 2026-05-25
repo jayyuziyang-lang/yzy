@@ -1,7 +1,15 @@
 {
-  "generated_at": "2026-05-25T09:29:00+08:00",
+  "generated_at": "2026-05-25T20:33:05+08:00",
   "latest_date": "2026-05-25",
   "articles": [
+    {
+      "date": "2026-05-25",
+      "session": "evening",
+      "edition_cn": "晚报",
+      "icon": "🌙",
+      "title": "科创50暴涨5.88%创历史新高，华为\"韬定律\"引爆半导体",
+      "url": "2026-05-25/wechat-publish/evening/article.html"
+    },
     {
       "date": "2026-05-25",
       "session": "morning",
@@ -70,6 +78,14 @@
   ],
   "by_date": {
     "2026-05-25": {
+      "evening": {
+        "date": "2026-05-25",
+        "session": "evening",
+        "edition_cn": "晚报",
+        "icon": "🌙",
+        "title": "科创50暴涨5.88%创历史新高，华为\"韬定律\"引爆半导体",
+        "url": "2026-05-25/wechat-publish/evening/article.html"
+      },
       "morning": {
         "date": "2026-05-25",
         "session": "morning",

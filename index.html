@@ -421,12 +421,18 @@ function updateCharMsg() {
 function renderToday() {
   const container = document.getElementById('todayContent');
   const todayStr = formatDateISO(getBeijingNow());
-  // If pre-rendered HTML already matches today, keep it (avoid JS overriding correct content)
-  if (container.dataset.date === todayStr) {
-    return;
-  }
+  // Check if pre-rendered HTML already contains ALL sessions for today
+  // (deploy-time snap = authoritative; JS only adds missing content)
   const data = ARTICLES_BY_DATE[todayStr];
   if (data) {
+    const sessions = ['morning', 'evening', 'special'];
+    const preRenderedLinks = container.querySelectorAll('.edition');
+    const preRenderedCount = preRenderedLinks.length;
+    const expectedCount = sessions.filter(k => data[k]).length;
+    // Only skip if pre-rendered already has all editions for today
+    if (container.dataset.date === todayStr && preRenderedCount >= expectedCount) {
+      return;
+    }
     renderEditionList(container, data, todayStr);
     container.dataset.date = todayStr;
   }
