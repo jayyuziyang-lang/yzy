@@ -79,7 +79,7 @@ python scripts/site-health.py 2>/dev/null || echo "  (skip — 非阻塞)"
 # 部署前自动检查
 echo -e "\n🔍 运行部署前检查..."
 if [ -f "scripts/pre-deploy-check.sh" ]; then
-    bash scripts/pre-deploy-check.sh || true  # 仅提示，不阻断部署
+    bash scripts/pre-deploy-check.sh  # 阻塞部署
 else
     echo "  (pre-deploy-check.sh 不存在，跳过)"
 fi
@@ -96,9 +96,9 @@ echo -e "📤 提交中..."
 git commit -m "$COMMIT_MSG" 2>/dev/null || echo "  无新变更"
 
 echo -e "📤 推送到远程..."
-git push 2>&1 || {
+GIT_PUSH_USING_DEPLOY=1 git push 2>&1 || {
     echo -e "${YELLOW}[!] 推送失败，尝试设置 upstream${NC}"
-    git push -u origin main 2>&1
+    GIT_PUSH_USING_DEPLOY=1 git push -u origin main 2>&1
 }
 
 echo ""
