@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>扬说财经 · 夜读 | 2026.05.24</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system,"PingFang SC","Microsoft YaHei","Helvetica Neue",sans-serif; background: #F5F7FA; color: #1E293B; line-height: 1.9; font-size: 16px; }
+  .c { max-width: 640px; margin: 0 auto; background: #fff; padding: 44px 0 40px; }
+
+  .top-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; max-width: 640px; margin: 0 auto; background: rgba(255,255,255,0.95); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-bottom: 1px solid #E2E8F0; display: flex; align-items: center; padding: 0 16px; height: 44px; }
+  .top-nav .back { display: flex; align-items: center; gap: 4px; color: #1A56DB; text-decoration: none; font-size: 13px; font-weight: 600; }
+  .top-nav .back:active { opacity: 0.6; }
+  .top-nav .nav-date { flex: 1; text-align: center; font-size: 12px; color: #64748B; }
+  .top-nav .nav-edition { font-size: 11px; color: #D4A017; background: #FFFBEB; padding: 2px 8px; border-radius: 8px; font-weight: 600; }
+
+  .header { background: linear-gradient(135deg,#1A56DB,#1E3A7A); padding: 20px 20px 16px; color: white; }
+  .header .series-tag { display: inline-block; font-size: 11px; background: rgba(255,255,255,0.15); padding: 2px 10px; border-radius: 10px; margin-bottom: 8px; letter-spacing: 1px; }
+  .header .series-tag .gold { color: #D4A017; font-weight: 700; }
+  .header h1 { font-size: 22px; font-weight: 700; line-height: 1.4; margin-bottom: 8px; }
+  .header .meta { font-size: 12px; opacity: 0.8; display: flex; gap: 12px; flex-wrap: wrap; }
+  .header .meta .reading-time { background: rgba(255,255,255,0.1); padding: 1px 8px; border-radius: 8px; }
+
+  .player { display: flex; align-items: center; gap: 12px; margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.15); }
+  .player-icon { width: 40px; height: 40px; background: rgba(255,255,255,0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 18px; }
+  .player-info { flex: 1; }
+  .player-title { font-size: 13px; font-weight: 600; }
+  .player-desc { font-size: 11px; opacity: 0.7; }
+  .player audio { width: 100%; margin-top: 4px; border-radius: 20px; }
+
+  .body { padding: 20px; }
+
+  .lead { font-size: 15px; color: #475569; line-height: 1.8; margin-bottom: 20px; padding: 14px 16px; background: #F8FAFC; border-radius: 10px; border-left: 4px solid #D4A017; }
+  .lead strong { color: #1E293B; }
+
+  .section-block { margin: 28px 0; }
+  .section-num { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; font-size: 13px; font-weight: 700; margin-right: 8px; flex-shrink: 0; color: #fff; }
+  .section-title { font-size: 18px; font-weight: 700; color: #1E293B; margin-bottom: 12px; display: flex; align-items: center; }
+  .section-content { font-size: 15px; color: #334155; line-height: 1.9; margin-bottom: 12px; }
+  .section-content p { margin-bottom: 12px; text-align: justify; }
+  .section-content .highlight { background: #FFFBEB; padding: 1px 4px; border-radius: 2px; font-weight: 600; color: #92400E; }
+  .section-content .key-point { font-weight: 700; color: #1A56DB; }
+
+  .section-img { margin: 14px 0; border-radius: 8px; border: 1px solid #E2E8F0; overflow: hidden; background: #FAFAFA; }
+  .section-img img { width: 100%; display: block; }
+  .section-img .caption { font-size: 12px; color: #64748B; text-align: center; padding: 6px 10px; background: #F8FAFC; }
+
+  .section-divider { border: none; height: 1px; background: linear-gradient(to right, transparent, #D4A017, transparent); margin: 8px 0; }
+
+  .pull-quote { font-size: 15px; font-weight: 700; color: #1A56DB; text-align: center; padding: 16px 20px; margin: 16px 0; border-top: 2px solid #EFF6FF; border-bottom: 2px solid #EFF6FF; line-height: 1.6; }
+
+  .sources { background: #FFFBEB; border-radius: 10px; padding: 12px 14px; margin: 16px 0; font-size: 12px; color: #92400E; line-height: 1.6; }
+  .sources h3 { font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+  .sources a { color: #1A56DB; text-decoration: none; }
+
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 13px; }
+  th { background: #1A56DB; color: #fff; padding: 8px 10px; text-align: left; font-weight: 600; }
+  th:first-child { border-radius: 6px 0 0 0; }
+  th:last-child { border-radius: 0 6px 0 0; }
+  td { padding: 8px 10px; border-bottom: 1px solid #E2E8F0; }
+  tr:nth-child(even) { background: #F8F9FA; }
+  .up { color: #DC2626; } .down { color: #16A34A; }
+
+  .end-box { background: linear-gradient(135deg,#1A56DB,#1E3A7A); border-radius: 12px; padding: 16px 20px; margin: 22px 0; color: white; text-align: center; }
+  .end-box .end-icon { font-size: 28px; margin-bottom: 4px; }
+  .end-box .end-title { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+  .end-box .end-desc { font-size: 12px; opacity: 0.8; }
+
+  .warn { background: #FFF5F5; border: 1px solid #FECACA; border-radius: 10px; padding: 12px 14px; margin-top: 24px; font-size: 12px; color: #991B1B; line-height: 1.5; }
+
+  .tag { display: inline-flex; align-items: center; font-size: 11px; padding: 2px 10px; border-radius: 10px; font-weight: 600; margin-right: 6px; }
+  .tag-a { background: #FEF2F2; color: #DC2626; } .tag-us { background: #F0FDF4; color: #16A34A; }
+  .tag-tech { background: #FAF5FF; color: #9333EA; } .tag-intl { background: #EFF6FF; color: #1A56DB; }
+  .tag-macro { background: #FFFBEB; color: #D4A017; } .tag-commodity { background: #FFF7ED; color: #EA580C; }
+</style>
+</head>
+<body>
+<div class="c">
+
+  <div class="top-nav">
+    <a class="back" href="../../../index.html">&larr; 返回首页</a>
+    <span class="nav-date">2026.05.24 · 周日</span>
+    <span class="nav-edition">扬说·夜读</span>
+  </div>
+
+  <div class="header">
+    <div class="series-tag"><span class="gold">扬说·夜读</span> · 深度周评</div>
+    <h1>Fed换帅 + AI IPO潮 + 消费者信心崩塌：三重变局下的市场逻辑</h1>
+    <div class="meta">
+      <span>📅 2026年5月24日 · 星期日</span>
+      <span>🏷️ 深度复盘 · Warsh缩表 · AI三巨头 · K型分化</span>
+      <span class="reading-time">📖 阅读约 10 分钟</span>
+    </div>
+    <div class="player">
+      <div class="player-icon">🎧</div>
+      <div class="player-info">
+        <div class="player-title">夜读深度版 · 约 8 分钟</div>
+        <div class="player-desc">阿扬带您深度复盘本周五大核心议题</div>
+        <audio controls preload="none"><source src="audio.mp3" type="audio/mpeg"></audio>
+      </div>
+    </div>
+  </div>
+
+  <div class="body">
+
+    <!-- Lead -->
+    <div class="lead">
+      <strong>你好，我是阿扬。</strong> 本周市场表面上波澜不惊——道指又创新高了，标普又连涨了。但水面之下，有三股深层力量正在重塑全球资产的定价逻辑：Fed正式换帅开启"缩表纪元"、近年来规模最大的AI IPO浪潮即将扑面而来、而普通消费者正在承受油价引发的通胀之痛。本篇夜读，我们逐一拆解。
+    </div>
+
+    <!-- 深度一：Fed换帅 -->
+    <div class="section-block">
+      <div class="section-title"><span class="section-num" style="background:#D4A017;">1</span><span class="tag tag-macro">宏观</span>Warsh时代的Fed：6.8万亿缩表意味着什么？</div>
+      <div class="section-content">
+        <p><strong>Kevin Warsh</strong> 于本周五正式宣誓就任新一任美联储主席，接替服务多年的Jerome Powell。这不是一次普通的换帅——Warsh与Powell有一个根本性分歧：Powell认为美联储应该"管理"市场预期，而Warsh认为美联储应该"退出"市场，让市场自己运行。</p>
+        <p>具体而言，Warsh计划将美联储资产负债表从当前的<strong>6.8万亿美元</strong>压缩至约8000亿美元。金融危机前，Fed的资产负债表规模约为9000亿美元，经过三轮QE和疫情期无限量购债膨胀了近8倍。如果目标真的是"回到危机前水平"，意味着未来数年内将从市场中抽走约<span class="key-point">6万亿美元流动性</span>——人类金融史上规模最庞大的流动性回收实验。</p>
+        <p>市场定价显示：12月前加息25bp的概率约58%~60%。但Warsh的"制度变革"带来的影响远超一次加息——它改变的是未来数年的流动性环境。<span class="highlight">30年期美债收益率本周已升至5.064%，为2007年以来最高。</span>如果缩表推进，长端利率可能进一步上行，直接推高全球融资成本，包括中国的房贷利率和企业债收益率。</p>
+        <table>
+          <tr><th>关键指标</th><th>水平</th><th>变动</th></tr>
+          <tr><td>30年美债收益率</td><td>5.064%</td><td class="up">创2007年以来新高</td></tr>
+          <tr><td>10年美债收益率</td><td>4.56%</td><td class="up">+12bp（本周）</td></tr>
+          <tr><td>Fed资产负债表</td><td>6.8万亿</td><td class="down">目标→8000亿</td></tr>
+          <tr><td>12月前加息概率</td><td>~60%</td><td class="up">市场定价</td></tr>
+        </table>
+      </div>
+      <div class="section-img">
+        <img loading="lazy" src="comic/panel-000.svg" alt="沃什缩表">
+        <div class="caption">天平两端：6.8万亿 vs 8000亿——Warsh拉开规模空前的流动性回收大幕</div>
+      </div>
+      <div class="sources">
+        <h3>📚 参考来源</h3>
+        <p><a href="https://www.cnbc.com/2026/05/22/kevin-warshs-real-fed-regime-change-may-happen-deep-inside-wall-streets-plumbing.html" target="_blank">CNBC: Warsh's Real Regime Change</a> · Reuters · 美联储官方声明</p>
+      </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- 深度二：AI IPO -->
+    <div class="section-block">
+      <div class="section-title"><span class="section-num" style="background:#9333EA;">2</span><span class="tag tag-tech">科技/AI</span>规模空前的IPO浪潮：AI三巨头总估值超3万亿</div>
+      <div class="section-content">
+        <p><strong>SpaceX、OpenAI、Anthropic</strong>——三家AI领域头号玩家，将在未来3个月内集体登陆公开市场。这不是普通的IPO，而是人类资本市场从未有过的奇观。</p>
+        <p>三家公司合计估值超过<strong>3万亿美元</strong>，而整个互联网泡沫时期最疯狂的IPO年（1999年），全部IPO融资总额也不过约690亿美元。德意志银行分析师安抚市场说"当前美股总市值约70万亿美元，足以吸收"，但问题的关键不在于能否"吸收"，而在于定价是否合理。</p>
+        <p>以SpaceX为例：Polymarket交易者认为其首日市值有56%概率突破2.2万亿美元。SpaceX 2025年营收187亿美元（Starlink贡献114亿），2.2万亿对应约118倍市销率——这需要未来数十年持续的高增长才能支撑。与此同时，<span class="key-point">NVIDIA本周营收同比+85%但股价跌1.6%</span>，"买预期卖事实"的重演暗示AI赛道的估值可能已到需要谨慎的位置。</p>
+      </div>
+      <!-- 此板块无独立漫画，详见早报 panel-003：AI三巨头IPO -->
+      <div class="sources">
+        <h3>📚 参考来源</h3>
+        <p><a href="https://www.cnbc.com/2026/05/21/spacex-openai-valuations-to-leapfrog-berkshire-hathaway-traders-say.html" target="_blank">CNBC: AI IPOs to Leapfrog Berkshire Hathaway</a> · <a href="https://www.cnbc.com/2026/05/21/nvidia-earnings-report-q1-2027.html" target="_blank">CNBC: NVIDIA Earnings Q1 2027</a></p>
+      </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- 深度三：消费信心 -->
+    <div class="section-block">
+      <div class="section-title"><span class="section-num" style="background:#16A34A;">3</span><span class="tag tag-us">美股</span>冰火两重天：道指创新高时普通人为何更悲观？</div>
+      <div class="section-content">
+        <p>这是本周最值得深思的数据悖论：道指在<strong>50,830点</strong>创历史新高，但密歇根消费者信心指数却在<strong>44.8</strong>创历史新低。同一市场，两个世界。</p>
+        <p>核心原因在于美国经济正在经历一场<strong>K型分化</strong>：</p>
+        <p><span class="key-point">K型上端：</span>持有股票和房产的富裕阶层，受益于AI叙事驱动的股市上涨。标普500的上涨主要由NVIDIA、ARM、高通等科技巨头贡献，而这些公司的股东集中在收入前20%的家庭。</p>
+        <p><span class="key-point">K型下端：</span>依赖工资收入和汽油车通勤的中低收入家庭，正承受伊朗战争带来的油价冲击。美国加油站普通汽油均价已突破每加仑4.5美元，部分地区超过5美元。5月一年期通胀预期从2月战前的3.4%飙升至4.8%。</p>
+        <p><span class="highlight">Walmart Q1营收1777.5亿美元（+7.3%）超预期，但Q2指引弱于预期</span>，原因正是高油价抑制非必需支出。Target报喜但客户偏中高端——从侧面印证了消费分层。</p>
+        <p>这个悖论说明：当前美股上涨并非建立在"经济繁荣"基础上，而是建立在"AI革命驱动少数巨头"的结构性行情之上。一旦AI叙事出现裂痕，缺乏广泛经济基础支撑的上涨可能异常脆弱。</p>
+        <table>
+          <tr><th>指标</th><th>数据</th><th>信号</th></tr>
+          <tr><td>消费者信心指数</td><td>44.8</td><td class="down">历史冰点</td></tr>
+          <tr><td>普通汽油均价</td><td>$4.5+/加仑</td><td class="up">高位</td></tr>
+          <tr><td>一年期通胀预期</td><td>4.8%</td><td class="up">飙升</td></tr>
+          <tr><td>道指</td><td>50,830</td><td class="up">历史新高</td></tr>
+        </table>
+      </div>
+      <div class="section-img">
+        <img loading="lazy" src="comic/panel-001.svg" alt="K型分化">
+        <div class="caption">道指创新高 vs 消费信心冰点——K型分化的两个世界</div>
+      </div>
+      <div class="sources">
+        <h3>📚 参考来源</h3>
+        <p>University of Michigan Consumer Survey · CNBC · Walmart IR · Target IR</p>
+      </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- 深度四：A股 -->
+    <div class="section-block">
+      <div class="section-title"><span class="section-num" style="background:#DC2626;">4</span><span class="tag tag-a">A股</span>A股4199冲关失败：牛市回调还是见顶信号？</div>
+      <div class="section-content">
+        <p>周三的120点暴跌是不是A股本轮牛市的终点？我的判断是：<strong>大概率不是终点，但"轻指数重结构"的阶段已经到来。</strong></p>
+        <p>从宏观层面看，中美国债利差仍有利于A股——10年中美利差约-120bp（中国2.3% vs 美国4.56%），虽然仍处倒挂，但市场对此已有充分定价。更重要的是，<span class="key-point">中国自身流动性环境依然宽松</span>，央行不会在"内需尚未完全复苏"的背景下收紧。这与Warsh治下Fed的紧缩方向形成鲜明对比。</p>
+        <p>本次暴跌的根源在于AI算力链的"交易拥挤度"达到极端水平——通信、电子拥挤度提升倍数创本轮牛市新高。当NVIDIA财报利好被解读为"利好出尽"时，累积了过多获利盘的AI板块自然成为抛售重灾区。</p>
+        <p>但值得注意的是：<span class="highlight">浦发银行、江苏银行、成都银行在暴跌中逆势创历史新高。</span>这说明资金并未离场，而是在从高估值板块向低估值、高股息板块迁移。<span class="key-point">从5月22日缩量到4068点的走势看，急跌后抛压正在衰竭。</span>下周如果上证在4000-4050区间获得支撑且成交量进一步萎缩，将是一个短期企稳信号。但AI板块可能需要数周来消化拥挤度。</p>
+        <table>
+          <tr><th>A股关键数据</th><th>数值</th><th>变化</th></tr>
+          <tr><td>上证指数</td><td>4,068</td><td class="down">-1.8%（周）</td></tr>
+          <tr><td>周三最大跌幅</td><td>-120点</td><td class="down">-2.04%</td></tr>
+          <tr><td>成交额</td><td>3.5万亿</td><td class="down">缩量中</td></tr>
+          <tr><td>银行板块</td><td>逆势新高</td><td class="up">资金切换</td></tr>
+        </table>
+      </div>
+      <div class="section-img">
+        <img loading="lazy" src="comic/panel-002.svg" alt="A股高低切换">
+        <div class="caption">AI算力链获利了结，银行股逆势新高——资金的"高低切换"正在发生</div>
+      </div>
+      <div class="sources">
+        <h3>📚 参考来源</h3>
+        <p>中银国际 · 财信证券 · 华鑫证券 · 浙商证券 · 中信证券 · 新浪财经</p>
+      </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- 深度五：大宗商品 -->
+    <div class="section-block">
+      <div class="section-title"><span class="section-num" style="background:#EA580C;">5</span><span class="tag tag-commodity">商品/黄金</span>黄金连跌两周 + 原油102：大宗商品的"伊朗折价"</div>
+      <div class="section-content">
+        <p>黄金连续两周下跌、原油从高位回落——这两件事看似各自独立，实则共享同一个驱动力：<strong>美伊谈判的边际变化</strong>。</p>
+        <p>当前商品市场的核心定价逻辑：当谈判出现"小幅进展"时，油价下跌（供应中断风险降低）→ 通胀预期降温 → 加息预期减弱 → 美债收益率回落 → 黄金反弹。反之，谈判僵局则触发反向传导。</p>
+        <p><span class="key-point">黄金</span>面临的核心矛盾是：即使地缘风险支撑避险需求，Fed加息预期正在压制其金融属性。黄金本身不产生利息，在5%+的利率环境下持有机会成本极高。金价目前在<strong>$4,502</strong>附近，距200日均线支撑$4,372仅约3%空间。</p>
+        <p><span class="key-point">原油</span>的变数在于：即使美伊达成临时停火，伊朗被制裁的约150万桶/日产能何时重返市场仍是未知数。更关键的是，霍尔木兹海峡的通行费争议背后是地缘政治的结构性矛盾，不太可能在短期谈判中根本解决。</p>
+      </div>
+      <div class="section-img">
+        <img loading="lazy" src="comic/panel-003.svg" alt="中东原油博弈">
+        <div class="caption">一切都要看波斯湾——美伊谈判的每个信号都在左右商品定价</div>
+      </div>
+      <div class="sources">
+        <h3>📚 参考来源</h3>
+        <p><a href="https://sg.finance.yahoo.com/news/gold-slips-oil-strength-interest-010628612.html" target="_blank">Yahoo Finance Gold</a> · <a href="https://www.marketscreener.com/news/the-oil-mystery-at-the-heart-of-america-s-pressure-campaign-on-iran-commodities-roundup-ce7f5adfd18ef724" target="_blank">MarketScreener Oil</a></p>
+      </div>
+    </div>
+
+    <!-- Pull Quote -->
+    <div class="pull-quote">
+      油价推高通胀 → 通胀预期上升 → 降息预期降温 → 国债收益率飙升 → 黄金承压。<br>
+      这条传导链，就是当前全球市场最核心的定价逻辑。
+    </div>
+
+    <!-- 下周关键日程 -->
+    <div class="section-block" style="margin-top:32px;">
+      <div class="section-title" style="font-size:16px;">📅 下周关键日程</div>
+      <table>
+        <tr><th>日期</th><th>事件</th></tr>
+        <tr><td>周一 5/25</td><td>🇺🇸 美股阵亡将士纪念日休市 · 🇪🇺 欧股正常交易</td></tr>
+        <tr><td>周二 5/26</td><td>🇺🇸 5月消费者信心指数（预期92.8）· 新屋销售数据</td></tr>
+        <tr><td>周三 5/27</td><td>🇺🇸 Fed褐皮书 · Warsh首次公开讲话 ⭐</td></tr>
+        <tr><td>周四 5/28</td><td>🇺🇸 ⭐ <strong>4月PCE通胀数据</strong>（3月核心PCE 3.2%）· 一季度GDP修正值</td></tr>
+        <tr><td>周五 5/29</td><td>🇺🇸 4月个人收入与支出 · 密歇根大学5月终值</td></tr>
+      </table>
+    </div>
+
+    <!-- Sources -->
+    <div class="sources">
+      <h3>📚 综合参考来源</h3>
+      <p style="margin-bottom:4px;">CNBC Market Update · Reuters · Yahoo Finance · University of Michigan</p>
+      <p style="margin-bottom:4px;">中银国际 · 财信证券 · 中信证券 · 华鑫证券 · 浙商证券</p>
+      <p style="margin-bottom:4px;">Walmart IR · Target IR · SpaceX S-1 Filing · NVIDIA IR</p>
+    </div>
+
+    <!-- End Box -->
+    <div class="end-box">
+      <div class="end-icon">🌙</div>
+      <div class="end-title">扬说财经 · 夜读</div>
+      <div class="end-desc">用逻辑穿透表象 · 每晚深度解读</div>
+    </div>
+
+    <div class="warn">⚠️ <strong>风险提示：</strong>本文仅为信息分享与知识科普，不构成任何投资建议。市场有风险，投资需谨慎。数据来源于公开信息，如有出入请以官方数据为准。</div>
+
+  </div>
+</div>
+</body>
+</html>

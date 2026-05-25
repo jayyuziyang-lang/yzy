@@ -1,0 +1,13 @@
+<!-- xkcd 素描图表：本周上证走势测试 -->
+<div class="xkcd-chart-wrapper" style="background:#FFFFFF;border-radius:10px;padding:10px;margin:14px 0;border:1px solid #E2E8F0;text-align:center;">
+  <svg id="xkcd-line-1779596456554" style="width:100%;max-width:600px;height:auto;min-height:350px;"></svg>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.xkcd@1/dist/chart.xkcd.min.js"></script>
+<script>
+(function() {
+  var svg = document.getElementById('xkcd-line-1779596456554');
+  if (svg && window.chartXkcd) {
+    new chartXkcd.Line(svg, {"title": "本周上证走势测试", "data": {"labels": ["周一", "周二", "周三", "周四", "周五", "周六", "周日"], "datasets": [{"label": "本周上证走势测试", "data": [1, 2, 3, 4, 5, 6, 7]}]}, "options": {"dataColors": ["#1A56DB", "#D4A017", "#EF4444", "#10B981", "#8B5CF6", "#F59E0B"], "fontFamily": "\"xkcd\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif", "strokeColor": "#1E293B", "backgroundColor": "#FFFFFF"}, "xLabel": "", "yLabel": ""});
+  }
+})();
+</script>

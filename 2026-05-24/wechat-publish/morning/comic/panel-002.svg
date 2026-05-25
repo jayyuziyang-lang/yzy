@@ -1,0 +1,45 @@
+<svg viewBox="0 0 300 220" xmlns="http://www.w3.org/2000/svg">
+  <rect width="300" height="220" fill="#faf8f5"/>
+  <style>text{font-family:'PingFang SC','Microsoft YaHei',sans-serif;}</style>
+
+  <!-- K字母 -->
+  <line x1="150" y1="20" x2="150" y2="180" stroke="#1a1a1a" stroke-width="2.5"/>
+  <!-- 上分支 -->
+  <line x1="150" y1="30" x2="280" y2="60" stroke="#2e7d32" stroke-width="3"/>
+  <text x="260" y="60" text-anchor="middle" font-size="11" font-weight="900" fill="#2e7d32">道指 50,830</text>
+  <text x="260" y="76" text-anchor="middle" font-size="8" fill="#555">标普8连涨</text>
+  <!-- 下分支 -->
+  <line x1="150" y1="40" x2="40" y2="170" stroke="#c62828" stroke-width="3"/>
+
+  <!-- 下半右侧：消费信心 -->
+  <g transform="translate(80, 110)">
+    <rect x="0" y="0" width="60" height="55" fill="none" stroke="#c62828" stroke-width="2.2"/>
+    <text x="30" y="22" text-anchor="middle" font-size="16" font-weight="900" fill="#c62828">44.8</text>
+    <text x="30" y="40" text-anchor="middle" font-size="7" fill="#555">消费信心</text>
+  </g>
+  <text x="145" y="135" font-size="7" fill="#c62828">74年新低</text>
+
+  <!-- 下半左侧：油价 -->
+  <g transform="translate(20, 125)">
+    <rect x="0" y="0" width="40" height="50" rx="3" fill="none" stroke="#1a1a1a" stroke-width="2"/>
+    <rect x="3" y="4" width="34" height="16" rx="2" fill="none" stroke="#555" stroke-width="1"/>
+    <text x="20" y="16" text-anchor="middle" font-size="7" font-weight="700" fill="#1a1a1a">$4.58</text>
+    <!-- Hose -->
+    <path d="M40,15 Q55,12 50,25 Q45,35 52,38" fill="none" stroke="#555" stroke-width="1.5"/>
+    <text x="20" y="58" text-anchor="middle" font-size="7" fill="#555">汽油</text>
+  </g>
+
+  <!-- 底部传导链 -->
+  <g transform="translate(80, 180)">
+    <text x="-40" y="10" font-size="7" fill="#c62828">油价</text>
+    <line x1="-30" y1="8" x2="-12" y2="8" stroke="#c9a96e" stroke-width="1"/>
+    <polygon points="-12,8 -15,6 -15,10" fill="#c9a96e"/>
+    <text x="-8" y="10" font-size="7" fill="#c62828">通胀</text>
+    <line x1="2" y1="8" x2="20" y2="8" stroke="#c9a96e" stroke-width="1"/>
+    <polygon points="20,8 17,6 17,10" fill="#c9a96e"/>
+    <text x="24" y="10" font-size="7" fill="#c62828">加息</text>
+    <line x1="36" y1="8" x2="54" y2="8" stroke="#c9a96e" stroke-width="1"/>
+    <polygon points="54,8 51,6 51,10" fill="#c9a96e"/>
+    <text x="58" y="10" font-size="7" fill="#c62828">购买力萎缩</text>
+  </g>
+</svg>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>扬说财经 · 早报 | 2026.05.25</title>
+<style>
+  :root { --accent: #1A56DB; --accent2: #D4A017; --bg: #0F172A; --card: #1E293B; --text: #E2E8F0; --muted: #94A3B8; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans SC', sans-serif; background: var(--bg); color: var(--text); line-height: 1.8; }
+  .header { background: linear-gradient(135deg, #1A56DB, #1E3A7A); padding: 48px 20px 36px; text-align: center; position: relative; overflow: hidden; }
+  .header::after { content: ''; position: absolute; bottom: -20px; left: 0; right: 0; height: 40px; background: var(--bg); border-radius: 50% 50% 0 0; }
+  .header .label { display: inline-block; background: rgba(255,255,255,0.2); padding: 4px 16px; border-radius: 20px; font-size: 14px; margin-bottom: 12px; }
+  .header h1 { font-size: clamp(1.5rem, 4vw, 2.2rem); margin-bottom: 8px; font-weight: 700; }
+  .header .date { font-size: 15px; color: rgba(255,255,255,0.8); }
+  .header .subtitle { font-size: 13px; color: rgba(255,255,255,0.6); margin-top: 4px; }
+  .container { max-width: 720px; margin: 0 auto; padding: 32px 16px; }
+  .story-card { background: var(--card); border-radius: 16px; padding: 28px; margin-bottom: 24px; border-left: 4px solid var(--accent); }
+  .story-card .num { font-size: 13px; font-weight: 600; color: var(--accent2); margin-bottom: 4px; }
+  .story-card h2 { font-size: 20px; margin-bottom: 16px; color: #fff; }
+  .story-card p { margin-bottom: 12px; color: var(--text); font-size: 15px; }
+  .story-card .highlight { background: rgba(212, 160, 23, 0.12); padding: 12px 16px; border-radius: 8px; margin: 12px 0; border-left: 3px solid var(--accent2); }
+  .story-card .data-row { display: flex; flex-wrap: wrap; gap: 12px; margin: 12px 0; }
+  .story-card .data-item { background: rgba(26, 86, 219, 0.1); padding: 8px 14px; border-radius: 8px; font-size: 14px; }
+  .story-card .data-item strong { color: var(--accent2); }
+  .story-card .chart-container { margin: 16px 0; text-align: center; }
+  .story-card .chart-container img { max-width: 100%; border-radius: 8px; }
+  .story-card .source { font-size: 12px; color: var(--muted); margin-top: 12px; }
+  .story-card .source a { color: var(--accent); text-decoration: none; }
+  .story-card .source a:hover { text-decoration: underline; }
+  .audio-section { text-align: center; background: var(--card); border-radius: 16px; padding: 24px; margin-bottom: 24px; }
+  .footer { text-align: center; padding: 24px; color: var(--muted); font-size: 13px; border-top: 1px solid rgba(255,255,255,0.06); }
+  @media (max-width: 480px) { .story-card { padding: 20px; } }
+</style>
+</head>
+<body>
+  <div class="header">
+    <div class="label">📰 扬说早报</div>
+    <h1>黄金冲破4500，A股AI赛道分歧加剧</h1>
+    <div class="date">2026年5月25日 · 星期一</div>
+    <div class="subtitle">COMEX黄金站上$4,546新高 · A股科技赛道机构密集调研 · Oura秘密提交IPO</div>
+  </div>
+
+  <div class="container">
+
+    <!-- 故事1：美股动态 -->
+    <div class="story-card" style="border-left-color: #10B981;">
+      <div class="num">📈 故事一</div>
+      <h2>美股高位震荡，英伟达业绩持续炸裂</h2>
+      <p>美股市场近期在高位呈现分化格局。道指与标普500在此前连续数周上涨后，面临技术性回调压力。市场焦点集中在美联储新任主席Kevin Warsh推动的<strong>6.8万亿美元缩表计划</strong>，30年期国债收益率已攀升至5%以上，为2007年以来最高水平。</p>
+      <p>科技股核心驱动力依然强劲。英伟达最新财报显示，FY2027 Q1营收达<strong>$816亿</strong>（同比增长85%），净利润<strong>$583亿</strong>（同比增长211%），双双超出市场预期。AI芯片需求未见放缓迹象，公司指引下一季度营收继续高增长。</p>
+      <div class="data-row">
+        <div class="data-item">🖥️ 英伟达Q1营收 <strong>$816亿</strong></div>
+        <div class="data-item">💰 净利润 <strong>$583亿</strong></div>
+        <div class="data-item">📈 同比增速 <strong>+85%</strong></div>
+        <div class="data-item">🏛️ 30年国债 <strong>5.06%</strong></div>
+      </div>
+      <div class="chart-container">
+        <img src="../../docs/charts/nvidia_revenue.svg" alt="英伟达营收趋势" loading="lazy">
+      </div>
+      <p>与此同时，伊朗局势持续紧张推高通胀预期。密歇根大学消费者信心指数跌至<strong>44.8的历史新低</strong>，一年期通胀预期已升至4.8%。市场正经历"资产价格火热"与"实体经济寒意"的极致背离。</p>
+      <div class="source">数据来源：英伟达财报 · CNBC · FRED · TradingEconomics</div>
+    </div>
+
+    <!-- 故事2：A股港股 -->
+    <div class="story-card" style="border-left-color: #F59E0B;">
+      <div class="num">🇨🇳 故事二</div>
+      <h2>A股科技赛道回调后，机构逆势密集加仓调研</h2>
+      <p>上周A股市场整体承压，主要指数普遍回调。上证指数下跌2.04%，深证成指跌2.07%，科创综指跌幅最大达4.42%。半导体板块遭遇287亿资金净流出，白酒、银行等防御性板块获得小幅资金流入。</p>
+      <div class="chart-container">
+        <img src="../../docs/charts/astock_indices.svg" alt="A股主要指数涨跌幅" loading="lazy">
+      </div>
+      <p>然而，<strong>科技赛道的机构关注度不降反升</strong>。Wind数据显示，二季度以来公募基金与外资机构合计调研频次分别突破1.2万次和1400次，AI算力硬件、半导体设备及高端医疗装备成为调研密度最高的领域。险资今年以来调研A股公司5723次，硬科技是绝对主线。</p>
+      <div class="highlight">
+        <p>与此同时，年内已有超过500家私募基金管理人被注销登记，"劣币"加速出清。分析人士认为，行业生态优化将利好合规能力强、投研实力雄厚的头部机构。公募机构参与A股定增热情高涨，年内获配金额已超282亿元，电子行业成为布局重点。</p>
+      </div>
+      <div class="data-row">
+        <div class="data-item">📊 公募调研 <strong>1.2万+次</strong></div>
+        <div class="data-item">🌐 外资调研 <strong>1400+次</strong></div>
+        <div class="data-item">🏦 险资调研 <strong>5723次</strong></div>
+        <div class="data-item">📋 私募注销 <strong>500+家</strong></div>
+      </div>
+      <div class="chart-container">
+        <img src="../../docs/charts/sector_flow.svg" alt="A股板块资金流向" loading="lazy">
+      </div>
+      <div class="source">数据来源：Wind · 证券日报 · 上证报 · 中证报 · 公募排排网</div>
+    </div>
+
+    <!-- 故事3：宏观经济/政策 -->
+    <div class="story-card" style="border-left-color: #EF4444;">
+      <div class="num">🌍 故事三</div>
+      <h2>河南"十五五"规划发布，太空光伏与商业航天站上风口</h2>
+      <p>《河南省国民经济和社会发展第十五个五年规划纲要》正式发布，提出实施"做强做优做大数字经济行动"，培育壮大<strong>人工智能、商业航天</strong>等特色产业。规划明确要加快中原量子谷、卫星产业园区等产业基地建设，打造全球重要的智能终端产业基地。</p>
+      <p>在更广阔的产业层面，国金证券最新研报指出，太空光伏已进入"通信奠基、算力启航"的高速增长期。柔性太阳翼渗透率快速提升，航天级辅材成为产业链关键瓶颈与高盈利环节。建议围绕导电浆料、UTG/CPI盖板、空间级封装胶粘材料、高可靠性互联材料四大主线布局。</p>
+      <div class="highlight">
+        <p>此外，AI数据中心（AIDC）带来的新型电力设备需求成为机构关注度最高的话题之一。5月份以来已有42家电力设备行业A股公司接待机构调研，覆盖储能、变压器、充电桩、电源设备等多个细分领域。</p>
+      </div>
+      <div class="source">来源：36氪 · 国金证券研报 · 证券日报</div>
+    </div>
+
+    <!-- 故事4：公司热点 -->
+    <div class="story-card" style="border-left-color: #8B5CF6;">
+      <div class="num">🏢 故事四</div>
+      <h2>Oura秘密提交IPO、董秘新规施行、FMG高层变动</h2>
+      <p><strong>智能戒指巨头赴美上市：</strong>智能可穿戴设备制造商Oura已在美国秘密提交IPO申请。过去两个财年总营收实现<strong>四倍增长</strong>，全球已售出超过550万枚智能戒指，覆盖4600多个零售网点。Oura Ring主要监测睡眠、日常活动和健康指标，提供个性化健康洞察。</p>
+      <p><strong>董秘监管新规正式施行：</strong>5月24日起，《上市公司董事会秘书监管规则》正式施行，明确要求董秘不得兼任财务负责人、总经理等职。目前A股董秘兼任财务总监的公司超800家，兼任总经理的超100家，近千家公司需在2027年底前完成专职化调整。近一个月已有30余家公司发布董秘辞任公告。</p>
+      <p><strong>FMG董事会变动：</strong>澳大利亚矿业巨头福特斯克金属集团（FMG）宣布，前CEO伊丽莎白·盖恩斯辞去执行董事一职，6月30日生效。盖恩斯曾于2018-2022年担任CEO，是矿业界最具影响力的女性高管之一。</p>
+      <div class="data-row">
+        <div class="data-item">💍 Oura销量 <strong>550万+枚</strong></div>
+        <div class="data-item">📋 需调整公司 <strong>~1000家</strong></div>
+        <div class="data-item">⛏️ FMG前CEO <strong>6/30离任</strong></div>
+      </div>
+      <div class="source">来源：新浪财经 · 36氪 · 中证报 · 界面新闻</div>
+    </div>
+
+    <!-- 故事5：大宗商品 -->
+    <div class="story-card" style="border-left-color: #F97316;">
+      <div class="num">🛢️ 故事五</div>
+      <h2>黄金冲破$4,546历史新高，央行连续18个月增持</h2>
+      <p>COMEX黄金期货价格突破<strong>$4,546/盎司</strong>，再创历史新高。本轮金价上涨的核心驱动力来自三方面：全球央行持续大规模购金、地缘政治风险溢价（伊朗局势）、以及美元信用体系的结构性松动。</p>
+      <div class="chart-container">
+        <img src="../../docs/charts/gold_price_trend.svg" alt="黄金价格走势" loading="lazy">
+      </div>
+      <p>中国人民银行4月再度增持<strong>8.09吨</strong>黄金，总储备达到<strong>2,321.56吨</strong>，实现<strong>连续18个月增持</strong>。2026年Q1，中国央行以324吨的购金量位居全球第一，远超波兰（90吨）和印度（72吨）。新兴市场央行"去美元化"购金浪潮仍在加速。</p>
+      <div class="chart-container">
+        <img src="../../docs/charts/central_bank_gold.svg" alt="央行购金量排名" loading="lazy">
+      </div>
+      <p>原油方面，WTI价格在5月21日大跌5.66%至<strong>$98.26/桶</strong>，为近期最大单日跌幅。市场在伊朗供应中断风险与全球经济放缓担忧之间反复博弈。油价波动率显著上升，后续走势高度依赖中东局势演变。</p>
+      <div class="chart-container">
+        <img src="../../docs/charts/oil_price.svg" alt="WTI原油走势" loading="lazy">
+      </div>
+      <div class="highlight">中信证券研报同时指出，2026年肉牛供给端存在下降压力（国内去化+进口配额），活牛价格仍有上行空间。金属包装行业在龙头并购落地后，2025年12月成功提价，行业格局从"内卷红海"走向"龙头协同"。</div>
+      <div class="source">数据来源：COMEX · 中国人民银行 · WGC · 中信证券研报</div>
+    </div>
+
+    <!-- 故事6：科技风向 -->
+    <div class="story-card" style="border-left-color: #06B6D4;">
+      <div class="num">🤖 故事六</div>
+      <h2>AI后市研判现分歧：新基金发行火热 vs 估值压力隐现</h2>
+      <p>科技主题新基金发行市场持续升温。公募排排网数据显示，5月18日至24日全市场共有<strong>47只新基金</strong>开启募集，连续三周环比增长，AI、机器人、半导体成为基金公司重点布局方向。</p>
+      <p>但随着相关板块前期涨幅较大，<strong>市场对AI后市走势的判断开始出现明显分歧</strong>：</p>
+      <p>🟢 <strong>看多方：</strong>全球资本开支扩张周期叠加自主可控逻辑，AI产业链景气度有望持续。英伟达Q1营收816亿美元验证了需求端的强劲。内外资机构调研数据显示，AI算力硬件仍是机构最密集布局的方向。</p>
+      <p>🔴 <strong>谨慎方：</strong>板块估值已处于相对高位，短期面临高位震荡和业绩验证压力。中信建投提示，随着AI从训练走向大规模推理应用，部分前期概念炒作标的可能面临业绩兑现风险。</p>
+      <div class="highlight">
+        <p>中信建投证券同时建议2026年加配医疗器械板块——受耗材集采、医疗合规要求提升等因素影响，器械板块经历了持续调整，随着政策影响逐步出清，有望迎来估值与业绩双修复。此外，2026年ASCO年会94项中国研究中选口头报告，依沃西单抗登上全体大会，标志着中国创新药全球学术影响力迈上新台阶。</p>
+      </div>
+      <div class="data-row">
+        <div class="data-item">📈 新基金 <strong>47只/周</strong></div>
+        <div class="data-item">🏥 器械板块 <strong>估值修复</strong></div>
+        <div class="data-item">💊 ASCO中国研究 <strong>94项</strong></div>
+        <div class="data-item">⚡ AIDC电力 <strong>热门赛道</strong></div>
+      </div>
+      <div class="source">来源：公募排排网 · 上证报 · 中信建投研报 · 证券日报</div>
+    </div>
+
+    <!-- 音频区域 -->
+    <div class="audio-section">
+      <p style="color:var(--muted); font-size:14px;">🔊 音频文件：将在正式发布时生成。</p>
+    </div>
+
+    <!-- 数据标签 -->
+    <div style="background:var(--card); border-radius:16px; padding:24px; margin-bottom:24px;">
+      <h3 style="font-size:16px; color:var(--accent2); margin-bottom:12px;">🏷️ 本期核心标签</h3>
+      <div style="display:flex; flex-wrap:wrap; gap:8px;">
+        <span style="background:rgba(249,115,22,0.15); color:#F97316; padding:4px 12px; border-radius:20px; font-size:13px;">#黄金4546新高</span>
+        <span style="background:rgba(16,185,129,0.15); color:#10B981; padding:4px 12px; border-radius:20px; font-size:13px;">#英伟达业绩</span>
+        <span style="background:rgba(239,68,68,0.15); color:#EF4444; padding:4px 12px; border-radius:20px; font-size:13px;">#A股科技回调</span>
+        <span style="background:rgba(139,92,246,0.15); color:#8B5CF6; padding:4px 12px; border-radius:20px; font-size:13px;">#机构密集调研</span>
+        <span style="background:rgba(6,182,212,0.15); color:#06B6D4; padding:4px 12px; border-radius:20px; font-size:13px;">#十五五规划</span>
+        <span style="background:rgba(245,158,11,0.15); color:#F59E0B; padding:4px 12px; border-radius:20px; font-size:13px;">#太空光伏</span>
+        <span style="background:rgba(249,115,22,0.15); color:#F97316; padding:4px 12px; border-radius:20px; font-size:13px;">#Oura IPO</span>
+        <span style="background:rgba(16,185,129,0.15); color:#10B981; padding:4px 12px; border-radius:20px; font-size:13px;">#AI后市分歧</span>
+        <span style="background:rgba(239,68,68,0.15); color:#EF4444; padding:4px 12px; border-radius:20px; font-size:13px;">#董秘新规</span>
+        <span style="background:rgba(139,92,246,0.15); color:#8B5CF6; padding:4px 12px; border-radius:20px; font-size:13px;">#央行连续增持</span>
+      </div>
+    </div>
+
+    <!-- 数据核查备注 -->
+    <div style="background:rgba(239,68,68,0.08); border:1px solid rgba(239,68,68,0.3); border-radius:16px; padding:20px; margin-bottom:24px;">
+      <h3 style="font-size:15px; color:#EF4444; margin-bottom:8px;">⚠️ 数据核查说明</h3>
+      <p style="font-size:13px; color:var(--muted);">本文主要数据来源：(1) 英伟达FY2027 Q1财报数据（营收$816亿/净利润$583亿）来自公司官方公告；(2) 黄金COMEX价格$4,546及央行购金数据来自WGC和中国人民银行；(3) A股指数涨跌幅及资金流向来自Wind和东方财富；(4) 机构调研数据来自公募排排网、Wind及证券日报；(5) 产业政策及公司新闻来自36氪、中证报、上证报等权威媒体。部分前瞻性判断（如AI后市分歧、太空光伏前景等）基于券商研报观点，仅供参考。本文为生产测试版本。</p>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <p>扬说财经 · 每日早报 | 数据截至2026.05.23美股收盘</p>
+    <p>数据来源：英伟达财报 · COMEX · WGC · Wind · 36氪 · 证券日报 · 上证报 · 中信证券 · 国金证券</p>
+    <p style="margin-top:6px; color: var(--muted);">⚠️ 本文为生产测试版本，已标注数据来源。本文不构成任何投资建议，市场有风险，投资需谨慎。</p>
+  </div>
+
+</body>
+</html>

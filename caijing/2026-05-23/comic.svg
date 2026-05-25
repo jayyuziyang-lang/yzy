@@ -1,0 +1,206 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 610" width="600" height="610">
+  <style>
+    text { font-family: 'KaiTi', 'STKaiti', 'SimSun', 'Noto Serif SC', serif; }
+    .title { font-size: 18px; font-weight: bold; fill: #222; }
+    .caption { font-size: 12px; fill: #444; text-anchor: middle; }
+    .subtitle { font-size: 10px; fill: #777; text-anchor: middle; }
+    .fire { fill: none; stroke: #555; stroke-width: 1; }
+    .fire-fill { fill: #ddd; stroke: #555; stroke-width: 1; }
+    .water { fill: none; stroke: #555; stroke-width: 0.8; }
+    .oil { fill: #ccc; stroke: #444; stroke-width: 1.2; }
+  </style>
+
+  <!-- Title -->
+  <text x="300" y="25" text-anchor="middle" class="title">市场冰火两重天</text>
+  <text x="300" y="42" text-anchor="middle" class="subtitle">2026年5月23日</text>
+
+  <!-- ====== 第一格：道指新高 ====== -->
+  <g transform="translate(10, 55)">
+    <!-- Panel border -->
+    <rect x="0" y="0" width="580" height="180" fill="#fafafa" stroke="#333" stroke-width="1.5" rx="3"/>
+    
+    <!-- Wall Street bull -->
+    <g transform="translate(290, 100)">
+      <!-- Bull body -->
+      <ellipse cx="0" cy="10" rx="50" ry="25" fill="none" stroke="#333" stroke-width="1.8"/>
+      <!-- Bull head -->
+      <ellipse cx="-45" cy="-5" rx="20" ry="18" fill="none" stroke="#333" stroke-width="1.8"/>
+      <!-- Bull horns -->
+      <path d="M-55,-20 Q-65,-45 -50,-50" fill="none" stroke="#333" stroke-width="2"/>
+      <path d="M-40,-22 Q-35,-48 -20,-50" fill="none" stroke="#333" stroke-width="2"/>
+      <!-- Bull eye -->
+      <circle cx="-50" cy="-8" r="2" fill="#333"/>
+      <!-- Bull nose ring -->
+      <circle cx="-58" cy="2" r="3" fill="none" stroke="#333" stroke-width="0.8"/>
+      <!-- Bull legs -->
+      <line x1="-25" y1="30" x2="-25" y2="55" stroke="#333" stroke-width="1.8"/>
+      <line x1="-10" y1="32" x2="-10" y2="55" stroke="#333" stroke-width="1.8"/>
+      <line x1="15" y1="32" x2="15" y2="55" stroke="#333" stroke-width="1.8"/>
+      <line x1="30" y1="30" x2="30" y2="55" stroke="#333" stroke-width="1.8"/>
+      <!-- Bull tail -->
+      <path d="M50,5 Q65,-5 60,-15" fill="none" stroke="#333" stroke-width="1.2"/>
+    </g>
+
+    <!-- Fire flames around bull -->
+    <g fill="none" stroke="#555" stroke-width="1">
+      <path d="M230,50 Q235,35 240,50 Q245,38 250,50"/>
+      <path d="M250,45 Q255,30 260,45 Q265,33 270,45"/>
+      <path d="M340,48 Q345,33 350,48 Q355,36 360,48"/>
+      <path d="M220,60 Q225,48 230,60"/>
+      <path d="M355,55 Q360,42 365,55"/>
+      <path d="M240,55 Q243,42 246,55 Q249,44 252,55"/>
+      <path d="M330,50 Q334,37 338,50 Q342,39 346,50"/>
+    </g>
+
+    <!-- Flame fills -->
+    <g fill="#ccc" stroke="none">
+      <path d="M235,48 Q238,37 241,48 Q244,40 247,48 Q250,42 253,48 Z"/>
+      <path d="M335,48 Q339,36 343,48 Z"/>
+    </g>
+
+    <!-- Fire embers -->
+    <circle cx="225" cy="55" r="2" fill="#999"/>
+    <circle cx="360" cy="52" r="1.5" fill="#999"/>
+    <circle cx="345" cy="45" r="1.5" fill="#999"/>
+
+    <!-- DJIA text -->
+    <text x="290" y="170" text-anchor="middle" class="caption">道指突破 50,830 点创历史新高</text>
+    <text x="290" y="155" text-anchor="middle" font-size="11" fill="#333" font-weight="bold">🔥 华尔街火热</text>
+    
+    <!-- Up arrow -->
+    <line x1="280" y1="145" x2="300" y2="145" stroke="#555" stroke-width="1.5"/>
+    <polygon points="300,140 305,145 300,150" fill="#555"/>
+  </g>
+
+  <!-- ====== 第二格：消费者信心冰点 ====== -->
+  <g transform="translate(10, 245)">
+    <rect x="0" y="0" width="580" height="180" fill="#f5f8fc" stroke="#333" stroke-width="1.5" rx="3"/>
+    
+    <!-- Snowflakes -->
+    <g stroke="#777" stroke-width="0.8" fill="none">
+      <path d="M80,20 L80,30 M75,25 L85,25"/>
+      <path d="M150,15 L150,25 M145,20 L155,20"/>
+      <path d="M400,25 L400,35 M395,30 L405,30"/>
+      <path d="M500,18 L500,28 M495,23 L505,23"/>
+      <path d="M120,50 L120,60 M115,55 L125,55"/>
+      <path d="M450,40 L450,50 M445,45 L455,45"/>
+      <path d="M350,10 L350,20 M345,15 L355,15"/>
+      <path d="M60,40 L60,50 M55,45 L65,45"/>
+    </g>
+
+    <!-- Person shivering in cold -->
+    <g transform="translate(290, 75)">
+      <!-- Head -->
+      <circle cx="0" cy="-25" r="15" fill="none" stroke="#333" stroke-width="1.5"/>
+      <!-- Face -->
+      <circle cx="-5" cy="-28" r="1.5" fill="#333"/>
+      <circle cx="5" cy="-28" r="1.5" fill="#333"/>
+      <path d="M-4,-22 Q0,-19 4,-22" fill="none" stroke="#333" stroke-width="0.8"/>
+      <!-- Hat -->
+      <rect x="-12" y="-40" width="24" height="8" fill="none" stroke="#333" stroke-width="1" rx="1"/>
+      <rect x="-8" y="-52" width="16" height="14" fill="none" stroke="#333" stroke-width="1" rx="1"/>
+      <!-- Body -->
+      <path d="M-18,-10 L-18,30 L18,30 L18,-10 Z" fill="none" stroke="#333" stroke-width="1.5"/>
+      <!-- Arms hugging self -->
+      <path d="M-18,-5 Q-25,5 -20,12" fill="none" stroke="#333" stroke-width="1.2"/>
+      <path d="M18,-5 Q25,5 20,12" fill="none" stroke="#333" stroke-width="1.2"/>
+      <!-- Shiver lines -->
+      <path d="M-22,-8 Q-24,-10 -22,-12" fill="none" stroke="#555" stroke-width="0.6"/>
+      <path d="M22,-8 Q24,-10 22,-12" fill="none" stroke="#555" stroke-width="0.6"/>
+      <!-- Legs -->
+      <line x1="-10" y1="30" x2="-10" y2="55" stroke="#333" stroke-width="1.5"/>
+      <line x1="10" y1="30" x2="10" y2="55" stroke="#333" stroke-width="1.5"/>
+      <!-- Shoes -->
+      <ellipse cx="-10" cy="56" rx="8" ry="3" fill="none" stroke="#333" stroke-width="1"/>
+      <ellipse cx="10" cy="56" rx="8" ry="3" fill="none" stroke="#333" stroke-width="1"/>
+    </g>
+
+    <!-- Money bag -->
+    <g transform="translate(240, 75)">
+      <path d="M-8,0 L-12,30 L12,30 L8,0 Z" fill="none" stroke="#333" stroke-width="1.5"/>
+      <path d="M-6,-3 Q0,-10 6,-3" fill="none" stroke="#333" stroke-width="1.2"/>
+      <text x="0" y="20" text-anchor="middle" font-size="8" fill="#555">$</text>
+    </g>
+
+    <!-- Down arrow -->
+    <g transform="translate(120, 80)">
+      <line x1="0" y1="0" x2="0" y2="20" stroke="#555" stroke-width="1.5"/>
+      <polygon points="-5,15 0,22 5,15" fill="#555"/>
+    </g>
+
+    <!-- Thermometer -->
+    <g transform="translate(460, 55)">
+      <rect x="-3" y="0" width="6" height="50" fill="none" stroke="#555" stroke-width="1" rx="3"/>
+      <circle cx="0" cy="55" r="8" fill="none" stroke="#555" stroke-width="1"/>
+      <!-- Low mercury -->
+      <rect x="-1.5" y="40" width="3" height="10" fill="#aaa"/>
+      <circle cx="0" cy="55" r="6" fill="#aaa"/>
+    </g>
+
+    <text x="290" y="170" text-anchor="middle" class="caption">消费者信心指数 44.8 创历史新低</text>
+    <text x="290" y="155" text-anchor="middle" font-size="11" fill="#555">❄️ 普通人在经济寒冬中颤抖</text>
+  </g>
+
+  <!-- ====== 第三格：伊朗战争推高油价 ====== -->
+  <g transform="translate(10, 435)">
+    <rect x="0" y="0" width="580" height="165" fill="#faf6f0" stroke="#333" stroke-width="1.5" rx="3"/>
+    
+    <!-- Oil drum -->
+    <g transform="translate(290, 75)">
+      <!-- Drum body -->
+      <rect x="-28" y="-30" width="56" height="60" rx="3" fill="none" stroke="#333" stroke-width="1.5"/>
+      <!-- Drum top/bottom bands -->
+      <path d="M-28,-22 L28,-22" fill="none" stroke="#333" stroke-width="1"/>
+      <path d="M-28,22 L28,22" fill="none" stroke="#333" stroke-width="1"/>
+      <!-- Drum label -->
+      <text x="0" y="5" text-anchor="middle" font-size="10" fill="#333" font-weight="bold">油价</text>
+      <text x="0" y="18" text-anchor="middle" font-size="10" fill="#333">↑</text>
+    </g>
+
+    <!-- Up arrow on drum -->
+    <line x1="330" y1="50" x2="345" y2="35" stroke="#555" stroke-width="1.5"/>
+    <polygon points="340,30 348,33 343,40" fill="#555"/>
+
+    <!-- Flames around drum (Hormuz strait burning) -->
+    <g fill="none" stroke="#555" stroke-width="1">
+      <path d="M250,35 Q255,20 260,35 Q265,23 270,35"/>
+      <path d="M310,30 Q315,15 320,30 Q325,18 330,30"/>
+      <path d="M340,40 Q344,28 348,40"/>
+      <path d="M235,40 Q240,28 245,40"/>
+      <path d="M260,25 Q263,13 266,25"/>
+      <path d="M320,25 Q324,12 328,25"/>
+    </g>
+    <g fill="#ccc" stroke="none">
+      <path d="M254,32 Q257,22 260,32 Q263,24 266,32 Z"/>
+      <path d="M314,28 Q318,17 322,28 Z"/>
+    </g>
+
+    <!-- Strait of Hormuz water waves -->
+    <g stroke="#777" stroke-width="0.7" fill="none">
+      <path d="M30,120 Q50,115 70,120 Q90,125 110,120 Q130,115 150,120 Q170,125 190,120 Q210,115 230,120"/>
+      <path d="M40,130 Q60,125 80,130 Q100,135 120,130 Q140,125 160,130 Q180,135 200,130 Q220,125 240,130"/>
+      <path d="M350,120 Q370,115 390,120 Q410,125 430,120 Q450,115 470,120 Q490,125 510,120 Q530,115 550,120"/>
+      <path d="M360,130 Q380,125 400,130 Q420,135 440,130 Q460,125 480,130 Q500,135 520,130 Q540,125 560,130"/>
+    </g>
+
+    <!-- Ship on water -->
+    <g transform="translate(130, 112)">
+      <path d="M-20,0 L-15,8 L25,8 L20,0 Z" fill="none" stroke="#555" stroke-width="1"/>
+      <line x1="0" y1="-10" x2="0" y2="0" stroke="#555" stroke-width="0.8"/>
+      <polygon points="0,-10 5,-3 0,0 -5,-3" fill="none" stroke="#555" stroke-width="0.8"/>
+    </g>
+
+    <!-- Fire on water -->
+    <g fill="none" stroke="#555" stroke-width="0.8">
+      <path d="M380,105 Q385,92 390,105 Q395,95 400,105"/>
+      <path d="M200,105 Q205,94 210,105"/>
+    </g>
+
+    <!-- Label at bottom -->
+    <rect x="160" y="78" width="50" height="16" fill="none" stroke="#555" stroke-width="0.8" rx="2"/>
+    <text x="185" y="90" text-anchor="middle" font-size="8" fill="#555">霍尔木兹海峡</text>
+
+    <text x="290" y="155" text-anchor="middle" class="caption">伊朗局势推高油价，霍尔木兹海峡告急</text>
+  </g>
+
+</svg>

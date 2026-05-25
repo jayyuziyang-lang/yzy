@@ -1,0 +1,56 @@
+<svg viewBox="0 0 300 220" xmlns="http://www.w3.org/2000/svg">
+  <rect width="300" height="220" fill="#faf8f5"/>
+  <style>text{font-family:'PingFang SC','Microsoft YaHei',sans-serif;}</style>
+
+  <!-- 标题 -->
+  <text x="150" y="20" text-anchor="middle" font-size="12" font-weight="900" fill="#1a1a1a">A股高低切换</text>
+  <line x1="40" y1="28" x2="260" y2="28" stroke="#1a1a1a" stroke-width="1.5"/>
+
+  <!-- 左侧：AI板块（下跌） -->
+  <g transform="translate(20, 40)">
+    <rect x="0" y="0" width="120" height="75" fill="none" stroke="#c62828" stroke-width="2"/>
+    <text x="60" y="20" text-anchor="middle" font-size="10" font-weight="700" fill="#c62828">AI算力链 🤖</text>
+    <line x1="10" y1="28" x2="110" y2="28" stroke="#c62828" stroke-width="0.5"/>
+    <!-- 拥挤度条 -->
+    <rect x="10" y="36" width="100" height="8" fill="none" stroke="#c62828" stroke-width="1.2"/>
+    <rect x="10" y="36" width="92" height="8" fill="#c62828"/>
+    <text x="105" y="50" font-size="7" fill="#c62828">拥挤度极高</text>
+    <!-- NVDA -->
+    <text x="10" y="60" font-size="8" fill="#555">NVDA财报</text>
+    <text x="110" y="60" text-anchor="end" font-size="8" font-weight="700" fill="#c62828">-1.6%</text>
+  </g>
+
+  <!-- 中间资金箭头 -->
+  <g transform="translate(145, 65)">
+    <line x1="0" y1="0" x2="20" y2="-12" stroke="#c9a96e" stroke-width="2"/>
+    <polygon points="20,-12 13,-10 16,-16" fill="#c9a96e"/>
+    <line x1="0" y1="0" x2="20" y2="12" stroke="#c9a96e" stroke-width="2"/>
+    <polygon points="20,12 13,10 16,16" fill="#c9a96e"/>
+    <text x="-5" y="3" font-size="7" fill="#c9a96e">资金</text>
+    <text x="-5" y="12" font-size="7" fill="#c9a96e">切换</text>
+  </g>
+
+  <!-- 右侧：银行板块（上涨） -->
+  <g transform="translate(160, 40)">
+    <rect x="0" y="0" width="120" height="75" fill="none" stroke="#2e7d32" stroke-width="2"/>
+    <text x="60" y="20" text-anchor="middle" font-size="10" font-weight="700" fill="#2e7d32">银行板块 🏦</text>
+    <line x1="10" y1="28" x2="110" y2="28" stroke="#2e7d32" stroke-width="0.5"/>
+    <!-- 资金流入条 -->
+    <rect x="10" y="36" width="100" height="8" fill="none" stroke="#2e7d32" stroke-width="1.2"/>
+    <rect x="10" y="36" width="65" height="8" fill="#2e7d32"/>
+    <text x="105" y="50" text-anchor="end" font-size="7" fill="#2e7d32">资金流入</text>
+    <!-- 新高 -->
+    <text x="10" y="60" font-size="8" fill="#555">浦发·江苏·成都</text>
+    <text x="110" y="60" text-anchor="end" font-size="8" font-weight="700" fill="#2e7d32">新高</text>
+  </g>
+
+  <!-- 底部判断 -->
+  <g transform="translate(20, 140)">
+    <text x="0" y="0" font-size="8" fill="#c9a96e">▼ 急跌后抛压衰竭</text>
+    <text x="0" y="16" font-size="8" fill="#c9a96e">▼ 4000-4050若缩量=企稳信号</text>
+    <text x="0" y="32" font-size="8" fill="#c9a96e">▼ AI板块需数周消化拥挤度</text>
+  </g>
+
+  <!-- 结论 -->
+  <text x="150" y="200" text-anchor="middle" font-size="9" font-weight="700" fill="#1a1a1a">大概率不是牛市终点</text>
+</svg>

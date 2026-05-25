@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>扬说财经 · 早报 | 2026.05.24</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system,"PingFang SC","Microsoft YaHei","Helvetica Neue",sans-serif; background: #F5F7FA; color: #1E293B; line-height: 1.9; font-size: 16px; }
+  .c { max-width: 640px; margin: 0 auto; background: #fff; padding: 44px 0 40px; }
+
+  .top-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; max-width: 640px; margin: 0 auto; background: rgba(255,255,255,0.95); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-bottom: 1px solid #E2E8F0; display: flex; align-items: center; padding: 0 16px; height: 44px; }
+  .top-nav .back { display: flex; align-items: center; gap: 4px; color: #1A56DB; text-decoration: none; font-size: 13px; font-weight: 600; }
+  .top-nav .back:active { opacity: 0.6; }
+  .top-nav .nav-date { flex: 1; text-align: center; font-size: 12px; color: #64748B; }
+  .top-nav .nav-edition { font-size: 11px; color: #D4A017; background: #FFFBEB; padding: 2px 8px; border-radius: 8px; font-weight: 600; }
+
+  .header { background: linear-gradient(135deg,#1A56DB,#1E3A7A); padding: 20px 20px 16px; color: white; }
+  .header .series-tag { display: inline-block; font-size: 11px; background: rgba(255,255,255,0.15); padding: 2px 10px; border-radius: 10px; margin-bottom: 8px; letter-spacing: 1px; }
+  .header .series-tag .gold { color: #D4A017; font-weight: 700; }
+  .header h1 { font-size: 22px; font-weight: 700; line-height: 1.4; margin-bottom: 8px; }
+  .header .meta { font-size: 12px; opacity: 0.8; display: flex; gap: 12px; flex-wrap: wrap; }
+  .header .meta .reading-time { background: rgba(255,255,255,0.1); padding: 1px 8px; border-radius: 8px; }
+
+  .player { display: flex; align-items: center; gap: 12px; margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.15); }
+  .player-icon { width: 40px; height: 40px; background: rgba(255,255,255,0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 18px; }
+  .player-info { flex: 1; }
+  .player-title { font-size: 13px; font-weight: 600; }
+  .player-desc { font-size: 11px; opacity: 0.7; }
+  .player audio { width: 100%; margin-top: 4px; border-radius: 20px; }
+
+  .body { padding: 20px; }
+
+  .lead { font-size: 15px; color: #475569; line-height: 1.8; margin-bottom: 20px; padding: 14px 16px; background: #F8FAFC; border-radius: 10px; border-left: 4px solid #D4A017; }
+  .lead strong { color: #1E293B; }
+
+  .section-block { margin: 28px 0; }
+  .section-num { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; font-size: 13px; font-weight: 700; margin-right: 8px; flex-shrink: 0; color: #fff; }
+  .section-title { font-size: 18px; font-weight: 700; color: #1E293B; margin-bottom: 12px; display: flex; align-items: center; }
+  .section-content { font-size: 15px; color: #334155; line-height: 1.9; margin-bottom: 12px; }
+  .section-content p { margin-bottom: 12px; text-align: justify; }
+  .section-content .highlight { background: #FFFBEB; padding: 1px 4px; border-radius: 2px; font-weight: 600; color: #92400E; }
+  .section-content .key-point { font-weight: 700; color: #1A56DB; }
+
+  .section-img { margin: 14px 0; border-radius: 8px; border: 1px solid #E2E8F0; overflow: hidden; background: #FAFAFA; }
+  .section-img img { width: 100%; display: block; }
+  .section-img .caption { font-size: 12px; color: #64748B; text-align: center; padding: 6px 10px; background: #F8FAFC; }
+
+  .section-divider { border: none; height: 1px; background: linear-gradient(to right, transparent, #D4A017, transparent); margin: 8px 0; }
+
+  .pull-quote { font-size: 15px; font-weight: 700; color: #1A56DB; text-align: center; padding: 16px 20px; margin: 16px 0; border-top: 2px solid #EFF6FF; border-bottom: 2px solid #EFF6FF; line-height: 1.6; }
+
+  .sources { background: #FFFBEB; border-radius: 10px; padding: 12px 14px; margin: 16px 0; font-size: 12px; color: #92400E; line-height: 1.6; }
+  .sources h3 { font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+  .sources a { color: #1A56DB; text-decoration: none; }
+
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 13px; }
+  th { background: #1A56DB; color: #fff; padding: 8px 10px; text-align: left; font-weight: 600; }
+  th:first-child { border-radius: 6px 0 0 0; }
+  th:last-child { border-radius: 0 6px 0 0; }
+  td { padding: 8px 10px; border-bottom: 1px solid #E2E8F0; }
+  tr:nth-child(even) { background: #F8F9FA; }
+  .up { color: #DC2626; } .down { color: #16A34A; }
+
+  .end-box { background: linear-gradient(135deg,#1A56DB,#1E3A7A); border-radius: 12px; padding: 16px 20px; margin: 22px 0; color: white; text-align: center; }
+  .end-box .end-icon { font-size: 28px; margin-bottom: 4px; }
+  .end-box .end-title { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+  .end-box .end-desc { font-size: 12px; opacity: 0.8; }
+
+  .warn { background: #FFF5F5; border: 1px solid #FECACA; border-radius: 10px; padding: 12px 14px; margin-top: 24px; font-size: 12px; color: #991B1B; line-height: 1.5; }
+
+  .tag { display: inline-flex; align-items: center; font-size: 11px; padding: 2px 10px; border-radius: 10px; font-weight: 600; margin-right: 6px; }
+  .tag-a { background: #FEF2F2; color: #DC2626; } .tag-us { background: #F0FDF4; color: #16A34A; }
+  .tag-tech { background: #FAF5FF; color: #9333EA; } .tag-intl { background: #EFF6FF; color: #1A56DB; }
+  .tag-macro { background: #FFFBEB; color: #D4A017; } .tag-commodity { background: #FFF7ED; color: #EA580C; }
+</style>
+</head>
+<body>
+<div class="c">
+
+  <div class="top-nav">
+    <a class="back" href="../../../index.html">&larr; 返回首页</a>
+    <span class="nav-date">2026.05.24 · 周日</span>
+    <span class="nav-edition">扬说·早报</span>
+  </div>
+
+  <div class="header">
+    <div class="series-tag"><span class="gold">扬说·早报</span> · 周度回顾</div>
+    <h1>道指8连涨创纪录 vs 消费者信心冰点：冰与火之歌</h1>
+    <div class="meta">
+      <span>📅 2026年5月24日 · 星期日</span>
+      <span>🏷️ 周度回顾 / 标普8连涨 / 沃什就任 / AI IPO</span>
+      <span class="reading-time">📖 阅读约 6 分钟</span>
+    </div>
+    <div class="player">
+      <div class="player-icon">🎧</div>
+      <div class="player-info">
+        <div class="player-title">早间速览 · 约 3 分钟</div>
+        <div class="player-desc">边听边看，体验更佳</div>
+        <audio controls preload="none"><source src="audio.mp3" type="audio/mpeg"></audio>
+      </div>
+    </div>
+  </div>
+
+  <div class="body">
+
+    <!-- Lead -->
+    <div class="lead">
+      <strong>过去一周，全球资本市场在上演一场"冰与火之歌"。</strong> 道琼斯工业指数盘中触及50,830点创历史新高，标普500实现连续第八周上涨。但另一边，密歇根消费者信心指数跌至44.8的历史冰点，Kevin Warsh正式就任美联储主席并启动6.8万亿美元缩表计划，AI三巨头IPO浪潮即将来袭。本篇早报带你快速回顾本周关键事件。
+    </div>
+
+    <!-- 周度数据表 -->
+    <div class="section-block">
+      <table>
+        <tr><th>市场</th><th>收盘</th><th>周涨跌幅</th></tr>
+        <tr><td>道琼斯工业指数</td><td>50,714</td><td class="up">+2.3%</td></tr>
+        <tr><td>标普500</td><td>7,492</td><td class="up">+1.0%</td></tr>
+        <tr><td>纳斯达克</td><td>26,423</td><td class="up">+0.5%</td></tr>
+        <tr><td>上证指数</td><td>4,068</td><td class="down">-1.8%</td></tr>
+        <tr><td>布伦特原油</td><td>$102.58</td><td class="down">-2.3%</td></tr>
+        <tr><td>现货黄金</td><td>$4,502</td><td class="down">-0.8%</td></tr>
+        <tr><td>10年美债收益率</td><td>4.56%</td><td class="up">+12bp</td></tr>
+      </table>
+    </div>
+
+    <!-- 故事01: A股 -->
+    <div class="section-block">
+      <div class="section-title"><span class="section-num" style="background:#DC2626;">1</span><span class="tag tag-a">A股</span>A股先扬后抑，4199冲关失败急跌120点</div>
+      <div class="section-content">
+        <p>本周A股上演"过山车"行情。周三（5/21）早盘借外围利好冲高至<strong>4199.53点</strong>，逼近4200关口，科创50再创历史新高。然而午后单边跳水重挫逾120点，沪指收报4077.28点跌<strong>2.04%</strong>，创近两个月最大单日跌幅，成交额3.5万亿元，超4700只个股飘绿。周四（5/22）延续缩量震荡报4068.35点。</p>
+        <p>板块方面，AI算力链出现"利好兑现"效应，通信、电子拥挤度提升倍数创本轮牛市新高。机器人板块逆势接力——中银国际认为这属于"物理AI"范畴，估值尚未充分定价。值得注意的是，<span class="key-point">浦发银行、江苏银行、成都银行逆势刷新历史新高</span>，资金正在从高估值向低估值方向迁移。</p>
+      </div>
+      <div class="section-img">
+        <img loading="lazy" src="comic/panel-001.svg" alt="A股4199冲关失败">
+        <div class="caption">A股4199→4068：一场午后的断崖跳水，银行股却逆势新高</div>
+      </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- 故事02: 美股 -->
+    <div class="section-block">
+      <div class="section-title"><span class="section-num" style="background:#16A34A;">2</span><span class="tag tag-us">美股</span>道指再创新高，标普8连涨创18个月最长纪录</div>
+      <div class="section-content">
+        <p>美股本周延续强势，<strong>标普500实现连续第八周上涨</strong>，为2023年12月以来最长周度连涨纪录。周五（5/22）道指盘中触及<strong>50,830点</strong>，收报50,714点创历史新高，单日涨434点（+0.86%）。</p>
+        <p>然而市场的乐观情绪与普通消费者的感受形成鲜明对比。密歇根大学5月消费者信心指数最终下修至<strong>44.8</strong>，创该指数74年历史新低。一年期通胀预期升至4.8%，长期通胀预期攀升至3.9%。<span class="highlight">美联储理事Waller表示通胀预期上升"令人担忧"，建议从政策声明中移除"宽松倾向"</span>——加息大门已悄然打开。</p>
+      </div>
+      <div class="section-img">
+        <img loading="lazy" src="comic/panel-002.svg" alt="美股创新高 vs 消费信心冰点">
+        <div class="caption">道指50,830创新高，但消费者信心44.8创历史冰点——同一市场两个世界</div>
+      </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- 故事03: 科技AI -->
+    <div class="section-block">
+      <div class="section-title"><span class="section-num" style="background:#9333EA;">3</span><span class="tag tag-tech">科技/AI</span>NVIDIA营收狂飙85%，AI三巨头IPO重塑资本市场</div>
+      <div class="section-content">
+        <p><strong>NVIDIA</strong> 发布FY2026 Q1财报：营收<strong>816亿美元</strong>（同比+85%），数据中心收入752亿美元；调整后EPS 1.87美元（同比+130%）。Q2指引营收910亿美元（同比+95%），远超预期。CEO黄仁勋形容当前AI算力需求"呈抛物线式增长"。然而财报发布后NVDA股价下跌1.6%，上演经典"卖事实"行情——过去一年股价已累计上涨约70%。</p>
+        <p>更大的事件在IPO市场。SpaceX提交S-1文件，代码SPCX，6月12日上市，估值约1.25万亿美元。OpenAI秘密提交招股书，估值约8520亿美元。Anthropic以9000亿美元估值进行新一轮融资。三大AI公司总估值超过3万亿美元，这是人类资本市场从未有过的奇观。<span class="key-point">德意志银行认为当前美股总市值约70万亿美元，足以吸收这批IPO。</span></p>
+      </div>
+      <div class="section-img">
+        <img loading="lazy" src="comic/panel-003.svg" alt="AI三巨头IPO">
+        <div class="caption">SpaceX·OpenAI·Anthropic 三大AI巨头即将齐聚公开市场</div>
+      </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- 故事04: 前沿国际 -->
+    <div class="section-block">
+      <div class="section-title"><span class="section-num" style="background:#1A56DB;">4</span><span class="tag tag-intl">前沿/国际</span>美伊谈判"小幅进展"，量子计算获20亿注资</div>
+      <div class="section-content">
+        <p><strong>地缘政治：</strong>国务卿卢比奥表示美伊和平谈判取得"小幅进展"和"一些积极信号"，但双方在伊朗铀浓缩项目和霍尔木兹海峡通行费上分歧仍深。卡塔尔、沙特和巴基斯坦担任调解方。布伦特原油周五回落至102.58美元/桶（-2.3%）。</p>
+        <p><strong>量子计算：</strong>特朗普政府通过CHIPS法案向9家公司提供<strong>20亿美元</strong>量子计算拨款。IBM获10亿美元（本周涨17%），D-Wave（QBTS）涨40%，Rigetti（RGTI）涨42%。</p>
+        <p><strong>Google I/O大会：</strong>发布Gemini 3.5、Android 17及智能眼镜，Gemini月活用户已达9亿。</p>
+      </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- 故事05: 宏观 -->
+    <div class="section-block">
+      <div class="section-title"><span class="section-num" style="background:#D4A017;">5</span><span class="tag tag-macro">宏观</span>Kevin Warsh就任Fed主席，6.8万亿缩表计划浮出水面</div>
+      <div class="section-content">
+        <p><strong>Kevin Warsh</strong> 于周五正式宣誓就任新一任美联储主席，接替Jerome Powell。Warsh以鹰派立场闻名，其核心计划是将美联储资产负债表从当前的<strong>6.8万亿美元</strong>压缩至约8000亿美元，回归金融危机前水平。这意味着未来数年内Fed将从市场中抽走约6万亿美元流动性——这是自2008年以来规模最庞大的流动性回收行动。</p>
+        <p><span class="highlight">30年期美债收益率本周升至5.064%，为2007年以来最高。</span>10年期收益率触及52周新高4.63%后回落至4.56%。市场对12月前加息25bp的概率定价已升至58%~60%。</p>
+        <table>
+          <tr><th>关键利率</th><th>水平</th><th>变动</th></tr>
+          <tr><td>10年美债收益率</td><td>4.56%</td><td class="up">+12bp</td></tr>
+          <tr><td>30年美债收益率</td><td>5.064%</td><td class="up">2007年以来最高</td></tr>
+          <tr><td>30年固定房贷利率</td><td>6.51%</td><td class="up">+9个月新高</td></tr>
+          <tr><td>Fed资产负债表</td><td>6.8万亿</td><td>目标→8000亿</td></tr>
+        </table>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- 故事06: 商品 -->
+    <div class="section-block">
+      <div class="section-title"><span class="section-num" style="background:#EA580C;">6</span><span class="tag tag-commodity">商品/黄金</span>黄金连跌两周，原油高位震荡</div>
+      <div class="section-content">
+        <p><strong>黄金：</strong>现货黄金本周收于约<strong>$4,502/盎司</strong>，连续第二周下跌。强势美元和加息预期升温是主要压力来源。技术面看，200日均线支撑位于$4,372，50日均线阻力位于$4,667。<span class="key-point">只要中东局势未彻底解决，黄金的避险溢价将限制下行空间。</span></p>
+        <p><strong>原油：</strong>布伦特原油本周在$102~$107区间剧烈震荡。周三一度冲高至$107以上，周五因美伊谈判取得"小幅进展"回落至$102.58。核心变量仍是霍尔木兹海峡——伊朗威胁对过往油轮征收"战争通行费"，这将直接影响全球约30%的海运原油运输。</p>
+      </div>
+        </div>
+    </div>
+
+    <!-- Pull Quote -->
+    <div class="pull-quote">
+      油价推高通胀 → 通胀预期上升 → 降息预期降温 → 国债收益率飙升 → 金价承压。<br>
+      这条传导链是当前全球市场最核心的定价逻辑。
+    </div>
+
+    <!-- Sources -->
+    <div class="sources">
+      <h3>📚 参考来源</h3>
+      <p style="margin-bottom:4px;">1. CNBC Market Update — 2026-05-22</p>
+      <p style="margin-bottom:4px;">2. Investor's Business Daily — Stock Market Weekly Review</p>
+      <p style="margin-bottom:4px;">3. Yahoo Finance — Gold & Oil Market</p>
+      <p style="margin-bottom:4px;">4. CNBC — Nvidia Earnings Report</p>
+      <p style="margin-bottom:4px;">5. 新浪财经 · 东方财富 — A股行情</p>
+      <p style="margin-bottom:4px;">6. 中银国际 · 财信证券 — A股策略周报</p>
+      <p style="margin-bottom:4px;">7. Reuters — US-Iran Peace Talks</p>
+    </div>
+
+    <!-- End Box -->
+    <div class="end-box">
+      <div class="end-icon">📡</div>
+      <div class="end-title">扬说财经 · 早报</div>
+      <div class="end-desc">用漫画看懂财经 · 每日早8点更新</div>
+    </div>
+
+    <div class="warn">⚠️ <strong>风险提示：</strong>本文仅为信息分享与知识科普，不构成任何投资建议。市场有风险，投资需谨慎。数据来源于公开信息，如有出入请以官方数据为准。</div>
+
+  </div>
+</div>
+</body>
+</html>

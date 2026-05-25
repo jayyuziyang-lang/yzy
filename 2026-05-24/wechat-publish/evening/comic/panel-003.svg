@@ -1,0 +1,66 @@
+<svg viewBox="0 0 300 220" xmlns="http://www.w3.org/2000/svg">
+  <rect width="300" height="220" fill="#faf8f5"/>
+  <style>text{font-family:'PingFang SC','Microsoft YaHei',sans-serif;}</style>
+
+  <!-- 标题 -->
+  <text x="150" y="20" text-anchor="middle" font-size="12" font-weight="900" fill="#1a1a1a">中东原油棋局</text>
+  <line x1="40" y1="28" x2="260" y2="28" stroke="#1a1a1a" stroke-width="1.5"/>
+
+  <!-- 油价K线（先涨后跌） -->
+  <polyline points="20,170 50,160 70,165 90,140 110,148 130,120 150,128" fill="none" stroke="#1a1a1a" stroke-width="2.5"/>
+  <!-- 冲高 -->
+  <line x1="150" y1="128" x2="175" y2="90" stroke="#c62828" stroke-width="2.5"/>
+  <polygon points="175,90 168,96 172,84" fill="#c62828"/>
+  <text x="175" y="84" text-anchor="middle" font-size="8" font-weight="700" fill="#c62828">$107</text>
+  <!-- 回落 -->
+  <polyline points="175,90 200,130 220,135 240,145 260,150 280,158" fill="none" stroke="#1a1a1a" stroke-width="2.5"/>
+  <text x="280" y="155" text-anchor="middle" font-size="8" font-weight="700" fill="#2e7d32">$102.58</text>
+
+  <!-- 博弈双方 -->
+  <!-- 美国 -->
+  <g transform="translate(20, 38)">
+    <ellipse cx="30" cy="22" rx="22" ry="18" fill="none" stroke="#1a1a1a" stroke-width="2"/>
+    <line x1="30" y1="4" x2="30" y2="14" stroke="#1a1a1a" stroke-width="2.2"/>
+    <line x1="15" y1="22" x2="5" y2="22" stroke="#1a1a1a" stroke-width="2.2"/>
+    <line x1="45" y1="22" x2="55" y2="22" stroke="#1a1a1a" stroke-width="2.2"/>
+    <text x="30" y="50" text-anchor="middle" font-size="8" fill="#1a1a1a">美国</text>
+  </g>
+
+  <!-- 伊朗 -->
+  <g transform="translate(180, 38)">
+    <ellipse cx="30" cy="22" rx="22" ry="18" fill="none" stroke="#c62828" stroke-width="2"/>
+    <line x1="30" y1="4" x2="30" y2="14" stroke="#c62828" stroke-width="2.2"/>
+    <line x1="30" y1="26" x2="30" y2="36" stroke="#c62828" stroke-width="2.2"/>
+    <line x1="12" y1="18" x2="48" y2="18" stroke="#c62828" stroke-width="2.2"/>
+    <text x="30" y="50" text-anchor="middle" font-size="8" fill="#c62828">伊朗</text>
+  </g>
+
+  <!-- 对抗线 -->
+  <line x1="55" y1="70" x2="180" y2="70" stroke="#c62828" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <!-- 调解方 -->
+  <text x="120" y="88" text-anchor="middle" font-size="7" fill="#c9a96e">卡塔尔/沙特/巴基斯坦调解中</text>
+
+  <!-- 霍尔木兹海峡 -->
+  <g transform="translate(60, 102)">
+    <rect x="0" y="0" width="180" height="30" fill="none" stroke="#c62828" stroke-width="1.5" rx="3"/>
+    <text x="90" y="18" text-anchor="middle" font-size="8" font-weight="700" fill="#c62828">霍尔木兹海峡</text>
+    <text x="90" y="30" text-anchor="middle" font-size="7" fill="#555">全球约30%海运原油</text>
+  </g>
+
+  <!-- 传导 -->
+  <g transform="translate(20, 148)">
+    <text x="0" y="10" font-size="7" fill="#c62828">伊朗局势</text>
+    <line x1="52" y1="8" x2="62" y2="8" stroke="#c9a96e" stroke-width="1"/>
+    <polygon points="62,8 59,6 59,10" fill="#c9a96e"/>
+    <text x="65" y="10" font-size="7" fill="#c62828">油价</text>
+    <line x1="80" y1="8" x2="90" y2="8" stroke="#c9a96e" stroke-width="1"/>
+    <polygon points="90,8 87,6 87,10" fill="#c9a96e"/>
+    <text x="93" y="10" font-size="7" fill="#c62828">通胀</text>
+    <line x1="115" y1="8" x2="125" y2="8" stroke="#c9a96e" stroke-width="1"/>
+    <polygon points="125,8 122,6 122,10" fill="#c9a96e"/>
+    <text x="128" y="10" font-size="7" fill="#c62828">黄金避险</text>
+  </g>
+
+  <!-- 底部 -->
+  <text x="150" y="195" text-anchor="middle" font-size="8" fill="#555">中东未解决前，黄金避险溢价限制下行空间</text>
+</svg>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>扬说财经 · xkcd 素描风格图表</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.xkcd@1/dist/chart.xkcd.min.js"></script>
+<style>
+  :root {
+    --brand-blue: #1A56DB;
+    --brand-gold: #D4A017;
+    --brand-red: #EF4444;
+    --brand-green: #10B981;
+    --bg: #F5F7FA;
+    --stroke: #1E293B;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "xkcd", -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: var(--bg);
+    padding: 20px;
+  }
+  .charts-container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .chart-wrapper {
+    background: #fff;
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 24px;
+    border: 1px solid #E2E8F0;
+  }
+  .chart-wrapper h2 {
+    font-size: 16px;
+    color: var(--stroke);
+    margin-bottom: 8px;
+    padding-left: 8px;
+    border-left: 3px solid var(--brand-blue);
+  }
+  /* chart.xkcd renders into an inline SVG - ensure it fills the wrapper */
+  .chart-wrapper svg {
+    width: 100%;
+  }
+</style>
+</head>
+<body>
+<div class="charts-container">
+
+  <!-- ============================================ -->
+  <!-- 折线图：用于趋势展示 -->
+  <!-- ============================================ -->
+  <div class="chart-wrapper">
+    <h2>折线图 / 趋势展示</h2>
+    <svg id="chart-line" width="800" height="450"></svg>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- 柱状图：用于对比展示 -->
+  <!-- ============================================ -->
+  <div class="chart-wrapper">
+    <h2>柱状图 / 对比展示</h2>
+    <svg id="chart-bar" width="800" height="450"></svg>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- 饼图：用于占比展示 -->
+  <!-- ============================================ -->
+  <div class="chart-wrapper">
+    <h2>饼图 / 占比展示</h2>
+    <svg id="chart-pie" width="800" height="450"></svg>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- 雷达图：用于多维度对比 -->
+  <!-- ============================================ -->
+  <div class="chart-wrapper">
+    <h2>雷达图 / 多维度对比</h2>
+    <svg id="chart-radar" width="800" height="450"></svg>
+  </div>
+
+</div>
+
+<script>
+// ============================================================
+// 品牌色系
+// ============================================================
+var BLUE   = '#1A56DB';
+var GOLD   = '#D4A017';
+var RED    = '#EF4444';
+var GREEN  = '#10B981';
+var PURPLE = '#8B5CF6';
+var ORANGE = '#F59E0B';
+
+// 通用中文字体栈（chart.xkcd 的 'xkcd' 字体不支持中文，用系统字体回退）
+var FONT = 'xkcd, "PingFang SC", "Microsoft YaHei", sans-serif';
+
+// ============================================================
+// 1. 折线图 — 趋势展示
+// ============================================================
+new chartXkcd.Line(
+  document.getElementById('chart-line'),
+  {
+    title: '本周A股走势',
+    xLabel: '日期',
+    yLabel: '指数点位',
+    data: {
+      labels: ['周一', '周二', '周三', '周四', '周五'],
+      datasets: [{
+        label: '上证指数',
+        data: [3350, 3368, 3342, 3375, 3390]
+      }, {
+        label: '深证成指',
+        data: [10800, 10850, 10780, 10890, 10920]
+      }]
+    },
+    options: {
+      dataColors: [RED, BLUE],
+      fontFamily: FONT,
+      strokeColor: '#1E293B',
+      backgroundColor: '#FFFFFF'
+    }
+  }
+);
+
+// ============================================================
+// 2. 柱状图 — 对比展示
+// ============================================================
+new chartXkcd.Bar(
+  document.getElementById('chart-bar'),
+  {
+    title: '各板块资金流向',
+    xLabel: '板块',
+    yLabel: '资金净流入（亿元）',
+    data: {
+      labels: ['半导体', '通信设备', '计算机', '白酒', '银行'],
+      datasets: [{
+        label: '资金流向',
+        data: [287, 96, 78, -42, 320]
+      }]
+    },
+    options: {
+      dataColors: [BLUE, RED, PURPLE, GOLD, GREEN],
+      fontFamily: FONT,
+      strokeColor: '#1E293B',
+      backgroundColor: '#FFFFFF'
+    }
+  }
+);
+
+// ============================================================
+// 3. 饼图 — 占比展示
+// ============================================================
+new chartXkcd.Pie(
+  document.getElementById('chart-pie'),
+  {
+    title: '全球央行购金份额',
+    data: {
+      labels: ['中国', '波兰', '印度', '土耳其', '其他'],
+      datasets: [{
+        label: '购金量（吨）',
+        data: [324, 90, 72, 60, 80]
+      }]
+    },
+    options: {
+      innerRadius: 0.4,
+      dataColors: [GOLD, BLUE, PURPLE, ORANGE, '#CBD5E1'],
+      fontFamily: FONT,
+      strokeColor: '#1E293B',
+      backgroundColor: '#FFFFFF'
+    }
+  }
+);
+
+// ============================================================
+// 4. 雷达图 — 多维度对比
+// ============================================================
+new chartXkcd.Radar(
+  document.getElementById('chart-radar'),
+  {
+    title: '宏观经济多维度评估',
+    data: {
+      labels: ['GDP增速', 'CPI', 'PMI', '出口', '社融', '就业'],
+      datasets: [{
+        label: '中国',
+        data: [70, 60, 55, 80, 65, 50]
+      }, {
+        label: '美国',
+        data: [50, 70, 45, 60, 55, 65]
+      }]
+    },
+    options: {
+      showLabels: true,
+      ticksCount: 4,
+      dataColors: [RED, BLUE],
+      fontFamily: FONT,
+      strokeColor: '#1E293B',
+      backgroundColor: '#FFFFFF'
+    }
+  }
+);
+</script>
+
+</body>
+</html>
