@@ -1,48 +1,30 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 220" width="300" height="220">
   <rect width="300" height="220" fill="#FAFAFA"/>
-
-  <!-- Title bar -->
-  <rect x="0" y="0" width="300" height="26" fill="#9333EA"/>
-  <text x="150" y="18" text-anchor="middle" fill="#fff" font-size="11" font-weight="700" font-family="PingFang SC,sans-serif">华为发布"韬(τ)定律"</text>
-
-  <!-- Left: Moore's Law path (blocked) -->
-  <rect x="20" y="40" width="110" height="70" rx="4" fill="#FEF2F2" stroke="#DC2626" stroke-width="2"/>
-  <text x="75" y="62" text-anchor="middle" fill="#DC2626" font-size="10" font-weight="700" font-family="PingFang SC,sans-serif">摩尔定律</text>
-  <text x="75" y="78" text-anchor="middle" fill="#991B1B" font-size="9" font-family="PingFang SC,sans-serif">晶体管制程越做越小</text>
-  <text x="75" y="94" text-anchor="middle" fill="#DC2626" font-size="9" font-family="PingFang SC,sans-serif">→ 光刻机被卡脖子</text>
-  <!-- Block symbol -->
-  <line x1="20" y1="110" x2="130" y2="110" stroke="#DC2626" stroke-width="3" stroke-dasharray="4,3"/>
-
-  <!-- Arrow from left to right -->
-  <text x="145" y="90" text-anchor="middle" fill="#9333EA" font-size="14">→</text>
-
-  <!-- Right: 韬定律 path -->
-  <rect x="165" y="40" width="120" height="70" rx="4" fill="#F5F3FF" stroke="#9333EA" stroke-width="2"/>
-  <text x="225" y="62" text-anchor="middle" fill="#9333EA" font-size="10" font-weight="700" font-family="PingFang SC,sans-serif">韬(τ)定律</text>
-  <text x="225" y="78" text-anchor="middle" fill="#6B21A8" font-size="9" font-family="PingFang SC,sans-serif">时间缩微替代几何缩微</text>
-  <text x="225" y="94" text-anchor="middle" fill="#9333EA" font-size="9" font-family="PingFang SC,sans-serif">逻辑折叠·立体堆叠</text>
-
-  <!-- Bottom: Logic Folding visualization -->
-  <rect x="20" y="130" width="260" height="75" rx="4" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
-  <text x="150" y="148" text-anchor="middle" fill="#1E293B" font-size="10" font-weight="700" font-family="PingFang SC,sans-serif">逻辑折叠(Logic Folding) 原理示意</text>
-
-  <!-- Flat circuit → Folded circuit -->
-  <rect x="40" y="155" width="80" height="20" rx="2" fill="#E2E8F0"/>
-  <text x="80" y="169" text-anchor="middle" fill="#64748B" font-size="8" font-family="PingFang SC,sans-serif">平面电路(传统)</text>
-
-  <text x="137" y="170" text-anchor="middle" fill="#9333EA" font-size="12">→</text>
-
-  <!-- Folded stack -->
-  <rect x="160" y="153" width="18" height="24" fill="#9333EA" rx="2"/>
-  <rect x="185" y="153" width="18" height="24" fill="#7C3AED" rx="2"/>
-  <rect x="210" y="153" width="18" height="24" fill="#6D28D9" rx="2"/>
-  <rect x="220" y="165" width="36" height="2" fill="#C4B5FD"/>
-  <text x="75" y="195" text-anchor="middle" fill="#9333EA" font-size="8" font-family="PingFang SC,sans-serif">信号路径长</text>
-  <text x="210" y="195" text-anchor="middle" fill="#6D28D9" font-size="8" font-family="PingFang SC,sans-serif">信号路径缩短60%+</text>
-
-  <!-- Data callout -->
-  <rect x="40" y="200" width="105" height="16" rx="3" fill="#FFF7ED"/>
-  <text x="92" y="212" text-anchor="middle" fill="#EA580C" font-size="8" font-family="PingFang SC,sans-serif">2.38亿颗/mm² (↑55%)</text>
-  <rect x="155" y="200" width="105" height="16" rx="3" fill="#FFF7ED"/>
-  <text x="207" y="212" text-anchor="middle" fill="#EA580C" font-size="8" font-family="PingFang SC,sans-serif">能效提升41%</text>
+  <!-- Central hub -->
+  <circle cx="150" cy="110" r="18" fill="none" stroke="#1E293B" stroke-width="2"/>
+  <circle cx="150" cy="110" r="6" fill="#D4A017" stroke="none"/>
+  <text x="150" y="113" text-anchor="middle" fill="#D4A017" font-size="7" font-weight="700" font-family="PingFang SC,sans-serif">5.25</text>
+  <!-- Radiating lines -->
+  <line x1="150" y1="110" x2="40" y2="30" stroke="#E2E8F0" stroke-width="0.8"/>
+  <line x1="150" y1="110" x2="260" y2="30" stroke="#E2E8F0" stroke-width="0.8"/>
+  <line x1="150" y1="110" x2="40" y2="190" stroke="#E2E8F0" stroke-width="0.8"/>
+  <line x1="150" y1="110" x2="260" y2="190" stroke="#E2E8F0" stroke-width="0.8"/>
+  <line x1="150" y1="110" x2="150" y2="15" stroke="#E2E8F0" stroke-width="0.8"/>
+  <line x1="150" y1="110" x2="150" y2="205" stroke="#E2E8F0" stroke-width="0.8"/>
+  <!-- Story nodes -->
+  <text x="40" y="26" text-anchor="middle" font-family="PingFang SC,sans-serif" font-size="10" font-weight="800" fill="#DC2626">科创50+5.88%</text>
+  <text x="40" y="38" text-anchor="middle" font-family="PingFang SC,sans-serif" font-size="7" fill="#64748B">半导体全线爆发·新高</text>
+  <text x="260" y="26" text-anchor="middle" font-family="PingFang SC,sans-serif" font-size="10" font-weight="800" fill="#9333EA">华为"韬定律"</text>
+  <text x="260" y="38" text-anchor="middle" font-family="PingFang SC,sans-serif" font-size="7" fill="#64748B">2.38亿颗/mm²↑55%</text>
+  <text x="40" y="204" text-anchor="middle" font-family="PingFang SC,sans-serif" font-size="10" font-weight="800" fill="#EA580C">油价暴跌6%</text>
+  <text x="40" y="216" text-anchor="middle" font-family="PingFang SC,sans-serif" font-size="7" fill="#64748B">WTI 90.87 美伊协议预期</text>
+  <text x="260" y="204" text-anchor="middle" font-family="PingFang SC,sans-serif" font-size="10" font-weight="800" fill="#D4A017">黄金$4580</text>
+  <text x="260" y="216" text-anchor="middle" font-family="PingFang SC,sans-serif" font-size="7" fill="#64748B">V型反弹·4500有支撑</text>
+  <text x="150" y="10" text-anchor="middle" font-family="PingFang SC,sans-serif" font-size="10" font-weight="800" fill="#16A34A">DeepSeek降价75%</text>
+  <text x="150" y="218" text-anchor="middle" font-family="PingFang SC,sans-serif" font-size="7" fill="#64748B">美股休市·本周PCE+Warsh</text>
+  <!-- Ring arcs -->
+  <circle cx="150" cy="110" r="55" fill="none" stroke="#E2E8F0" stroke-width="0.8" stroke-dasharray="3,3"/>
+  <circle cx="150" cy="110" r="90" fill="none" stroke="#E2E8F0" stroke-width="0.8" stroke-dasharray="3,3"/>
+  <!-- Decorative dots -->
+  <circle cx="150" cy="110" r="2" fill="#D4A017"/>
 </svg>
