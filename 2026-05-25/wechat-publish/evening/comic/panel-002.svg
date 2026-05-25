@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 220" width="300" height="220">
+  <rect width="300" height="220" fill="#FAFAFA"/>
+  <rect x="0" y="0" width="300" height="26" fill="#EA580C"/>
+  <text x="150" y="18" text-anchor="middle" fill="#fff" font-size="11" font-weight="700" font-family="PingFang SC,sans-serif">华为"韬定律"引爆半导体</text>
+  <rect x="10" y="36" width="135" height="112" rx="6" fill="#FFF7ED" stroke="#FED7AA" stroke-width="1.5"/>
+  <text x="77" y="54" text-anchor="middle" fill="#1E293B" font-size="9" font-weight="700" font-family="PingFang SC,sans-serif">逻辑折叠（Logic Folding）</text>
+  <line x1="25" y1="68" x2="130" y2="68" stroke="#CBD5E1" stroke-width="1.5" stroke-dasharray="3,2"/>
+  <text x="77" y="80" text-anchor="middle" fill="#94A3B8" font-size="7" font-family="PingFang SC,sans-serif">传统平面 → 距离长</text>
+  <rect x="30" y="92" width="95" height="4" rx="1" fill="#EA580C" opacity="0.7"/>
+  <rect x="30" y="100" width="95" height="4" rx="1" fill="#EA580C" opacity="0.9"/>
+  <rect x="30" y="108" width="95" height="4" rx="1" fill="#EA580C"/>
+  <text x="77" y="126" text-anchor="middle" fill="#C2410C" font-size="7" font-weight="700" font-family="PingFang SC,sans-serif">立体堆叠 → 信号距离缩短80%</text>
+  <text x="155" y="90" text-anchor="middle" font-size="14">➡️</text>
+  <rect x="155" y="36" width="135" height="112" rx="6" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1.5"/>
+  <text x="222" y="54" text-anchor="middle" fill="#1E293B" font-size="9" font-weight="700" font-family="PingFang SC,sans-serif">市场反应</text>
+  <rect x="165" y="62" width="115" height="28" rx="4" fill="#FEF2F2"/>
+  <text x="222" y="76" text-anchor="middle" fill="#991B1B" font-size="10" font-weight="700" font-family="PingFang SC,sans-serif">中芯国际 +18.78%</text>
+  <text x="222" y="88" text-anchor="middle" fill="#DC2626" font-size="7" font-family="PingFang SC,sans-serif">成交额372亿 两市第一</text>
+  <rect x="165" y="96" width="115" height="20" rx="4" fill="#FEF2F2"/>
+  <text x="222" y="110" text-anchor="middle" fill="#991B1B" font-size="8" font-family="PingFang SC,sans-serif">华虹+20% 长电/兆易涨停</text>
+  <rect x="165" y="122" width="115" height="20" rx="4" fill="#F5F3FF"/>
+  <text x="222" y="136" text-anchor="middle" fill="#6D28D9" font-size="8" font-family="PingFang SC,sans-serif">寒武纪+9.37% 报1406.50元</text>
+  <rect x="10" y="156" width="280" height="54" rx="6" fill="#1E293B"/>
+  <text x="150" y="172" text-anchor="middle" fill="#FCD34D" font-size="10" font-weight="700" font-family="PingFang SC,sans-serif">2026款麒麟：晶体管密度2.38亿颗/mm² ↑55%</text>
+  <text x="150" y="188" text-anchor="middle" fill="#FCD34D" font-size="10" font-weight="700" font-family="PingFang SC,sans-serif">核心能效↑41% · 华为10年研发投入1.38万亿</text>
+  <text x="150" y="204" text-anchor="middle" fill="#94A3B8" font-size="8" font-family="PingFang SC,sans-serif">替代摩尔定律的"时间缩微"路径</text>
+</svg>
