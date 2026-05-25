@@ -1,7 +1,31 @@
 {
-  "generated_at": "2026-05-23T13:08:03+08:00",
-  "latest_date": "2026-05-23",
+  "generated_at": "2026-05-25T08:53:42+08:00",
+  "latest_date": "2026-05-25",
   "articles": [
+    {
+      "date": "2026-05-25",
+      "session": "morning",
+      "edition_cn": "早报",
+      "icon": "🌅",
+      "title": "扬说财经 · 早报 | 2026.05.25",
+      "url": "2026-05-25/wechat-publish/morning/article.html"
+    },
+    {
+      "date": "2026-05-24",
+      "session": "evening",
+      "edition_cn": "晚报",
+      "icon": "🌙",
+      "title": "扬说财经 · 夜读 | 2026.05.24",
+      "url": "2026-05-24/wechat-publish/evening/article.html"
+    },
+    {
+      "date": "2026-05-24",
+      "session": "morning",
+      "edition_cn": "早报",
+      "icon": "🌅",
+      "title": "扬说财经 · 早报 | 2026.05.24",
+      "url": "2026-05-24/wechat-publish/morning/article.html"
+    },
     {
       "date": "2026-05-23",
       "session": "special",
@@ -45,6 +69,34 @@
     }
   ],
   "by_date": {
+    "2026-05-25": {
+      "morning": {
+        "date": "2026-05-25",
+        "session": "morning",
+        "edition_cn": "早报",
+        "icon": "🌅",
+        "title": "扬说财经 · 早报 | 2026.05.25",
+        "url": "2026-05-25/wechat-publish/morning/article.html"
+      }
+    },
+    "2026-05-24": {
+      "evening": {
+        "date": "2026-05-24",
+        "session": "evening",
+        "edition_cn": "晚报",
+        "icon": "🌙",
+        "title": "扬说财经 · 夜读 | 2026.05.24",
+        "url": "2026-05-24/wechat-publish/evening/article.html"
+      },
+      "morning": {
+        "date": "2026-05-24",
+        "session": "morning",
+        "edition_cn": "早报",
+        "icon": "🌅",
+        "title": "扬说财经 · 早报 | 2026.05.24",
+        "url": "2026-05-24/wechat-publish/morning/article.html"
+      }
+    },
     "2026-05-23": {
       "special": {
         "date": "2026-05-23",

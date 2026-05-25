@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 220">
+  <rect width="300" height="220" fill="#FAFAFA"/>
+  <style>
+    text { font-family: "PingFang SC","Microsoft YaHei",sans-serif; }
+  </style>
+
+  <!-- 背景 - 一条向前延伸的路 -->
+  <!-- 路面 -->
+  <rect x="30" y="100" width="240" height="8" rx="4" fill="#e0dbd4" stroke="#1a1a1a" stroke-width="1.5"/>
+
+  <!-- 已走过的路（左侧-已完成部分） -->
+  <rect x="30" y="96" width="100" height="16" rx="2" fill="#e8f5e9" stroke="#2e7d32" stroke-width="1.5" stroke-dasharray="2,1"/>
+  <text x="80" y="107" text-anchor="middle" font-size="6" fill="#2e7d32" font-weight="600">停火框架 ✓</text>
+
+  <!-- 前方的路（右侧-待完成） -->
+  <rect x="170" y="96" width="100" height="16" rx="2" fill="#fff8e1" stroke="#c9a96e" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <text x="220" y="107" text-anchor="middle" font-size="6" fill="#92400E">核问题谈判 ?</text>
+
+  <!-- 中间的路障（核问题） -->
+  <rect x="120" y="70" width="60" height="50" rx="4" fill="#fef2f2" stroke="#c62828" stroke-width="2.5"/>
+  <text x="150" y="90" text-anchor="middle" font-size="7" font-weight="700" fill="#c62828">核问题</text>
+  <text x="150" y="102" text-anchor="middle" font-size="6" fill="#c62828">下一步</text>
+
+  <!-- 路障上的红色斜线/警告 -->
+  <line x1="122" y1="72" x2="178" y2="118" stroke="#c62828" stroke-width="1.5" opacity="0.3"/>
+
+  <!-- 上方：特朗普和伊朗的对话气泡 -->
+  <!-- 左侧气泡：特朗普 -->
+  <rect x="25" y="15" width="110" height="32" rx="10" fill="#EFF6FF" stroke="#1A56DB" stroke-width="1.5"/>
+  <polygon points="70,47 80,55 90,47" fill="#EFF6FF" stroke="#1A56DB" stroke-width="1.5"/>
+  <text x="80" y="32" text-anchor="middle" font-size="6.5" font-weight="600" fill="#1A56DB">"放弃浓缩铀储备"</text>
+  <text x="80" y="42" text-anchor="middle" font-size="5.5" fill="#1A56DB">美方核心诉求</text>
+
+  <!-- 右侧气泡：伊朗 -->
+  <rect x="165" y="15" width="110" height="32" rx="10" fill="#F0FDF4" stroke="#2e7d32" stroke-width="1.5"/>
+  <polygon points="210,47 220,55 230,47" fill="#F0FDF4" stroke="#2e7d32" stroke-width="1.5"/>
+  <text x="220" y="32" text-anchor="middle" font-size="6.5" font-weight="600" fill="#2e7d32">"暂不谈核问题"</text>
+  <text x="220" y="42" text-anchor="middle" font-size="5.5" fill="#2e7d32">30-60天后再谈</text>
+
+  <!-- 中间问号 -->
+  <text x="150" y="40" text-anchor="middle" font-size="18" font-weight="700" fill="#c9a96e" opacity="0.6">?</text>
+
+  <!-- 底部倒计时 -->
+  <rect x="65" y="138" width="170" height="28" rx="14" fill="#f0f0f0" stroke="#1a1a1a" stroke-width="1.5"/>
+  <text x="150" y="150" text-anchor="middle" font-size="7" font-weight="600" fill="#1a1a1a">30-60天倒计时</text>
+  <text x="150" y="162" text-anchor="middle" font-size="6" fill="#888">若核谈判破裂 → 协议框架可能崩塌</text>
+
+  <!-- 底部三种可能结果 -->
+  <g transform="translate(0, 180)">
+    <!-- 结果1：签 -->
+    <rect x="30" y="5" width="50" height="22" rx="4" fill="#e8f5e9" stroke="#2e7d32" stroke-width="1"/>
+    <text x="55" y="19" text-anchor="middle" font-size="5.5" fill="#2e7d32">全面协议</text>
+    <!-- 结果2：拖 -->
+    <rect x="100" y="5" width="50" height="22" rx="4" fill="#fff8e1" stroke="#c9a96e" stroke-width="1"/>
+    <text x="125" y="19" text-anchor="middle" font-size="5.5" fill="#92400E">延期再谈</text>
+    <!-- 结果3：破 -->
+    <rect x="170" y="5" width="50" height="22" rx="4" fill="#fef2f2" stroke="#c62828" stroke-width="1"/>
+    <text x="195" y="19" text-anchor="middle" font-size="5.5" fill="#c62828">协议破裂</text>
+  </g>
+
+  <!-- 连接线 -->
+  <line x1="150" y1="138" x2="150" y2="185" stroke="#c9a96e" stroke-width="1" stroke-dasharray="2,2"/>
+</svg>

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>扬说财经 · 早报 | 2026.05.25</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system,"PingFang SC","Microsoft YaHei","Helvetica Neue",sans-serif; background: #F5F7FA; color: #1E293B; line-height: 1.9; font-size: 16px; }
+  .c { max-width: 640px; margin: 0 auto; background: #fff; padding: 44px 0 40px; }
+
+  .top-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; max-width: 640px; margin: 0 auto; background: rgba(255,255,255,0.95); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-bottom: 1px solid #E2E8F0; display: flex; align-items: center; padding: 0 16px; height: 44px; }
+  .top-nav .back { display: flex; align-items: center; gap: 4px; color: #1A56DB; text-decoration: none; font-size: 13px; font-weight: 600; }
+  .top-nav .back:active { opacity: 0.6; }
+  .top-nav .nav-date { flex: 1; text-align: center; font-size: 12px; color: #64748B; }
+  .top-nav .nav-edition { font-size: 11px; color: #D4A017; background: #FFFBEB; padding: 2px 8px; border-radius: 8px; font-weight: 600; }
+
+  .header { background: linear-gradient(135deg,#1A56DB,#1E3A7A); padding: 20px 20px 16px; color: white; }
+  .header .series-tag { display: inline-block; font-size: 11px; background: rgba(255,255,255,0.15); padding: 2px 10px; border-radius: 10px; margin-bottom: 8px; letter-spacing: 1px; }
+  .header .series-tag .gold { color: #D4A017; font-weight: 700; }
+  .header h1 { font-size: 22px; font-weight: 700; line-height: 1.4; margin-bottom: 8px; }
+  .header .meta { font-size: 12px; opacity: 0.8; display: flex; gap: 12px; flex-wrap: wrap; }
+  .header .meta .reading-time { background: rgba(255,255,255,0.1); padding: 1px 8px; border-radius: 8px; }
+
+  .player { display: flex; align-items: center; gap: 12px; margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.15); }
+  .player-icon { width: 40px; height: 40px; background: rgba(255,255,255,0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 18px; }
+  .player-info { flex: 1; }
+  .player-title { font-size: 13px; font-weight: 600; }
+  .player-desc { font-size: 11px; opacity: 0.7; }
+  .player audio { width: 100%; margin-top: 4px; border-radius: 20px; }
+
+  .body { padding: 20px; }
+
+  .lead { font-size: 15px; color: #475569; line-height: 1.8; margin-bottom: 20px; padding: 14px 16px; background: #F8FAFC; border-radius: 10px; border-left: 4px solid #D4A017; }
+  .lead strong { color: #1E293B; }
+
+  .section-block { margin: 28px 0; }
+  .section-num { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; font-size: 13px; font-weight: 700; margin-right: 8px; flex-shrink: 0; color: #fff; }
+  .section-title { font-size: 18px; font-weight: 700; color: #1E293B; margin-bottom: 12px; display: flex; align-items: center; }
+  .section-content { font-size: 15px; color: #334155; line-height: 1.9; margin-bottom: 12px; }
+  .section-content p { margin-bottom: 12px; text-align: justify; }
+  .section-content .highlight { background: #FFFBEB; padding: 1px 4px; border-radius: 2px; font-weight: 600; color: #92400E; }
+  .section-content .key-point { font-weight: 700; color: #1A56DB; }
+
+  .section-img { margin: 14px 0; border-radius: 8px; border: 1px solid #E2E8F0; overflow: hidden; background: #FAFAFA; }
+  .section-img img { width: 100%; display: block; }
+  .section-img .caption { font-size: 12px; color: #64748B; text-align: center; padding: 6px 10px; background: #F8FAFC; }
+
+  .section-divider { border: none; height: 1px; background: linear-gradient(to right, transparent, #D4A017, transparent); margin: 8px 0; }
+
+  .pull-quote { font-size: 15px; font-weight: 700; color: #1A56DB; text-align: center; padding: 16px 20px; margin: 16px 0; border-top: 2px solid #EFF6FF; border-bottom: 2px solid #EFF6FF; line-height: 1.6; }
+
+  .sources { background: #FFFBEB; border-radius: 10px; padding: 12px 14px; margin: 16px 0; font-size: 12px; color: #92400E; line-height: 1.6; }
+  .sources h3 { font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+  .sources a { color: #1A56DB; text-decoration: none; }
+
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 13px; }
+  th { background: #1A56DB; color: #fff; padding: 8px 10px; text-align: left; font-weight: 600; }
+  th:first-child { border-radius: 6px 0 0 0; }
+  th:last-child { border-radius: 0 6px 0 0; }
+  td { padding: 8px 10px; border-bottom: 1px solid #E2E8F0; }
+  tr:nth-child(even) { background: #F8F9FA; }
+
+  .end-box { background: linear-gradient(135deg,#1A56DB,#1E3A7A); border-radius: 12px; padding: 16px 20px; margin: 22px 0; color: white; text-align: center; }
+  .end-box .end-icon { font-size: 28px; margin-bottom: 4px; }
+  .end-box .end-title { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+  .end-box .end-desc { font-size: 12px; opacity: 0.8; }
+
+  .warn { background: #FFF5F5; border: 1px solid #FECACA; border-radius: 10px; padding: 12px 14px; margin-top: 24px; font-size: 12px; color: #991B1B; line-height: 1.5; }
+
+  .tag { display: inline-flex; align-items: center; font-size: 11px; padding: 2px 10px; border-radius: 10px; font-weight: 600; margin-right: 6px; }
+  .tag-a { background: #FEF2F2; color: #DC2626; } .tag-us { background: #F0FDF4; color: #16A34A; }
+  .tag-tech { background: #FAF5FF; color: #9333EA; } .tag-intl { background: #EFF6FF; color: #1A56DB; }
+  .tag-macro { background: #FFFBEB; color: #D4A017; } .tag-commodity { background: #FFF7ED; color: #EA580C; }
+
+  .up { color: #DC2626; } .down { color: #16A34A; }
+</style>
+</head>
+<body>
+<div class="c">
+
+  <div class="top-nav">
+    <a class="back" href="../../../index.html">&larr; 返回首页</a>
+    <span class="nav-date">2026.05.25 · 周一</span>
+    <span class="nav-edition">扬说·早报</span>
+  </div>
+
+  <div class="header">
+    <div class="series-tag"><span class="gold">扬说·早报</span> · 晨间速递</div>
+    <h1>美伊协议"基本谈成"——本周全球市场最大变量</h1>
+    <div class="meta">
+      <span>📅 2026年5月25日 · 星期一</span>
+      <span>🏷️ 美伊谈判 · AI电影 · 跨境证券整治 · PCE倒计时</span>
+      <span class="reading-time">📖 阅读约 5 分钟</span>
+    </div>
+    <div class="player">
+      <div class="player-icon">🎧</div>
+      <div class="player-info">
+        <div class="player-title">早报速览 · 约 3 分钟</div>
+        <div class="player-desc">阿扬带你三分钟看懂周末发生了什么</div>
+        <audio controls preload="none"><source src="audio.mp3" type="audio/mpeg"></audio>
+      </div>
+    </div>
+  </div>
+
+  <div class="body">
+
+    <!-- Lead -->
+    <div class="lead">
+      <strong>你好，我是阿扬。</strong> 这个周末最炸裂的消息不是来自公司财报，而是来自中东——特朗普宣布美伊协议"基本谈成"，霍尔木兹海峡有望重新开放。石油、黄金、债券，乃至整个全球资产的定价逻辑都可能因此改写。与此同时，国内八部门联手整治跨境证券，富途被罚18.5亿；AI的边界被一部完全由AI生成的戛纳电影再次推远。周一美股休市，市场平静之下暗流涌动。
+    </div>
+
+    <!-- 今日热点速览 -->
+    <div class="lead" style="border-left-color:#1A56DB; background:#EFF6FF; padding:12px 14px;">
+      <div style="font-size:13px; font-weight:700; color:#1A56DB; margin-bottom:8px;">🔥 今日热点速览</div>
+      <div style="font-size:13px; color:#334155; line-height:1.7;">
+        <div style="display:flex; gap:6px; margin-bottom:4px;"><span style="color:#1A56DB; font-weight:700;">①</span> 美伊谈判"基本谈成"但核问题分歧仍在——核议题推至30-60天后讨论</div>
+        <div style="display:flex; gap:6px; margin-bottom:4px;"><span style="color:#DC2626; font-weight:700;">②</span> 八部门整治跨境证券——富途拟罚18.5亿、老虎罚4.1亿，创纪录</div>
+        <div style="display:flex; gap:6px; margin-bottom:4px;"><span style="color:#16A34A; font-weight:700;">③</span> 美股纪念日休市——本周聚焦周四核心PCE + 周三Warsh首秀</div>
+        <div style="display:flex; gap:6px;"><span style="color:#9333EA; font-weight:700;">④</span> 全球首部AI全生成电影亮相戛纳——90分钟成本仅50万美元</div>
+      </div>
+    </div>
+
+    <!-- 01 A股 -->
+    <div class="section-block">
+      <div class="section-title"><span class="section-num" style="background:#DC2626;">01</span><span class="tag tag-a">A股</span>周末消息面密集，结构性行情延续</div>
+      <div class="section-content">
+        <p>上周A股先扬后抑，沪指收报<span class="key-point">4112.90点</span>，周跌0.54%。周三一度冲高至4199.53点后急跌逾120点，AI算力链"交易拥挤"触发获利回吐。五月LPR维持不变（1年期3.0%、5年期3.5%），连续12个月未动。</p>
+        <p>周末三件大事：</p>
+        <p><span class="key-point">① 八部门联合整治非法跨境证券活动。</span> 证监会、央行等八部门印发综合整治方案。证监会对<strong>富途证券</strong>拟罚没约18.5亿元（没收违法所得+罚款），<strong>老虎证券</strong>没收违法所得约1.03亿元并处罚款约3.08亿元。<span class="highlight">这是迄今为止对跨境证券平台最严厉的处罚。</span>长期来看，堵住资金无序外流通道利好合规经营的头部中资券商。</p>
+        <p><span class="key-point">② 央行开展6000亿MLF操作。</span> 当月到期5000亿，净投放1000亿。流动性托底信号明确。</p>
+        <p><span class="key-point">③ 神舟二十三号成功发射。</span> 5月24日23:08发射，将开展航天员1年期在轨驻留试验，利好航空航天和商业航天板块。</p>
+        <p>A股当前的核心矛盾不是"涨不涨"，而是"从哪涨"——资金正在从拥挤的AI算力链向低估值高股息板块迁移。银行股在暴跌中逆势创历史新高就是信号。</p>
+      </div>
+      <div class="section-img">
+        <img loading="lazy" src="../../../docs/charts/sector_rotation.svg" alt="A股板块轮动">
+        <div class="caption">AI算力链资金流出，银行/高股息逆势流入——"高低切换"正在发生</div>
+      </div>
+      <div class="section-img">
+        <img loading="lazy" src="comic/panel-001.svg" alt="八部门整治跨境证券">
+        <div class="caption">证监会对富途老虎开出数十年最大罚单——"堵后门、开正门"的信号明确</div>
+      </div>
+      <div class="sources">
+        <h3>📚 参考来源</h3>
+        <p>证监会公告 · 东方财富 · 新浪财经 · 新华社 · 中国经营报</p>
+      </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- 02 美股 -->
+    <div class="section-block">
+      <div class="section-title"><span class="section-num" style="background:#16A34A;">02</span><span class="tag tag-us">美股</span>纪念日休市，本周聚焦PCE</div>
+      <div class="section-content">
+        <p>今日美股因阵亡将士纪念日休市，欧股部分休市。市场暂无交易，但暗流不歇。</p>
+        <p>上周回顾：标普500实现<span class="key-point">连续第八周上涨</span>，道指盘中触及50,830点创历史新高。但消费者信心指数仅44.8（历史新低），K型分化加剧。</p>
+        <p>本周焦点明确：<strong>周四（5/28）4月核心PCE数据</strong>是本周最重要的宏观事件。3月核心PCE为3.2%，若4月继续走高，12月前加息的定价将进一步固化。此外，<span class="highlight">周三Warsh将首次公开发表讲话</span>——市场将逐字解读新主席的政策倾向。</p>
+        <table>
+          <tr><th>关键节点</th><th>日期</th><th>预期影响</th></tr>
+          <tr><td>Warsh首次讲话</td><td>周三 5/27</td><td>政策信号风向标</td></tr>
+          <tr><td>4月核心PCE</td><td>周四 5/28</td><td>⭐⭐⭐ 决定加息预期</td></tr>
+          <tr><td>消费者信心指数</td><td>周二 5/26</td><td>前值44.8历史低点</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- 03 科技/AI -->
+    <div class="section-block">
+      <div class="section-title"><span class="section-num" style="background:#9333EA;">03</span><span class="tag tag-tech">科技/AI</span>AI的边界：戛纳迎来首部全AI生成电影</div>
+      <div class="section-content">
+        <p>AI在创意产业的边界被再次推远。<strong>"Hell Grind"</strong>——一部90分钟科幻片，完全使用Higgsfield AI生成，成本仅约<span class="key-point">50万美元</span>，制作周期仅<span class="key-point">2周</span>，在戛纳电影节完成首映。</p>
+        <p>传统90分钟动画或科幻片的制作成本通常在5000万美元以上、制作周期6-12个月。AI打到了<span class="highlight">1%的成本、10%的时间。</span></p>
+        <p>但评论界反应分化：影片仍然存在AI生成内容常见的"uncanny valley"（诡异感）效应和视觉不一致性，"AI slop"的批评并不少。这提醒我们，<strong>AI在创意领域距离"取代人类"还有明显的质量差距</strong>——但"取代成本门槛"已经在被快速突破。</p>
+        <p>对投资的启示：AI应用正在从"辅助工具"走向"创作主体"，这意味着对算力的底层需求没有天花板。算力投资已从半导体扩展至电力基础设施、冷却系统、网络设备和工业供应商。<span class="key-point">韩国（MSCI韩国年内+97.5%）</span>和中国台湾（MSCI台湾+46.6%）是全球最大的AI硬件供应链受益者。</p>
+      </div>
+      <div class="sources">
+        <h3>📚 参考来源</h3>
+        <p><a href="https://tech.yahoo.com/ai/article/a-fully-ai-generated-film-premiered-at-cannes-this-week-150336602.html" target="_blank">Yahoo Tech: AI Film at Cannes</a></p>
+      </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- 04 前沿/国际 -->
+    <div class="section-block">
+      <div class="section-title"><span class="section-num" style="background:#1A56DB;">04</span><span class="tag tag-intl">前沿/国际</span>美伊谈判重大突破：协议"基本谈成"</div>
+      <div class="section-content">
+        <p><strong>这是周末全球最具冲击力的新闻。</strong> 特朗普于美东时间5月23日宣布，美伊协议已"基本谈判完成"，细节正在最终敲定。</p>
+        <p>据媒体披露，协议框架包括：延长停火60天、霍尔木兹海峡逐步恢复通航、美国解除海上封锁并逐步放松制裁、解冻伊朗海外资产、<strong>30-60天内继续谈判核问题</strong>。</p>
+        <p><span class="key-point">但各方反应极不统一，协议远未板上钉钉：</span></p>
+        <p>🔹 <strong>伊朗：</strong>确认备忘录进入最终敲定阶段（14条文本已起草），但强调霍尔木兹海峡将继续由伊朗"管理"，并非恢复到战前自由通行状态。伊朗法尔斯通讯社称特朗普关于海峡开放的表述"不完整、不属实"。</p>
+        <p>🔹 <strong>以色列：</strong>内塔尼亚胡紧急召集安全会议，担忧协议"对以色列非常不利"，认为协议未解决伊朗核计划及弹道导弹问题。</p>
+        <p>🔹 <strong>最大的不确定性来自特朗普本人。</strong> 他表示"战与和的概率是五五开"，保留否决协议并下令发动新打击的权力。伊朗议长卡利巴夫则警告：伊朗武装部队已完成重组，若战争重启，美国将付出更沉重代价。</p>
+
+        <p style="margin-top:16px;"><span class="key-point" style="font-size:16px;">🔬 核问题：协议中最关键的"未完成项"</span></p>
+        <p>这份协议最核心的分歧不在停火，而在<strong>核问题</strong>。</p>
+        <p><span class="key-point">美方诉求：</span> 《纽约时报》5月23日报道，协议关键要素之一要求伊朗<span class="highlight">放弃高丰度浓缩铀库存</span>。特朗普公开表示"伊朗绝不会拥有核武器"。</p>
+        <p><span class="key-point">伊朗立场（5月22-23日）：</span> 伊朗外交部发言人巴加埃明确表示，<strong>当前阶段不涉及核问题</strong>，核问题可能在30-60天后的下一阶段再讨论。伊方强调有权将核能用于和平目的。</p>
+        <p><span class="key-point">核心矛盾：</span> 美方认为"不谈核就不算真协议"，伊方认为"先停火再谈核"——这个时间顺序上的分歧，是协议最大风险点。</p>
+        <p><span class="highlight">这意味着：</span> 特朗普所说的"协议基本谈成"，更准确的说是<strong>停火框架基本谈成</strong>，而最关键的核问题被推到了下一个回合。如果30-60天后核谈判破裂，整个协议框架可能崩塌。这是"五五开"判断背后的深层逻辑。</p>
+        <p>无论结果如何，本周金融市场的最大变量已经明确——美伊谈判的方向将直接影响油价、通胀预期、利率定价和全球风险偏好。<strong>而核问题谈判的结果，将决定协议的长期可持续性。</strong></p>
+      </div>
+      <div class="section-img">
+        <img loading="lazy" src="comic/panel-002.svg" alt="美伊谈判博弈">
+        <div class="caption">特朗普说"基本谈成"，伊朗说"不完整不属实"——协议离落地还有距离</div>
+      </div>
+      <div class="section-img">
+        <img loading="lazy" src="comic/panel-003.svg" alt="核问题下一回合">
+        <div class="caption">核问题是协议最大的"未完成项"——30-60天后的下一轮谈判才是真正考验</div>
+      </div>
+      <div class="sources">
+        <h3>📚 参考来源</h3>
+        <p><a href="https://china.cnr.cn/news/20260524/t20260524_527633242.shtml" target="_blank">央广网：伊朗表示备忘录最终敲定</a> · <a href="https://news.youth.cn/gj/202605/t20260524_16676904.htm" target="_blank">中国青年网：美官员称接近达成</a></p>
+      </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- 05 宏观 -->
+    <div class="section-block">
+      <div class="section-title"><span class="section-num" style="background:#D4A017;">05</span><span class="tag tag-macro">宏观</span>中美货币政策持续分化</div>
+      <div class="section-content">
+        <p><strong>美国：</strong> Kevin Warsh于5月22日正式宣誓就任Fed主席，表态强调"独立性、清晰判断与坚定立场"。30年期美债收益率升至<span class="key-point">5.064%</span>（2007年以来最高），10年期4.56%。缩表目标从6.8万亿→8000亿的路径正在从表态走向行动。市场对12月前加息25bp的定价约58%~60%。</p>
+        <p><strong>中国：</strong> 央行周末6000亿MLF净投放1000亿，LPR连续12个月不变，方向明确——流动性充裕、政策定力强。</p>
+        <p>中美10年期国债利差维持在约-120bp（中国约2.3% vs 美国4.56%），但市场已充分定价。中国宽松vs美国紧缩的方向性差异是年内最确定的宏观主题之一，这对人民币汇率和跨境资金流动的影响需要持续观察。</p>
+      </div>
+      <div class="section-img">
+        <img loading="lazy" src="../../../docs/charts/treasury_yields.svg" alt="美债收益率">
+        <div class="caption">30年期美债收益率5.064%创2007年以来新高——Warsh缩表预期推升长端利率</div>
+      </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- 06 商品/黄金 -->
+    <div class="section-block">
+      <div class="section-title"><span class="section-num" style="background:#EA580C;">06</span><span class="tag tag-commodity">商品/黄金</span>美伊协议冲击波前夜：油价面临"和平折价"</div>
+      <div class="section-content">
+        <p><strong>黄金：</strong> 现货黄金在$4,500-4,600区间窄幅震荡，周五收于约<span class="key-point">$4,523/盎司</span>，连续第二周下跌。Fed加息预期压制黄金的金融属性——无息资产在5%利率环境下面临极高的持有机会成本。但美伊不确定性提供下方支撑，200日均线支撑位在$4,372。</p>
+        <p><strong>原油：</strong> 布伦特原油上周五回落至约$102/桶（-2.3%），WTI约$97.75。若美伊协议正式签署、霍尔木兹海峡恢复通航，原油短期内可能遭遇<span class="highlight">5-10美元/桶的"和平折价"</span>。但有两个制约：第一，伊朗目前仅约150万桶/日的被制裁产能何时真正重返市场？第二，伊朗强调海峡将继续由其"管理"，并非完全自由通行——这意味着通行费的争议并未根本解决。</p>
+        <p><strong>金油比</strong>从2月的70.6急速降至目前的约45，暗示市场逻辑从"恐慌避险"切换至"滞胀交易"——这是一个需要持续观察的指标。</p>
+      </div>
+      <div class="section-img">
+        <img loading="lazy" src="../../../docs/charts/gold_oil_ratio.svg" alt="金油比趋势">
+        <div class="caption">金油比从70.6骤降至45——市场逻辑从"恐慌避险"切换至"滞胀交易"</div>
+      </div>
+      <div class="sources">
+        <h3>📚 参考来源</h3>
+        <p><a href="https://www.amillex.com/zh_tw/2026/05/22/amillex-daily-market-commentary%EF%BC%9Amacroeconomic-expectation-game-against-policy-red-lines-gold-stabilizes-oil-retreats-awaiting-data-guidance/" target="_blank">Amillex 每日汇评</a> · Reuters · Yahoo Finance</p>
+      </div>
+    </div>
+
+    <!-- Pull Quote -->
+    <div class="pull-quote">
+      美伊协议若落地 → 油价回落 → 通胀降温 → 加息预期减弱 → 风险偏好回升。<br>
+      反之则一切反向。<br>
+      本周只有一件事：看中东。
+    </div>
+
+    <!-- Weekly Calendar -->
+    <div class="section-block" style="margin-top:32px;">
+      <div class="section-title" style="font-size:16px;">📅 本周关键日程（5/25 - 5/29）</div>
+      <table>
+        <tr><th>日期</th><th>事件</th><th>重要性</th></tr>
+        <tr><td>周一 5/25</td><td>🇺🇸 美股纪念日休市 · 中欧正常交易</td><td>低</td></tr>
+        <tr><td>周二 5/26</td><td>🇺🇸 5月消费者信心指数（前值44.8）</td><td>⭐⭐</td></tr>
+        <tr><td>周三 5/27</td><td>🇺🇸 Fed褐皮书 · <strong>Warsh首次公开讲话</strong> · 🇨🇳 中国工业利润</td><td>⭐⭐⭐</td></tr>
+        <tr><td>周四 5/28</td><td>🇺🇸 ⭐ <strong>4月核心PCE</strong> · Q1 GDP修正值</td><td>⭐⭐⭐⭐⭐</td></tr>
+        <tr><td>周五 5/29</td><td>🇺🇸 个人收入支出 · 密歇根终值</td><td>⭐⭐</td></tr>
+      </table>
+    </div>
+
+    <!-- Sources -->
+    <div class="sources">
+      <h3>📚 综合参考来源</h3>
+      <p style="margin-bottom:4px;">CNBC · Reuters · Yahoo Finance · 央广网 · 中国青年网 · 新华社</p>
+      <p style="margin-bottom:4px;">新浪财经 · 东方财富 · 证监会公告 · 央视新闻 · 中国经营报</p>
+      <p style="margin-bottom:4px;">University of Michigan · St. Louis Fed · Amillex · EIA</p>
+    </div>
+
+    <!-- End Box -->
+    <div class="end-box">
+      <div class="end-icon">☀️</div>
+      <div class="end-title">扬说财经 · 早报</div>
+      <div class="end-desc">用逻辑穿透表象 · 每天早晨见</div>
+    </div>
+
+    <div class="warn">⚠️ <strong>风险提示：</strong>本文仅为信息分享与知识科普，不构成任何投资建议。市场有风险，投资需谨慎。数据来源于公开信息，如有出入请以官方数据为准。</div>
+
+  </div>
+</div>
+</body>
+</html>

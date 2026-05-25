@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 220">
+  <rect width="300" height="220" fill="#FAFAFA"/>
+  <style>
+    text { font-family: "PingFang SC","Microsoft YaHei",sans-serif; }
+  </style>
+
+  <!-- 背景 -->
+  <rect x="10" y="10" width="280" height="200" rx="6" fill="none" stroke="#1a1a1a" stroke-width="1.5" stroke-dasharray="3,2"/>
+
+  <!-- 天平（中央主体） -->
+  <!-- 立柱 -->
+  <line x1="150" y1="50" x2="150" y2="140" stroke="#1a1a1a" stroke-width="3"/>
+  <!-- 横梁 -->
+  <line x1="60" y1="55" x2="240" y2="55" stroke="#1a1a1a" stroke-width="2.5"/>
+  <!-- 支点三角 -->
+  <polygon points="150,50 143,58 157,58" fill="#c9a96e" stroke="#1a1a1a" stroke-width="1.5"/>
+
+  <!-- 左侧托盘：美国 -->
+  <g>
+    <ellipse cx="80" cy="100" rx="40" ry="10" fill="none" stroke="#1A56DB" stroke-width="2"/>
+    <ellipse cx="80" cy="100" rx="40" ry="10" fill="#EFF6FF" stroke="#1a1a1a" stroke-width="2"/>
+    <text x="80" y="103" text-anchor="middle" font-size="8" font-weight="700" fill="#1A56DB">特朗普</text>
+    <!-- 左侧平衡线 -->
+    <line x1="80" y1="110" x2="80" y2="120" stroke="#c9a96e" stroke-width="1.5" stroke-dasharray="2,2"/>
+  </g>
+
+  <!-- 右侧托盘：伊朗 -->
+  <g>
+    <ellipse cx="220" cy="100" rx="40" ry="10" fill="#F0FDF4" stroke="#1a1a1a" stroke-width="2"/>
+    <text x="220" y="103" text-anchor="middle" font-size="8" font-weight="700" fill="#2e7d32">伊朗</text>
+    <line x1="220" y1="110" x2="220" y2="120" stroke="#c9a96e" stroke-width="1.5" stroke-dasharray="2,2"/>
+  </g>
+
+  <!-- 横梁上的"基本谈成"vs"不属实" -->
+  <text x="105" y="48" text-anchor="middle" font-size="7" font-weight="600" fill="#1A56DB">"基本谈成"</text>
+  <text x="195" y="48" text-anchor="middle" font-size="7" font-weight="600" fill="#c62828">"不完整不属实"</text>
+
+  <!-- 中间节点：霍尔木兹海峡 -->
+  <rect x="115" y="125" width="70" height="18" rx="9" fill="#fff8e1" stroke="#c9a96e" stroke-width="1.5"/>
+  <text x="150" y="137" text-anchor="middle" font-size="6.5" font-weight="700" fill="#92400E">霍尔木兹海峡</text>
+
+  <!-- 下方：两种可能结果 -->
+  <!-- 左侧路径：协议签署 -->
+  <path d="M 80 120 Q 80 160 60 175" fill="none" stroke="#2e7d32" stroke-width="1.5" stroke-dasharray="3,2"/>
+  <polygon points="60,171 54,179 66,179" fill="#2e7d32"/>
+  <text x="45" y="168" text-anchor="middle" font-size="6" fill="#2e7d32">协议 &darr;</text>
+  <text x="45" y="192" text-anchor="middle" font-size="6" fill="#2e7d32">油价回落 · 风险偏好回升</text>
+
+  <!-- 右侧路径：谈判破裂 -->
+  <path d="M 220 120 Q 220 160 240 175" fill="none" stroke="#c62828" stroke-width="1.5" stroke-dasharray="3,2"/>
+  <polygon points="240,171 234,179 246,179" fill="#c62828"/>
+  <text x="258" y="168" text-anchor="middle" font-size="6" fill="#c62828">破裂 &darr;</text>
+  <text x="258" y="192" text-anchor="middle" font-size="6" fill="#c62828">油价飙升 · 避险升温</text>
+
+  <!-- 中间分岔标注 -->
+  <text x="150" y="158" text-anchor="middle" font-size="10" font-weight="700" fill="#1a1a1a">?</text>
+
+  <!-- 底部 -->
+  <text x="150" y="208" text-anchor="middle" font-size="6.5" fill="#888">特朗普："战与和的概率是五五开"</text>
+</svg>

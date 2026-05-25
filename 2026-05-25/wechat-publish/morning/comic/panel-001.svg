@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 220">
+  <rect width="300" height="220" fill="#FAFAFA"/>
+  <style>
+    text { font-family: "PingFang SC","Microsoft YaHei",sans-serif; }
+  </style>
+
+  <!-- 背景：国门/城墙 -->
+  <rect x="20" y="20" width="260" height="180" rx="8" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-dasharray="4,3"/>
+
+  <!-- 大门（中央偏右） -->
+  <rect x="110" y="35" width="80" height="130" rx="4" fill="#f0f0f0" stroke="#1a1a1a" stroke-width="2.5"/>
+  <!-- 门闩 -->
+  <rect x="120" y="70" width="60" height="12" rx="3" fill="#c62828" stroke="#1a1a1a" stroke-width="2"/>
+  <!-- 锁（门闩右侧） -->
+  <circle cx="170" cy="76" r="10" fill="#c62828" stroke="#1a1a1a" stroke-width="2"/>
+  <rect x="166" y="62" width="8" height="10" rx="1" fill="#c62828" stroke="#1a1a1a" stroke-width="1.5"/>
+
+  <!-- "18.5亿" 标签 -->
+  <text x="170" y="65" text-anchor="middle" font-size="8" font-weight="700" fill="#c62828">¥18.5亿</text>
+
+  <!-- 右侧：被挡住的资金流（箭头+虚线） -->
+  <g opacity="0.5">
+    <line x1="205" y1="60" x2="260" y2="60" stroke="#1a1a1a" stroke-width="1.5" stroke-dasharray="3,3"/>
+    <polygon points="260,56 270,60 260,64" fill="#1a1a1a"/>
+    <text x="235" y="50" text-anchor="middle" font-size="6" fill="#888">资金外流</text>
+  </g>
+
+  <!-- 左侧："正门"标识 -->
+  <text x="50" y="60" text-anchor="middle" font-size="7" font-weight="600" fill="#2e7d32">合规通道</text>
+  <line x1="30" y1="70" x2="70" y2="70" stroke="#2e7d32" stroke-width="1.5"/>
+  <polygon points="70,66 78,70 70,74" fill="#2e7d32"/>
+
+  <!-- 顶部文字 -->
+  <text x="150" y="30" text-anchor="middle" font-size="9" font-weight="700" fill="#1a1a1a">八部门联合整治跨境证券</text>
+
+  <!-- 底部八部门标注 -->
+  <g font-size="5.5" fill="#555">
+    <text x="60" y="180" text-anchor="middle">证监会</text>
+    <text x="100" y="180" text-anchor="middle">央行</text>
+    <text x="140" y="180" text-anchor="middle">公安部</text>
+    <text x="180" y="180" text-anchor="middle">工信部</text>
+    <text x="220" y="180" text-anchor="middle">银保监</text>
+  </g>
+  <g font-size="5" fill="#888">
+    <text x="60" y="190" text-anchor="middle">八部门"堵后门开正门"</text>
+  </g>
+
+  <!-- 标题 -->
+  <rect x="50" y="198" width="200" height="16" rx="8" fill="#c62828" opacity="0.1"/>
+  <text x="150" y="210" text-anchor="middle" font-size="7" font-weight="600" fill="#c62828">富途罚没18.5亿 · 老虎罚4.1亿</text>
+</svg>
