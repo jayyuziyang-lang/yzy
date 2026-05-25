@@ -395,7 +395,7 @@ python scripts/generate-charts.py
 ```bash
 bash scripts/install-hooks.sh
 # 或手动复制：
-cp scripts/install-hooks.sh .git/hooks/pre-push
+cp scripts/pre-push.sh .git/hooks/pre-push
 chmod +x .git/hooks/pre-push
 ```
 

@@ -67,9 +67,10 @@ COMMIT_MSG="${1:-每日财经内容更新 $(date +%Y-%m-%d)}"
 # 更新文章索引
 echo -e "\n📊 更新文章索引..."
 python scripts/update-index.py || {
-    echo -e "${YELLOW}[!] 索引更新失败!${NC}"
+    echo -e "${RED}[!] 索引更新失败!${NC}"
     echo "  python scripts/update-index.py 出错，请检查脚本"
-    echo "  跳过索引更新，继续部署..."
+    echo "  修复后重新运行 deploy.sh"
+    exit 1
 }
 
 # 健康检查

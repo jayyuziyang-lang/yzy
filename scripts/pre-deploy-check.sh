@@ -40,18 +40,38 @@ fi
 # [4/6] 返回首页链接
 echo -e "\n🔗 [4/6] 验证返回首页链接..."
 BAD=0
+# 检查标准文章目录
 for f in 20*/wechat-publish/*/article.html; do
+    [ ! -f "$f" ] && continue
     LINK=$(grep -oP 'href="[^"]*index\.html"' "$f" 2>/dev/null || echo "")
     if ! echo "$LINK" | grep -q "../../../index.html"; then
         echo -e "  ${RED}❌ $f: $LINK${NC}"; ((BAD++))
+    fi
+done
+# 检查 caijing/ 目录下的文章
+for f in caijing/20*/*.html; do
+    [ ! -f "$f" ] && continue
+    # caijing 目录文章通常位于 caijing/YYYY-MM-DD/ 层级
+    LINK=$(grep -oP 'href="[^"]*index\.html"' "$f" 2>/dev/null || echo "")
+    if [ -n "$LINK" ] && ! echo "$LINK" | grep -qE "../../index\.html|../../../index\.html"; then
+        echo -e "  ${YELLOW}⚠️ $f: $LINK (caijing目录, 手动确认)${NC}"
     fi
 done
 [ "$BAD" -eq 0 ] && echo -e "  ✅ 所有链接正确" || echo -e "  ${RED}❌ $BAD 个链接异常${NC}"
 
 # [5/6] 模板占位符
 echo -e "\n🧹 [5/6] 检查模板占位符..."
-PH=$(grep -n '{{' index.html 2>/dev/null | grep -v '//' || true)
-[ -n "$PH" ] && { echo -e "${RED}  ❌ 发现占位符${NC}"; ((ERRORS++)); } || echo -e "  ✅ 无占位符残留"
+PH_ERRORS=0
+for f in index.html 20*/wechat-publish/*/article.html caijing/20*/article.html; do
+    [ ! -f "$f" ] && continue
+    PH=$(grep -n '{{' "$f" 2>/dev/null | grep -v '//' || true)
+    if [ -n "$PH" ]; then
+        echo -e "  ${RED}❌ $f 发现占位符:${NC}"
+        echo "$PH" | while read line; do echo "    $line"; done
+        ((PH_ERRORS++))
+    fi
+done
+[ "$PH_ERRORS" -eq 0 ] && echo -e "  ✅ 所有文件无占位符残留" || ((ERRORS++))
 
 # [6/6] git 状态
 echo -e "\n📦 [6/6] git 状态..."
