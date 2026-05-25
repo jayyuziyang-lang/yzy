@@ -14,6 +14,7 @@
 6. [漫画质量标准 v2.0](#漫画质量标准-v20核心特色部门)
 7. [音频制作规范](#音频制作规范)
 8. [质量门禁清单](#质量门禁清单)
+9. [部署规范：deploy.sh是唯一通道](#部署规范deploysh是唯一通道)
 
 ---
 
@@ -376,4 +377,40 @@ python scripts/generate-charts.py
 
 ---
 
-*版本：v5.0 | 核心理念：Claude为质量门，Codex为生产力 | 产品质量是我们的核心竞争力*
+## 部署规范：deploy.sh是唯一通道
+
+### 铁律：禁止手动 git push
+
+**背景：** 5.25当天反复出现"改完HTML忘记run update-index.py"、"改完数据手动git push不验证"等部署流程遗漏。原因是我们一直用 `git add → git commit → git push` 手动操作，跳过了所有验证环节。
+
+**规则：**
+- 所有部署必须使用 `bash deploy.sh "提交信息"`
+- `deploy.sh` 自动执行：`update-index.py` → `pre-deploy-check.sh`(6项验证) → `git push` → CDN预热 → 部署后验证
+- 手动 `git add . + git commit + git push` 被 pre-push 钩子拦截
+- 特殊情况需强制推送：`GIT_PUSH_USING_DEPLOY=1 git push`
+
+### pre-push 钩子安装
+
+初次使用执行：
+```bash
+bash scripts/install-hooks.sh
+# 或手动复制：
+cp scripts/install-hooks.sh .git/hooks/pre-push
+chmod +x .git/hooks/pre-push
+```
+
+### 部署前验证内容（6项）
+
+`pre-deploy-check.sh` 自动检查：
+1. ✅ 运行 `update-index.py` 刷新数据索引
+2. ✅ 验证 `articles.js` 包含最新日期
+3. ✅ 验证 `index.html` 预渲染包含晚报链接
+4. ✅ 验证所有文章"返回首页"链接为 `../../../index.html`
+5. ✅ 检查无模板占位符残留
+6. ✅ 检查git状态
+
+其中任何一项失败 → 阻塞部署 → 修复后重新运行。
+
+---
+
+*版本：v5.1 | 核心理念：Claude为质量门，Codex为生产力 | 产品质量是我们的核心竞争力*
