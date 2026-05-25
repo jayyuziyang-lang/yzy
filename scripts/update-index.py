@@ -63,9 +63,14 @@ def scan_articles():
                 continue
             title = extract_title(html_path)
             series_tag = extract_series_tag(html_path)
-            # Use directory mtime for date ordering
-            mtime = os.path.getmtime(os.path.join(special_dir, topic_dir))
-            date_str = datetime.fromtimestamp(mtime).strftime('%Y-%m-%d')
+            # Read date from .date file in the directory, fall back to mtime
+            date_file = os.path.join(special_dir, topic_dir, '.date')
+            if os.path.exists(date_file):
+                with open(date_file) as df:
+                    date_str = df.read().strip()
+            else:
+                mtime = os.path.getmtime(os.path.join(special_dir, topic_dir))
+                date_str = datetime.fromtimestamp(mtime).strftime('%Y-%m-%d')
             articles.append({
                 'date': date_str,
                 'session': 'special',
