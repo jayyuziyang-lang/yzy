@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 220">
+  <rect width="300" height="220" fill="#FAFAFA"/>
+  <!-- Title bar -->
+  <text x="150" y="22" text-anchor="middle" font-family="'Noto Sans SC','PingFang SC',sans-serif" font-size="13" font-weight="900" fill="#1E293B">🌙 今日热点速览 · 2026.05.26</text>
+  <line x1="40" y1="30" x2="260" y2="30" stroke="#D4A017" stroke-width="1.5"/>
+
+  <!-- Hotspot items -->
+  <circle cx="18" cy="50" r="4" fill="#DC2626"/>
+  <text x="28" y="54" font-family="'Noto Sans SC',sans-serif" font-size="8" font-weight="700" fill="#DC2626">A股</text>
+  <text x="62" y="54" font-family="'Noto Sans SC',sans-serif" font-size="8" fill="#475569">沪指4145-0.17%·4000股下跌·成交3.26万亿</text>
+
+  <circle cx="18" cy="70" r="4" fill="#7C3AED"/>
+  <text x="28" y="74" font-family="'Noto Sans SC',sans-serif" font-size="8" font-weight="700" fill="#7C3AED">有色</text>
+  <text x="62" y="74" font-family="'Noto Sans SC',sans-serif" font-size="8" fill="#475569">贵金属+4.11%·中国铝业涨停·几内亚管控</text>
+
+  <circle cx="18" cy="90" r="4" fill="#F59E0B"/>
+  <text x="28" y="94" font-family="'Noto Sans SC',sans-serif" font-size="8" font-weight="700" fill="#D97706">科技</text>
+  <text x="62" y="94" font-family="'Noto Sans SC',sans-serif" font-size="8" fill="#475569">中芯-4.37%·10倍牛股海星跌停·宇树6/1上会</text>
+
+  <circle cx="18" cy="110" r="4" fill="#1A56DB"/>
+  <text x="28" y="114" font-family="'Noto Sans SC',sans-serif" font-size="8" font-weight="700" fill="#1A56DB">宏观</text>
+  <text x="62" y="114" font-family="'Noto Sans SC',sans-serif" font-size="8" fill="#475569">八部门重罚23亿·券商护盘·锦龙涨停</text>
+
+  <circle cx="18" cy="130" r="4" fill="#10B981"/>
+  <text x="28" y="134" font-family="'Noto Sans SC',sans-serif" font-size="8" font-weight="700" fill="#16A34A">国际</text>
+  <text x="62" y="134" font-family="'Noto Sans SC',sans-serif" font-size="8" fill="#475569">伊朗还击·WTI+1.89%·日经首破65000</text>
+
+  <!-- Bottom separator -->
+  <line x1="15" y1="150" x2="285" y2="150" stroke="#1E293B" stroke-width="1"/>
+  <text x="150" y="167" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="9" font-weight="600" fill="#1A56DB">扬说财经 · 2026.05.26 晚报</text>
+  <line x1="100" y1="175" x2="200" y2="175" stroke="#D4A017" stroke-width="0.8"/>
+
+  <!-- Quote -->
+  <text x="150" y="198" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="8" fill="#64748B">指数稳·个股惨·资金动了 — 你的仓位跟上了吗？</text>
+  <circle cx="150" cy="212" r="2" fill="#D4A017"/>
+</svg>

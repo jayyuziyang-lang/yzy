@@ -1,46 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 220">
-<rect width="300" height="220" fill="#FAFAFA"/>
-<!-- Title -->
-<text x="150" y="22" text-anchor="middle" font-family="'Noto Sans SC','PingFang SC',sans-serif" font-size="13" font-weight="900" fill="#1E293B">03 科技/AI · 半导体暴涨后回调 分化加剧</text>
-<line x1="40" y1="30" x2="260" y2="30" stroke="#D4A017" stroke-width="1.5"/>
+  <rect width="300" height="220" fill="#FAFAFA"/>
+  <!-- Title -->
+  <text x="150" y="22" text-anchor="middle" font-family="'Noto Sans SC','PingFang SC',sans-serif" font-size="13" font-weight="900" fill="#1E293B">科技内部分化 · 半导体回调 PCB强者恒强</text>
+  <line x1="35" y1="30" x2="265" y2="30" stroke="#D4A017" stroke-width="1.5"/>
 
-<!-- Yesterday: green up arrow -->
-<rect x="15" y="48" width="130" height="72" rx="6" fill="#DCFCE7" stroke="#16A34A" stroke-width="1.5"/>
-<text x="80" y="64" text-anchor="middle" font-family="'Noto Sans SC','PingFang SC',sans-serif" font-size="9" font-weight="700" fill="#16A34A">昨日 5.25</text>
-<text x="80" y="78" text-anchor="middle" font-family="'Noto Sans SC','PingFang SC',sans-serif" font-size="11" font-weight="900" fill="#16A34A">半导体 +6.40%</text>
-<text x="80" y="92" text-anchor="middle" font-family="'Noto Sans SC','PingFang SC',sans-serif" font-size="8" fill="#166534">中芯国际 +18% 创历史新高</text>
-<text x="80" y="105" text-anchor="middle" font-family="'Noto Sans SC','PingFang SC',sans-serif" font-size="8" fill="#166534">科创综指 +3.52%</text>
-<line x1="30" y1="111" x2="130" y2="111" stroke="#16A34A" stroke-width="1"/>
-<text x="80" y="116" text-anchor="middle" font-family="'Noto Sans SC','PingFang SC',sans-serif" font-size="7" fill="#94A3B8">华为"韬定律"催化</text>
+  <!-- Left: Yesterday's pump -->
+  <rect x="20" y="42" width="80" height="95" rx="5" fill="#FEF2F2" stroke="#DC2626" stroke-width="1.5"/>
+  <text x="60" y="58" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="10" font-weight="700" fill="#DC2626">昨日暴涨</text>
+  <line x1="25" y1="105" x2="95" y2="105" stroke="#DC2626" stroke-width="0.5" stroke-dasharray="2,2"/>
+  <polyline points="60,130 45,115 75,115" fill="none" stroke="#DC2626" stroke-width="2.5" stroke-linejoin="round"/>
+  <text x="60" y="95" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="8" fill="#DC2626">半导体+6.40%</text>
+  <text x="60" y="145" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="7" fill="#991B1B">中芯+18.78%创历史</text>
 
-<!-- Center arrow -->
-<line x1="148" y1="60" x2="148" y2="112" stroke="#DC2626" stroke-width="2.5"/>
-<polygon points="148,118 142,108 154,108" fill="#DC2626"/>
+  <!-- Center: today's drop -->
+  <rect x="115" y="42" width="80" height="95" rx="5" fill="#DCFCE7" stroke="#16A34A" stroke-width="1.5"/>
+  <text x="155" y="58" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="10" font-weight="700" fill="#16A34A">今日回调</text>
+  <line x1="120" y1="105" x2="190" y2="105" stroke="#16A34A" stroke-width="0.5" stroke-dasharray="2,2"/>
+  <polyline points="155,115 140,130 170,130" fill="none" stroke="#16A34A" stroke-width="2.5" stroke-linejoin="round"/>
+  <text x="155" y="95" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="8" fill="#16A34A">获利回吐</text>
+  <text x="155" y="145" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="7" fill="#166534">中芯-4.37%·海星跌停</text>
 
-<!-- Today: red down arrow -->
-<rect x="155" y="48" width="130" height="72" rx="6" fill="#FEE2E2" stroke="#DC2626" stroke-width="1.5"/>
-<text x="220" y="64" text-anchor="middle" font-family="'Noto Sans SC','PingFang SC',sans-serif" font-size="9" font-weight="700" fill="#DC2626">今日 5.26</text>
-<text x="220" y="78" text-anchor="middle" font-family="'Noto Sans SC','PingFang SC',sans-serif" font-size="11" font-weight="900" fill="#DC2626">半导体 -2.76%</text>
-<text x="220" y="92" text-anchor="middle" font-family="'Noto Sans SC','PingFang SC',sans-serif" font-size="8" fill="#991B1B">中芯国际 -4.37%</text>
-<text x="220" y="105" text-anchor="middle" font-family="'Noto Sans SC','PingFang SC',sans-serif" font-size="8" fill="#991B1B">科创50 -1.49%</text>
-<line x1="165" y1="111" x2="275" y2="111" stroke="#DC2626" stroke-width="1"/>
-<text x="220" y="116" text-anchor="middle" font-family="'Noto Sans SC','PingFang SC',sans-serif" font-size="7" fill="#94A3B8">获利回吐正常调整</text>
+  <!-- Right: PCB winner -->
+  <rect x="210" y="42" width="75" height="95" rx="5" fill="#FFF7ED" stroke="#D97706" stroke-width="1.5"/>
+  <text x="248" y="58" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="10" font-weight="700" fill="#D97706">PCB走强</text>
+  <line x1="215" y1="105" x2="280" y2="105" stroke="#D97706" stroke-width="0.5" stroke-dasharray="2,2"/>
+  <polyline points="248,130 233,115 263,115" fill="none" stroke="#D97706" stroke-width="2.5" stroke-linejoin="round"/>
+  <text x="248" y="95" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="8" fill="#D97706">生益电子+20%</text>
+  <text x="248" y="145" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="7" fill="#92400E">沪电股份刷新收盘纪录</text>
 
-<!-- Bottom section: 10倍牛股闪崩 -->
-<line x1="15" y1="130" x2="285" y2="130" stroke="#1E293B" stroke-width="1"/>
-<text x="150" y="148" text-anchor="middle" font-family="'Noto Sans SC','PingFang SC',sans-serif" font-size="11" font-weight="900" fill="#DC2626">10倍大牛股海星股份闪崩跌停</text>
-
-<!-- Scale illustration -->
-<path d="M45,158 L150,170 L255,158" fill="none" stroke="#1E293B" stroke-width="1.8" stroke-linecap="round"/>
-<line x1="150" y1="170" x2="150" y2="200" stroke="#1E293B" stroke-width="2"/>
-<polygon points="150,204 145,196 155,196" fill="#1E293B"/>
-
-<text x="75" y="185" text-anchor="middle" font-family="'Noto Sans SC','PingFang SC',sans-serif" font-size="7" fill="#DC2626">AI服务器概念</text>
-<text x="75" y="195" text-anchor="middle" font-family="'Noto Sans SC','PingFang SC',sans-serif" font-size="8" font-weight="700" fill="#DC2626">跌停 102.8元</text>
-
-<text x="225" y="185" text-anchor="middle" font-family="'Noto Sans SC','PingFang SC',sans-serif" font-size="7" fill="#16A34A">宇树机器人概念</text>
-<text x="225" y="195" text-anchor="middle" font-family="'Noto Sans SC','PingFang SC',sans-serif" font-size="8" font-weight="700" fill="#16A34A">逆市走强</text>
-
-<text x="150" y="215" text-anchor="middle" font-family="'Noto Sans SC','PingFang SC',sans-serif" font-size="6" fill="#94A3B8">科技股内部极致分化 · 追高风险警示</text>
+  <!-- Bottom note -->
+  <line x1="20" y1="202" x2="280" y2="202" stroke="#E2E8F0" stroke-width="0.5"/>
+  <text x="150" y="214" text-anchor="middle" font-family="'Noto Sans SC','PingFang SC',sans-serif" font-size="7" fill="#94A3B8">英伟达Rubin架构PCB价值量暴涨233% · 产业链逻辑仍在发酵</text>
 </svg>
