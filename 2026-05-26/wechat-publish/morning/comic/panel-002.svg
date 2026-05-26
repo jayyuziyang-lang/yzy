@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 220">
+  <rect width="300" height="220" fill="#FAFAFA"/>
+  <!-- Title bar -->
+  <rect x="0" y="0" width="300" height="24" fill="#DC2626"/>
+  <text x="150" y="15" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="middle" dominant-baseline="middle">01 重磅 · 长安汽车内幕交易案曝光</text>
+
+  <!-- Handshake icon -->
+  <ellipse cx="60" cy="55" rx="22" ry="16" fill="#FEE2E2" stroke="#DC2626" stroke-width="1.5"/>
+  <ellipse cx="90" cy="55" rx="22" ry="16" fill="#DBEAFE" stroke="#1A56DB" stroke-width="1.5"/>
+  <text x="60" y="52" text-anchor="middle" font-family="'PingFang SC',sans-serif" font-size="7" font-weight="700" fill="#991B1B">长安</text>
+  <text x="90" y="52" text-anchor="middle" font-family="'PingFang SC',sans-serif" font-size="7" font-weight="700" fill="#1E3A7A">华为</text>
+  <text x="75" y="78" text-anchor="middle" font-family="'PingFang SC',sans-serif" font-size="7" fill="#64748B">签署投资合作备忘录</text>
+
+  <!-- Arrow: insider info flow -->
+  <path d="M120,55 Q140,45 155,55" fill="none" stroke="#D4A017" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <polygon points="155,57 149,52 152,57" fill="#D4A017"/>
+  <text x="138" y="42" text-anchor="middle" font-family="'PingFang SC',sans-serif" font-size="6" fill="#D4A017">内幕消息</text>
+
+  <!-- Money bag -->
+  <ellipse cx="195" cy="62" rx="28" ry="22" fill="#FFFBEB" stroke="#D4A017" stroke-width="2.5"/>
+  <rect x="167" y="52" width="56" height="10" rx="3" fill="#D4A017"/>
+  <text x="195" y="66" text-anchor="middle" font-family="'PingFang SC',sans-serif" font-size="10" font-weight="900" fill="#92400E">6100万</text>
+  <text x="195" y="80" text-anchor="middle" font-family="'PingFang SC',sans-serif" font-size="6" fill="#64748B">突击买入</text>
+
+  <!-- Bottom section -->
+  <line x1="15" y1="115" x2="285" y2="115" stroke="#E2E8F0" stroke-width="0.8" stroke-dasharray="4,3"/>
+
+  <!-- Penalty box -->
+  <rect x="20" y="125" width="260" height="70" rx="8" fill="#FEF2F2" stroke="#DC2626" stroke-width="1.5"/>
+  <text x="150" y="145" text-anchor="middle" font-family="'PingFang SC',sans-serif" font-size="13" font-weight="900" fill="#DC2626">没一罚三 · 罚没1669万</text>
+
+  <line x1="35" y1="155" x2="265" y2="155" stroke="#FECACA" stroke-width="0.5"/>
+  <text x="45" y="168" font-family="'PingFang SC',sans-serif" font-size="7" fill="#991B1B">五人合计罚没1669万元（没收违法所得+3倍罚款）</text>
+  <text x="45" y="182" font-family="'PingFang SC',sans-serif" font-size="7" fill="#DC2626">涉嫌犯罪线索已移送公安机关</text>
+
+  <!-- Bottom note -->
+  <text x="150" y="215" text-anchor="middle" font-family="'PingFang SC',sans-serif" font-size="6" fill="#64748B">华为合作概念敏感 · 内幕交易警钟长鸣</text>
+</svg>

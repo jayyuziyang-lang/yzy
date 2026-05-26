@@ -107,14 +107,14 @@ def chart_gold_price():
     fig.patch.set_facecolor(BG)
     ax.set_facecolor(BG)
 
-    months = ['2025\n1月', '3月', '5月', '7月', '9月', '11月', '2026\n1月', '3月', '5月']
-    prices = [2650, 2900, 3100, 3350, 3600, 3800, 4100, 4300, 4546]
+    months = ['2025\n1月', '3月', '5月', '7月', '9月', '11月', '2026\n1月', '3月', '5/25']
+    prices = [2650, 2900, 3100, 3350, 3600, 3800, 4100, 4300, 4573.6]
 
     ax.plot(months, prices, color=GOLD, linewidth=2.5, marker='o', markersize=5, zorder=3)
     ax.fill_between(range(len(months)), prices, alpha=0.1, color=GOLD)
 
     # Annotate latest price
-    ax.annotate(f'$4,546\n新高!', xy=(8, 4546), xytext=(6.5, 4800),
+    ax.annotate(f'$4,573.6', xy=(8, 4573.6), xytext=(6.5, 4800),
                 fontsize=11, fontweight='bold', color=RED,
                 arrowprops=dict(arrowstyle='->', color=RED, lw=1.5))
 
@@ -271,23 +271,27 @@ def chart_astock_indices():
     ax.set_facecolor(BG)
 
     indices = ['上证指数', '深证成指', '创业板指', '科创综指', '科创50']
-    changes = [-2.04, -2.07, -2.35, -4.42, -3.70]
-    colors_bar = [RED, RED, RED, '#B91C1C', '#DC2626']
+    changes = [0.74, 1.31, 2.56, 4.88, 5.88]
+    colors_bar = [GREEN, GREEN, '#059669', '#10B981', RED]
 
     bars = ax.barh(indices, changes, color=colors_bar, height=0.5, edgecolor='white', linewidth=0.5)
 
     for bar, val in zip(bars, changes):
-        ax.text(bar.get_width() - 0.2, bar.get_y() + bar.get_height()/2.,
-                f'{val:.2f}%', ha='right', va='center', fontsize=9, fontweight='bold', color='white')
+        if val > 0:
+            ax.text(bar.get_width() + 0.08, bar.get_y() + bar.get_height()/2.,
+                    f'+{val:.2f}%', ha='left', va='center', fontsize=9, fontweight='bold', color=GREEN)
+        else:
+            ax.text(bar.get_width() - 0.2, bar.get_y() + bar.get_height()/2.,
+                    f'{val:.2f}%', ha='right', va='center', fontsize=9, fontweight='bold', color='white')
 
-    ax.set_title('A股主要指数 2026.05.21 涨跌幅', fontsize=13, fontweight='bold', color=DARK, pad=12)
+    ax.set_title('A股主要指数 2026.05.25 涨跌幅', fontsize=13, fontweight='bold', color=DARK, pad=12)
     ax.set_xlabel('涨跌幅 (%)', fontsize=9, color=GRAY)
     ax.spines['top'].set_visible(False)
     ax.spines['right'].set_visible(False)
     ax.spines['left'].set_color('#E2E8F0')
     ax.spines['bottom'].set_color('#E2E8F0')
     ax.tick_params(colors=GRAY, labelsize=9)
-    ax.set_xlim(-6, 0.5)
+    ax.set_xlim(-0.5, 7.5)
     ax.grid(axis='x', alpha=0.2, color=GRAY)
 
     # Add vertical line at 0
@@ -350,14 +354,14 @@ def chart_oil_price():
     fig.patch.set_facecolor(BG)
     ax.set_facecolor(BG)
 
-    months = ['5/14', '5/15', '5/16', '5/17', '5/18', '5/19', '5/20', '5/21']
-    prices = [105.2, 104.8, 104.5, 105.1, 104.2, 103.8, 104.1, 98.26]
+    months = ['5/19', '5/20', '5/21', '5/22', '5/23', '5/24', '5/25', '5/26']
+    prices = [103.8, 104.1, 98.26, 96.5, 94.2, 92.8, 91.5, 90.30]
 
     ax.fill_between(range(len(months)), prices, alpha=0.12, color=RED)
     ax.plot(months, prices, color=RED, linewidth=2.5, marker='o', markersize=6, zorder=3)
 
     # Annotate the crash
-    ax.annotate(f'-5.66%\n$98.26', xy=(7, 98.26), xytext=(5.5, 96),
+    ax.annotate(f'-6.52%\n$90.30', xy=(7, 90.30), xytext=(5.5, 88),
                 fontsize=11, fontweight='bold', color=RED,
                 arrowprops=dict(arrowstyle='->', color=RED, lw=1.5))
 
@@ -369,7 +373,7 @@ def chart_oil_price():
     ax.spines['bottom'].set_color('#E2E8F0')
     ax.tick_params(colors=GRAY, labelsize=8)
     ax.grid(axis='y', alpha=0.2, color=GRAY)
-    ax.set_ylim(93, 108)
+    ax.set_ylim(85, 108)
 
     plt.tight_layout()
     path = os.path.join(OUTPUT_DIR, 'oil_price.svg')
