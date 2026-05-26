@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-26T21:33:37+08:00",
+  "generated_at": "2026-05-26T21:51:40+08:00",
   "latest_date": "2026-05-26",
   "articles": [
     {
@@ -39,7 +39,7 @@
       "session": "evening",
       "edition_cn": "晚报",
       "icon": "🌙",
-      "title": "扬说财经 · 夜读 | 2026.05.24",
+      "title": "Fed换帅 + AI IPO潮 + 消费者信心崩塌：三重变局下的市场逻辑",
       "url": "2026-05-24/wechat-publish/evening/article.html"
     },
     {
@@ -47,7 +47,7 @@
       "session": "morning",
       "edition_cn": "早报",
       "icon": "🌅",
-      "title": "扬说财经 · 早报 | 2026.05.24",
+      "title": "道指8连涨创纪录 vs 消费者信心冰点：冰与火之歌",
       "url": "2026-05-24/wechat-publish/morning/article.html"
     },
     {
@@ -135,7 +135,7 @@
         "session": "evening",
         "edition_cn": "晚报",
         "icon": "🌙",
-        "title": "扬说财经 · 夜读 | 2026.05.24",
+        "title": "Fed换帅 + AI IPO潮 + 消费者信心崩塌：三重变局下的市场逻辑",
         "url": "2026-05-24/wechat-publish/evening/article.html"
       },
       "morning": {
@@ -143,7 +143,7 @@
         "session": "morning",
         "edition_cn": "早报",
         "icon": "🌅",
-        "title": "扬说财经 · 早报 | 2026.05.24",
+        "title": "道指8连涨创纪录 vs 消费者信心冰点：冰与火之歌",
         "url": "2026-05-24/wechat-publish/morning/article.html"
       }
     },
