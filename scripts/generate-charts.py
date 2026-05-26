@@ -271,27 +271,28 @@ def chart_astock_indices():
     ax.set_facecolor(BG)
 
     indices = ['上证指数', '深证成指', '创业板指', '科创综指', '科创50']
-    changes = [0.74, 1.31, 2.56, 4.88, 5.88]
-    colors_bar = [GREEN, GREEN, '#059669', '#10B981', RED]
+    changes = [-0.17, 0.12, 0.54, -1.42, -1.49]
+    colors_bar = [GREEN if c >= 0 else RED for c in changes]
+    colors_bar[4] = RED  # 科创50跌幅最大
 
     bars = ax.barh(indices, changes, color=colors_bar, height=0.5, edgecolor='white', linewidth=0.5)
 
     for bar, val in zip(bars, changes):
         if val > 0:
-            ax.text(bar.get_width() + 0.08, bar.get_y() + bar.get_height()/2.,
+            ax.text(bar.get_width() + 0.03, bar.get_y() + bar.get_height()/2.,
                     f'+{val:.2f}%', ha='left', va='center', fontsize=9, fontweight='bold', color=GREEN)
         else:
-            ax.text(bar.get_width() - 0.2, bar.get_y() + bar.get_height()/2.,
+            ax.text(bar.get_width() - 0.03, bar.get_y() + bar.get_height()/2.,
                     f'{val:.2f}%', ha='right', va='center', fontsize=9, fontweight='bold', color='white')
 
-    ax.set_title('A股主要指数 2026.05.25 涨跌幅', fontsize=13, fontweight='bold', color=DARK, pad=12)
+    ax.set_title('A股主要指数 2026.05.26 涨跌幅', fontsize=13, fontweight='bold', color=DARK, pad=12)
     ax.set_xlabel('涨跌幅 (%)', fontsize=9, color=GRAY)
     ax.spines['top'].set_visible(False)
     ax.spines['right'].set_visible(False)
     ax.spines['left'].set_color('#E2E8F0')
     ax.spines['bottom'].set_color('#E2E8F0')
     ax.tick_params(colors=GRAY, labelsize=9)
-    ax.set_xlim(-0.5, 7.5)
+    ax.set_xlim(-2, 2)
     ax.grid(axis='x', alpha=0.2, color=GRAY)
 
     # Add vertical line at 0
@@ -313,28 +314,28 @@ def chart_sector_flow():
     fig.patch.set_facecolor(BG)
     ax.set_facecolor(BG)
 
-    sectors = ['半导体', '通信设备', '计算机', '白酒', '航运/机场', '银行']
-    flows = [-287.3, -96.8, -78.4, 4.2, 8.7, 23.5]
-    colors_bar = ['#DC2626', '#EF4444', '#F87171', GREEN, GREEN, GREEN]
+    sectors = ['电子/半导体', '通信', '计算机', '银行', '非银金融', '有色金属']
+    flows = [-388.1, -122.8, -115.6, 0.4, 3.4, 50.7]
+    colors_bar = ['#DC2626', '#EF4444', '#F87171', GREEN, GREEN, '#059669']
 
     bars = ax.barh(sectors, flows, color=colors_bar, height=0.5, edgecolor='white', linewidth=0.5)
 
     for bar, val in zip(bars, flows):
         if val < 0:
-            ax.text(bar.get_width() - 3, bar.get_y() + bar.get_height()/2.,
-                    f'{val:.1f}亿', ha='right', va='center', fontsize=9, fontweight='bold', color='white')
+            ax.text(bar.get_width() - 5, bar.get_y() + bar.get_height()/2.,
+                    f'{val:.1f}亿', ha='right', va='center', fontsize=8, fontweight='bold', color='white')
         else:
             ax.text(bar.get_width() + 3, bar.get_y() + bar.get_height()/2.,
-                    f'+{val:.1f}亿', ha='left', va='center', fontsize=9, fontweight='bold', color=GREEN)
+                    f'+{val:.1f}亿', ha='left', va='center', fontsize=8, fontweight='bold', color=GREEN)
 
-    ax.set_title('A股板块资金流向 2026.05.21', fontsize=13, fontweight='bold', color=DARK, pad=12)
+    ax.set_title('A股板块资金流向 2026.05.26', fontsize=13, fontweight='bold', color=DARK, pad=12)
     ax.set_xlabel('资金净流向 (亿元)', fontsize=9, color=GRAY)
     ax.spines['top'].set_visible(False)
     ax.spines['right'].set_visible(False)
     ax.spines['left'].set_color('#E2E8F0')
     ax.spines['bottom'].set_color('#E2E8F0')
     ax.tick_params(colors=GRAY, labelsize=9)
-    ax.set_xlim(-340, 60)
+    ax.set_xlim(-440, 80)
     ax.axvline(x=0, color=DARK, linewidth=0.8)
     ax.grid(axis='x', alpha=0.2, color=GRAY)
 
