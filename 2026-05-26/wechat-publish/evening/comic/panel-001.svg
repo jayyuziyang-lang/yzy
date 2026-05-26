@@ -1,35 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 220">
-  <rect width="300" height="220" fill="#FAFAFA"/>
-  <!-- Title -->
-  <text x="150" y="22" text-anchor="middle" font-family="'Noto Sans SC','PingFang SC',sans-serif" font-size="13" font-weight="900" fill="#1E293B">科技内部分化 · 半导体回调 PCB强者恒强</text>
-  <line x1="35" y1="30" x2="265" y2="30" stroke="#D4A017" stroke-width="1.5"/>
+<rect width="300" height="220" fill="#FAFAFA"/>
+<text x="150" y="22" text-anchor="middle" font-family="'Noto Sans SC','PingFang SC',sans-serif" font-size="13" font-weight="900" fill="#1E293B">03 科技/AI · 半导体遭253亿抛售 资金切换至资源</text>
+<line x1="50" y1="30" x2="250" y2="30" stroke="#D4A017" stroke-width="1.5"/>
 
-  <!-- Left: Yesterday's pump -->
-  <rect x="20" y="42" width="80" height="95" rx="5" fill="#FEF2F2" stroke="#DC2626" stroke-width="1.5"/>
-  <text x="60" y="58" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="10" font-weight="700" fill="#DC2626">昨日暴涨</text>
-  <line x1="25" y1="105" x2="95" y2="105" stroke="#DC2626" stroke-width="0.5" stroke-dasharray="2,2"/>
-  <polyline points="60,130 45,115 75,115" fill="none" stroke="#DC2626" stroke-width="2.5" stroke-linejoin="round"/>
-  <text x="60" y="95" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="8" fill="#DC2626">半导体+6.40%</text>
-  <text x="60" y="145" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="7" fill="#991B1B">中芯+18.78%创历史</text>
+<!-- Left: Tech/semiconductor -->
+<rect x="15" y="40" width="125" height="80" rx="5" fill="#F5F3FF" stroke="#9333EA" stroke-width="1.5"/>
+<text x="78" y="56" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="10" font-weight="700" fill="#9333EA">科技板块</text>
+<text x="78" y="70" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="7" fill="#6B21A8">半导体 -253亿</text>
+<text x="78" y="82" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="7" fill="#6B21A8">通信 -122亿</text>
+<text x="78" y="94" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="7" fill="#6B21A8">计算机 -115亿</text>
+<text x="78" y="108" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="8" font-weight="700" fill="#DC2626">合计流出近500亿</text>
 
-  <!-- Center: today's drop -->
-  <rect x="115" y="42" width="80" height="95" rx="5" fill="#DCFCE7" stroke="#16A34A" stroke-width="1.5"/>
-  <text x="155" y="58" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="10" font-weight="700" fill="#16A34A">今日回调</text>
-  <line x1="120" y1="105" x2="190" y2="105" stroke="#16A34A" stroke-width="0.5" stroke-dasharray="2,2"/>
-  <polyline points="155,115 140,130 170,130" fill="none" stroke="#16A34A" stroke-width="2.5" stroke-linejoin="round"/>
-  <text x="155" y="95" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="8" fill="#16A34A">获利回吐</text>
-  <text x="155" y="145" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="7" fill="#166534">中芯-4.37%·海星跌停</text>
+<!-- Arrow: money flowing -->
+<text x="148" y="85" text-anchor="middle" font-family="sans-serif" font-size="22" fill="#D4A017">→</text>
 
-  <!-- Right: PCB winner -->
-  <rect x="210" y="42" width="75" height="95" rx="5" fill="#FFF7ED" stroke="#D97706" stroke-width="1.5"/>
-  <text x="248" y="58" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="10" font-weight="700" fill="#D97706">PCB走强</text>
-  <line x1="215" y1="105" x2="280" y2="105" stroke="#D97706" stroke-width="0.5" stroke-dasharray="2,2"/>
-  <polyline points="248,130 233,115 263,115" fill="none" stroke="#D97706" stroke-width="2.5" stroke-linejoin="round"/>
-  <text x="248" y="95" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="8" fill="#D97706">生益电子+20%</text>
-  <text x="248" y="145" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="7" fill="#92400E">沪电股份刷新收盘纪录</text>
+<!-- Right: Resources -->
+<rect x="160" y="40" width="125" height="80" rx="5" fill="#FEF2F2" stroke="#DC2626" stroke-width="1.5"/>
+<text x="223" y="56" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="10" font-weight="700" fill="#DC2626">资源板块</text>
+<text x="223" y="70" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="7" fill="#991B1B">有色金属 +50.7亿</text>
+<text x="223" y="82" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="7" fill="#991B1B">贵金属 +20.7亿</text>
+<text x="223" y="94" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="7" fill="#991B1B">工业金属 +40.7亿</text>
+<text x="223" y="108" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="8" font-weight="700" fill="#16A34A">招金银·中国铝业涨停</text>
 
-  <!-- Bottom note -->
-  <line x1="20" y1="202" x2="280" y2="202" stroke="#E2E8F0" stroke-width="0.5"/>
-  <text x="150" y="214" text-anchor="middle" font-family="'Noto Sans SC','PingFang SC',sans-serif" font-size="7" fill="#94A3B8">英伟达Rubin架构PCB价值量暴涨233% · 产业链逻辑仍在发酵</text>
+<!-- Bottom: driving chain -->
+<line x1="15" y1="130" x2="285" y2="130" stroke="#1E293B" stroke-width="1"/>
+<text x="150" y="148" text-anchor="middle" font-family="'Noto Sans SC','PingFang SC',sans-serif" font-size="11" font-weight="900" fill="#1E293B">驱动链：油价暴跌 → 通胀降温 → 美元走弱 → 资源反弹</text>
+
+<!-- Individual items in chain -->
+<rect x="15" y="158" width="60" height="28" rx="4" fill="none" stroke="#16A34A" stroke-width="1.2"/>
+<text x="45" y="170" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="8" fill="#166534">美伊谈判</text>
+<text x="45" y="180" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="7" fill="#166534">油价-6.5%</text>
+<text x="80" y="172" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#94A3B8">→</text>
+<rect x="90" y="158" width="60" height="28" rx="4" fill="none" stroke="#D4A017" stroke-width="1.2"/>
+<text x="120" y="170" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="8" fill="#92400E">通胀降温</text>
+<text x="120" y="180" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="7" fill="#92400E">加息预期40%</text>
+<text x="155" y="172" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#94A3B8">→</text>
+<rect x="165" y="158" width="55" height="28" rx="4" fill="none" stroke="#1A56DB" stroke-width="1.2"/>
+<text x="193" y="170" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="8" fill="#1E3A7A">美元走弱</text>
+<text x="193" y="180" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="7" fill="#1E3A7A">美元98.98</text>
+<text x="225" y="172" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#94A3B8">→</text>
+<rect x="235" y="158" width="55" height="28" rx="4" fill="none" stroke="#DC2626" stroke-width="1.2"/>
+<text x="263" y="170" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="8" fill="#991B1B">资源反弹</text>
+<text x="263" y="180" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="7" fill="#991B1B">金银+有色</text>
+
+<!-- Bottom note -->
+<line x1="20" y1="194" x2="280" y2="194" stroke="#E2E8F0" stroke-width="0.5"/>
+<text x="150" y="210" text-anchor="middle" font-family="'Noto Sans SC','PingFang SC',sans-serif" font-size="7" fill="#94A3B8">风格切换信号：4个净流入板块中3个是资源品</text>
 </svg>

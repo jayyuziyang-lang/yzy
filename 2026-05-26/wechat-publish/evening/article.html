@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>A股超4000股飘绿·贵金属暴涨·10倍牛股跌停·八部门重罚跨境券商23亿</title>
+<title>A股超4000股下跌·半导体遭253亿抛售·贵金属逆市领涨4.11%</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { font-family: -apple-system,"PingFang SC","Microsoft YaHei","Helvetica Neue",sans-serif; background: #F5F7FA; color: #1E293B; line-height: 1.8; font-size: 16px; }
@@ -19,20 +19,20 @@
   .header h1 { font-size: 22px; font-weight: 700; line-height: 1.4; margin-bottom: 6px; }
   .header .meta { font-size: 12px; opacity: 0.8; display: flex; gap: 12px; flex-wrap: wrap; }
 
-  .player { display: flex; align-items: center; gap: 12px; margin-top: 14px; }
-  .player-icon { width: 40px; height: 40px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 18px; }
+  .player { display: flex; align-items: center; gap: 12px; margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.15); }
+  .player-icon { width: 40px; height: 40px; background: rgba(255,255,255,0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 18px; }
   .player-info { flex: 1; }
   .player-title { font-size: 13px; font-weight: 600; }
   .player-desc { font-size: 11px; opacity: 0.7; }
   .player audio { width: 100%; margin-top: 4px; border-radius: 20px; }
 
-  .body { padding: 20px 20px 0; }
+  .body { padding: 20px; }
 
-  .layer1 { margin-bottom: 28px; }
+  .layer1 { margin-bottom: 24px; }
   .l1-title { font-size: 16px; font-weight: 700; color: #D4A017; margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
-  .l1-comic { margin: 8px -10px 0; }
+  .l1-comic { margin: 8px 0 0; }
   .l1-comic img { width: 100%; border-radius: 10px; border: 1px solid #E2E8F0; }
-  .l1-divider { border: none; border-top: 2px dashed #D4A017; margin: 16px 0; }
+  .l1-divider { border: none; border-top: 2px dashed #D4A017; margin: 14px 0; }
 
   .layer2 { margin-bottom: 24px; }
   .l2-title { font-size: 16px; font-weight: 700; color: #D4A017; margin-bottom: 14px; display: flex; align-items: center; gap: 6px; }
@@ -43,20 +43,22 @@
   .story { margin: 22px 0; }
   .story-head { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
   .story-num { width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; color: #fff; flex-shrink: 0; }
-  .story-num.s01 { background: #EF4444; } .story-num.s02 { background: #7C3AED; } .story-num.s03 { background: #F59E0B; }
-  .story-num.s04 { background: #1A56DB; } .story-num.s05 { background: #10B981; } .story-num.s06 { background: #D4A017; }
+  .story-num.s01 { background: #DC2626; } .story-num.s02 { background: #16A34A; } .story-num.s03 { background: #9333EA; }
+  .story-num.s04 { background: #1A56DB; } .story-num.s05 { background: #D4A017; } .story-num.s06 { background: #EA580C; }
   .story-tag { font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 3px; }
-  .story-tag.s01 { background: #FEF2F2; color: #DC2626; } .story-tag.s02 { background: #F5F3FF; color: #7C3AED; }
-  .story-tag.s03 { background: #FFF7ED; color: #D97706; } .story-tag.s04 { background: #EFF6FF; color: #1A56DB; }
-  .story-tag.s05 { background: #F0FDF4; color: #16A34A; } .story-tag.s06 { background: #FFFBEB; color: #B8860B; }
-  .story-title { font-size: 16px; font-weight: 700; color: #1E293B; line-height: 1.4; }
+  .story-tag.s01 { background: #FEF2F2; color: #DC2626; } .story-tag.s02 { background: #F0FDF4; color: #16A34A; }
+  .story-tag.s03 { background: #F5F3FF; color: #9333EA; } .story-tag.s04 { background: #EFF6FF; color: #1A56DB; }
+  .story-tag.s05 { background: #FFFBEB; color: #B8860B; } .story-tag.s06 { background: #FFF7ED; color: #EA580C; }
+  .story-title { font-size: 16px; font-weight: 700; color: #1E293B; line-height: 1.4; flex: 1; }
   .story-badge { display: inline-block; font-size: 11px; padding: 1px 7px; border-radius: 3px; font-weight: 600; margin-left: 5px; vertical-align: middle; }
+  .story-badge.b-red { background: #FEF2F2; color: #DC2626; } .story-badge.b-green { background: #F0FDF4; color: #16A34A; }
+  .story-badge.b-gold { background: #FFFBEB; color: #D97706; } .story-badge.b-blue { background: #EFF6FF; color: #1A56DB; }
   .story-content { font-size: 14px; color: #334155; line-height: 1.8; margin-bottom: 8px; }
   .story-content p { margin-bottom: 8px; font-size: 14px; }
   .story-img { margin: 10px 0 0; border-radius: 8px; border: 1px solid #E2E8F0; overflow: hidden; background: #FAFAFA; }
   .story-img img { width: 100%; display: block; }
-  .story-img .caption { font-size: 12px; color: #64748B; text-align: center; padding: 6px 10px; background: #F8FAFC; }
-  .story-divider { border: none; height: 1px; background: linear-gradient(to right, transparent, #E2E8F0, transparent); margin: 6px 0; }
+  .story-img .caption { font-size: 11px; color: #64748B; text-align: center; padding: 6px 10px; background: #F8FAFC; }
+  .story-divider { border: none; height: 1px; background: linear-gradient(to right, transparent, #E2E8F0, transparent); margin: 4px 0; }
 
   .gold-box { background: linear-gradient(135deg,#FFF8E7,#FFF3D6); border: 1px solid #D4A017; border-radius: 12px; padding: 18px 20px; margin: 22px 0; text-align: center; font-size: 16px; font-weight: 700; color: #B8860B; line-height: 1.5; }
 
@@ -71,15 +73,20 @@
   .up { color: #DC2626; font-weight: 600; }
   .down { color: #16A34A; font-weight: 600; }
 
+  .sources { background: #FFFBEB; border-radius: 10px; padding: 12px 14px; margin: 16px 0; font-size: 12px; color: #92400E; line-height: 1.6; }
+  .sources h3 { font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+  .sources a { color: #1A56DB; text-decoration: none; }
+
+  .end-box { background: linear-gradient(135deg,#D4A017,#B8860B); border-radius: 12px; padding: 16px 20px; margin: 22px 0; color: white; text-align: center; }
+  .end-box .end-icon { font-size: 28px; margin-bottom: 4px; }
+  .end-box .end-title { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+  .end-box .end-desc { font-size: 12px; opacity: 0.8; }
+
   .warn { background: #FFF5F5; border: 1px solid #FECACA; border-radius: 10px; padding: 12px 14px; margin-top: 24px; font-size: 12px; color: #991B1B; line-height: 1.5; }
   .list { background: #F8F9FA; border-radius: 8px; padding: 10px 14px; margin: 10px 0; }
   .list-item { padding: 5px 0; border-bottom: 1px solid #E2E8F0; font-size: 13px; display: flex; gap: 6px; }
   .list-item:last-child { border-bottom: none; }
   .tag-b { display: inline-block; background: #D4A017; color: #fff; font-size: 10px; padding: 1px 7px; border-radius: 8px; white-space: nowrap; }
-
-  .sources { background: #FFFBEB; border-radius: 10px; padding: 12px 14px; margin: 16px 0; font-size: 12px; color: #92400E; line-height: 1.6; }
-  .sources h3 { font-size: 13px; font-weight: 700; margin-bottom: 6px; }
-  .sources a { color: #1A56DB; text-decoration: none; }
 </style>
 </head>
 <body>
@@ -92,10 +99,10 @@
   </div>
 
   <div class="header">
-    <h1>A股超4000股飘绿·贵金属暴涨·10倍牛股跌停·八部门重罚跨境券商23亿</h1>
+    <h1>A股超4000股下跌·半导体遭253亿抛售·贵金属逆市领涨4.11%</h1>
     <div class="meta">
       <span>📅 2026.05.26 晚间</span>
-      <span>🏷️ A股震荡 / 贵金属爆发 / 半导体回调 / 八部门整治 / 打谈结合</span>
+      <span>🏷️ A股分化 / 半导体回调 / 贵金属 / 阳光电源 / 长安内幕交易</span>
       <span>📖 阅读约 6 分钟</span>
     </div>
     <div class="player">
@@ -110,110 +117,110 @@
 
   <div class="body">
 
-    <!-- ════════════════════════════════════════ -->
     <!-- LAYER 1：今日热点速览 -->
-    <!-- ════════════════════════════════════════ -->
     <div class="layer1">
       <div class="l1-title">📋 今日热点速览 <span style="font-size:12px;color:#64748B;font-weight:400;">— 60秒掌握关键信息</span></div>
       <div class="l1-comic">
         <img loading="lazy" src="comic/panel-000.svg" alt="扬说财经速览">
-        <div style="text-align:center;font-size:11px;color:#64748B;margin-top:4px;">📡 扬说财经 — 今天这些大事你需要知道</div>
+        <div class="caption" style="text-align:center;font-size:11px;color:#64748B;margin-top:4px;">📡 扬说财经 — 今天这些大事你需要知道</div>
       </div>
       <hr class="l1-divider">
       <div style="text-align:center;font-size:12px;color:#D4A017;margin-bottom:4px;">▼ 往下翻看今日深度解读 ▼</div>
     </div>
 
-    <!-- ════════════════════════════════════════ -->
-    <!-- LAYER 2：今日深度解读 — 6个编号故事 -->
-    <!-- ════════════════════════════════════════ -->
+    <!-- LAYER 2：今日深度解读 -->
     <div class="layer2">
       <div class="l2-title">🔍 今日深度专题</div>
 
-      <div class="quote">A股指数稳、个股惨，4000只个股飘绿。贵金属暴涨4%，铝业全线涨停。半导体获利回吐，10倍牛股闪崩跌停。八部门重罚跨境券商23亿——今天每一个板块都有自己的故事要讲。</div>
+      <div class="quote">A股三大指数涨跌不一，全市场超4000只个股下跌。半导体遭253亿资金抛售，贵金属、有色金属逆势领涨。一场从科技向资源的风格切换正在发生。</div>
 
-      <!-- Story 01: A股复盘 -->
+      <!-- Story 01: A股 -->
       <div class="story">
         <div class="story-head">
           <div class="story-num s01">1</div>
           <span class="story-tag s01">A股</span>
-          <div class="story-title">指数稳、个股惨，超4000股飘绿 <span class="story-badge" style="background:#FEF2F2;color:#DC2626;font-size:11px;padding:1px 7px;border-radius:3px;">分化加剧</span></div>
+          <div class="story-title">超4000股下跌，风格切换至资源 <span class="story-badge b-red">分化</span></div>
         </div>
         <div class="story-content">
-          <p>今天A股是典型的"指数稳、个股跌"。上证指数收报4145.37点跌0.17%，深证成指涨0.12%，创业板指涨0.54%收于4043.07点。但全市场<strong>超4000只个股下跌</strong>，仅1325只上涨，成交额放大至3.26万亿元（来源：东方财富https://fund.eastmoney.com/a/202605263749592496.html、每经网https://www.nbd.com.cn/articles/2026-05-26/4408787.html）。</p>
-          <p>背后原因：沪深300尾盘护盘拉升翻红（+0.53%），银行、券商、保险等权重股逆市走强，指数被托住了。中小盘股血流成河——北证50跌2.47%，科创50跌1.49%（来源：东方财富https://fund.eastmoney.com/a/202605263749602555.html）。资金从科技成长全面转向资源顺周期。</p>
-          <p>长安汽车内幕交易案今天继续发酵，股价跌至8.27元，从2023年高点21.14元算起已跌去六成。归母净利润从113亿缩水至40亿（来源：证券之星https://stock.stockstar.com/SS2026052600027013.shtml）。</p>
+          <p>今日A股呈现极致分化格局。上证指数收报4145.37点，跌0.17%；深证成指涨0.12%报15876.16点；创业板指涨0.54%报4043.07点。科创50回调1.49%报1867.71点。沪深两市全天成交3.26万亿元，较上一日增量约380亿元（来源：东方财富网、每经网）。</p>
+          <p>全市场仅约1350只个股上涨，超4080只下跌，涨跌比约1:3，指数明显失真。大盘资金全天净流出991亿元，主力资金从科技板块大规模撤出，转向顺周期资源板块（来源：证券时报）。</p>
+          <p>个股层面：<strong>阳光电源暴涨7.03%报179元</strong>，获阿联酋7.5GWh储能超级大单，带动创业板逆势走强。新易盛涨6.22%站上700元刷新最高收盘纪录。长安汽车跌1.07%至8.27元创近四年新低，内幕交易案曝光后持续承压。华天科技两连板，通富微电涨8.04%——先进封装持续逆势活跃（来源：风口财经、新浪财经）。</p>
         </div>
         <div class="story-img">
-          <img loading="lazy" src="../../../docs/charts/astock_indices.svg" alt="A股主要指数涨跌幅">
-          <div class="caption">A股主要指数 — 沪指微跌，创业板收于4043点，但超4000股下跌</div>
+          <img loading="lazy" src="../../../docs/charts/astock_indices.svg" alt="A股主要指数今日表现">
+          <div class="caption">三大指数涨跌不一，结构性分化明显</div>
         </div>
       </div>
 
       <hr class="story-divider">
 
-      <!-- Story 02: 有色金属/贵金属 -->
+      <!-- Story 02: 美股/全球 -->
       <div class="story">
         <div class="story-head">
           <div class="story-num s02">2</div>
-          <span class="story-tag s02">有色</span>
-          <div class="story-title">贵金属暴涨4%·中国铝业涨停 <span class="story-badge" style="background:#FEF2F2;color:#DC2626;font-size:11px;padding:1px 7px;border-radius:3px;">🔥 最强主线</span></div>
+          <span class="story-tag s02">美股/全球</span>
+          <div class="story-title">美股休市·期货涨1.2%·美债收益率下行 <span class="story-badge b-green">等待开盘</span></div>
         </div>
         <div class="story-content">
-          <p>资源品今天全面爆发，贵金属板块暴涨4.11%领涨两市。招金黄金涨停，紫金矿业涨4.9%，赤峰黄金、山东黄金涨超2%。核心驱动来自两方面：油价暴跌缓解通胀担忧、美元走弱至98.98；叠加美伊局势不确定性推升避险情绪（来源：金融界）。</p>
-          <p><strong>铝业股更具故事性。</strong>中国铝业（市值超2000亿）午后涨停，金钼股份涨停，南山铝业、云铝股份涨超7%。核心催化剂是<strong>几内亚即将收紧铝土矿出口</strong>，氧化铝期货大涨超4%。几内亚占中国进口铝土矿比例高达74%，资源国的一纸政策足以引爆全行业（来源：21世纪经济报道）。</p>
-          <p>有色金属板块整体获主力净流入50.72亿元居全市场第一。</p>
+          <p>美股周一因阵亡将士纪念日休市，今日恢复交易前期货市场释放积极信号：纳指100期货涨1.2%，标普500期货涨0.9%（来源：财联社）。</p>
+          <p>隔夜美债收益率全线下行：2年期降8.72bp至4.034%，10年期降11.27bp至4.463%，30年期降9.59bp至4.991%。收益率曲线陡峭化下行反映通胀预期降温。欧洲股市走强：德国DAX涨2.01%报25389点，法国CAC40涨1.76%报8258点。离岸人民币隔夜升值135bp至6.7845，创2023年2月以来新高（来源：中航期货、大河财立方）。</p>
         </div>
       </div>
 
       <hr class="story-divider">
 
-      <!-- Story 03: 科技分化 — 半导体跌 PCB涨 -->
+      <!-- Story 03: 科技/AI -->
       <div class="story">
         <div class="story-head">
           <div class="story-num s03">3</div>
-          <span class="story-tag s03">科技</span>
-          <div class="story-title">半导体获利回吐·10倍牛股闪崩 <span class="story-badge" style="background:#FFF7ED;color:#D97706;font-size:11px;padding:1px 7px;border-radius:3px;">分化加剧</span></div>
+          <span class="story-tag s03">科技/AI</span>
+          <div class="story-title">半导体遭253亿抛售，华为韬定律引发分歧 <span class="story-badge b-red">-253亿</span></div>
         </div>
         <div class="story-content">
-          <p>半导体板块今天全线回调，昨日暴涨6.4%后的正常调整。中芯国际跌4.37%，成交额267亿居科创板之首，主力净流出16.82亿元。光通信方向重灾区：炬光科技跌超10%，永鼎、永贵跌超9%。存储芯片同样惨烈（来源：东方财富科创板收盘播报https://finance.eastmoney.com/a/202605263749615093.html）。</p>
-          <p>最震撼的是<strong>海星股份跌停</strong>。这只从2025年4月低点至今累计涨超10倍的AI服务器概念股，今天闪崩跌停报102.8元，成交额10亿，市盈率仍高达156倍。10倍牛股的陨落只需要一天——高位接盘者一夜亏损10%（来源：每经网https://www.nbd.com.cn/articles/2026-05-26/4408787.html）。</p>
-          <p>但科技内部并非全面溃败。<strong>PCB概念强者恒强</strong>：生益电子20%涨停，沪电股份涨超8%刷新历史高点（来源：每日经济新闻https://www.nbd.com.cn/）。英伟达Rubin架构机架PCB价值量较上一代暴涨233%，产业链逻辑仍在发酵。</p>
+          <p>半导体板块今日遭遇大规模获利了结。板块全天主力资金净流出253.45亿元，居所有板块之首。科创板仅114只个股收涨，占比约18.78%，个股平均跌幅1.97%（来源：每经网）。</p>
+          <p>中芯国际跌4.37%成交267亿元居科创板首位，芯原股份跌6.92%，中微公司跌6.02%，澜起科技跌5.61%。39只芯片/半导体相关ETF 5月以来合计净流出超150亿元。</p>
+          <p>但板块内部分化剧烈。<strong>先进封测逆势走强</strong>：通富微电收涨8.04%，华天科技两连板，PCB概念反复活跃，生益电子涨停。半导体设备ETF易方达当日获1.07亿份净申购，连续9个交易日获净流入，最新规模逼近百亿元——机构资金对设备端仍有布局意愿（来源：21世纪经济报道）。</p>
+          <p>华为周末发布"韬定律"引发市场解读分歧：乐观派认为是中国半导体独立突破的标志，谨慎派指出规模化量产仍需2-3年，短期股价已透支预期（来源：新浪财经）。</p>
         </div>
         <div class="story-img">
-          <img loading="lazy" src="comic/panel-001.svg" alt="半导体分化示意图">
-          <div class="caption">半导体板块：昨日暴涨6.4% → 今日获利回吐，内部显著分化</div>
+          <img loading="lazy" src="comic/panel-001.svg" alt="半导体资金切换至资源板块">
+          <div class="caption">半导体253亿资金出逃，全部流入有色、贵金属等资源板块</div>
         </div>
       </div>
 
       <hr class="story-divider">
 
-      <!-- Story 04: 国际 — 中东局势 + 全球市场 -->
+      <!-- Story 04: 国际 -->
       <div class="story">
         <div class="story-head">
           <div class="story-num s04">4</div>
-          <span class="story-tag s04">国际</span>
-          <div class="story-title">美军再袭伊朗·美股恢复交易 <span class="story-badge" style="background:#EFF6FF;color:#1A56DB;font-size:11px;padding:1px 7px;border-radius:3px;">油价反弹</span></div>
+          <span class="story-tag s04">前沿/国际</span>
+          <div class="story-title">美军打击伊朗打谈结合，智利6.9级地震 <span class="story-badge b-blue">地缘</span></div>
         </div>
         <div class="story-content">
-          <p>中东局势继续发酵。美军昨日对伊朗南部实施自卫打击后，<strong>伊朗今天向阿曼湾美军军舰开火还击</strong>。但值得注意的是，谈判仍在同步推进——特朗普声称进展顺利。</p>
-          <p>市场反应剧烈：WTI原油亚洲时段拉升1.89%至92美元，布伦特涨超2%至95美元上方。两天时间内经历了"暴跌6%→反弹2%"的剧烈震荡。<strong>打谈结合就是油价最大的不确定性</strong>（来源：凤凰网财经）。</p>
-          <p>全球市场方面，美股今日恢复交易，三大指数小幅上涨。日经225涨2.87%首破65000点。港股恒生科技指数涨1.59%，联想涨15%（成交98.6亿），华虹半导体涨10%。恒生指数公司季检纳入Minimax和智谱两只AI大模型股，科技指数从"互联网"向"人工智能"转型（来源：新浪财经）。</p>
+          <p>中东局势出现最新变化。美军在伊朗南部实施自卫打击，目标包括导弹发射阵地及布设水雷的伊朗船只。但军事行动与外交谈判同步推进——特朗普表示谈判进展顺利，伊朗表示大部分问题已达成共识，霍尔木兹海峡将分阶段开放。</p>
+          <p>打谈结合的局面意味着油价不会简单单边下行，每一次军事打击都可能触发短期反弹。</p>
+          <p>其他动态：智利北部发生6.9级地震，可能影响全球铜矿供给。智利是全球最大铜生产国。俄外长拉夫罗夫告知美方俄军对乌克兰的系统性打击计划（来源：风口财经、每经网）。</p>
         </div>
       </div>
 
       <hr class="story-divider">
 
-      <!-- Story 05: 宏观 — 八部门 + 券商 -->
+      <!-- Story 05: 宏观 -->
       <div class="story">
         <div class="story-head">
           <div class="story-num s05">5</div>
           <span class="story-tag s05">宏观</span>
-          <div class="story-title">八部门重罚跨境券商23亿·券商逆市护盘 <span class="story-badge" style="background:#F0FDF4;color:#16A34A;font-size:11px;padding:1px 7px;border-radius:3px;">政策加码</span></div>
+          <div class="story-title">风格切换科技→资源，八部门整治跨境证券 <span class="story-badge b-gold">政策</span></div>
         </div>
         <div class="story-content">
-          <p>今天宏观层面最重磅的消息：<strong>证监会等八部门联合整治非法跨境证券经营活动</strong>，设置2年集中整治期。富途控股罚没18.5亿、老虎证券罚没4.1亿，合计23亿。CEO个人各罚125万（来源：东方财富、证券时报）。</p>
-          <p>这次真的不一样。参与部门从证监会一家升级为八部门，法律基础覆盖证券法、期货法、网络安全法、个人信息保护法、反洗钱法。整治重点从"防增量"推向"清存量"——存量投资者可单向卖出，但2年后境外机构全面关停境内业务。合法渠道（港股通、QDII、跨境理财通）将承接分流资金。</p>
-          <p>有意思的是，<strong>券商板块逆市走强</strong>：锦龙股份涨停，中信建投、光大证券涨幅居前，整个板块获主力净流入逾29亿。市场在解读：取缔非法渠道 = 合法券商受益（来源：观点网）。</p>
+          <p>今日最重要的市场特征是大规模风格切换。资金流向数据清晰显示：半导体（-253亿）、通信（-122亿）、计算机（-115亿）合计外流近500亿元，而有色金属获净流入50.72亿元居首，贵金属获20.69亿元，工业金属获40.73亿元，非银金融获3.42亿元——4个获净流入的行业中3个是资源品（来源：凤凰网财经、证券时报）。</p>
+          <p>这一切换的驱动逻辑：美伊框架协议预期→油价暴跌→通胀预期降温→美联储加息预期从80%降至40%→美元走弱→以美元计价的大宗商品集体反弹。</p>
+          <p>政策面上，八部门联合整治非法跨境证券，设2年集中整治期。广东千亿战新引导基金正式启动，首期500亿元投向半导体、AI、生物医药（来源：新浪财经、东方财富）。</p>
+        </div>
+        <div class="story-img">
+          <img loading="lazy" src="../../../docs/charts/sector_flow.svg" alt="板块资金流向">
+          <div class="caption">资金从科技板块大规模流向资源品</div>
         </div>
       </div>
 
@@ -223,26 +230,23 @@
       <div class="story">
         <div class="story-head">
           <div class="story-num s06">6</div>
-          <span class="story-tag s06">商品</span>
-          <div class="story-title">黄金震荡·白银弹性更优·EV渗透率超61% <span class="story-badge" style="background:#FFFBEB;color:#B8860B;font-size:11px;padding:1px 7px;border-radius:3px;">结构分化</span></div>
+          <span class="story-tag s06">商品/黄金</span>
+          <div class="story-title">油价90震荡，黄金4573，白银强势 <span class="story-badge b-gold">商品</span></div>
         </div>
         <div class="story-content">
-          <p>金价方面，COMEX黄金报4573.6美元/盎司，在通胀降温与地缘风险之间寻找平衡。白银表现更优，COMEX白银涨1.4%至78.4美元。白银兼具工业属性，受光伏和算力基建需求提振，机构认为白银弹性更高（来源：Investing.com）。</p>
-          <p>宇树科技科创板IPO敲定6月1日上会，拟募资42亿。2025年营收16.99亿（+332%），人形机器人出货5500台全球第一。若过会将成A股"人形机器人第一股"，机器人概念股盘中已异动（来源：新浪财经）。</p>
+          <p>商品市场延续剧烈波动。WTI原油在90美元附近震荡报90.30美元，布伦特报93.64美元。美伊打谈结合加大短期油价判断难度（来源：新浪财经、Investing.com）。</p>
+          <p>COMEX黄金期货报4573.6美元/盎司涨1.11%。白银表现更强，COMEX白银涨2.89%报78.4美元。国际能源署报告：2025年全球EV销量突破2000万辆，4月中国新能源渗透率61.4%（来源：商务部）。</p>
         </div>
         <div class="story-img">
-          <img loading="lazy" src="../../../docs/charts/gold_price_trend.svg" alt="COMEX黄金期货走势">
-          <div class="caption">黄金在通胀降温与地缘不确定性之间震荡，白银弹性更优</div>
+          <img loading="lazy" src="../../../docs/charts/oil_price.svg" alt="WTI原油近期走势">
+          <div class="caption">油价经历暴跌后在90附近寻找支撑</div>
         </div>
       </div>
 
-      <!-- Gold box sign-off -->
-      <div class="gold-box">指数稳、个股惨，资金动了——你的仓位跟上了吗？我是阿扬，我们明天早报见。</div>
+      <div class="gold-box">指数失真之下，风格切换的信号已经非常清晰。—— 我是阿扬，我们明天早上见。</div>
     </div>
 
-    <!-- ════════════════════════════════════════ -->
     <!-- LAYER 3：关键市场数据 -->
-    <!-- ════════════════════════════════════════ -->
     <div class="layer3">
       <div class="l3-title">📊 关键市场数据一览</div>
 
@@ -252,58 +256,51 @@
         <tr><td>深证成指</td><td>15,876.16</td><td class="up">+0.12%</td></tr>
         <tr><td>创业板指</td><td>4,043.07</td><td class="up">+0.54%</td></tr>
         <tr><td>科创50</td><td>1,867.71</td><td class="down">-1.49%</td></tr>
-        <tr><td>沪深300</td><td>4,947.85</td><td class="up">+0.53%</td></tr>
-        <tr><td>WTI原油</td><td>92.01</td><td class="up">+1.89%</td></tr>
-        <tr><td>布伦特原油</td><td>95.49</td><td class="up">+2.22%</td></tr>
-        <tr><td>COMEX黄金</td><td>4,573.6</td><td class="up">+1.11%</td></tr>
-        <tr><td>COMEX白银</td><td>78.40</td><td class="up">+1.40%</td></tr>
-        <tr><td>恒生指数</td><td>25,599</td><td class="down">-0.03%</td></tr>
-        <tr><td>恒生科技</td><td>4,947</td><td class="up">+1.59%</td></tr>
+        <tr><td>沪深成交额</td><td colspan="2">3.26万亿 (+380亿)</td></tr>
+        <tr><td>WTI原油</td><td>$90.30</td><td class="down">-6.52%</td></tr>
+        <tr><td>布伦特原油</td><td>$93.64</td><td class="down">-6.56%</td></tr>
+        <tr><td>COMEX黄金</td><td>$4,573.6</td><td class="up">+1.11%</td></tr>
+        <tr><td>COMEX白银</td><td>$78.40</td><td class="up">+2.89%</td></tr>
         <tr><td>美元指数</td><td>98.98</td><td class="down">-0.36%</td></tr>
+        <tr><td>离岸人民币</td><td>6.7845</td><td class="up">+135bp</td></tr>
+        <tr><td>10Y美债率</td><td>4.463%</td><td class="down">-11.27bp</td></tr>
+        <tr><td>德国DAX</td><td>25,389</td><td class="up">+2.01%</td></tr>
       </table>
 
       <div class="list">
-        <div class="list-item"><span class="tag-b">A股</span>沪指-0.17%·4000股下跌·3.26万亿成交</div>
-        <div class="list-item"><span class="tag-b">有色</span>贵金属+4.11%·中国铝业涨停·几内亚铝土矿管控</div>
-        <div class="list-item"><span class="tag-b">科技</span>中芯-4.37%·海星跌停·PCB强者恒强·宇树6/1上会</div>
-        <div class="list-item"><span class="tag-b">宏观</span>八部门重罚23亿·券商护盘·锦龙涨停</div>
-        <div class="list-item"><span class="tag-b">国际</span>伊朗还击·WTI+1.89%·日经首破65000</div>
-        <div class="list-item"><span class="tag-b">商品</span>黄金4573·白银78.4·EV渗透率61.4%</div>
+        <div class="list-item"><span class="tag-b">A股</span>上证-0.17%·科创50-1.49%·超4000股下跌·成交3.26万亿</div>
+        <div class="list-item"><span class="tag-b">资源</span>贵金属+4.11%·有色+2.77%·工业金属+40.73亿流入</div>
+        <div class="list-item"><span class="tag-b">科技</span>半导体-253亿流出·先进封装逆势·通富微电+8.04%</div>
+        <div class="list-item"><span class="tag-b">国际</span>美股休市·美债4.463%·德DAX+2.01%·人民币6.7845</div>
+        <div class="list-item"><span class="tag-b">商品</span>WTI$90.30·黄金$4573.6·白银$78.4·EV突破2000万辆</div>
       </div>
 
-      <!-- Sources -->
       <div class="sources">
         <h3>📌 数据来源</h3>
         <div style="line-height:2;">
-          · <a href="https://fund.eastmoney.com/a/202605263749592496.html">东方财富 — A股收评</a><br>
-          · <a href="https://www.21jingji.com/article/20260526/herald/5cdc2deaf2ab2bdfa45a58abf1263d8f.html">21世纪经济报道 — 沪深300护盘</a><br>
-          · <a href="https://finance.eastmoney.com/a/202605263749615093.html">东方财富 — 科创板收盘播报</a><br>
-          · <a href="https://www.nbd.com.cn/articles/2026-05-26/4408787.html">每经网 — A股收盘</a><br>
-          · <a href="https://finance.eastmoney.com/a/202605263749631680.html">东方财富 — 沪深300护盘</a><br>
-          · <a href="https://finance.eastmoney.com/a/202605263749658470.html">东方财富 — 港股收盘</a><br>
-          · <a href="https://finance.eastmoney.com/a/202605263749522293.html">东方财富 — 伊朗爆炸声</a><br>
-          · <a href="https://stock.jrj.com.cn/2026/05/26160457201571.shtml">金融界 — 成交再破3万亿</a><br>
-          · <a href="https://finance.eastmoney.com/a/202605263749415715.html">东方财富 — 贵金属领涨</a><br>
-          · <a href="https://stock.stockstar.com/SS2026052600027013.shtml">证券之星 — 长安内幕交易</a><br>
-          · <a href="https://finance.sina.com.cn/wm/2026-05-26/doc-inhzfmyq1470528.shtml">新浪财经 — 宇树科技IPO</a><br>
-          · <a href="https://stcn.com/article/detail/3926922.html">证券时报 — 八部门整治</a><br>
-          · <a href="https://www.guandian.cn/article/20260526/563134.html">观点网 — 券商板块拉升</a><br>
-          · <a href="https://finance.sina.com.cn/wm/2026-05-26/doc-inhzfmym2269119.shtml">新浪财经 — 监管清退最后通牒</a>
+          · <a href="https://fund.eastmoney.com/a/202605263749602555.html">东方财富 — A股收评</a><br>
+          · <a href="https://www.9fzt.com/724info/e64438d08b7eb0961196009532210e5e.html">九方智投 — 创业板逼近历史高点</a><br>
+          · <a href="https://www.sohu.com/a/1027868910_115362">搜狐 — 主力资金跟踪</a><br>
+          · <a href="https://finance.ifeng.com/c/8tRZqFtYNSN">凤凰网 — 资金流向</a><br>
+          · <a href="https://stcn.com/article/detail/3927837.html">证券时报 — 计算机资金流出</a><br>
+          · <a href="https://www.163.com/dy/article/KTSMCCO40568W0A.html">网易 — 阳光电源储能大单</a><br>
+          · <a href="https://m.nbd.com.cn/articles/2026-05-26/4408612.html">每经网 — 半导体设备ETF逆势申购</a><br>
+          · <a href="https://finance.sina.com.cn/jjxw/2026-05-26/doc-inhzeknu3057088.shtml">新浪财经 — 长安内幕交易案</a><br>
+          · <a href="https://finance.sina.com.cn/jjxw/2026-05-26/doc-inhzffss1495780.shtml">新浪财经 — 科创板收盘</a><br>
+          · <a href="https://app.dahecube.com/nweb/news/20260526/275055nad880e622e7.htm">大河财立方 — 隔夜欧美</a><br>
+          · <a href="https://www.fengkouapp.com/news.html?id=1256558145761972224&type=news">风口财经 — 美军打击伊朗</a>
         </div>
       </div>
 
-      <div style="background:linear-gradient(135deg,#D4A017,#B8860B);border-radius:12px;padding:16px 20px;margin:22px 0;color:white;text-align:center;">
-        <div style="font-size:14px;font-weight:700;margin-bottom:4px;">📡 扬说财经</div>
-        <div style="font-size:11px;opacity:0.8;margin-bottom:8px;">用漫画看懂财经 — 你好，我是阿扬</div>
-        <div style="display:flex;justify-content:center;gap:16px;font-size:10px;opacity:0.6;">
-          <span>🌅 扬说·早报</span>
-          <span>🌙 扬说·晚报</span>
-        </div>
+      <div class="end-box">
+        <div class="end-icon">📡</div>
+        <div class="end-title">扬说财经</div>
+        <div class="end-desc">用漫画看懂财经 — 我是阿扬，我们明天早上见。</div>
       </div>
 
       <div class="warn">⚠️ <strong>风险提示：</strong>以上内容仅为信息分享，不构成投资建议。市场有风险，投资需谨慎。数据来源于公开信息，如有出入请以官方数据为准。</div>
-
     </div>
+
   </div>
 </div>
 </body>
