@@ -1,7 +1,15 @@
 {
-  "generated_at": "2026-05-26T19:39:24+08:00",
+  "generated_at": "2026-05-26T20:41:54+08:00",
   "latest_date": "2026-05-26",
   "articles": [
+    {
+      "date": "2026-05-26",
+      "session": "evening",
+      "edition_cn": "晚报",
+      "icon": "🌙",
+      "title": "A股超4000股飘绿·贵金属暴涨·10倍牛股跌停·八部门重罚跨境券商23亿",
+      "url": "2026-05-26/wechat-publish/evening/article.html"
+    },
     {
       "date": "2026-05-26",
       "session": "morning",
@@ -86,6 +94,14 @@
   ],
   "by_date": {
     "2026-05-26": {
+      "evening": {
+        "date": "2026-05-26",
+        "session": "evening",
+        "edition_cn": "晚报",
+        "icon": "🌙",
+        "title": "A股超4000股飘绿·贵金属暴涨·10倍牛股跌停·八部门重罚跨境券商23亿",
+        "url": "2026-05-26/wechat-publish/evening/article.html"
+      },
       "morning": {
         "date": "2026-05-26",
         "session": "morning",
