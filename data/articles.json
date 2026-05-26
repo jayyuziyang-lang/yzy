@@ -1,7 +1,15 @@
 {
-  "generated_at": "2026-05-25T21:35:38+08:00",
-  "latest_date": "2026-05-25",
+  "generated_at": "2026-05-26T09:31:38+08:00",
+  "latest_date": "2026-05-26",
   "articles": [
+    {
+      "date": "2026-05-26",
+      "session": "morning",
+      "edition_cn": "早报",
+      "icon": "🌅",
+      "title": "美军打击伊朗·长安内幕交易·宇树科技IPO上会",
+      "url": "2026-05-26/wechat-publish/morning/article.html"
+    },
     {
       "date": "2026-05-25",
       "session": "evening",
@@ -77,6 +85,16 @@
     }
   ],
   "by_date": {
+    "2026-05-26": {
+      "morning": {
+        "date": "2026-05-26",
+        "session": "morning",
+        "edition_cn": "早报",
+        "icon": "🌅",
+        "title": "美军打击伊朗·长安内幕交易·宇树科技IPO上会",
+        "url": "2026-05-26/wechat-publish/morning/article.html"
+      }
+    },
     "2026-05-25": {
       "evening": {
         "date": "2026-05-25",
