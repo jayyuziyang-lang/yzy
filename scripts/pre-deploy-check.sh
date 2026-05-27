@@ -7,19 +7,19 @@ set -e
 ROOT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT_DIR"
 
-RED='\033[0;31m'; GREEN='\033[0;32m'; YELLOW='\033[1;33m'; NC='\033[0m'
+RED='\033[0;31m'; GREEN='\033[0;32m'; YELLOW='\033[1;33m'; CYAN='\033[0;36m'; NC='\033[0m'
 ERRORS=0
 
 echo -e "${YELLOW}========================================${NC}"
-echo -e "${YELLOW}  🔍 预部署验证${NC}"
+echo -e "${YELLOW}  🔍 预部署验证 (8项)${NC}"
 echo -e "${YELLOW}========================================${NC}"
 
-# [1/6] 运行 update-index.py
-echo -e "\n📊 [1/6] 运行 update-index.py..."
+# [1/8] 运行 update-index.py
+echo -e "\n📊 [1/8] 运行 update-index.py..."
 python scripts/update-index.py || { echo -e "${RED}  ❌ update-index.py 失败${NC}"; ((ERRORS++)); }
 
-# [2/6] articles.js 完整性
-echo -e "\n📄 [2/6] 验证 articles.js..."
+# [2/8] articles.js 完整性
+echo -e "\n📄 [2/8] 验证 articles.js..."
 LATEST_DATE=$(grep -oP 'ARTICLES_LATEST = "\K[^"]+' data/articles.js || echo "")
 if [ -z "$LATEST_DATE" ]; then
     echo -e "${RED}  ❌ 无法获取最新日期${NC}"; ((ERRORS++))
@@ -27,8 +27,8 @@ else
     echo -e "  ✅ 最新日期: $LATEST_DATE"
 fi
 
-# [3/6] index.html 预渲染内容
-echo -e "\n🏠 [3/6] 验证 index.html 预渲染..."
+# [3/8] index.html 预渲染内容
+echo -e "\n🏠 [3/8] 验证 index.html 预渲染..."
 EVENING_IN_INDEX=$(grep -c "wechat-publish/evening" index.html || true)
 EVENING_IN_JS=$(grep -c '"evening"' data/articles.js || true)
 if [ "$EVENING_IN_JS" -gt 0 ] && [ "$EVENING_IN_INDEX" -lt 2 ]; then
@@ -37,8 +37,8 @@ else
     echo -e "  ✅ 预渲染晚报链接数: $EVENING_IN_INDEX"
 fi
 
-# [4/6] 返回首页链接
-echo -e "\n🔗 [4/6] 验证返回首页链接..."
+# [4/8] 返回首页链接
+echo -e "\n🔗 [4/8] 验证返回首页链接..."
 BAD=0
 # 检查标准文章目录
 for f in 20*/wechat-publish/*/article.html; do
@@ -59,8 +59,8 @@ for f in caijing/20*/*.html; do
 done
 [ "$BAD" -eq 0 ] && echo -e "  ✅ 所有链接正确" || echo -e "  ${RED}❌ $BAD 个链接异常${NC}"
 
-# [5/6] 模板占位符
-echo -e "\n🧹 [5/6] 检查模板占位符..."
+# [5/8] 模板占位符
+echo -e "\n🧹 [5/8] 检查模板占位符..."
 PH_ERRORS=0
 for f in index.html 20*/wechat-publish/*/article.html caijing/20*/article.html; do
     [ ! -f "$f" ] && continue
@@ -73,17 +73,30 @@ for f in index.html 20*/wechat-publish/*/article.html caijing/20*/article.html; 
 done
 [ "$PH_ERRORS" -eq 0 ] && echo -e "  ✅ 所有文件无占位符残留" || ((ERRORS++))
 
-# [6/6] git 状态
-echo -e "\n📦 [6/6] git 状态..."
+# [6/8] git 状态
+echo -e "\n📦 [6/8] git 状态..."
 echo -e "  $(git status --porcelain 2>/dev/null | wc -l) 个待提交文件"
 
-# [7/7] 图表质量校验（运行 generate-charts.py 的质量门禁）
-echo -e "\n📊 [7/7] 图表质量校验..."
+# [7/8] 图表质量校验（运行 generate-charts.py 的质量门禁）
+echo -e "\n📊 [7/8] 图表质量校验..."
 if python scripts/generate-charts.py 2>/dev/null; then
     echo -e "  ✅ 图表生成成功 + 质量门禁通过"
 else
     echo -e "  ${RED}❌ 图表质量门禁未通过${NC}"
     echo "  python scripts/generate-charts.py 报错，请先修复"
+    ((ERRORS++))
+fi
+
+# [8/8] 综合审核（audit-article.py — 新闻时效性/真实性/来源/文案一致性）
+echo -e "\n🔬 [8/8] 综合审核 (audit-article.py)..."
+if python scripts/audit-article.py 2>/dev/null; then
+    echo -e "  ✅ 综合审核通过"
+elif [ $? -eq 1 ]; then
+    echo -e "  ${YELLOW}  ⚠️ 综合审核有警告，请确认后继续${NC}"
+    echo -e "  ${YELLOW}  运行: python scripts/audit-article.py${NC}"
+else
+    echo -e "  ${RED}❌ 综合审核阻塞 — 发现硬性问题不可发布${NC}"
+    echo "  运行 python scripts/audit-article.py 查看详情"
     ((ERRORS++))
 fi
 

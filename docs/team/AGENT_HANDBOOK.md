@@ -21,9 +21,10 @@
 ## 核心架构
 
 ```
-五条不可绕过质量门禁：
+六条不可绕过质量门禁：
+  Layer 0: 新闻综合审核门禁（新增）── audit-article.py 强制审核：时效性/真实性/来源审查/文案一致性
   Layer 1: 事实核查门禁 ── 每个数据点有来源，无来源=不发表
-  Layer 1.5: 数据可视化质量门禁 ── ChartCard专业布局/卡片式设计/30项检查/来源脚注
+  Layer 1.5: 数据可视化质量门禁 ── ChartCard专业布局/卡片式设计/33项检查/来源脚注
   Layer 2: 风格一致性门禁 ── 必须匹配风格样本
   Layer 3: 质量检查门禁 ── 6故事/结构/合规/排版
   Layer 4: 数据准确性门禁 ── 可回溯零容忍
@@ -65,7 +66,7 @@
 
 **谁执行：** Claude Code（不可替代）
 **检查项：**
-- 运行 `python scripts/generate-charts.py` → 质量门禁 30/30 通过
+- 运行 `python scripts/generate-charts.py` → 质量门禁 33/33 通过
 - 红涨绿跌颜色正确：正→#DC2626，负→#16A34A
 - 红流入绿流出颜色正确
 - 标签无重叠，正值在柱右侧，负值在柱左侧
@@ -143,6 +144,24 @@
 - "史上最大""历史第X次""创N年最大"等表述 → 必须验证到精确来源
 - 任何百分比/价格数字无来源 → 删除
 - 音频/阅读时间标注与实际不符 → 修正
+
+### 新闻时效性铁律（新增 — 2026-05-27）
+
+**P0级别违规：**
+- 事件日期错误（把旧闻写成当天新闻）→ 整篇重做
+- 重大事件（财报、政策、突破）未标注精确日期 → 补充再发布
+- 脚本时间标注与文章不一致 → 修正
+
+**根因分析（5.27英伟达财报日期事件）：**
+- 直接原因：使用模型内部知识"5月27日盘后"代替实时搜索
+- 根因：缺乏"事件日期必须搜索核实"的强制流程
+- 修复：audit-article.py 增加事件时间标注检查 + 铁律写入
+
+**每日必须执行：**
+```bash
+python scripts/audit-article.py --date YYYY-MM-DD --edition evening
+```
+- 审核不通过 → 不进入质量终审 → 不发布
 
 ---
 
@@ -356,16 +375,16 @@ get_flow_color(-388.1)   # → '#16A34A'  流出=绿
 
 | 图表 | 内容 | 适用板块 | 质量门禁 |
 |------|------|---------|---------|
-| `nvidia_revenue.svg` | 英伟达单季营收柱状图 | AI/科技 | 30/30 |
-| `nvidia_net_income.svg` | 英伟达净利润柱状图 | AI/科技 | 30/30 |
-| `gold_price_trend.svg` | COMEX黄金期货走势 | 商品/黄金 | 30/30 |
-| `central_bank_gold.svg` | 各国央行购金量排行 | 宏观 | 30/30 |
-| `pboc_gold_reserves.svg` | 中国央行黄金储备趋势 | 宏观 | 30/30 |
-| `astock_indices.svg` | A股主要指数涨跌幅（红涨绿跌） | A股 | 30/30 |
-| `sector_flow.svg` | A股板块资金流向（红流入绿流出） | A股 | 30/30 |
-| `oil_price.svg` | WTI原油期货走势 | 商品 | 30/30 |
-| `global_markets.svg` | 全球主要指数隔夜表现 | 国际 | 30/30 |
-| `semiconductor_surge.svg` | 全球半导体板块暴涨 | AI/科技 | 30/30 |
+| `nvidia_revenue.svg` | 英伟达单季营收柱状图 | AI/科技 | 33/33 |
+| `nvidia_net_income.svg` | 英伟达净利润柱状图 | AI/科技 | 33/33 |
+| `gold_price_trend.svg` | COMEX黄金期货走势 | 商品/黄金 | 33/33 |
+| `central_bank_gold.svg` | 各国央行购金量排行 | 宏观 | 33/33 |
+| `pboc_gold_reserves.svg` | 中国央行黄金储备趋势 | 宏观 | 33/33 |
+| `astock_indices.svg` | A股主要指数涨跌幅（红涨绿跌） | A股 | 33/33 |
+| `sector_flow.svg` | A股板块资金流向（红流入绿流出） | A股 | 33/33 |
+| `oil_price.svg` | WTI原油期货走势 | 商品 | 33/33 |
+| `global_markets.svg` | 全球主要指数隔夜表现 | 国际 | 33/33 |
+| `semiconductor_surge.svg` | 全球半导体板块暴涨 | AI/科技 | 33/33 |
 
 ### 使用流程
 
@@ -435,10 +454,14 @@ python scripts/chart_templates.py
 ### Claude Code终审检查清单
 
 ```
+□ [新增] 运行 python scripts/audit-article.py — 审核通过（阻塞项）
+□ [新增] 事件日期精确核实（财报/政策发布/指数突破等精确到日，不写模糊时间）
+□ [新增] article.html 与 script.txt 关键数据交叉验证一致
+□ [新增] 新闻来源URL有效且收录在 sources 区块
 □ 文章 > 10KB
 □ 6故事结构完整（或合理跳过）
 □ 每条故事有数据+叙事+洞察
-□ generate-charts.py 已运行且质量门禁 30/30 通过
+□ generate-charts.py 已运行且质量门禁 33/33 通过
 □ ChartCard 布局完整：每张图表有标题+副标题+来源脚注（不得缺失来源）
 □ ChartCard 视觉：暖灰背景(#F0F2F5)+纯白面板+零脊线（不得回退旧版直出）
 □ docs/charts/ 目录当天有更新
@@ -491,7 +514,7 @@ cp scripts/pre-push.sh .git/hooks/pre-push
 chmod +x .git/hooks/pre-push
 ```
 
-### 部署前验证内容（7项）
+### 部署前验证内容（8项）
 
 `pre-deploy-check.sh` 自动检查：
 1. ✅ 运行 `update-index.py` 刷新数据索引
@@ -500,7 +523,8 @@ chmod +x .git/hooks/pre-push
 4. ✅ 验证所有文章"返回首页"链接为 `../../../index.html`
 5. ✅ 检查无模板占位符残留
 6. ✅ 检查git状态
-7. ✅ 运行 generate-charts.py 图表质量门禁（30项检查，阻塞部署）
+7. ✅ 运行 generate-charts.py 图表质量门禁（33项检查，阻塞部署）
+8. ✅ **运行 audit-article.py 综合审核（新增 — 时效性/真实性/来源/一致性，阻塞部署）**
 
 其中任何一项失败 → 阻塞部署 → 修复后重新运行。
 
@@ -518,7 +542,7 @@ chmod +x .git/hooks/pre-push
 **修复1 — `update-index.py` 自动更新预渲染（2026-05-25部署）**
 - `update-index.py` 现在会通过 `<!-- TODAY_PRERENDER_START/END -->` 和 `<!-- HISTORY_PRERENDER_START/END -->` 标记位，自动更新 `index.html` 中的预渲染内容
 - 每次运行都会根据最新文章数据生成 todayContent 和 historyContent
-- 部署流程变为：`update-index.py`(含预渲染) → `pre-deploy-check.sh`(6项验证) → 部署
+- 部署流程变为：`update-index.py`(含预渲染) → `pre-deploy-check.sh`(8项验证，含综合审核) → 部署
 
 **修复2 — `renderToday()` 永远以数据层为准（2026-05-25部署）**
 - 移除了"预渲染链接数>=预期数就跳过"的逻辑

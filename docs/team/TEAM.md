@@ -51,6 +51,12 @@
 这是我们唯一严格规定的东西——**质量门禁不可绕过**：
 
 ```
+Layer 0: 新闻综合审核门禁（新增 — 2026-05-27）
+  谁做: Claude Code（运行 audit-article.py）
+  审什么: 时效性（事件日期精确）、真实性（数据来源可追溯）、来源审查（URL域名）、文案一致性（文章vs脚本）
+  阻塞条件: 审核阻塞（exit code 2）→ 不可发布
+  来源: 复盘 P0-05 英伟达财报日期错误事件
+
 Layer 1: 事实核查门禁
   谁做: Codex 或 Claude Code
   审什么: 每个数据点必须有来源 URL，无来源的数据不能发表
@@ -206,10 +212,27 @@ Layer 4: 数据准确性门禁
 - **来源:** 5.25全天反复出现"改完HTML忘记run update-index.py"、"改完数据手动git push不验证"等部署流程遗漏
 - **规则:**
   - `deploy.sh` 是 **唯一授权** 的部署方式
-  - 自动执行: update-index.py → pre-deploy-check验证 → site-health → git push → CDN预热
+  - 自动执行: update-index.py → pre-deploy-check验证(8项) → site-health → git push → CDN预热
   - 严禁手动 `git add . + git commit + git push` 绕过
   - 部署命令: `bash deploy.sh "提交信息"`
 - **检查:** 所有提交必须通过 deploy.sh。发现手动git push = 严重违规
+
+### 铁律15: 新闻时效性必须精确核实（新增 — 2026-05-27）
+- **来源:** P0-05 英伟达财报日期错误事件（5.27晚报写"5月27日美股盘后发布财报"，实际为5月20日）
+- **规则:**
+  - 所有重大事件（财报、政策发布、指数突破）的日期必须精确到日
+  - 禁止使用模型内部知识替代实时搜索来确认日期
+  - 不确定的表述用"近日""上周""本周X"替代精确日期
+  - article.html 和 script.txt 中的事件时间标注必须一致
+- **检查:** 每次production前运行 `python scripts/audit-article.py` 审核时效性
+
+### 铁律16: 审核不通过不发布（新增 — 2026-05-27）
+- **来源:** 5.27英伟达事件：如果审核机制提前存在，日期错误在发布前就会被拦截
+- **规则:**
+  - `python scripts/audit-article.py` 审核不通过 → 不进入质量终审 → 不发布
+  - `pre-deploy-check.sh` 8项检查任何一项失败 → 阻塞部署
+  - 综合审核覆盖四大维度：时效性、真实性、来源审查、文案一致性
+- **检查:** 每次部署前 review 审核报告
 
 ---
 
@@ -274,7 +297,7 @@ bash deploy.sh "提交信息"
 
 `deploy.sh` 自动执行：
 1. `update-index.py` — 刷新 articles.js/data
-2. `pre-deploy-check.sh` — 6项验证（含预渲染、链接、占位符）
+2. `pre-deploy-check.sh` — 8项验证（含预渲染、链接、占位符、图表、综合审核）
 3. 验证通过 → 自动 git add/commit/push
 4. CDN预热 + 部署后验证
 
