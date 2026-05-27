@@ -21,8 +21,9 @@
 ## 核心架构
 
 ```
-四条不可绕过质量门禁：
+五条不可绕过质量门禁：
   Layer 1: 事实核查门禁 ── 每个数据点有来源，无来源=不发表
+  Layer 1.5: 数据可视化质量门禁 ── 红涨绿跌/标签/品牌风格/30项检查
   Layer 2: 风格一致性门禁 ── 必须匹配风格样本
   Layer 3: 质量检查门禁 ── 6故事/结构/合规/排版
   Layer 4: 数据准确性门禁 ── 可回溯零容忍
@@ -55,6 +56,19 @@
 - 发现编造数据 → 整篇退回，根因分析
 - 关键数据无来源 → 删除该数据点
 - 来源为模型"内部知识" → 不合规
+
+### Layer 1.5: 数据可视化质量门禁（新增）
+
+**谁执行：** Claude Code（不可替代）
+**检查项：**
+- 运行 `python scripts/generate-charts.py` → 质量门禁 30/30 通过
+- 红涨绿跌颜色正确：正→#DC2626，负→#16A34A
+- 红流入绿流出颜色正确
+- 标签无重叠，正值在柱右侧，负值在柱左侧
+- 品牌背景色 #F8FAFC，白边框，淡网格
+- 嵌入图表与文章叙事直接相关
+
+**失败 → 不发布，返回修改。详见 WORKFLOW.md Phase 5。**
 
 ### Layer 2: 风格一致性门禁
 
@@ -274,38 +288,70 @@
 
 ### 核心理念
 
-Python图表工具（`scripts/generate-charts.py`）是我们已有的强大资产。数据图表 ≠ 漫画，两者互补：
+Python图表工具（`scripts/generate-charts.py` + `scripts/chart_templates.py`）是我们已有的强大资产。数据图表 ≠ 漫画，两者互补：
 - **漫画**：解释逻辑、视觉隐喻、让读者"看懂"发生了什么
 - **数据图表**：展示真实数据走势、让读者"看清"数据的全貌
 
 **两者在文章中同时使用，不互相替代。**
 
+### 品牌风格系统 v2.0（升级内容）
+
+所有图表现在统一使用以下品牌设计系统：
+
+| 组件 | 文件 | 用途 |
+|------|------|------|
+| 品牌mplstyle | `stylelib/yangshuo.mplstyle` | 全局 rcParams（背景/边框/网格/字体大小） |
+| 品牌配色工具 | `stylelib/yangshuo_palette.py` | 红涨绿跌/红流入绿流出 配色函数 |
+| 高级模板库 | `scripts/chart_templates.py` | 6种进阶图表（棒棒糖/瀑布/斜率/哑铃/华夫饼/置信区间） |
+
+**配色规则（红涨绿跌 — 中国A股惯例）：**
+```python
+from stylelib.yangshuo_palette import *
+get_price_color(2.5)     # → '#DC2626'  涨=红
+get_price_color(-1.2)    # → '#16A34A'  跌=绿
+get_flow_color(50.7)     # → '#DC2626'  流入=红
+get_flow_color(-388.1)   # → '#16A34A'  流出=绿
+```
+
+**加载方式：**
+```python
+# generate-charts.py 已自动执行以下加载（无需手动配置）：
+# 1. plt.style.use('stylelib/yangshuo.mplstyle')
+# 2. from yangshuo_palette import *
+```
+
 ### 可用脚本
 
 | 脚本 | 功能 | 产出 |
 |------|------|------|
-| `scripts/generate-charts.py` | 生成8张标准数据图表 | `docs/charts/*.svg` |
+| `scripts/generate-charts.py` | 生成10张标准数据图表 + 自动质量门禁 | `docs/charts/*.svg` |
+| `scripts/chart_templates.py` | 6种进阶图表模板（可独立使用） | `docs/charts/templates/*.svg` |
 | `scripts/generate-xkcd-charts.py` | 生成手绘风格图表 | `docs/charts/` |
 | `scripts/article-template.py` | 生成标准化文章HTML | 文章html |
 
-### 图表清单（generate-charts.py产出）
+### 图表清单（generate-charts.py产出 — v3.0）
 
-| 图表 | 内容 | 适用板块 |
-|------|------|---------|
-| `nvidia_revenue.svg` | 英伟达单季营收柱状图 | AI/科技 |
-| `nvidia_net_income.svg` | 英伟达净利润柱状图 | AI/科技 |
-| `gold_price_trend.svg` | COMEX黄金期货走势 | 商品/黄金 |
-| `central_bank_gold.svg` | 各国央行购金量排行 | 宏观 |
-| `pboc_gold_reserves.svg` | 中国央行黄金储备趋势 | 宏观 |
-| `astock_indices.svg` | A股主要指数涨跌幅 | A股 |
-| `sector_flow.svg` | A股板块资金流向 | A股 |
-| `oil_price.svg` | WTI原油期货走势 | 商品 |
+| 图表 | 内容 | 适用板块 | 质量门禁 |
+|------|------|---------|---------|
+| `nvidia_revenue.svg` | 英伟达单季营收柱状图 | AI/科技 | 30/30 |
+| `nvidia_net_income.svg` | 英伟达净利润柱状图 | AI/科技 | 30/30 |
+| `gold_price_trend.svg` | COMEX黄金期货走势 | 商品/黄金 | 30/30 |
+| `central_bank_gold.svg` | 各国央行购金量排行 | 宏观 | 30/30 |
+| `pboc_gold_reserves.svg` | 中国央行黄金储备趋势 | 宏观 | 30/30 |
+| `astock_indices.svg` | A股主要指数涨跌幅（红涨绿跌） | A股 | 30/30 |
+| `sector_flow.svg` | A股板块资金流向（红流入绿流出） | A股 | 30/30 |
+| `oil_price.svg` | WTI原油期货走势 | 商品 | 30/30 |
+| `global_markets.svg` | 全球主要指数隔夜表现 | 国际 | 30/30 |
+| `semiconductor_surge.svg` | 全球半导体板块暴涨 | AI/科技 | 30/30 |
 
 ### 使用流程
 
 ```bash
-# 每天文章撰写前，先运行图表生成
+# Phase 0: 运行图表生成（自动执行质量门禁30项检查）
 python scripts/generate-charts.py
+
+# 如果需要进阶图表类型：
+python scripts/chart_templates.py
 
 # 图表输出到 docs/charts/ 目录
 # 在文章 HTML 中用 <img> 嵌入相关图表到数据板块
@@ -313,10 +359,14 @@ python scripts/generate-charts.py
 
 ### 强制要求
 
-- ✅ 每天至少运行一次 `generate-charts.py`（产出实时数据图表）
+- ✅ 每天至少运行一次 `generate-charts.py`（自动执行图表质量门禁）
+- ✅ 确认质量门禁输出为 "30/30 通过"（否则阻塞发布）
+- ✅ 检查图表颜色：红涨绿跌、红流入绿流出
+- ✅ 检查标签：无文字堆叠
 - ✅ 文章中嵌入数据图表的板块（如A股指数、板块资金流向等）
 - ✅ 图表嵌入在文章的Layer 3 "数据一览" 或对应板块
 - ❌ 不要将数据图表当作漫画使用（两者功能不同）
+- ❌ 不要在 mplstyle 中设置 font.family（由 setup_font() 动态选择中文字体）
 
 ### 流程
 
@@ -353,9 +403,13 @@ python scripts/generate-charts.py
 □ 文章 > 10KB
 □ 6故事结构完整（或合理跳过）
 □ 每条故事有数据+叙事+洞察
-□ docs/charts/ 目录当天有更新（generate-charts.py已运行）
+□ generate-charts.py 已运行且质量门禁 30/30 通过
+□ 图表质量门禁 Layer 1.5 逐项通过（颜色/标签/数据/视觉/嵌入）
+□ docs/charts/ 目录当天有更新
 □ 文章中嵌入了相关数据图表
-□ 所有漫画面板存在且 < 5KB（线稿SVG标准）
+□ 嵌入图表颜色正确（红涨绿跌）
+□ 嵌入图表标签无重叠
+□ 所有漫画面板存在且 < 6KB（线稿SVG标准）
 □ 日常漫画风格匹配5.22日报样本
 □ 专题漫画风格匹配央行法修订样本（暖白底/深蓝+金色/建筑学隐喻）
 □ 漫画无文字遮挡（文字在空白区域，不重叠）
@@ -385,7 +439,7 @@ python scripts/generate-charts.py
 
 **规则：**
 - 所有部署必须使用 `bash deploy.sh "提交信息"`
-- `deploy.sh` 自动执行：`update-index.py` → `pre-deploy-check.sh`(6项验证) → `git push` → CDN预热 → 部署后验证
+- `deploy.sh` 自动执行：`update-index.py` → `pre-deploy-check.sh`(7项验证，含图表质量门禁) → `git push` → CDN预热 → 部署后验证
 - 手动 `git add . + git commit + git push` 被 pre-push 钩子拦截
 - 特殊情况需强制推送：`GIT_PUSH_USING_DEPLOY=1 git push`
 
@@ -399,7 +453,7 @@ cp scripts/pre-push.sh .git/hooks/pre-push
 chmod +x .git/hooks/pre-push
 ```
 
-### 部署前验证内容（6项）
+### 部署前验证内容（7项）
 
 `pre-deploy-check.sh` 自动检查：
 1. ✅ 运行 `update-index.py` 刷新数据索引
@@ -408,6 +462,7 @@ chmod +x .git/hooks/pre-push
 4. ✅ 验证所有文章"返回首页"链接为 `../../../index.html`
 5. ✅ 检查无模板占位符残留
 6. ✅ 检查git状态
+7. ✅ 运行 generate-charts.py 图表质量门禁（30项检查，阻塞部署）
 
 其中任何一项失败 → 阻塞部署 → 修复后重新运行。
 

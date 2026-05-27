@@ -1,0 +1,87 @@
+# 扬说财经 · 品牌视觉风格 v1.0
+# ============================================================
+# Usage:
+#   import matplotlib.pyplot as plt
+#   plt.style.use('path/to/yangshuo.mplstyle')
+# ============================================================
+
+# === FIGURE ===
+figure.figsize        : 5.5, 3.2
+figure.dpi            : 200
+figure.facecolor      : F8FAFC
+figure.titlesize      : 14
+figure.titleweight    : bold
+
+# === AXES ===
+axes.facecolor        : F8FAFC
+axes.edgecolor        : E2E8F0
+axes.linewidth        : 0.5
+axes.spines.top       : False
+axes.spines.right     : False
+axes.spines.left      : True
+axes.spines.bottom    : True
+axes.labelcolor       : 1E293B
+axes.labelsize        : 10
+axes.labelweight      : normal
+axes.titlesize        : 13
+axes.titleweight      : bold
+axes.titlelocation    : center
+axes.titlepad         : 14
+axes.grid             : True
+axes.grid.axis        : y
+# === GRID ===
+grid.color            : E2E8F0
+grid.alpha            : 0.15
+grid.linewidth        : 0.5
+grid.linestyle        : -
+
+# === LINES ===
+lines.linewidth       : 2.8
+lines.linestyle       : -
+lines.color           : 1A56DB
+lines.marker          : o
+lines.markersize      : 6
+lines.markeredgewidth : 1.5
+lines.markeredgecolor : auto
+lines.dash_capstyle   : round
+
+# === PATCHES (bars, boxes, etc.) ===
+patch.facecolor       : 1A56DB
+patch.edgecolor       : FFFFFF
+patch.linewidth       : 1.5
+patch.force_edgecolor : True
+
+# === FONT ===
+# font.family 不在此设置，运行时由 setup_font() 动态选择中文字体
+font.size             : 10
+font.weight           : normal
+
+# === TEXT ===
+text.color            : 1E293B
+
+# === LEGEND ===
+legend.frameon        : False
+legend.fontsize       : 9
+legend.loc            : best
+legend.handlelength   : 1.5
+legend.handletextpad  : 0.5
+
+# === TICKS ===
+xtick.color           : 64748B
+ytick.color           : 64748B
+xtick.labelsize       : 9
+ytick.labelsize       : 9
+xtick.major.size      : 3
+ytick.major.size      : 3
+xtick.major.width     : 0.5
+ytick.major.width     : 0.5
+xtick.direction       : out
+ytick.direction       : out
+
+# === SAVEFIG ===
+savefig.dpi           : 200
+savefig.facecolor     : F8FAFC
+savefig.bbox          : tight
+savefig.pad_inches    : 0.1
+savefig.transparent   : False
+savefig.format        : svg

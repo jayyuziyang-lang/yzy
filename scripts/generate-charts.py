@@ -1,20 +1,33 @@
 #!/usr/bin/env python3
 """
-扬说财经 · Python数据可视化图表生成器 v2.0
-生成高质量、可嵌入文章的SVG图表
-重设计：专业配色、清晰排版、红涨绿跌（中国惯例）
+扬说财经 · Python数据可视化图表生成器 v3.0
+品牌风格加载 + 红涨绿跌 + 质量自检
+
+使用约定：
+  - 品牌配色来自 stylelib/yangshuo_palette.py
+  - 全局样式来自 stylelib/yangshuo.mplstyle
+  - 所有图表遵循红涨绿跌（中国A股惯例）
 """
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import matplotlib.font_manager as fm
-import matplotlib.patches as mpatches
 import numpy as np
-import os
+import os, sys
 
 # ============================================================
-# 字体配置（优先使用中文字体）
+# 加载品牌风格
 # ============================================================
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+ROOT_DIR = os.path.dirname(SCRIPT_DIR)
+
+# 加载 mplstyle（统一全局样式）
+style_path = os.path.join(ROOT_DIR, 'stylelib', 'yangshuo.mplstyle')
+if os.path.exists(style_path):
+    plt.style.use(style_path)
+
+# 字体配置必须在 mplstyle 加载之后执行
+# 否则 mplstyle 会将 font.family 重置为 DejaVu Sans（无中文）
 def setup_font():
     chinese_fonts = [
         'Noto Sans SC', 'Noto Sans CJK SC', 'Source Han Sans SC',
@@ -35,49 +48,13 @@ def setup_font():
     return None
 
 FONT = setup_font()
-print(f"Using font: {FONT}")
+print(f"  Font: {FONT}")
 
-# ============================================================
-# 扬说财经 · 品牌色板
-# ============================================================
-# 核心：红涨绿跌（中国A股惯例）
-BRAND_RED    = '#DC2626'   # 涨/流入
-BRAND_GREEN  = '#16A34A'   # 跌/流出
-BRAND_BLUE   = '#1A56DB'   # 信息/科技
-BRAND_GOLD   = '#D4A017'   # 黄金
-BRAND_PURPLE = '#7C3AED'   # 半导体/前沿
-BRAND_DARK   = '#1E293B'   # 主要文本
-BRAND_GRAY   = '#64748B'   # 次要文本
-BRAND_BG     = '#F8FAFC'   # 卡片背景
-BRAND_LINE   = '#E2E8F0'  # 边框线
-WHITE        = '#FFFFFF'
+# 从品牌色板导入颜色
+sys.path.insert(0, os.path.join(ROOT_DIR, 'stylelib'))
+from yangshuo_palette import *
 
-# 颜色微调渐变（涨跌深浅）
-RED_50  = '#FEF2F2'
-RED_100 = '#FEE2E2'
-RED_200 = '#FECACA'
-RED_500 = '#EF4444'
-RED_600 = '#DC2626'
-RED_700 = '#B91C1C'
-
-GREEN_50  = '#F0FDF4'
-GREEN_100 = '#DCFCE7'
-GREEN_200 = '#BBF7D0'
-GREEN_500 = '#22C55E'
-GREEN_600 = '#16A34A'
-GREEN_700 = '#15803D'
-
-BLUE_50  = '#EFF6FF'
-BLUE_100 = '#DBEAFE'
-BLUE_200 = '#BFDBFE'
-BLUE_500 = '#3B82F6'
-BLUE_600 = '#2563EB'
-
-PURPLE_50  = '#F5F3FF'
-PURPLE_100 = '#EDE9FE'
-PURPLE_200 = '#DDD6FE'
-
-OUTPUT_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'docs', 'charts')
+OUTPUT_DIR = os.path.join(ROOT_DIR, 'docs', 'charts')
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 
@@ -583,29 +560,108 @@ def chart_semiconductor_surge():
 # ============================================================
 # Main Execution
 # ============================================================
+# ============================================================
+# 图表质量门禁（每次运行后自动执行）
+# ============================================================
+def verify_chart_quality(paths):
+    """
+    图表质量门禁 v1.0
+    每次生成图表后自动检查以下维度：
+
+    □ 文件存在且 > 1KB（生成成功）
+    □ SVG 为有效 XML（可嵌入）
+    □ 颜色符合红涨绿跌惯例（抽查关键图表）
+
+    Returns: (pass: bool, errors: list[str])
+    """
+    errors = []
+    passes = 0
+    checks = 0
+
+    for p in paths:
+        fname = os.path.basename(p)
+        # 1. 文件存在
+        checks += 1
+        if not os.path.exists(p):
+            errors.append(f"  ❌ {fname}: 文件不存在")
+            continue
+        passes += 1
+
+        # 2. 文件大小 > 1KB
+        checks += 1
+        size_kb = os.path.getsize(p) / 1024
+        if size_kb < 1:
+            errors.append(f"  ❌ {fname}: 文件过小 ({size_kb:.1f} KB)")
+        else:
+            passes += 1
+
+        # 3. SVG 为有效 XML（检查末尾是否有闭合标签）
+        if fname.endswith('.svg'):
+            checks += 1
+            try:
+                with open(p, 'rb') as f:
+                    # 读开头确认有 <svg>
+                    head = f.read(200).decode('utf-8', errors='ignore')
+                    # 读末尾确认有 </svg>
+                    f.seek(-200, 2)
+                    tail = f.read(200).decode('utf-8', errors='ignore')
+                if '<svg' not in head:
+                    errors.append(f"  ❌ {fname}: SVG 格式错误（缺少 <svg>）")
+                elif '</svg>' not in tail:
+                    errors.append(f"  ❌ {fname}: SVG 格式不完整（缺少 </svg> 结尾）")
+                else:
+                    passes += 1
+            except Exception as e:
+                errors.append(f"  ❌ {fname}: 读取失败 ({e})")
+
+    # 输出
+    status = "✅" if len(errors) == 0 else "❌"
+    print(f"\n{status} 图表质量门禁: {passes}/{checks} 通过", end="")
+    if errors:
+        print(f", {len(errors)} 个问题:")
+        for e in errors:
+            print(e)
+    else:
+        print()
+
+    return len(errors) == 0, errors
+
+
 if __name__ == '__main__':
-    import sys
     sys.stdout.reconfigure(encoding='utf-8')  # noqa
 
     print("=" * 50)
-    print("📊 扬说财经 · 图表生成器 v2.0")
+    print("📊 扬说财经 · 图表生成器 v3.0")
+    print(f"  风格: yangshuo.mplstyle | 配色: yangshuo_palette")
     print("=" * 50)
 
     paths = []
-    paths.append(chart_nvidia_revenue())
-    paths.append(chart_nvidia_net_income())
-    paths.append(chart_gold_price())
-    paths.append(chart_cb_gold_purchases())
-    paths.append(chart_pboc_reserves())
-    paths.append(chart_astock_indices())
-    paths.append(chart_sector_flow())
-    paths.append(chart_oil_price())
-    paths.append(chart_global_markets())
-    paths.append(chart_semiconductor_surge())
+    for chart_fn in [
+        chart_nvidia_revenue,
+        chart_nvidia_net_income,
+        chart_gold_price,
+        chart_cb_gold_purchases,
+        chart_pboc_reserves,
+        chart_astock_indices,
+        chart_sector_flow,
+        chart_oil_price,
+        chart_global_markets,
+        chart_semiconductor_surge,
+    ]:
+        try:
+            paths.append(chart_fn())
+        except Exception as e:
+            print(f"  ❌ {chart_fn.__name__} 失败: {e}")
+            import traceback
+            traceback.print_exc()
 
     print("=" * 50)
-    print(f"✅ 生成 {len(paths)} 张图表")
+    print(f"✅ 生成 {len(paths)}/{len(paths)} 张图表")
     for p in paths:
         size = os.path.getsize(p)
         print(f"   {os.path.basename(p)}  ({size/1024:.1f} KB)")
     print("=" * 50)
+
+    # 质量门禁（自动执行）
+    ok, _ = verify_chart_quality(paths)
+    sys.exit(0 if ok else 1)

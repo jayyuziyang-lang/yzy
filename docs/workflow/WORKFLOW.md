@@ -53,7 +53,8 @@ Claude Code（质量门核心） → 定调、终审、复盘、规则更新
 → git status（工作区干净）
 → cd D:/Desktop/每日财经
 → 生产日期目录已创建
-→ python scripts/generate-charts.py（运行通用图表生成）
+→ 确认 stylelib/yangshuo.mplstyle 和 stylelib/yangshuo_palette.py 存在
+→ python scripts/generate-charts.py（运行通用图表生成，自动执行质量门禁）
 → python scripts/charts_today.py（运行当日专项图表，数据与今日叙事对齐）
 → 确认 docs/charts/ 目录有当天更新且图表与文章核心叙事相关
 ```
@@ -172,12 +173,58 @@ Claude Code（质量门核心） → 定调、终审、复盘、规则更新
 
 **铁律：** 标注不撒谎。脚本字数→预计时长→实际时长，三者必须一致。
 
-### Phase 5: 数据可视化嵌入
+### Phase 5: 数据可视化生产与质量门禁（v2.0升级）
 
-- `python scripts/generate-charts.py` 已在Phase 0运行
-- 生成的图表位于 `docs/charts/` 目录
-- 文章HTML中嵌入相关图表到对应板块（如A股指数→01 A股板块，油价→06 商品板块）
-- 数据图表 ≠ 漫画，两者互补不替代
+**核心工具链：**
+| 组件 | 位置 | 用途 |
+|------|------|------|
+| 通用图表生成 | `scripts/generate-charts.py` | 10张固定模板图表（指数/板块/商品等） |
+| 高级模板库 | `scripts/chart_templates.py` | 6种进阶图表类型（棒棒糖/瀑布/斜率等） |
+| 品牌风格 | `stylelib/yangshuo.mplstyle` | 全局 rcParams 统一配置 |
+| 品牌配色 | `stylelib/yangshuo_palette.py` | 红涨绿跌配色工具函数 |
+
+**生产流程（Phase 0 → Phase 5 连贯执行）：**
+
+```
+Phase 0: 运行 python scripts/generate-charts.py
+         ↓ 自动执行 "图表质量门禁 v1.0"
+         ↓ 输出 30 项检查结果（文件存在 + 大小 + SVG格式）
+Phase 5: 将生成图表嵌入文章HTML
+         ↓ 逐图检查：颜色正确 + 标签不重叠 + 与叙事相关
+```
+
+**数据可视化质量门禁（Layer 2.5 — 新增，位于 Layer 2 风格一致性与 Layer 3 质量检查之间）：**
+
+每张嵌入文章的图表，逐项检查：
+
+```
+□ 颜色正确性
+   ├── 红涨绿跌（A股/全球指数）：正→#DC2626，负→#16A34A
+   ├── 红流入绿流出（资金流向）：正→#DC2626，负→#16A34A
+   └── 半导体/科技：紫色系（#7C3AED），金价：金色系（#D4A017）
+
+□ 标签布局
+   ├── 无文字堆叠/重叠（手动检查渲染结果）
+   ├── 正值标签在柱右侧，负值标签在柱左侧
+   └── 标注字体 ≥ 8px，保持可读
+
+□ 数据准确性
+   ├── 图表数据与文章正文一致（如指数涨跌幅数字核对）
+   └── 无编造历史数据（"历史第X次"等必须有来源）
+
+□ 视觉品质
+   ├── 品牌背景色 #F8FAFC（非默认白色）
+   ├── 白边框（edgecolor=WHITE, linewidth=1.5）
+   ├── 网格线淡色（alpha=0.15）
+   └── 删除上边框和右边框（spines top/right False）
+
+□ 图表嵌入
+   ├── 图表与对应板块叙事直接相关（非通用数据硬塞）
+   ├── img 标签含 loading="lazy"
+   └── caption 说明文字包含关键数据解读
+```
+
+**如果 embed 阶段发现问题 → 返回修改，不得跳过。**
 
 ### Phase 6: 质量终审（Claude Code 不可替代）
 
@@ -193,9 +240,11 @@ Claude Code（质量门核心） → 定调、终审、复盘、规则更新
 □ 文章 > 10KB
 □ 6故事结构完整（或合理跳过）
 □ 每条故事有数据+叙事+洞察
-□ docs/charts/ 目录当天有更新（generate-charts.py + charts_today.py已运行）
+□ generate-charts.py 已运行且质量门禁 30/30 通过
+□ 图表质量门禁 Layer 2.5 逐项通过（颜色/标签/数据/视觉/嵌入）
+□ docs/charts/ 目录当天有更新
 □ 嵌入的图表与对应板块叙事相关（非通用数据硬塞）
-□ 所有漫画面板存在且 < 5KB
+□ 所有漫画面板存在且 < 6KB
 □ 漫画风格匹配基准（白底/黑线/300×220/无色块无人物）
 □ 漫画无文字遮挡（文字在空白区域，不重叠）
 □ 无"历史第X次"类可疑表述

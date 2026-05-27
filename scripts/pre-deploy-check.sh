@@ -77,6 +77,16 @@ done
 echo -e "\n📦 [6/6] git 状态..."
 echo -e "  $(git status --porcelain 2>/dev/null | wc -l) 个待提交文件"
 
+# [7/7] 图表质量校验（运行 generate-charts.py 的质量门禁）
+echo -e "\n📊 [7/7] 图表质量校验..."
+if python scripts/generate-charts.py 2>/dev/null; then
+    echo -e "  ✅ 图表生成成功 + 质量门禁通过"
+else
+    echo -e "  ${RED}❌ 图表质量门禁未通过${NC}"
+    echo "  python scripts/generate-charts.py 报错，请先修复"
+    ((ERRORS++))
+fi
+
 # 结果
 echo ""
 if [ "$ERRORS" -gt 0 ]; then
