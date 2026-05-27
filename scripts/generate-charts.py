@@ -107,16 +107,21 @@ def chart_gold_price():
     fig.patch.set_facecolor(BG)
     ax.set_facecolor(BG)
 
-    months = ['2025\n1月', '3月', '5月', '7月', '9月', '11月', '2026\n1月', '3月', '5/25']
-    prices = [2650, 2900, 3100, 3350, 3600, 3800, 4100, 4300, 4573.6]
+    months = ['2025\n1月', '3月', '5月', '7月', '9月', '11月', '2026\n1月', '3月', '5/26']
+    prices = [2650, 2900, 3100, 3350, 3600, 3800, 4100, 4300, 4507]
 
     ax.plot(months, prices, color=GOLD, linewidth=2.5, marker='o', markersize=5, zorder=3)
     ax.fill_between(range(len(months)), prices, alpha=0.1, color=GOLD)
 
     # Annotate latest price
-    ax.annotate(f'$4,573.6', xy=(8, 4573.6), xytext=(6.5, 4800),
+    ax.annotate(f'$4,507', xy=(8, 4507), xytext=(6.5, 4750),
                 fontsize=11, fontweight='bold', color=RED,
                 arrowprops=dict(arrowstyle='->', color=RED, lw=1.5))
+
+    # Add annotation for recent drop
+    ax.annotate('油价反弹\n通胀预期升温', xy=(7, 4300), xytext=(5, 4450),
+                fontsize=7, color=RED, ha='center',
+                arrowprops=dict(arrowstyle='->', color=RED, lw=1))
 
     # Add key event annotations
     ax.annotate('央行\n连续买入', xy=(6, 4100), xytext=(5, 4400),
@@ -385,8 +390,97 @@ def chart_oil_price():
 
 
 # ============================================================
-# Main
+# Chart 9: 全球主要指数隔夜表现 (Comparison bar chart)
 # ============================================================
+def chart_global_markets():
+    fig, ax = plt.subplots(figsize=(5.5, 3.5))
+    fig.patch.set_facecolor(BG)
+    ax.set_facecolor(BG)
+
+    indices = ['韩国KOSPI', '日经225', '纳指', '德国DAX', '标普500', '法国CAC', '道指', '上证指数']
+    changes = [4.67, 2.20, 1.19, 2.01, 0.61, 1.76, -0.23, -0.17]
+    colors_bar = [GREEN if c >= 0 else RED for c in changes]
+    # Highlight top performers
+    colors_bar[0] = '#059669'
+    colors_bar[1] = '#059669'
+
+    bars = ax.barh(indices, changes, color=colors_bar, height=0.55, edgecolor='white', linewidth=0.5)
+
+    for bar, val in zip(bars, changes):
+        if val > 0:
+            ax.text(bar.get_width() + 0.08, bar.get_y() + bar.get_height()/2.,
+                    f'+{val:.2f}%', ha='left', va='center', fontsize=8, fontweight='bold', color=GREEN)
+        else:
+            ax.text(bar.get_width() - 0.08, bar.get_y() + bar.get_height()/2.,
+                    f'{val:.2f}%', ha='right', va='center', fontsize=8, fontweight='bold', color='white')
+
+    # Add vertical zones
+    ax.axvline(x=0, color=DARK, linewidth=0.8)
+    ax.axvspan(0, 5, alpha=0.03, color=GREEN)
+    ax.axvspan(-1, 0, alpha=0.03, color=RED)
+
+    # Annotate key insight
+    ax.text(0.98, 0.95, '亚太领涨 全球共振', transform=ax.transAxes,
+            fontsize=9, color='#059669', fontweight='bold', ha='right', va='top',
+            bbox=dict(boxstyle='round,pad=0.3', facecolor='#F0FDF4', edgecolor=GREEN, alpha=0.8))
+
+    ax.set_title('全球主要指数隔夜表现 2026.05.27', fontsize=13, fontweight='bold', color=DARK, pad=12)
+    ax.set_xlabel('涨跌幅 (%)', fontsize=9, color=GRAY)
+    ax.spines['top'].set_visible(False)
+    ax.spines['right'].set_visible(False)
+    ax.spines['left'].set_color('#E2E8F0')
+    ax.spines['bottom'].set_color('#E2E8F0')
+    ax.tick_params(colors=GRAY, labelsize=8)
+    ax.set_xlim(-1.5, 5.7)
+    ax.grid(axis='x', alpha=0.2, color=GRAY)
+
+    plt.tight_layout()
+    path = os.path.join(OUTPUT_DIR, 'global_markets.svg')
+    fig.savefig(path, dpi=150, bbox_inches='tight', facecolor=BG)
+    plt.close()
+    print(f"✅ {path}")
+    return path
+
+
+# ============================================================
+# Chart 10: 半导体板块 — 美光引爆全球 (Grouped bar with annotation)
+# ============================================================
+def chart_semiconductor_surge():
+    fig, ax = plt.subplots(figsize=(5.5, 3.2))
+    fig.patch.set_facecolor(BG)
+    ax.set_facecolor(BG)
+
+    stocks = ['美光科技', 'SK海力士', '三星电子', '西部数据', '闪迪', '费城半导体']
+    changes = [19.3, 11.0, 5.0, 9.0, 7.0, 5.2]
+    colors_bar = ['#7C3AED', '#8B5CF6', '#A78BFA', '#8B5CF6', '#A78BFA', '#7C3AED']
+
+    bars = ax.barh(stocks, changes, color=colors_bar, height=0.5, edgecolor='white', linewidth=0.5)
+
+    for bar, val in zip(bars, changes):
+        ax.text(bar.get_width() + 0.3, bar.get_y() + bar.get_height()/2.,
+                f'+{val:.1f}%', ha='left', va='center', fontsize=9, fontweight='bold', color=DARK)
+
+    # Revenue breakdown inset box
+    ax.text(0.95, 0.05, '美光HBM产能全年售罄\n瑞银目标价 $535→$1,625',
+            transform=ax.transAxes, fontsize=7.5, color=DARK, ha='right', va='bottom',
+            bbox=dict(boxstyle='round,pad=0.4', facecolor='#F5F3FF', edgecolor='#C4B5FD', alpha=0.9))
+
+    ax.set_title('全球半导体板块引爆 — 2026.05.26/27', fontsize=13, fontweight='bold', color=DARK, pad=12)
+    ax.set_xlabel('涨跌幅 (%)', fontsize=9, color=GRAY)
+    ax.spines['top'].set_visible(False)
+    ax.spines['right'].set_visible(False)
+    ax.spines['left'].set_color('#E2E8F0')
+    ax.spines['bottom'].set_color('#E2E8F0')
+    ax.tick_params(colors=GRAY, labelsize=8)
+    ax.set_xlim(0, 24)
+    ax.grid(axis='x', alpha=0.2, color=GRAY)
+
+    plt.tight_layout()
+    path = os.path.join(OUTPUT_DIR, 'semiconductor_surge.svg')
+    fig.savefig(path, dpi=150, bbox_inches='tight', facecolor=BG)
+    plt.close()
+    print(f"✅ {path}")
+    return path
 if __name__ == '__main__':
     import sys
     sys.stdout.reconfigure(encoding='utf-8')  # noqa
@@ -404,6 +498,8 @@ if __name__ == '__main__':
     paths.append(chart_astock_indices())
     paths.append(chart_sector_flow())
     paths.append(chart_oil_price())
+    paths.append(chart_global_markets())
+    paths.append(chart_semiconductor_surge())
 
     print("=" * 50)
     print(f"Generated {len(paths)} charts")
