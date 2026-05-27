@@ -1,7 +1,15 @@
 {
-  "generated_at": "2026-05-26T21:51:40+08:00",
-  "latest_date": "2026-05-26",
+  "generated_at": "2026-05-27T12:57:09+08:00",
+  "latest_date": "2026-05-27",
   "articles": [
+    {
+      "date": "2026-05-27",
+      "session": "morning",
+      "edition_cn": "早报",
+      "icon": "🌅",
+      "title": "美光暴涨19%市值破万亿·韩国股市熔断·日经创新高·小米200亿回购",
+      "url": "2026-05-27/wechat-publish/morning/article.html"
+    },
     {
       "date": "2026-05-26",
       "session": "evening",
@@ -93,6 +101,16 @@
     }
   ],
   "by_date": {
+    "2026-05-27": {
+      "morning": {
+        "date": "2026-05-27",
+        "session": "morning",
+        "edition_cn": "早报",
+        "icon": "🌅",
+        "title": "美光暴涨19%市值破万亿·韩国股市熔断·日经创新高·小米200亿回购",
+        "url": "2026-05-27/wechat-publish/morning/article.html"
+      }
+    },
     "2026-05-26": {
       "evening": {
         "date": "2026-05-26",

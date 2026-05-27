@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" width="480" height="360">
+  <rect width="480" height="360" fill="#FAFAFA" rx="8"/>
+  <!-- Title -->
+  <text x="240" y="28" text-anchor="middle" font-size="15" font-weight="700" fill="#1E293B">🌍 全球半导体夜未眠</text>
+  <line x1="80" y1="36" x2="400" y2="36" stroke="#D4A017" stroke-width="1.5"/>
+
+  <!-- Micron section -->
+  <text x="30" y="62" font-size="10" fill="#64748B" font-weight="600">隔夜 · 美股</text>
+  <rect x="30" y="70" width="200" height="110" fill="#FFF" stroke="#E2E8F0" stroke-width="1" rx="6"/>
+  <text x="130" y="94" text-anchor="middle" font-size="13" font-weight="700" fill="#1E293B">美光科技</text>
+  <text x="130" y="112" text-anchor="middle" font-size="20" font-weight="800" fill="#DC2626">+19.3%</text>
+  <text x="130" y="130" text-anchor="middle" font-size="11" fill="#64748B">市值破万亿</text>
+  <text x="130" y="148" text-anchor="middle" font-size="9" fill="#64748B">瑞银目标价→$1625</text>
+  <line x1="50" y1="156" x2="210" y2="156" stroke="#E2E8F0" stroke-width="0.5"/>
+  <text x="130" y="172" text-anchor="middle" font-size="9" fill="#64748B">费城半导体 +5% 创新高</text>
+
+  <!-- Arrow connecting -->
+  <text x="245" y="120" text-anchor="middle" font-size="20" fill="#D4A017">→</text>
+
+  <!-- Korea/Japan section -->
+  <text x="270" y="62" font-size="10" fill="#64748B" font-weight="600">今早 · 亚太</text>
+  <rect x="260" y="70" width="190" height="110" fill="#FFF" stroke="#E2E8F0" stroke-width="1" rx="6"/>
+  <text x="355" y="94" text-anchor="middle" font-size="13" font-weight="700" fill="#1E293B">韩国KOSPI</text>
+  <text x="355" y="112" text-anchor="middle" font-size="20" font-weight="800" color="#DC2626" fill="#DC2626">+5% 熔断</text>
+  <text x="355" y="130" text-anchor="middle" font-size="11" fill="#64748B">日经225创新高</text>
+  <text x="355" y="148" text-anchor="middle" font-size="9" fill="#64748B">SK海力士市值破万亿</text>
+  <line x1="275" y1="156" x2="435" y2="156" stroke="#E2E8F0" stroke-width="0.5"/>
+  <text x="355" y="172" text-anchor="middle" font-size="9" fill="#64748B">1400万散户涌入</text>
+
+  <!-- Index table -->
+  <rect x="30" y="200" width="420" height="100" fill="#FFF" stroke="#E2E8F0" stroke-width="1" rx="6"/>
+  <text x="240" y="222" text-anchor="middle" font-size="11" font-weight="700" fill="#1E293B">指数表现</text>
+  <line x1="50" y1="228" x2="430" y2="228" stroke="#E2E8F0" stroke-width="0.5"/>
+
+  <text x="55" y="250" font-size="10" fill="#64748B">纳指</text>
+  <text x="150" y="250" font-size="10" font-weight="600" fill="#1E293B">26,656</text>
+  <text x="260" y="250" font-size="10" fill="#DC2626" font-weight="600">+1.19%</text>
+  <text x="340" y="250" font-size="10" fill="#64748B">KOSPI</text>
+  <text x="420" y="250" font-size="10" fill="#DC2626" font-weight="600">+4.67%</text>
+
+  <line x1="55" y1="258" x2="430" y2="258" stroke="#E2E8F0" stroke-width="0.5"/>
+
+  <text x="55" y="274" font-size="10" fill="#64748B">标普500</text>
+  <text x="150" y="274" font-size="10" font-weight="600" fill="#1E293B">7,519</text>
+  <text x="260" y="274" font-size="10" fill="#DC2626" font-weight="600">+0.61%</text>
+  <text x="340" y="274" font-size="10" fill="#64748B">日经</text>
+  <text x="420" y="274" font-size="10" fill="#DC2626" font-weight="600">+2.2%</text>
+
+  <line x1="55" y1="282" x2="430" y2="282" stroke="#E2E8F0" stroke-width="0.5"/>
+
+  <text x="55" y="296" font-size="10" fill="#64748B">道指</text>
+  <text x="150" y="296" font-size="10" font-weight="600" fill="#1E293B">50,462</text>
+  <text x="260" y="296" font-size="10" fill="#16A34A" font-weight="600">-0.23%</text>
+
+  <!-- Bottom key point -->
+  <rect x="30" y="310" width="420" height="35" fill="#FFFBEB" stroke="#FDE68A" stroke-width="1" rx="6"/>
+  <text x="240" y="332" text-anchor="middle" font-size="11" font-weight="700" fill="#92400E">💡 A股融资余额首破2.9万亿 · 存储芯片概念开盘走强</text>
+</svg>

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>美光暴涨19%市值破万亿·韩国股市熔断·日经创新高·小米200亿回购</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system,"PingFang SC","Microsoft YaHei","Helvetica Neue",sans-serif; background: #F5F7FA; color: #1E293B; line-height: 1.8; font-size: 16px; }
+  .c { max-width: 640px; margin: 0 auto; background: #fff; padding: 44px 0 40px; }
+
+  .top-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; max-width: 640px; margin: 0 auto; background: rgba(255,255,255,0.95); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-bottom: 1px solid #E2E8F0; display: flex; align-items: center; padding: 0 16px; height: 44px; }
+  .top-nav .back { display: flex; align-items: center; gap: 4px; color: #1A56DB; text-decoration: none; font-size: 13px; font-weight: 600; }
+  .top-nav .back:active { opacity: 0.6; }
+  .top-nav .nav-date { flex: 1; text-align: center; font-size: 12px; color: #64748B; }
+  .top-nav .nav-edition { font-size: 11px; color: #D4A017; background: #FFFBEB; padding: 2px 8px; border-radius: 8px; font-weight: 600; }
+
+  .header { background: linear-gradient(135deg,#1A56DB,#1E3A7A); padding: 20px 20px 16px; color: white; }
+  .header h1 { font-size: 22px; font-weight: 700; line-height: 1.4; margin-bottom: 6px; }
+  .header .meta { font-size: 12px; opacity: 0.8; display: flex; gap: 12px; flex-wrap: wrap; }
+  .header .meta .reading-time { background: rgba(255,255,255,0.1); padding: 1px 8px; border-radius: 8px; }
+
+  .player { display: flex; align-items: center; gap: 12px; margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.15); }
+  .player-icon { width: 40px; height: 40px; background: rgba(255,255,255,0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 18px; }
+  .player-info { flex: 1; }
+  .player-title { font-size: 13px; font-weight: 600; }
+  .player-desc { font-size: 11px; opacity: 0.7; }
+  .player audio { width: 100%; margin-top: 4px; border-radius: 20px; }
+
+  .body { padding: 20px; }
+
+  .hotspots { background: #FFFBEB; border-radius: 10px; padding: 14px 16px; margin-bottom: 20px; border: 1px solid #FDE68A; }
+  .hotspots h3 { font-size: 14px; font-weight: 700; color: #D4A017; margin-bottom: 10px; }
+  .hotspots ol { padding-left: 18px; }
+  .hotspots li { font-size: 13px; color: #334155; line-height: 1.7; margin-bottom: 6px; padding-left: 4px; }
+  .hotspots li strong { color: #1E293B; }
+
+  .section-block { margin: 26px 0; }
+  .section-num { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; font-size: 13px; font-weight: 700; margin-right: 8px; flex-shrink: 0; color: #fff; }
+  .section-num.n01 { background: #DC2626; } .section-num.n02 { background: #16A34A; } .section-num.n03 { background: #9333EA; }
+  .section-num.n04 { background: #1A56DB; } .section-num.n05 { background: #D4A017; } .section-num.n06 { background: #EA580C; }
+  .section-title { font-size: 18px; font-weight: 700; color: #1E293B; margin-bottom: 12px; display: flex; align-items: center; }
+  .section-content { font-size: 15px; color: #334155; line-height: 1.9; margin-bottom: 12px; }
+  .section-content p { margin-bottom: 12px; text-align: justify; }
+  .section-content .highlight { background: #FFFBEB; padding: 1px 4px; border-radius: 2px; font-weight: 600; color: #92400E; }
+  .section-content .key-point { font-weight: 700; color: #1A56DB; }
+
+  .section-img { margin: 14px 0; border-radius: 8px; border: 1px solid #E2E8F0; overflow: hidden; background: #FAFAFA; }
+  .section-img img { width: 100%; display: block; }
+  .section-img .caption { font-size: 12px; color: #64748B; text-align: center; padding: 6px 10px; background: #F8FAFC; }
+
+  .section-divider { border: none; height: 1px; background: linear-gradient(to right, transparent, #D4A017, transparent); margin: 8px 0; }
+
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 13px; }
+  th { background: #1A56DB; color: #fff; padding: 8px 10px; text-align: left; font-weight: 600; }
+  th:first-child { border-radius: 6px 0 0 0; }
+  th:last-child { border-radius: 0 6px 0 0; }
+  td { padding: 8px 10px; border-bottom: 1px solid #E2E8F0; }
+  tr:nth-child(even) { background: #F8F9FA; }
+  .up { color: #DC2626; font-weight: 600; }
+  .down { color: #16A34A; font-weight: 600; }
+
+  .sources { background: #FFFBEB; border-radius: 10px; padding: 12px 14px; margin: 16px 0; font-size: 12px; color: #92400E; line-height: 1.6; }
+  .sources h3 { font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+  .sources a { color: #1A56DB; text-decoration: none; }
+  .sources a:hover { text-decoration: underline; }
+
+  .end-box { background: linear-gradient(135deg,#1A56DB,#1E3A7A); border-radius: 12px; padding: 16px 20px; margin: 22px 0; color: white; text-align: center; }
+  .end-box .end-icon { font-size: 28px; margin-bottom: 4px; }
+  .end-box .end-title { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+  .end-box .end-desc { font-size: 12px; opacity: 0.8; }
+
+  .warn { background: #FFF5F5; border: 1px solid #FECACA; border-radius: 10px; padding: 12px 14px; margin-top: 24px; font-size: 12px; color: #991B1B; line-height: 1.5; }
+</style>
+</head>
+<body>
+<div class="c">
+
+  <div class="top-nav">
+    <a class="back" href="../../../index.html">&larr; 返回首页</a>
+    <span class="nav-date">2026.05.27</span>
+    <span class="nav-edition">早报</span>
+  </div>
+
+  <div class="header">
+    <h1>美光暴涨19%市值破万亿·韩国股市熔断·日经创新高·小米200亿回购</h1>
+    <div class="meta">
+      <span>📅 2026.05.27 早晨</span>
+      <span>🏷️ 美光万亿 / 韩国熔断 / 日经新高 / 小米回购 / 融资余额破2.9万亿</span>
+      <span class="reading-time">📖 阅读约 2 分钟</span>
+    </div>
+    <div class="player">
+      <div class="player-icon">🎧</div>
+      <div class="player-info">
+        <div class="player-title">音频解说 · 约2分钟</div>
+        <div class="player-desc">边听边看，体验更佳</div>
+        <audio controls preload="none"><source src="audio.mp3" type="audio/mpeg"></audio>
+      </div>
+    </div>
+  </div>
+
+  <div class="body">
+
+    <!-- ════════════════════════════════════════ -->
+    <!-- 今日热点速览 — 4件隔夜新鲜事 -->
+    <!-- ════════════════════════════════════════ -->
+    <div class="hotspots">
+      <h3>📋 今日热点速览 — 4件隔夜新鲜事</h3>
+      <ol>
+        <li><strong>美光暴涨19%市值破万亿：</strong>瑞银目标价调至1625美元，费城半导体指数涨5%创新高</li>
+        <li><strong>韩国股市熔断创新高：</strong>KOSPI涨5%触发熔断，SK海力士市值突破万亿美元，日经225盘中创66428点新高</li>
+        <li><strong>小米Q1营收991亿降11%：</strong>首次跌下千亿，同期宣布200亿港元回购计划</li>
+        <li><strong>A股融资余额首破2.9万亿：</strong>央行净投放1276亿，存储芯片概念走强</li>
+      </ol>
+    </div>
+
+    <!-- ════════════════════════════════════════ -->
+    <!-- 01 A股：仅1段数据回顾 + 新鲜动态 -->
+    <!-- ════════════════════════════════════════ -->
+    <div class="section-block">
+      <div class="section-title">
+        <span class="section-num n01">01</span> A股 · 融资余额首破2.9万亿，存储芯片概念走强
+      </div>
+      <div class="section-content">
+        <p>今日A股开盘涨跌互现，沪指跌0.16%报4138.81点，深成指跌0.05%，创业板指涨0.26%（来源：澎湃新闻）。隔夜美光暴涨带动存储芯片概念开盘走强，光伏板块受工信部强制性国标利好提振，短剧游戏概念活跃。机器人、CPO、黄金概念走弱。</p>
+        <p>资金面两大数据：<strong>两市融资余额增加73.41亿元，合计29018.81亿元，历史首次站上2.9万亿</strong>（来源：东方财富）。央行开展1776亿元7天期逆回购操作，当日净投放1276亿元（来源：央行公告）。A股年内已有91家次完成定增，规模近2750亿元，同比增69%（来源：证券时报）。</p>
+      </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- ════════════════════════════════════════ -->
+    <!-- 02 美股/全球：美光领涨，亚太全面爆发 -->
+    <!-- ════════════════════════════════════════ -->
+    <div class="section-block">
+      <div class="section-title">
+        <span class="section-num n02">02</span> 美股/全球 · 美光暴涨19%市值破万亿，亚太股市全面爆发
+      </div>
+      <div class="section-content">
+        <p>隔夜美股三大指数涨跌不一，但科技股全面爆发。<strong>纳指涨1.19%报26656.18点，标普500涨0.61%报7519.12点，双双刷新最高收盘纪录</strong>。道指跌0.23%报50461.68点（来源：新华财经、财联社）。</p>
+        <p>核心事件：<strong>美光科技暴涨19.3%收报895.88美元，市值突破1万亿美元</strong>。瑞银将目标价从535美元大幅上调至1625美元（华尔街最高），预计美光2027-2029年EPS持续高于100美元。费城半导体指数涨超5%创新高，纳指100盘中突破30000点关口（来源：东方财富、搜狐财经）。</p>
+        <p>亚太市场今日接力暴涨。<strong>韩国KOSPI涨超5%触发熔断</strong>，盘中最高触及8450点刷新历史新高。<strong>SK海力士暴涨逾11%市值突破万亿美元</strong>，成为亚洲第三家市值破万亿企业。日经225一度涨2.2%盘中创66428点历史新高（来源：证券时报、凤凰网财经）。</p>
+      </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- ════════════════════════════════════════ -->
+    <!-- 03 科技/AI：存储芯片超级周期 -->
+    <!-- ════════════════════════════════════════ -->
+    <div class="section-block">
+      <div class="section-title">
+        <span class="section-num n03">03</span> 科技/AI · 存储芯片进入"超级周期"，小米200亿回购
+      </div>
+      <div class="section-content">
+        <p>美光暴涨标志着存储芯片估值逻辑的根本性转变。瑞银指出，全行业长期供货协议（LTA）普及，近30%的DDR出货量以固定定价锁定3-5年，美光HBM产能已全年售罄。HBM市场预计从2025年350亿美元增至2028年1000亿美元。AI算力需求驱动聚苯醚（PPO）等材料供不应求（来源：富途、智通财经）。</p>
+        <p>科技巨头消息面上：<strong>小米发布2026年Q1财报，营收991亿元降10.9%，经调整净利润60.72亿元降43.1%，为连续5个季度超千亿后首次跌下千亿</strong>。手机出货量3380万台降19.2%，存储成本上升是主因。但小米同步宣布200亿港元回购计划，总裁卢伟冰称"不会简单把存储涨价转嫁给消费者"，预计7-8月发布新一代操作系统（来源：36氪、香港文汇报）。</p>
+        <p>SpaceX获美国太空军22.9亿美元合同，市场关注其上市预期（来源：新浪财经）。</p>
+      </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- ════════════════════════════════════════ -->
+    <!-- 04 前沿/国际：中东再度紧张 -->
+    <!-- ════════════════════════════════════════ -->
+    <div class="section-block">
+      <div class="section-title">
+        <span class="section-num n04">04</span> 前沿/国际 · 伊朗谴责美国违反停火，韩国散户恐慌性入场
+      </div>
+      <div class="section-content">
+        <p>中东局势再度反复。美军在伊朗南部靠近霍尔木兹海峡附近发动空袭，<strong>伊朗谴责美国"违反停火协议"</strong>，停火MOU签署陷入僵局。布伦特原油一度突破100美元/桶（来源：我的钢铁网、新华财经）。</p>
+        <p>韩国股市暴涨背后有结构性隐忧。KOSPI年内近乎翻倍（52周低点2685→当前8450），<strong>约1400万散户大举涌入</strong>，年初至今注入37.7万亿韩元。第一季度18岁以下新开户同比增长近10倍，"全民炒股"潮下的集中度风险（高度依赖三星、SK海力士）引发分析师警惕（来源：新浪财经、期货日报）。</p>
+      </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- ════════════════════════════════════════ -->
+    <!-- 05 宏观 -->
+    <!-- ════════════════════════════════════════ -->
+    <div class="section-block">
+      <div class="section-title">
+        <span class="section-num n05">05</span> 宏观 · 融资余额破2.9万亿，基金清盘同比增四成
+      </div>
+      <div class="section-content">
+        <p>隔夜宏观层面多重信号。<strong>两市融资余额历史首次站上2.9万亿</strong>，增至29018.81亿元，显示杠杆资金仍在加仓。央行净投放1276亿元呵护流动性（来源：东方财富）。</p>
+        <p>但结构性风险在累积：基金清盘加速，2026年以来151只基金发布清盘公告，同比增四成。A股定增规模2750亿元同比增69%，再融资对市场的抽血效应不容忽视。华安证券提示电子行业换手率7.14%创本轮新高，短期调整风险加剧（来源：财联社、华安证券）。</p>
+      </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- ════════════════════════════════════════ -->
+    <!-- 06 商品/黄金 -->
+    <!-- ════════════════════════════════════════ -->
+    <div class="section-block">
+      <div class="section-title">
+        <span class="section-num n06">06</span> 商品/黄金 · 金价承压下跌，油价走势分化
+      </div>
+      <div class="section-content">
+        <p>隔夜商品市场走势分化。<strong>COMEX黄金跌1.45%报4507美元/盎司</strong>，油价反弹引发通胀预期升温，叠加美元走强（美元指数+0.17%至99.15），对金价形成双重压制。COMEX白银跌1.44%报77.27美元（来源：搜狐财经、华安期货）。</p>
+        <p>原油方面，<strong>WTI跌2.81%至93.57美元，布伦特涨3.06%至96.28美元</strong>，走势明显分化。伊朗谴责美国违反停火协议、霍尔木兹海峡航运风险上升推动布伦特走强，但WTI受需求端担忧拖累。美伊"打谈结合"格局延续，油价短期波动加大（来源：我的钢铁网、新华网）。</p>
+      </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- ════════════════════════════════════════ -->
+    <!-- 市场数据一览 -->
+    <!-- ════════════════════════════════════════ -->
+    <table>
+      <tr><th>品种</th><th>最新</th><th>涨跌幅</th></tr>
+      <tr><td>纳指</td><td>26,656</td><td class="up">+1.19%</td></tr>
+      <tr><td>标普500</td><td>7,519</td><td class="up">+0.61%</td></tr>
+      <tr><td>道指</td><td>50,462</td><td class="down">-0.23%</td></tr>
+      <tr><td>韩国KOSPI</td><td>8,424</td><td class="up">+4.67%</td></tr>
+      <tr><td>日经225</td><td>~66,429</td><td class="up">+2.20%</td></tr>
+      <tr><td>WTI原油</td><td>$93.57</td><td class="down">-2.81%</td></tr>
+      <tr><td>布伦特原油</td><td>$96.28</td><td class="up">+3.06%</td></tr>
+      <tr><td>COMEX黄金</td><td>$4,507</td><td class="down">-1.45%</td></tr>
+      <tr><td>COMEX白银</td><td>$77.27</td><td class="down">-1.44%</td></tr>
+      <tr><td>美元指数</td><td>99.15</td><td class="up">+0.17%</td></tr>
+      <tr><td>离岸人民币</td><td>6.8291</td><td class="down">-446bp</td></tr>
+      <tr><td>A股融资余额</td><td colspan="2">2.90万亿 <span class="up">+73亿</span></td></tr>
+    </table>
+
+    <!-- ════════════════════════════════════════ -->
+    <!-- 来源 -->
+    <!-- ════════════════════════════════════════ -->
+    <div class="sources">
+      <h3>📌 数据来源</h3>
+      <div style="line-height:2;">
+        · <a href="https://finance.eastmoney.com/a/202605273750126825.html">新华财经 — 权重科技股上涨带动标普500、纳指创新高</a><br>
+        · <a href="https://finance.eastmoney.com/a/202605273750049213.html">东方财富 — 美光大涨19%市值破万亿</a><br>
+        · <a href="https://stcn.com/article/detail/3928952.html">证券时报 — 韩国股市暴涨触发熔断</a><br>
+        · <a href="https://finance.sina.com.cn/wm/2026-05-27/doc-inhzhttw8565168.shtml">新浪财经 — 熔断！韩国股市暴涨</a><br>
+        · <a href="https://36kr.com/p/3826058188641160">36氪 — 小米Q1营收991亿，宣布200亿回购</a><br>
+        · <a href="https://fund.eastmoney.com/a/202605273750099024.html">东方财富 — A股盘前速览</a><br>
+        · <a href="https://finance.eastmoney.com/a/202605273750079291.html">东方财富 — 四大证券报精华摘要</a><br>
+        · <a href="https://www.sohu.com/a/1028108277_120109837">搜狐 — 隔夜欧美5.27</a><br>
+        · <a href="https://news.mysteel.com/a/26052709/A7F41A9519DC9189.html">我的钢铁网 — 大宗商品期货价格一览</a><br>
+        · <a href="https://www.sohu.com/a/1028120376_121276387">搜狐 — 美股三大指数震荡，原油黄金双双下跌</a><br>
+        · <a href="https://cn.investing.com/news/stock-market-news/article-3386783">财联社 — 早报·美光市值首破万亿</a><br>
+        · <a href="https://www.163.com/dy/article/KTU384VK05568W0A.html">华安早盘速览2026.5.27</a>
+      </div>
+    </div>
+
+    <div class="end-box">
+      <div class="end-icon">📡</div>
+      <div class="end-title">扬说财经</div>
+      <div class="end-desc">用漫画看懂财经 — 我是阿扬，我们晚上见。</div>
+    </div>
+
+    <div class="warn">⚠️ <strong>风险提示：</strong>以上内容仅为信息分享，不构成投资建议。市场有风险，投资需谨慎。数据来源于公开信息，如有出入请以官方数据为准。</div>
+
+  </div>
+</div>
+</body>
+</html>
