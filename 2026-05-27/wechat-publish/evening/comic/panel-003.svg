@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 220">
+  <rect width="300" height="220" fill="#faf8f5"/>
+  <text x="150" y="20" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="11" font-weight="700" fill="#2e7d32">⚡ 半导体"一日游"</text>
+  <text x="150" y="34" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="7" fill="#888">昨天暴涨 今天暴跌 · 156亿资金出逃</text>
+
+  <!-- 昨天 vs 今天对比 -->
+  <rect x="15" y="45" width="130" height="58" rx="6" fill="#e8f5e9" stroke="#2e7d32" stroke-width="1.5"/>
+  <text x="80" y="60" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="10" font-weight="700" fill="#2e7d32">昨天 5.26</text>
+  <text x="80" y="74" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="7" fill="#1a1a1a">科创50 +5.88%</text>
+  <text x="80" y="86" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="6.5" fill="#2e7d32">中芯国际 +18.78%</text>
+  <text x="80" y="97" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="6" fill="#888">两市3225家下跌</text>
+
+  <!-- 中间感叹号 -->
+  <circle cx="150" cy="74" r="10" fill="#c62828"/>
+  <text x="150" y="78" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="12" font-weight="700" fill="#fff">!</text>
+
+  <rect x="155" y="45" width="130" height="58" rx="6" fill="#ffebee" stroke="#c62828" stroke-width="1.5"/>
+  <text x="220" y="60" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="10" font-weight="700" fill="#c62828">今天 5.27</text>
+  <text x="220" y="74" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="7" fill="#1a1a1a">科创50 -2.80%</text>
+  <text x="220" y="86" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="6.5" fill="#c62828">半导体流出156亿</text>
+  <text x="220" y="97" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="6" fill="#888">近4500家下跌</text>
+
+  <!-- 资金流向条 -->
+  <text x="150" y="120" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="7" font-weight="700" fill="#1a1a1a">板块资金流向（亿元）</text>
+
+  <text x="20" y="135" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="6" fill="#1a1a1a">半导体</text>
+  <rect x="68" y="128" width="120" height="10" rx="2" fill="#ffcdd2"/>
+  <text x="192" y="137" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="6" fill="#c62828">-156亿</text>
+
+  <text x="20" y="150" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="6" fill="#1a1a1a">自动化</text>
+  <rect x="68" y="143" width="56" height="10" rx="2" fill="#ffcdd2"/>
+  <text x="128" y="152" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="6" fill="#c62828">-56亿</text>
+
+  <text x="20" y="165" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="6" fill="#1a1a1a">IT服务</text>
+  <rect x="68" y="158" width="45" height="10" rx="2" fill="#ffcdd2"/>
+  <text x="117" y="167" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="6" fill="#c62828">-45亿</text>
+
+  <text x="180" y="135" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="6" fill="#1a1a1a">电力</text>
+  <rect x="200" y="128" width="26" height="10" rx="2" fill="#c8e6c9"/>
+  <text x="230" y="137" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="6" fill="#2e7d32">+26亿</text>
+
+  <text x="180" y="150" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="6" fill="#1a1a1a">白酒</text>
+  <rect x="200" y="143" width="18" height="10" rx="2" fill="#c8e6c9"/>
+  <text x="222" y="152" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="6" fill="#2e7d32">+18亿</text>
+
+  <text x="180" y="165" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="6" fill="#1a1a1a">煤炭</text>
+  <rect x="200" y="158" width="8" height="10" rx="2" fill="#c8e6c9"/>
+  <text x="212" y="167" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="6" fill="#2e7d32">+7亿</text>
+
+  <!-- 底部洞察 -->
+  <line x1="30" y1="177" x2="270" y2="177" stroke="#ddd" stroke-width="0.8"/>
+  <text x="150" y="190" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="6.5" fill="#c62828">资金从科技成长全面转向防御性板块</text>
+  <text x="150" y="203" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="6" fill="#888">半导体一日游，白酒电力煤炭逆势走强</text>
+
+  <text x="150" y="214" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="5.5" fill="#aaa">数据来源：东方财富 Choice · 2026-05-27</text>
+</svg>

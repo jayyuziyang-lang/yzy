@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>创业板盘中超越沪指后跳水，半导体156亿资金大逃亡，英伟达日赚6.4亿股价却跌</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system,"PingFang SC","Microsoft YaHei","Helvetica Neue",sans-serif; background: #F5F7FA; color: #1E293B; line-height: 1.8; font-size: 16px; }
+  .c { max-width: 640px; margin: 0 auto; background: #fff; padding: 44px 0 40px; }
+
+  .top-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; max-width: 640px; margin: 0 auto; background: rgba(255,255,255,0.95); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-bottom: 1px solid #E2E8F0; display: flex; align-items: center; padding: 0 16px; height: 44px; }
+  .top-nav .back { display: flex; align-items: center; gap: 4px; color: #1A56DB; text-decoration: none; font-size: 13px; font-weight: 600; }
+  .top-nav .back:active { opacity: 0.6; }
+  .top-nav .nav-date { flex: 1; text-align: center; font-size: 12px; color: #64748B; }
+  .top-nav .nav-edition { font-size: 11px; color: #D4A017; background: #FFFBEB; padding: 2px 8px; border-radius: 8px; font-weight: 600; }
+
+  .header { background: linear-gradient(135deg,#D4A017,#B8860B); padding: 20px 20px 16px; color: white; }
+  .header h1 { font-size: 22px; font-weight: 700; line-height: 1.4; margin-bottom: 6px; }
+  .header .meta { font-size: 12px; opacity: 0.8; display: flex; gap: 12px; flex-wrap: wrap; }
+
+  .player { display: flex; align-items: center; gap: 12px; margin-top: 14px; }
+  .player-icon { width: 40px; height: 40px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 18px; }
+  .player-info { flex: 1; }
+  .player-title { font-size: 13px; font-weight: 600; }
+  .player-desc { font-size: 11px; opacity: 0.7; }
+  .player audio { width: 100%; margin-top: 4px; border-radius: 20px; }
+
+  .body { padding: 20px 20px 0; }
+
+  .layer1 { margin-bottom: 28px; }
+  .l1-title { font-size: 16px; font-weight: 700; color: #D4A017; margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
+  .l1-comic { margin: 8px -10px 0; }
+  .l1-comic img { width: 100%; border-radius: 10px; border: 1px solid #E2E8F0; }
+  .l1-divider { border: none; border-top: 2px dashed #D4A017; margin: 16px 0; }
+
+  .layer2 { margin-bottom: 24px; }
+  .l2-title { font-size: 16px; font-weight: 700; color: #D4A017; margin-bottom: 14px; display: flex; align-items: center; gap: 6px; }
+
+  .quote { background: #FFFBEB; border-left: 4px solid #D4A017; padding: 12px 14px; margin: 14px 0; border-radius: 0 8px 8px 0; font-size: 14px; color: #92400E; line-height: 1.7; }
+  p { margin-bottom: 12px; text-align: justify; font-size: 15px; }
+
+  .story { margin: 22px 0; }
+  .story-head { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .story-num { width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; color: #fff; flex-shrink: 0; }
+  .story-num.s01 { background: #EF4444; } .story-num.s02 { background: #16A34A; } .story-num.s03 { background: #9333EA; }
+  .story-num.s04 { background: #1A56DB; } .story-num.s05 { background: #D4A017; } .story-num.s06 { background: #EA580C; }
+  .story-tag { font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 3px; }
+  .story-tag.s01 { background: #FEF2F2; color: #DC2626; } .story-tag.s02 { background: #F0FDF4; color: #16A34A; }
+  .story-tag.s03 { background: #F5F3FF; color: #7C3AED; } .story-tag.s04 { background: #EFF6FF; color: #1A56DB; }
+  .story-tag.s05 { background: #FFFBEB; color: #B8860B; } .story-tag.s06 { background: #FFF7ED; color: #EA580C; }
+  .story-title { font-size: 16px; font-weight: 700; color: #1E293B; line-height: 1.4; }
+  .story-badge { display: inline-block; font-size: 11px; padding: 1px 7px; border-radius: 3px; font-weight: 600; margin-left: 5px; vertical-align: middle; }
+  .story-badge.b-red { background: #FEF2F2; color: #DC2626; } .story-badge.b-green { background: #F0FDF4; color: #16A34A; }
+  .story-badge.b-gold { background: #FFFBEB; color: #D97706; } .story-badge.b-blue { background: #EFF6FF; color: #1A56DB; }
+  .story-content { font-size: 14px; color: #334155; line-height: 1.8; margin-bottom: 8px; }
+  .story-content p { margin-bottom: 8px; font-size: 14px; }
+  .story-img { margin: 10px 0 0; border-radius: 8px; border: 1px solid #E2E8F0; overflow: hidden; background: #FAFAFA; }
+  .story-img img { width: 100%; display: block; }
+  .story-divider { border: none; height: 1px; background: linear-gradient(to right, transparent, #E2E8F0, transparent); margin: 6px 0; }
+
+  .gold-box { background: linear-gradient(135deg,#FFF8E7,#FFF3D6); border: 1px solid #D4A017; border-radius: 12px; padding: 18px 20px; margin: 22px 0; text-align: center; font-size: 16px; font-weight: 700; color: #B8860B; line-height: 1.5; }
+
+  .layer3 { margin-bottom: 24px; }
+  .l3-title { font-size: 16px; font-weight: 700; color: #D4A017; margin-bottom: 10px; }
+  table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 13px; }
+  th { background: #D4A017; color: #fff; padding: 8px 10px; text-align: left; font-weight: 600; }
+  th:first-child { border-radius: 6px 0 0 0; }
+  th:last-child { border-radius: 0 6px 0 0; }
+  td { padding: 8px 10px; border-bottom: 1px solid #E2E8F0; }
+  tr:nth-child(even) { background: #F8F9FA; }
+  .up { color: #DC2626; font-weight: 600; }
+  .down { color: #16A34A; font-weight: 600; }
+
+  .warn { background: #FFF5F5; border: 1px solid #FECACA; border-radius: 10px; padding: 12px 14px; margin-top: 24px; font-size: 12px; color: #991B1B; line-height: 1.5; }
+  .list { background: #F8F9FA; border-radius: 8px; padding: 10px 14px; margin: 10px 0; }
+  .list-item { padding: 5px 0; border-bottom: 1px solid #E2E8F0; font-size: 13px; display: flex; gap: 6px; }
+  .list-item:last-child { border-bottom: none; }
+  .tag-b { display: inline-block; background: #D4A017; color: #fff; font-size: 10px; padding: 1px 7px; border-radius: 8px; white-space: nowrap; }
+
+  .sources { background: #FFFBEB; border-radius: 10px; padding: 12px 14px; margin: 16px 0; font-size: 12px; color: #92400E; line-height: 1.6; }
+  .sources h3 { font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+  .sources a { color: #1A56DB; text-decoration: none; }
+</style>
+</head>
+<body>
+<div class="c">
+
+  <div class="top-nav">
+    <a class="back" href="../../../index.html">&larr; 返回首页</a>
+    <span class="nav-date">2026.05.27</span>
+    <span class="nav-edition">晚报</span>
+  </div>
+
+  <div class="header">
+    <h1>创业板盘中超越沪指后跳水，半导体156亿资金大逃亡，英伟达日赚6.4亿股价却跌</h1>
+    <div class="meta">
+      <span>📅 2026.05.27 晚间</span>
+      <span>🏷️ A股/创业板反超/半导体/英伟达/美伊停火/风格切换</span>
+      <span>👤 主讲：阿扬</span>
+    </div>
+    <div class="player">
+      <div class="player-icon">🎧</div>
+      <div class="player-info">
+        <div class="player-title">音频解说 · 约7分钟</div>
+        <div class="player-desc">边听边看，体验更佳</div>
+        <audio controls preload="none"><source src="audio.mp3" type="audio/mpeg"></audio>
+      </div>
+    </div>
+  </div>
+
+  <div class="body">
+
+    <!-- ════════════════════════════════════════ -->
+    <!-- LAYER 1：今日热点速览 -->
+    <!-- ════════════════════════════════════════ -->
+    <div class="layer1">
+      <div class="l1-title">📋 今日热点速览 <span style="font-size:12px;color:#64748B;font-weight:400;">— 60秒掌握关键信息</span></div>
+      <div class="l1-comic">
+        <img loading="lazy" src="comic/panel-000.svg" alt="扬说财经速览">
+        <div style="text-align:center;font-size:11px;color:#64748B;margin-top:4px;">📡 扬说财经 — 今天这些大事你需要知道</div>
+      </div>
+      <hr class="l1-divider">
+      <div style="text-align:center;font-size:12px;color:#D4A017;margin-bottom:4px;">▼ 往下翻看今日深度解读 ▼</div>
+    </div>
+
+    <!-- ════════════════════════════════════════ -->
+    <!-- LAYER 2：今日深度解读 — 6个编号故事 -->
+    <!-- ════════════════════════════════════════ -->
+    <div class="layer2">
+      <div class="l2-title">🔍 今日深度专题</div>
+
+      <div class="quote">创业板盘中最惊心动魄的一刻——历史第二次反超沪指，随后高台跳水。半导体一日游，156亿资金大逃亡。"风格切换"不是口号，是真金白银在投票。</div>
+
+      <!-- Story 01: A股 — 沪指失守4100，创业板反超后跳水 -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s01">1</div>
+          <span class="story-tag s01">A股</span>
+          <div class="story-title">创业板盘中反超沪指后大跳水，近4500股下跌 <span class="story-badge b-red">历史性时刻</span></div>
+        </div>
+        <div class="story-content">
+          <p>周三A股走出了一个极具戏剧性的行情。上证指数收跌1.25%报4093.73点，失守4100点整数关口；深证成指跌0.88%报15736.47点。最大的焦点是<strong>创业板指</strong>——盘中一度大涨逾2.5%，最高触及4148.23点创历史新高，并在上午10时25分左右<strong>历史第二次反超上证指数</strong>（第一次是2021年7月），随后大幅跳水回落，收涨仅0.07%报4045.77点（来源：东方财富、每日经济新闻）。</p>
+          <p>但表面的指数反弹掩盖了极致的结构恶化：<strong>全市场近4500只个股下跌，不足1000只上涨</strong>，涨停约60只但跌停数量明显增加。沪深两市成交额3.24万亿元，连续第三个交易日站上3万亿（来源：证券时报）。</p>
+          <p>值得注意的是，2026年的创业板超越与2021年有本质区别。2021年靠的是新能源题材炒作和估值泡沫，而2026年驱动创业板的是AI算力、半导体自主可控等硬科技的<strong>真实业绩落地</strong>。相对沪指的市盈率比值也显著低于2021年水平，这意味着创业板的底部更扎实，短期调整不等于趋势终结。</p>
+        </div>
+        <div class="story-img">
+          <img loading="lazy" src="comic/panel-001.svg" alt="创业板盘中反超沪指">
+        </div>
+        <div class="story-img" style="margin-top:8px;">
+          <img loading="lazy" src="../../../docs/charts/astock_indices.svg" alt="A股主要指数表现">
+        </div>
+      </div>
+
+      <hr class="story-divider">
+
+      <!-- Story 02: 美股 — 英伟达财报 -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s02">2</div>
+          <span class="story-tag s02">美股</span>
+          <div class="story-title">英伟达财报：日赚6.4亿，股价反而跌了 <span class="story-badge b-red">审美疲劳</span></div>
+        </div>
+        <div class="story-content">
+          <p>5月27日美股盘后，英伟达发布了2027财年第一季度财报（截至2026年4月26日）。数据堪称"炸裂"：<strong>总营收816.2亿美元，同比大增85%；净利润583.2亿美元，暴增211%</strong>，相当于每天净赚约6.4亿美元。数据中心业务收入752亿美元，同比增92%，占营收的92.2%（来源：NVIDIA IR、搜狐财经）。</p>
+          <p>但<strong>财报后股价下跌约2%</strong>，这已是英伟达连续第四个季度在"超预期"后股价下跌。原因是市场的焦点已经从"增长"转向了"增长斜率能否维持"——Q2指引营收约910亿美元（±2%），虽然高于市场平均预期的870亿，但低于最乐观派的960亿美元预期。市场要的不是"强"，是"永远更强"（来源：Investing.com）。</p>
+          <p>不容忽视的结构变化：英伟达发布了<strong>Vera CPU</strong>正式进军数据中心CPU市场，本财年预计贡献近200亿美元收入，直接挑战Intel和AMD。同时Rubin平台6款新芯片样品已出货，800亿美元回购计划已落地（来源：搜狐财经）。<strong>但对中国市场而言，当季未向中国发货任何Hopper架构数据中心产品，该部分去年同期贡献约40亿美元。</strong></p>
+        </div>
+        <div class="story-img">
+          <img loading="lazy" src="comic/panel-002.svg" alt="英伟达财报分析">
+        </div>
+        <div class="story-img" style="margin-top:8px;">
+          <img loading="lazy" src="../../../docs/charts/nvidia_revenue.svg" alt="英伟达单季营收">
+        </div>
+      </div>
+
+      <hr class="story-divider">
+
+      <!-- Story 03: 科技/AI — 半导体一日游 -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s03">3</div>
+          <span class="story-tag s03">科技</span>
+          <div class="story-title">半导体一日游：昨天暴涨5.88%，今天遭156亿抛售 <span class="story-badge b-red">极致反转</span></div>
+        </div>
+        <div class="story-content">
+          <p>如果说昨天的行情是"半导体狂欢"，今天就是"酒醒时分"。昨天科创50因华为韬定律暴涨5.88%，中芯国际单日飙升18.78%，今天<strong>科创50暴跌2.80%收1815.45点，半导体板块主力资金净流出156亿元</strong>，位居所有板块流出之首（来源：东方财富、证券时报）。</p>
+          <p>资金从科技全面撤退的信号非常明确。电子行业整体净流出高达281亿元，元件板块流出63亿，自动化设备流出56亿，IT服务流出45亿，软件开发流出21亿。智能制造的强势股出现大面积跌停——五洲新春、华辰装备等前期热门股集体下挫。而半导体设备龙头拓荆科技跌幅超过11%，对板块情绪形成压制（来源：华安证券、凤凰财经）。</p>
+          <p>触发资金出逃的原因有三：一是十余只热门股集中发布交易异常波动公告，监管降温信号明显；二是前期科技赛道交易拥挤度过高，获利了结动力累积；三是新发基金试探性建仓防御性板块，引发转移效应。广发证券首席投顾赵愚睿指出，当日调整是"前期科技赛道交易拥挤度过高后的情绪释放"（来源：东方财富）。</p>
+          <p>但"风格切换"还是"短期调整"，需要看后续两天的成交量变化。如果明天资金继续从科技流出，那科技股这段行情就阶段性见顶了。</p>
+        </div>
+        <div class="story-img">
+          <img loading="lazy" src="comic/panel-003.svg" alt="半导体一日游">
+        </div>
+        <div class="story-img" style="margin-top:8px;">
+          <img loading="lazy" src="../../../docs/charts/sector_flow.svg" alt="板块资金流向">
+        </div>
+      </div>
+
+      <hr class="story-divider">
+
+      <!-- Story 04: 前沿/国际 — 美伊停火60天框架 -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s04">4</div>
+          <span class="story-tag s04">国际</span>
+          <div class="story-title">美伊停火60天框架初步达成，油价暴跌4% <span class="story-badge b-blue">最大变量</span></div>
+        </div>
+        <div class="story-content">
+          <p>5月27日，美伊谈判出现重大转折。伊朗国家安全委员会成员布鲁杰迪表示，根据双方达成的<strong>初步协议草案</strong>，美方承诺在所有战线实现为期60天的全面停火，特别是将黎巴嫩纳入停火范围。协议涉及解冻伊朗被冻结资产、结束海上封锁等内容。特朗普为此紧急召开内阁会议，讨论协议最终条款（来源：环球网、证券时报）。</p>
+          <p><strong>最关键的核问题被刻意推迟</strong>。当前草案中双方均未就核问题和浓缩铀问题作出任何承诺，伊朗约440.9千克丰度60%的高浓缩铀如何处置仍需在60天窗口期内协商。以色列被排除在谈判核心圈外，认为协议"对其非常不利"，不排除采取单边行动（来源：国际在线、新浪财经）。</p>
+          <p>油价反应剧烈。<strong>WTI原油盘中重挫逾4%跌破90美元关口至89.9美元，布伦特原油跌约4%至93.2美元</strong>。此前一天美军突袭伊朗时油价刚大涨3.6%，典型的"打谈结合"模式。但供需基本面的约束仍然存在——即便协议签署，受损油田修复和海峡通航全面恢复仍需数月，全球日均尚有约680万桶供应缺口待填补（来源：Investing.com、金融界）。</p>
+        </div>
+        <div class="story-img">
+          <img loading="lazy" src="comic/panel-004.svg" alt="美伊停火框架">
+        </div>
+      </div>
+
+      <hr class="story-divider">
+
+      <!-- Story 05: 宏观 — 风格切换 -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s05">5</div>
+          <span class="story-tag s05">宏观</span>
+          <div class="story-title">成交额连续3日破3万亿，风格切换信号明确 <span class="story-badge b-gold">防御崛起</span></div>
+        </div>
+        <div class="story-content">
+          <p>3.24万亿元的成交额，连续第三个交易日站上3万亿，说明市场不缺钱——缺的是方向感。今天资金做出了明确的选择：从科技成长大规模撤出，涌入白酒、电力、煤炭等防御性板块（来源：东方财富 Choice）。</p>
+          <p>具体来看，<strong>白酒板块大涨3.37%领涨全市场</strong>，水井坊涨停，舍得酒业涨9.59%，贵州茅台涨逾2%报1303元。电力板块延续强势，华电辽能、粤电力A、华银电力等多股涨停。煤炭板块涨1.49%，跟随电力同步走强。影视院线板块同样表现活跃，涨1.94%，电影《给阿嬷的情书》票房突破11亿元（来源：证券时报、每日经济新闻）。</p>
+          <p>板块轮动的底层逻辑不难理解。科技板块累计涨幅过大，交易拥挤度已达历史极值——电子行业换手率7.14%创本轮新高。而白酒板块在经历前期持续回调后估值已回到合理区间，叠加市场对扩消费政策的预期，吸引避险资金流入。电力煤炭的高股息属性在利率下行周期中更具配置价值。不过这种"一天换一个风格"的局面很难持续，市场需要更清晰的宏观主线。</p>
+        </div>
+        <div class="story-img">
+          <img loading="lazy" src="comic/panel-005.svg" alt="风格切换">
+        </div>
+      </div>
+
+      <hr class="story-divider">
+
+      <!-- Story 06: 商品/黄金 -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s06">6</div>
+          <span class="story-tag s06">商品</span>
+          <div class="story-title">金价险守4500关口，油价过山车等待最终协议 <span class="story-badge b-gold">商品重定价</span></div>
+        </div>
+        <div class="story-content">
+          <p>商品市场经历了剧烈的一天。COMEX黄金在4500美元关口附近反复拉锯，隔夜纽约尾盘收报4507美元/盎司跌1.45%，盘中最低触及4502美元。美元指数小幅反弹至99.15对金价形成压制，但油价暴跌带来的通胀预期降温又对金价形成支撑——两股力量在4500美元关口博弈（来源：搜狐财经、每日经济新闻）。</p>
+          <p>原油这边走势极具戏剧性。WTI原油从昨天美军突袭后的93.57美元，到今天停火消息冲击下暴跌逾4%跌破90美元关口，单日振幅超过5%。布伦特原油从96.28美元跌至93.2美元附近。这种"一天涨3%，一天跌4%"的模式也说明市场对地缘消息极其敏感，资金快速进出造成的短时波动被放大了（来源：我的钢铁网、Investing.com）。</p>
+          <p>看金油比：从4月初美伊冲突刚爆发时的约70.6，已经回落至约45附近，表明市场正在从"恐慌避险"模式向"滞胀交易"模式切换。花旗短期看空黄金至4300美元，但维持6-12个月目标价5000美元。隆众资讯预测6-8月布伦特原油在87-110美元区间运行（来源：21财经、每经网）。</p>
+        </div>
+        <div class="story-img">
+          <img loading="lazy" src="comic/panel-006.svg" alt="商品重定价">
+        </div>
+        <div class="story-img" style="margin-top:8px;">
+          <img loading="lazy" src="../../../docs/charts/gold_price_trend.svg" alt="黄金走势">
+        </div>
+      </div>
+
+      <!-- Gold box sign-off -->
+      <div class="gold-box">今天创业板指超越沪指的那10分钟，你看到了什么？—— 我是阿扬，我们明天早上见。</div>
+    </div>
+
+    <!-- ════════════════════════════════════════ -->
+    <!-- LAYER 3：关键市场数据 -->
+    <!-- ════════════════════════════════════════ -->
+    <div class="layer3">
+      <div class="l3-title">📊 关键市场数据一览</div>
+
+      <table>
+        <tr><th>品种</th><th>最新</th><th>涨跌幅</th></tr>
+        <tr><td>上证指数</td><td>4,093.73</td><td class="down">-1.25%</td></tr>
+        <tr><td>深证成指</td><td>15,736.47</td><td class="down">-0.88%</td></tr>
+        <tr><td>创业板指</td><td>4,045.77</td><td class="up">+0.07%</td></tr>
+        <tr><td>科创50</td><td>1,815.45</td><td class="down">-2.80%</td></tr>
+        <tr><td>沪深300</td><td>4,908.17</td><td class="down">-0.80%</td></tr>
+        <tr><td>两市成交额</td><td colspan="2">3.24万亿（连续3日破3万亿）</td></tr>
+        <tr><td>恒生指数</td><td>25,328.23</td><td class="down">-1.06%</td></tr>
+        <tr><td>恒生科技指数</td><td>4,907.57</td><td class="down">-0.79%</td></tr>
+        <tr><td>COMEX黄金</td><td>$4,507</td><td class="down">-1.45%</td></tr>
+        <tr><td>WTI原油</td><td>$89.9</td><td class="down">-4.0%</td></tr>
+        <tr><td>布伦特原油</td><td>$93.2</td><td class="down">-4.0%</td></tr>
+        <tr><td>美元指数</td><td>99.15</td><td class="up">+0.17%</td></tr>
+      </table>
+
+      <div class="list">
+        <div class="list-item"><span class="tag-b">A股</span>沪指-1.25%失守4100 · 创业板盘中4148反超后跳水 · 近4500股下跌</div>
+        <div class="list-item"><span class="tag-b">美股</span>英伟达盘后发布财报 · 营收816亿+85% · 日赚6.4亿股价仍跌</div>
+        <div class="list-item"><span class="tag-b">科技</span>半导体一日游 · 156亿资金大逃亡 · 科创50-2.80%</div>
+        <div class="list-item"><span class="tag-b">国际</span>美伊停火60天框架 · 油价暴跌4% · 核问题被推迟</div>
+        <div class="list-item"><span class="tag-b">宏观</span>风格切换 · 白酒+3.37% · 电力煤炭逆势 · 基金清盘加速</div>
+        <div class="list-item"><span class="tag-b">商品</span>黄金$4507 · 金油比45 · 花旗短期看空至4300</div>
+      </div>
+
+      <!-- Sources -->
+      <div class="sources">
+        <h3>📌 数据来源</h3>
+        <div style="line-height:2;">
+          · <a href="https://finance.eastmoney.com/a/202605273751276074.html">东方财富 — A股收盘综述</a><br>
+          · <a href="https://finance.eastmoney.com/a/202605273751254534.html">东方财富 — 超4400只个股飘绿</a><br>
+          · <a href="https://finance.eastmoney.com/a/202605273751029876.html">东方财富 — 创业板指盘中超越沪指</a><br>
+          · <a href="https://finance.sina.com.cn/jjxw/2026-05-27/doc-inhzieiu0868606.shtml">新浪财经 — 超越沪指！创业板指续创新高</a><br>
+          · <a href="https://www.sohu.com/a/1028477475_116062">搜狐 — 创业板反超沪指后大跳水</a><br>
+          · <a href="https://www.sohu.com/a/1028043905_121608578">搜狐 — 英伟达日赚6.4亿也换不来掌声</a><br>
+          · <a href="https://www.sohu.com/a/1028385968_115362">搜狐 — 半导体遭156亿抛售，电力白酒逆势获流入</a><br>
+          · <a href="https://stcn.com/article/detail/3929927.html">证券时报 — 港股收盘综述</a><br>
+          · <a href="https://finance.eastmoney.com/a/202605273750349447.html">东方财富 — 美伊反反复复，盘面止跌回升</a><br>
+          · <a href="https://www.sohu.com/a/1028134941_115362">搜狐 — 美军协助船只通过霍尔木兹海峡</a><br>
+          · <a href="https://cn.investing.com/news/stock-market-news/article-3387492">Investing.com — 美伊停火60天，原油重挫4%</a><br>
+          · <a href="https://m.nbd.com.cn/articles/2026-05-27/4409579.html">每日经济新闻 — 金价险守4500美元</a><br>
+          · <a href="https://finance.sina.com.cn/jjxw/2026-05-27/doc-inhziqxq9236175.shtml">新浪财经 — 沪指低开低走跌1.25%，白酒逆势大涨</a><br>
+          · <a href="https://www.21jingji.com/article/20260527/herald/0fd69552ee24bc2648acdd0882337de8.html">21世纪经济报道 — 港股收盘</a>
+        </div>
+      </div>
+
+      <div style="background:linear-gradient(135deg,#D4A017,#B8860B);border-radius:12px;padding:16px 20px;margin:22px 0;color:white;text-align:center;">
+        <div style="font-size:14px;font-weight:700;margin-bottom:4px;">📡 扬说财经</div>
+        <div style="font-size:11px;opacity:0.8;margin-bottom:8px;">用漫画看懂财经 — 你好，我是阿扬</div>
+        <div style="display:flex;justify-content:center;gap:16px;font-size:10px;opacity:0.6;">
+          <span>🌅 扬说·早报</span>
+          <span>🌙 扬说·晚报</span>
+          <span>📚 扬说·深度</span>
+        </div>
+      </div>
+
+      <div class="warn">⚠️ <strong>风险提示：</strong>以上内容仅为信息分享，不构成任何投资建议。市场有风险，投资需谨慎。数据来源于公开信息，如有出入请以官方数据为准。</div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>

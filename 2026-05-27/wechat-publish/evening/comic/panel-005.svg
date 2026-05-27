@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 220">
+  <rect width="300" height="220" fill="#faf8f5"/>
+  <text x="150" y="20" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="11" font-weight="700" fill="#c9a96e">🔄 风格切换</text>
+  <text x="150" y="34" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="7" fill="#888">成交3.24万亿 · 资金从科技全面转向防御</text>
+
+  <!-- 跷跷板 -->
+  <line x1="50" y1="100" x2="250" y2="100" stroke="#1a1a1a" stroke-width="2.5"/>
+  <polygon points="150,100 144,115 156,115" fill="#1a1a1a"/>
+  <rect x="148" y="103" width="4" height="12" fill="#1a1a1a"/>
+
+  <!-- 左端：科技板块（下沉） -->
+  <rect x="40" y="78" width="85" height="22" rx="4" fill="#ffcdd2" stroke="#c62828" stroke-width="1.2"/>
+  <text x="82" y="93" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="8" font-weight="700" fill="#c62828">📉 科技成长</text>
+  <text x="82" y="105" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="6" fill="#c62828">半导体-156亿</text>
+
+  <!-- 右端：防御板块（上升） -->
+  <rect x="175" y="58" width="85" height="22" rx="4" fill="#c8e6c9" stroke="#2e7d32" stroke-width="1.2"/>
+  <text x="217" y="73" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="8" font-weight="700" fill="#2e7d32">🛡 消费防御</text>
+  <text x="217" y="85" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="6" fill="#2e7d32">白酒+3.37%</text>
+
+  <!-- 板块排行列表 -->
+  <text x="20" y="130" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="7" font-weight="700" fill="#1a1a1a">涨幅前三</text>
+  <rect x="18" y="134" width="128" height="18" rx="3" fill="#fff" stroke="#e0e0e0" stroke-width="0.8"/>
+  <text x="26" y="147" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="6.5" fill="#2e7d32">白酒</text>
+  <text x="80" y="147" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="6.5" fill="#1a1a1a">水井坊涨停</text>
+  <text x="134" y="147" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="6.5" fill="#2e7d32">+3.37%</text>
+
+  <rect x="18" y="152" width="128" height="18" rx="3" fill="#fff" stroke="#e0e0e0" stroke-width="0.8"/>
+  <text x="26" y="165" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="6.5" fill="#2e7d32">影视院线</text>
+  <text x="80" y="165" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="6.5" fill="#1a1a1a">《给阿嬷的情书》</text>
+  <text x="134" y="165" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="6.5" fill="#2e7d32">+1.94%</text>
+
+  <rect x="18" y="170" width="128" height="18" rx="3" fill="#fff" stroke="#e0e0e0" stroke-width="0.8"/>
+  <text x="26" y="183" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="6.5" fill="#2e7d32">煤炭</text>
+  <text x="80" y="183" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="6.5" fill="#1a1a1a">高股息防御</text>
+  <text x="134" y="183" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="6.5" fill="#2e7d32">+1.49%</text>
+
+  <!-- 跌幅板块 -->
+  <text x="158" y="130" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="7" font-weight="700" fill="#1a1a1a">跌幅靠前</text>
+  <rect x="155" y="134" width="128" height="18" rx="3" fill="#fff" stroke="#e0e0e0" stroke-width="0.8"/>
+  <text x="163" y="147" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="6.5" fill="#c62828">通信服务</text>
+  <text x="215" y="147" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="6.5" fill="#1a1a1a"></text>
+  <text x="270" y="147" text-anchor="end" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="6.5" fill="#c62828">-3.73%</text>
+
+  <rect x="155" y="152" width="128" height="18" rx="3" fill="#fff" stroke="#e0e0e0" stroke-width="0.8"/>
+  <text x="163" y="165" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="6.5" fill="#c62828">工业金属</text>
+  <text x="270" y="165" text-anchor="end" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="6.5" fill="#c62828">-3.68%</text>
+
+  <rect x="155" y="170" width="128" height="18" rx="3" fill="#fff" stroke="#e0e0e0" stroke-width="0.8"/>
+  <text x="163" y="183" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="6.5" fill="#c62828">软件开发</text>
+  <text x="270" y="183" text-anchor="end" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="6.5" fill="#c62828">-3.26%</text>
+
+  <text x="150" y="208" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="6" fill="#888">涨停约60只 · 下跌近4500只 · 成交额连续第3日破3万亿</text>
+
+  <text x="150" y="218" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="5.5" fill="#aaa">数据来源：东方财富 Choice · 2026-05-27</text>
+</svg>

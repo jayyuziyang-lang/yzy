@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 220">
+  <rect width="300" height="220" fill="#faf8f5"/>
+  <text x="150" y="20" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="11" font-weight="700" fill="#c9a96e">💰 商品重定价</text>
+  <text x="150" y="34" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="7" fill="#888">金价险守4500 · 油价过山车 · 金油比回落</text>
+
+  <!-- 金价走势图 -->
+  <rect x="10" y="42" width="135" height="80" rx="4" fill="#fff" stroke="#e0e0e0" stroke-width="0.8"/>
+  <text x="77" y="56" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="7" font-weight="700" fill="#1a1a1a">COMEX黄金</text>
+  <!-- 走势线 -->
+  <polyline points="15,110 30,95 50,78 70,72 90,65 105,68 120,85 135,80" fill="none" stroke="#c9a96e" stroke-width="1.8"/>
+  <circle cx="90" cy="65" r="2.5" fill="#c9a96e"/>
+  <text x="88" y="60" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="5.5" fill="#c9a96e">4573</text>
+  <circle cx="135" cy="80" r="2.5" fill="#c62828"/>
+  <text x="133" y="75" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="5.5" fill="#c62828">4507</text>
+  <text x="20" y="117" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="5.5" fill="#888">5.22</text>
+  <text x="130" y="117" text-anchor="end" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="5.5" fill="#888">5.27</text>
+
+  <!-- 油价走势图 -->
+  <rect x="155" y="42" width="135" height="80" rx="4" fill="#fff" stroke="#e0e0e0" stroke-width="0.8"/>
+  <text x="222" y="56" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="7" font-weight="700" fill="#1a1a1a">WTI原油</text>
+  <!-- 走势线 -->
+  <polyline points="160,110 175,95 190,80 205,72 220,55 235,68 250,78 275,95" fill="none" stroke="#c62828" stroke-width="1.8"/>
+  <circle cx="220" cy="55" r="2.5" fill="#c62828"/>
+  <text x="218" y="50" text-anchor="end" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="5.5" fill="#c62828">104</text>
+  <circle cx="275" cy="95" r="2.5" fill="#c62828"/>
+  <text x="273" y="90" text-anchor="end" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="5.5" fill="#c62828">89-90</text>
+  <text x="165" y="117" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="5.5" fill="#888">5.22</text>
+  <text x="280" y="117" text-anchor="end" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="5.5" fill="#888">5.27</text>
+
+  <!-- 底部关键数据 -->
+  <line x1="20" y1="130" x2="280" y2="130" stroke="#ddd" stroke-width="0.8"/>
+
+  <rect x="10" y="135" width="90" height="25" rx="4" fill="#fff" stroke="#c9a96e" stroke-width="1"/>
+  <text x="55" y="147" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="7" fill="#1a1a1a">黄金</text>
+  <text x="55" y="157" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="6" fill="#c62828">$4,507</text>
+
+  <rect x="105" y="135" width="90" height="25" rx="4" fill="#fff" stroke="#c62828" stroke-width="1"/>
+  <text x="150" y="147" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="7" fill="#1a1a1a">WTI</text>
+  <text x="150" y="157" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="6" fill="#c62828">$89.9</text>
+
+  <rect x="200" y="135" width="90" height="25" rx="4" fill="#fff" stroke="#c62828" stroke-width="1"/>
+  <text x="245" y="147" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="7" fill="#1a1a1a">布伦特</text>
+  <text x="245" y="157" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="6" fill="#c62828">$93.2</text>
+
+  <!-- 金油比 -->
+  <text x="150" y="175" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="6.5" font-weight="700" fill="#1a1a1a">金油比：从70.6回落至约45</text>
+  <text x="150" y="188" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="6" fill="#888">黄金从恐慌溢价向滞胀交易切换</text>
+
+  <!-- 机构观点 -->
+  <rect x="20" y="193" width="260" height="20" rx="3" fill="#fff5f5" stroke="#fecaca" stroke-width="0.8"/>
+  <text x="150" y="207" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="6" fill="#991b1b">花旗：短期看空黄金至4300 · 6-12月目标5000</text>
+
+  <text x="150" y="218" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="5.5" fill="#aaa">数据来源：COMEX/NYMEX · 2026-05-27</text>
+</svg>

@@ -1,7 +1,15 @@
 {
-  "generated_at": "2026-05-27T13:53:56+08:00",
+  "generated_at": "2026-05-27T20:34:39+08:00",
   "latest_date": "2026-05-27",
   "articles": [
+    {
+      "date": "2026-05-27",
+      "session": "evening",
+      "edition_cn": "晚报",
+      "icon": "🌙",
+      "title": "创业板盘中超越沪指后跳水，半导体156亿资金大逃亡，英伟达日赚6.4亿股价却跌",
+      "url": "2026-05-27/wechat-publish/evening/article.html"
+    },
     {
       "date": "2026-05-27",
       "session": "morning",
@@ -102,6 +110,14 @@
   ],
   "by_date": {
     "2026-05-27": {
+      "evening": {
+        "date": "2026-05-27",
+        "session": "evening",
+        "edition_cn": "晚报",
+        "icon": "🌙",
+        "title": "创业板盘中超越沪指后跳水，半导体156亿资金大逃亡，英伟达日赚6.4亿股价却跌",
+        "url": "2026-05-27/wechat-publish/evening/article.html"
+      },
       "morning": {
         "date": "2026-05-27",
         "session": "morning",

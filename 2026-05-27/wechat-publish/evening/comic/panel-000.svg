@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 220">
+  <rect width="300" height="220" fill="#faf8f5"/>
+  <text x="150" y="22" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="13" font-weight="700" fill="#1a1a1a">📡 今日热点速览</text>
+  <line x1="40" y1="30" x2="260" y2="30" stroke="#c9a96e" stroke-width="1.5"/>
+
+  <!-- 事件1：创业板超越沪指 -->
+  <rect x="10" y="38" width="135" height="50" rx="4" fill="#fff" stroke="#c62828" stroke-width="1.2"/>
+  <text x="18" y="54" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="7" font-weight="700" fill="#c62828">① 历史性时刻</text>
+  <text x="18" y="66" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="6.5" fill="#1a1a1a">创业板盘中4148点</text>
+  <text x="18" y="78" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="6.5" fill="#1a1a1a">反超沪指后大跳水</text>
+
+  <!-- 事件2：英伟达财报 -->
+  <rect x="155" y="38" width="135" height="50" rx="4" fill="#fff" stroke="#c9a96e" stroke-width="1.2"/>
+  <text x="163" y="54" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="7" font-weight="700" fill="#c9a96e">② 英伟达财报</text>
+  <text x="163" y="66" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="6.5" fill="#1a1a1a">营收816亿+85%</text>
+  <text x="163" y="78" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="6.5" fill="#c62828">日赚6.4亿 股价仍跌2%</text>
+
+  <!-- 事件3：半导体一日游 -->
+  <rect x="10" y="94" width="135" height="50" rx="4" fill="#fff" stroke="#2e7d32" stroke-width="1.2"/>
+  <text x="18" y="110" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="7" font-weight="700" fill="#2e7d32">③ 半导体一日游</text>
+  <text x="18" y="122" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="6.5" fill="#1a1a1a">昨天科创50+5.88%</text>
+  <text x="18" y="134" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="6.5" fill="#c62828">今天156亿资金大逃亡</text>
+
+  <!-- 事件4：美伊停火 -->
+  <rect x="155" y="94" width="135" height="50" rx="4" fill="#fff" stroke="#1a56db" stroke-width="1.2"/>
+  <text x="163" y="110" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="7" font-weight="700" fill="#1a56db">④ 美伊停火60天</text>
+  <text x="163" y="122" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="6.5" fill="#1a1a1a">框架协议初步达成</text>
+  <text x="163" y="134" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="6.5" fill="#c62828">油价暴跌4%破90美元</text>
+
+  <!-- 事件5：风格切换 -->
+  <rect x="10" y="150" width="135" height="50" rx="4" fill="#fff" stroke="#c9a96e" stroke-width="1.2"/>
+  <text x="18" y="166" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="7" font-weight="700" fill="#c9a96e">⑤ 风格切换</text>
+  <text x="18" y="178" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="6.5" fill="#1a1a1a">资金从科技→白酒电力煤炭</text>
+  <text x="18" y="190" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="6.5" fill="#1a1a1a">近4500只个股下跌</text>
+
+  <!-- 事件6：金价油价 -->
+  <rect x="155" y="150" width="135" height="50" rx="4" fill="#fff" stroke="#c9a96e" stroke-width="1.2"/>
+  <text x="163" y="166" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="7" font-weight="700" fill="#c9a96e">⑥ 商品</text>
+  <text x="163" y="178" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="6.5" fill="#1a1a1a">金价险守4500关口</text>
+  <text x="163" y="190" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="6.5" fill="#1a1a1a">布油暴跌4%至93美元</text>
+
+  <line x1="40" y1="208" x2="260" y2="208" stroke="#c9a96e" stroke-width="1"/>
+  <text x="150" y="215" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="6" fill="#888">扬说财经 — 2026.05.27 晚报</text>
+</svg>

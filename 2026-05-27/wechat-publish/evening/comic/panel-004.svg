@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 220">
+  <rect width="300" height="220" fill="#faf8f5"/>
+  <text x="150" y="20" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="11" font-weight="700" fill="#1a56db">🌍 美伊停火60天</text>
+  <text x="150" y="34" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="7" fill="#888">框架协议初步达成 · 油价暴跌 · 军事摩擦持续</text>
+
+  <!-- 天平图 -->
+  <line x1="50" y1="70" x2="250" y2="70" stroke="#1a1a1a" stroke-width="2"/>
+  <polygon points="150,70 145,78 155,78" fill="#1a1a1a"/>
+  <line x1="150" y1="78" x2="150" y2="100" stroke="#1a1a1a" stroke-width="1.5"/>
+
+  <!-- 伊朗侧 -->
+  <rect x="55" y="78" width="80" height="26" rx="4" fill="#e3f2fd" stroke="#1a56db" stroke-width="1"/>
+  <text x="95" y="90" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="7" font-weight="700" fill="#1a56db">伊朗</text>
+  <text x="95" y="100" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="6" fill="#1a1a1a">停火+资产解冻</text>
+
+  <!-- 美国侧 -->
+  <rect x="165" y="78" width="80" height="26" rx="4" fill="#fff" stroke="#1a56db" stroke-width="1"/>
+  <text x="205" y="90" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="7" font-weight="700" fill="#1a56db">美国</text>
+  <text x="205" y="100" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="6" fill="#1a1a1a">海峡通行+制裁豁免</text>
+
+  <!-- 核问题推迟标记 -->
+  <rect x="100" y="110" width="100" height="20" rx="4" fill="#ffebee" stroke="#c62828" stroke-width="1"/>
+  <text x="150" y="124" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="7" font-weight="700" fill="#c62828">⚠ 核问题被推迟</text>
+
+  <!-- 下方三个分歧点 -->
+  <rect x="10" y="138" width="88" height="35" rx="3" fill="#fff" stroke="#e0e0e0" stroke-width="0.8"/>
+  <text x="54" y="152" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="6.5" font-weight="700" fill="#c62828">分歧①</text>
+  <text x="54" y="162" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="6" fill="#1a1a1a">浓缩铀处置</text>
+  <text x="54" y="170" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="5.5" fill="#888">440kg丰度60%</text>
+
+  <rect x="106" y="138" width="88" height="35" rx="3" fill="#fff" stroke="#e0e0e0" stroke-width="0.8"/>
+  <text x="150" y="152" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="6.5" font-weight="700" fill="#c62828">分歧②</text>
+  <text x="150" y="162" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="6" fill="#1a1a1a">以色列变量</text>
+  <text x="150" y="170" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="5.5" fill="#888">被排除在核心外</text>
+
+  <rect x="202" y="138" width="88" height="35" rx="3" fill="#fff" stroke="#e0e0e0" stroke-width="0.8"/>
+  <text x="246" y="152" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="6.5" font-weight="700" fill="#c62828">分歧③</text>
+  <text x="246" y="162" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="6" fill="#1a1a1a">特朗普内阁</text>
+  <text x="246" y="170" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="5.5" fill="#888">强硬派反对"偏伊"</text>
+
+  <!-- 底部油价 -->
+  <line x1="30" y1="182" x2="270" y2="182" stroke="#ddd" stroke-width="0.8"/>
+  <text x="150" y="195" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="7" fill="#c62828">WTI原油跌破90美元 · 布伦特跌至93美元</text>
+  <text x="150" y="207" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="6" fill="#888">霍尔木兹海峡恢复通航预期压制油价</text>
+
+  <text x="150" y="217" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="5.5" fill="#aaa">数据来源：环球网/Investing.com · 2026-05-27</text>
+</svg>
