@@ -23,16 +23,16 @@ OUTPUT_FILE = os.path.join(ROOT, 'data', 'vix-data.js')
 # ===== 备用数据：当所有 API 均失败时使用 =====
 # 数据来源：WebSearch 交叉验证 (Yahoo Finance / Schwab / TexMetals)
 FALLBACK_DATA = {
-    'current': 16.76,
-    'prev': 17.44,
-    'change': -0.68,
-    'changePct': -3.90,
+    'current': 16.59,
+    'prev': 16.76,
+    'change': -0.17,
+    'changePct': -1.01,
     'level': '贪婪',
     'cls': 'greed',
-    'pct': 41.9,
-    'date': '2026-05-22',
-    'updateTime': '2026-05-25 08:00',
-    'source': '备用数据 (Yahoo Finance)',
+    'pct': 41.5,
+    'date': '2026-05-26',
+    'updateTime': '2026-05-27 20:55',
+    'source': '备用数据 (WebSearch/Yahoo Finance)',
     'note': 'API暂不可用，使用上次有效数据'
 }
 
