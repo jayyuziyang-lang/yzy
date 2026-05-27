@@ -1,37 +1,46 @@
-# 扬说财经 · 品牌视觉风格 v1.0
+# 扬说财经 · 品牌视觉风格 v2.0
 # ============================================================
+# 升级目标: 专业财经媒体风格（Economist / FT 混合）
+# 核心变更 v2.0:
+#   - Figure 背景 = 暖灰 #F0F2F5（卡片容器感）
+#   - Axes 背景 = 纯白 #FFFFFF（图表面板）
+#   - 移除所有 spines（网格线提供视觉结构）
+#   - 网格线仅水平，浅灰色，置于数据下层
+#   - 标题默认左对齐
+#
 # Usage:
 #   import matplotlib.pyplot as plt
 #   plt.style.use('path/to/yangshuo.mplstyle')
 # ============================================================
 
 # === FIGURE ===
-figure.figsize        : 5.5, 3.2
+figure.figsize        : 5.5, 3.8
 figure.dpi            : 200
-figure.facecolor      : F8FAFC
-figure.titlesize      : 14
+figure.facecolor      : F0F2F5
+figure.titlesize      : 15
 figure.titleweight    : bold
 
 # === AXES ===
-axes.facecolor        : F8FAFC
+axes.facecolor        : FFFFFF
 axes.edgecolor        : E2E8F0
-axes.linewidth        : 0.5
+axes.linewidth        : 0
 axes.spines.top       : False
 axes.spines.right     : False
-axes.spines.left      : True
-axes.spines.bottom    : True
-axes.labelcolor       : 1E293B
+axes.spines.left      : False
+axes.spines.bottom    : False
+axes.labelcolor       : 64748B
 axes.labelsize        : 10
 axes.labelweight      : normal
-axes.titlesize        : 13
+axes.titlesize        : 14
 axes.titleweight      : bold
-axes.titlelocation    : center
-axes.titlepad         : 14
+axes.titlelocation    : left
+axes.titlepad         : 12
 axes.grid             : True
 axes.grid.axis        : y
+
 # === GRID ===
 grid.color            : E2E8F0
-grid.alpha            : 0.15
+grid.alpha            : 0.6
 grid.linewidth        : 0.5
 grid.linestyle        : -
 
@@ -67,12 +76,12 @@ legend.handlelength   : 1.5
 legend.handletextpad  : 0.5
 
 # === TICKS ===
-xtick.color           : 64748B
-ytick.color           : 64748B
+xtick.color           : 94A3B8
+ytick.color           : 94A3B8
 xtick.labelsize       : 9
 ytick.labelsize       : 9
-xtick.major.size      : 3
-ytick.major.size      : 3
+xtick.major.size      : 0
+ytick.major.size      : 0
 xtick.major.width     : 0.5
 ytick.major.width     : 0.5
 xtick.direction       : out
@@ -80,8 +89,8 @@ ytick.direction       : out
 
 # === SAVEFIG ===
 savefig.dpi           : 200
-savefig.facecolor     : F8FAFC
+savefig.facecolor     : F0F2F5
 savefig.bbox          : tight
-savefig.pad_inches    : 0.1
+savefig.pad_inches    : 0.15
 savefig.transparent   : False
 savefig.format        : svg
