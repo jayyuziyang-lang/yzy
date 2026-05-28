@@ -87,17 +87,50 @@ else
     ((ERRORS++))
 fi
 
-# [8/8] 综合审核（audit-article.py — 新闻时效性/真实性/来源/文案一致性）
+# [8/8] 综合审核（audit-article.py — 自动检测版次）
 echo -e "\n🔬 [8/8] 综合审核 (audit-article.py)..."
-if python scripts/audit-article.py 2>/dev/null; then
-    echo -e "  ✅ 综合审核通过"
-elif [ $? -eq 1 ]; then
-    echo -e "  ${YELLOW}  ⚠️ 综合审核有警告，请确认后继续${NC}"
-    echo -e "  ${YELLOW}  运行: python scripts/audit-article.py${NC}"
-else
-    echo -e "  ${RED}❌ 综合审核阻塞 — 发现硬性问题不可发布${NC}"
-    echo "  运行 python scripts/audit-article.py 查看详情"
+TODAY=$(date +%Y-%m-%d)
+AUDIT_OK=0; AUDIT_WARN=0; AUDIT_FAIL=0
+
+# 检查 morning 版是否存在
+if [ -d "$TODAY/wechat-publish/morning" ] && [ -f "$TODAY/wechat-publish/morning/article.html" ]; then
+    echo -e "  📋 检测到早报 → 运行审核..."
+    if python scripts/audit-article.py --date "$TODAY" --edition morning 2>/dev/null; then
+        echo -e "    ✅ 早报审核通过"
+        ((AUDIT_OK++))
+    elif [ $? -eq 1 ]; then
+        echo -e "  ${YELLOW}    ⚠️ 早报审核有警告${NC}"
+        ((AUDIT_WARN++))
+    else
+        echo -e "  ${RED}    ❌ 早报审核阻塞${NC}"
+        ((AUDIT_FAIL++))
+    fi
+fi
+
+# 检查 evening 版是否存在
+if [ -d "$TODAY/wechat-publish/evening" ] && [ -f "$TODAY/wechat-publish/evening/article.html" ]; then
+    echo -e "  📋 检测到晚报送 → 运行审核..."
+    if python scripts/audit-article.py --date "$TODAY" --edition evening 2>/dev/null; then
+        echo -e "    ✅ 晚报审核通过"
+        ((AUDIT_OK++))
+    elif [ $? -eq 1 ]; then
+        echo -e "  ${YELLOW}    ⚠️ 晚报审核有警告${NC}"
+        ((AUDIT_WARN++))
+    else
+        echo -e "  ${RED}    ❌ 晚报审核阻塞${NC}"
+        ((AUDIT_FAIL++))
+    fi
+fi
+
+if [ "$AUDIT_OK" -eq 0 ] && [ "$AUDIT_WARN" -eq 0 ] && [ "$AUDIT_FAIL" -eq 0 ]; then
+    echo -e "  ${YELLOW}  ⚠️ 今日无文章（morning/evening均不存在），跳过审核${NC}"
+elif [ "$AUDIT_FAIL" -gt 0 ]; then
+    echo -e "  ${RED}❌ 综合审核阻塞 — 共 $AUDIT_FAIL 个版次审核失败${NC}"
     ((ERRORS++))
+elif [ "$AUDIT_WARN" -gt 0 ]; then
+    echo -e "  ${YELLOW}⚠️ 综合审核有警告（$AUDIT_WARN 个版次），请确认后继续${NC}"
+else
+    echo -e "  ✅ 综合审核全部通过（$AUDIT_OK 个版次）"
 fi
 
 # 结果

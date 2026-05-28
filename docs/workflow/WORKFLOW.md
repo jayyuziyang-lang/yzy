@@ -64,6 +64,13 @@ Claude Code（质量门核心） → 定调、终审、复盘、规则更新
 → 确认来源: 每张图表有数据来源脚注（不允许无来源的图表通过）
 → python scripts/charts_today.py（运行当日专项图表，数据与今日叙事对齐）
 → 确认 docs/charts/ 目录有当天更新且图表与文章核心叙事相关
+
+增强版自检清单（2026-05-28新增 — 重复错误对抗）:
+→ □ [路径检查] 所有图片路径指向当日/本地目录，非 docs/charts/
+→ □ [Gold-box] 晚报gold-box使用陈述句，grep检查无"？结尾"
+→ □ [字数] script.txt汉字数达标（早报≥500, 晚报≥1200）
+→ □ [配图] 晚报每个story已嵌入img（grep story-img ≥ 6）
+→ □ [禁止套话] grep全文确认无"值得关注""后市可期""需警惕"
 ```
 
 ### Phase 1: 新闻采集 + 事实核查（Codex/DeepSeek主力，Claude Code复核）
