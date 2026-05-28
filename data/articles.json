@@ -1,7 +1,15 @@
 {
-  "generated_at": "2026-05-28T10:48:25+08:00",
+  "generated_at": "2026-05-28T20:29:42+08:00",
   "latest_date": "2026-05-28",
   "articles": [
+    {
+      "date": "2026-05-28",
+      "session": "evening",
+      "edition_cn": "晚报",
+      "icon": "🌙",
+      "title": "A股探底回升创业板涨近2%·PCE核心通胀3.2%符合预期·Snowflake盘后暴涨37%",
+      "url": "2026-05-28/wechat-publish/evening/article.html"
+    },
     {
       "date": "2026-05-28",
       "session": "morning",
@@ -118,6 +126,14 @@
   ],
   "by_date": {
     "2026-05-28": {
+      "evening": {
+        "date": "2026-05-28",
+        "session": "evening",
+        "edition_cn": "晚报",
+        "icon": "🌙",
+        "title": "A股探底回升创业板涨近2%·PCE核心通胀3.2%符合预期·Snowflake盘后暴涨37%",
+        "url": "2026-05-28/wechat-publish/evening/article.html"
+      },
       "morning": {
         "date": "2026-05-28",
         "session": "morning",
