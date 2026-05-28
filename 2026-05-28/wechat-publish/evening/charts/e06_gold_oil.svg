@@ -1,49 +1,24 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 340" font-family="'PingFang SC','Microsoft YaHei','Helvetica Neue',sans-serif">
-  <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#F0F2F5"/>
-      <stop offset="100%" stop-color="#E8ECF1"/>
-    </linearGradient>
-    <linearGradient id="gGold2" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#D4A017"/>
-      <stop offset="100%" stop-color="#B8860B"/>
-    </linearGradient>
-    <linearGradient id="gOrange" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#EA580C"/>
-      <stop offset="100%" stop-color="#C2410C"/>
-    </linearGradient>
-    <linearGradient id="gBlue2" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#1A56DB"/>
-      <stop offset="100%" stop-color="#1E3A7A"/>
-    </linearGradient>
-  </defs>
-  <rect width="520" height="340" fill="url(#bg)" rx="8"/>
-  <text x="260" y="36" text-anchor="middle" font-size="16" font-weight="700" fill="#1E293B">商品 · 黄金原油持续承压</text>
-  <text x="260" y="54" text-anchor="middle" font-size="11" fill="#64748B">2026年5月27-28日 · 地缘风险溢价系统退出</text>
-  <rect x="20" y="68" width="480" height="248" rx="8" fill="#FFFFFF"/>
-
-  <!-- Gold card -->
-  <rect x="30" y="82" width="210" height="100" rx="8" fill="#FFFBEB" stroke="#FDE68A" stroke-width="1"/>
-  <text x="135" y="108" text-anchor="middle" font-size="13" font-weight="700" fill="#1E293B">COMEX黄金</text>
-  <text x="135" y="138" text-anchor="middle" font-size="28" font-weight="700" fill="#D4A017">$4,456</text>
-  <text x="135" y="162" text-anchor="middle" font-size="12" font-weight="700" fill="#16A34A">-1.2% · 两月新低</text>
-  <text x="135" y="178" text-anchor="middle" font-size="10" fill="#92400E">花旗短期看空至$4,300</text>
-
-  <!-- Oil card -->
-  <rect x="270" y="82" width="220" height="100" rx="8" fill="#FFF7ED" stroke="#FED7AA" stroke-width="1"/>
-  <text x="380" y="108" text-anchor="middle" font-size="13" font-weight="700" fill="#1E293B">原油价格</text>
-  <text x="380" y="134" text-anchor="middle" font-size="16" font-weight="700" fill="#EA580C">WTI $88.68</text>
-  <text x="380" y="152" text-anchor="middle" font-size="11" fill="#9A3412">-5.5% 创4月来最低</text>
-  <text x="380" y="172" text-anchor="middle" font-size="16" font-weight="700" fill="#1A56DB">Brent $93.75</text>
-  <text x="380" y="190" text-anchor="middle" font-size="11" fill="#1E40AF">-3.5%</text>
-
-  <!-- Gold-to-Oil ratio -->
-  <rect x="60" y="194" width="400" height="36" rx="6" fill="#F0FDF4" stroke="#86EFAC" stroke-width="1"/>
-  <text x="260" y="218" text-anchor="middle" font-size="12" font-weight="600" fill="#16A34A">金油比：从冲突初期70.6 → 回落至~50，地缘溢价系统退出</text>
-
-  <!-- Footnotes -->
-  <line x1="40" y1="242" x2="480" y2="242" stroke="#E2E8F0" stroke-width="1"/>
-  <text x="40" y="260" font-size="11" fill="#475569">即便停火协议最终落地，受损油田修复需数月，全球近700万桶/天供应缺口仍在</text>
-  <text x="40" y="278" font-size="11" fill="#475569">VIX 16.59 · 市场恐慌情绪持续降温</text>
-  <text x="260" y="326" text-anchor="middle" font-size="10" fill="#94A3B8">来源：TradingEconomics · MarketScreener · 金十数据 · 新华财经</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 200" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+  <rect width="360" height="200" fill="#F0F2F5" rx="8"/>
+  <rect x="10" y="10" width="340" height="180" rx="6" fill="#fff"/>
+  <text x="16" y="34" font-size="14" font-weight="700" fill="#1E293B">黄金原油持续承压</text>
+  <text x="16" y="50" font-size="9" fill="#64748B">地缘风险溢价系统退出 · 金油比加速收敛</text>
+  <line x1="16" y1="56" x2="344" y2="56" stroke="#E2E8F0" stroke-width="0.5"/>
+  <rect x="16" y="62" width="100" height="55" rx="6" fill="#FFFBEB" stroke="#FDE68A" stroke-width="1"/>
+  <text x="66" y="80" text-anchor="middle" font-size="9" fill="#92400E">黄金</text>
+  <text x="66" y="102" text-anchor="middle" font-size="16" font-weight="700" fill="#D4A017">$4,456</text>
+  <text x="66" y="114" text-anchor="middle" font-size="8" fill="#16A34A">-1.2%</text>
+  <rect x="126" y="62" width="100" height="55" rx="6" fill="#FFF7ED" stroke="#FED7AA" stroke-width="1"/>
+  <text x="176" y="80" text-anchor="middle" font-size="9" fill="#9A3412">WTI</text>
+  <text x="176" y="102" text-anchor="middle" font-size="16" font-weight="700" fill="#EA580C">$88.68</text>
+  <text x="176" y="114" text-anchor="middle" font-size="8" fill="#16A34A">-5.5%</text>
+  <rect x="236" y="62" width="100" height="55" rx="6" fill="#EFF6FF" stroke="#BFDBFE" stroke-width="1"/>
+  <text x="286" y="80" text-anchor="middle" font-size="9" fill="#1E40AF">布伦特</text>
+  <text x="286" y="102" text-anchor="middle" font-size="16" font-weight="700" fill="#1A56DB">$93.75</text>
+  <text x="286" y="114" text-anchor="middle" font-size="8" fill="#16A34A">-3.5%</text>
+  <rect x="50" y="124" width="260" height="24" rx="6" fill="#F0FDF4" stroke="#86EFAC" stroke-width="1"/>
+  <text x="180" y="140" text-anchor="middle" font-size="10" font-weight="700" fill="#16A34A">金油比：70.6 → 50 · 地缘溢价系统退出</text>
+  <line x1="16" y1="156" x2="344" y2="156" stroke="#E2E8F0" stroke-width="0.5"/>
+  <text x="16" y="172" font-size="10" fill="#475569">即便停火落地 · 修复需数月 · 近700万桶/天缺口仍在</text>
+  <text x="344" y="196" text-anchor="end" font-size="8" fill="#CBD5E1">来源：TradingEconomics·金十数据</text>
 </svg>
