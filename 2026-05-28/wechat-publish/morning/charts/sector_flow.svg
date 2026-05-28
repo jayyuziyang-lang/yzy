@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 340" font-family="'PingFang SC','Microsoft YaHei','Helvetica Neue',sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F0F2F5"/>
+      <stop offset="100%" stop-color="#E8ECF1"/>
+    </linearGradient>
+    <linearGradient id="gIn" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#DC2626"/>
+      <stop offset="100%" stop-color="#B91C1C"/>
+    </linearGradient>
+    <linearGradient id="gOut" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#16A34A"/>
+      <stop offset="100%" stop-color="#15803D"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="520" height="340" fill="url(#bg)" rx="8"/>
+
+  <text x="260" y="36" text-anchor="middle" font-size="16" font-weight="700" fill="#1E293B">A股板块资金流向 · 风格切换进行中</text>
+  <text x="260" y="54" text-anchor="middle" font-size="11" fill="#64748B">2026年5月27日 · 科技资金大规模流出，防御板块获流入</text>
+
+  <rect x="20" y="68" width="480" height="248" rx="8" fill="#FFFFFF"/>
+
+  <!-- Left: Inflow sectors -->
+  <text x="130" y="96" text-anchor="middle" font-size="13" font-weight="700" fill="#DC2626">资金流入 ▲</text>
+
+  <!-- 白酒 +3.37% -->
+  <text x="50" y="120" font-size="12" fill="#1E293B">白酒</text>
+  <rect x="100" y="106" width="130" height="22" rx="4" fill="url(#gIn)" opacity="0.85"/>
+  <text x="248" y="122" font-size="12" font-weight="700" fill="#DC2626">+3.37%</text>
+
+  <!-- 电力 -->
+  <text x="50" y="150" font-size="12" fill="#1E293B">电力</text>
+  <rect x="100" y="136" width="95" height="22" rx="4" fill="url(#gIn)" opacity="0.7"/>
+  <text x="248" y="152" font-size="12" font-weight="700" fill="#DC2626">显著</text>
+
+  <!-- 煤炭 -->
+  <text x="50" y="180" font-size="12" fill="#1E293B">煤炭</text>
+  <rect x="100" y="166" width="70" height="22" rx="4" fill="url(#gIn)" opacity="0.55"/>
+  <text x="248" y="182" font-size="12" font-weight="700" fill="#DC2626">活跃</text>
+
+  <!-- Divider -->
+  <line x1="280" y1="96" x2="280" y2="250" stroke="#E2E8F0" stroke-width="1"/>
+
+  <!-- Right: Outflow sectors -->
+  <text x="390" y="96" text-anchor="middle" font-size="13" font-weight="700" fill="#16A34A">资金流出 ▼</text>
+
+  <!-- 半导体 -156亿 -->
+  <text x="305" y="120" font-size="12" fill="#1E293B">半导体</text>
+  <rect x="365" y="106" width="120" height="22" rx="4" fill="url(#gOut)" opacity="0.85"/>
+  <text x="498" y="122" text-anchor="end" font-size="12" font-weight="700" fill="#16A34A">-156亿</text>
+
+  <!-- AI概念 -->
+  <text x="305" y="150" font-size="12" fill="#1E293B">AI概念</text>
+  <rect x="365" y="136" width="80" height="22" rx="4" fill="url(#gOut)" opacity="0.65"/>
+  <text x="498" y="152" text-anchor="end" font-size="12" font-weight="700" fill="#16A34A">流出</text>
+
+  <!-- 计算机 -->
+  <text x="305" y="180" font-size="12" fill="#1E293B">计算机</text>
+  <rect x="365" y="166" width="65" height="22" rx="4" fill="url(#gOut)" opacity="0.5"/>
+  <text x="498" y="182" text-anchor="end" font-size="12" font-weight="700" fill="#16A34A">流出</text>
+
+  <!-- Bottom insight -->
+  <line x1="40" y1="206" x2="480" y2="206" stroke="#E2E8F0" stroke-width="1"/>
+
+  <rect x="40" y="214" width="440" height="44" rx="6" fill="#FFF7ED" stroke="#FED7AA" stroke-width="1"/>
+  <text x="260" y="232" text-anchor="middle" font-size="11" font-weight="600" fill="#C2410C">风格切换信号已十分清晰</text>
+  <text x="260" y="250" text-anchor="middle" font-size="10" fill="#9A3412">科技 → 防御（白酒/电力/煤炭）的资金轮动正在加速</text>
+
+  <text x="260" y="326" text-anchor="middle" font-size="10" fill="#94A3B8">来源：东方财富 · 证券时报 · 新华财经</text>
+</svg>
