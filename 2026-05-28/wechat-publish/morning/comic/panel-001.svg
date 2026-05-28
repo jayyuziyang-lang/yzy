@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 380" width="520" height="380">
+  <rect width="520" height="380" fill="#F8FAFC" rx="10"/>
+
+  <!-- TOP BANNER -->
+  <rect x="0" y="0" width="520" height="44" fill="#1E3A7A" rx="10"/>
+  <rect x="0" y="30" width="520" height="14" fill="#1E3A7A"/>
+  <text x="260" y="28" text-anchor="middle" font-size="16" font-weight="700" fill="#FFF">🎯 隔夜全球 · 三大看点</text>
+
+  <!-- Panel 1: US Record Highs (left) -->
+  <rect x="18" y="58" width="232" height="200" fill="#FFF" stroke="#E2E8F0" stroke-width="1.5" rx="8"/>
+  <rect x="34" y="72" width="36" height="36" rx="4" fill="#EFF6FF" stroke="#1A56DB" stroke-width="1"/>
+  <text x="52" y="95" text-anchor="middle" font-size="12" fill="#1A56DB">📈</text>
+  <text x="80" y="82" font-size="12" font-weight="700" fill="#1E293B">美股齐创收盘新高</text>
+  <text x="80" y="98" font-size="9" fill="#64748B">AI轮动至防御板块</text>
+
+  <!-- S&P -->
+  <rect x="34" y="114" width="200" height="36" rx="6" fill="#FFF" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="44" y="132" font-size="10" font-weight="700" fill="#1E293B">标普 500</text>
+  <text x="44" y="145" font-size="8" fill="#64748B">7,520.36</text>
+  <text x="210" y="137" text-anchor="end" font-size="12" font-weight="800" fill="#DC2626">+0.02%</text>
+
+  <!-- Dow -->
+  <rect x="34" y="156" width="200" height="36" rx="6" fill="#FFF" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="44" y="174" font-size="10" font-weight="700" fill="#1E293B">道琼斯</text>
+  <text x="44" y="187" font-size="8" fill="#64748B">50,644.28</text>
+  <text x="210" y="179" text-anchor="end" font-size="12" font-weight="800" fill="#DC2626">+0.36%</text>
+
+  <!-- Nasdaq -->
+  <rect x="34" y="198" width="200" height="36" rx="6" fill="#FFF" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="44" y="216" font-size="10" font-weight="700" fill="#1E293B">纳斯达克</text>
+  <text x="44" y="229" font-size="8" fill="#64748B">26,674.74</text>
+  <text x="210" y="221" text-anchor="end" font-size="12" font-weight="800" fill="#DC2626">+0.07%</text>
+
+  <!-- Arrow -->
+  <text x="258" y="155" text-anchor="middle" font-size="24" fill="#D4A017" font-weight="700">⟩</text>
+
+  <!-- Panel 2: Oil/Iran drama (right) -->
+  <rect x="270" y="58" width="232" height="200" fill="#FFF" stroke="#E2E8F0" stroke-width="1.5" rx="8"/>
+  <rect x="286" y="72" width="36" height="36" rx="4" fill="#FFF5F5" stroke="#DC2626" stroke-width="1"/>
+  <text x="304" y="95" text-anchor="middle" font-size="12" fill="#DC2626">🛢️</text>
+  <text x="332" y="82" font-size="12" font-weight="700" fill="#1E293B">美伊罗生门</text>
+  <text x="332" y="98" font-size="9" fill="#64748B">油价暴跌后反弹</text>
+
+  <!-- Oil prices -->
+  <rect x="286" y="114" width="200" height="36" rx="6" fill="#FFF" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="296" y="132" font-size="10" font-weight="700" fill="#1E293B">WTI 原油</text>
+  <text x="296" y="145" font-size="8" fill="#64748B">$89.41</text>
+  <text x="462" y="137" text-anchor="end" font-size="12" font-weight="800" fill="#16A34A">-4.8%</text>
+
+  <rect x="286" y="156" width="200" height="36" rx="6" fill="#FFF" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="296" y="174" font-size="10" font-weight="700" fill="#1E293B">布伦特原油</text>
+  <text x="296" y="187" font-size="8" fill="#64748B">$92.88</text>
+  <text x="462" y="179" text-anchor="end" font-size="12" font-weight="800" fill="#16A34A">-3.5%</text>
+
+  <rect x="286" y="198" width="200" height="36" rx="6" fill="#FFF" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="296" y="216" font-size="10" font-weight="700" fill="#1E293B">COMEX 黄金</text>
+  <text x="296" y="229" font-size="8" fill="#64748B">$4,456（两月新低）</text>
+  <text x="462" y="221" text-anchor="end" font-size="12" font-weight="800" fill="#16A34A">-1.2%</text>
+
+  <!-- Bottom: Snowflake -->
+  <rect x="18" y="272" width="484" height="90" fill="#FFF" stroke="#E2E8F0" stroke-width="1" rx="8"/>
+  <text x="40" y="295" font-size="12" font-weight="700" fill="#1E293B">❄️ Snowflake 盘后暴涨 30%+</text>
+  <line x1="40" y1="302" x2="486" y2="302" stroke="#E2E8F0" stroke-width="0.5"/>
+
+  <text x="40" y="320" font-size="10" fill="#475569">与 AWS 签署 60 亿美元 / 5 年战略协议，上调全年收入指引</text>
+  <text x="40" y="338" font-size="10" fill="#475569">云计算平台绑定竞争加剧 → 但 AI 芯片股短期获利了结（高通 -6%）</text>
+
+  <!-- Today's key event tag -->
+  <rect x="18" y="370" width="484" height="1" fill="#E2E8F0"/>
+</svg>

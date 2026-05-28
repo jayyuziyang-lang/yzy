@@ -1,7 +1,15 @@
 {
-  "generated_at": "2026-05-27T21:14:43+08:00",
-  "latest_date": "2026-05-27",
+  "generated_at": "2026-05-28T10:48:25+08:00",
+  "latest_date": "2026-05-28",
   "articles": [
+    {
+      "date": "2026-05-28",
+      "session": "morning",
+      "edition_cn": "早报",
+      "icon": "🌅",
+      "title": "美股三大指数齐创收盘新高·美伊停火协议草案传又遭否认·Snowflake暴涨30%·A股风格切换",
+      "url": "2026-05-28/wechat-publish/morning/article.html"
+    },
     {
       "date": "2026-05-27",
       "session": "evening",
@@ -109,6 +117,16 @@
     }
   ],
   "by_date": {
+    "2026-05-28": {
+      "morning": {
+        "date": "2026-05-28",
+        "session": "morning",
+        "edition_cn": "早报",
+        "icon": "🌅",
+        "title": "美股三大指数齐创收盘新高·美伊停火协议草案传又遭否认·Snowflake暴涨30%·A股风格切换",
+        "url": "2026-05-28/wechat-publish/morning/article.html"
+      }
+    },
     "2026-05-27": {
       "evening": {
         "date": "2026-05-27",

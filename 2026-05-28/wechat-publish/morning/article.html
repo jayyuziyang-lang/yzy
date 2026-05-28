@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>美股三大指数齐创收盘新高·美伊停火协议草案传又遭否认·Snowflake暴涨30%·A股风格切换</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system,"PingFang SC","Microsoft YaHei","Helvetica Neue",sans-serif; background: #F5F7FA; color: #1E293B; line-height: 1.8; font-size: 16px; }
+  .c { max-width: 640px; margin: 0 auto; background: #fff; padding: 44px 0 40px; }
+
+  .top-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; max-width: 640px; margin: 0 auto; background: rgba(255,255,255,0.95); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-bottom: 1px solid #E2E8F0; display: flex; align-items: center; padding: 0 16px; height: 44px; }
+  .top-nav .back { display: flex; align-items: center; gap: 4px; color: #1A56DB; text-decoration: none; font-size: 13px; font-weight: 600; }
+  .top-nav .back:active { opacity: 0.6; }
+  .top-nav .nav-date { flex: 1; text-align: center; font-size: 12px; color: #64748B; }
+  .top-nav .nav-edition { font-size: 11px; color: #D4A017; background: #FFFBEB; padding: 2px 8px; border-radius: 8px; font-weight: 600; }
+
+  .header { background: linear-gradient(135deg,#1A56DB,#1E3A7A); padding: 20px 20px 16px; color: white; }
+  .header h1 { font-size: 22px; font-weight: 700; line-height: 1.4; margin-bottom: 6px; }
+  .header .meta { font-size: 12px; opacity: 0.8; display: flex; gap: 12px; flex-wrap: wrap; }
+  .header .meta .reading-time { background: rgba(255,255,255,0.1); padding: 1px 8px; border-radius: 8px; }
+
+  .player { display: flex; align-items: center; gap: 12px; margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.15); }
+  .player-icon { width: 40px; height: 40px; background: rgba(255,255,255,0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 18px; }
+  .player-info { flex: 1; }
+  .player-title { font-size: 13px; font-weight: 600; }
+  .player-desc { font-size: 11px; opacity: 0.7; }
+  .player audio { width: 100%; margin-top: 4px; border-radius: 20px; }
+
+  .body { padding: 20px; }
+
+  .hotspots { background: #FFFBEB; border-radius: 10px; padding: 14px 16px; margin-bottom: 20px; border: 1px solid #FDE68A; }
+  .hotspots h3 { font-size: 14px; font-weight: 700; color: #D4A017; margin-bottom: 10px; }
+  .hotspots ol { padding-left: 18px; }
+  .hotspots li { font-size: 13px; color: #334155; line-height: 1.7; margin-bottom: 6px; padding-left: 4px; }
+  .hotspots li strong { color: #1E293B; }
+
+  .section-block { margin: 26px 0; }
+  .section-num { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; font-size: 13px; font-weight: 700; margin-right: 8px; flex-shrink: 0; color: #fff; }
+  .section-num.n01 { background: #DC2626; } .section-num.n02 { background: #16A34A; } .section-num.n03 { background: #9333EA; }
+  .section-num.n04 { background: #1A56DB; } .section-num.n05 { background: #D4A017; } .section-num.n06 { background: #EA580C; }
+  .section-title { font-size: 18px; font-weight: 700; color: #1E293B; margin-bottom: 12px; display: flex; align-items: center; }
+  .section-content { font-size: 15px; color: #334155; line-height: 1.9; margin-bottom: 12px; }
+  .section-content p { margin-bottom: 12px; text-align: justify; }
+  .section-content .highlight { background: #FFFBEB; padding: 1px 4px; border-radius: 2px; font-weight: 600; color: #92400E; }
+  .section-content .key-point { font-weight: 700; color: #1A56DB; }
+
+  .section-img { margin: 14px 0; border-radius: 8px; border: 1px solid #E2E8F0; overflow: hidden; background: #FAFAFA; }
+  .section-img img { width: 100%; display: block; }
+  .section-img .caption { font-size: 12px; color: #64748B; text-align: center; padding: 6px 10px; background: #F8FAFC; }
+
+  .section-divider { border: none; height: 1px; background: linear-gradient(to right, transparent, #D4A017, transparent); margin: 8px 0; }
+
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 13px; }
+  th { background: #1A56DB; color: #fff; padding: 8px 10px; text-align: left; font-weight: 600; }
+  th:first-child { border-radius: 6px 0 0 0; }
+  th:last-child { border-radius: 0 6px 0 0; }
+  td { padding: 8px 10px; border-bottom: 1px solid #E2E8F0; }
+  tr:nth-child(even) { background: #F8F9FA; }
+  .up { color: #DC2626; font-weight: 600; }
+  .down { color: #16A34A; font-weight: 600; }
+
+  .sources { background: #FFFBEB; border-radius: 10px; padding: 12px 14px; margin: 16px 0; font-size: 12px; color: #92400E; line-height: 1.6; }
+  .sources h3 { font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+  .sources a { color: #1A56DB; text-decoration: none; }
+  .sources a:hover { text-decoration: underline; }
+
+  .end-box { background: linear-gradient(135deg,#1A56DB,#1E3A7A); border-radius: 12px; padding: 16px 20px; margin: 22px 0; color: white; text-align: center; }
+  .end-box .end-icon { font-size: 28px; margin-bottom: 4px; }
+  .end-box .end-title { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+  .end-box .end-desc { font-size: 12px; opacity: 0.8; }
+
+  .warn { background: #FFF5F5; border: 1px solid #FECACA; border-radius: 10px; padding: 12px 14px; margin-top: 24px; font-size: 12px; color: #991B1B; line-height: 1.5; }
+</style>
+</head>
+<body>
+<div class="c">
+
+  <div class="top-nav">
+    <a class="back" href="../../../index.html">&larr; 返回首页</a>
+    <span class="nav-date">2026.05.28</span>
+    <span class="nav-edition">早报</span>
+  </div>
+
+  <div class="header">
+    <h1>美股三大指数齐创收盘新高·美伊停火草案传又遭否认·Snowflake暴涨30%·A股风格切换</h1>
+    <div class="meta">
+      <span>📅 2026.05.28 早晨</span>
+      <span>🏷️ 美股新高 / 美伊停火 / Snowflake / PCE前瞻 / 原油暴跌 / 黄金承压</span>
+      <span class="reading-time">📖 阅读约 3 分钟</span>
+    </div>
+    <div class="player">
+      <div class="player-icon">🎧</div>
+      <div class="player-info">
+        <div class="player-title">音频解说 · 约3分钟</div>
+        <div class="player-desc">边听边看，体验更佳</div>
+        <audio controls preload="none"><source src="audio.mp3" type="audio/mpeg"></audio>
+      </div>
+    </div>
+  </div>
+
+  <div class="body">
+
+    <!-- ════════════════════════════════════════ -->
+    <!-- 今日热点速览 — 4件隔夜新鲜事 -->
+    <!-- ════════════════════════════════════════ -->
+    <div class="hotspots">
+      <h3>📋 今日热点速览 — 4件隔夜新鲜事</h3>
+      <ol>
+        <li><strong>美股三大指数齐创收盘新高：</strong>标普500收报7520点，纳指26675点，道指50644点，科技股表现分化</li>
+        <li><strong>美伊停火草案传出又遭否认：</strong>伊朗称已就60天停火框架达初步协议，白宫称"完全捏造"，原油暴跌后反弹</li>
+        <li><strong>Snowflake暴涨30%+：</strong>与AWS签60亿美元大单，上调全年收入指引，云计算赛道再掀波澜</li>
+        <li><strong>今天焦点：</strong>美国4月PCE通胀数据（美联储新主席Warsh首份重大通胀报告）</li>
+      </ol>
+    </div>
+
+    <!-- ════════════════════════════════════════ -->
+    <!-- 01 A股：仅1段数据回顾 -->
+    <!-- ════════════════════════════════════════ -->
+    <div class="section-block">
+      <div class="section-title">
+        <span class="section-num n01">01</span> A股 · 沪指失守4100点，白酒电力逆势走强
+      </div>
+      <div class="section-content">
+        <p>昨日A股走出分化行情。<strong>上证指数跌1.25%收报4093.73点，失守4100点整数关口；创业板指盘中一度涨超2.5%反超沪指（历史第二次），但收涨仅0.07%报4045.77点</strong>。两市成交3.24万亿元，连续第三日站上3万亿，但全市场近4500只个股下跌，仅约970只上涨（来源：证券时报、东方财富）。</p>
+        <p>板块方面，白酒领涨（+3.37%），水井坊涨停，贵州茅台涨超2%报1303元；电力延续强势，华电能源3连板；煤炭、影视院线亦表现活跃。半导体一日游——前日暴涨后昨日主力资金净流出156亿元，全板块居首。风格从科技向防御切换的信号已十分清晰（来源：新华财经、东方财富）。</p>
+      </div>
+      <div class="section-img">
+        <img loading="lazy" src="../../../docs/charts/astock_indices.svg" alt="A股主要指数昨日表现">
+        <div class="caption">A股主要指数昨日表现 — 沪指跌1.25%，创业板冲高回落微涨0.07%</div>
+      </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- ════════════════════════════════════════ -->
+    <!-- 02 美股 -->
+    <!-- ════════════════════════════════════════ -->
+    <div class="section-block">
+      <div class="section-title">
+        <span class="section-num n02">02</span> 美股 · 三大指数齐创收盘新高，AI科技股回调
+      </div>
+      <div class="section-content">
+        <p>隔夜美股三大指数全面收涨，均创下历史最高收盘纪录。<strong>标普500涨0.02%报7520.36点，纳斯达克综合指数涨0.07%报26674.74点，道琼斯工业指数涨0.36%报50644.28点</strong>。但盘面结构分化明显——AI/芯片股整体回调，投资者轮动至医疗保健和消费品板块（来源：新华财经、MarketWatch）。</p>
+        <p>具体来看：<strong>高通跌约6%，Marvell跌约4.6%，英特尔跌1.4%，英伟达跌1%</strong>。费城半导体指数创新高后小幅回落。银行股承压——摩根大通跌2.4%，CEO戴蒙警告费用可能比预期高10亿美元。消费品板块走强，宝洁涨3.2%领涨道指。高盛将标普500年末目标价从7600点上调至8000点（来源：MarketScreener、TradingEconomics）。</p>
+        <p>今天市场焦点将转向美国4月PCE通胀数据。这是美联储新主席Warsh上任后的首份重大通胀报告，市场预期整体PCE同比+3.8%，核心PCE同比+3.3%。</p>
+      </div>
+      <div class="section-img">
+        <img loading="lazy" src="comic/panel-001.svg" alt="隔夜全球三大看点">
+        <div class="caption">🎯 隔夜全球三大看点 — 美股齐创收盘新高，美伊罗生门原油暴跌，Snowflake签AWS大单暴涨30%</div>
+      </div>
+      <div class="section-img">
+        <img loading="lazy" src="../../../docs/charts/global_markets.svg" alt="全球主要指数隔夜表现">
+        <div class="caption">全球主要指数表现 — 美股三大指数齐创历史新高，韩国KOSPI涨2.25%盘中触发熔断</div>
+      </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- ════════════════════════════════════════ -->
+    <!-- 03 科技/AI -->
+    <!-- ════════════════════════════════════════ -->
+    <div class="section-block">
+      <div class="section-title">
+        <span class="section-num n03">03</span> 科技/AI · Snowflake暴涨30%签AWS大单，AI芯片股技术性回调
+      </div>
+      <div class="section-content">
+        <p>隔夜科技板块最具冲击力的消息来自<strong>Snowflake</strong>——<strong>盘后暴涨超30%</strong>，公司与亚马逊AWS签署了60亿美元、为期5年的战略合作协议，同时上调全年收入指引。这笔交易标志着云计算领域的"平台绑定"竞争正在加剧（来源：MarketScreener）。</p>
+        <p>但AI芯片股隔夜普遍回调。高通、Marvell、英伟达等全线下跌，费城半导体指数在连创新高后出现技术性休整。原因有二：一是前期涨幅过大积累了获利了结压力；二是市场在等待今天PCE数据给出的通胀方向信号，科技成长股对利率预期尤为敏感。Salesforce因收入指引低于预期而下滑（来源：MarketWatch、TradingEconomics）。</p>
+      </div>
+      <div class="section-img">
+        <img loading="lazy" src="../../../docs/charts/semiconductor_surge.svg" alt="半导体板块表现">
+        <div class="caption">全球半导体板块分化 — 费半指数创新高后回调，AI芯片股短期获利了结压力加大</div>
+      </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- ════════════════════════════════════════ -->
+    <!-- 04 前沿/国际 -->
+    <!-- ════════════════════════════════════════ -->
+    <div class="section-block">
+      <div class="section-title">
+        <span class="section-num n04">04</span> 前沿/国际 · 美伊谈判上演"罗生门"，韩国股市熔断创新高
+      </div>
+      <div class="section-content">
+        <p>隔夜最戏剧性的一幕来自中东。伊朗国家电视台报道称，双方已就60天全面停火框架达成初步协议草案，美方承诺解冻资产并结束海上封锁。但<strong>白宫随即否认</strong>，称该报道"完全捏造"。特朗普称伊朗"在靠气数谈判"，警告可能恢复打击。美方第二轮空袭袭击了伊朗一处军事设施。</p>
+        <p>油价反应直接而剧烈——<strong>WTI原油暴跌近5%跌破90美元后反弹，布伦特跌至93美元附近</strong>。"打谈结合"格局下油价短期波动率飙升，金油比从冲突初期的70.6回落至45附近，市场正从恐慌避险切换至滞胀交易模式（来源：新华财经、我的钢铁网）。</p>
+        <p>另一侧，<strong>韩国KOSPI涨2.25%盘中触发熔断，创历史新高</strong>，半导体板块带动亚洲市场走强。但要注意——KOSPI年内近乎翻倍，约1400万散户涌入，市场集中度风险加剧（来源：证券时报）。</p>
+      </div>
+      <div class="section-img">
+        <img loading="lazy" src="../../../docs/charts/gold_oil_ratio.svg" alt="金油比趋势">
+        <div class="caption">金油比从70.6回落至45附近 — 地缘风险溢价回落，市场从恐慌避险向滞胀交易切换</div>
+      </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- ════════════════════════════════════════ -->
+    <!-- 05 宏观 -->
+    <!-- ════════════════════════════════════════ -->
+    <div class="section-block">
+      <div class="section-title">
+        <span class="section-num n05">05</span> 宏观 · PCE通胀数据今日公布，美联储"可加可降"两难
+      </div>
+      <div class="section-content">
+        <p>今天全球宏观层面的核心事件就是<strong>美国4月PCE通胀数据</strong>发布。市场预期整体PCE同比+3.8%，核心PCE同比+3.3%。这是美联储新主席Kevin Warsh上任后迎来的第一份重大通胀检验（来源：TradingEconomics）。</p>
+        <p>美联储理事Cook隔夜表态称，她"准备在劳动力市场走弱时降息，或在通胀停滞时加息"，美联储现在的政策路径完全由数据驱动。市场目前定价年内约50%概率会再加息一次。若今天PCE超预期，市场可能迅速重新定价加息预期，对风险资产构成短线压制。此外，美国还将公布Q1 GDP二次修正值和当周初请失业金人数（来源：MarketWatch）。</p>
+      </div>
+      <div class="section-img">
+        <img loading="lazy" src="../../../docs/charts/sector_flow.svg" alt="A股板块资金流向">
+        <div class="caption">A股板块资金流向 — 科技板块资金大规模流出，防御板块获流入，日经调查显示风格切换</div>
+      </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- ════════════════════════════════════════ -->
+    <!-- 06 商品/黄金 -->
+    <!-- ════════════════════════════════════════ -->
+    <div class="section-block">
+      <div class="section-title">
+        <span class="section-num n06">06</span> 商品/黄金 · 原油暴跌后反弹，黄金跌至两月新低
+      </div>
+      <div class="section-content">
+        <p>隔夜商品市场剧烈波动。<strong>WTI原油一度暴跌近5%跌至89.41美元，后收窄跌幅至约-2.5%</strong>；布伦特原油跌3.5%至92.88美元附近。伊朗停火消息传出引发油价急跌，但白宫否认后油价从低点反弹。美方空袭持续也支撑了油价。即便协议最终签署，受损油田修复和霍尔木兹海峡恢复全面通航仍需数月，全球每天还有近700万桶供应缺口，油价下行空间有限（来源：新华财经、我的钢铁网）。</p>
+        <p><strong>COMEX黄金跌约1.2%至4456美元/盎司，创两个月新低</strong>。油价反弹引发通胀预期升温，叠加美元走强，对金价形成双重压制。VIX恐慌指数跌4.2%至16.29，市场恐慌情绪持续降温。花旗短期看空黄金至4300美元，但维持6-12个月目标价5000美元（来源：TradingEconomics、新华财经）。</p>
+      </div>
+      <div class="section-img">
+        <img loading="lazy" src="../../../docs/charts/gold_price_trend.svg" alt="黄金期货走势">
+        <div class="caption">黄金跌至$4,456创两月新低 — 油价反弹推升通胀预期，加息担忧压制金价</div>
+      </div>
+      <div class="section-img">
+        <img loading="lazy" src="../../../docs/charts/oil_price.svg" alt="原油期货走势">
+        <div class="caption">WTI原油暴跌后反弹 — 美伊"打谈结合"格局下油价短期波动加剧</div>
+      </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- ════════════════════════════════════════ -->
+    <!-- 关键市场数据 -->
+    <!-- ════════════════════════════════════════ -->
+    <table>
+      <tr><th>品种</th><th>最新</th><th>涨跌幅</th></tr>
+      <tr><td>标普500</td><td>7,520.36</td><td class="up">+0.02%</td></tr>
+      <tr><td>纳斯达克</td><td>26,674.74</td><td class="up">+0.07%</td></tr>
+      <tr><td>道琼斯</td><td>50,644.28</td><td class="up">+0.36%</td></tr>
+      <tr><td>上证指数</td><td>4,093.73</td><td class="down">-1.25%</td></tr>
+      <tr><td>创业板指</td><td>4,045.77</td><td class="up">+0.07%</td></tr>
+      <tr><td>WTI原油</td><td>$89.41</td><td class="down">-4.80%</td></tr>
+      <tr><td>布伦特原油</td><td>$92.88</td><td class="down">-3.50%</td></tr>
+      <tr><td>COMEX黄金</td><td>$4,456</td><td class="down">-1.20%</td></tr>
+      <tr><td>VIX恐慌指数</td><td>16.29</td><td class="down">-4.20%</td></tr>
+      <tr><td>美元指数</td><td>99.23</td><td class="up">+0.08%</td></tr>
+      <tr><td>10年美债收益</td><td>4.48%</td><td class="down">-2bp</td></tr>
+      <tr><td>韩国KOSPI</td><td>~8,450</td><td class="up">+2.25%</td></tr>
+    </table>
+
+    <!-- ════════════════════════════════════════ -->
+    <!-- 来源 -->
+    <!-- ════════════════════════════════════════ -->
+    <div class="sources">
+      <h3>📌 数据来源</h3>
+      <div style="line-height:2;">
+        · <a href="https://sa.marketscreener.com/news/wall-st-posts-record-closing-highs-despite-pause-in-ai-rally-ce7f5ad3df8ef423">MarketScreener — 美股三大指数创收盘新高</a><br>
+        · <a href="https://tradingeconomics.com/united-states/stock-market/news/553844">TradingEconomics — S&P和纳斯达克创纪录收盘</a><br>
+        · <a href="https://www.marketwatch.com/livecoverage/stock-market-today-dow-s-p-500-nasdaq-oil-prices-us-iran-peace-deal">MarketWatch — 美股实时盘面</a><br>
+        · <a href="https://english.news.cn/20260527/f418e013d5cb4fa2a8aeff0e4f998841/c.html">新华财经 — U.S. stocks close mixed</a><br>
+        · <a href="https://stcn.com/article/detail/3929753.html">证券时报 — 沪指跌逾1%收评</a><br>
+        · <a href="https://fund.eastmoney.com/a/202605273751307685.html">东方财富 — A股白酒影视电力领涨</a><br>
+        · <a href="https://m.cnfin.com/yw-lb//zixun/20260528/4418341_1.html">新华财经 — 国际金融市场早知道5月28日</a><br>
+        · <a href="https://ftmo.com/au/blog/trading-week-ahead-markets-rally-on-us-iran-deal-hopes/">FTMO — Markets Rally on US-Iran Deal Hopes</a><br>
+        · <a href="https://tradingeconomics.com/united-states/stock-market/news/554208">TradingEconomics — US Futures Flat Ahead of PCE</a><br>
+        · <a href="https://news.ifeng.com/c/8tTAsCcYFFg">凤凰网 — A股全线下挫 超4400只下跌</a>
+      </div>
+    </div>
+
+    <div class="end-box">
+      <div class="end-icon">📡</div>
+      <div class="end-title">扬说财经</div>
+      <div class="end-desc">用漫画看懂财经 — 我是阿扬，我们晚上见。</div>
+    </div>
+
+    <div class="warn">⚠️ <strong>风险提示：</strong>以上内容仅为信息分享，不构成投资建议。市场有风险，投资需谨慎。数据来源于公开信息，如有出入请以官方数据为准。</div>
+
+  </div>
+</div>
+</body>
+</html>
