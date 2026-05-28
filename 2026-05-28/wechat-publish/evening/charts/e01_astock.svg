@@ -1,27 +1,47 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 200" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
-  <rect width="360" height="200" fill="#F0F2F5" rx="8"/>
-  <rect x="10" y="10" width="340" height="180" rx="6" fill="#fff"/>
-  <text x="16" y="34" font-size="14" font-weight="700" fill="#1E293B">A股主要指数 · 探底回升</text>
-  <text x="16" y="50" font-size="9" fill="#64748B">5月28日 · 成交2.97万亿</text>
-  <line x1="16" y1="56" x2="344" y2="56" stroke="#E2E8F0" stroke-width="0.5"/>
-  <text x="55" y="80" text-anchor="middle" font-size="9" fill="#64748B">上证</text>
-  <text x="55" y="102" text-anchor="middle" font-size="16" font-weight="700" fill="#DC2626">+0.12%</text>
-  <text x="55" y="118" text-anchor="middle" font-size="9" fill="#475569">4098</text>
-  <rect x="30" y="124" width="50" height="6" rx="3" fill="#DC2626" opacity="0.6"/>
-  <text x="145" y="80" text-anchor="middle" font-size="9" fill="#64748B">深证</text>
-  <text x="145" y="102" text-anchor="middle" font-size="16" font-weight="700" fill="#DC2626">+0.80%</text>
-  <text x="145" y="118" text-anchor="middle" font-size="9" fill="#475569">15695</text>
-  <rect x="120" y="124" width="50" height="10" rx="3" fill="#DC2626" opacity="0.7"/>
-  <text x="235" y="80" text-anchor="middle" font-size="9" fill="#64748B">创业板</text>
-  <text x="235" y="102" text-anchor="middle" font-size="16" font-weight="700" fill="#7C3AED">+1.96%</text>
-  <text x="235" y="118" text-anchor="middle" font-size="9" fill="#475569">4054</text>
-  <rect x="210" y="124" width="50" height="14" rx="3" fill="#7C3AED" opacity="0.8"/>
-  <text x="320" y="80" text-anchor="middle" font-size="9" fill="#64748B">北证50</text>
-  <text x="320" y="102" text-anchor="middle" font-size="16" font-weight="700" fill="#D4A017">+2.55%</text>
-  <text x="320" y="118" text-anchor="middle" font-size="9" fill="#475569">1258</text>
-  <rect x="295" y="124" width="50" height="18" rx="3" fill="#D4A017" opacity="0.9"/>
-  <line x1="16" y1="148" x2="344" y2="148" stroke="#E2E8F0" stroke-width="0.5"/>
-  <text x="180" y="165" text-anchor="middle" font-size="10" fill="#475569">3000+上涨 · 126涨停 · 12跌停</text>
-  <text x="180" y="182" text-anchor="middle" font-size="9" fill="#94A3B8">领涨：算力硬件/PCB/CPO/半导体 | 领跌：白酒/创新药/金融</text>
-  <text x="180" y="196" text-anchor="end" font-size="8" fill="#CBD5E1">来源：证券时报·新浪财经</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 320" font-family="'PingFang SC','Microsoft YaHei','Helvetica Neue',sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F0F2F5"/>
+      <stop offset="100%" stop-color="#E8ECF1"/>
+    </linearGradient>
+  </defs>
+  <rect width="520" height="320" fill="url(#bg)" rx="8"/>
+  <rect x="15" y="15" width="490" height="290" rx="8" fill="#FFFFFF"/>
+
+  <text x="30" y="48" font-size="18" font-weight="700" fill="#1E293B">A股主要指数 · 探底回升</text>
+  <text x="30" y="70" font-size="12" fill="#64748B">2026年5月28日 · 两市成交2.97万亿元</text>
+
+  <line x1="30" y1="82" x2="490" y2="82" stroke="#E2E8F0" stroke-width="1"/>
+
+  <!-- Card 1: 上证 -->
+  <rect x="35" y="96" width="100" height="100" rx="8" fill="#FEF2F2" stroke="#FECACA" stroke-width="1"/>
+  <text x="85" y="124" text-anchor="middle" font-size="14" font-weight="700" fill="#DC2626">上证指数</text>
+  <text x="85" y="156" text-anchor="middle" font-size="26" font-weight="700" fill="#DC2626">+0.12%</text>
+  <text x="85" y="180" text-anchor="middle" font-size="12" fill="#475569">4098.64</text>
+
+  <!-- Card 2: 深证 -->
+  <rect x="150" y="96" width="100" height="100" rx="8" fill="#FEF2F2" stroke="#FECACA" stroke-width="1"/>
+  <text x="200" y="124" text-anchor="middle" font-size="14" font-weight="700" fill="#DC2626">深证成指</text>
+  <text x="200" y="156" text-anchor="middle" font-size="26" font-weight="700" fill="#DC2626">+0.80%</text>
+  <text x="200" y="180" text-anchor="middle" font-size="12" fill="#475569">15695.48</text>
+
+  <!-- Card 3: 创业板 -->
+  <rect x="265" y="96" width="100" height="100" rx="8" fill="#F5F3FF" stroke="#DDD6FE" stroke-width="1"/>
+  <text x="315" y="124" text-anchor="middle" font-size="14" font-weight="700" fill="#7C3AED">创业板指</text>
+  <text x="315" y="156" text-anchor="middle" font-size="26" font-weight="700" fill="#7C3AED">+1.96%</text>
+  <text x="315" y="180" text-anchor="middle" font-size="12" fill="#475569">4054.21</text>
+
+  <!-- Card 4: 北证50 -->
+  <rect x="380" y="96" width="100" height="100" rx="8" fill="#FFFBEB" stroke="#FDE68A" stroke-width="1"/>
+  <text x="430" y="124" text-anchor="middle" font-size="14" font-weight="700" fill="#D4A017">北证50</text>
+  <text x="430" y="156" text-anchor="middle" font-size="26" font-weight="700" fill="#D4A017">+2.55%</text>
+  <text x="430" y="180" text-anchor="middle" font-size="12" fill="#475569">1258.14</text>
+
+  <line x1="30" y1="212" x2="490" y2="212" stroke="#E2E8F0" stroke-width="1"/>
+
+  <text x="260" y="238" text-anchor="middle" font-size="14" font-weight="600" fill="#1E293B">超3000只个股上涨 · 涨停126只 · 跌停12只</text>
+  <text x="260" y="258" text-anchor="middle" font-size="12" fill="#475569">成交缩量至2.97万亿，但赚钱效应明显改善</text>
+  <text x="260" y="278" text-anchor="middle" font-size="12" fill="#475569">领涨：算力硬件/PCB/CPO/培育钻石 ｜ 领跌：白酒/创新药/大金融</text>
+
+  <text x="490" y="300" text-anchor="end" font-size="10" fill="#CBD5E1">来源：证券时报 · 新浪财经 · 东方财富</text>
 </svg>
