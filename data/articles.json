@@ -1,7 +1,15 @@
 {
-  "generated_at": "2026-05-29T10:46:35+08:00",
-  "latest_date": "2026-05-28",
+  "generated_at": "2026-05-29T10:58:00+08:00",
+  "latest_date": "2026-05-29",
   "articles": [
+    {
+      "date": "2026-05-29",
+      "session": "morning",
+      "edition_cn": "早报",
+      "icon": "🌅",
+      "title": "PCE创近三年新高·Dell盘后暴涨39%·Anthropic估值9650亿超越OpenAI·创业板创历史新高",
+      "url": "2026-05-29/wechat-publish/morning/article.html"
+    },
     {
       "date": "2026-05-28",
       "session": "evening",
@@ -125,6 +133,16 @@
     }
   ],
   "by_date": {
+    "2026-05-29": {
+      "morning": {
+        "date": "2026-05-29",
+        "session": "morning",
+        "edition_cn": "早报",
+        "icon": "🌅",
+        "title": "PCE创近三年新高·Dell盘后暴涨39%·Anthropic估值9650亿超越OpenAI·创业板创历史新高",
+        "url": "2026-05-29/wechat-publish/morning/article.html"
+      }
+    },
     "2026-05-28": {
       "evening": {
         "date": "2026-05-28",

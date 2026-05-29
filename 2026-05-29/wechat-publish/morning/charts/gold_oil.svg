@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 320" width="520" height="320" font-family="PingFang SC,Microsoft YaHei,sans-serif">
+  <rect width="520" height="320" fill="#F0F2F5"/>
+  <text x="20" y="28" font-size="14" font-weight="bold" fill="#1E293B">商品市场 — 黄金反弹 &amp; 油价企稳</text>
+  <text x="20" y="42" font-size="9" fill="#64748B">2026.05.28 收盘 · 美伊停火MOU框架达成</text>
+
+  <!-- Card: Gold -->
+  <rect x="15" y="52" width="240" height="140" rx="6" fill="#fff" stroke="#E2E8F0" stroke-width="0.5"/>
+  <text x="135" y="74" text-anchor="middle" font-size="10" font-weight="bold" fill="#D4A017">现货黄金</text>
+  <text x="135" y="108" text-anchor="middle" font-size="24" font-weight="bold" fill="#DC2626">$4,504</text>
+  <text x="135" y="128" text-anchor="middle" font-size="11" fill="#DC2626">+1.1%</text>
+  <text x="135" y="148" text-anchor="middle" font-size="8" fill="#64748B">盘中低点 $4,390 → 强势反弹</text>
+  <text x="135" y="163" text-anchor="middle" font-size="8" fill="#64748B">COMEX 8月期货 $4,532 (+$50.9)</text>
+  <text x="135" y="178" text-anchor="middle" font-size="8" fill="#64748B">美元指数回落0.2%支撑金价</text>
+
+  <!-- Card: Oil -->
+  <rect x="265" y="52" width="240" height="140" rx="6" fill="#fff" stroke="#E2E8F0" stroke-width="0.5"/>
+  <text x="385" y="74" text-anchor="middle" font-size="10" font-weight="bold" fill="#EA580C">原油窄幅震荡</text>
+  <text x="385" y="108" text-anchor="middle" font-size="22" font-weight="bold" fill="#DC2626">$88.90</text>
+  <text x="385" y="128" text-anchor="middle" font-size="11" fill="#DC2626">+0.3%</text>
+  <text x="385" y="148" text-anchor="middle" font-size="8" fill="#64748B">WTI 7月合约 · 微涨0.22美元</text>
+  <text x="385" y="163" text-anchor="middle" font-size="8" fill="#64748B">布伦特 $93.71 (-0.6%)</text>
+  <text x="385" y="178" text-anchor="middle" font-size="8" fill="#64748B">霍尔木兹通航恢复预期</text>
+
+  <!-- Bottom insight box -->
+  <rect x="15" y="205" width="490" height="75" rx="6" fill="#fff" stroke="#E2E8F0" stroke-width="0.5"/>
+  <text x="30" y="225" font-size="10" font-weight="bold" fill="#1E293B">金油走势逻辑</text>
+
+  <text x="30" y="242" font-size="8" fill="#334155">黄金在 $4,350-4,380 区间获得关键支撑，美伊停火MOU虽降温避险情绪，但美元走弱提供支撑</text>
+  <text x="30" y="258" font-size="8" fill="#334155">油价受美伊停火协议压制，但受损油田修复需数月，全球近700万桶/日缺口短期难以填补</text>
+  <text x="30" y="274" font-size="8" fill="#334155">金油联动说明市场正从"恐慌避险"切换至"滞胀交易"模式</text>
+
+  <!-- Source -->
+  <text x="20" y="305" font-size="7" fill="#9CA3AF">来源: Sina Finance · Moneycontrol · 申万期货</text>
+</svg>

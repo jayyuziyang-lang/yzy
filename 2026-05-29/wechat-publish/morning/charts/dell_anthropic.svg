@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 320" width="520" height="320" font-family="PingFang SC,Microsoft YaHei,sans-serif">
+  <rect width="520" height="320" fill="#F0F2F5"/>
+  <text x="20" y="28" font-size="14" font-weight="bold" fill="#1E293B">AI军备竞赛加速 — Dell &amp; Anthropic</text>
+  <text x="20" y="42" font-size="9" fill="#64748B">2026.05.28 隔夜重磅消息</text>
+
+  <!-- Left: Dell -->
+  <rect x="15" y="52" width="240" height="210" rx="8" fill="#fff" stroke="#E2E8F0" stroke-width="0.5"/>
+  <text x="135" y="75" text-anchor="middle" font-size="11" font-weight="bold" fill="#7C3AED">Dell (DELL) 盘后暴涨</text>
+  <text x="135" y="92" text-anchor="middle" font-size="7" fill="#64748B">2027财年Q1财报 · 2026.05.28盘后</text>
+
+  <!-- Dell price -->
+  <text x="135" y="120" text-anchor="middle" font-size="26" font-weight="bold" fill="#DC2626">+39%</text>
+  <text x="135" y="138" text-anchor="middle" font-size="8" fill="#64748B">盘后股价突破443美元创历史新高</text>
+
+  <line x1="30" y1="148" x2="240" y2="148" stroke="#E2E8F0" stroke-width="0.5"/>
+
+  <text x="30" y="164" font-size="8" fill="#334155">营收 438.4亿美元，同比 <tspan fill="#DC2626" font-weight="bold">+88%</tspan></text>
+  <text x="30" y="179" font-size="8" fill="#334155">AI服务器收入 161亿，同比 <tspan fill="#DC2626" font-weight="bold">+757%</tspan></text>
+  <text x="30" y="194" font-size="8" fill="#334155">AI积压订单 <tspan font-weight="bold">513亿美元</tspan> 创纪录</text>
+  <text x="30" y="209" font-size="8" fill="#334155">全年营收指引上调至 1650-1690亿</text>
+  <text x="30" y="224" font-size="8" fill="#334155">调整后EPS <tspan font-weight="bold">$4.86</tspan>（预期$2.96）</text>
+
+  <rect x="30" y="232" width="210" height="18" rx="3" fill="#F3E8FF"/>
+  <text x="135" y="245" text-anchor="middle" font-size="7" fill="#7C3AED" font-weight="bold">AI服务器全年收入预期上调至600亿美元</text>
+
+  <!-- Right: Anthropic -->
+  <rect x="265" y="52" width="240" height="210" rx="8" fill="#fff" stroke="#E2E8F0" stroke-width="0.5"/>
+  <text x="385" y="75" text-anchor="middle" font-size="11" font-weight="bold" fill="#1A56DB">Anthropic 估值首超 OpenAI</text>
+  <text x="385" y="92" text-anchor="middle" font-size="7" fill="#64748B">H轮融资 · 2026.05.28</text>
+
+  <!-- Valuation -->
+  <text x="385" y="120" text-anchor="middle" font-size="22" font-weight="bold" fill="#1A56DB" font-family="Arial,sans-serif">$9,650亿</text>
+  <text x="385" y="138" text-anchor="middle" font-size="8" fill="#64748B">OpenAI估值8520亿，Anthropic首次超越</text>
+
+  <line x1="280" y1="148" x2="490" y2="148" stroke="#E2E8F0" stroke-width="0.5"/>
+
+  <text x="280" y="164" font-size="8" fill="#334155">H轮融资 <tspan font-weight="bold">650亿美元</tspan></text>
+  <text x="280" y="179" font-size="8" fill="#334155">年化收入 <tspan font-weight="bold">&gt;470亿美元</tspan></text>
+  <text x="280" y="194" font-size="8" fill="#334155">领投方: Altimeter · Dragoneer · 红杉</text>
+  <text x="280" y="209" font-size="8" fill="#334155">亚马逊投资50亿 | 谷歌跟投</text>
+  <text x="280" y="224" font-size="8" fill="#334155">美光/三星/SK海力士战略参投</text>
+
+  <rect x="280" y="232" width="210" height="18" rx="3" fill="#E3F2FD"/>
+  <text x="385" y="245" text-anchor="middle" font-size="7" fill="#1A56DB" font-weight="bold">计划2026年秋季IPO</text>
+
+  <!-- Source -->
+  <text x="20" y="305" font-size="7" fill="#9CA3AF">来源: 财联社 · 东方财富 · 新浪财经 · 上海证券报</text>
+</svg>

@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 220" width="300" height="220">
+  <rect width="300" height="220" fill="#FAFAFA"/>
+  <!-- Title -->
+  <text x="150" y="22" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="13" font-weight="bold" fill="#1a1a1a">📋 今日热点速览</text>
+  <text x="150" y="36" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="7" fill="#666">2026.05.29 早晨</text>
+
+  <!-- Center Hub -->
+  <circle cx="150" cy="115" r="14" fill="#D4A017" stroke="#c9a96e" stroke-width="1.5"/>
+  <text x="150" y="112" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="5" fill="#fff" font-weight="bold">隔夜</text>
+  <text x="150" y="121" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="5" fill="#fff" font-weight="bold">全球</text>
+
+  <!-- Connector lines -->
+  <line x1="150" y1="115" x2="150" y2="42" stroke="#ccc" stroke-width="1" stroke-dasharray="3,2"/>
+  <line x1="150" y1="115" x2="252" y2="72" stroke="#ccc" stroke-width="1" stroke-dasharray="3,2"/>
+  <line x1="150" y1="115" x2="252" y2="155" stroke="#ccc" stroke-width="1" stroke-dasharray="3,2"/>
+  <line x1="150" y1="115" x2="150" y2="195" stroke="#ccc" stroke-width="1" stroke-dasharray="3,2"/>
+  <line x1="150" y1="115" x2="48" y2="155" stroke="#ccc" stroke-width="1" stroke-dasharray="3,2"/>
+  <line x1="150" y1="115" x2="48" y2="72" stroke="#ccc" stroke-width="1" stroke-dasharray="3,2"/>
+
+  <!-- Node 1: A股 - Top -->
+  <rect x="118" y="30" width="64" height="32" rx="6" fill="#FFE4E4" stroke="#DC2626" stroke-width="1.2"/>
+  <text x="150" y="44" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="7" font-weight="bold" fill="#DC2626">创业板创</text>
+  <text x="150" y="55" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="7" font-weight="bold" fill="#DC2626">历史新高</text>
+
+  <!-- Node 2: 美股 - Top Right -->
+  <rect x="220" y="58" width="64" height="32" rx="6" fill="#E4F4E4" stroke="#16A34A" stroke-width="1.2"/>
+  <text x="252" y="72" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="7" font-weight="bold" fill="#16A34A">美股三大</text>
+  <text x="252" y="83" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="7" font-weight="bold" fill="#16A34A">指数新高</text>
+
+  <!-- Node 3: Dell - Bottom Right -->
+  <rect x="220" y="140" width="64" height="32" rx="6" fill="#F3E8FF" stroke="#9333EA" stroke-width="1.2"/>
+  <text x="252" y="154" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="7" font-weight="bold" fill="#9333EA">Dell盘后</text>
+  <text x="252" y="165" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="7" font-weight="bold" fill="#9333EA">暴涨39%</text>
+
+  <!-- Node 4: PCE - Bottom -->
+  <rect x="118" y="182" width="64" height="32" rx="6" fill="#FFF8E1" stroke="#D4A017" stroke-width="1.2"/>
+  <text x="150" y="196" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="7" font-weight="bold" fill="#D4A017">PCE创近</text>
+  <text x="150" y="207" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="7" font-weight="bold" fill="#D4A017">三年新高</text>
+
+  <!-- Node 5: Anthropic - Bottom Left -->
+  <rect x="16" y="140" width="64" height="32" rx="6" fill="#E3F2FD" stroke="#1A56DB" stroke-width="1.2"/>
+  <text x="48" y="154" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="7" font-weight="bold" fill="#1A56DB">Anthropic</text>
+  <text x="48" y="165" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="7" font-weight="bold" fill="#1A56DB">估值9650亿</text>
+
+  <!-- Node 6: 美伊 - Top Left -->
+  <rect x="16" y="58" width="64" height="32" rx="6" fill="#FFF3E0" stroke="#EA580C" stroke-width="1.2"/>
+  <text x="48" y="72" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="7" font-weight="bold" fill="#EA580C">美伊停火</text>
+  <text x="48" y="83" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="7" font-weight="bold" fill="#EA580C">MOU达成</text>
+</svg>
