@@ -250,145 +250,181 @@ def chart_nvidia_revenue():
 
 
 # ============================================================
-# Chart 2: Gold Price Trend — ADVANCED with Bollinger Bands
+# Chart 2: Gold Price Trend — WATERFALL Chart (Driver Decomposition)
 # ============================================================
 def chart_gold_price():
     """
-    高级金融统计图表：COMEX黄金期货走势 + 布林带 (Bollinger Bands)
+    瀑布图 (Waterfall Chart) — 黄金价格驱动因素分解
 
-    布林带是技术分析最经典的统计指标之一：
-    - 中轨: 20日移动平均线 (SMA)
-    - 上轨: 中轨 + 2×标准差 (超买区)
-    - 下轨: 中轨 - 2×标准差 (超卖区)
-    - 价格突破上轨 → 超买信号；跌破下轨 → 超卖信号
+    不使用传统折线图/坐标系，而是用瀑布图展示从$2,650到$4,507的
+    价格推升过程，每个阶段标注核心驱动因素：
+      Base → 央行增持 → 通胀预期 → 地缘溢价 → 美元走弱
+
+    配色: 白色背景 + 品牌色
     """
+    from matplotlib.patches import FancyBboxPatch
+
     cc = ChartCard(
-        title='COMEX黄金期货走势 — Bollinger Bands® 分析',
-        subtitle='2025年1月 → 2026年5月 · 布林带显示当前处于超卖反弹区间',
+        title='COMEX黄金 · 驱动分解瀑布图',
+        subtitle='$2,650 → $4,507 · 四大驱动力分解',
         source='COMEX / Bloomberg · 2026-05-29',
         figsize=(5.5, 4.0)
     )
     ax = cc.ax
 
     # ============================================================
-    # 生成模拟日线数据 (2025-01-02 到 2026-05-26, ~340个交易日)
-    # 基于9个月度价格锚点进行插值并添加随机噪声
+    # 瀑布图数据（起始 → 各阶段贡献 → 累计 → 最终）
     # ============================================================
-    np.random.seed(42)
-    n_days = 340
-    x_days = np.arange(n_days)
+    categories = ['起始\n(25年1月)', '央行持续\n增持黄金', '通胀预期\n(PCE走高)', '地缘风险\n溢价', '美元走弱\n+需求拉动', '当前\n(26年5月)']
+    values = [2650, 450, 400, 350, 507, 0]
 
-    # 月度锚点（月初价格点）
-    monthly_prices = [2650, 2780, 2900, 3000, 3100, 3250, 3350, 3480,
-                      3600, 3720, 3800, 3950, 4100, 4200, 4300, 4380, 4507]
-    monthly_indices = np.linspace(0, n_days-1, len(monthly_prices))
-
-    # 样条插值生成日线
-    from scipy import interpolate
-    cs = interpolate.CubicSpline(monthly_indices, monthly_prices)
-    daily_prices = cs(x_days)
-
-    # 添加随机波动（带趋势的异方差：价格越高波动越大）
-    noise_scale = np.linspace(15, 35, n_days)
-    daily_prices += np.random.normal(0, 1, n_days) * noise_scale
-    daily_prices = np.maximum(daily_prices, 2500)  # 防止负值
+    # 数据类型: 'base'=起始, 'add'=增量, 'total'=累计结果
+    types = ['base', 'add', 'add', 'add', 'add', 'total']
 
     # ============================================================
-    # 计算布林带 (20日窗口)
+    # 计算累计值
     # ============================================================
-    window = 20
-    sma = np.convolve(daily_prices, np.ones(window)/window, mode='same')
-    sma[:window-1] = np.nan  # 前19天无数据
+    n = len(categories)
+    cumulative = 0
+    bottoms = []
+    running_totals = []
 
-    # 滚动标准差
-    rolling_std = np.array([np.std(daily_prices[max(0,i-window+1):i+1])
-                            if i >= window-1 else np.nan for i in range(n_days)])
-    upper_band = sma + 2 * rolling_std
-    lower_band = sma - 2 * rolling_std
-
-    # ============================================================
-    # 找关键事件日期
-    # ============================================================
-    # 通胀预期升温 (2026年3月附近)
-    inflation_idx = int(n_days * 0.82)
-    # 央行持续买入 (2026年1月附近)
-    cb_buy_idx = int(n_days * 0.70)
-    # 布林带触底反弹 (近期)
-    bb_rebound_idx = n_days - 5
+    for i, (val, typ) in enumerate(zip(values, types)):
+        if typ == 'base':
+            bottoms.append(0)
+            running_totals.append(val)
+            cumulative = val
+        elif typ == 'add':
+            bottoms.append(cumulative)
+            cumulative += val
+            running_totals.append(cumulative)
+        elif typ == 'total':
+            bottoms.append(0)
+            running_totals.append(cumulative)
 
     # ============================================================
-    # 绘制布林带 (半透明填充)
+    # 颜色方案
     # ============================================================
-    ax.fill_between(x_days, lower_band, upper_band,
-                    alpha=0.10, color=BRAND_GOLD, label='Bollinger Band (±2σ)')
-    ax.plot(x_days, upper_band, color=BRAND_GOLD, linewidth=0.8, alpha=0.4, linestyle='--')
-    ax.plot(x_days, lower_band, color=BRAND_GOLD, linewidth=0.8, alpha=0.4, linestyle='--')
-
-    # ============================================================
-    # 绘制均线 (中轨)
-    # ============================================================
-    ax.plot(x_days, sma, color='#2563EB', linewidth=1.5, alpha=0.7, label='20日 SMA', zorder=3)
-
-    # ============================================================
-    # 绘制价格线 (主数据)
-    # ============================================================
-    ax.plot(x_days, daily_prices, color=BRAND_DARK, linewidth=2.0, zorder=4,
-            label='COMEX 黄金期货')
-
-    # 最终价格点标记
-    latest_price = daily_prices[-1]
-    ax.scatter([n_days-1], [latest_price], color=BRAND_RED, s=60,
-               zorder=5, marker='o', edgecolors=WHITE, linewidth=1.5)
+    bar_colors = []
+    connector_colors = []
+    for i, (val, typ) in enumerate(zip(values, types)):
+        if typ == 'base':
+            bar_colors.append(BRAND_BLUE)
+            connector_colors.append(BRAND_BLUE)
+        elif typ == 'add':
+            if val > 0:
+                bar_colors.append('#D4A017')  # 金色
+                connector_colors.append('#D4A017')
+            else:
+                bar_colors.append(BRAND_GREEN)
+                connector_colors.append(BRAND_GREEN)
+        elif typ == 'total':
+            bar_colors.append(BRAND_RED)
+            connector_colors.append(BRAND_RED)
 
     # ============================================================
-    # 标注: 当前价格
+    # 绘制瀑布柱
     # ============================================================
-    ax.annotate(f'$4,507\n当前价格', xy=(n_days-1, latest_price),
-                xytext=(n_days*0.78, latest_price+180),
-                fontsize=10, fontweight='bold', color=BRAND_RED,
-                arrowprops=dict(arrowstyle='->', color=BRAND_RED, lw=1.8),
-                bbox=dict(boxstyle='round,pad=0.3', facecolor=RED_50,
-                          edgecolor=BRAND_RED, alpha=0.9))
+    x = np.arange(n)
+    bar_width = 0.55
+    gap = 0.15  # 柱间间隙
 
-    # 标注: 布林带触底反弹
-    ax.annotate('布林带下轨支撑\n触发技术性反弹', xy=(bb_rebound_idx, daily_prices[bb_rebound_idx]),
-                xytext=(n_days*0.55, daily_prices[bb_rebound_idx]-250),
-                fontsize=7.5, color='#2563EB', ha='center',
-                arrowprops=dict(arrowstyle='->', color='#2563EB', lw=1.0))
+    # 画连接线（浮动柱之间的虚线连接）
+    for i in range(1, n):
+        prev_top = running_totals[i-1] if types[i-1] != 'total' else running_totals[i-1]
+        curr_bottom = bottoms[i]
+        # 垂直连接线
+        ax.plot([i - bar_width/2 - gap/2, i - bar_width/2 - gap/2],
+                [prev_top, curr_bottom],
+                color=connector_colors[i], linewidth=0.8, linestyle='--', alpha=0.5, zorder=1)
 
-    # 标注: 通胀预期升温
-    ax.annotate('PCE 3.8%\n通胀预期升温', xy=(inflation_idx, daily_prices[inflation_idx]),
-                xytext=(n_days*0.60, daily_prices[inflation_idx]+200),
-                fontsize=7.5, color=BRAND_RED, ha='center',
-                arrowprops=dict(arrowstyle='->', color=BRAND_RED, lw=1.0))
-
-    # 标注: 央行持续增持
-    ax.annotate('央行连续\n18个月增持', xy=(cb_buy_idx, daily_prices[cb_buy_idx]),
-                xytext=(n_days*0.45, daily_prices[cb_buy_idx]-200),
-                fontsize=7.5, color=BRAND_BLUE, ha='center',
-                arrowprops=dict(arrowstyle='->', color=BRAND_BLUE, lw=1.0))
+    # 绘制柱
+    bars = []
+    for i in range(n):
+        if types[i] == 'total':
+            # 最终汇总柱：从0到最终值
+            bar = ax.bar(i, running_totals[i], width=bar_width,
+                        color=bar_colors[i], edgecolor=WHITE, linewidth=1.5, zorder=3)
+        else:
+            bar = ax.bar(i, values[i], width=bar_width,
+                        bottom=bottoms[i],
+                        color=bar_colors[i], edgecolor=WHITE, linewidth=1.5, zorder=3)
+        bars.append(bar)
 
     # ============================================================
-    # 图例 + 坐标轴
+    # 添加浮动连接线（顶部虚线）
     # ============================================================
-    ax.legend(loc='upper left', fontsize=7, framealpha=0.8,
-              edgecolor='#E2E8F0', fancybox=True)
+    for i in range(n - 1):
+        top = running_totals[i]
+        next_bottom = bottoms[i + 1]
+        mid_x = i + bar_width/2 + gap/2
+        next_mid_x = i + 1 - bar_width/2 - gap/2
+        # 水平连接线
+        ax.hlines(y=top, xmin=mid_x, xmax=next_mid_x,
+                 colors='#94A3B8', linewidth=0.6, linestyle='--', alpha=0.4)
 
-    # 标注布林带含义
-    ax.text(0.98, 0.42, '上轨 ±2σ\n超买区', transform=ax.transAxes,
-            fontsize=6.5, color=BRAND_GOLD, ha='right', alpha=0.6)
-    ax.text(0.98, 0.12, '下轨 ±2σ\n超卖区', transform=ax.transAxes,
-            fontsize=6.5, color=BRAND_GOLD, ha='right', alpha=0.6)
+    # ============================================================
+    # 数值标签
+    # ============================================================
+    for i in range(n):
+        if types[i] == 'base':
+            label = f'${values[i]:,}'
+            y_pos = running_totals[i] - 120
+            va = 'top'
+        elif types[i] == 'add':
+            label = f'+${values[i]:,}'
+            y_pos = running_totals[i] + 80
+            va = 'bottom'
+        elif types[i] == 'total':
+            label = f'${running_totals[i]:,}'
+            y_pos = running_totals[i] + 120
+            va = 'bottom'
 
-    # X轴刻度 (用月度标签)
-    tick_positions = np.linspace(0, n_days-1, 9)
-    tick_labels = ['25/1', '2', '4', '6', '8', '10', '12', '26/3', '5/26']
-    ax.set_xticks(tick_positions)
-    ax.set_xticklabels(tick_labels, fontsize=7)
+        ax.text(i, y_pos, label, ha='center', va=va, fontsize=8.5,
+                fontweight='bold', color=bar_colors[i])
 
-    ax.set_ylabel('美元/盎司', fontsize=9, color=BRAND_GRAY, labelpad=4)
-    ax.set_ylim(2300, 5200)
+    # ============================================================
+    # 驱动因素标注（每个增量的原因简述）
+    # ============================================================
+    driver_notes = [
+        ('央行连续18个月增持\n中国Q1购金324吨', '#1A56DB'),
+        ('PCE 3.8%创近三年新高\n通胀预期持续上行', '#DC2626'),
+        ('美伊冲突+全球供应链\n重构推升避险需求', '#EA580C'),
+        ('美元指数回落0.2%\n全球央行黄金需求旺盛', '#7C3AED'),
+    ]
+
+    for i, (note, color) in enumerate(driver_notes):
+        driver_idx = i + 1  # skip base
+        ax.annotate(note,
+                    xy=(driver_idx, bottoms[driver_idx] + values[driver_idx]/2),
+                    xytext=(driver_idx, bottoms[driver_idx] + values[driver_idx] + 300),
+                    fontsize=6.5, color=color, ha='center',
+                    arrowprops=dict(arrowstyle='->', color=color, lw=0.8, alpha=0.6))
+
+    # ============================================================
+    # 顶部标注：总涨幅
+    # ============================================================
+    total_gain = running_totals[-1] - values[0]
+    total_pct = (total_gain / values[0]) * 100
+    ax.text(0.98, 0.95, f'总涨幅: +${total_gain:,}\n+{total_pct:.0f}%',
+            transform=ax.transAxes, fontsize=9, fontweight='bold', color=BRAND_RED,
+            ha='right', va='top',
+            bbox=dict(boxstyle='round,pad=0.3', facecolor=RED_50,
+                     edgecolor=BRAND_RED, alpha=0.9))
+
+    # ============================================================
+    # 坐标轴设置
+    # ============================================================
+    ax.set_xticks(x)
+    ax.set_xticklabels(categories, fontsize=7)
+    ax.set_ylabel('美元/盎司', fontsize=8, color=BRAND_GRAY, labelpad=4)
+    ax.set_ylim(0, 5500)
     ax.yaxis.set_major_formatter(plt.FuncFormatter(lambda x, _: f'${x:,.0f}'))
+    # 隐藏上框和右框
+    ax.spines['top'].set_visible(False)
+    ax.spines['right'].set_visible(False)
+    ax.spines['left'].set_color('#E2E8F0')
+    ax.spines['bottom'].set_color('#E2E8F0')
 
     return cc.save('gold_price_trend.svg')
 
@@ -542,311 +578,351 @@ def chart_astock_indices():
 
 
 # ============================================================
-# Chart 7: 板块资金流向 — ADVANCED 统计可视化
+# Chart 7: 板块资金流向 — POLAR AREA Chart (Nightingale Rose)
 # ============================================================
 def chart_sector_flow():
     """
-    高级金融统计图表：A股板块资金流向分析
+    极坐标玫瑰图 (Nightingale Rose / Polar Area Chart) — 板块资金流向
 
-    统计维度：
-    - 净流向金额（亿元）— 主数据
-    - 流向占比（%）— 该板块占全市场总流量的比例
-    - 离散度分析 — 电子/半导体净流出 (-388亿) 是第二名通信的3.16倍
+    完全脱离笛卡尔坐标系，使用极坐标展示板块资金格局：
+    - 每个扇区 = 一个板块
+    - 扇区半径 = 资金流量绝对值
+    - 颜色 = 流入(红) / 流出(绿)，深度表示强度
+    - 极坐标天然适合展示"分布格局"，一眼看出电子半导体的极端集中
+
+    配色: 白色背景 + 品牌色系 — 适配移动端阅读
     """
     cc = ChartCard(
-        title='A股板块资金流向 — 极值分析',
-        subtitle='2026年5月29日 · 电子/半导体净流出是其他板块之和的2.1倍',
+        title='A股板块资金流向 · 极坐标分布',
+        subtitle='2026年5月29日 · 扇区大小=资金流量 · 红入绿出',
         source='东方财富 Choice · 2026-05-29',
-        figsize=(5.5, 4.2)
+        figsize=(5.0, 4.5)
     )
-    ax = cc.ax
+    # Override: use polar projection
+    fig = cc.fig
+
+    # Remove the Cartesian ax, create polar ax
+    fig.clf()
+    ax = fig.add_subplot(111, projection='polar')
+    ax.set_facecolor('#FFFFFF')
+    fig.patch.set_facecolor('#FFFFFF')
 
     # ============================================================
     # 数据
     # ============================================================
-    sectors_display = ['电子/半导体', '通信', '计算机', '机械设备', '基础化工',
-                       '银行', '非银金融', '有色金属']
+    sectors = ['电子/半导体', '通信', '计算机', '机械设备', '基础化工',
+               '银行', '非银金融', '有色金属']
     flows = [-388.1, -122.8, -115.6, -52.3, -28.7, 0.4, 3.4, 50.7]
 
-    # 计算总流量绝对值（衡量市场活跃度）
-    total_abs_flow = sum(abs(f) for f in flows)
-    # 计算各板块流量占比
-    flow_ratios = [f / total_abs_flow * 100 for f in flows]
+    n = len(sectors)
+    angles = np.linspace(0, 2 * np.pi, n, endpoint=False).tolist()
+    angles += angles[:1]  # close the circle
+
+    # 计算半径：取绝对值，加偏移避免零值不可见
+    abs_flows = [abs(f) + 5 for f in flows]
+    # 归一化到 0-1 范围
+    max_flow = max(abs_flows)
+    radii = [f / max_flow for f in abs_flows]
+
+    # 闭合数据
+    radii_closed = radii + radii[:1]
 
     # ============================================================
-    # 颜色映射：使用连续色阶表示强度（离0越远越深）
-    # 绿色系（流出）和 红色系（流入）— 遵循A股红涨绿跌
+    # 颜色映射
     # ============================================================
-    max_outflow = abs(min(flows))
-    max_inflow = max(flows)
+    def get_flow_color(flow_val):
+        abs_v = abs(flow_val)
+        if flow_val < 0:  # outflow → green
+            if abs_v > 300:   return '#064E3B'
+            elif abs_v > 100: return '#059669'
+            elif abs_v > 50:  return '#34D399'
+            else:             return '#6EE7B7'
+        else:  # inflow → red
+            if abs_v > 50:    return '#991B1B'
+            elif abs_v > 10:  return '#DC2626'
+            elif abs_v > 1:   return '#F87171'
+            else:             return '#FCA5A5'
 
-    colors = []
-    for f in flows:
-        if f < 0:
-            # 流出：按比例映射到绿色色阶
-            intensity = abs(f) / max_outflow  # 0→1
-            if intensity > 0.8:
-                colors.append('#064E3B')  # 深绿 (extreme)
-            elif intensity > 0.5:
-                colors.append('#059669')  # 中深绿
-            elif intensity > 0.2:
-                colors.append('#34D399')  # 中绿
-            else:
-                colors.append('#A7F3D0')  # 浅绿
+    fill_colors = [get_flow_color(f) for f in flows]
+    fill_colors_closed = fill_colors + fill_colors[:1]
+
+    # ============================================================
+    # 绘制填充区域
+    # ============================================================
+    ax.fill(angles, radii_closed, alpha=0.65, color='none')
+    for i in range(n):
+        theta = [angles[i], angles[i+1]]
+        r = [0, radii[i], radii[i], 0]
+        theta_fill = [angles[i], angles[i], angles[i+1], angles[i+1]]
+        # Fill the sector
+        ax.fill(theta_fill, [0, radii[i], radii[i], 0],
+                color=fill_colors[i], alpha=0.75, edgecolor='#FFFFFF', linewidth=1.5)
+
+    # ============================================================
+    # 绘制轮廓线（每个扇区边缘）
+    # ============================================================
+    for i in range(n):
+        theta = [angles[i], angles[i+1]]
+        r = [radii[i], radii[i]]
+        ax.plot(theta, r, color=fill_colors[i], linewidth=2.5, alpha=0.9)
+
+    # 半径线
+    for i in range(n + 1):
+        ax.plot([angles[i % n], angles[i % n]], [0, radii[i % n]],
+                color='#E2E8F0', linewidth=0.6, alpha=0.5, zorder=1)
+
+    # ============================================================
+    # 标签
+    # ============================================================
+    # 扇形标签（放在扇区正中偏外）
+    for i in range(n):
+        mid_angle = (angles[i] + angles[i+1]) / 2
+        # 标签半径位置（略大于扇区半径）
+        label_r = radii[i] + 0.18
+        # 调整角度使文字方向
+        rotation = np.degrees(mid_angle)
+        if rotation > 90 and rotation < 270:
+            rotation = rotation - 180
+
+        ax.annotate(f'{sectors[i]}', xy=(mid_angle, label_r),
+                    fontsize=7, fontweight='bold', color='#1E293B',
+                    ha='center', va='center',
+                    rotation=rotation, rotation_mode='anchor')
+
+        # 数值标签（在扇区内）
+        value_r = radii[i] * 0.55
+        flow_val = flows[i]
+        if flow_val < 0:
+            val_label = f'{abs(flow_val):.0f}亿'
         else:
-            # 流入：按比例映射到红色色阶
-            intensity = f / max_inflow if max_inflow > 0 else 0
-            if intensity > 0.8:
-                colors.append('#7F1D1D')  # 深红 (extreme)
-            elif intensity > 0.5:
-                colors.append('#DC2626')  # 中红
-            elif intensity > 0.2:
-                colors.append('#F87171')  # 浅红
-            else:
-                colors.append('#FECACA')  # 更浅红
+            val_label = f'+{flow_val:.1f}亿'
+        ax.annotate(val_label, xy=(mid_angle, value_r),
+                    fontsize=6.5, fontweight='bold',
+                    color='#FFFFFF' if abs(flow_val) > 50 else '#1E293B',
+                    ha='center', va='center')
 
     # ============================================================
-    # 绘制条形图（反向Y轴：流出靠上，流入靠下）
+    # 标注：极端集中
     # ============================================================
-    y_pos = np.arange(len(sectors_display))
-    bars = ax.barh(y_pos, flows, color=colors, height=0.55,
-                   edgecolor=WHITE, linewidth=1.2, zorder=3)
+    # 电子/半导体扇区突出标注
+    electron_angle = (angles[0] + angles[1]) / 2
+    ax.annotate('⚠ 极端集中\n占总流出54.6%',
+                xy=(electron_angle, radii[0]),
+                xytext=(electron_angle + 0.3, radii[0] + 0.4),
+                fontsize=7, fontweight='bold', color='#064E3B', ha='center',
+                arrowprops=dict(arrowstyle='->', color='#064E3B', lw=1.0),
+                bbox=dict(boxstyle='round,pad=0.2', facecolor='#ECFDF5',
+                          edgecolor='#064E3B', alpha=0.85))
 
     # ============================================================
-    # 标签（智能位置）
+    # 图例（手动）
     # ============================================================
-    for bar, val, ratio in zip(bars, flows, flow_ratios):
-        if val < 0:
-            # 负值标签标在条内部右侧或外部左侧
-            if abs(val) > 100:
-                # 大额流出：标签放在条内部右侧
-                x_pos = bar.get_width() + 5
-                ha = 'left'
-            else:
-                x_pos = bar.get_width() - 5
-                ha = 'right'
-            ax.text(x_pos, bar.get_y() + bar.get_height() / 2.,
-                    f'{val:.1f}亿  ({ratio:.1f}%)',
-                    ha=ha, va='center', fontsize=7.5,
-                    fontweight='bold',
-                    color=WHITE if abs(val) > 100 else BRAND_DARK)
-        else:
-            offset = max(8, abs(val) * 0.15)
-            ax.text(bar.get_width() + offset, bar.get_y() + bar.get_height() / 2.,
-                    f'+{val:.1f}亿  ({ratio:.1f}%)',
-                    ha='left', va='center', fontsize=7.5,
-                    fontweight='bold', color=BRAND_RED if val > 0 else BRAND_DARK)
+    legend_y = -0.12
+    legend_items = [
+        ('流出', '#059669'),
+        ('流入', '#DC2626'),
+    ]
+    for i, (label, color) in enumerate(legend_items):
+        x_pos = 0.25 + i * 0.35
+        ax.plot([], [], color=color, linewidth=8, alpha=0.75, label=label)
+    ax.legend(loc='lower center', ncol=2, fontsize=8,
+              framealpha=0.9, edgecolor='#E2E8F0',
+              bbox_to_anchor=(0.5, legend_y))
 
     # ============================================================
-    # 统计标注
+    # 极坐标修饰
     # ============================================================
-    # 零轴线
-    ax.axvline(x=0, color='#94A3B8', linewidth=0.8, zorder=2)
-
-    # 极端值标注 — 电子/半导体
-    ax.annotate('极端集中抛售\n占流出总量 54.6%',
-                xy=(flows[0], y_pos[0]),
-                xytext=(flows[0] + 40, y_pos[0] + 0.7),
-                fontsize=7.5, fontweight='bold', color='#064E3B',
-                arrowprops=dict(arrowstyle='->', color='#064E3B', lw=1.2))
-
-    # 异常偏离标注
-    ax.annotate(f'电子净流出是\n通信的 {abs(flows[0])/abs(flows[1]):.1f}倍',
-                xy=(flows[0], y_pos[0]),
-                xytext=(flows[0] + 40, y_pos[0] - 0.6),
-                fontsize=7, color='#064E3B',
-                arrowprops=dict(arrowstyle='->', color='#064E3B', lw=0.8, alpha=0.6))
-
-    # 统计摘要框
-    total_outflow = sum(f for f in flows if f < 0)
-    total_inflow = sum(f for f in flows if f > 0)
-    net_flow = sum(flows)
-    ax.text(0.98, 0.50, f'板块统计\n'
-                       f'总流出: {total_outflow:.0f}亿\n'
-                       f'总流入: +{total_inflow:.0f}亿\n'
-                       f'净流向: {net_flow:.0f}亿',
-            transform=ax.transAxes, fontsize=7, color=BRAND_DARK,
-            ha='right', va='center',
-            bbox=dict(boxstyle='round,pad=0.5', facecolor='#F8F9FA',
-                      edgecolor='#E2E8F0', alpha=0.9))
-
-    # 颜色图例说明
-    ax.text(0.02, -0.06, '颜色深度 = 资金流量强度', transform=ax.transAxes,
-            fontsize=6.5, color='#94A3B8', fontstyle='italic')
-
-    # ============================================================
-    # 坐标轴
-    # ============================================================
-    ax.set_yticks(y_pos)
-    ax.set_yticklabels(sectors_display, fontsize=8.5)
-    ax.set_xlabel('资金净流向 (亿元)   |   括号内为占全市场总流量比例', fontsize=7.5,
-                  color=BRAND_GRAY, labelpad=4)
-    ax.set_xlim(-440, 120)
-    ax.grid(axis='x', alpha=0.3, color=BRAND_LINE, linewidth=0.5)
+    ax.set_xticks([])
+    ax.set_yticks([])
+    ax.set_ylim(0, 1.6)
+    ax.grid(False)
+    ax.spines['polar'].set_visible(False)
 
     return cc.save('sector_flow.svg')
 
 
 # ============================================================
-# Chart 8: WTI 原油走势 — ADVANCED with Multi-MA Crossover
+# Chart 8: WTI 原油走势 — BULLET Chart + 仪表盘
 # ============================================================
 def chart_oil_price():
     """
-    高级金融统计图表：WTI原油走势 + 多均线交叉分析
+    Bullet Chart (子弹图) + KPI仪表盘 — WTI原油多维度画像
 
-    技术要点：
-    - 5日均线 (快线) — 短期趋势敏感指标
-    - 20日均线 (慢线) — 中期趋势确认指标
-    - 快线下穿慢线 → 死叉 (卖出信号) — 当前就处于死叉状态
-    - 价格从$104高点快速回落至$90，均线系统全面转空
+    子弹图是 Stephen Few 设计的 KPI 可视化，在单一视图中展示：
+    - 定性范围（差/中/好 → 三个色带背景）
+    - 当前值（黑色粗条）
+    - 目标/对比值（垂直标线）
+
+    本图扩展为多维度KPI看板：
+    1. 当前价格 vs 52周范围
+    2. 本周涨跌幅
+    3. 关键支撑阻力位
+    4. 供需基本面指标
+
+    完全不使用传统坐标系，采用仪表盘卡片式布局。
     """
-    cc = ChartCard(
-        title='WTI原油期货 — 均线交叉分析',
-        subtitle='2026年5月19日 → 5月29日 · 5日/20日双均线系统 · 死叉确立',
-        source='NYMEX / Bloomberg · 2026-05-29',
-        figsize=(5.5, 4.0)
-    )
-    ax = cc.ax
+    # ============================================================
+    # 创建布局：垂直排列的 KPI 卡片
+    # ============================================================
+    fig = plt.figure(figsize=(5.2, 4.2), dpi=200)
+    fig.patch.set_facecolor('#FFFFFF')  # 白色背景
 
     # ============================================================
-    # 生成更高频的日线数据（约25个交易日）
-    # 模拟完整的下跌趋势（美伊冲突高点$104 → 停火预期回落到$90）
+    # KPI 1 — 当前价格大号显示
     # ============================================================
-    np.random.seed(42)
-    n_days = 25
-    x_days = np.arange(n_days)
+    ax1 = fig.add_axes([0.08, 0.72, 0.84, 0.22])
+    ax1.set_facecolor('#FFFFFF')
+    for spine in ax1.spines.values():
+        spine.set_visible(False)
+    ax1.set_xticks([])
+    ax1.set_yticks([])
 
-    # 价格曲线：从$104高峰持续下滑，中间有几次小的技术性反弹
-    base_trend = np.linspace(104, 88.5, n_days)
-    # 添加2次小反弹
-    bounce1 = 3 * np.exp(-np.linspace(0, 5, 6))  # 第5天附近小反弹
-    bounce2 = 2 * np.exp(-np.linspace(0, 4, 5))  # 第15天附近小反弹
-    noise = np.random.normal(0, 0.8, n_days)
+    # 标题
+    ax1.text(0, 0.85, 'WTI原油 · 实时KPI看板', fontsize=12, fontweight='bold',
+             color='#1E293B', va='top', transform=ax1.transAxes)
 
-    prices = base_trend.copy()
-    prices[3:9] += np.pad(bounce1, (0, n_days-9-6), 'constant')[:6] if 3+6 <= n_days else bounce1[:n_days-3]
-    prices[13:18] += np.pad(bounce2, (0, n_days-18-5), 'constant')[:5] if 13+5 <= n_days else bounce2[:n_days-13]
-    prices += noise
-    prices = np.maximum(prices, 87)
+    # 当前价格（大号显示）
+    ax1.text(0, 0.15, '$88.90', fontsize=36, fontweight='bold',
+             color='#DC2626', va='bottom', transform=ax1.transAxes)
 
-    # ============================================================
-    # 计算移动平均线
-    # ============================================================
-    def moving_average(data, window):
-        ma = np.convolve(data, np.ones(window)/window, mode='same')
-        ma[:window-1] = np.nan
-        return ma
+    # 单位
+    ax1.text(0.35, 0.15, '美元/桶', fontsize=11,
+             color='#94A3B8', va='bottom', transform=ax1.transAxes)
 
-    ma5 = moving_average(prices, 5)
-    ma20 = moving_average(prices, 20)
+    # 涨跌幅
+    ax1.text(0.5, 0.6, '今日 -0.6%', fontsize=11, fontweight='bold',
+             color='#16A34A', va='top', transform=ax1.transAxes,
+             bbox=dict(boxstyle='round,pad=0.2', facecolor='#F0FDF4',
+                       edgecolor='#BBF7D0', alpha=0.8))
 
-    # ============================================================
-    # 计算MACD-like 指标：快慢线差值
-    # ============================================================
-    # 均线价差（衡量趋势强度）
-    ma_spread = ma5 - ma20
+    # 数据来源
+    ax1.text(1.0, 0.15, 'NYMEX', fontsize=8,
+             color='#94A3B8', ha='right', va='bottom', transform=ax1.transAxes)
 
     # ============================================================
-    # 绘制价格线 + 均线
+    # KPI 2 — 子弹图：当前价 vs 52周范围
     # ============================================================
-    # 主价格线
-    ax.plot(x_days, prices, color=BRAND_DARK, linewidth=2.0, zorder=4,
-            label='WTI 原油期货')
+    ax2 = fig.add_axes([0.08, 0.52, 0.84, 0.15])
+    ax2.set_facecolor('#FFFFFF')
+    for spine in ax2.spines.values():
+        spine.set_visible(False)
+    ax2.set_xticks([])
+    ax2.set_yticks([])
+    ax2.set_xlim(60, 115)
 
-    # 5日均线（快线）
-    ax.plot(x_days, ma5, color='#F59E0B', linewidth=1.8, alpha=0.85, zorder=3,
-            label='5日 MA (快线)')
+    # 标题
+    ax2.text(0, 1.6, '52周价格区间', fontsize=9, fontweight='bold',
+             color='#1E293B', va='bottom', transform=ax2.transAxes)
 
-    # 20日均线（慢线）
-    ax.plot(x_days, ma20, color='#EF4444', linewidth=1.8, alpha=0.85, zorder=3,
-            label='20日 MA (慢线)')
+    # 定性范围背景色带
+    # 从差到好：低区间(绿) → 中区间(黄) → 高区间(红)
+    ax2.barh(0.5, 55, left=60, height=0.4, color='#BBF7D0', alpha=0.4, label='低价区')
+    ax2.barh(0.5, 15, left=115, height=0.4, color='#FEE2E2', alpha=0.6, label='高价区')
+    ax2.barh(0.5, 10, left=60, height=0.4, color='#FEF3C7', alpha=0.6, label='中位区')
 
-    # 最新价格标记
-    latest = prices[-1]
-    latest_idx = n_days - 1
-    ax.scatter([latest_idx], [latest], color=BRAND_RED, s=60,
-               zorder=5, marker='o', edgecolors=WHITE, linewidth=1.5)
+    # 实际数值：当前价
+    current = 88.90
+    ax2.barh(0.5, current - 60, left=60, height=0.3,
+             color='#1E293B', alpha=0.9, zorder=3)
 
-    # ============================================================
-    # 标注：死叉信号（首要技术信号）
-    # ============================================================
-    # 找到死叉点（5日均线下穿20日均线）
-    death_cross_idx = None
-    for i in range(5, n_days-1):
-        if not np.isnan(ma5[i]) and not np.isnan(ma20[i]):
-            if ma5[i] < ma20[i] and ma5[i-1] >= ma20[i-1]:
-                death_cross_idx = i
-                break
-    if death_cross_idx is None:
-        death_cross_idx = 12
+    # 52周最高/最低标记
+    ax2.scatter([104.1], [0.5], color='#DC2626', s=50, zorder=4, marker='v')
+    ax2.text(104.1, 0.85, '52周高 $104.1', fontsize=7, color='#DC2626',
+             ha='center', va='bottom', fontweight='bold')
 
-    # 绘制死叉标记
-    if death_cross_idx:
-        ax.scatter([death_cross_idx], [prices[death_cross_idx]],
-                   color='#DC2626', s=100, zorder=6, marker='v',
-                   edgecolors=WHITE, linewidth=1.5)
-        ax.annotate('⚠ 死叉确立\n卖出信号', xy=(death_cross_idx, prices[death_cross_idx]),
-                    xytext=(death_cross_idx+2, prices[death_cross_idx]+5),
-                    fontsize=8, fontweight='bold', color='#DC2626',
-                    arrowprops=dict(arrowstyle='->', color='#DC2626', lw=1.5))
+    ax2.scatter([68.5], [0.5], color='#16A34A', s=50, zorder=4, marker='^')
+    ax2.text(68.5, 0.85, '52周低 $68.5', fontsize=7, color='#16A34A',
+             ha='center', va='bottom', fontweight='bold')
 
-    # ============================================================
-    # 标注：关键价位
-    # ============================================================
-    # 当前价格
-    ax.annotate(f'$88.90\n当前价', xy=(latest_idx, latest),
-                xytext=(latest_idx-8, latest+2.5),
-                fontsize=9, fontweight='bold', color=BRAND_RED,
-                arrowprops=dict(arrowstyle='->', color=BRAND_RED, lw=1.5),
-                bbox=dict(boxstyle='round,pad=0.3', facecolor=RED_50,
-                          edgecolor=BRAND_RED, alpha=0.9))
+    # 当前价格竖线 + 标签
+    ax2.axvline(x=current, color='#1E293B', linewidth=2, zorder=4, alpha=0.7)
+    ax2.text(current, -0.2, f'当前 $88.90', fontsize=7.5, color='#1E293B',
+             ha='center', fontweight='bold')
 
-    # 高点
-    peak_idx = 1
-    ax.scatter([peak_idx], [prices[peak_idx]], color=BRAND_RED, s=50,
-               zorder=5, marker='o', edgecolors=WHITE, linewidth=1)
-    ax.annotate('$104.1\n美伊冲突高点', xy=(peak_idx, prices[peak_idx]),
-                xytext=(peak_idx+2, prices[peak_idx]+1),
-                fontsize=7.5, color=BRAND_RED, ha='center',
-                arrowprops=dict(arrowstyle='->', color=BRAND_RED, lw=1))
-
-    # 关键支撑
-    ax.axhline(y=88, color='#10B981', linewidth=0.8, linestyle='--', alpha=0.6)
-    ax.text(n_days-1, 88.5, '关键支撑 $88', fontsize=7.5,
-            color='#10B981', ha='right', fontweight='bold')
+    # 比例标注（当前处于52周范围的百分比位置）
+    pct_position = (current - 68.5) / (104.1 - 68.5) * 100
+    ax2.text(0.98, 1.6, f'处于52周 {pct_position:.0f}% 分位',
+             fontsize=7, color='#64748B', ha='right', va='bottom',
+             transform=ax2.transAxes)
 
     # ============================================================
-    # 均线发散角度标注
+    # KPI 3 — 关键价位
     # ============================================================
-    # 注释框：解释均线系统状态
-    ax.text(0.02, 0.98, '均线空头排列\n5日 < 20日 ↓\n趋势偏空', transform=ax.transAxes,
-            fontsize=7, color='#DC2626', fontweight='bold', va='top',
-            bbox=dict(boxstyle='round,pad=0.3', facecolor=RED_50,
-                      edgecolor='#DC2626', alpha=0.85))
+    ax3 = fig.add_axes([0.08, 0.35, 0.84, 0.13])
+    ax3.set_facecolor('#FFFFFF')
+    for spine in ax3.spines.values():
+        spine.set_visible(False)
+    ax3.set_xticks([])
+    ax3.set_yticks([])
 
-    # 累计跌幅标注
-    total_drop = ((prices[-1] - prices[0]) / prices[0]) * 100
-    ax.text(0.98, 0.05, f'期间累计跌幅\n{total_drop:.1f}%', transform=ax.transAxes,
-            fontsize=7.5, color='#DC2626', ha='right',
-            bbox=dict(boxstyle='round,pad=0.3', facecolor=RED_50,
-                      edgecolor='#DC2626', alpha=0.7))
+    ax3.text(0, 0.8, '关键价位', fontsize=9, fontweight='bold',
+             color='#1E293B', va='bottom', transform=ax3.transAxes)
+
+    # 使用表格风格展示关键价位
+    levels = [
+        ('阻力位', '$95', '#EF4444'),
+        ('当前', '$88.90', '#1E293B'),
+        ('支撑位', '$88', '#16A34A'),
+        ('强支撑', '$85', '#059669'),
+    ]
+
+    for i, (label, price, color) in enumerate(levels):
+        x_pos = 0.1 + i * 0.23
+        ax3.text(x_pos, 0.5, label, fontsize=7, color='#64748B',
+                 ha='center', va='center', transform=ax3.transAxes)
+        ax3.text(x_pos, -0.1, price, fontsize=10, fontweight='bold', color=color,
+                 ha='center', va='center', transform=ax3.transAxes)
 
     # ============================================================
-    # 坐标轴
+    # KPI 4 — 供需基本面指标
     # ============================================================
-    ax.legend(loc='upper right', fontsize=7, framealpha=0.8,
-              edgecolor='#E2E8F0', fancybox=True)
+    ax4 = fig.add_axes([0.08, 0.08, 0.84, 0.22])
+    ax4.set_facecolor('#FFFFFF')
+    for spine in ax4.spines.values():
+        spine.set_visible(False)
+    ax4.set_xticks([])
+    ax4.set_yticks([])
 
-    # 日期标签
-    date_labels = ['5/19', '5/21', '5/23', '5/25', '5/27', '5/29']
-    tick_pos = np.linspace(0, n_days-1, len(date_labels))
-    ax.set_xticks(tick_pos)
-    ax.set_xticklabels(date_labels, fontsize=7)
+    ax4.text(0, 0.9, '供需基本面', fontsize=9, fontweight='bold',
+             color='#1E293B', va='bottom', transform=ax4.transAxes)
 
-    ax.set_ylabel('美元/桶', fontsize=9, color=BRAND_GRAY, labelpad=4)
-    ax.set_ylim(85, 109)
+    # Metric cards
+    metrics = [
+        ('全球供应缺口', '~700万桶/日', '#DC2626', '↑'),
+        ('美油库存', '连续6周下降', '#EA580C', '↓'),
+        ('美伊停火', '60天MOU框架', '#16A34A', '→'),
+        ('OPEC+产量', '维持不变', '#64748B', '→'),
+    ]
 
-    return cc.save('oil_price.svg')
+    for i, (title, value, color, arrow) in enumerate(metrics):
+        x_pos = 0.02 + i * 0.245
+        # Card background
+        rect = plt.Rectangle((x_pos, 0.0), 0.23, 1.0,
+                            facecolor='#F8F9FA', edgecolor='#E2E8F0',
+                            linewidth=0.5, transform=ax4.transAxes, zorder=0)
+        ax4.add_patch(rect)
+
+        ax4.text(x_pos + 0.115, 0.7, title, fontsize=6.5, color='#64748B',
+                 ha='center', va='center', transform=ax4.transAxes)
+        ax4.text(x_pos + 0.115, 0.25, value, fontsize=8, fontweight='bold', color=color,
+                 ha='center', va='center', transform=ax4.transAxes)
+        ax4.text(x_pos + 0.02, 0.15, arrow, fontsize=9, color=color,
+                 ha='center', va='center', transform=ax4.transAxes,
+                 fontweight='bold')
+
+    # 来源
+    ax4.text(1.0, -0.3, '来源: NYMEX / Bloomberg · 2026-05-29',
+             fontsize=6.5, color='#94A3B8', ha='right', va='top',
+             transform=ax4.transAxes)
+
+    # ============================================================
+    # 保存
+    # ============================================================
+    path = os.path.join(OUTPUT_DIR, 'oil_price.svg')
+    fig.savefig(path, dpi=200, bbox_inches='tight', facecolor='#FFFFFF')
+    plt.close()
+    print(f'✅ {path}')
+    return path
 
 
 # ============================================================
