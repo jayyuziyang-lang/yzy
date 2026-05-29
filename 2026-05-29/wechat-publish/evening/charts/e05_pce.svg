@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 320" width="520" height="320" font-family="PingFang SC,Microsoft YaHei,sans-serif">
+  <rect width="520" height="320" fill="#F0F2F5"/>
+  <text x="20" y="28" font-size="14" font-weight="bold" fill="#1E293B">美国4月PCE通胀 — 创近三年新高</text>
+  <text x="20" y="42" font-size="9" fill="#64748B">整体3.8%符合预期 | 核心3.3%符合预期 | GDP下修至1.6%</text>
+
+  <!-- Headline PCE card -->
+  <rect x="15" y="52" width="155" height="105" rx="6" fill="#fff" stroke="#E2E8F0" stroke-width="0.5"/>
+  <text x="92" y="74" text-anchor="middle" font-size="10" font-weight="bold" fill="#1E293B">整体PCE</text>
+  <text x="92" y="104" text-anchor="middle" font-size="26" font-weight="bold" fill="#D4A017">3.8%</text>
+  <text x="92" y="124" text-anchor="middle" font-size="9" fill="#64748B">同比 · 符合预期</text>
+  <text x="92" y="140" text-anchor="middle" font-size="7" fill="#EA580C">前值3.5% · 近三年新高</text>
+
+  <!-- Core PCE card -->
+  <rect x="182" y="52" width="155" height="105" rx="6" fill="#fff" stroke="#E2E8F0" stroke-width="0.5"/>
+  <text x="260" y="74" text-anchor="middle" font-size="10" font-weight="bold" fill="#1E293B">核心PCE</text>
+  <text x="260" y="104" text-anchor="middle" font-size="26" font-weight="bold" fill="#1A56DB">3.3%</text>
+  <text x="260" y="124" text-anchor="middle" font-size="9" fill="#64748B">同比 · 符合预期</text>
+  <text x="260" y="140" text-anchor="middle" font-size="7" fill="#64748B">前值3.2% · 环比0.2%</text>
+
+  <!-- GDP card -->
+  <rect x="350" y="52" width="155" height="105" rx="6" fill="#fff" stroke="#E2E8F0" stroke-width="0.5"/>
+  <text x="428" y="74" text-anchor="middle" font-size="10" font-weight="bold" fill="#1E293B">Q1 GDP修正</text>
+  <text x="428" y="104" text-anchor="middle" font-size="26" font-weight="bold" fill="#16A34A">1.6%</text>
+  <text x="428" y="124" text-anchor="middle" font-size="9" fill="#64748B">年化增速</text>
+  <text x="428" y="140" text-anchor="middle" font-size="7" fill="#16A34A">初值2.0% · 下修0.4pp</text>
+
+  <!-- Detail card -->
+  <rect x="15" y="170" width="490" height="110" rx="6" fill="#fff" stroke="#E2E8F0" stroke-width="0.5"/>
+  <text x="20" y="190" font-size="10" font-weight="bold" fill="#1E293B">数据结构 + 政策影响</text>
+
+  <text x="20" y="208" font-size="8" fill="#334155">汽油环比 +5.5%  |  住房环比 +0.6%（今年最大月涨幅）</text>
+  <text x="20" y="224" font-size="8" fill="#334155">个人储蓄率 3.2% → 2.6%（2022.6以来新低）</text>
+  <text x="20" y="240" font-size="8" fill="#334155">三分之二消费者因物价上涨削减开支</text>
+
+  <line x1="20" y1="250" x2="490" y2="250" stroke="#E2E8F0" stroke-width="0.5"/>
+
+  <text x="20" y="266" font-size="8" fill="#DC2626">美联储理事库克: "已准备好提高利率"</text>
+  <text x="20" y="278" font-size="8" fill="#64748B">6月维持不变99.4% · 年内加息概率52%</text>
+
+  <!-- Source -->
+  <text x="20" y="305" font-size="7" fill="#9CA3AF">来源: 华尔街见闻 · 东方财富 · Investopedia · 财联社</text>
+</svg>

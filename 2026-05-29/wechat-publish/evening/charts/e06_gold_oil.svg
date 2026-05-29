@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 320" width="520" height="320" font-family="PingFang SC,Microsoft YaHei,sans-serif">
+  <rect width="520" height="320" fill="#F0F2F5"/>
+  <text x="20" y="28" font-size="14" font-weight="bold" fill="#1E293B">商品市场 — 黄金反弹 · 原油承压</text>
+  <text x="20" y="42" font-size="9" fill="#64748B">美伊停火预期扰动商品 · 黄金从$4,366低点V型反弹</text>
+
+  <!-- Gold card -->
+  <rect x="15" y="52" width="240" height="150" rx="8" fill="#fff" stroke="#E2E8F0" stroke-width="0.5"/>
+  <text x="135" y="74" text-anchor="middle" font-size="10" font-weight="bold" fill="#D4A017">现货黄金</text>
+
+  <!-- Gold price -->
+  <text x="135" y="106" text-anchor="middle" font-size="22" font-weight="bold" fill="#DC2626">$4,504</text>
+  <text x="135" y="124" text-anchor="middle" font-size="11" fill="#DC2626">+1.1%</text>
+  <text x="135" y="142" text-anchor="middle" font-size="8" fill="#64748B">从$4,366低点强势反弹</text>
+  <text x="135" y="158" text-anchor="middle" font-size="8" fill="#64748B">COMEX 8月期货 $4,532</text>
+  <text x="135" y="174" text-anchor="middle" font-size="8" fill="#64748B">沪金夜盘 +2% | 美元回落0.2%</text>
+
+  <!-- V型反转线 -->
+  <polyline points="40,185 85,170 130,150 175,145 220,138" fill="none" stroke="#D4A017" stroke-width="2" stroke-linecap="round"/>
+  <text x="55" y="198" font-size="6" fill="#64748B">低点$4,366</text>
+  <text x="185" y="133" font-size="6" fill="#64748B">反弹$4,504</text>
+
+  <!-- Oil card -->
+  <rect x="265" y="52" width="240" height="150" rx="8" fill="#fff" stroke="#E2E8F0" stroke-width="0.5"/>
+  <text x="385" y="74" text-anchor="middle" font-size="10" font-weight="bold" fill="#EA580C">原油承压运行</text>
+
+  <text x="385" y="106" text-anchor="middle" font-size="20" font-weight="bold" fill="#16A34A">$88.90</text>
+  <text x="385" y="124" text-anchor="middle" font-size="11" fill="#DC2626">+0.3%</text>
+  <text x="385" y="142" text-anchor="middle" font-size="8" fill="#64748B">WTI 7月合约 · 微涨0.22美元</text>
+  <text x="385" y="158" text-anchor="middle" font-size="8" fill="#64748B">布伦特 $93.71 (-0.6%)</text>
+
+  <!-- 下跌线 -->
+  <polyline points="290,185 330,178 370,172 410,168 450,170" fill="none" stroke="#EA580C" stroke-width="2" stroke-linecap="round"/>
+  <text x="300" y="198" font-size="6" fill="#64748B">上周</text>
+  <text x="420" y="162" font-size="6" fill="#64748B">$88-89</text>
+
+  <!-- Summit box -->
+  <rect x="15" y="215" width="490" height="65" rx="6" fill="#fff" stroke="#E2E8F0" stroke-width="0.5"/>
+  <text x="20" y="235" font-size="10" font-weight="bold" fill="#1E293B">多空博弈焦点</text>
+  <text x="20" y="253" font-size="8" fill="#334155">黄金：短期受停火情绪压制  |  中长期通胀预期支撑（PCE 3.8%）</text>
+  <text x="20" y="269" font-size="8" fill="#334155">原油：停火预期抑制  |  但700万桶/日缺口+美油库存连降6周限制下行</text>
+
+  <!-- Source -->
+  <text x="20" y="305" font-size="7" fill="#9CA3AF">来源: Sina Finance · Moneycontrol · 申万期货 · 新华财经</text>
+</svg>

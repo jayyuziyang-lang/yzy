@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 400" width="580" height="400" font-family="PingFang SC,Microsoft YaHei,sans-serif">
+  <rect width="580" height="400" fill="#FAFAFA"/>
+  <text x="290" y="28" text-anchor="middle" font-size="16" font-weight="bold" fill="#1a1a1a">📋 今日热点速览 — 60秒掌握关键信息</text>
+  <text x="290" y="44" text-anchor="middle" font-size="10" fill="#666">2026.05.29 晚报</text>
+
+  <!-- Center Hub -->
+  <circle cx="290" cy="210" r="24" fill="#D4A017" stroke="#c9a96e" stroke-width="2"/>
+  <text x="290" y="205" text-anchor="middle" font-size="7" fill="#fff" font-weight="bold">今日</text>
+  <text x="290" y="217" text-anchor="middle" font-size="7" fill="#fff" font-weight="bold">核心</text>
+
+  <!-- Connector lines -->
+  <line x1="290" y1="210" x2="290" y2="60" stroke="#ccc" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <line x1="290" y1="210" x2="500" y2="105" stroke="#ccc" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <line x1="290" y1="210" x2="500" y2="280" stroke="#ccc" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <line x1="290" y1="210" x2="290" y2="355" stroke="#ccc" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <line x1="290" y1="210" x2="80" y2="280" stroke="#ccc" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <line x1="290" y1="210" x2="80" y2="105" stroke="#ccc" stroke-width="1.5" stroke-dasharray="4,3"/>
+
+  <!-- 01 A股 -->
+  <rect x="218" y="55" width="144" height="58" rx="8" fill="#FFF1F1" stroke="#EF4444" stroke-width="1.5"/>
+  <text x="290" y="76" text-anchor="middle" font-size="8" font-weight="bold" fill="#EF4444">A股 · 放量下跌</text>
+  <text x="290" y="90" text-anchor="middle" font-size="10" font-weight="bold" fill="#DC2626">创业板-2.11%</text>
+  <text x="290" y="104" text-anchor="middle" font-size="7" fill="#666">科创50 -5% 近3900只下跌</text>
+
+  <!-- 02 美股 -->
+  <rect x="456" y="82" width="114" height="58" rx="8" fill="#F0FDF4" stroke="#16A34A" stroke-width="1.5"/>
+  <text x="513" y="103" text-anchor="middle" font-size="8" font-weight="bold" fill="#16A34A">美股续创新高</text>
+  <text x="513" y="117" text-anchor="middle" font-size="10" font-weight="bold" fill="#DC2626">标普+0.58%</text>
+  <text x="513" y="131" text-anchor="middle" font-size="7" fill="#666">Dell盘后+39%</text>
+
+  <!-- 03 科技 -->
+  <rect x="456" y="260" width="114" height="58" rx="8" fill="#FFF7ED" stroke="#F59E0B" stroke-width="1.5"/>
+  <text x="513" y="281" text-anchor="middle" font-size="8" font-weight="bold" fill="#D97706">科技/AI</text>
+  <text x="513" y="295" text-anchor="middle" font-size="9" font-weight="bold" fill="#D97706">AI军备竞赛</text>
+  <text x="513" y="309" text-anchor="middle" font-size="7" fill="#666">Dell·Anthropic齐发</text>
+
+  <!-- 04 国际 -->
+  <rect x="228" y="342" width="124" height="48" rx="8" fill="#EFF6FF" stroke="#1A56DB" stroke-width="1.5"/>
+  <text x="290" y="362" text-anchor="middle" font-size="8" font-weight="bold" fill="#1A56DB">美伊停火MOU</text>
+  <text x="290" y="378" text-anchor="middle" font-size="7" fill="#666">待特朗普批准</text>
+
+  <!-- 05 宏观 -->
+  <rect x="12" y="260" width="126" height="58" rx="8" fill="#FFF8E1" stroke="#D4A017" stroke-width="1.5"/>
+  <text x="75" y="281" text-anchor="middle" font-size="8" font-weight="bold" fill="#B8860B">PCE创近三年新高</text>
+  <text x="75" y="295" text-anchor="middle" font-size="10" font-weight="bold" fill="#DC2626">3.8%</text>
+  <text x="75" y="309" text-anchor="middle" font-size="7" fill="#666">GDP下修至1.6%</text>
+
+  <!-- 06 商品 -->
+  <rect x="12" y="82" width="126" height="58" rx="8" fill="#FFF3E0" stroke="#EA580C" stroke-width="1.5"/>
+  <text x="75" y="103" text-anchor="middle" font-size="8" font-weight="bold" fill="#EA580C">黄金反弹</text>
+  <text x="75" y="117" text-anchor="middle" font-size="10" font-weight="bold" fill="#DC2626">$4,504</text>
+  <text x="75" y="131" text-anchor="middle" font-size="7" fill="#666">WTI $88.90</text>
+</svg>

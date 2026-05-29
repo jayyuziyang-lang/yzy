@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 320" width="520" height="320" font-family="PingFang SC,Microsoft YaHei,sans-serif">
+  <rect width="520" height="320" fill="#F0F2F5"/>
+  <text x="20" y="28" font-size="14" font-weight="bold" fill="#1E293B">美股三大指数续创新高 — 2026.05.28</text>
+  <text x="20" y="42" font-size="9" fill="#64748B">标普·纳指连续6日上涨 · Dell盘后暴涨39%</text>
+
+  <!-- SPX card -->
+  <rect x="15" y="52" width="155" height="90" rx="6" fill="#fff" stroke="#E2E8F0" stroke-width="0.5"/>
+  <text x="92" y="72" text-anchor="middle" font-size="9" font-weight="bold" fill="#1E293B">标普500</text>
+  <text x="92" y="98" text-anchor="middle" font-size="18" font-weight="bold" fill="#DC2626">7,563</text>
+  <text x="92" y="118" text-anchor="middle" font-size="11" fill="#DC2626">+0.58%</text>
+  <text x="92" y="134" text-anchor="middle" font-size="7" fill="#64748B">连涨6日</text>
+
+  <!-- NDX card -->
+  <rect x="182" y="52" width="155" height="90" rx="6" fill="#fff" stroke="#E2E8F0" stroke-width="0.5"/>
+  <text x="260" y="72" text-anchor="middle" font-size="9" font-weight="bold" fill="#1E293B">纳斯达克</text>
+  <text x="260" y="98" text-anchor="middle" font-size="16" font-weight="bold" fill="#DC2626">26,917</text>
+  <text x="260" y="118" text-anchor="middle" font-size="11" fill="#DC2626">+0.91%</text>
+  <text x="260" y="134" text-anchor="middle" font-size="7" fill="#64748B">ARM +10%</text>
+
+  <!-- DJI card -->
+  <rect x="350" y="52" width="155" height="90" rx="6" fill="#fff" stroke="#E2E8F0" stroke-width="0.5"/>
+  <text x="428" y="72" text-anchor="middle" font-size="9" font-weight="bold" fill="#1E293B">道琼斯</text>
+  <text x="428" y="98" text-anchor="middle" font-size="18" font-weight="bold" fill="#DC2626">50,668</text>
+  <text x="428" y="118" text-anchor="middle" font-size="11" fill="#DC2626">+0.05%</text>
+  <text x="428" y="134" text-anchor="middle" font-size="7" fill="#64748B">微软+3.47%</text>
+
+  <!-- Key stock movers -->
+  <rect x="15" y="155" width="490" height="105" rx="6" fill="#fff" stroke="#E2E8F0" stroke-width="0.5"/>
+  <text x="20" y="175" font-size="10" font-weight="bold" fill="#1E293B">热门个股表现</text>
+
+  <rect x="20" y="185" width="108" height="28" rx="4" fill="#F0FDF4"/>
+  <text x="74" y="203" text-anchor="middle" font-size="9" fill="#16A34A">微软 +3.47%</text>
+  <rect x="137" y="185" width="98" height="28" rx="4" fill="#F0FDF4"/>
+  <text x="186" y="203" text-anchor="middle" font-size="9" fill="#16A34A">ARM +10%</text>
+  <rect x="245" y="185" width="98" height="28" rx="4" fill="#F0FDF4"/>
+  <text x="294" y="203" text-anchor="middle" font-size="9" fill="#16A34A">AMD +4.55%</text>
+  <rect x="352" y="185" width="138" height="28" rx="4" fill="#F0FDF4"/>
+  <text x="421" y="203" text-anchor="middle" font-size="9" fill="#16A34A">甲骨文 +6.67%</text>
+
+  <rect x="20" y="220" width="230" height="28" rx="4" fill="#FFF1F1"/>
+  <text x="135" y="238" text-anchor="middle" font-size="9" fill="#DC2626">Dell收盘 +3.84%（盘后再涨+39%）</text>
+
+  <!-- Source -->
+  <text x="20" y="305" font-size="7" fill="#9CA3AF">来源: 东方财富 · 财联社 · 搜狐财经 · 中证网</text>
+</svg>

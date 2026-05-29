@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>A股放量下跌沪指失守4100·创业板跌超2%·电力涨停潮·半导体重挫5%·PCE 3.8%创近三年新高</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system,"PingFang SC","Microsoft YaHei","Helvetica Neue",sans-serif; background: #F5F7FA; color: #1E293B; line-height: 1.8; font-size: 16px; }
+  .c { max-width: 640px; margin: 0 auto; background: #fff; padding: 44px 0 40px; }
+  .top-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; max-width: 640px; margin: 0 auto; background: rgba(255,255,255,0.95); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-bottom: 1px solid #E2E8F0; display: flex; align-items: center; padding: 0 16px; height: 44px; }
+  .top-nav .back { display: flex; align-items: center; gap: 4px; color: #1A56DB; text-decoration: none; font-size: 13px; font-weight: 600; }
+  .top-nav .back:active { opacity: 0.6; }
+  .top-nav .nav-date { flex: 1; text-align: center; font-size: 12px; color: #64748B; }
+  .top-nav .nav-edition { font-size: 11px; color: #94A3B8; background: #F1F5F9; padding: 2px 8px; border-radius: 8px; }
+  .top-nav .nav-edition.pm { color: #D4A017; background: #FFFBEB; }
+  .header { background: linear-gradient(135deg,#D4A017,#B8860B); padding: 20px 20px 16px; color: white; }
+  .header h1 { font-size: 22px; font-weight: 700; line-height: 1.4; margin-bottom: 6px; }
+  .header .meta { font-size: 12px; opacity: 0.8; display: flex; gap: 12px; flex-wrap: wrap; }
+  .player { display: flex; align-items: center; gap: 12px; margin-top: 14px; }
+  .player-icon { width: 40px; height: 40px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 18px; }
+  .player-info { flex: 1; }
+  .player-title { font-size: 13px; font-weight: 600; }
+  .player-desc { font-size: 11px; opacity: 0.7; }
+  .player audio { width: 100%; margin-top: 4px; border-radius: 20px; }
+  .body { padding: 20px 20px 0; }
+  .layer1 { margin-bottom: 28px; }
+  .l1-title { font-size: 16px; font-weight: 700; color: #D4A017; margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
+  .l1-comic { margin: 8px 0 0; }
+  .l1-comic img { width: 100%; border-radius: 10px; border: 1px solid #E2E8F0; }
+  .l1-divider { border: none; border-top: 2px dashed #D4A017; margin: 16px 0; }
+  .layer2 { margin-bottom: 24px; }
+  .l2-title { font-size: 16px; font-weight: 700; color: #D4A017; margin-bottom: 14px; display: flex; align-items: center; gap: 6px; }
+  .quote { background: #FFFBEB; border-left: 4px solid #D4A017; padding: 12px 14px; margin: 14px 0; border-radius: 0 8px 8px 0; font-size: 14px; color: #92400E; line-height: 1.7; }
+  p { margin-bottom: 12px; text-align: justify; font-size: 15px; }
+  .story { margin: 22px 0; }
+  .story-head { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .story-num { width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; color: #fff; flex-shrink: 0; }
+  .story-num.s01 { background: #EF4444; } .story-num.s02 { background: #7C3AED; } .story-num.s03 { background: #F59E0B; }
+  .story-num.s04 { background: #1A56DB; } .story-num.s05 { background: #10B981; } .story-num.s06 { background: #D4A017; }
+  .story-tag { font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 3px; }
+  .story-tag.s01 { background: #FEF2F2; color: #DC2626; } .story-tag.s02 { background: #F5F3FF; color: #7C3AED; }
+  .story-tag.s03 { background: #FFF7ED; color: #D97706; } .story-tag.s04 { background: #EFF6FF; color: #1A56DB; }
+  .story-tag.s05 { background: #F0FDF4; color: #16A34A; } .story-tag.s06 { background: #FFFBEB; color: #B8860B; }
+  .story-title { font-size: 16px; font-weight: 700; color: #1E293B; line-height: 1.4; }
+  .story-content { font-size: 14px; color: #334155; line-height: 1.8; margin-bottom: 8px; }
+  .story-content p { margin-bottom: 8px; font-size: 14px; }
+  .story-img { margin: 10px 0 0; border-radius: 8px; border: 1px solid #E2E8F0; overflow: hidden; background: #FAFAFA; }
+  .story-img img { width: 100%; display: block; }
+  .story-divider { border: none; height: 1px; background: linear-gradient(to right, transparent, #E2E8F0, transparent); margin: 6px 0; }
+  .gold-box { background: linear-gradient(135deg,#FFF8E7,#FFF3D6); border: 1px solid #D4A017; border-radius: 12px; padding: 18px 20px; margin: 22px 0; text-align: center; font-size: 16px; font-weight: 700; color: #B8860B; line-height: 1.5; }
+  .layer3 { margin-bottom: 24px; }
+  .l3-title { font-size: 16px; font-weight: 700; color: #D4A017; margin-bottom: 10px; }
+  table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 13px; }
+  th { background: #D4A017; color: #fff; padding: 8px 10px; text-align: left; font-weight: 600; }
+  th:first-child { border-radius: 6px 0 0 0; }
+  th:last-child { border-radius: 0 6px 0 0; }
+  td { padding: 8px 10px; border-bottom: 1px solid #E2E8F0; }
+  tr:nth-child(even) { background: #F8F9FA; }
+  .up { color: #DC2626; font-weight: 600; }
+  .down { color: #16A34A; font-weight: 600; }
+  .warn { background: #FFF5F5; border: 1px solid #FECACA; border-radius: 10px; padding: 12px 14px; margin-top: 24px; font-size: 12px; color: #991B1B; line-height: 1.5; }
+  .list { background: #F8F9FA; border-radius: 8px; padding: 10px 14px; margin: 10px 0; }
+  .list-item { padding: 5px 0; border-bottom: 1px solid #E2E8F0; font-size: 13px; display: flex; gap: 6px; }
+  .list-item:last-child { border-bottom: none; }
+  .tag-b { display: inline-block; background: #D4A017; color: #fff; font-size: 10px; padding: 1px 7px; border-radius: 8px; white-space: nowrap; }
+  .sources { background: #FFFBEB; border-radius: 10px; padding: 12px 14px; margin: 16px 0; font-size: 12px; color: #92400E; line-height: 1.6; }
+  .sources h3 { font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+  .sources a { color: #1A56DB; text-decoration: none; }
+  .foot { background: linear-gradient(135deg,#D4A017,#B8860B); border-radius: 12px; padding: 18px 20px; margin: 22px 0; color: white; text-align: center; }
+  .foot .icon { font-size: 28px; margin-bottom: 4px; }
+  .foot .t { font-size: 16px; font-weight: 700; margin-bottom: 2px; }
+  .foot .d { font-size: 11px; opacity: 0.85; }
+</style>
+</head>
+<body>
+<div class="c">
+
+  <div class="top-nav">
+    <a class="back" href="../../../index.html">&larr; 返回首页</a>
+    <span class="nav-date">2026.05.29</span>
+    <span class="nav-edition pm">晚报</span>
+  </div>
+
+  <div class="header">
+    <h1>A股放量下跌沪指失守4100·创业板跌超2%·电力涨停潮·PCE 3.8%创近三年新高·Dell盘后暴涨39%</h1>
+    <div class="meta">
+      <span>📅 2026.05.29 晚间</span>
+      <span>🏷️ A股调整/电力涨停/消费逆势/Dell/Anthropic/PCE/黄金反弹</span>
+    </div>
+    <div class="player">
+      <div class="player-icon">🎧</div>
+      <div class="player-info">
+        <div class="player-title">音频解说 · 约8分钟</div>
+        <div class="player-desc">边听边看，体验更佳</div>
+        <audio controls preload="none"><source src="audio.mp3" type="audio/mpeg"></audio>
+      </div>
+    </div>
+  </div>
+
+  <div class="body">
+
+    <!-- ════════════════════════════════ -->
+    <!-- LAYER 1: 今日热点速览 -->
+    <!-- ════════════════════════════════ -->
+    <div class="layer1">
+      <div class="l1-title">📋 今日热点速览 — 60秒掌握关键信息</div>
+      <div class="l1-comic">
+        <img loading="lazy" src="comic/panel-000.svg" alt="今日热点速览">
+      </div>
+      <hr class="l1-divider">
+      <div style="text-align:center;font-size:12px;color:#D4A017;font-weight:600;">▼ 往下翻看深度解读</div>
+    </div>
+
+    <!-- ════════════════════════════════ -->
+    <!-- LAYER 2: 今日深度专题 -->
+    <!-- ════════════════════════════════ -->
+    <div class="layer2">
+      <div class="l2-title">🔍 今日深度专题</div>
+
+      <div class="quote">
+        前日创业板创历史新高站上4125点，今日便放量重挫逾2%跌回4037点。风格从科技向消费、电力的切换不是试探，而是实实在在的资金大迁徙。沪指失守4100点，成交却放大至3.3万亿——越是下跌越放量，说明有人在接，也有人在跑。
+      </div>
+
+      <!-- 01 A股 -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s01">01</div>
+          <div class="story-tag s01">A股</div>
+          <div class="story-title">放量下跌，近3900只个股飘绿</div>
+        </div>
+        <div class="story-content">
+          <p>今日A股三大指数集体回调。<strong>上证指数跌0.73%收报4068.57点，失守4100点整数关口；深证成指跌1.81%报15575.13点；创业板指跌2.11%报4037.95点</strong>。科创50重挫5.04%，北证50跌3.24%，成为调整重灾区（来源：新浪财经、21世纪经济报道）。</p>
+          <p>成交量方面，沪深两市全天成交3.34万亿元，较昨日放量约3500亿元，呈现典型的"放量下跌"格局。全市场3881只个股下跌，仅1542只上涨，67只涨停、59只跌停。</p>
+          <p>板块分化到了极致。<strong>半导体板块暴跌超5%居跌幅首位</strong>，康强电子、士兰微、至纯科技等多股跌停；消费电子、军工、商业航天等前期热门方向同步重挫。翻到涨幅榜，<strong>电力板块掀起涨停潮</strong>，华能国际、粤电力A、深南电A、华电能源等8只电力股封板；白酒、免税概念集体飙升，酒鬼酒涨停，中国中免涨8.8%，万科A也封上涨停。</p>
+          <p>这种冰火两重天的结构意味着什么？过去一个月A股的核心主线——半导体、AI算力——在今天遭到了集中抛售，资金大规模涌入防御属性的电力、消费和地产。中泰证券明确建议"适度减仓科技，关注消费方向"，机构的集体转向进一步加剧了科技板块的踩踏。</p>
+        </div>
+        <div class="story-img">
+          <img loading="lazy" src="charts/e01_astock.svg" alt="A股今日收盘全景">
+        </div>
+      </div>
+
+      <hr class="story-divider">
+
+      <!-- 02 美股 -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s02">02</div>
+          <div class="story-tag s02">美股</div>
+          <div class="story-title">三大指数续创新高，PCE落地后V型反转</div>
+        </div>
+        <div class="story-content">
+          <p>隔夜美股三大指数全线上涨，均续创历史收盘新高。<strong>标普500涨0.58%报7563.63点，纳斯达克综合指数涨0.91%报26917.47点，道琼斯工业指数涨0.05%报50668.97点</strong>。标普和纳指实现连续第六天上涨（来源：东方财富、财联社）。</p>
+          <p>盘面经历了典型的"数据冲击—消化—反弹"三部曲。4月PCE数据出炉——整体同比3.8%（符合预期但创近三年新高），核心同比3.3%（符合预期）——通胀数字偏高但未超预期，市场在短暂下探后迅速企稳。大型科技股集体走强：微软涨3.47%，亚马逊涨0.79%，英伟达涨0.78%。芯片股表现亮眼，ARM涨超10%，AMD涨4.55%。VIX恐慌指数收报15.73，跌3.44%，恐慌情绪持续降温（来源：搜狐财经、中证网）。</p>
+          <p>Dell盘后暴涨39%才是真正让市场沸腾的消息——Q1营收438亿美元同比增88%，AI服务器收入161亿暴增757%，公司大幅上调全年指引。Dell盘后的爆炸力将在今晚美股开盘时集中释放。</p>
+        </div>
+        <div class="story-img">
+          <img loading="lazy" src="charts/e02_us_markets.svg" alt="美股三大指数表现">
+        </div>
+      </div>
+
+      <hr class="story-divider">
+
+      <!-- 03 科技/AI -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s03">03</div>
+          <div class="story-tag s03">科技/AI</div>
+          <div class="story-title">Dell的AI印钞机，Anthropic超越OpenAI</div>
+        </div>
+        <div class="story-content">
+          <p>隔夜科技领域两枚重磅炸弹。首先是<strong>Dell交出了AI时代最具标志意义的一份财报</strong>——第一财季营收438.4亿美元，同比增长88%，创2018年重新上市以来最强增速。其中AI服务器收入161亿美元，同比暴增757%，AI积压订单513亿美元创历史纪录。公司大幅上调全年营收指引至1650-1690亿美元，盘后股价暴涨约39%（来源：财联社、东方财富）。</p>
+          <p>这笔财报的价值在于，它彻底证明了AI的资本开支正在大规模转化为硬件公司的营收。Dell并非芯片制造商，而是一家以服务器组装和分销为核心业务的公司。AI服务器收入占比从一年前的几乎为零飙升到今天占ISG部门营收的55%以上，意味着每一家云厂商、每一家主权AI项目都在疯狂下单。513亿美元的积压订单意味着未来至少两个季度的营收已经被锁定。</p>
+          <p>另一条消息是<strong>Anthropic完成650亿美元H轮融资，估值9650亿美元，首次超越OpenAI</strong>（后者3月估值8520亿美元）。Anthropic的年化收入已突破470亿美元，领投方包括Altimeter Capital、红杉资本，亚马逊投资50亿美元，美光科技、三星电子、SK海力士也战略参投。当存储三巨头都开始投资AI模型公司，整个产业链的绑定深度可见一斑（来源：新浪财经、上海证券报）。</p>
+        </div>
+        <div class="story-img">
+          <img loading="lazy" src="charts/e03_dell_anthropic.svg" alt="Dell和Anthropic重磅消息">
+        </div>
+      </div>
+
+      <hr class="story-divider">
+
+      <!-- 04 国际 -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s04">04</div>
+          <div class="story-tag s04">前沿/国际</div>
+          <div class="story-title">美伊停火60天MOU落地，韩国加息信号清晰</div>
+        </div>
+        <div class="story-content">
+          <p>中东局势迎来实质性转折。美伊双方就<strong>延长停火60天达成谅解备忘录（MOU）框架</strong>，内容包括美国解冻部分伊朗资产、结束霍尔木兹海峡封锁，伊朗承诺暂停核进展。协议仍需特朗普最终批准。此前一天伊朗单方面"放风"被白宫斥为捏造，但这次MOU框架的落地意味着谈判走到了实质性阶段（来源：搜狐财经、凤凰网）。</p>
+          <p>对全球市场而言，霍尔木兹海峡通航恢复预期是核心变量。目前的局势仍处在"打谈结合"阶段——即便协议签署，受损油田修复仍需数月，每天近700万桶的供应缺口短期难以填补。油价在8个月内从冲突前的60美元冲到90美元以上，现在已经回落到88-89美元附近，市场正在逐步定价"地缘溢价消退"。</p>
+          <p>韩国市场方面，KOSPI反弹超2%至8352点。韩国央行维持基准利率2.5%不变（连续第8次冻结），两名委员投票加息。央行将GDP增长预测从2.0%大幅上调至2.6%，通胀预测从2.2%上调至2.7%。半导体出口强劲是经济上行动力，但输入性通胀压力正在迫使政策转向紧缩（来源：韩联社、AJU PRESS）。</p>
+        </div>
+        <div class="story-img">
+          <img loading="lazy" src="charts/e04_geopolitics.svg" alt="美伊停火和韩国市场">
+        </div>
+      </div>
+
+      <hr class="story-divider">
+
+      <!-- 05 宏观 -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s05">05</div>
+          <div class="story-tag s05">宏观</div>
+          <div class="story-title">PCE 3.8%创近三年新高，美国正陷入滞胀</div>
+        </div>
+        <div class="story-content">
+          <p>5月28日发布的美国4月PCE数据是本周最重要的宏观事件。整体PCE同比3.8%创2023年5月以来近三年最高，核心PCE同比3.3%符合预期但同样在走高。同期Q1 GDP年化增速从2.0%下修至1.6%，低于市场预期。通胀往上走、经济往下走——市场对"滞胀"的讨论明显升温（来源：华尔街见闻、Investopedia）。</p>
+          <p>具体看数据结构：能源是最大推手，汽油价格环比飙升5.5%，伊朗冲突带来的输入性通胀正在全方位传导。住房通胀环比涨0.6%，创今年最大单月涨幅。最值得警惕的信号是个人储蓄率从3.2%骤降至2.6%，创2022年6月以来新低。消费者通过动用储蓄维持消费，但三分之二的人已因物价上涨削减开支。</p>
+          <p>美联储新主席沃什面临"从推动降息到遏制加息预期"的政策变局。理事库克表态"已准备好提高利率"，此前最鸽派的沃勒也转向支持修改政策声明。CME美联储观察显示，6月维持利率不变概率99.4%，年内加息概率约52%。降息窗口已基本关闭，市场的下一个问题是"加息多少、多快"。</p>
+        </div>
+        <div class="story-img">
+          <img loading="lazy" src="charts/e05_pce.svg" alt="PCE和GDP数据拆解">
+        </div>
+      </div>
+
+      <hr class="story-divider">
+
+      <!-- 06 商品 -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s06">06</div>
+          <div class="story-tag s06">商品</div>
+          <div class="story-title">黄金反弹至$4500上方，原油承压于停火预期</div>
+        </div>
+        <div class="story-content">
+          <p>商品市场经历剧烈波动后企稳。现货黄金从两个月低点4366美元强势反弹，重回4500美元上方。<strong>COMEX 8月黄金期货收报4532.40美元，涨1.02%</strong>。沪金夜盘同步涨超2%，国内金价跟随国际反弹节奏。美伊停火MOU虽带来避险情绪降温，但美元指数回落0.2%对金价构成支撑（来源：Sina Finance、Moneycontrol）。</p>
+          <p>黄金在4350-4380美元区间获得关键支撑后走出V型反转，说明市场在这个位置有较强买盘承接。短期来看，美伊停火若最终落地会压制避险需求，但通胀预期持续上行（PCE 3.8%）又为黄金提供了中长期支撑。多空双方的博弈焦点将从地缘风险转向实际利率走向。</p>
+          <p>原油方面，<strong>WTI原油在88-89美元区间承压运行</strong>，布伦特原油在92-93美元区间。美伊停火预期持续压制油价，SC原油夜盘跌0.61%盘中触及三个月低点。但美国原油库存连续第六周下降，全球近700万桶/日的供应缺口尚未填补，油价下行空间有限。短期看88美元支撑是否经受住考验（来源：申万期货、新华财经）。</p>
+        </div>
+        <div class="story-img">
+          <img loading="lazy" src="charts/e06_gold_oil.svg" alt="黄金原油走势">
+        </div>
+      </div>
+
+      <!-- Gold-box -->
+      <div class="gold-box">
+        今天A股的放量下跌和极端板块分化告诉我们一件事：每一次集体狂欢之后，都会有一场彻底的风格切换。前天的创业板创新高，今天的半导体踩踏——同一个市场的两张脸。在切换窗口期，比选对方向更重要的，是不要追着已经涨了三天的板块往里冲。—— 我是阿扬，我们明天早上见。
+      </div>
+
+    </div>
+
+    <!-- ════════════════════════════════ -->
+    <!-- LAYER 3: 关键市场数据一览 -->
+    <!-- ════════════════════════════════ -->
+    <div class="layer3">
+      <div class="l3-title">📊 关键市场数据一览</div>
+
+      <table>
+        <tr><th>品种</th><th>最新</th><th>涨跌幅</th></tr>
+        <tr><td>上证指数</td><td>4,068.57</td><td class="down">-0.73%</td></tr>
+        <tr><td>深证成指</td><td>15,575.13</td><td class="down">-1.81%</td></tr>
+        <tr><td>创业板指</td><td>4,037.95</td><td class="down">-2.11%</td></tr>
+        <tr><td>科创50</td><td>—</td><td class="down">-5.04%</td></tr>
+        <tr><td>标普500</td><td>7,563.63</td><td class="up">+0.58%</td></tr>
+        <tr><td>纳斯达克</td><td>26,917.47</td><td class="up">+0.91%</td></tr>
+        <tr><td>道琼斯</td><td>50,668.97</td><td class="up">+0.05%</td></tr>
+        <tr><td>现货黄金</td><td>$4,504</td><td class="up">+1.1%</td></tr>
+        <tr><td>WTI原油</td><td>$88.90</td><td class="up">+0.3%</td></tr>
+        <tr><td>布伦特原油</td><td>$93.71</td><td class="down">-0.6%</td></tr>
+        <tr><td>VIX恐慌指数</td><td>15.73</td><td class="down">-3.44%</td></tr>
+        <tr><td>美元指数</td><td>~99.0</td><td class="down">-0.2%</td></tr>
+        <tr><td>韩国KOSPI</td><td>8,352</td><td class="up">+2.0%</td></tr>
+      </table>
+
+      <div class="list">
+        <div class="list-item"><span class="tag-b">01</span>A股放量下跌，成交3.34万亿，3881只个股收绿</div>
+        <div class="list-item"><span class="tag-b">02</span>电力板块涨停潮（8只），白酒/消费逆势走强</div>
+        <div class="list-item"><span class="tag-b">03</span>半导体暴跌5%，科创50重挫，科技板块集体退潮</div>
+        <div class="list-item"><span class="tag-b">04</span>隔夜美股续创新高，Dell盘后暴涨39%，PCE 3.8%符合预期</div>
+        <div class="list-item"><span class="tag-b">05</span>美伊停火60天MOU框架达成，油价承压</div>
+        <div class="list-item"><span class="tag-b">06</span>黄金从$4,366低点反弹至$4,500上方</div>
+      </div>
+
+      <div class="sources">
+        <h3>📌 数据来源</h3>
+        <div style="line-height:2;">
+          · <a href="https://cj.sina.com.cn/articles/view/5182171545/134e1a99902002fdwa">新浪财经 — A股收评：沪指跌0.73%</a><br>
+          · <a href="https://www.sohu.com/a/1029399994_115433">搜狐 — 创业板跌超2%，电力板块逆市活跃</a><br>
+          · <a href="https://fund.eastmoney.com/a/202605293754390182.html">东方财富 — A股三大指数收跌，消费股逆市走强</a><br>
+          · <a href="https://finance.ifeng.com/c/8tWSOWmC3dd">凤凰网 — 3881只个股下跌，华能国际等8只电力股涨停</a><br>
+          · <a href="https://finance.eastmoney.com/a/202605293753220972.html">东方财富 — 美股三大指数全线收涨</a><br>
+          · <a href="https://www.jwview.com/jingwei/html/m/05-29/672630.shtml">中新经纬 — 美股收盘全线收涨，金银齐涨</a><br>
+          · <a href="https://api3.cls.cn/share/article/2384829">财联社 — Dell AI服务器收入暴增757%，盘后暴涨39%</a><br>
+          · <a href="https://finance.sina.com.cn/roll/2026-05-29/doc-inhzpnfu8058873.shtml">新浪财经 — Anthropic完成650亿美元H轮融资</a><br>
+          · <a href="https://www.sohu.com/a/1029046889_115433">搜狐 — PCE通胀数据，美联储加息警告</a><br>
+          · <a href="https://www.163.com/dy/article/KU39LV1805568W0A.html">网易 — PCE双符合预期创数月新高</a><br>
+          · <a href="https://www.sohu.com/a/1028966241_114986">搜狐 — 美伊和谈冲击大宗商品</a><br>
+          · <a href="https://www.cnfin.com/yw-lb/detail/20260529/4419333_1.html">新华财经 — 商品日报5月29日</a>
+        </div>
+      </div>
+
+      <div class="foot">
+        <div class="icon">📡</div>
+        <div class="t">扬说财经</div>
+        <div class="d">用漫画看懂财经 — 每天早报速览，晚报深度，陪你读懂市场</div>
+      </div>
+
+      <div class="warn">⚠️ <strong>风险提示：</strong>以上内容仅为信息分享，不构成投资建议。市场有风险，投资需谨慎。数据来源于公开信息，如有出入请以官方数据为准。</div>
+
+    </div>
+
+  </div>
+</div>
+</body>
+</html>

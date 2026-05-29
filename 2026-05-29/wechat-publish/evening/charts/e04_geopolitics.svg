@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 320" width="520" height="320" font-family="PingFang SC,Microsoft YaHei,sans-serif">
+  <rect width="520" height="320" fill="#F0F2F5"/>
+  <text x="20" y="28" font-size="14" font-weight="bold" fill="#1E293B">中东 + 韩国 — 两大市场变量</text>
+  <text x="20" y="42" font-size="9" fill="#64748B">美伊停火60天MOU达成 · 韩央行释放加息信号</text>
+
+  <!-- Left: Iran -->
+  <rect x="15" y="52" width="240" height="210" rx="6" fill="#fff" stroke="#E2E8F0" stroke-width="0.5"/>
+  <text x="135" y="74" text-anchor="middle" font-size="11" font-weight="bold" fill="#1A56DB">美伊停火60天MOU框架</text>
+  <text x="135" y="90" text-anchor="middle" font-size="7" fill="#64748B">待特朗普最终批准</text>
+
+  <rect x="25" y="100" width="220" height="22" rx="3" fill="#EFF6FF"/>
+  <text x="135" y="115" text-anchor="middle" font-size="8" fill="#1A56DB">美国解冻部分伊朗资产</text>
+  <rect x="25" y="126" width="220" height="22" rx="3" fill="#EFF6FF"/>
+  <text x="135" y="141" text-anchor="middle" font-size="8" fill="#1A56DB">结束霍尔木兹海峡封锁</text>
+  <rect x="25" y="152" width="220" height="22" rx="3" fill="#EFF6FF"/>
+  <text x="135" y="167" text-anchor="middle" font-size="8" fill="#1A56DB">伊朗暂停核进展</text>
+
+  <right x="25" y="184" font-size="8" fill="#334155"/>
+  <text x="25" y="184" font-size="8" fill="#334155">对市场的影响：</text>
+  <text x="25" y="200" font-size="8" fill="#16A34A">霍尔木兹通航恢复预期 → 油价承压</text>
+  <text x="25" y="216" font-size="8" fill="#64748B">但受损油田修复需数月</text>
+  <text x="25" y="232" font-size="8" fill="#64748B">每天700万桶供应缺口短期难补</text>
+
+  <!-- Right: Korea -->
+  <rect x="265" y="52" width="240" height="210" rx="6" fill="#fff" stroke="#E2E8F0" stroke-width="0.5"/>
+  <text x="385" y="74" text-anchor="middle" font-size="11" font-weight="bold" fill="#D4A017">韩国央行</text>
+  <text x="385" y="92" text-anchor="middle" font-size="7" fill="#64748B">5月28日利率决议</text>
+
+  <text x="385" y="118" text-anchor="middle" font-size="20" font-weight="bold" fill="#D4A017">2.50%</text>
+  <text x="385" y="134" text-anchor="middle" font-size="8" fill="#64748B">维持不变 · 连续第8次冻结</text>
+
+  <line x1="280" y1="144" x2="490" y2="144" stroke="#E2E8F0" stroke-width="0.5"/>
+
+  <text x="280" y="162" font-size="8" fill="#334155">GDP预测: <tspan font-weight="bold" fill="#DC2626">2.0% → 2.6%</tspan></text>
+  <text x="280" y="180" font-size="8" fill="#334155">通胀预测: <tspan font-weight="bold" fill="#EA580C">2.2% → 2.7%</tspan></text>
+  <text x="280" y="198" font-size="8" fill="#334155">2名委员投票加息至2.75%</text>
+  <text x="280" y="216" font-size="8" fill="#334155">行长: "有必要适当时间加息"</text>
+  <text x="280" y="234" font-size="8" fill="#334155">半导体出口强劲推动经济增长</text>
+
+  <rect x="280" y="246" width="210" height="16" rx="3" fill="#FFF8E1"/>
+  <text x="385" y="257" text-anchor="middle" font-size="7" fill="#D4A017">KOSPI 8,352 (+2.0%)</text>
+
+  <!-- Source -->
+  <text x="20" y="305" font-size="7" fill="#9CA3AF">来源: 搜狐 · 凤凰网 · 韩联社 · AJU PRESS</text>
+</svg>

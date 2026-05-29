@@ -1,7 +1,15 @@
 {
-  "generated_at": "2026-05-29T10:58:00+08:00",
+  "generated_at": "2026-05-29T19:10:27+08:00",
   "latest_date": "2026-05-29",
   "articles": [
+    {
+      "date": "2026-05-29",
+      "session": "evening",
+      "edition_cn": "晚报",
+      "icon": "🌙",
+      "title": "A股放量下跌沪指失守4100·创业板跌超2%·电力涨停潮·半导体重挫5%·PCE 3.8%创近三年新高",
+      "url": "2026-05-29/wechat-publish/evening/article.html"
+    },
     {
       "date": "2026-05-29",
       "session": "morning",
@@ -134,6 +142,14 @@
   ],
   "by_date": {
     "2026-05-29": {
+      "evening": {
+        "date": "2026-05-29",
+        "session": "evening",
+        "edition_cn": "晚报",
+        "icon": "🌙",
+        "title": "A股放量下跌沪指失守4100·创业板跌超2%·电力涨停潮·半导体重挫5%·PCE 3.8%创近三年新高",
+        "url": "2026-05-29/wechat-publish/evening/article.html"
+      },
       "morning": {
         "date": "2026-05-29",
         "session": "morning",
