@@ -297,6 +297,27 @@
 </div>
 
 <script>
+// ===== 音频/漫画/图片 资源完整性检查 =====
+document.addEventListener('DOMContentLoaded',function(){
+  var player=document.querySelector('.player');
+  var audioEl=player?player.querySelector('audio'):null;
+  if(audioEl&&player){
+    var timeoutId=setTimeout(function(){player.style.display='none';},8000);
+    audioEl.addEventListener('canplay',function(){clearTimeout(timeoutId);});
+    audioEl.addEventListener('error',function(){
+      clearTimeout(timeoutId);
+      player.style.display='none';
+    });
+  }
+  document.querySelectorAll('.section-img img').forEach(function(img){
+    if(img.getAttribute('src')&&img.getAttribute('src').indexOf('comic/')===0){
+      img.addEventListener('error',function(){
+        this.outerHTML='<div style="padding:32px 16px;text-align:center;background:#F8FAFC;border-radius:8px;color:#94A3B8;font-size:13px;line-height:1.8;">🖼️ 漫画加载失败<br><span style="font-size:11px;">'+(this.getAttribute('alt')||'')+'</span></div>';
+      });
+    }
+  });
+});
+
 // 动态返回首页 — 根据URL路径深度自动计算，不依赖静态相对路径
 document.addEventListener('DOMContentLoaded',function(){
   var back=document.querySelector('.back');

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-31T16:36:07+08:00",
+  "generated_at": "2026-05-31T16:46:28+08:00",
   "latest_date": "2026-05-31",
   "articles": [
     {
@@ -11,7 +11,7 @@
       "url": "special/全球央行囤金/article.html",
       "series": "宏观货币",
       "has_audio": true,
-      "audio_size_bytes": 4054320,
+      "audio_size_bytes": 8322192,
       "has_comic": true,
       "comic_count": 7
     },
@@ -232,7 +232,7 @@
         "url": "special/全球央行囤金/article.html",
         "series": "宏观货币",
         "has_audio": true,
-        "audio_size_bytes": 4054320,
+        "audio_size_bytes": 8322192,
         "has_comic": true,
         "comic_count": 7
       }

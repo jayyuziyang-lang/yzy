@@ -542,11 +542,18 @@ function renderEditionList(container, data, dateStr) {
     hasAny = true;
     const cls = s.key === 'morning' ? 'edition-morning' : 'edition-evening';
     const title = item.title || '财经内容';
+    // 媒体指示器：根据元数据动态生成
+    const mediaParts = [];
+    if (item.has_audio) mediaParts.push('音频');
+    if (item.has_comic && item.comic_count > 0) mediaParts.push('漫画');
+    const mediaLabel = mediaParts.length > 0 ? ' · ' + mediaParts.join('+') : '';
+    const editionLabel = s.label + mediaLabel;
     html += `
       <a class="edition ${cls}" href="${item.url}">
         <div class="edition-icon">${s.icon}</div>
         <div class="edition-info">
           <div class="edition-title">${title}</div>
+          <div class="edition-desc">${editionLabel}</div>
         </div>
         <span class="edition-arrow">›</span>
       </a>`;
