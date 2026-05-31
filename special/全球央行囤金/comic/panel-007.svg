@@ -2,94 +2,114 @@
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="#FFF7ED"/>
-      <stop offset="100%" stop-color="#F5F5F4"/>
-    </linearGradient>
-    <linearGradient id="gold-bar" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#D97706"/>
-      <stop offset="50%" stop-color="#F59E0B"/>
-      <stop offset="100%" stop-color="#FBBF24"/>
+      <stop offset="100%" stop-color="#FFFBEB"/>
     </linearGradient>
   </defs>
 
   <rect width="600" height="500" fill="url(#bg)" rx="8"/>
 
-  <text x="300" y="28" text-anchor="middle" font-size="16" font-weight="700" fill="#92400E">⏳ 黄金百年旅程：从 $35 到 $4,500，到底发生了什么？</text>
+  <!-- Title -->
+  <text x="300" y="28" text-anchor="middle" font-size="16" font-weight="700" fill="#92400E">🎨 术语小课堂：一句话 + 一张图 搞懂三个核心概念</text>
 
-  <!-- Timeline line -->
-  <line x1="60" y1="380" x2="560" y2="380" stroke="#D4A017" stroke-width="3"/>
-  <polygon points="560,380 552,374 552,386" fill="#D4A017"/>
+  <!-- ============ Card 1: 去美元化 ============ -->
+  <rect x="20" y="44" width="560" height="132" rx="10" fill="#FFF7ED" stroke="#FDBA74" stroke-width="1.5"/>
 
-  <!-- ============ Event 1: Bretton Woods 1944 ============ -->
-  <circle cx="100" cy="380" r="10" fill="#B45309" stroke="#fff" stroke-width="2"/>
-  <rect x="60" y="48" width="120" height="80" rx="8" fill="#FEF3C7" stroke="#D4A017" stroke-width="1"/>
-  <text x="120" y="66" text-anchor="middle" font-size="10" font-weight="700" fill="#92400E">1944 · 布雷顿森林</text>
-  <text x="120" y="82" text-anchor="middle" font-size="9" fill="#B45309">美元与黄金挂钩</text>
-  <text x="120" y="96" text-anchor="middle" font-size="9" fill="#B45309">$35 = 1盎司黄金</text>
-  <text x="120" y="112" text-anchor="middle" font-size="9" fill="#B45309">各国央行按此价兑换</text>
-  <!-- Connector line -->
-  <line x1="120" y1="128" x2="100" y2="370" stroke="#D4A017" stroke-width="1" stroke-dasharray="4,2"/>
+  <!-- Number badge -->
+  <circle cx="42" cy="64" r="12" fill="#B45309"/>
+  <text x="42" y="69" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">1</text>
 
-  <!-- ============ Event 2: Nixon Shock 1971 ============ -->
-  <circle cx="185" cy="380" r="10" fill="#B45309" stroke="#fff" stroke-width="2"/>
-  <rect x="155" y="200" width="120" height="80" rx="8" fill="#FEE2E2" stroke="#FCA5A5" stroke-width="1"/>
-  <text x="215" y="218" text-anchor="middle" font-size="10" font-weight="700" fill="#991B1B">1971 · 尼克松冲击</text>
-  <text x="215" y="234" text-anchor="middle" font-size="9" fill="#B91C1C">美元与黄金脱钩</text>
-  <text x="215" y="248" text-anchor="middle" font-size="9" fill="#B91C1C">布雷顿森林体系瓦解</text>
-  <text x="215" y="264" text-anchor="middle" font-size="9" fill="#B91C1C">金价开始自由浮动</text>
-  <!-- Connector -->
-  <line x1="215" y1="280" x2="185" y2="370" stroke="#D4A017" stroke-width="1" stroke-dasharray="4,2"/>
+  <text x="62" y="68" font-size="14" font-weight="700" fill="#92400E">去美元化 — 不是"不用美元"，是"不那么依赖美元"</text>
 
-  <!-- ============ Event 3: Gold Peak 1980 ============ -->
-  <circle cx="270" cy="380" r="10" fill="#B45309" stroke="#fff" stroke-width="2"/>
-  <rect x="230" y="96" width="120" height="60" rx="8" fill="#FEF3C7" stroke="#D4A017" stroke-width="1"/>
-  <text x="290" y="114" text-anchor="middle" font-size="10" font-weight="700" fill="#92400E">1980 · 历史高点</text>
-  <text x="290" y="130" text-anchor="middle" font-size="9" fill="#B45309">苏联入侵阿富汗</text>
-  <text x="290" y="144" text-anchor="middle" font-size="9" font-weight="600" fill="#B45309">金价冲到 $850</text>
-  <!-- Connector -->
-  <line x1="290" y1="156" x2="270" y2="370" stroke="#D4A017" stroke-width="1" stroke-dasharray="4,2"/>
+  <!-- Diagram: the chain -->
+  <text x="40" y="94" font-size="11" fill="#78350F">🌍 各国央行在想：</text>
 
-  <!-- ============ Event 4: Lost Decade 1996 ============ -->
-  <circle cx="340" cy="380" r="10" fill="#B45309" stroke="#fff" stroke-width="2"/>
-  <rect x="310" y="272" width="120" height="60" rx="8" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1"/>
-  <text x="370" y="290" text-anchor="middle" font-size="10" font-weight="700" fill="#475569">1996 · 金价跌到 $252</text>
-  <text x="370" y="306" text-anchor="middle" font-size="9" fill="#64748B">最后一个月</text>
-  <text x="370" y="320" text-anchor="middle" font-size="9" fill="#64748B">黄金 > 美债</text>
-  <!-- Connector -->
-  <line x1="370" y1="332" x2="340" y2="370" stroke="#D4A017" stroke-width="1" stroke-dasharray="4,2"/>
+  <!-- Box 1 -->
+  <rect x="40" y="100" width="100" height="32" rx="6" fill="#FEF3C7" stroke="#D4A017" stroke-width="1"/>
+  <text x="90" y="120" text-anchor="middle" font-size="10" font-weight="600" fill="#92400E">美元是唯一储备</text>
 
-  <!-- ============ Event 5: GFC 2008 ============ -->
-  <circle cx="400" cy="380" r="10" fill="#B45309" stroke="#fff" stroke-width="2"/>
-  <rect x="372" y="140" width="120" height="60" rx="8" fill="#FEF3C7" stroke="#D4A017" stroke-width="1"/>
-  <text x="432" y="158" text-anchor="middle" font-size="10" font-weight="700" fill="#92400E">2008 · 金融危机</text>
-  <text x="432" y="174" text-anchor="middle" font-size="9" fill="#B45309">全球央行开始</text>
-  <text x="432" y="188" text-anchor="middle" font-size="9" font-weight="600" fill="#B45309">净买入黄金</text>
-  <!-- Connector -->
-  <line x1="432" y1="200" x2="400" y2="370" stroke="#D4A017" stroke-width="1" stroke-dasharray="4,2"/>
+  <!-- Arrow -->
+  <text x="146" y="120" text-anchor="middle" font-size="14" fill="#B45309">→</text>
 
-  <!-- ============ Event 6: COVID 2020 ============ -->
-  <circle cx="455" cy="380" r="10" fill="#B45309" stroke="#fff" stroke-width="2"/>
-  <rect x="435" y="60" width="120" height="60" rx="8" fill="#FEF3C7" stroke="#D4A017" stroke-width="1"/>
-  <text x="495" y="78" text-anchor="middle" font-size="10" font-weight="700" fill="#92400E">2020 · 疫情冲击</text>
-  <text x="495" y="94" text-anchor="middle" font-size="9" fill="#B45309">全球放水</text>
-  <text x="495" y="108" text-anchor="middle" font-size="9" font-weight="600" fill="#B45309">金价首破 $2,000</text>
-  <!-- Connector -->
-  <line x1="495" y1="120" x2="455" y2="370" stroke="#D4A017" stroke-width="1" stroke-dasharray="4,2"/>
+  <!-- Box 2 -->
+  <rect x="162" y="100" width="130" height="32" rx="6" fill="#FEE2E2" stroke="#FCA5A5" stroke-width="1"/>
+  <text x="227" y="114" text-anchor="middle" font-size="10" font-weight="600" fill="#991B1B">俄储备被冻结</text>
+  <text x="227" y="126" text-anchor="middle" font-size="9" fill="#B91C1C">⚠️ 美债不安全了</text>
 
-  <!-- ============ Event 7: NOW 2026 ============ -->
-  <circle cx="535" cy="380" r="14" fill="#DC2626" stroke="#fff" stroke-width="3"/>
-  <rect x="500" y="300" width="120" height="60" rx="8" fill="#FEE2E2" stroke="#FCA5A5" stroke-width="2"/>
-  <text x="560" y="318" text-anchor="middle" font-size="11" font-weight="700" fill="#991B1B">🔥 2026 · 现在</text>
-  <text x="560" y="334" text-anchor="middle" font-size="10" fill="#B91C1C">央行囤金</text>
-  <text x="560" y="350" text-anchor="middle" font-size="10" font-weight="700" fill="#DC2626">金价 $4,500+</text>
-  <!-- Connector -->
-  <line x1="560" y1="360" x2="535" y2="366" stroke="#DC2626" stroke-width="1" stroke-dasharray="4,2"/>
+  <!-- Arrow -->
+  <text x="298" y="120" text-anchor="middle" font-size="14" fill="#B45309">→</text>
 
-  <!-- ============ Bottom subtitle ============ -->
-  <text x="300" y="428" text-anchor="middle" font-size="11" fill="#B45309" font-style="italic">从 $35 到 $4,500，黄金走过了80年。但真正改变的故事，是"谁在买"——从"散户和央行一起买"变成了"散户卖、央行买"。</text>
+  <!-- Box 3 -->
+  <rect x="314" y="100" width="120" height="32" rx="6" fill="#FEF3C7" stroke="#D4A017" stroke-width="1"/>
+  <text x="374" y="114" text-anchor="middle" font-size="10" font-weight="600" fill="#92400E">分散储备</text>
+  <text x="374" y="126" text-anchor="middle" font-size="9" fill="#B45309">黄金+人民币+欧元</text>
 
-  <!-- Price trend bar at bottom -->
-  <rect x="60" y="448" width="500" height="36" rx="6" fill="#FEF3C7" stroke="#D4A017" stroke-width="1"/>
-  <text x="300" y="466" text-anchor="middle" font-size="11" fill="#92400E">💰 金价走势（$35 → $850 → $252 → $2,000 → $4,500+）</text>
-  <text x="300" y="480" text-anchor="middle" font-size="9" fill="#B45309">箭头向上，但真正的信号不是价格，是持有者变了</text>
+  <!-- Arrow -->
+  <text x="440" y="120" text-anchor="middle" font-size="14" fill="#B45309">→</text>
+
+  <!-- Box 4 -->
+  <rect x="456" y="100" width="110" height="32" rx="6" fill="#D1FAE5" stroke="#6EE7B7" stroke-width="1"/>
+  <text x="511" y="114" text-anchor="middle" font-size="10" font-weight="600" fill="#065F46">买黄金！</text>
+  <text x="511" y="126" text-anchor="middle" font-size="9" fill="#047857">因为它没有对手方风险</text>
+
+  <!-- Speech bubble -->
+  <rect x="40" y="140" width="530" height="28" rx="8" fill="#FFFBEB" stroke="#FDE68A" stroke-width="1"/>
+  <text x="50" y="158" font-size="11" fill="#92400E">💬 央行行长内心OS："黄金不是谁的负债——它不依赖任何国家的信用，所以也不会被任何国家冻结。"</text>
+
+  <!-- ============ Card 2: SWIFT ============ -->
+  <rect x="20" y="186" width="560" height="132" rx="10" fill="#FFF7ED" stroke="#FDBA74" stroke-width="1.5"/>
+
+  <circle cx="42" cy="206" r="12" fill="#B45309"/>
+  <text x="42" y="211" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">2</text>
+
+  <text x="62" y="210" font-size="14" font-weight="700" fill="#92400E">SWIFT 制裁 — 把你踢出"全球支付群聊"</text>
+
+  <!-- Visual metaphor -->
+  <text x="40" y="236" font-size="11" fill="#78350F">📱 想象一下 SWIFT 就是全球银行的微信群：</text>
+
+  <!-- Group chat visual -->
+  <rect x="40" y="242" width="240" height="64" rx="8" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1"/>
+  <text x="50" y="260" font-size="11" font-weight="700" fill="#475569">🌐 全球支付群聊 (成员: 200+)</text>
+  <text x="50" y="278" font-size="10" fill="#64748B">🇺🇸 美国: 转账100亿给🇸🇦沙特 买石油</text>
+  <text x="50" y="294" font-size="10" fill="#64748B">🇩🇪 德国: 转账50亿给🇨🇳中国 买商品</text>
+
+  <!-- Arrow -->
+  <text x="300" y="278" text-anchor="middle" font-size="20" fill="#DC2626">→ 踢出</text>
+
+  <!-- After -->
+  <rect x="330" y="242" width="210" height="64" rx="8" fill="#FEE2E2" stroke="#FECACA" stroke-width="2"/>
+  <text x="340" y="260" font-size="11" font-weight="700" fill="#991B1B">🚫 俄罗斯已被移出群聊</text>
+  <text x="340" y="278" font-size="10" fill="#B91C1C">🇷🇺 俄罗斯: 转账?? 亿给...</text>
+  <text x="340" y="294" font-size="10" fill="#DC2626">发送失败 ❌ 您已被限制使用本群</text>
+
+  <text x="40" y="314" font-size="10" fill="#B45309">💡 被踢出SWIFT = 无法用美元做跨境贸易 = 经济被切断</text>
+
+  <!-- ============ Card 3: 央行储备管理三原则 ============ -->
+  <rect x="20" y="330" width="560" height="155" rx="10" fill="#FFF7ED" stroke="#FDBA74" stroke-width="1.5"/>
+
+  <circle cx="42" cy="350" r="12" fill="#B45309"/>
+  <text x="42" y="355" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">3</text>
+
+  <text x="62" y="354" font-size="14" font-weight="700" fill="#92400E">央行储备管理三原则 — 安全第一，不是赚钱第一</text>
+
+  <text x="40" y="380" font-size="11" fill="#78350F">🏛️ 央行管着全国的外汇储备，决策优先级是这样的：</text>
+
+  <!-- Podium-style ranking -->
+  <!-- #1 Safety -->
+  <rect x="160" y="388" width="120" height="50" rx="8" fill="#FEF3C7" stroke="#D4A017" stroke-width="2"/>
+  <text x="220" y="408" text-anchor="middle" font-size="13" font-weight="700" fill="#92400E">🥇 安全性</text>
+  <text x="220" y="426" text-anchor="middle" font-size="10" fill="#B45309">"别把我的钱弄丢了"</text>
+
+  <!-- #2 Liquidity -->
+  <rect x="40" y="410" width="100" height="36" rx="6" fill="#E5E7EB" stroke="#D4D4D4" stroke-width="1"/>
+  <text x="90" y="428" text-anchor="middle" font-size="11" font-weight="600" fill="#57534E">🥈 流动性</text>
+  <text x="90" y="440" text-anchor="middle" font-size="9" fill="#78716C">随时能花</text>
+
+  <!-- #3 Yield -->
+  <rect x="295" y="410" width="100" height="36" rx="6" fill="#E5E7EB" stroke="#D4D4D4" stroke-width="1"/>
+  <text x="345" y="428" text-anchor="middle" font-size="11" font-weight="600" fill="#57534E">🥉 收益性</text>
+  <text x="345" y="440" text-anchor="middle" font-size="9" fill="#78716C">最好能赚钱</text>
+
+  <!-- Explanation -->
+  <text x="40" y="464" font-size="10" fill="#B45309" font-style="italic">💡 所以当央行买黄金时，他们不是在想"金价能不能涨"，而是在想"这个东西安不安全，万一出事了能不能用"。</text>
 
 </svg>
