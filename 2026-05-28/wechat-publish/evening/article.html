@@ -318,5 +318,19 @@
 
   </div>
 </div>
+
+<script>
+// 动态返回首页 — 根据URL路径深度自动计算，不依赖静态相对路径
+document.addEventListener('DOMContentLoaded',function(){
+  var back=document.querySelector('.back');
+  if(back){
+    back.addEventListener('click',function(e){
+      e.preventDefault();
+      var p=location.pathname.replace(/\/$/,'').split('/');
+      location.href='../'.repeat(Math.max(0,p.length-2))||'.';
+    });
+  }
+});
+</script>
 </body>
 </html>
