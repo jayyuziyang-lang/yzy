@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 500" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFF7ED"/>
+      <stop offset="100%" stop-color="#FEF9C3"/>
+    </linearGradient>
+    <linearGradient id="cb-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FEF3C7"/>
+      <stop offset="100%" stop-color="#FDE68A"/>
+    </linearGradient>
+    <linearGradient id="retail-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F1F5F9"/>
+      <stop offset="100%" stop-color="#E2E8F0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="600" height="500" fill="url(#bg)" rx="8"/>
+
+  <text x="300" y="28" text-anchor="middle" font-size="16" font-weight="700" fill="#92400E">😅 同一个黄金，两个世界——央行 vs 普通人的内心戏</text>
+
+  <!-- ========= LEFT: 阿扬 character ========= -->
+  <!-- 阿扬 character (simplified) -->
+  <rect x="245" y="44" width="110" height="110" rx="55" fill="#FFFBEB" stroke="#D4A017" stroke-width="2"/>
+  <circle cx="300" cy="80" r="20" fill="#FDE68A"/>
+  <circle cx="294" cy="76" r="2" fill="#78350F"/>
+  <circle cx="306" cy="76" r="2" fill="#78350F"/>
+  <path d="M292,88 Q300,96 308,88" stroke="#78350F" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <text x="300" y="120" text-anchor="middle" font-size="14" font-weight="700" fill="#92400E">阿扬</text>
+  <text x="300" y="136" text-anchor="middle" font-size="10" fill="#B45309">"同一个黄金"</text>
+  <text x="300" y="150" text-anchor="middle" font-size="10" fill="#B45309">完全不同的想法</text>
+
+  <!-- Arrow left -->
+  <line x1="240" y1="100" x2="190" y2="100" stroke="#B45309" stroke-width="2" stroke-dasharray="5,3"/>
+  <polygon points="190,104 198,100 190,96" fill="#B45309"/>
+  <!-- Arrow right -->
+  <line x1="360" y1="100" x2="410" y2="100" stroke="#B45309" stroke-width="2" stroke-dasharray="5,3"/>
+  <polygon points="410,104 402,100 410,96" fill="#B45309"/>
+
+  <!-- ========= LEFT SIDE: 央行 think ========= -->
+  <rect x="20" y="162" width="260" height="320" rx="12" fill="url(#cb-bg)" stroke="#D4A017" stroke-width="2"/>
+
+  <text x="150" y="188" text-anchor="middle" font-size="14" font-weight="700" fill="#92400E">🏛️ 央行的内心戏</text>
+
+  <!-- Thought bubble 1 -->
+  <rect x="36" y="200" width="228" height="44" rx="8" fill="#fff" stroke="#D4A017" stroke-width="1"/>
+  <text x="48" y="218" font-size="11" font-weight="600" fill="#92400E">"黄金价格 $4,500？"</text>
+  <text x="48" y="234" font-size="10" fill="#B45309">买了。下周继续买。不议价。</text>
+
+  <!-- Thought bubble 2 -->
+  <rect x="36" y="252" width="228" height="44" rx="8" fill="#fff" stroke="#D4A017" stroke-width="1"/>
+  <text x="48" y="270" font-size="11" font-weight="600" fill="#92400E">"美债利率 4.6%？"</text>
+  <text x="48" y="286" font-size="10" fill="#B45309">无所谓。我买黄金不是为了收益率。</text>
+
+  <!-- Thought bubble 3 -->
+  <rect x="36" y="304" width="228" height="44" rx="8" fill="#fff" stroke="#D4A017" stroke-width="1"/>
+  <text x="48" y="322" font-size="11" font-weight="600" fill="#92400E">"什么时候卖出？"</text>
+  <text x="48" y="338" font-size="10" fill="#B45309">卖出？黄金是战略储备，不打算卖。</text>
+
+  <!-- Sounding board -->
+  <rect x="36" y="358" width="228" height="44" rx="8" fill="#FEF3C7" stroke="#F59E0B" stroke-width="1"/>
+  <text x="150" y="378" text-anchor="middle" font-size="11" font-weight="700" fill="#D97706">决策周期：以"代"为单位</text>
+  <text x="150" y="394" text-anchor="middle" font-size="10" fill="#92400E">不是在做资产配置，是在做国家战略</text>
+
+  <!-- Bottom note -->
+  <rect x="36" y="412" width="228" height="56" rx="8" fill="#FEF3C7" stroke="#D4A017" stroke-width="1.5"/>
+  <text x="150" y="430" text-anchor="middle" font-size="10" font-weight="700" fill="#92400E">本质：地缘政治抵押品</text>
+  <text x="150" y="446" text-anchor="middle" font-size="9" fill="#B45309">"万一出大事了，黄金还能用"</text>
+  <text x="150" y="460" text-anchor="middle" font-size="9" fill="#B45309">美债呢？可能被冻结。</text>
+
+  <!-- ========= RIGHT SIDE: 散户 think ========= -->
+  <rect x="320" y="162" width="260" height="320" rx="12" fill="url(#retail-bg)" stroke="#94A3B8" stroke-width="1.5"/>
+
+  <text x="450" y="188" text-anchor="middle" font-size="14" font-weight="700" fill="#475569">😰 普通人的内心戏</text>
+
+  <!-- Thought bubble 1 -->
+  <rect x="336" y="200" width="228" height="44" rx="8" fill="#fff" stroke="#CBD5E1" stroke-width="1"/>
+  <text x="348" y="218" font-size="11" font-weight="600" fill="#475569">"金价 $4,500？"</text>
+  <text x="348" y="234" font-size="10" fill="#64748B">会不会太高了？要不要等回调？</text>
+
+  <!-- Thought bubble 2 -->
+  <rect x="336" y="252" width="228" height="44" rx="8" fill="#fff" stroke="#CBD5E1" stroke-width="1"/>
+  <text x="348" y="270" font-size="11" font-weight="600" fill="#475569">"利率 4.6% 还在涨？"</text>
+  <text x="348" y="286" font-size="10" fill="#64748B">该卖黄金买美债了吧？机会成本太高。</text>
+
+  <!-- Thought bubble 3 -->
+  <rect x="336" y="304" width="228" height="44" rx="8" fill="#fff" stroke="#CBD5E1" stroke-width="1"/>
+  <text x="348" y="322" font-size="11" font-weight="600" fill="#475569">"赚了20%！"</text>
+  <text x="348" y="338" font-size="10" fill="#64748B">该不该止盈？要不要落袋为安？</text>
+
+  <!-- Sounding board -->
+  <rect x="336" y="358" width="228" height="44" rx="8" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1"/>
+  <text x="450" y="378" text-anchor="middle" font-size="11" font-weight="700" fill="#64748B">决策周期：以天或周为单位</text>
+  <text x="450" y="394" text-anchor="middle" font-size="10" fill="#64748B">关注价格涨跌 > 关注基本面</text>
+
+  <!-- Bottom note -->
+  <rect x="336" y="412" width="228" height="56" rx="8" fill="#F1F5F9" stroke="#94A3B8" stroke-width="1.5"/>
+  <text x="450" y="430" text-anchor="middle" font-size="10" font-weight="700" fill="#475569">本质：投资品/投机品</text>
+  <text x="450" y="446" text-anchor="middle" font-size="9" fill="#64748B">"金价能不能涨到 $5,000？"</text>
+  <text x="450" y="460" text-anchor="middle" font-size="9" fill="#64748B">我买的黄金 ETF 最近跌了...</text>
+
+</svg>

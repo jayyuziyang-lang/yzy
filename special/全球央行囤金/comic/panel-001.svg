@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFF7ED"/>
+      <stop offset="100%" stop-color="#FFFBEB"/>
+    </linearGradient>
+    <linearGradient id="bar1" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#B45309"/>
+      <stop offset="100%" stop-color="#D97706"/>
+    </linearGradient>
+    <linearGradient id="bar2" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#D97706"/>
+      <stop offset="100%" stop-color="#F59E0B"/>
+    </linearGradient>
+    <linearGradient id="bar3" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#FBBF24"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="600" height="400" fill="url(#bg)" rx="8"/>
+
+  <!-- Title -->
+  <text x="300" y="30" text-anchor="middle" font-size="16" font-weight="700" fill="#92400E">全球央行黄金储备 TOP 10（吨）</text>
+  <text x="300" y="48" text-anchor="middle" font-size="11" fill="#B45309">图中金色部分 = 2022年以来新增储备</text>
+
+  <!-- Bars -->
+  <!-- USA: 8133t - max width ~380 -->
+  <rect x="48" y="62" width="456" height="24" rx="4" fill="#E2E8F0"/>
+  <rect x="48" y="62" width="456" height="24" rx="4" fill="url(#bar1)"/>
+  <text x="44" y="78" text-anchor="end" font-size="11" font-weight="600" fill="#78350F">🇺🇸 美国</text>
+  <text x="510" y="78" font-size="11" fill="#92400E">8,133t</text>
+
+  <!-- Germany: 3351t -->
+  <rect x="48" y="92" width="456" height="24" rx="4" fill="#E2E8F0"/>
+  <rect x="48" y="92" width="236" height="24" rx="4" fill="url(#bar2)"/>
+  <text x="44" y="108" text-anchor="end" font-size="11" font-weight="600" fill="#78350F">🇩🇪 德国</text>
+  <text x="290" y="108" font-size="11" fill="#92400E">3,351t</text>
+
+  <!-- IMF: 2814t -->
+  <rect x="48" y="122" width="456" height="24" rx="4" fill="#E2E8F0"/>
+  <rect x="48" y="122" width="200" height="24" rx="4" fill="url(#bar2)"/>
+  <text x="44" y="138" text-anchor="end" font-size="11" font-weight="600" fill="#78350F">🏢 IMF</text>
+  <text x="254" y="138" font-size="11" fill="#92400E">2,814t</text>
+
+  <!-- France: 2437t -->
+  <rect x="48" y="152" width="456" height="24" rx="4" fill="#E2E8F0"/>
+  <rect x="48" y="152" width="174" height="24" rx="4" fill="url(#bar2)"/>
+  <text x="44" y="168" text-anchor="end" font-size="11" font-weight="600" fill="#78350F">🇫🇷 法国</text>
+  <text x="228" y="168" font-size="11" fill="#92400E">2,437t</text>
+
+  <!-- Italy: 2452t -->
+  <rect x="48" y="182" width="456" height="24" rx="4" fill="#E2E8F0"/>
+  <rect x="48" y="182" width="174" height="24" rx="4" fill="url(#bar2)"/>
+  <text x="44" y="198" text-anchor="end" font-size="11" font-weight="600" fill="#78350F">🇮🇹 意大利</text>
+  <text x="228" y="198" font-size="11" fill="#92400E">2,452t</text>
+
+  <!-- Russia: 2336t -->
+  <rect x="48" y="212" width="456" height="24" rx="4" fill="#E2E8F0"/>
+  <rect x="48" y="212" width="170" height="24" rx="4" fill="url(#bar2)"/>
+  <rect x="48" y="212" width="28" height="24" rx="4" fill="url(#bar3)" opacity="0.8"/>
+  <text x="44" y="228" text-anchor="end" font-size="11" font-weight="600" fill="#78350F">🇷🇺 俄罗斯</text>
+  <text x="224" y="228" font-size="11" fill="#92400E">2,336t</text>
+
+  <!-- China: 2280t -->
+  <rect x="48" y="242" width="456" height="24" rx="4" fill="#E2E8F0"/>
+  <rect x="48" y="242" width="162" height="24" rx="4" fill="url(#bar2)"/>
+  <rect x="48" y="242" width="110" height="24" rx="4" fill="url(#bar3)" opacity="0.8"/>
+  <text x="44" y="258" text-anchor="end" font-size="11" font-weight="600" fill="#78350F">🇨🇳 中国</text>
+  <text x="216" y="258" font-size="11" fill="#92400E">2,280t <tspan font-size="10" fill="#D97706">(+15月连增)</tspan></text>
+
+  <!-- Switzerland: 1040t -->
+  <rect x="48" y="272" width="456" height="24" rx="4" fill="#E2E8F0"/>
+  <rect x="48" y="272" width="82" height="24" rx="4" fill="url(#bar2)"/>
+  <text x="44" y="288" text-anchor="end" font-size="11" font-weight="600" fill="#78350F">🇨🇭 瑞士</text>
+  <text x="136" y="288" font-size="11" fill="#92400E">1,040t</text>
+
+  <!-- India: 877t -->
+  <rect x="48" y="302" width="456" height="24" rx="4" fill="#E2E8F0"/>
+  <rect x="48" y="302" width="70" height="24" rx="4" fill="url(#bar2)"/>
+  <rect x="48" y="302" width="40" height="24" rx="4" fill="url(#bar3)" opacity="0.8"/>
+  <text x="44" y="318" text-anchor="end" font-size="11" font-weight="600" fill="#78350F">🇮🇳 印度</text>
+  <text x="124" y="318" font-size="11" fill="#92400E">877t <tspan font-size="10" fill="#D97706">(持续增持)</tspan></text>
+
+  <!-- Poland: ~400t -->
+  <rect x="48" y="332" width="456" height="24" rx="4" fill="#E2E8F0"/>
+  <rect x="48" y="332" width="40" height="24" rx="4" fill="url(#bar1)"/>
+  <rect x="48" y="332" width="28" height="24" rx="4" fill="url(#bar3)" opacity="0.8"/>
+  <text x="44" y="348" text-anchor="end" font-size="11" font-weight="600" fill="#78350F">🇵🇱 波兰</text>
+  <text x="94" y="348" font-size="11" fill="#92400E">400t <tspan font-size="10" fill="#D97706">(+31t Q1, 目标700t)</tspan></text>
+
+  <!-- Annotation -->
+  <rect x="380" y="354" width="200" height="36" rx="6" fill="#FEF3C7" stroke="#D4A017" stroke-width="1"/>
+  <text x="480" y="368" text-anchor="middle" font-size="10" font-weight="600" fill="#92400E">🇨🇳+🇵🇱+🇮🇳 2026Q1增持主力</text>
+  <text x="480" y="382" text-anchor="middle" font-size="10" fill="#B45309">高盛：实际购金量比数据多72%</text>
+
+</svg>

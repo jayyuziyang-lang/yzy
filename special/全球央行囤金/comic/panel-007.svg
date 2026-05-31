@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 500" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFF7ED"/>
+      <stop offset="100%" stop-color="#F5F5F4"/>
+    </linearGradient>
+    <linearGradient id="gold-bar" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#D97706"/>
+      <stop offset="50%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#FBBF24"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="600" height="500" fill="url(#bg)" rx="8"/>
+
+  <text x="300" y="28" text-anchor="middle" font-size="16" font-weight="700" fill="#92400E">⏳ 黄金百年旅程：从 $35 到 $4,500，到底发生了什么？</text>
+
+  <!-- Timeline line -->
+  <line x1="60" y1="380" x2="560" y2="380" stroke="#D4A017" stroke-width="3"/>
+  <polygon points="560,380 552,374 552,386" fill="#D4A017"/>
+
+  <!-- ============ Event 1: Bretton Woods 1944 ============ -->
+  <circle cx="100" cy="380" r="10" fill="#B45309" stroke="#fff" stroke-width="2"/>
+  <rect x="60" y="48" width="120" height="80" rx="8" fill="#FEF3C7" stroke="#D4A017" stroke-width="1"/>
+  <text x="120" y="66" text-anchor="middle" font-size="10" font-weight="700" fill="#92400E">1944 · 布雷顿森林</text>
+  <text x="120" y="82" text-anchor="middle" font-size="9" fill="#B45309">美元与黄金挂钩</text>
+  <text x="120" y="96" text-anchor="middle" font-size="9" fill="#B45309">$35 = 1盎司黄金</text>
+  <text x="120" y="112" text-anchor="middle" font-size="9" fill="#B45309">各国央行按此价兑换</text>
+  <!-- Connector line -->
+  <line x1="120" y1="128" x2="100" y2="370" stroke="#D4A017" stroke-width="1" stroke-dasharray="4,2"/>
+
+  <!-- ============ Event 2: Nixon Shock 1971 ============ -->
+  <circle cx="185" cy="380" r="10" fill="#B45309" stroke="#fff" stroke-width="2"/>
+  <rect x="155" y="200" width="120" height="80" rx="8" fill="#FEE2E2" stroke="#FCA5A5" stroke-width="1"/>
+  <text x="215" y="218" text-anchor="middle" font-size="10" font-weight="700" fill="#991B1B">1971 · 尼克松冲击</text>
+  <text x="215" y="234" text-anchor="middle" font-size="9" fill="#B91C1C">美元与黄金脱钩</text>
+  <text x="215" y="248" text-anchor="middle" font-size="9" fill="#B91C1C">布雷顿森林体系瓦解</text>
+  <text x="215" y="264" text-anchor="middle" font-size="9" fill="#B91C1C">金价开始自由浮动</text>
+  <!-- Connector -->
+  <line x1="215" y1="280" x2="185" y2="370" stroke="#D4A017" stroke-width="1" stroke-dasharray="4,2"/>
+
+  <!-- ============ Event 3: Gold Peak 1980 ============ -->
+  <circle cx="270" cy="380" r="10" fill="#B45309" stroke="#fff" stroke-width="2"/>
+  <rect x="230" y="96" width="120" height="60" rx="8" fill="#FEF3C7" stroke="#D4A017" stroke-width="1"/>
+  <text x="290" y="114" text-anchor="middle" font-size="10" font-weight="700" fill="#92400E">1980 · 历史高点</text>
+  <text x="290" y="130" text-anchor="middle" font-size="9" fill="#B45309">苏联入侵阿富汗</text>
+  <text x="290" y="144" text-anchor="middle" font-size="9" font-weight="600" fill="#B45309">金价冲到 $850</text>
+  <!-- Connector -->
+  <line x1="290" y1="156" x2="270" y2="370" stroke="#D4A017" stroke-width="1" stroke-dasharray="4,2"/>
+
+  <!-- ============ Event 4: Lost Decade 1996 ============ -->
+  <circle cx="340" cy="380" r="10" fill="#B45309" stroke="#fff" stroke-width="2"/>
+  <rect x="310" y="272" width="120" height="60" rx="8" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1"/>
+  <text x="370" y="290" text-anchor="middle" font-size="10" font-weight="700" fill="#475569">1996 · 金价跌到 $252</text>
+  <text x="370" y="306" text-anchor="middle" font-size="9" fill="#64748B">最后一个月</text>
+  <text x="370" y="320" text-anchor="middle" font-size="9" fill="#64748B">黄金 > 美债</text>
+  <!-- Connector -->
+  <line x1="370" y1="332" x2="340" y2="370" stroke="#D4A017" stroke-width="1" stroke-dasharray="4,2"/>
+
+  <!-- ============ Event 5: GFC 2008 ============ -->
+  <circle cx="400" cy="380" r="10" fill="#B45309" stroke="#fff" stroke-width="2"/>
+  <rect x="372" y="140" width="120" height="60" rx="8" fill="#FEF3C7" stroke="#D4A017" stroke-width="1"/>
+  <text x="432" y="158" text-anchor="middle" font-size="10" font-weight="700" fill="#92400E">2008 · 金融危机</text>
+  <text x="432" y="174" text-anchor="middle" font-size="9" fill="#B45309">全球央行开始</text>
+  <text x="432" y="188" text-anchor="middle" font-size="9" font-weight="600" fill="#B45309">净买入黄金</text>
+  <!-- Connector -->
+  <line x1="432" y1="200" x2="400" y2="370" stroke="#D4A017" stroke-width="1" stroke-dasharray="4,2"/>
+
+  <!-- ============ Event 6: COVID 2020 ============ -->
+  <circle cx="455" cy="380" r="10" fill="#B45309" stroke="#fff" stroke-width="2"/>
+  <rect x="435" y="60" width="120" height="60" rx="8" fill="#FEF3C7" stroke="#D4A017" stroke-width="1"/>
+  <text x="495" y="78" text-anchor="middle" font-size="10" font-weight="700" fill="#92400E">2020 · 疫情冲击</text>
+  <text x="495" y="94" text-anchor="middle" font-size="9" fill="#B45309">全球放水</text>
+  <text x="495" y="108" text-anchor="middle" font-size="9" font-weight="600" fill="#B45309">金价首破 $2,000</text>
+  <!-- Connector -->
+  <line x1="495" y1="120" x2="455" y2="370" stroke="#D4A017" stroke-width="1" stroke-dasharray="4,2"/>
+
+  <!-- ============ Event 7: NOW 2026 ============ -->
+  <circle cx="535" cy="380" r="14" fill="#DC2626" stroke="#fff" stroke-width="3"/>
+  <rect x="500" y="300" width="120" height="60" rx="8" fill="#FEE2E2" stroke="#FCA5A5" stroke-width="2"/>
+  <text x="560" y="318" text-anchor="middle" font-size="11" font-weight="700" fill="#991B1B">🔥 2026 · 现在</text>
+  <text x="560" y="334" text-anchor="middle" font-size="10" fill="#B91C1C">央行囤金</text>
+  <text x="560" y="350" text-anchor="middle" font-size="10" font-weight="700" fill="#DC2626">金价 $4,500+</text>
+  <!-- Connector -->
+  <line x1="560" y1="360" x2="535" y2="366" stroke="#DC2626" stroke-width="1" stroke-dasharray="4,2"/>
+
+  <!-- ============ Bottom subtitle ============ -->
+  <text x="300" y="428" text-anchor="middle" font-size="11" fill="#B45309" font-style="italic">从 $35 到 $4,500，黄金走过了80年。但真正改变的故事，是"谁在买"——从"散户和央行一起买"变成了"散户卖、央行买"。</text>
+
+  <!-- Price trend bar at bottom -->
+  <rect x="60" y="448" width="500" height="36" rx="6" fill="#FEF3C7" stroke="#D4A017" stroke-width="1"/>
+  <text x="300" y="466" text-anchor="middle" font-size="11" fill="#92400E">💰 金价走势（$35 → $850 → $252 → $2,000 → $4,500+）</text>
+  <text x="300" y="480" text-anchor="middle" font-size="9" fill="#B45309">箭头向上，但真正的信号不是价格，是持有者变了</text>
+
+</svg>

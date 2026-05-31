@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 420" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFF7ED"/>
+      <stop offset="100%" stop-color="#F5F5F4"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="600" height="420" fill="url(#bg)" rx="8"/>
+
+  <text x="300" y="28" text-anchor="middle" font-size="16" font-weight="700" fill="#92400E">四种情景推演：什么会打破央行囤金趋势？</text>
+
+  <!-- ======== 象限框架 ======== -->
+  <!-- X轴：可能性 -->
+  <text x="300" y="414" text-anchor="middle" font-size="11" fill="#78716C">← 可能性低 ———————————————— 可能性高 →</text>
+  <!-- Y轴 -->
+  <text x="14" y="225" text-anchor="middle" font-size="11" fill="#78716C" transform="rotate(-90,14,225)">影响小 ← ———————————————— → 影响大</text>
+
+  <!-- ======== Quadrant 1 (右上): High prob + High impact ======== -->
+  <rect x="290" y="42" width="290" height="158" rx="10" fill="#FEF2F2" stroke="#FECACA" stroke-width="1.5"/>
+  <rect x="290" y="42" width="290" height="28" rx="10" fill="#DC2626"/>
+  <rect x="290" y="58" width="290" height="12" fill="#DC2626"/>
+  <text x="435" y="61" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">⚠️ 高可能性 × 高影响</text>
+
+  <rect x="302" y="78" width="266" height="52" rx="6" fill="#FFF5F5"/>
+  <text x="315" y="94" font-size="12" font-weight="700" fill="#991B1B">央行"逢跌买入"强化趋势</text>
+  <text x="315" y="110" font-size="10" fill="#7F1D1D">中/波/印持续增持 → 定价权进一步向央行倾斜</text>
+  <text x="315" y="122" font-size="10" fill="#7F1D1D">金价在 $4,000 附近获得新的结构性支撑平台</text>
+
+  <rect x="302" y="136" width="266" height="52" rx="6" fill="#FFF5F5"/>
+  <text x="315" y="152" font-size="12" font-weight="700" fill="#991B1B">伊朗冲突停火引发回调</text>
+  <text x="315" y="168" font-size="10" fill="#7F1D1D">短期金价可能回调 15-20%（$3,800-$4,000）</text>
+  <text x="315" y="180" font-size="10" fill="#7F1D1D">但央行逢跌买入 → 深度回调难持续</text>
+
+  <!-- ======== Quadrant 2 (左上): Low prob + High impact ======== -->
+  <rect x="20" y="42" width="260" height="158" rx="10" fill="#FFF7ED" stroke="#FDBA74" stroke-width="1.5"/>
+  <rect x="20" y="42" width="260" height="28" rx="10" fill="#D97706"/>
+  <rect x="20" y="58" width="260" height="12" fill="#D97706"/>
+  <text x="150" y="61" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">⚠️ 低可能性 × 高影响</text>
+
+  <rect x="32" y="78" width="236" height="52" rx="6" fill="#FFF7ED"/>
+  <text x="44" y="94" font-size="12" font-weight="700" fill="#92400E">美元体系信任重建</text>
+  <text x="44" y="110" font-size="10" fill="#78350F">美国大幅削减赤字 + 承诺不将储备武器化</text>
+  <text x="44" y="122" font-size="10" fill="#78350F">→ 需要5-10年验证，短期几乎不可能</text>
+
+  <rect x="32" y="136" width="236" height="52" rx="6" fill="#FFF7ED"/>
+  <text x="44" y="152" font-size="12" font-weight="700" fill="#92400E">央行购金节奏骤降</text>
+  <text x="44" y="168" font-size="10" fill="#78350F">连续2季低于40吨/月 → "央行叙事"需重估</text>
+  <text x="44" y="180" font-size="10" fill="#78350F">但目前中/波/印动力仍在加速，风险不高</text>
+
+  <!-- ======== Quadrant 3 (左下): Low prob + Low impact ======== -->
+  <rect x="20" y="214" width="260" height="158" rx="10" fill="#F5F5F4" stroke="#D4D4D4" stroke-width="1"/>
+  <rect x="20" y="214" width="260" height="28" rx="10" fill="#78716C"/>
+  <rect x="20" y="230" width="260" height="12" fill="#78716C"/>
+  <text x="150" y="233" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">低可能性 × 低影响</text>
+
+  <rect x="32" y="250" width="236" height="52" rx="6" fill="#E5E7EB"/>
+  <text x="44" y="266" font-size="12" font-weight="700" fill="#57534E">ETF大幅流出冲击金价</text>
+  <text x="44" y="282" font-size="10" fill="#78716C">北美ETF流出85吨（2026年3月）→ 金价仅回调5%</text>
+  <text x="44" y="294" font-size="10" fill="#78716C">证明ETF已不再是主导力量</text>
+
+  <rect x="32" y="308" width="236" height="52" rx="6" fill="#E5E7EB"/>
+  <text x="44" y="324" font-size="12" font-weight="700" fill="#57534E">美债利率继续飙升</text>
+  <text x="44" y="340" font-size="10" fill="#78716C">30年期突破5.5% → 冲击养老金/保险配置</text>
+  <text x="44" y="352" font-size="10" fill="#78716C">但对央行购金决策影响有限</text>
+
+  <!-- ======== Quadrant 4 (右下): High prob + Low impact ======== -->
+  <rect x="290" y="214" width="290" height="158" rx="10" fill="#F0FDF4" stroke="#BBF7D0" stroke-width="1.5"/>
+  <rect x="290" y="214" width="290" height="28" rx="10" fill="#16A34A"/>
+  <rect x="290" y="230" width="290" height="12" fill="#16A34A"/>
+  <text x="435" y="233" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">高可能性 × 低影响</text>
+
+  <rect x="302" y="250" width="266" height="52" rx="6" fill="#F0FDF4"/>
+  <text x="315" y="266" font-size="12" font-weight="700" fill="#166534">大型投行纷纷上调金价目标</text>
+  <text x="315" y="282" font-size="10" fill="#14532D">GS $5,400 / JPM $6,300 / UBS $5,600</text>
+  <text x="315" y="294" font-size="10" fill="#14532D">看多共识本身成为价格的支撑力</text>
+
+  <rect x="302" y="308" width="266" height="52" rx="6" fill="#F0FDF4"/>
+  <text x="315" y="324" font-size="12" font-weight="700" fill="#166534">新兴市场央行继续"追赶"购金</text>
+  <text x="315" y="340" font-size="10" fill="#14532D">波兰（目标700t）、印度、捷克等在途</text>
+  <text x="315" y="352" font-size="10" fill="#14532D">"滚动增持"成为新常态</text>
+</svg>

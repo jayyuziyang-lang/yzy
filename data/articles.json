@@ -1,7 +1,16 @@
 {
-  "generated_at": "2026-05-29T19:10:27+08:00",
-  "latest_date": "2026-05-29",
+  "generated_at": "2026-05-31T15:46:13+08:00",
+  "latest_date": "2026-05-31",
   "articles": [
+    {
+      "date": "2026-05-31",
+      "session": "special",
+      "edition_cn": "深度",
+      "icon": "📚",
+      "title": "全球央行囤金：黄金超越美债意味着什么？",
+      "url": "special/全球央行囤金/article.html",
+      "series": "宏观货币"
+    },
     {
       "date": "2026-05-29",
       "session": "evening",
@@ -141,6 +150,17 @@
     }
   ],
   "by_date": {
+    "2026-05-31": {
+      "special": {
+        "date": "2026-05-31",
+        "session": "special",
+        "edition_cn": "深度",
+        "icon": "📚",
+        "title": "全球央行囤金：黄金超越美债意味着什么？",
+        "url": "special/全球央行囤金/article.html",
+        "series": "宏观货币"
+      }
+    },
     "2026-05-29": {
       "evening": {
         "date": "2026-05-29",
