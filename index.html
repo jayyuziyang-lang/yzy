@@ -196,7 +196,7 @@
         <div class="edition-icon" style="background:#FFFBEB;">🥇</div>
         <div class="edition-info">
           <div class="edition-title">全球央行囤金：黄金超越美债意味着什么？</div>
-          <div class="edition-desc">2026-05-31 · 第2期 · 深度 · 图文+音频</div>
+          <div class="edition-desc">2026-05-31 · 第2期 · 深度 · 音频+7张漫画</div>
         </div>
         <span class="edition-arrow">›</span>
       </a>
@@ -204,7 +204,7 @@
         <div class="edition-icon" style="background:#FFFBEB;">📚</div>
         <div class="edition-info">
           <div class="edition-title">央行法修订：一部法律如何影响你的钱袋子</div>
-          <div class="edition-desc">2026-05-23 · 第1期 · 深度 · 图文+音频</div>
+          <div class="edition-desc">2026-05-23 · 第1期 · 深度 · 政策解读 · 音频+4张漫画</div>
         </div>
         <span class="edition-arrow">›</span>
       </a>
@@ -466,12 +466,17 @@ function renderSpecial() {
   let html = '';
   for (const s of specials) {
     const seriesLabel = s.series ? ` · ${s.series}` : '';
+    // Build media indicators dynamically from metadata
+    const mediaParts = [];
+    if (s.has_audio) mediaParts.push('音频');
+    if (s.has_comic && s.comic_count > 0) mediaParts.push(`${s.comic_count}张漫画`);
+    const mediaLabel = mediaParts.length > 0 ? ` · ${mediaParts.join('+')}` : '';
     html += `
       <a class="edition edition-evening" href="${s.url}" style="border-bottom:none;">
         <div class="edition-icon" style="background:#FFFBEB;">📚</div>
         <div class="edition-info">
           <div class="edition-title">${s.title}</div>
-          <div class="edition-desc">${s.date} · 深度${seriesLabel} · 图文+音频</div>
+          <div class="edition-desc">${s.date} · 深度${seriesLabel}${mediaLabel}</div>
         </div>
         <span class="edition-arrow">›</span>
       </a>`;

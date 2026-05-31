@@ -31,6 +31,33 @@ def extract_series_tag(html_path):
         return m.group(1).strip()
     return None
 
+def scan_audio_meta(article_dir):
+    """Scan audio file metadata for an article directory.
+
+    Returns dict: {has_audio, audio_size_bytes} or None if dir doesn't exist.
+    """
+    audio_path = os.path.join(article_dir, 'audio.mp3')
+    if os.path.exists(audio_path):
+        return {
+            'has_audio': True,
+            'audio_size_bytes': os.path.getsize(audio_path),
+        }
+    return {'has_audio': False, 'audio_size_bytes': None}
+
+def scan_comic_meta(article_dir):
+    """Scan comic SVG files in the article directory.
+
+    Returns dict: {has_comic, comic_count} or None if dir doesn't exist.
+    """
+    comic_dir = os.path.join(article_dir, 'comic')
+    if os.path.isdir(comic_dir):
+        svgs = [f for f in os.listdir(comic_dir) if f.endswith('.svg')]
+        return {
+            'has_comic': len(svgs) > 0,
+            'comic_count': len(svgs),
+        }
+    return {'has_comic': False, 'comic_count': 0}
+
 def scan_articles():
     articles = []
     # Scan daily editions
@@ -44,6 +71,9 @@ def scan_articles():
             title = extract_title(html_path)
             edition_cn = '早报' if session == 'morning' else '晚报'
             edition_icon = '🌅' if session == 'morning' else '🌙'
+            article_dir = os.path.join(ROOT, entry, 'wechat-publish', session)
+            audio_meta = scan_audio_meta(article_dir)
+            comic_meta = scan_comic_meta(article_dir)
             articles.append({
                 'date': entry,
                 'session': session,
@@ -51,6 +81,10 @@ def scan_articles():
                 'icon': edition_icon,
                 'title': title,
                 'url': f'{entry}/wechat-publish/{session}/article.html',
+                'has_audio': audio_meta['has_audio'],
+                'audio_size_bytes': audio_meta['audio_size_bytes'],
+                'has_comic': comic_meta['has_comic'],
+                'comic_count': comic_meta['comic_count'],
             })
     # Scan special editions
     special_dir = os.path.join(ROOT, 'special')
@@ -63,6 +97,9 @@ def scan_articles():
                 continue
             title = extract_title(html_path)
             series_tag = extract_series_tag(html_path)
+            article_dir = os.path.join(special_dir, topic_dir)
+            audio_meta = scan_audio_meta(article_dir)
+            comic_meta = scan_comic_meta(article_dir)
             # Read date from .date file in the directory, fall back to mtime
             date_file = os.path.join(special_dir, topic_dir, '.date')
             if os.path.exists(date_file):
@@ -79,6 +116,10 @@ def scan_articles():
                 'title': title,
                 'url': f'special/{topic_dir}/article.html',
                 'series': series_tag or '',
+                'has_audio': audio_meta['has_audio'],
+                'audio_size_bytes': audio_meta['audio_size_bytes'],
+                'has_comic': comic_meta['has_comic'],
+                'comic_count': comic_meta['comic_count'],
             })
     articles.sort(key=lambda a: (a['date'], 0 if a['session'] == 'morning' else 1 if a['session'] == 'evening' else 2), reverse=True)
     return articles
