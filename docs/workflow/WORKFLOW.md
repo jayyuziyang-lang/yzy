@@ -443,10 +443,23 @@ python scripts/audit-article.py --date YYYY-MM-DD --edition evening
 
 **核心原则：**
 - 日更优先级高于专题 — 专题不得影响日更的正常发布
-- **漫画标杆：** `special/央行法修订/comic/panel-*.svg` — 建筑学隐喻、金色+深蓝配色、叙事驱动
+- **深度专题是王牌产品**，质量高于一切
 - 3-4节结构，每节配1张漫画
-- 6-10分钟音频
-- 周六8:00 AM发布
+
+### 深度专题发布前自检清单（2026-05-31 新增）
+
+```
+□ 音频完整性 — 文件≥5MB / edge-tts @ -50% Yunyang / 脚本全文生成
+□ 音频时长标注 — 与文件实际时长偏差 < 20%
+□ 漫画SVG — panel-001~00N 全部存在，N与设计一致
+□ 阅读时间 — 与音频时间标注一致（均标"约X分钟"）
+□ 首页数据刷新 — data/articles.js 含 has_audio/has_comic/comic_count
+□ 首页"扬说·深度"区域 — 媒体标签动态渲染而非硬编码
+□ 返回首页链接 — 正确相对路径（special/专题/article.html → ../../index.html）
+□ 模板JS同步 — 包含音频8秒超时 + 漫画onerror回退
+□ 模板CSS——自定义配色/字体/渐变与专题风格匹配
+□ 引流入口——首页"今日内容"区域包含专题入口
+```
 
 ---
 
@@ -456,7 +469,9 @@ python scripts/audit-article.py --date YYYY-MM-DD --edition evening
 |------|------|
 | 数据图表 | `python scripts/generate-charts.py` |
 | 质量门禁 | `python scripts/gate-check.py`（阻塞项 → 不可发布） |
-| 音频合成 | `python -m edge_tts --voice zh-CN-YunyangNeural --rate=-5% -f script.txt --write-media audio.mp3` |
+| 音频合成（深度专题） | `python -m edge_tts --voice zh-CN-YunyangNeural --rate=-50% -f script.txt --write-media audio.mp3` |
+| 音频合成（早报） | `python -m edge_tts --voice zh-CN-XiaoxiaoNeural --rate=-10% -f script.txt --write-media audio.mp3` |
+| 音频合成（晚报） | `python -m edge_tts --voice zh-CN-XiaoxiaoNeural --rate=-20% -f script.txt --write-media audio.mp3` |
 
 ---
 

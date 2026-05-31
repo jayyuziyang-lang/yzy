@@ -307,6 +307,56 @@ python scripts/audit-article.py --date YYYY-MM-DD --edition evening
 
 ---
 
+## 音频制作规范
+
+### 核心原则
+
+音频必须与文稿完全匹配。"标多少就做多少"——标注"约12分钟"就不能只有1.7分钟。
+
+### edge-tts 标准化参数
+
+| 场景 | TTS语音 | 语速 | 预期时长 | 材料来源 |
+|------|---------|------|---------|---------|
+| 深度专题 | zh-CN-YunyangNeural | -50% | ~12分钟 | script.txt |
+| 晚报（日常） | zh-CN-XiaoxiaoNeural | -20% | ~6分钟 | evening/script.txt |
+| 晚报（周五/重大事件） | zh-CN-YunyangNeural | -30% | ~9-12分钟 | evening/script.txt |
+| 早报 | zh-CN-XiaoxiaoNeural | -10% | ~3分钟 | morning/script.txt |
+
+### 生成命令示例
+
+```bash
+python3 -m edge_tts \
+  --voice zh-CN-YunyangNeural \
+  --rate=-50% \
+  -f special/<专题目录>/script.txt \
+  --write-media special/<专题目录>/audio.mp3
+```
+
+### 完整性验证（发布前必做）
+
+```bash
+# 用 Python 估算音频时长
+python3 -c "
+import os
+size = os.path.getsize('path/to/audio.mp3')
+# 假设avg 48kbps, MPEG2帧: 时长≈ size*8/48000
+duration_min = size * 8 / 48000 / 60
+print(f'Audio: {duration_min:.1f} min - 预期: 12 min')
+assert duration_min > 9, '音频太短，可能不完整'
+"
+```
+
+**阈值门禁（在 pre-deploy-check.sh 中实现）：**
+- 深度专题音频 ≥ 5MB（约 8+ 分钟）
+- 晚报音频 ≥ 1.5MB（约 3+ 分钟）
+- 早报音频 ≥ 0.5MB（约 1+ 分钟）
+
+### 历史教训
+
+- **2026-05-31（深度第2期）**：音频仅1.7分钟，标12分钟。根因：TTS语速设置错误+生成后未验证。已修复。
+
+---
+
 ## 数据可视化（Python工具链）
 
 ### 核心理念
