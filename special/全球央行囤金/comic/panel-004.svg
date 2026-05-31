@@ -28,9 +28,9 @@
   <text x="315" y="122" font-size="10" fill="#7F1D1D">金价在 $4,000 附近获得新的结构性支撑平台</text>
 
   <rect x="302" y="136" width="266" height="52" rx="6" fill="#FFF5F5"/>
-  <text x="315" y="152" font-size="12" font-weight="700" fill="#991B1B">伊朗冲突停火引发回调</text>
-  <text x="315" y="168" font-size="10" fill="#7F1D1D">短期金价可能回调 15-20%（$3,800-$4,000）</text>
-  <text x="315" y="180" font-size="10" fill="#7F1D1D">但央行逢跌买入 → 深度回调难持续</text>
+  <text x="315" y="152" font-size="12" font-weight="700" fill="#991B1B">伊朗停火消除通胀压制</text>
+  <text x="315" y="168" font-size="10" fill="#7F1D1D">霍尔木兹封锁→高油价→PCE 3.8%是金价承压的根因</text>
+  <text x="315" y="180" font-size="10" fill="#7F1D1D">停火落地将移除最大利空，利好黄金中长期走强</text>
 
   <!-- ======== Quadrant 2 (左上): Low prob + High impact ======== -->
   <rect x="20" y="42" width="260" height="158" rx="10" fill="#FFF7ED" stroke="#FDBA74" stroke-width="1.5"/>

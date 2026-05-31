@@ -36,7 +36,7 @@
   <!-- Summit box -->
   <rect x="15" y="215" width="490" height="65" rx="6" fill="#fff" stroke="#E2E8F0" stroke-width="0.5"/>
   <text x="20" y="235" font-size="10" font-weight="bold" fill="#1E293B">多空博弈焦点</text>
-  <text x="20" y="253" font-size="8" fill="#334155">黄金：短期受停火情绪压制  |  中长期通胀预期支撑（PCE 3.8%）</text>
+  <text x="20" y="253" font-size="8" fill="#334155">黄金：停火消除通胀压制（霍尔木兹封锁→高油价→PCE 3.8%的核心传导链被切断）  |  利好黄金中长期走强</text>
   <text x="20" y="269" font-size="8" fill="#334155">原油：停火预期抑制  |  但700万桶/日缺口+美油库存连降6周限制下行</text>
 
   <!-- Source -->
