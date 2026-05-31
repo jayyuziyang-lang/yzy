@@ -11,7 +11,7 @@ RED='\033[0;31m'; GREEN='\033[0;32m'; YELLOW='\033[1;33m'; CYAN='\033[0;36m'; NC
 ERRORS=0
 
 echo -e "${YELLOW}========================================${NC}"
-echo -e "${YELLOW}  🔍 预部署验证 (8项)${NC}"
+echo -e "${YELLOW}  🔍 预部署验证 (9项)${NC}"
 echo -e "${YELLOW}========================================${NC}"
 
 # [1/8] 运行 update-index.py
@@ -131,6 +131,95 @@ elif [ "$AUDIT_WARN" -gt 0 ]; then
     echo -e "  ${YELLOW}⚠️ 综合审核有警告（$AUDIT_WARN 个版次），请确认后继续${NC}"
 else
     echo -e "  ✅ 综合审核全部通过（$AUDIT_OK 个版次）"
+fi
+
+# [9/9] 专题文章资产完整性检查
+echo -e "\n📚 [9/9] 专题文章资产完整性检查..."
+SPECIAL_DIR="$ROOT_DIR/special"
+SPECIAL_ERRORS=0
+if [ -d "$SPECIAL_DIR" ]; then
+    for topic_dir in "$SPECIAL_DIR"/*/; do
+        [ ! -d "$topic_dir" ] && continue
+        topic_name=$(basename "$topic_dir")
+        [[ "$topic_name" == .* ]] && continue
+
+        echo -e "  📖 检查专题: $topic_name"
+
+        # 检查 article.html
+        if [ ! -f "$topic_dir/article.html" ]; then
+            echo -e "  ${RED}    ❌ 缺少 article.html${NC}"; ((SPECIAL_ERRORS++))
+        else
+            # 检查返回首页链接
+            LINK=$(grep -oP 'href="[^"]*index\.html"' "$topic_dir/article.html" 2>/dev/null || echo "")
+            if echo "$LINK" | grep -q "../../index.html"; then
+                echo -e "  ${GREEN}    ✅ article.html + 正确返回链接${NC}"
+            else
+                echo -e "  ${YELLOW}    ⚠️ $topic_dir/article.html: 返回链接异常 ($LINK)${NC}"
+            fi
+        fi
+
+        # 检查 audio.mp3
+        if [ -f "$topic_dir/audio.mp3" ]; then
+            AUDIO_SIZE=$(stat -c%s "$topic_dir/audio.mp3" 2>/dev/null || echo 0)
+            if [ "$AUDIO_SIZE" -gt 102400 ]; then
+                echo -e "  ${GREEN}    ✅ audio.mp3 ($((AUDIO_SIZE/1024))KB)${NC}"
+            else
+                echo -e "  ${RED}    ❌ audio.mp3 文件过小 ($AUDIO_SIZE 字节)${NC}"; ((SPECIAL_ERRORS++))
+            fi
+        else
+            echo -e "  ${RED}    ❌ 缺少 audio.mp3${NC}"; ((SPECIAL_ERRORS++))
+        fi
+
+        # 检查 script.txt
+        if [ -f "$topic_dir/script.txt" ]; then
+            SCRIPT_WORDS=$(wc -c < "$topic_dir/script.txt" 2>/dev/null || echo 0)
+            if [ "$SCRIPT_WORDS" -gt 200 ]; then
+                echo -e "  ${GREEN}    ✅ script.txt ($SCRIPT_WORDS 字节)${NC}"
+            else
+                echo -e "  ${RED}    ❌ script.txt 太短${NC}"; ((SPECIAL_ERRORS++))
+            fi
+        else
+            echo -e "  ${RED}    ❌ 缺少 script.txt${NC}"; ((SPECIAL_ERRORS++))
+        fi
+
+        # 检查 comic/ 目录
+        if [ -d "$topic_dir/comic" ]; then
+            SVG_COUNT=$(ls "$topic_dir/comic/"*.svg 2>/dev/null | wc -l)
+            if [ "$SVG_COUNT" -gt 0 ]; then
+                echo -e "  ${GREEN}    ✅ comic/ — $SVG_COUNT 个SVG${NC}"
+
+                # Verify SVG references in article match files in comic/
+                if [ -f "$topic_dir/article.html" ]; then
+                    article_content=$(cat "$topic_dir/article.html")
+                    for svg in "$topic_dir/comic/"*.svg; do
+                        svg_name=$(basename "$svg")
+                        if ! echo "$article_content" | grep -q "$svg_name"; then
+                            echo -e "  ${YELLOW}    ⚠️  comic/$svg_name 存在但未被文章引用${NC}"
+                        fi
+                    done
+                    for ref in $(echo "$article_content" | grep -oP 'src="comic/[^"]+\.svg"' | sed 's/src="comic\///;s/"//'); do
+                        if [ ! -f "$topic_dir/comic/$ref" ]; then
+                            echo -e "  ${RED}    ❌ 文章引用 comic/$ref 但文件不存在${NC}"; ((SPECIAL_ERRORS++))
+                        fi
+                    done
+                fi
+            else
+                echo -e "  ${YELLOW}    ⚠️ comic/ 目录为空${NC}"
+            fi
+        else
+            echo -e "  ${YELLOW}    ⚠️ 无 comic/ 目录${NC}"
+        fi
+        echo ""
+    done
+else
+    echo -e "  ${YELLOW}  ⚠️ 无专题目录${NC}"
+fi
+
+if [ "$SPECIAL_ERRORS" -gt 0 ]; then
+    echo -e "  ${RED}❌ 专题文章资产完整性检查: $SPECIAL_ERRORS 个错误${NC}"
+    ((ERRORS+=SPECIAL_ERRORS))
+else
+    echo -e "  ${GREEN}✅ 专题文章资产完整性检查通过${NC}"
 fi
 
 # 结果

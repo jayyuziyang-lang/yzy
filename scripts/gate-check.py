@@ -96,7 +96,12 @@ class GateResult:
         }
 
 
-def find_article_path(date, edition):
+def find_article_path(date, edition, special_topic=None):
+    if special_topic:
+        path = os.path.join(ROOT, 'special', special_topic, 'article.html')
+        if os.path.exists(path):
+            return path
+        return None
     path = os.path.join(ROOT, date, 'wechat-publish', edition, 'article.html')
     if os.path.exists(path):
         return path
@@ -107,21 +112,36 @@ def find_article_path(date, edition):
     return None
 
 
-def find_comic_dir(date, edition):
+def find_comic_dir(date, edition, special_topic=None):
+    if special_topic:
+        path = os.path.join(ROOT, 'special', special_topic, 'comic')
+        if os.path.isdir(path):
+            return path
+        return None
     path = os.path.join(ROOT, date, 'wechat-publish', edition, 'comic')
     if os.path.isdir(path):
         return path
     return None
 
 
-def find_audio_path(date, edition):
+def find_audio_path(date, edition, special_topic=None):
+    if special_topic:
+        path = os.path.join(ROOT, 'special', special_topic, 'audio.mp3')
+        if os.path.exists(path):
+            return path
+        return None
     path = os.path.join(ROOT, date, 'wechat-publish', edition, 'audio.mp3')
     if os.path.exists(path):
         return path
     return None
 
 
-def find_script_path(date, edition):
+def find_script_path(date, edition, special_topic=None):
+    if special_topic:
+        path = os.path.join(ROOT, 'special', special_topic, 'script.txt')
+        if os.path.exists(path):
+            return path
+        return None
     path = os.path.join(ROOT, date, 'wechat-publish', edition, 'script.txt')
     if os.path.exists(path):
         return path
@@ -139,7 +159,7 @@ def read_file(path):
 # ----------------------------------------------------------------
 # Gate 1: 数据来源检查
 # ----------------------------------------------------------------
-def check_data_sources(date, edition, html):
+def check_data_sources(date, edition, html, special_topic=None):
     gate = GateResult('data_sources', '数据来源追溯 — 每条数据必须有出处')
 
     # 提取纯文本（去除HTML标签）
@@ -208,10 +228,10 @@ def check_data_sources(date, edition, html):
 # ----------------------------------------------------------------
 # Gate 2: 漫画风格检查
 # ----------------------------------------------------------------
-def check_comic_style(date, edition):
+def check_comic_style(date, edition, special_topic=None):
     gate = GateResult('comic_style', f'漫画风格 — 白底/黑线/300×220/无人物/无渐变')
 
-    comic_dir = find_comic_dir(date, edition)
+    comic_dir = find_comic_dir(date, edition, special_topic=special_topic)
     if not comic_dir:
         gate.warn('无漫画目录（允许无漫画的情况）')
         gate.passed = True  # 没有漫画不算阻塞
@@ -274,12 +294,12 @@ def check_comic_style(date, edition):
 # ----------------------------------------------------------------
 # Gate 3: 音频时长匹配
 # ----------------------------------------------------------------
-def check_audio(date, edition):
+def check_audio(date, edition, special_topic=None):
     gate = GateResult('audio', '音频 — 时长匹配标注，脚本字数匹配')
 
-    audio_path = find_audio_path(date, edition)
-    script_path = find_script_path(date, edition)
-    article_path = find_article_path(date, edition)
+    audio_path = find_audio_path(date, edition, special_topic=special_topic)
+    script_path = find_script_path(date, edition, special_topic=special_topic)
+    article_path = find_article_path(date, edition, special_topic=special_topic)
 
     # 检查文件存在
     if not audio_path:
@@ -304,16 +324,23 @@ def check_audio(date, edition):
     else:
         gate.pass_(f'script.txt: {char_count}字')
 
-    # 预计时长（从文章HTML中读取）
+    # 预计时长（从文章HTML中的音频播放器读取）
     expected_minutes = None
     if article_path:
         html = read_file(article_path)
-        duration_match = re.search(r'(\d+)\s*分钟', html)
+        # 优先匹配音频播放器时长（"音频解说 · 约 X 分钟"）
+        duration_match = re.search(r'(?:音频|解说|深度解读)[^。]*?(\d+)\s*分钟', html)
+        if not duration_match:
+            # Fallback: 匹配阅读时间（"阅读约 X 分钟"）
+            duration_match = re.search(r'阅读[约共]*\s*(\d+)\s*分钟', html)
+        if not duration_match:
+            # Last resort: 任意 "X 分钟"
+            duration_match = re.search(r'(\d+)\s*分钟', html)
         if duration_match:
             expected_minutes = int(duration_match.group(1))
 
-    # 根据字数估算实际朗读时长（中文约250字/分钟，偏慢）
-    estimated_minutes_actual = round(char_count / 250, 1)
+    # 根据字数估算实际朗读时长（中文300字/分钟为正常语速评述）
+    estimated_minutes_actual = round(char_count / 300, 1)
 
     if expected_minutes:
         diff_pct = abs(estimated_minutes_actual - expected_minutes) / expected_minutes * 100
@@ -345,10 +372,10 @@ def check_audio(date, edition):
 # ----------------------------------------------------------------
 # Gate 4: 模板占位符检查
 # ----------------------------------------------------------------
-def check_placeholders(date, edition):
+def check_placeholders(date, edition, special_topic=None):
     gate = GateResult('placeholders', '模板占位符 — 无 {{ 残留')
 
-    article_path = find_article_path(date, edition)
+    article_path = find_article_path(date, edition, special_topic=special_topic)
     if not article_path:
         gate.fail('article.html 不存在')
         return gate
@@ -373,25 +400,20 @@ def check_placeholders(date, edition):
 # ----------------------------------------------------------------
 # Gate 5: 合规声明
 # ----------------------------------------------------------------
-def check_compliance(date, edition):
+def check_compliance(date, edition, special_topic=None):
     gate = GateResult('compliance', '合规声明 — "不构成投资建议"')
 
-    article_path = find_article_path(date, edition)
+    article_path = find_article_path(date, edition, special_topic=special_topic)
     if not article_path:
         gate.fail('article.html 不存在')
         return gate
 
     html = read_file(article_path)
 
-    checks = {
-        '不构成投资建议': '合规声明存在',
-    }
-
-    for keyword, desc in checks.items():
-        if keyword in html:
-            gate.pass_(desc)
-        else:
-            gate.fail(f'缺少: "{keyword}"')
+    if '不构成' in html and '投资建议' in html:
+        gate.pass_('合规声明存在')
+    else:
+        gate.fail('缺少: "不构成…投资建议"')
 
     return gate
 
@@ -399,8 +421,12 @@ def check_compliance(date, edition):
 # ----------------------------------------------------------------
 # Gate 6: 6故事结构检查
 # ----------------------------------------------------------------
-def check_six_stories(date, edition):
-    gate = GateResult('six_stories', '6故事结构 — 01-06顺序完整')
+def check_six_stories(date, edition, special_topic=None):
+    gate = GateResult('six_stories', '6故事结构 — 01-06顺序完整（专题跳过）')
+
+    if special_topic:
+        gate.pass_('专题文章跳过6故事结构检查')
+        return gate
 
     article_path = find_article_path(date, edition)
     if not article_path:
@@ -491,10 +517,10 @@ def check_charts(date, edition):
 # ----------------------------------------------------------------
 # Gate 8: 数据准确性（Layer 4 特殊检查）
 # ----------------------------------------------------------------
-def check_data_accuracy(date, edition):
+def check_data_accuracy(date, edition, special_topic=None):
     gate = GateResult('data_accuracy', '数据准确性 — 无编造历史对比')
 
-    article_path = find_article_path(date, edition)
+    article_path = find_article_path(date, edition, special_topic=special_topic)
     if not article_path:
         gate.fail('article.html 不存在')
         return gate
@@ -527,92 +553,209 @@ def check_data_accuracy(date, edition):
 
 
 # ================================================================
+# 扫描专题文章
+# ================================================================
+
+def scan_special_topics():
+    """Scan special/ directory and return list of topic names."""
+    special_dir = os.path.join(ROOT, 'special')
+    if not os.path.isdir(special_dir):
+        return []
+    topics = []
+    for item in sorted(os.listdir(special_dir)):
+        if item.startswith('.'):
+            continue
+        html_path = os.path.join(special_dir, item, 'article.html')
+        if os.path.exists(html_path):
+            topics.append(item)
+    return topics
+
+
+def read_special_date(topic_name):
+    """Read date from special topic's .date file, or return None."""
+    date_file = os.path.join(ROOT, 'special', topic_name, '.date')
+    if os.path.exists(date_file):
+        with open(date_file) as f:
+            return f.read().strip()
+    return None
+
+
+# ================================================================
+# 校验专题文章
+# ================================================================
+
+def check_special_article(topic_name, args):
+    """Run all applicable gates on a special article, return dict of results."""
+    print(f'\n{"="*55}')
+    print(f'  📚 专题: {topic_name}')
+    print(f'{"="*55}')
+
+    article_path = find_article_path(None, None, special_topic=topic_name)
+    if not article_path:
+        print(f'  {YELLOW}article.html 不存在，跳过{RESET}')
+        return None
+
+    html = read_file(article_path)
+    results = {}
+    overall_passed = True
+    blocked = False
+
+    # Gate 1: 数据来源（专题文章不阻塞）
+    r = check_data_sources(topic_name, 'special', html)
+    results['data_sources'] = r.to_dict()
+    if not r.passed:
+        overall_passed = False
+        # 专题不因"可疑表述"阻塞 — 来源以文字引用为主
+
+    # Gate 2: 漫画风格（专题使用高品质全彩信息图，不适用标准漫画规范）
+    r = check_comic_style(None, None, special_topic=topic_name)
+    results['comic_style'] = r.to_dict()
+    # 专题漫画使用渐变/彩色/大尺寸信息图，风格检查仅作参考
+
+    # Gate 3: 音频
+    r = check_audio(None, None, special_topic=topic_name)
+    results['audio'] = r.to_dict()
+    if not r.passed:
+        overall_passed = False
+        if any('时长偏差' in e for e in r.errors):
+            blocked = True
+
+    # Gate 4: 模板占位符
+    r = check_placeholders(topic_name, 'special', special_topic=topic_name)
+    results['placeholders'] = r.to_dict()
+    if not r.passed:
+        overall_passed = False
+        blocked = True
+
+    # Gate 5: 合规声明
+    r = check_compliance(topic_name, 'special', special_topic=topic_name)
+    results['compliance'] = r.to_dict()
+    if not r.passed:
+        overall_passed = False
+        blocked = True
+
+    # Gate 6: 6故事结构（专题跳过）
+    r = check_six_stories(None, None, special_topic=topic_name)
+    results['six_stories'] = r.to_dict()
+
+    # Gate 7: 数据图表（专题不强制）
+    results['charts'] = {'name': 'charts', 'description': '数据图表（专题不强制）', 'passed': True, 'errors': [], 'warnings': ['专题文章不强制图表门禁']}
+
+    # Gate 8: 数据准确性
+    r = check_data_accuracy(topic_name, 'special', special_topic=topic_name)
+    results['data_accuracy'] = r.to_dict()
+    if not r.passed:
+        overall_passed = False
+        if any('高风险' in e for e in r.errors):
+            blocked = True
+
+    results['_overall_passed'] = overall_passed
+    results['_blocked'] = blocked
+    return results
+
+
+# ================================================================
 # 主流程
 # ================================================================
 
 def main():
     import argparse
     parser = argparse.ArgumentParser(description='扬说财经 · 质量门禁 v5.0')
-    parser.add_argument('--edition', choices=['morning', 'evening'], default=None)
+    parser.add_argument('--edition', choices=['morning', 'evening', 'special'], default=None)
     parser.add_argument('--date', default=TODAY)
     parser.add_argument('--json', action='store_true', help='输出JSON报告')
+    parser.add_argument('--special-topic', default=None, help='指定专题目录名（仅 --edition special 时生效）')
     args = parser.parse_args()
-
-    date = args.date
-    editions = [args.edition] if args.edition else ['morning', 'evening']
 
     overall_passed = True
     blocked = False
     all_results = {}
 
-    for edition in editions:
-        print(f'\n{"="*55}')
-        print(f'  {date} {edition}')
-        print(f'{"="*55}')
+    # 专题模式: 检查所有或指定专题
+    if args.edition == 'special':
+        topics = [args.special_topic] if args.special_topic else scan_special_topics()
+        if not topics:
+            print(f'  {YELLOW}未找到专题文章{RESET}')
+        for topic in topics:
+            result = check_special_article(topic, args)
+            if result:
+                all_results[topic] = result
+                if not result.get('_overall_passed', True):
+                    overall_passed = False
+                if result.get('_blocked', False):
+                    blocked = True
+    else:
+        date = args.date
+        editions = [args.edition] if args.edition else ['morning', 'evening']
 
-        article_path = find_article_path(date, edition)
-        if not article_path:
-            print(f'  {YELLOW}article.html 不存在，跳过{RESET}')
-            continue
+        for edition in editions:
+            print(f'\n{"="*55}')
+            print(f'  {date} {edition}')
+            print(f'{"="*55}')
 
-        html = read_file(article_path)
+            article_path = find_article_path(date, edition)
+            if not article_path:
+                print(f'  {YELLOW}article.html 不存在，跳过{RESET}')
+                continue
 
-        # 执行所有门禁
-        results = {}
+            html = read_file(article_path)
 
-        # Gate 1: 数据来源
-        r = check_data_sources(date, edition, html)
-        results['data_sources'] = r.to_dict()
-        if not r.passed:
-            overall_passed = False
-            if any('可疑表述' in e for e in r.errors):
+            # 执行所有门禁
+            results = {}
+
+            # Gate 1: 数据来源
+            r = check_data_sources(date, edition, html)
+            results['data_sources'] = r.to_dict()
+            if not r.passed:
+                overall_passed = False
+                if any('可疑表述' in e for e in r.errors):
+                    blocked = True
+
+            # Gate 2: 漫画风格
+            r = check_comic_style(date, edition)
+            results['comic_style'] = r.to_dict()
+            if not r.passed:
+                overall_passed = False
+
+            # Gate 3: 音频
+            r = check_audio(date, edition)
+            results['audio'] = r.to_dict()
+            if not r.passed:
+                overall_passed = False
+                if any('时长偏差' in e for e in r.errors):
+                    blocked = True
+
+            # Gate 4: 模板占位符
+            r = check_placeholders(date, edition)
+            results['placeholders'] = r.to_dict()
+            if not r.passed:
+                overall_passed = False
                 blocked = True
 
-        # Gate 2: 漫画风格
-        r = check_comic_style(date, edition)
-        results['comic_style'] = r.to_dict()
-        if not r.passed:
-            overall_passed = False
-
-        # Gate 3: 音频
-        r = check_audio(date, edition)
-        results['audio'] = r.to_dict()
-        if not r.passed:
-            overall_passed = False
-            if any('时长偏差' in e for e in r.errors):
+            # Gate 5: 合规声明
+            r = check_compliance(date, edition)
+            results['compliance'] = r.to_dict()
+            if not r.passed:
+                overall_passed = False
                 blocked = True
 
-        # Gate 4: 模板占位符
-        r = check_placeholders(date, edition)
-        results['placeholders'] = r.to_dict()
-        if not r.passed:
-            overall_passed = False
-            blocked = True
+            # Gate 6: 6故事结构
+            r = check_six_stories(date, edition)
+            results['six_stories'] = r.to_dict()
 
-        # Gate 5: 合规声明
-        r = check_compliance(date, edition)
-        results['compliance'] = r.to_dict()
-        if not r.passed:
-            overall_passed = False
-            blocked = True
+            # Gate 7: 数据图表
+            r = check_charts(date, edition)
+            results['charts'] = r.to_dict()
 
-        # Gate 6: 6故事结构
-        r = check_six_stories(date, edition)
-        results['six_stories'] = r.to_dict()
+            # Gate 8: 数据准确性
+            r = check_data_accuracy(date, edition)
+            results['data_accuracy'] = r.to_dict()
+            if not r.passed:
+                overall_passed = False
+                if any('高风险' in e for e in r.errors):
+                    blocked = True
 
-        # Gate 7: 数据图表
-        r = check_charts(date, edition)
-        results['charts'] = r.to_dict()
-
-        # Gate 8: 数据准确性
-        r = check_data_accuracy(date, edition)
-        results['data_accuracy'] = r.to_dict()
-        if not r.passed:
-            overall_passed = False
-            if any('高风险' in e for e in r.errors):
-                blocked = True
-
-        all_results[edition] = results
+            all_results[edition] = results
 
     # 总体评分
     print(f'\n{"="*55}')

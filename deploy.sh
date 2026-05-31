@@ -146,6 +146,34 @@ if [ -n "$LATEST_DATE" ]; then
     done
 fi
 
+# 预热专题文章
+echo "  预热专题文章..."
+SPECIAL_DIR="$ROOT_DIR/special"
+if [ -d "$SPECIAL_DIR" ]; then
+    for topic_dir in "$SPECIAL_DIR"/*/; do
+        [ ! -d "$topic_dir" ] && continue
+        topic_name=$(basename "$topic_dir")
+        [[ "$topic_name" == .* ]] && continue
+        # HTML
+        special_url="${SITE_URL}/special/${topic_name}/article.html"
+        CODE=$(curl -s -o /dev/null -w "%{http_code}" "$special_url" 2>/dev/null || echo "000")
+        echo -e "  $CODE  $special_url"
+        # Audio
+        audio_url="${SITE_URL}/special/${topic_name}/audio.mp3"
+        CODE=$(curl -s -o /dev/null -w "%{http_code}" "$audio_url" 2>/dev/null || echo "000")
+        echo -e "  $CODE  $audio_url"
+        # Comic SVGs
+        if [ -d "$topic_dir/comic" ]; then
+            for svg in "$topic_dir/comic/"*.svg; do
+                [ ! -f "$svg" ] && continue
+                svg_name=$(basename "$svg")
+                svg_url="${SITE_URL}/special/${topic_name}/comic/${svg_name}"
+                curl -s -o /dev/null -w "  %{http_code}  /special/${topic_name}/comic/${svg_name}\n" "$svg_url" 2>/dev/null
+            done
+        fi
+    done
+fi
+
 # 部署后验证
 echo -e "\n✅ 运行部署后验证..."
 if [ -f "scripts/verify-deploy.sh" ]; then
