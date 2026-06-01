@@ -1,21 +1,9 @@
 {
-  "generated_at": "2026-06-01T10:41:19+08:00",
+  "generated_at": "2026-06-01T10:50:53+08:00",
   "latest_date": "2026-06-01",
   "articles": [
     {
       "date": "2026-06-01",
-      "session": "morning",
-      "edition_cn": "早报",
-      "icon": "🌅",
-      "title": "COMPUTEX今日开幕，黄仁勋携N1X芯片掀PC革命；美股9连涨创纪录；5月PMI 50.0%临界点",
-      "url": "2026-06-01/wechat-publish/morning/article.html",
-      "has_audio": true,
-      "audio_size_bytes": 858096,
-      "has_comic": true,
-      "comic_count": 3
-    },
-    {
-      "date": "2026-05-31",
       "session": "special",
       "edition_cn": "深度",
       "icon": "📚",
@@ -26,6 +14,18 @@
       "audio_size_bytes": 8322192,
       "has_comic": true,
       "comic_count": 7
+    },
+    {
+      "date": "2026-06-01",
+      "session": "morning",
+      "edition_cn": "早报",
+      "icon": "🌅",
+      "title": "COMPUTEX今日开幕，黄仁勋宣告PC新时代；美股9连涨戴尔暴拉33%；5月PMI降至荣枯线",
+      "url": "2026-06-01/wechat-publish/morning/article.html",
+      "has_audio": true,
+      "audio_size_bytes": 1459872,
+      "has_comic": true,
+      "comic_count": 3
     },
     {
       "date": "2026-05-29",
@@ -235,22 +235,8 @@
   ],
   "by_date": {
     "2026-06-01": {
-      "morning": {
-        "date": "2026-06-01",
-        "session": "morning",
-        "edition_cn": "早报",
-        "icon": "🌅",
-        "title": "COMPUTEX今日开幕，黄仁勋携N1X芯片掀PC革命；美股9连涨创纪录；5月PMI 50.0%临界点",
-        "url": "2026-06-01/wechat-publish/morning/article.html",
-        "has_audio": true,
-        "audio_size_bytes": 858096,
-        "has_comic": true,
-        "comic_count": 3
-      }
-    },
-    "2026-05-31": {
       "special": {
-        "date": "2026-05-31",
+        "date": "2026-06-01",
         "session": "special",
         "edition_cn": "深度",
         "icon": "📚",
@@ -261,6 +247,18 @@
         "audio_size_bytes": 8322192,
         "has_comic": true,
         "comic_count": 7
+      },
+      "morning": {
+        "date": "2026-06-01",
+        "session": "morning",
+        "edition_cn": "早报",
+        "icon": "🌅",
+        "title": "COMPUTEX今日开幕，黄仁勋宣告PC新时代；美股9连涨戴尔暴拉33%；5月PMI降至荣枯线",
+        "url": "2026-06-01/wechat-publish/morning/article.html",
+        "has_audio": true,
+        "audio_size_bytes": 1459872,
+        "has_comic": true,
+        "comic_count": 3
       }
     },
     "2026-05-29": {
