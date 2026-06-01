@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 420" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FAF5FF"/>
+      <stop offset="100%" stop-color="#F3E8FF"/>
+    </linearGradient>
+    <linearGradient id="chipGrd" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#A855F7"/>
+      <stop offset="100%" stop-color="#7C3AED"/>
+    </linearGradient>
+    <linearGradient id="nvidia" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#76B900"/>
+      <stop offset="100%" stop-color="#5A9200"/>
+    </linearGradient>
+    <filter id="shadow"><feDropShadow dx="0" dy="1" stdDeviation="2" flood-opacity="0.08"/></filter>
+  </defs>
+
+  <rect width="600" height="420" fill="url(#bg)" rx="8"/>
+
+  <!-- Title -->
+  <text x="300" y="28" text-anchor="middle" font-size="16" font-weight="700" fill="#6B21A8">COMPUTEX 2026 · 黄仁勋开启PC新时代</text>
+  <text x="300" y="46" text-anchor="middle" font-size="11" fill="#7C3AED">台北 · 6月1日 上午11:00 · 年度最重要科技演讲</text>
+  <line x1="40" y1="55" x2="560" y2="55" stroke="#C084FC" stroke-width="2"/>
+
+  <!-- ===== N1X芯片 ===== -->
+  <rect x="70" y="68" width="460" height="105" rx="12" fill="#6B21A8" filter="url(#shadow)"/>
+  <rect x="85" y="78" width="430" height="85" rx="8" fill="#7C3AED" stroke="#C084FC" stroke-width="1.5"/>
+
+  <text x="300" y="100" text-anchor="middle" font-size="13" font-weight="700" fill="#E9D5FF">NVIDIA N1X</text>
+  <text x="300" y="120" text-anchor="middle" font-size="18" font-weight="800" fill="#FFF">英伟达首款PC处理器</text>
+
+  <!-- Spec badges -->
+  <rect x="112" y="132" width="85" height="22" rx="11" fill="#581C87" stroke="#A855F7" stroke-width="0.8"/>
+  <text x="154" y="147" text-anchor="middle" font-size="9" fill="#D8B4FE">20核CPU</text>
+
+  <rect x="210" y="132" width="95" height="22" rx="11" fill="#581C87" stroke="#A855F7" stroke-width="0.8"/>
+  <text x="257" y="147" text-anchor="middle" font-size="9" fill="#D8B4FE">6144 CUDA核心</text>
+
+  <rect x="318" y="132" width="95" height="22" rx="11" fill="#581C87" stroke="#A855F7" stroke-width="0.8"/>
+  <text x="365" y="147" text-anchor="middle" font-size="9" fill="#D8B4FE">128GB共享内存</text>
+
+  <rect x="426" y="132" width="75" height="22" rx="11" fill="#581C87" stroke="#A855F7" stroke-width="0.8"/>
+  <text x="463" y="147" text-anchor="middle" font-size="9" fill="#D8B4FE">Arm架构</text>
+
+  <!-- ===== 三大看点 ===== -->
+  <text x="300" y="192" text-anchor="middle" font-size="13" font-weight="700" fill="#6B21A8">今日演讲三大看点</text>
+
+  <!-- Block 1: AI PC -->
+  <rect x="25" y="204" width="175" height="110" rx="8" fill="#FFF" stroke="#C084FC" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="25" y="204" width="175" height="28" rx="8" fill="#7C3AED"/>
+  <rect x="25" y="222" width="175" height="10" fill="#7C3AED"/>
+  <text x="112" y="223" text-anchor="middle" font-size="11" font-weight="700" fill="#FFF">💻 AI PC革命</text>
+  <text x="35" y="244" font-size="10" fill="#4B5563">• N1X + Windows + Arm</text>
+  <text x="35" y="262" font-size="10" fill="#4B5563">• 微软Surface首批搭载</text>
+  <text x="35" y="280" font-size="10" fill="#4B5563">• 戴尔同步推出新品</text>
+  <text x="35" y="298" font-size="10" fill="#6B21A8">• 联发科合作开发</text>
+
+  <!-- Block 2: Vera Rubin -->
+  <rect x="212" y="204" width="175" height="110" rx="8" fill="#FFF" stroke="#C084FC" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="212" y="204" width="175" height="28" rx="8" fill="#7C3AED"/>
+  <rect x="212" y="222" width="175" height="10" fill="#7C3AED"/>
+  <text x="299" y="223" text-anchor="middle" font-size="11" font-weight="700" fill="#FFF">🧠 Vera Rubin平台</text>
+  <text x="222" y="244" font-size="10" fill="#4B5563">• 接棒Blackwell</text>
+  <text x="222" y="262" font-size="10" fill="#4B5563">• NVL72机架系统</text>
+  <text x="222" y="280" font-size="10" fill="#4B5563">• 下半年量产出货</text>
+  <text x="222" y="298" font-size="10" fill="#6B21A8">• 年度在台投资$1,500亿</text>
+
+  <!-- Block 3: 国内联动 -->
+  <rect x="400" y="204" width="175" height="110" rx="8" fill="#FFF" stroke="#C084FC" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="400" y="204" width="175" height="28" rx="8" fill="#7C3AED"/>
+  <rect x="400" y="222" width="175" height="10" fill="#7C3AED"/>
+  <text x="487" y="223" text-anchor="middle" font-size="11" font-weight="700" fill="#FFF">🇨🇳 国内AI联动</text>
+  <text x="410" y="244" font-size="10" fill="#4B5563">• 宇树科技IPO上会</text>
+  <text x="410" y="262" font-size="10" fill="#4B5563">• 人形机器人第一股</text>
+  <text x="410" y="280" font-size="10" fill="#4B5563">• MiniMax启动A股IPO</text>
+  <text x="410" y="298" font-size="10" fill="#6B21A8">• 融资42亿+科创板</text>
+
+  <!-- ===== 竞争格局 ===== -->
+  <rect x="25" y="324" width="550" height="84" rx="10" fill="#FFF" stroke="#D8B4FE" stroke-width="1" filter="url(#shadow)"/>
+
+  <text x="300" y="344" text-anchor="middle" font-size="12" font-weight="700" fill="#6B21A8">竞争格局 · 其他巨头同台亮相</text>
+
+  <rect x="38" y="353" width="125" height="46" rx="6" fill="#F5F3FF" stroke="#DDD6FE" stroke-width="0.8"/>
+  <text x="100" y="370" text-anchor="middle" font-size="10" font-weight="700" fill="#5B21B6">英特尔</text>
+  <text x="100" y="386" text-anchor="middle" font-size="9" fill="#7C3AED">CEO 6月2日演讲</text>
+
+  <rect x="175" y="353" width="125" height="46" rx="6" fill="#F5F3FF" stroke="#DDD6FE" stroke-width="0.8"/>
+  <text x="237" y="370" text-anchor="middle" font-size="10" font-weight="700" fill="#5B21B6">高通</text>
+  <text x="237" y="386" text-anchor="middle" font-size="9" fill="#7C3AED">CEO主题演讲</text>
+
+  <rect x="312" y="353" width="125" height="46" rx="6" fill="#F5F3FF" stroke="#DDD6FE" stroke-width="0.8"/>
+  <text x="374" y="370" text-anchor="middle" font-size="10" font-weight="700" fill="#5B21B6">AMD</text>
+  <text x="374" y="386" text-anchor="middle" font-size="9" fill="#7C3AED">Helios服务器机柜</text>
+
+  <rect x="449" y="353" width="115" height="46" rx="6" fill="#F0FDF4" stroke="#BBF7D0" stroke-width="0.8"/>
+  <text x="506" y="370" text-anchor="middle" font-size="10" font-weight="700" fill="#166534">英伟达</text>
+  <text x="506" y="386" text-anchor="middle" font-size="9" fill="#16A34A">🎯 今日主角</text>
+
+  <text x="580" y="415" text-anchor="end" font-size="10" fill="#A8A29E">扬说 · 2026.06.01</text>
+</svg>

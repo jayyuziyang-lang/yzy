@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>COMPUTEX今日开幕，黄仁勋携N1X芯片掀PC革命；美股9连涨创纪录；5月PMI 50.0%临界点</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system,"PingFang SC","Microsoft YaHei","Helvetica Neue",sans-serif; background: #F5F7FA; color: #1E293B; line-height: 1.9; font-size: 16px; }
+  .c { max-width: 640px; margin: 0 auto; background: #fff; padding: 44px 0 40px; }
+
+  .top-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; max-width: 640px; margin: 0 auto; background: rgba(255,255,255,0.95); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-bottom: 1px solid #E2E8F0; display: flex; align-items: center; padding: 0 16px; height: 44px; }
+  .top-nav .back { display: flex; align-items: center; gap: 4px; color: #1A56DB; text-decoration: none; font-size: 13px; font-weight: 600; }
+  .top-nav .back:active { opacity: 0.6; }
+  .top-nav .nav-date { flex: 1; text-align: center; font-size: 12px; color: #64748B; }
+  .top-nav .nav-edition { font-size: 11px; color: #D4A017; background: #FFFBEB; padding: 2px 8px; border-radius: 8px; font-weight: 600; }
+
+  .header { background: linear-gradient(135deg,#1A56DB,#1E3A7A); padding: 20px 20px 16px; color: white; }
+  .header .series-tag { display: inline-block; font-size: 11px; background: rgba(255,255,255,0.15); padding: 2px 10px; border-radius: 10px; margin-bottom: 8px; letter-spacing: 1px; }
+  .header .series-tag .gold { color: #D4A017; font-weight: 700; }
+  .header h1 { font-size: 22px; font-weight: 700; line-height: 1.4; margin-bottom: 8px; }
+  .header .meta { font-size: 12px; opacity: 0.8; display: flex; gap: 12px; flex-wrap: wrap; }
+  .header .meta .reading-time { background: rgba(255,255,255,0.1); padding: 1px 8px; border-radius: 8px; }
+
+  .player { display: flex; align-items: center; gap: 12px; margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.15); }
+  .player-icon { width: 40px; height: 40px; background: rgba(255,255,255,0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 18px; }
+  .player-info { flex: 1; }
+  .player-title { font-size: 13px; font-weight: 600; }
+  .player-desc { font-size: 11px; opacity: 0.7; }
+  .player audio { width: 100%; margin-top: 4px; border-radius: 20px; }
+
+  .body { padding: 20px; }
+
+  .lead { font-size: 15px; color: #475569; line-height: 1.8; margin-bottom: 20px; padding: 14px 16px; background: #F8FAFC; border-radius: 10px; border-left: 4px solid #D4A017; }
+  .lead strong { color: #1E293B; }
+
+  .section-block { margin: 28px 0; }
+  .section-num { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; font-size: 13px; font-weight: 700; margin-right: 8px; flex-shrink: 0; color: #fff; }
+  .section-title { font-size: 18px; font-weight: 700; color: #1E293B; margin-bottom: 12px; display: flex; align-items: center; }
+  .section-content { font-size: 15px; color: #334155; line-height: 1.9; margin-bottom: 12px; }
+  .section-content p { margin-bottom: 12px; text-align: justify; }
+  .section-content .highlight { background: #FFFBEB; padding: 1px 4px; border-radius: 2px; font-weight: 600; color: #92400E; }
+  .section-content .key-point { font-weight: 700; color: #1A56DB; }
+
+  .section-img { margin: 14px 0; border-radius: 8px; border: 1px solid #E2E8F0; overflow: hidden; background: #FAFAFA; }
+  .section-img img { width: 100%; display: block; }
+  .section-img .caption { font-size: 12px; color: #64748B; text-align: center; padding: 6px 10px; background: #F8FAFC; }
+
+  .section-divider { border: none; height: 1px; background: linear-gradient(to right, transparent, #D4A017, transparent); margin: 8px 0; }
+
+  .pull-quote { font-size: 15px; font-weight: 700; color: #1A56DB; text-align: center; padding: 16px 20px; margin: 16px 0; border-top: 2px solid #EFF6FF; border-bottom: 2px solid #EFF6FF; line-height: 1.6; }
+
+  .sources { background: #FFFBEB; border-radius: 10px; padding: 12px 14px; margin: 16px 0; font-size: 12px; color: #92400E; line-height: 1.6; }
+  .sources h3 { font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+  .sources a { color: #1A56DB; text-decoration: none; }
+
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 13px; }
+  th { background: #1A56DB; color: #fff; padding: 8px 10px; text-align: left; font-weight: 600; }
+  th:first-child { border-radius: 6px 0 0 0; }
+  th:last-child { border-radius: 0 6px 0 0; }
+  td { padding: 8px 10px; border-bottom: 1px solid #E2E8F0; }
+  tr:nth-child(even) { background: #F8F9FA; }
+  .up { color: #DC2626; } .down { color: #16A34A; }
+
+  .end-box { background: linear-gradient(135deg,#1A56DB,#1E3A7A); border-radius: 12px; padding: 16px 20px; margin: 22px 0; color: white; text-align: center; }
+  .end-box .end-icon { font-size: 28px; margin-bottom: 4px; }
+  .end-box .end-title { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+  .end-box .end-desc { font-size: 12px; opacity: 0.8; }
+
+  .warn { background: #FFF5F5; border: 1px solid #FECACA; border-radius: 10px; padding: 12px 14px; margin-top: 24px; font-size: 12px; color: #991B1B; line-height: 1.5; }
+
+  .tag { display: inline-flex; align-items: center; font-size: 11px; padding: 2px 10px; border-radius: 10px; font-weight: 600; margin-right: 6px; }
+  .tag-a { background: #FEF2F2; color: #DC2626; } .tag-us { background: #F0FDF4; color: #16A34A; }
+  .tag-tech { background: #FAF5FF; color: #9333EA; } .tag-intl { background: #EFF6FF; color: #1A56DB; }
+  .tag-macro { background: #FFFBEB; color: #D4A017; } .tag-commodity { background: #FFF7ED; color: #EA580C; }
+</style>
+</head>
+<body>
+<div class="c">
+
+  <div class="top-nav">
+    <a class="back" href="../../../index.html">&larr; 返回首页</a>
+    <span class="nav-date">2026.06.01 · 周一</span>
+    <span class="nav-edition">扬说·早报</span>
+  </div>
+
+  <div class="header">
+    <div class="series-tag"><span class="gold">扬说·早报</span> · 新的一周</div>
+    <h1>COMPUTEX今日开幕，黄仁勋携N1X芯片掀PC革命；美股9连涨创纪录；5月PMI 50.0%临界点</h1>
+    <div class="meta">
+      <span>📅 2026年6月1日 · 星期一</span>
+      <span>🏷️ COMPUTEX / 黄仁勋 / N1X芯片 / 美股9连涨 / PMI临界点 / 美伊停火</span>
+      <span class="reading-time">📖 阅读约 5 分钟</span>
+    </div>
+    <div class="player">
+      <div class="player-icon">🎧</div>
+      <div class="player-info">
+        <div class="player-title">早间速览 · 约 3 分钟</div>
+        <div class="player-desc">边听边看，体验更佳</div>
+        <audio controls preload="none"><source src="audio.mp3" type="audio/mpeg"></audio>
+      </div>
+    </div>
+  </div>
+
+  <div class="body">
+
+    <!-- Lead -->
+    <div class="lead">
+      <strong>新的一周开始了，但上周留下的信号很强。</strong> 美股标普500实现罕见的第9周连涨，道指首次站稳51,000点。A股上周五放量回调、半导体重挫5%，但5月整体科创50涨超11%。今天是6月1日，不仅是儿童节，更是年度最重要的科技盛会——COMPUTEX 2026的开幕日。黄仁勋将在今天上午发表长篇演讲，预计发布英伟达首款PC处理器N1X芯片，AI战火正式从数据中心烧到个人电脑。国内方面，5月PMI降至50.0%临界点，国企改革新方案下发，宇树科技人形机器人IPO今天上会。上半场怎么走？往下看。
+    </div>
+
+    <!-- 周度数据表 -->
+    <div class="section-block">
+      <table>
+        <tr><th>市场</th><th>最新收盘</th><th>上周涨跌幅</th></tr>
+        <tr><td>道琼斯工业指数</td><td>51,032</td><td class="up">+0.9%</td></tr>
+        <tr><td>标普500</td><td>7,580</td><td class="up">+1.4%</td></tr>
+        <tr><td>纳斯达克</td><td>26,973</td><td class="up">+2.4%</td></tr>
+        <tr><td>上证指数</td><td>4,069</td><td class="down">-0.7%</td></tr>
+        <tr><td>创业板指</td><td>4,038</td><td class="down">-2.1%</td></tr>
+        <tr><td>WTI原油</td><td>$92.50</td><td class="down">-9.0%</td></tr>
+        <tr><td>现货黄金</td><td>$4,518</td><td class="up">+1.1%</td></tr>
+        <tr><td>10年美债收益率</td><td>4.58%</td><td class="up">+2bp</td></tr>
+      </table>
+    </div>
+
+    <!-- 故事01: A股 -->
+    <div class="section-block">
+      <div class="section-title"><span class="section-num" style="background:#DC2626;">1</span><span class="tag tag-a">A股</span>5月收官：冰火两重天，半导体单日踩踏5%</div>
+      <div class="section-content">
+        <p>上周五（5/29）A股三大指数集体收跌。<strong>上证指数跌0.73%报4,068.57点，失守4100关口；创业板指重挫2.11%报4,037.95点；科创50暴跌5.04%</strong>，成为当日调整重灾区。半导体板块集体溃退，康强电子、士兰微等多股跌停，资金大规模涌入电力、白酒、地产等防御板块（来源：新浪财经、凤凰网）。</p>
+        <p>但拉长到整个5月看，A股并不差——<strong>科创50月涨幅超11%领跑全球，创业板指涨幅接近10%</strong>。584家公司股价在5月创历史新高，但近4000家公司月线下跌，意味着"少数公司的牛市"格局没有改变。AI算力链、半导体、机器人构成了5月的主线，但高位筹码松动信号已相当明显。</p>
+        <p>周末两条重磅消息：一是<strong>5月制造业PMI降至50.0%</strong>，较上月回落0.3个百分点，刚好卡在荣枯线上。非制造业商务活动指数50.1%，回升0.7个百分点。综合PMI产出指数50.5%——经济仍在扩张区间，但动能明显减弱。二是<strong>新一轮国企改革方案下发</strong>，聚焦主责主业、专业化整合、培育新质生产力（来源：国家统计局、证券时报）。</p>
+      </div>
+      <div class="section-img">
+        <img loading="lazy" src="comic/panel-001.svg" alt="A股5月冰火两重天">
+        <div class="caption">5月A股：科创50涨11% vs 近4000家公司月线收跌——同一个市场，两个世界</div>
+      </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- 故事02: 美股 -->
+    <div class="section-block">
+      <div class="section-title"><span class="section-num" style="background:#16A34A;">2</span><span class="tag tag-us">美股</span>标普9连涨创纪录，戴尔单日飙涨33%</div>
+      <div class="section-content">
+        <p>上周五（5/29）美股三大指数全线收涨，续创历史新高。<strong>道指涨0.72%报51,032点，首次站稳51,000；标普500涨0.22%报7,580，实现第9周连涨</strong>——这是2023年12月以来最长周度连涨纪录。纳指涨0.21%报26,973，月涨幅8.36%（来源：Investopedia、CNBC）。</p>
+        <p>上周的最大赢家是<strong>戴尔科技，单日暴涨近33%</strong>，创上市以来最大单日涨幅。Q1营收438亿美元同比增88%，AI服务器收入161亿暴增757%，积压订单513亿美元创历史纪录。这笔财报的意义在于——彻底证明了AI的资本开支正在大规模转化为硬件公司的营收，Dell不是芯片公司，而是服务器组装商，它的AI业务爆发意味着整个产业链都在受益。HPE跟涨12.6%，超微电脑涨11.6%。</p>
+        <p>5月美股表现惊人：标普500月涨5.15%，纳指涨8.36%，费城半导体指数暴涨22.14%（4月已涨38%）。但深度风险也在积累——连续9周上涨后，市场对任何利空的敏感度都在上升。本周关注周五的5月非农就业报告（来源：Investopedia、Yonhap Infomax）。</p>
+      </div>
+      <div class="section-img">
+        <img loading="lazy" src="comic/panel-002.svg" alt="美股9连涨创纪录">
+        <div class="caption">标普500第9周连涨，道指站稳51,000——但6月传统上是弱月</div>
+      </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- 故事03: 科技AI -->
+    <div class="section-block">
+      <div class="section-title"><span class="section-num" style="background:#9333EA;">3</span><span class="tag tag-tech">科技/AI</span>COMPUTEX今日开幕，黄仁勋启动"PC新时代"</div>
+      <div class="section-content">
+        <p>今天是2026年最重要科技日的开始。<strong>COMPUTEX 2026在台北开幕</strong>，黄仁勋将于北京时间上午11点在台北流行音乐中心发表长篇主题演讲。从目前信息看，这次演讲的意义远超一次产品发布（来源：搜狐科技、东方财富）。</p>
+        <p>最大的重磅——<strong>英伟达即将发布首款PC处理器N1X芯片</strong>，标志其正式从GPU供应商转型为平台定义者。N1X基于Arm架构，集成20核CPU、6144个CUDA核心、最高支持128GB共享内存，整合CPU+GPU+AI单元于一颗SoC。首批搭载N1X的Windows电脑将由微软Surface和戴尔同步推出。分析师郭明錤预测，N1X设备未来两年出货量约1000万台（来源：知乎、腾讯科技）。</p>
+        <p>数据中心方面，黄仁勋预计详细介绍<strong>Vera Rubin平台</strong>——接棒Blackwell的下一代AI计算平台，NVL72机架系统将在下半年量产出货。英伟达还宣布未来每年在台投资约1500亿美元，新总部计划2030年投入使用。</p>
+        <p>国内两条重磅：<strong>宇树科技科创板IPO今天上会</strong>，拟融资42亿元，是人形机器人领域的标志性事件。<strong>MiniMax已启动A股IPO进程</strong>，聘请专业顾问就科创板上市条件提供咨询。两大AI公司同步冲刺A股，反映出国内AI资本市场的加速成熟（来源：上海证券报、证券时报）。</p>
+      </div>
+      <div class="section-img">
+        <img loading="lazy" src="comic/panel-003.svg" alt="COMPUTEX2026黄仁勋发布N1X芯片">
+        <div class="caption">黄仁勋今日演讲：预计发布N1X PC处理器，AI战火从数据中心烧到个人电脑</div>
+      </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- 故事04: 前沿国际 -->
+    <div class="section-block">
+      <div class="section-title"><span class="section-num" style="background:#1A56DB;">4</span><span class="tag tag-intl">前沿/国际</span>美伊停火"打谈结合"，韩国5月暴涨28%</div>
+      <div class="section-content">
+        <p>中东局势进入最微妙的阶段。美伊双方在上周达成停火60天MOU框架后，周末出现裂痕——<strong>美国防长表示若谈判无果将重启军事打击</strong>；伊朗议会议长表示在确保权益前不会批准任何协议。这印证了此前判断：停火协议的落地和执行是两回事，反复拉锯的概率很高。周末原油反弹逾3%回到$90以上，市场正在逐步消化"停火不意味着危机结束"的现实（来源：搜狐财经、凤凰网）。</p>
+        <p>韩国市场是5月全球最亮眼的表现——<strong>KOSPI指数5月累计上涨28.45%，今年以来累计涨101.13%</strong>。韩国央行维持利率2.5%不变（连续第8次冻结），两名委员投票加息。半导体出口强劲是主要上行动力，但输入性通胀压力也在上升（来源：韩联社）。</p>
+      </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- 故事05: 宏观 -->
+    <div class="section-block">
+      <div class="section-title"><span class="section-num" style="background:#D4A017;">5</span><span class="tag tag-macro">宏观</span>PMI降至荣枯线，A股6月怎么看？</div>
+      <div class="section-content">
+        <p>5月PMI降至<span class="highlight">50.0%</span>，刚好卡在荣枯线上。生产指数52.2%仍在扩张，但新订单指数降至49.8%——需求端开始收缩。非制造业商务活动50.1%，回升0.7个百分点。综合PMI产出指数50.5%（来源：国家统计局）。</p>
+        <p>用一句话概括当前经济：生产还在干，但订单不够了。这在A股上已有映射——上周五半导体暴跌5%，本质上是前期涨多了之后的获利了结叠加需求端预期走弱。中泰证券建议"适度减仓科技，关注消费方向"，广发证券则强调基本面与产业趋势是识别行情延续性的最根本指标（来源：证券时报、财联社）。</p>
+        <p>海外方面，美联储理事库克表态"已准备好提高利率"，新主席沃什面临从"推动降息到遏制加息预期"的政策变局。CME美联储观察显示，6月维持利率不变概率99.4%，但年内加息概率约52%。本周五将公布5月非农就业数据，市场预期新增就业约8.9-10万人，失业率4.3%（来源：Investopedia）。</p>
+      </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- 故事06: 商品 -->
+    <div class="section-block">
+      <div class="section-title"><span class="section-num" style="background:#EA580C;">6</span><span class="tag tag-commodity">商品/黄金</span>黄金$4,500拉锯，原油停火预期反复</div>
+      <div class="section-content">
+        <p><strong>黄金：</strong>现货黄金周一开盘小幅走低至约$4,518/盎司，上周五盘中一度触及$4,595。短期金价被中东局势的"deal-on/deal-off"节奏左右——停火预期升温时，避险溢价消退施压；谈判破裂时，避险买盘迅速回补。UBS在周末将年底金价目标下调$400至$5,500，理由是持续的高收益率和强美元压力。但全球央行购金的结构性力量不变——中国连续15个月增持、波兰Q1买了31吨——这为金价提供了清晰的底部（来源：TTM Financial、ForexPeaceArmy）。</p>
+        <p>需要重申此前的逻辑判断：<strong>停火对黄金偏利空而非利好</strong>——此轮金价从$2,600到$4,500+的涨幅中，地缘避险溢价贡献了相当比例。若停火落地，这部分溢价将系统性退出。但当前的反复拉锯意味着这一利空兑现的节奏充满不确定性。</p>
+        <p><strong>原油：</strong>WTI原油周一开盘反弹约3%至$90以上。上周因停火预期暴跌约9%后，周末美方强硬表态推动空头回补。霍尔木兹海峡的"打谈结合"状态意味着油价将继续在$85-95区间宽幅震荡——真正突破需要停火或冲突升级的确定性信号（来源：新华财经、申万期货）。</p>
+      </div>
+    </div>
+
+    <!-- Pull Quote -->
+    <div class="pull-quote">
+      6月的第一个交易日，市场上同时站着三股力量：<br>
+      黄仁勋的AI叙事、美联储的加息阴影、中东的停火反复。<br>
+      谁站在中间，谁就要做选择。
+    </div>
+
+    <!-- Sources -->
+    <div class="sources">
+      <h3>📚 参考来源</h3>
+      <p style="margin-bottom:4px;">1. 东方财富 — <a href="https://finance.eastmoney.com/a/202605313755241125.html">财经早餐 6月1日</a></p>
+      <p style="margin-bottom:4px;">2. 新浪财经 — <a href="https://finance.sina.cn/2026-06-01/detail-inhzwcks5480611.d.html">四大证券报精华摘要</a></p>
+      <p style="margin-bottom:4px;">3. 搜狐 — <a href="https://www.sohu.com/a/1030369962_222256">Computex 2026重磅来袭</a></p>
+      <p style="margin-bottom:4px;">4. 腾讯科技 — <a href="https://news.qq.com/rain/a/20260601A02I8E00">全球科技早参：COMPUTEX今日开幕</a></p>
+      <p style="margin-bottom:4px;">5. CNBC — Wall Street ends at record highs</p>
+      <p style="margin-bottom:4px;">6. Investopedia — What to Expect: May Jobs Report</p>
+      <p style="margin-bottom:4px;">7. 凤凰网 — 美伊谈判最新动态</p>
+      <p style="margin-bottom:4px;">8. 国家统计局 — 5月PMI数据</p>
+      <p style="margin-bottom:4px;">9. 证券时报 — 国企改革方案下发</p>
+      <p style="margin-bottom:4px;">10. 韩联社 — KOSPI 5月涨28%</p>
+    </div>
+
+    <!-- End Box -->
+    <div class="end-box">
+      <div class="end-icon">📡</div>
+      <div class="end-title">扬说财经 · 早报</div>
+      <div class="end-desc">用漫画看懂财经 · 每日早8点更新</div>
+    </div>
+
+    <div class="warn">⚠️ <strong>风险提示：</strong>本文仅为信息分享与知识科普，不构成任何投资建议。市场有风险，投资需谨慎。数据来源于公开信息，如有出入请以官方数据为准。</div>
+
+  </div>
+</div>
+
+<script>
+// ===== 音频/漫画/图片 资源完整性检查 =====
+document.addEventListener('DOMContentLoaded',function(){
+  var player=document.querySelector('.player');
+  var audioEl=player?player.querySelector('audio'):null;
+  if(audioEl&&player){
+    var timeoutId=setTimeout(function(){player.style.display='none';},8000);
+    audioEl.addEventListener('canplay',function(){clearTimeout(timeoutId);});
+    audioEl.addEventListener('error',function(){
+      clearTimeout(timeoutId);
+      player.style.display='none';
+    });
+  }
+  document.querySelectorAll('.section-img img').forEach(function(img){
+    if(img.getAttribute('src')&&img.getAttribute('src').indexOf('comic/')===0){
+      img.addEventListener('error',function(){
+        this.outerHTML='<div style="padding:32px 16px;text-align:center;background:#F8FAFC;border-radius:8px;color:#94A3B8;font-size:13px;line-height:1.8;">🖼️ 漫画加载失败<br><span style="font-size:11px;">'+(this.getAttribute('alt')||'')+'</span></div>';
+      });
+    }
+  });
+});
+
+// 动态返回首页 — 根据URL路径深度自动计算
+document.addEventListener('DOMContentLoaded',function(){
+  var back=document.querySelector('.back');
+  if(back){
+    back.addEventListener('click',function(e){
+      e.preventDefault();
+      var p=location.pathname.replace(/\/$/,'').split('/');
+      location.href='../'.repeat(Math.max(0,p.length-2))||'.';
+    });
+  }
+});
+</script>
+</body>
+</html>

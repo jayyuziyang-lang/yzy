@@ -459,6 +459,7 @@ python scripts/audit-article.py --date YYYY-MM-DD --edition evening
 □ 模板JS同步 — 包含音频8秒超时 + 漫画onerror回退
 □ 模板CSS——自定义配色/字体/渐变与专题风格匹配
 □ 引流入口——首页"今日内容"区域包含专题入口
+□ L3推理验证——所有市场分析论断通过方向性检验+历史类比+多渠道分析+反方观点检查（参见 docs/team/INFO_VERIFICATION_SYSTEM.md）
 ```
 
 ---
