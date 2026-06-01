@@ -1,20 +1,7 @@
 {
-  "generated_at": "2026-06-01T10:59:06+08:00",
+  "generated_at": "2026-06-01T11:04:05+08:00",
   "latest_date": "2026-06-01",
   "articles": [
-    {
-      "date": "2026-06-01",
-      "session": "special",
-      "edition_cn": "深度",
-      "icon": "📚",
-      "title": "全球央行囤金：黄金超越美债意味着什么？",
-      "url": "special/全球央行囤金/article.html",
-      "series": "宏观货币",
-      "has_audio": true,
-      "audio_size_bytes": 8322192,
-      "has_comic": true,
-      "comic_count": 7
-    },
     {
       "date": "2026-06-01",
       "session": "morning",
@@ -26,6 +13,19 @@
       "audio_size_bytes": 1215216,
       "has_comic": true,
       "comic_count": 3
+    },
+    {
+      "date": "2026-05-31",
+      "session": "special",
+      "edition_cn": "深度",
+      "icon": "📚",
+      "title": "全球央行囤金：黄金超越美债意味着什么？",
+      "url": "special/全球央行囤金/article.html",
+      "series": "宏观货币",
+      "has_audio": true,
+      "audio_size_bytes": 8322192,
+      "has_comic": true,
+      "comic_count": 7
     },
     {
       "date": "2026-05-29",
@@ -235,19 +235,6 @@
   ],
   "by_date": {
     "2026-06-01": {
-      "special": {
-        "date": "2026-06-01",
-        "session": "special",
-        "edition_cn": "深度",
-        "icon": "📚",
-        "title": "全球央行囤金：黄金超越美债意味着什么？",
-        "url": "special/全球央行囤金/article.html",
-        "series": "宏观货币",
-        "has_audio": true,
-        "audio_size_bytes": 8322192,
-        "has_comic": true,
-        "comic_count": 7
-      },
       "morning": {
         "date": "2026-06-01",
         "session": "morning",
@@ -259,6 +246,21 @@
         "audio_size_bytes": 1215216,
         "has_comic": true,
         "comic_count": 3
+      }
+    },
+    "2026-05-31": {
+      "special": {
+        "date": "2026-05-31",
+        "session": "special",
+        "edition_cn": "深度",
+        "icon": "📚",
+        "title": "全球央行囤金：黄金超越美债意味着什么？",
+        "url": "special/全球央行囤金/article.html",
+        "series": "宏观货币",
+        "has_audio": true,
+        "audio_size_bytes": 8322192,
+        "has_comic": true,
+        "comic_count": 7
       }
     },
     "2026-05-29": {
