@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+  <rect width="600" height="340" fill="#FAFAFA" rx="8"/>
+  <text x="300" y="32" text-anchor="middle" fill="#1E293B" font-size="18" font-weight="700">美伊谈判再拉锯 · 油价跳涨2.6%</text>
+  <text x="300" y="52" text-anchor="middle" fill="#94A3B8" font-size="12">2026年6月1日 · 地缘局势持续发酵</text>
+
+  <rect x="30" y="72" width="260" height="100" rx="8" fill="#FFF7ED" stroke="#FED7AA" stroke-width="1"/>
+  <text x="160" y="95" text-anchor="middle" fill="#EA580C" font-size="14" font-weight="700">特朗普加码三条件</text>
+  <text x="50" y="118" fill="#9A3412" font-size="11">① 伊朗永远不拥核</text>
+  <text x="50" y="138" fill="#9A3412" font-size="11">② 霍尔木兹双向开放 · 清除水雷</text>
+  <text x="50" y="158" fill="#9A3412" font-size="11">③ 库存浓缩铀必须销毁</text>
+
+  <rect x="310" y="72" width="260" height="100" rx="8" fill="#FEF2F2" stroke="#FECACA" stroke-width="1"/>
+  <text x="440" y="95" text-anchor="middle" fill="#DC2626" font-size="14" font-weight="700">伊朗强硬回应</text>
+  <text x="330" y="118" fill="#991B1B" font-size="11">谴责美方单方面修改草案</text>
+  <text x="330" y="138" fill="#991B1B" font-size="11">革命卫队宣布全面管理海峡</text>
+  <text x="330" y="158" fill="#991B1B" font-size="11">谈判至少再延一周</text>
+
+  <line x1="30" y1="185" x2="570" y2="185" stroke="#E2E8F0"/>
+
+  <!-- Oil price -->
+  <text x="300" y="210" text-anchor="middle" fill="#1E293B" font-size="14" font-weight="600">今日油价表现</text>
+  <rect x="80" y="220" width="200" height="50" rx="8" fill="#F0FDF4" stroke="#BBF7D0" stroke-width="1"/>
+  <text x="180" y="242" text-anchor="middle" fill="#16A34A" font-size="12" font-weight="600">WTI原油</text>
+  <text x="180" y="262" text-anchor="middle" fill="#1E293B" font-size="16" font-weight="700">$89.73 <tspan fill="#16A34A" font-size="12">+2.56%</tspan></text>
+
+  <rect x="320" y="220" width="200" height="50" rx="8" fill="#F0FDF4" stroke="#BBF7D0" stroke-width="1"/>
+  <text x="420" y="242" text-anchor="middle" fill="#16A34A" font-size="12" font-weight="600">布伦特原油</text>
+  <text x="420" y="262" text-anchor="middle" fill="#1E293B" font-size="16" font-weight="700">$93.14 <tspan fill="#16A34A" font-size="12">+2.22%</tspan></text>
+
+  <!-- Context -->
+  <text x="300" y="295" text-anchor="middle" fill="#64748B" font-size="11">上周油价因停火预期暴跌16.74%（布油六年来最大月跌幅）</text>
+  <text x="300" y="312" text-anchor="middle" fill="#64748B" font-size="11">霍尔木兹封锁导致全球每日供应减少1200-1300万桶</text>
+  <text x="300" y="332" text-anchor="middle" fill="#F59E0B" font-size="11" font-weight="600">核心逻辑：油价↔通胀↔美联储利率路径 三条线串联</text>
+</svg>

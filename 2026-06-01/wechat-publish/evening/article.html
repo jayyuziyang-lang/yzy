@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>三大指数齐跌背后的真相·3700股上涨·煤炭6%暴涨·科创50再跌5%·AI PC涨停潮·PMI临界点·美伊再拉锯</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system,"PingFang SC","Microsoft YaHei","Helvetica Neue",sans-serif; background: #F5F7FA; color: #1E293B; line-height: 1.8; font-size: 16px; }
+  .c { max-width: 640px; margin: 0 auto; background: #fff; padding: 44px 0 40px; }
+  .top-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; max-width: 640px; margin: 0 auto; background: rgba(255,255,255,0.95); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-bottom: 1px solid #E2E8F0; display: flex; align-items: center; padding: 0 16px; height: 44px; }
+  .top-nav .back { display: flex; align-items: center; gap: 4px; color: #1A56DB; text-decoration: none; font-size: 13px; font-weight: 600; }
+  .top-nav .back:active { opacity: 0.6; }
+  .top-nav .nav-date { flex: 1; text-align: center; font-size: 12px; color: #64748B; }
+  .top-nav .nav-edition { font-size: 11px; color: #94A3B8; background: #F1F5F9; padding: 2px 8px; border-radius: 8px; }
+  .top-nav .nav-edition.pm { color: #D4A017; background: #FFFBEB; }
+  .header { background: linear-gradient(135deg,#D4A017,#B8860B); padding: 20px 20px 16px; color: white; }
+  .header h1 { font-size: 22px; font-weight: 700; line-height: 1.4; margin-bottom: 6px; }
+  .header .meta { font-size: 12px; opacity: 0.8; display: flex; gap: 12px; flex-wrap: wrap; }
+  .player { display: flex; align-items: center; gap: 12px; margin-top: 14px; }
+  .player-icon { width: 40px; height: 40px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 18px; }
+  .player-info { flex: 1; }
+  .player-title { font-size: 13px; font-weight: 600; }
+  .player-desc { font-size: 11px; opacity: 0.7; }
+  .player audio { width: 100%; margin-top: 4px; border-radius: 20px; }
+  .body { padding: 20px 20px 0; }
+  .layer1 { margin-bottom: 28px; }
+  .l1-title { font-size: 16px; font-weight: 700; color: #D4A017; margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
+  .l1-comic { margin: 8px 0 0; }
+  .l1-comic img { width: 100%; border-radius: 10px; border: 1px solid #E2E8F0; }
+  .l1-divider { border: none; border-top: 2px dashed #D4A017; margin: 16px 0; }
+  .layer2 { margin-bottom: 24px; }
+  .l2-title { font-size: 16px; font-weight: 700; color: #D4A017; margin-bottom: 14px; display: flex; align-items: center; gap: 6px; }
+  .quote { background: #FFFBEB; border-left: 4px solid #D4A017; padding: 12px 14px; margin: 14px 0; border-radius: 0 8px 8px 0; font-size: 14px; color: #92400E; line-height: 1.7; }
+  p { margin-bottom: 12px; text-align: justify; font-size: 15px; }
+  .story { margin: 22px 0; }
+  .story-head { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .story-num { width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; color: #fff; flex-shrink: 0; }
+  .story-num.s01 { background: #EF4444; } .story-num.s02 { background: #7C3AED; } .story-num.s03 { background: #F59E0B; }
+  .story-num.s04 { background: #1A56DB; } .story-num.s05 { background: #10B981; } .story-num.s06 { background: #D4A017; }
+  .story-tag { font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 3px; }
+  .story-tag.s01 { background: #FEF2F2; color: #DC2626; } .story-tag.s02 { background: #F5F3FF; color: #7C3AED; }
+  .story-tag.s03 { background: #FFF7ED; color: #D97706; } .story-tag.s04 { background: #EFF6FF; color: #1A56DB; }
+  .story-tag.s05 { background: #F0FDF4; color: #16A34A; } .story-tag.s06 { background: #FFFBEB; color: #B8860B; }
+  .story-title { font-size: 16px; font-weight: 700; color: #1E293B; line-height: 1.4; }
+  .story-content { font-size: 14px; color: #334155; line-height: 1.8; margin-bottom: 8px; }
+  .story-content p { margin-bottom: 8px; font-size: 14px; }
+  .story-img { margin: 10px 0 0; border-radius: 8px; border: 1px solid #E2E8F0; overflow: hidden; background: #FAFAFA; }
+  .story-img img { width: 100%; display: block; }
+  .story-divider { border: none; height: 1px; background: linear-gradient(to right, transparent, #E2E8F0, transparent); margin: 6px 0; }
+  .gold-box { background: linear-gradient(135deg,#FFF8E7,#FFF3D6); border: 1px solid #D4A017; border-radius: 12px; padding: 18px 20px; margin: 22px 0; text-align: center; font-size: 16px; font-weight: 700; color: #B8860B; line-height: 1.5; }
+  .layer3 { margin-bottom: 24px; }
+  .l3-title { font-size: 16px; font-weight: 700; color: #D4A017; margin-bottom: 10px; }
+  table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 13px; }
+  th { background: #D4A017; color: #fff; padding: 8px 10px; text-align: left; font-weight: 600; }
+  th:first-child { border-radius: 6px 0 0 0; }
+  th:last-child { border-radius: 0 6px 0 0; }
+  td { padding: 8px 10px; border-bottom: 1px solid #E2E8F0; }
+  tr:nth-child(even) { background: #F8F9FA; }
+  .up { color: #DC2626; font-weight: 600; }
+  .down { color: #16A34A; font-weight: 600; }
+  .warn { background: #FFF5F5; border: 1px solid #FECACA; border-radius: 10px; padding: 12px 14px; margin-top: 24px; font-size: 12px; color: #991B1B; line-height: 1.5; }
+  .list { background: #F8F9FA; border-radius: 8px; padding: 10px 14px; margin: 10px 0; }
+  .list-item { padding: 5px 0; border-bottom: 1px solid #E2E8F0; font-size: 13px; display: flex; gap: 6px; }
+  .list-item:last-child { border-bottom: none; }
+  .tag-b { display: inline-block; background: #D4A017; color: #fff; font-size: 10px; padding: 1px 7px; border-radius: 8px; white-space: nowrap; }
+  .sources { background: #FFFBEB; border-radius: 10px; padding: 12px 14px; margin: 16px 0; font-size: 12px; color: #92400E; line-height: 1.6; }
+  .sources h3 { font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+  .sources a { color: #1A56DB; text-decoration: none; }
+  .foot { background: linear-gradient(135deg,#D4A017,#B8860B); border-radius: 12px; padding: 18px 20px; margin: 22px 0; color: white; text-align: center; }
+  .foot .icon { font-size: 28px; margin-bottom: 4px; }
+  .foot .t { font-size: 16px; font-weight: 700; margin-bottom: 2px; }
+  .foot .d { font-size: 11px; opacity: 0.85; }
+  .highlight { background: #FFFBEB; padding: 1px 4px; border-radius: 2px; font-weight: 600; color: #92400E; }
+  .key-num { font-weight: 700; color: #D4A017; }
+</style>
+</head>
+<body>
+<div class="c">
+
+  <div class="top-nav">
+    <a class="back" href="../../../index.html">&larr; 返回首页</a>
+    <span class="nav-date">2026.06.01</span>
+    <span class="nav-edition pm">晚报</span>
+  </div>
+
+  <div class="header">
+    <h1>三大指数齐跌，3700只股票却在涨——藏在"指数收黑"背后的格局切换</h1>
+    <div class="meta">
+      <span>📅 2026.06.01 晚间</span>
+      <span>🏷️ 冲高回落/科创50再跌5%/煤炭暴涨6%/AI PC涨停潮/PMI 50.0/美伊再拉锯</span>
+    </div>
+    <div class="player">
+      <div class="player-icon">🎧</div>
+      <div class="player-info">
+        <div class="player-title">音频解说 · 约6分钟</div>
+        <div class="player-desc">边听边看，体验更佳</div>
+        <audio controls preload="none"><source src="audio.mp3" type="audio/mpeg"></audio>
+      </div>
+    </div>
+  </div>
+
+  <div class="body">
+
+    <!-- ════════════════════════════════ -->
+    <!-- LAYER 1: 今日热点速览 -->
+    <!-- ════════════════════════════════ -->
+    <div class="layer1">
+      <div class="l1-title">📋 今日热点速览 — 60秒掌握关键信息</div>
+      <div class="l1-comic">
+        <img loading="lazy" src="comic/panel-000.svg" alt="今日热点速览">
+      </div>
+      <hr class="l1-divider">
+      <div style="text-align:center;font-size:12px;color:#D4A017;font-weight:600;">▼ 往下翻看深度解读</div>
+    </div>
+
+    <!-- ════════════════════════════════ -->
+    <!-- LAYER 2: 今日深度专题 -->
+    <!-- ════════════════════════════════ -->
+    <div class="layer2">
+      <div class="l2-title">🔍 今日深度专题</div>
+
+      <div class="quote">
+        三大指数集体收跌——上证-0.27%、深证-1.51%、创业板-2.15%、科创50再跌5%——但全市场3774只股票上涨，166只涨停，仅1678只下跌。指数在跌，钱却在涨。这不是矛盾，是A股正在进行一场风格切换。五月的主角（半导体、算力硬件）正在退场，六月的新角色（AI应用、煤炭、电力）已经登场。今天，切换正式完成。
+      </div>
+
+      <!-- 01 A股 -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s01">01</div>
+          <div class="story-tag s01">A股</div>
+          <div class="story-title">指数跌了，钱没亏：3700只个股上涨背后的"假指数"真相</div>
+        </div>
+        <div class="story-content">
+          <p>今天是六月第一个交易日，A股大盘三大指数冲高回落，全线收跌。<strong>上证指数跌0.27%报4057.74点；深证成指跌1.51%报15340.36点；创业板指跌2.15%报3950.94点；科创50跌5.00%报1663.69点</strong>，连续第二个交易日重挫5%（来源：每日经济新闻、第一财经）。</p>
+
+          <p>但这个"指数收黑"的标题背后，藏着一个完全相反的事实。<strong>全市场3774只股票上涨，仅1678只下跌，166只涨停</strong>——涨停家数为近期最高。真相是：指数被几个权重板块绑架了。半导体今日资金净流出276.6亿元，通信设备净流出65亿元，科创50成分股被大规模抛售——正是这些大市值板块的砸盘拖累了指数，而绝大多数个股今天其实在涨（来源：东方财富、证券时报）。</p>
+
+          <p>这种"指数跌、个股涨"的分化，是风格切换最典型的特征。前期涨到天上的板块（半导体、CPO、光模块）在获利了结，资金大规模涌入低位板块：<strong>煤炭开采加工板块暴涨近6%，逼近历史最高点</strong>——大有能源、郑州煤电、昊华能源、晋控煤业、潞安环能、山煤国际、辽宁能源共7只煤炭股涨停。催化来自印尼煤炭出口政策收紧叠加迎峰度夏预期（来源：证券时报、每日经济新闻）。</p>
+
+          <p><strong>AI应用全线爆发</strong>：天地在线3连板、掌阅科技4天2板，视觉中国、久其软件等14只AI应用股涨停。AIGC概念11只、鸿蒙概念13只涨停。AI PC概念受英伟达N1X发布催化，春秋电子2连板，雷神科技、软通动力等大涨。此外，电力板块延续强势，粤电力A封出4连板；鸡肉概念涨超4%，晓鸣股份一度20%涨停。成交额2.89万亿元，较上一日缩量约4400亿——缩量上涨反而说明抛压不大，筹码结构健康（来源：东方财富、21世纪经济报道）。</p>
+
+          <p><strong>一句话总结今天A股：</strong>科技硬件在还债，AI应用在接棒，煤炭电力在补涨，市场正在用真金白银告诉你——六月的主线变了。</p>
+        </div>
+        <div class="story-img">
+          <img loading="lazy" src="charts/e01_astock.svg" alt="A股今日收盘全景">
+        </div>
+      </div>
+
+      <hr class="story-divider">
+
+      <!-- 02 美股 -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s02">02</div>
+          <div class="story-tag s02">美股</div>
+          <div class="story-title">标普500创纪录9连涨收官五月，戴尔单日33%领跑</div>
+        </div>
+        <div class="story-content">
+          <p>上周五美股三大指数全线收涨，续创历史收盘新高，为五月画上完美句号。<strong>标普500涨0.22%报7580.06点，实现第9周连涨</strong>——2023年12月以来最长周度连涨纪录。道指涨0.72%报51032.46点，首次站稳51000点关口；纳指涨0.20%报26972.62点。五月纳指累计涨8.36%，标普涨5.15%，道指涨2.78%，纳指创2009年以来最佳五月表现（来源：CNBC、Investopedia）。</p>
+
+          <p><strong>上周五最炸裂的事件：戴尔科技单日暴涨32.76%。</strong> Q1 FY2027财报核心数据：营收438亿美元（同比+88%，远超市场预期357亿），AI服务器收入161亿美元，同比暴增757%。戴尔AI积压订单高达513亿美元，管理层大幅上调全年营收指引至1650-1690亿美元。美银将目标价从280美元大幅上调至500美元。Melius Research给出行业最高目标价565美元（来源：高盛、美银研报）。</p>
+
+          <p>戴尔的这笔财报的意义超过了它自己。一家"组装电脑的"公司都能实现AI收入暴增757%，说明整个AI基础设施链从芯片到服务器到网络设备都在受益。HPE跟涨12.6%，超微电脑涨11.6%。但9周连涨后，6月传统上是美股弱月——sell in May and go away的变种可能在本周非农数据前后触发获利回吐。</p>
+        </div>
+        <div class="story-img">
+          <img loading="lazy" src="charts/e02_us_markets.svg" alt="美股三大指数表现">
+        </div>
+      </div>
+
+      <hr class="story-divider">
+
+      <!-- 03 科技/AI -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s03">03</div>
+          <div class="story-tag s03">科技/AI</div>
+          <div class="story-title">黄仁勋的PC宣言：N1X发布，联发科护航，200 TOPS端侧AI</div>
+        </div>
+        <div class="story-content">
+          <p>今天上午11点，黄仁勋在台北GTC Taipei正式发布英伟达首款PC处理器<strong>N1X</strong>。台积电3nm制程，20核CPU（10 Cortex-X925性能+10 A725能效），Blackwell GPU集成6144个CUDA核心，AI算力200 TOPS，最高128GB LPDDR5X统一内存。首批搭载品牌包括微软Surface、戴尔、惠普、华硕、联想、微星，预计2026年秋季上市（来源：TrendForce、财联社）。</p>
+
+          <p><strong>N1X背后最重要的合作方是联发科。</strong> 联发科负责CPU部分定制设计，意味着联发科走出了手机SoC赛道，正式进入PC处理器领域。黄仁勋称之为"40年来首次PC产品线全面重构"——但郭明錤给出冷静判断：未来两年N1X出货量约1000万台，在年销2.5亿台的PC市场中渗透率不到5%。这不是"PC革命"，而是"PC生态多元化的一个注脚"。</p>
+
+          <p><strong>但今天A股的AI PC概念没有理会这份冷静。</strong> 春秋电子2连板，雷神科技、软通动力、胜利精密集体涨停。市场选择先炒情绪——这是A股科技股的典型特征，预期先行、业绩后到。真正需要关注的是英伟达设定的200亿美元CPU销售目标，这个数字意味着N1X每台均价约2000美元，定位高端而非走量。短期内，这更多是英伟达对Intel/AMD的战略宣战，而非立即兑现的业绩增量。</p>
+
+          <p><strong>算力链另一条线索：</strong> 联想集团今天港股涨近8%，恒生科技指数直逼5000点，阿里、腾讯、小米涨超2%。中概股整体情绪偏暖，与A股形成共振。</p>
+        </div>
+        <div class="story-img">
+          <img loading="lazy" src="charts/e03_n1x.svg" alt="N1X芯片解读">
+        </div>
+      </div>
+
+      <hr class="story-divider">
+
+      <!-- 04 国际 -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s04">04</div>
+          <div class="story-tag s04">前沿/国际</div>
+          <div class="story-title">美伊停火生变：特朗普临时加码三条件，谈判至少再延一周</div>
+        </div>
+        <div class="story-content">
+          <p>上周末美伊停火进程出现戏剧性转折。特朗普在白宫战情室召开约2小时闭门会议后，<strong>大幅修改并收紧了谅解备忘录条款</strong>，提出三大新条件：伊朗必须永远不拥有核武器；霍尔木兹海峡必须立即双向开放、清除所有水雷；库存浓缩铀必须被销毁。伊朗外交部谴责美方"单方面修改已达成草案"是缺乏诚意的表现，革命卫队高调宣布全面管理霍尔木兹海峡航运（来源：华尔街见闻、凤凰网）。</p>
+
+          <p><strong>油价直接反应：</strong> 今天早盘WTI原油跳涨2.6%至89.73美元，布伦特涨至93.14美元。上上周油价因停火预期暴跌16.74%（布油创六年来最大月度跌幅），现在谈判拉锯导致空头回补。以色列与黎巴嫩真主党冲突也在升级——以色列命令军队进一步向黎巴嫩推进，中东的温度没有任何实质下降。</p>
+
+          <p><strong>核心判断：</strong> 油价能不能降下来，决定了通胀能不能降温，决定了美联储还有没有降息的空间。三条线的逻辑是串联的。美伊谈判是6月市场最大的"X因素"——不是因为它本身重要（当然也重要），而是因为它像一个开关，同时控制着通胀预期、美联储路径和风险偏好三个变量。</p>
+        </div>
+        <div class="story-img">
+          <img loading="lazy" src="charts/e04_geopolitics.svg" alt="美伊谈判和油价">
+        </div>
+      </div>
+
+      <hr class="story-divider">
+
+      <!-- 05 宏观 -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s05">05</div>
+          <div class="story-tag s05">宏观</div>
+          <div class="story-title">PMI卡在"及格线"：50.0，生产还在干，订单不够了</div>
+        </div>
+        <div class="story-content">
+          <p>国家统计局周末公布5月官方制造业PMI降至<span class="highlight">50.0%</span>，刚好卡在荣枯线。拆分来看：<strong>生产指数51.2%</strong>仍在扩张但回落，<strong>新订单指数49.9%</strong>跌入收缩区间。更令人担忧的是新出口订单指数48.6%，环比骤降1.7个百分点——外需回落的信号非常明确。高技术制造业PMI录得52.9%（连续16个月扩张），装备制造业PMI录得52.1%（创2023年4月以来新高），结构性亮点仍在（来源：国家统计局、财新）。</p>
+
+          <p>财新PMI录得51.8，高于预期的51.4，连续6个月扩张。财新与官方PMI的差距（51.8 vs 50.0）说明南方中小企业景气度优于北方大型国企，经济复苏的"广度不足"依然是核心结构性问题。</p>
+
+          <p><strong>海外宏观最关键的变量：美联储。</strong> 理事库克已表态"准备好提高利率"，新任主席沃什面临从市场期待的"降息推动者"到被迫"遏制加息预期"的政策变局。CME美联储观察显示，6月维持利率不变概率99.4%，但<strong>年内加息概率已升至约55%</strong>。周五非农将是第一块试金石——市场预期新增就业约11.5-13万人，失业率维持4.2-4.3%。若数据超预期，将强化加息定价；若大幅低于预期，降息呼声将重新升温。</p>
+        </div>
+        <div class="story-img">
+          <img loading="lazy" src="charts/e05_pmi.svg" alt="PMI数据拆解">
+        </div>
+      </div>
+
+      <hr class="story-divider">
+
+      <!-- 06 商品 -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s06">06</div>
+          <div class="story-tag s06">商品</div>
+          <div class="story-title">WTI弹回$90，黄金$4,500盘整：地缘溢价的重新定价</div>
+        </div>
+        <div class="story-content">
+          <p><strong>原油：</strong> 今日早盘WTI原油涨2.56%至89.73美元，布伦特涨2.22%至93.14美元。上周停火预期推动油价暴跌后，周末特朗普加码谈判条件导致空头回补。核心供给缺口仍在：霍尔木兹封锁导致全球每日供应减少1200-1300万桶，累计中断超10亿桶。即便协议落地，运力至少需4个月恢复至冲突前八成水平（来源：新华财经、Moneycontrol）。</p>
+
+          <p><strong>黄金：</strong> 现货黄金交投于4527美元附近，日内小幅下跌约0.2%。上周五金价一度触及4595美元，周末停火预期消退后小幅回落。黄金短期走势完全被美伊谈判"deal-on/deal-off"节奏支配——停火预期升温时避险溢价退出施压，谈判破裂时避险买盘回补。这不是趋势信号，是噪音。中期看，各国央行持续增持（中国央行连续18个月购金）为金价提供底部支撑。</p>
+
+          <p><strong>本周关注：</strong> 周三ADP（预期11万）、周五非农（预期11.5-13万）。若就业数据超预期→加息预期强化→美元走强→黄金承压。反之则反。美伊谈判进展也是每天的变量——特朗普的极限施压策略意味着协议的"deal"和"no deal"都可能来自一条推文，市场必须习惯这种高波动节奏。</p>
+        </div>
+        <div class="story-img">
+          <img loading="lazy" src="charts/e06_gold_oil.svg" alt="黄金原油走势">
+        </div>
+      </div>
+
+      <!-- Gold-box -->
+      <div class="gold-box">
+        今天A股传递了一个清晰信号：五月的主角正在谢幕，六月的新角已经上台。半导体遭276亿资金抛弃，煤炭暴涨6%、AI应用14只涨停——这不是技术性反弹，是真金白银的仓位再平衡。六月的第一个交易日已经告诉我们这个月会怎么走：关注低位启动的新方向，不要追还在跌的老主线。在切换窗口期，比选对方向更重要的，是不要抱着昨天的明星不放手。—— 我是阿扬，明天早上见。
+      </div>
+
+    </div>
+
+    <!-- ════════════════════════════════ -->
+    <!-- LAYER 3: 关键市场数据一览 -->
+    <!-- ════════════════════════════════ -->
+    <div class="layer3">
+      <div class="l3-title">📊 关键市场数据一览</div>
+
+      <table>
+        <tr><th>品种</th><th>最新</th><th>涨跌幅</th></tr>
+        <tr><td>上证指数</td><td>4,057.74</td><td class="down">-0.27%</td></tr>
+        <tr><td>深证成指</td><td>15,340.36</td><td class="down">-1.51%</td></tr>
+        <tr><td>创业板指</td><td>3,950.94</td><td class="down">-2.15%</td></tr>
+        <tr><td>科创50</td><td>1,663.69</td><td class="down">-5.00%</td></tr>
+        <tr><td>标普500</td><td>7,580.06</td><td class="up">+0.22%</td></tr>
+        <tr><td>纳斯达克</td><td>26,972.62</td><td class="up">+0.20%</td></tr>
+        <tr><td>道琼斯</td><td>51,032.46</td><td class="up">+0.72%</td></tr>
+        <tr><td>现货黄金</td><td>$4,527</td><td class="down">-0.2%</td></tr>
+        <tr><td>WTI原油</td><td>$89.73</td><td class="up">+2.56%</td></tr>
+        <tr><td>布伦特原油</td><td>$93.14</td><td class="up">+2.22%</td></tr>
+        <tr><td>美元指数</td><td>~99.0</td><td class="up">+0.1%</td></tr>
+        <tr><td>A股成交额</td><td>2.89万亿</td><td class="down">缩量4443亿</td></tr>
+      </table>
+
+      <div class="list">
+        <div class="list-item"><span class="tag-b">01</span>A股三大指数齐跌但3774涨、166涨停——风格切换确认</div>
+        <div class="list-item"><span class="tag-b">02</span>煤炭暴涨6%逼近历史高点，AI应用14只涨停</div>
+        <div class="list-item"><span class="tag-b">03</span>半导体遭276亿净流出，科创50连续两天跌5%</div>
+        <div class="list-item"><span class="tag-b">04</span>标普500五连阳收官五月，戴尔33%、AI收入757%暴增</div>
+        <div class="list-item"><span class="tag-b">05</span>黄仁勋发布N1X芯片，联发科合作，A股AI PC涨停潮</div>
+        <div class="list-item"><span class="tag-b">06</span>PMI 50.0临界点，新出口订单骤降1.7pct</div>
+      </div>
+
+      <div class="sources">
+        <h3>📌 数据来源</h3>
+        <div style="line-height:2;">
+          · <a href="http://www.nbd.com.cn/articles/2026-06-01/4413827.html">每日经济新闻 — A股收盘：冲高回落四大股指收跌</a><br>
+          · <a href="https://fund.eastmoney.com/a/202606013755999189.html">东方财富 — A股收盘：沪指跌0.27% 煤炭板块强势</a><br>
+          · <a href="https://www.21jingji.com/article/20260601/herald/f5c5906bab74c8844f8d6ce698d21622.html">第一财经 — A股收评：超3700只个股飘红</a><br>
+          · <a href="https://www.zhitongcaijing.com/content/detail/1448426.html">智通财经 — 3700股飘红科创50却跌5%</a><br>
+          · <a href="https://finance.sina.com.cn/wm/2026-06-01/doc-inhzwyqq3909294.shtml">新浪财经 — 重要消息引爆！今天A股变了！</a><br>
+          · <a href="https://stcn.com/article/detail/3937286.html">证券时报 — 煤炭股集体尾盘异动</a><br>
+          · <a href="https://news.qq.com/rain/a/20260601A04RIP00">腾讯新闻 — AI应用概念爆发煤炭走强</a><br>
+          · <a href="https://www.cls.cn/detail/2387176">财联社 — 人气板块及个股点评</a><br>
+          · <a href="https://www.trendforce.com/news/2026/06/01/news-nvidia-enters-pc-market-with-rtx-spark-featuring-mediatek-co-designed-n1x-cpu-on-tsmc-3nm/">TrendForce — NVIDIA N1X CPU</a><br>
+          · <a href="https://opinion.caixin.com/m/2026-06-01/102449610.html">财新 — 5月PMI的韧性压力</a><br>
+          · <a href="https://www.163.com/dy/article/KUBBILMH0550B6IS.html">网易 — 金银价格、国际油价上涨</a>
+        </div>
+      </div>
+
+      <div class="foot">
+        <div class="icon">📡</div>
+        <div class="t">扬说财经</div>
+        <div class="d">用漫画看懂财经 — 每天早报速览，晚报深度，陪你读懂市场</div>
+      </div>
+
+      <div class="warn">⚠️ <strong>风险提示：</strong>以上内容仅为信息分享，不构成投资建议。市场有风险，投资需谨慎。数据来源于公开信息，如有出入请以官方数据为准。</div>
+
+    </div>
+
+  </div>
+</div>
+
+<script>
+// ===== 音频/漫画/图片 资源完整性检查 =====
+document.addEventListener('DOMContentLoaded',function(){
+  var player=document.querySelector('.player');
+  var audioEl=player?player.querySelector('audio'):null;
+  if(audioEl&&player){
+    var timeoutId=setTimeout(function(){player.style.display='none';},8000);
+    audioEl.addEventListener('canplay',function(){clearTimeout(timeoutId);});
+    audioEl.addEventListener('error',function(){
+      clearTimeout(timeoutId);
+      player.style.display='none';
+    });
+  }
+  document.querySelectorAll('.section-img img').forEach(function(img){
+    if(img.getAttribute('src')&&img.getAttribute('src').indexOf('comic/')===0){
+      img.addEventListener('error',function(){
+        this.outerHTML='<div style="padding:32px 16px;text-align:center;background:#F8FAFC;border-radius:8px;color:#94A3B8;font-size:13px;line-height:1.8;">🖼️ 漫画加载失败<br><span style="font-size:11px;">'+(this.getAttribute('alt')||'')+'</span></div>';
+      });
+    }
+  });
+});
+
+// 动态返回首页 — 根据URL路径深度自动计算
+document.addEventListener('DOMContentLoaded',function(){
+  var back=document.querySelector('.back');
+  if(back){
+    back.addEventListener('click',function(e){
+      e.preventDefault();
+      var p=location.pathname.replace(/\/$/,'').split('/');
+      location.href='../'.repeat(Math.max(0,p.length-2))||'.';
+    });
+  }
+});
+</script>
+</body>
+</html>

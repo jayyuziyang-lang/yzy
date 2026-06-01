@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+  <rect width="600" height="340" fill="#FAFAFA" rx="8"/>
+  <text x="300" y="32" text-anchor="middle" fill="#1E293B" font-size="18" font-weight="700">5月PMI 50.0 · 刚好卡在荣枯线上</text>
+  <text x="300" y="52" text-anchor="middle" fill="#94A3B8" font-size="12">国家统计局 · 2026年5月制造业PMI数据</text>
+
+  <!-- PMI gauge -->
+  <rect x="60" y="72" width="480" height="60" rx="10" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="300" y="95" text-anchor="middle" fill="#1E293B" font-size="13" font-weight="600">官方制造业PMI</text>
+  <rect x="100" y="105" width="200" height="20" rx="4" fill="#FEF2F2"/>
+  <rect x="100" y="105" width="100" height="20" rx="4" fill="#EF4444"/>
+  <text x="200" y="119" text-anchor="middle" fill="#fff" font-size="11" font-weight="600">50.0</text>
+  <text x="320" y="115" fill="#64748B" font-size="11">荣枯线 = 50</text>
+  <text x="320" y="130" fill="#64748B" font-size="10">前值 50.3 · 环比 -0.3</text>
+
+  <line x1="60" y1="145" x2="540" y2="145" stroke="#E2E8F0"/>
+
+  <!-- Sub-indexes -->
+  <text x="300" y="168" text-anchor="middle" fill="#1E293B" font-size="13" font-weight="600">分项指数</text>
+
+  <rect x="60" y="180" width="225" height="28" rx="6" fill="#F0FDF4"/>
+  <text x="75" y="199" fill="#16A34A" font-size="12">生产指数</text>
+  <text x="270" y="199" text-anchor="end" fill="#16A34A" font-size="12" font-weight="600">51.2% 扩张</text>
+
+  <rect x="315" y="180" width="225" height="28" rx="6" fill="#FEF2F2"/>
+  <text x="330" y="199" fill="#EF4444" font-size="12">新订单指数</text>
+  <text x="525" y="199" text-anchor="end" fill="#EF4444" font-size="12" font-weight="600">49.9% 收缩</text>
+
+  <rect x="60" y="213" width="225" height="28" rx="6" fill="#FEF2F2"/>
+  <text x="75" y="232" fill="#EF4444" font-size="12">新出口订单</text>
+  <text x="270" y="232" text-anchor="end" fill="#EF4444" font-size="12" font-weight="600">48.6% ↓1.7</text>
+
+  <rect x="315" y="213" width="225" height="28" rx="6" fill="#FFF7ED"/>
+  <text x="330" y="232" fill="#D97706" font-size="12">购进价格</text>
+  <text x="525" y="232" text-anchor="end" fill="#D97706" font-size="12" font-weight="600">60.5% 高位</text>
+
+  <line x1="60" y1="253" x2="540" y2="253" stroke="#E2E8F0"/>
+
+  <!-- Highlight -->
+  <text x="60" y="278" fill="#1E293B" font-size="12" font-weight="600">结构性亮点</text>
+  <text x="60" y="298" fill="#16A34A" font-size="11">• 高技术制造业PMI 52.9% — 连续16个月扩张</text>
+  <text x="60" y="316" fill="#16A34A" font-size="11">• 装备制造业PMI 52.1% — 创2023年4月以来新高</text>
+  <text x="60" y="336" fill="#64748B" font-size="11">💡 经济处在"既没崩也不算好"的临界状态</text>
+</svg>

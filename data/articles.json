@@ -1,7 +1,19 @@
 {
-  "generated_at": "2026-06-01T11:04:05+08:00",
+  "generated_at": "2026-06-01T18:35:16+08:00",
   "latest_date": "2026-06-01",
   "articles": [
+    {
+      "date": "2026-06-01",
+      "session": "evening",
+      "edition_cn": "晚报",
+      "icon": "🌙",
+      "title": "三大指数齐跌背后的真相·3700股上涨·煤炭6%暴涨·科创50再跌5%·AI PC涨停潮·PMI临界点·美伊再拉锯",
+      "url": "2026-06-01/wechat-publish/evening/article.html",
+      "has_audio": true,
+      "audio_size_bytes": 1555776,
+      "has_comic": true,
+      "comic_count": 1
+    },
     {
       "date": "2026-06-01",
       "session": "morning",
@@ -235,6 +247,18 @@
   ],
   "by_date": {
     "2026-06-01": {
+      "evening": {
+        "date": "2026-06-01",
+        "session": "evening",
+        "edition_cn": "晚报",
+        "icon": "🌙",
+        "title": "三大指数齐跌背后的真相·3700股上涨·煤炭6%暴涨·科创50再跌5%·AI PC涨停潮·PMI临界点·美伊再拉锯",
+        "url": "2026-06-01/wechat-publish/evening/article.html",
+        "has_audio": true,
+        "audio_size_bytes": 1555776,
+        "has_comic": true,
+        "comic_count": 1
+      },
       "morning": {
         "date": "2026-06-01",
         "session": "morning",
