@@ -40,9 +40,9 @@
   <text x="50" y="116" text-anchor="middle" fill="#fff" font-size="7" font-family="PingFang SC, Microsoft YaHei, sans-serif">+2.5%</text>
 
   <!-- Node 6 - Gold (top-left) -->
-  <circle cx="75" cy="42" r="20" fill="#D4A017" opacity="0.9"/>
+  <circle cx="75" cy="42" r="20" fill="#16A34A" opacity="0.9"/>
   <text x="75" y="38" text-anchor="middle" fill="#fff" font-size="8" font-weight="700" font-family="PingFang SC, Microsoft YaHei, sans-serif">黄金</text>
-  <text x="75" y="48" text-anchor="middle" fill="#fff" font-size="7" font-family="PingFang SC, Microsoft YaHei, sans-serif">跌1.7%</text>
+  <text x="75" y="48" text-anchor="middle" fill="#fff" font-size="7" font-family="PingFang SC, Microsoft YaHei, sans-serif">V型反弹</text>
 
   <!-- Bottom stats bar -->
   <rect x="0" y="210" width="300" height="10" fill="#D4A017" opacity="0.15"/>
