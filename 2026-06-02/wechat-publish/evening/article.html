@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>深V反转之谜·3800股下跌·CPO涨停潮·英伟达Vera Rubin投产·WTI破92·恒指重返26000</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system,"PingFang SC","Microsoft YaHei","Helvetica Neue",sans-serif; background: #F5F7FA; color: #1E293B; line-height: 1.8; font-size: 16px; }
+  .c { max-width: 640px; margin: 0 auto; background: #fff; padding: 44px 0 40px; }
+  .top-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; max-width: 640px; margin: 0 auto; background: rgba(255,255,255,0.95); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-bottom: 1px solid #E2E8F0; display: flex; align-items: center; padding: 0 16px; height: 44px; }
+  .top-nav .back { display: flex; align-items: center; gap: 4px; color: #1A56DB; text-decoration: none; font-size: 13px; font-weight: 600; }
+  .top-nav .back:active { opacity: 0.6; }
+  .top-nav .nav-date { flex: 1; text-align: center; font-size: 12px; color: #64748B; }
+  .top-nav .nav-edition { font-size: 11px; color: #94A3B8; background: #F1F5F9; padding: 2px 8px; border-radius: 8px; }
+  .top-nav .nav-edition.pm { color: #D4A017; background: #FFFBEB; }
+  .header { background: linear-gradient(135deg,#D4A017,#B8860B); padding: 20px 20px 16px; color: white; }
+  .header h1 { font-size: 22px; font-weight: 700; line-height: 1.4; margin-bottom: 6px; }
+  .header .meta { font-size: 12px; opacity: 0.8; display: flex; gap: 12px; flex-wrap: wrap; }
+  .player { display: flex; align-items: center; gap: 12px; margin-top: 14px; }
+  .player-icon { width: 40px; height: 40px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 18px; }
+  .player-info { flex: 1; }
+  .player-title { font-size: 13px; font-weight: 600; }
+  .player-desc { font-size: 11px; opacity: 0.7; }
+  .player audio { width: 100%; margin-top: 4px; border-radius: 20px; }
+  .body { padding: 20px 20px 0; }
+  .layer1 { margin-bottom: 28px; }
+  .l1-title { font-size: 16px; font-weight: 700; color: #D4A017; margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
+  .l1-comic { margin: 8px 0 0; }
+  .l1-comic img { width: 100%; border-radius: 10px; border: 1px solid #E2E8F0; }
+  .l1-divider { border: none; border-top: 2px dashed #D4A017; margin: 16px 0; }
+  .layer2 { margin-bottom: 24px; }
+  .l2-title { font-size: 16px; font-weight: 700; color: #D4A017; margin-bottom: 14px; display: flex; align-items: center; gap: 6px; }
+  .quote { background: #FFFBEB; border-left: 4px solid #D4A017; padding: 12px 14px; margin: 14px 0; border-radius: 0 8px 8px 0; font-size: 14px; color: #92400E; line-height: 1.7; }
+  p { margin-bottom: 12px; text-align: justify; font-size: 15px; }
+  .story { margin: 22px 0; }
+  .story-head { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .story-num { width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; color: #fff; flex-shrink: 0; }
+  .story-num.s01 { background: #EF4444; } .story-num.s02 { background: #7C3AED; } .story-num.s03 { background: #F59E0B; }
+  .story-num.s04 { background: #1A56DB; } .story-num.s05 { background: #10B981; } .story-num.s06 { background: #D4A017; }
+  .story-tag { font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 3px; }
+  .story-tag.s01 { background: #FEF2F2; color: #DC2626; } .story-tag.s02 { background: #F5F3FF; color: #7C3AED; }
+  .story-tag.s03 { background: #FFF7ED; color: #D97706; } .story-tag.s04 { background: #EFF6FF; color: #1A56DB; }
+  .story-tag.s05 { background: #F0FDF4; color: #16A34A; } .story-tag.s06 { background: #FFFBEB; color: #B8860B; }
+  .story-title { font-size: 16px; font-weight: 700; color: #1E293B; line-height: 1.4; }
+  .story-content { font-size: 14px; color: #334155; line-height: 1.8; margin-bottom: 8px; }
+  .story-content p { margin-bottom: 8px; font-size: 14px; }
+  .story-img { margin: 10px 0 0; border-radius: 8px; border: 1px solid #E2E8F0; overflow: hidden; background: #FAFAFA; }
+  .story-img img { width: 100%; display: block; }
+  .story-divider { border: none; height: 1px; background: linear-gradient(to right, transparent, #E2E8F0, transparent); margin: 6px 0; }
+  .gold-box { background: linear-gradient(135deg,#FFF8E7,#FFF3D6); border: 1px solid #D4A017; border-radius: 12px; padding: 18px 20px; margin: 22px 0; text-align: center; font-size: 16px; font-weight: 700; color: #B8860B; line-height: 1.5; }
+  .layer3 { margin-bottom: 24px; }
+  .l3-title { font-size: 16px; font-weight: 700; color: #D4A017; margin-bottom: 10px; }
+  .l3-highlight-box { background: #FFFBEB; border-radius: 10px; padding: 12px 14px; margin: 12px 0; font-size: 13px; color: #92400E; line-height: 1.6; border: 1px solid #FDE68A; }
+  table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 13px; }
+  th { background: #D4A017; color: #fff; padding: 8px 10px; text-align: left; font-weight: 600; }
+  th:first-child { border-radius: 6px 0 0 0; }
+  th:last-child { border-radius: 0 6px 0 0; }
+  td { padding: 8px 10px; border-bottom: 1px solid #E2E8F0; }
+  tr:nth-child(even) { background: #F8F9FA; }
+  .up { color: #DC2626; font-weight: 600; }
+  .down { color: #16A34A; font-weight: 600; }
+  .warn { background: #FFF5F5; border: 1px solid #FECACA; border-radius: 10px; padding: 12px 14px; margin-top: 24px; font-size: 12px; color: #991B1B; line-height: 1.5; }
+  .list { background: #F8F9FA; border-radius: 8px; padding: 10px 14px; margin: 10px 0; }
+  .list-item { padding: 5px 0; border-bottom: 1px solid #E2E8F0; font-size: 13px; display: flex; gap: 6px; }
+  .list-item:last-child { border-bottom: none; }
+  .tag-b { display: inline-block; background: #D4A017; color: #fff; font-size: 10px; padding: 1px 7px; border-radius: 8px; white-space: nowrap; }
+  .sources { background: #FFFBEB; border-radius: 10px; padding: 12px 14px; margin: 16px 0; font-size: 12px; color: #92400E; line-height: 1.6; }
+  .sources h3 { font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+  .sources a { color: #1A56DB; text-decoration: none; }
+  .foot { background: linear-gradient(135deg,#D4A017,#B8860B); border-radius: 12px; padding: 18px 20px; margin: 22px 0; color: white; text-align: center; }
+  .foot .icon { font-size: 28px; margin-bottom: 4px; }
+  .foot .t { font-size: 16px; font-weight: 700; margin-bottom: 2px; }
+  .foot .d { font-size: 11px; opacity: 0.85; }
+  .highlight { background: #FFFBEB; padding: 1px 4px; border-radius: 2px; font-weight: 600; color: #92400E; }
+  .key-num { font-weight: 700; color: #D4A017; }
+  .glossary { background: #FFFBEB; border: 1px solid #FDE68A; border-radius: 10px; padding: 12px 14px; margin: 16px 0; font-size: 12px; line-height: 1.6; }
+  .glossary h4 { font-size: 13px; font-weight: 700; color: #92400E; margin-bottom: 8px; }
+  .glossary table { width: 100%; font-size: 12px; margin: 0; }
+  .glossary th { background: #D4A017; color: #fff; padding: 5px 8px; font-size: 11px; text-align: left; }
+  .glossary td { padding: 5px 8px; font-size: 11px; border-bottom: 1px solid #FDE68A; }
+  .glossary tr:nth-child(even) { background: #FFFDF5; }
+  .glossary tr:last-child td { border-bottom: none; }
+  .invest-tip { background: #EFF6FF; border-left: 3px solid #1A56DB; padding: 8px 12px; margin: 8px 0; border-radius: 0 6px 6px 0; font-size: 13px; color: #1E40AF; line-height: 1.6; }
+</style>
+</head>
+<body>
+<div class="c">
+
+  <div class="top-nav">
+    <a class="back" href="../../../index.html">&larr; 返回首页</a>
+    <span class="nav-date">2026.06.02</span>
+    <span class="nav-edition pm">晚报</span>
+  </div>
+
+  <div class="header">
+    <h1>深V反转之谜：指数涨了2.66%，3800只股票却在跌——藏在"指数收红"背后的一日分裂</h1>
+    <div class="meta">
+      <span>📅 2026.06.02 晚间</span>
+      <span>🏷️ CPO涨停潮/英伟达Vera Rubin/3800股下跌/恒指重返26000/WTI破92/黄金承压</span>
+    </div>
+    <div class="player">
+      <div class="player-icon">🎧</div>
+      <div class="player-info">
+        <div class="player-title">音频解说 · 约7分钟</div>
+        <div class="player-desc">边听边看，体验更佳</div>
+        <audio controls preload="none"><source src="audio.mp3" type="audio/mpeg"></audio>
+      </div>
+    </div>
+  </div>
+
+  <div class="body">
+
+    <!-- ============================================ -->
+    <!-- LAYER 1: 今日热点速览 -->
+    <!-- ============================================ -->
+    <div class="layer1">
+      <div class="l1-title">📋 今日热点速览 — 60秒掌握关键信息</div>
+      <div class="l1-comic">
+        <img loading="lazy" src="comic/panel-000.svg" alt="今日热点速览">
+      </div>
+      <hr class="l1-divider">
+      <div style="text-align:center;font-size:12px;color:#D4A017;font-weight:600;">▼ 往下翻看深度解读</div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- LAYER 2: 今日深度专题 -->
+    <!-- ============================================ -->
+    <div class="layer2">
+      <div class="l2-title">🔍 今日深度专题</div>
+
+      <div class="quote">
+        今天是昨天市场镜像般的一天——昨天指数跌了但3700只股票在涨，今天指数涨了但3800只股票在跌。上证早盘一度杀跌至4032点，随后深V反弹收涨0.43%；创业板暴涨2.66%，CPO概念掀涨停潮，通信板块暴涨5%。但与此同时，传媒跌3%、美容护理跌2.7%、煤炭跌1.9%，全市场3876只个股收跌。指数有多漂亮，持仓就有多分化。这是六月第二个交易日，风格切换还在继续——但方向变了。
+      </div>
+
+      <div class="l3-highlight-box" style="background:#FFF7ED;border-color:#FDBA74;color:#9A3412;">
+        <strong>🎯 本周核心判断</strong><br>
+        本周市场有两条主轴在同时运转。<strong>主轴一：英伟达→CPO→A股硬科技</strong>——黄仁勋GTC演讲点燃AI硬件第二波，Vera Rubin全面投产驱动算力互联产业链爆发。这是今天市场的主角。<strong>主轴二：油价→通胀→美联储</strong>——美伊谈判拉锯导致WTI突破92美元，通胀预期升温，6月17日FOMC会议前市场需要定价"加息概率"。两条主轴通过一个共同变量交汇——<strong>美联储的政策反应函数</strong>。AI叙事决定A股结构，宏观叙事决定全球定价。
+      </div>
+
+      <!-- 01 A股 -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s01">01</div>
+          <div class="story-tag s01">A股</div>
+          <div class="story-title">深V反转的真相：指数涨2.66%背后的"指数繁荣"与"个股寒冬"</div>
+        </div>
+        <div class="story-content">
+          <p>今天A股走了一个教科书式的深V。上证指数早盘一度下探至<strong>4032.58点</strong>，之后触底反弹，最终收涨0.43%报<strong>4075.10点</strong>。深证成指涨1.63%报15591.13点，<strong>创业板指涨2.66%报4055.87点</strong>，科创50涨1.62%报1690.56点（来源：每日经济新闻、第一财经）。</p>
+
+          <p>只看指数，这是不错的一天。但用显微镜看——<strong>全市场仅1543只个股上涨，3876只下跌，18只跌停</strong>。指数涨了2.66%，却有近七成股票在亏钱。昨天是"指数跌了但钱赚了"，今天是"指数涨了但钱亏了"。A股用两天时间给所有人上了一课：<strong>现在不是指数行情，是结构性极端的强分化行情。</strong>（来源：东方财富、证券时报）</p>
+
+          <p>成交额<strong>2.79万亿元</strong>，较前日缩量839亿元。缩量上涨+指数强个股弱——这种组合说明：<strong>钱没有离开市场，而是全部集中到了少数权重板块里</strong>。今天资金大规模涌入通信、电子、有色金属，而传媒、消费、煤炭、地产全面失血。这不是市场在"好转"，而是市场在做"仓位再平衡"——从5月的煤炭电力切向6月的AI硬件。（来源：财联社、21世纪经济报道）</p>
+
+          <p><strong>连板方向：</strong>春秋电子3连板（AI PC），中央商场3连板，达实智能13天8板，香江控股7天6板，中京电子6天5板。游资方向清晰——AI PC、硬科技连板高度打出来了。</p>
+
+          <div class="invest-tip">
+            📌 <strong>投资视角：</strong>今天的行情告诉我们，A股正在从"普涨的5月"进入"结构分化的6月"。指数好看没用，方向不对就是不赚钱。当前硬科技（通信、光模块、MLCC）是资金的主攻方向，传媒、消费短期应回避。不要因为"指数涨了"就放松警惕——3800只个股在跌，说明情绪其实很脆弱。
+          </div>
+        </div>
+        <div class="story-img">
+          <img loading="lazy" src="charts/e01_astock.svg" alt="A股今日收盘全景">
+        </div>
+      </div>
+
+      <hr class="story-divider">
+
+      <!-- 02 科技/AI - CPO -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s02">02</div>
+          <div class="story-tag s02">科技/AI</div>
+          <div class="story-title">CPO涨停潮：英伟达GTC点燃的"光"速革命，1.6T光模块元年开启</div>
+        </div>
+        <div class="story-content">
+          <p>今天市场的最大热点，没有之一——<strong>CPO（共封装光学）概念掀起涨停潮</strong>。通信板块暴涨5.08%领涨全市场，电子板块涨3.71%，通信ETF华夏(515050)飙涨5.80%（CPO概念股权重超70%）。</p>
+
+          <p><strong>核心催化一：6月2日黄仁勋GTC台北大会宣布Vera Rubin全面投产。</strong> 英伟达新一代AI平台Vera Rubin本质上是更大规模的算力集成——单机柜算力密度大幅提升，推动<strong>光学互联需求暴增</strong>。更需要关注的，是黄仁勋昨日在COMPUTEX上的另一个关键表态——与Marvell CEO的公开对谈中，他称Marvell可能成为"<strong>下一家万亿美元公司</strong>"，强调AI进入"整个数据中心协同计算"时代。这句话的直接含义：<strong>高速互联、交换芯片、光通信等连接基础设施的重要性，正在从"配角"变为"主角"。</strong>（来源：财联社、TrendForce）</p>
+
+          <p><strong>催化二：新易盛公告亮眼。</strong> 预计2027年Q2-Q4整体情况逐步向好，1.6T光模块<strong>订单同比增幅巨大</strong>，逐季快速增长。1.6T与800G是今年交付主力产品。新易盛今日涨9.88%创新高，带动整个板块。（来源：21世纪经济报道）</p>
+
+          <p><strong>个股表现：</strong>光库科技涨近15%创新高，源杰科技涨超13%，亨通光电涨停创历史新高，长飞光纤涨停，天孚通信涨超5%，中际旭创涨超6%。<strong>光纤概念</strong>同步大涨——华泰证券指出光纤供需结构正在重构。MLCC板块同样爆发——火炬电子4天3板，风华高科涨停，因英伟达Rubin机架MLCC价值量较上一代增长约182%。（来源：东方财富、证券时报）</p>
+
+          <p><strong>机构的判断高度一致：</strong>国盛证券建议"重回大光"，中信证券将2026年定义为<strong>"CPO产业化元年"</strong>，LightCounting预测到2030年CPO市场规模达100亿美元，2025-2030年光模块年均增速22%。</p>
+
+          <div class="invest-tip">
+            📌 <strong>投资视角：</strong>CPO的逻辑不是短线炒作，有产业趋势支撑——AI算力密度提升必然拉动光互联需求，这是物理规律，不是市场情绪。但需要注意两个风险：第一，今天涨停潮后板块情绪已极度亢奋，追高风险很大；第二，CPO的真正业绩释放可能在2027年，当前是"预期先行"。如果看好这条线，等待回调比追高更明智。
+          </div>
+        </div>
+        <div class="story-img">
+          <img loading="lazy" src="charts/e02_cpo.svg" alt="CPO概念爆发">
+        </div>
+      </div>
+
+      <hr class="story-divider">
+
+      <!-- 03 AI/产业 -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s03">03</div>
+          <div class="story-tag s03">AI/产业</div>
+          <div class="story-title">英伟达Vera Rubin全面投产，黄仁勋点名Marvell"下一家万亿"</div>
+        </div>
+        <div class="story-content">
+          <p><strong>6月2日上午，黄仁勋在台北GTC上宣布Vera Rubin平台已全面投入生产。</strong>这是继上周COMPUTEX发布N1X PC芯片后，英伟达连续第二个交易日向市场投下重磅信息。Vera Rubin是英伟达新一代AI加速平台，采用更先进的制程和更高的算力密度，单机柜算力较上一代大幅提升，直接拉动<strong>配套光互联、PCB、MLCC、散热</strong>等整个产业链的需求升级。（来源：财联社、TrendForce）</p>
+
+          <p><strong>硬件产业链全面受益：</strong>除了CPO板块，PCB概念今天同步大涨——鹏鼎控股涨停，宏和科技盘中上演"地天板"。机器人概念也受催化——中大力德、凯迪股份涨停，宇树科技科创板过会并与英伟达达成合作。<strong>英伟达效应正在从AI芯片向整个硬件生态链辐射。</strong></p>
+
+          <p><strong>港股这边同样热闹：</strong>恒生指数大涨2.52%报<strong>26038.32点</strong>，重返26000关口。国企指数涨255点，恒生科技指数涨1.96%报4964.92点。美团涨超8%，腾讯涨超6%，阿里巴巴、小米涨超2%。中概科技股集体走强，与A股硬科技形成共振。港股全天成交3737.80亿港元，量能充足。（来源：元大证券、新浪财经）</p>
+
+          <p><strong>一个需要标记的信号：</strong>Anthropic递交IPO申请，估值9650亿美元。早报已经提到——AI行业从烧钱竞赛进入了资本化兑现阶段。Claude的母公司只是缩影，整个AI产业链正在加速IPO节奏。这条线索值得持续跟踪，因为IPO带来的财富效应会进一步推高一级市场对AI赛道的资本配置。</p>
+
+          <div class="invest-tip">
+            📌 <strong>投资视角：</strong>英伟达已经从"卖芯片"变成"卖整个生态"——从GPU到CPU（N1X）到AI平台（Vera Rubin）再到生态合作伙伴（联发科、Marvell）。英伟达的生态版图越大，A股能映射到的产业链公司就越多。关注英伟达GTC后续还有没有更多消息，本周可能还有催化。
+          </div>
+        </div>
+        <div class="story-img">
+          <img loading="lazy" src="charts/e03_nvidia.svg" alt="英伟达Vera Rubin产业链">
+        </div>
+      </div>
+
+      <hr class="story-divider">
+
+      <!-- 04 国际 -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s04">04</div>
+          <div class="story-tag s04">前沿/国际</div>
+          <div class="story-title">油价再破92美元：伊朗"一日三转"的拉锯还在继续，特朗普的签字笔就是最大变量</div>
+        </div>
+        <div class="story-content">
+          <p>中东的剧情还在拉扯。今天早报我们拆了"一日三转"——6月1日伊朗革命卫队宣布封锁霍尔木兹海峡，特朗普放话一周谈成释放战略石油储备，伊朗最高领袖军事顾问强势回应。到6月2日，局势没有实质改变。今天的油市给出了最直接的答案：<strong>WTI原油收报92.47美元/桶，单日暴涨5.85%；布伦特原油报95.33美元，涨4.62%</strong>。（来源：新华财经、华尔街见闻）</p>
+
+          <p>市场在定价什么？布伦特95美元这个价格，可以拆成三部分：大约<strong>80美元是基本面中性价格，5美元是OPEC+减产的供给溢价，10美元是地缘风险溢价</strong>。现在这10美元的溢价在剧烈波动——谈判传利好时降到3-5美元，局势紧张时跳升到10-15美元。短期油价的方向完全由美伊谈判的进程决定，而非供需基本面。</p>
+
+          <p>特朗普周二晚间声称"谈判取得重大进展"，市场对此已有免疫。<strong>从2月到6月，"两周内谈成"他至少说了四次。</strong>真正需要关注的是本周五之前是否有实质性协议发出——如果没有，油价可能破100，通胀预期将进一步升温，6月17日美联储会议的压力也会更大。</p>
+
+          <div class="invest-tip">
+            📌 <strong>投资视角：</strong>油价→通胀→美联储是一条强传导链。如果WTI持续在92美元以上运行，美国5月CPI（6月10日公布）可能超预期，届时市场对6月17日加息的定价会从40%快速升至60%以上。这不是遥远的故事——就在两周后。每次油价异动，都要同时思考它对美联储路径的影响。
+          </div>
+        </div>
+        <div class="story-img">
+          <img loading="lazy" src="charts/e04_oil.svg" alt="中东局势与油价">
+        </div>
+      </div>
+
+      <hr class="story-divider">
+
+      <!-- 05 宏观 -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s05">05</div>
+          <div class="story-tag s05">宏观</div>
+          <div class="story-title">CPI、非农、FOMC——六月最重要的三张牌，本周先出第一张</div>
+        </div>
+        <div class="story-content">
+          <p>宏观层面，今天没有重磅数据发布，但市场已经在为本周五的<strong>非农数据</strong>提前布局。芝加哥商品交易所的美联储观察工具显示，<strong>6月17日加息25基点的概率维持在40%左右</strong>——上周这个数字还只有3%，今天已经稳在了四成。</p>
+
+          <p>几个关键时间点：<strong>6月5日（周五）非农</strong>——市场预期新增就业11.5-13万人，失业率维持4.2-4.3%。如果数据超预期，加息概率可能升破50%。<strong>6月10日CPI</strong>——油价5月均值比4月高了约10美元，传导到CPI数据需要约3-4周，所以5月CPI可能超预期。<strong>6月17日FOMC</strong>——新任主席沃什的首秀，市场最关注的是他的措辞基调。</p>
+
+          <p><strong>A股宏观环境方面：</strong>今天人民币汇率小幅升值——在岸人民币收报6.7622，离岸6.7610。港股大涨2.52%说明外资对中国资产的信心在修复。但A股本身缩量839亿，说明内资依然谨慎。5月PMI 50.0的数据余波还在，市场需要更多经济数据才能确认复苏方向。（来源：中国人民银行、财新）</p>
+
+          <p><strong>VIX恐慌指数今天收报16.05，涨4.77%</strong>。昨天早报已经提到这个反常信号——指数创新高时VIX反而在涨。今天标普500涨0.26%、VIX涨4.77%，背离还在继续。聪明钱没有因为指数上涨而放松警惕。</p>
+
+          <div class="invest-tip">
+            📌 <strong>投资视角：</strong>本周五非农数据是全球所有资产的关键节点。如果非农超预期→美元走强→黄金承压→A股外资流出压力加大。如果非农不及预期→加息预期回落→黄金反弹→A股流动性改善。在周五数据出来之前，<strong>降低操作频率、控制仓位</strong>是合理的策略。
+          </div>
+        </div>
+        <div class="story-img">
+          <img loading="lazy" src="charts/e05_macro.svg" alt="宏观与美联储预期">
+        </div>
+      </div>
+
+      <hr class="story-divider">
+
+      <!-- 06 黄金 -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s06">06</div>
+          <div class="story-tag s06">商品/黄金</div>
+          <div class="story-title">黄金又跌了1.7%：为什么中东在打仗、油价在暴涨，黄金却在跌？</div>
+        </div>
+        <div class="story-content">
+          <p>今天最反直觉的一个事实：<strong>COMEX黄金期货跌1.70%报4514.80美元/盎司</strong>。中东局势紧张、油价暴涨5.85%、美元指数微跌——每一个逻辑都指向黄金应该涨，但它跌了。</p>
+
+          <p>为什么？早报我们已经拆过这个判断，今天的走势再次印证：<strong>黄金的短期驱动力不是避险，是利率预期。</strong>油价暴涨 → 通胀预期上行 → 美联储无法降息甚至需要加息 → 实际利率走高 → 黄金承压。这条链条在今天完整地走了一遍。黄金从年初5600的高点已经跌至4514，跌幅接近20%，技术性进入熊市区间。（来源：新华财经、Investing.com）</p>
+
+          <p><strong>黄金三层分析的今日更新：</strong></p>
+          <p><strong>短期（本周）：</strong> 核心变量是非农数据。如果非农超预期，金价可能下探4400-4450区间。如果不及预期，技术性反弹目标4680-4700。非农前金价大概率在4480-4580区间震荡。</p>
+          <p><strong>中期（1-3个月）：</strong> 6月17日FOMC会议是决定性时刻。如果加息，黄金可能冲击4200-4300。如果按兵不动（加息预期消退），黄金可能反弹至4800-5000。美联储怎么选，决定了黄金下半年的方向。</p>
+          <p><strong>长期（1年以上）：</strong> 全球主权货币信任危机和去美元化两条主线没有改变。中国央行连续18个月购金，这是结构性买盘。黄金的长期逻辑完好，但短中期波动率会非常剧烈。</p>
+
+          <div class="invest-tip">
+            📌 <strong>投资视角：</strong>黄金现在不是"避险资产"，是"利率预期资产"。这个认知转变是所有黄金投资决策的前提。如果你相信美联储最终会因为油价通胀而加息，黄金应该减仓。如果你认为美国经济会因高利率而衰退（即"衰退交易"回归），黄金反而是可以加仓的。关键分歧在于：<strong>你是"加息派"还是"衰退派"？</strong>这个判断决定了你六月的黄金策略。
+          </div>
+        </div>
+        <div class="story-img">
+          <img loading="lazy" src="charts/e06_gold.svg" alt="黄金走势分析">
+        </div>
+      </div>
+
+      <!-- Gold-box -->
+      <div class="gold-box">
+        今天A股用一个深V告诉所有人：六月的关键词不是"涨或跌"，而是"结构"。指数涨了2.66%，3800只股票在跌——选错方向，指数涨多少都和你没关系。CPO涨停潮很耀眼，但情绪已经打满了，追高的亏损比踏空更痛。周五非农、6月10日CPI、6月17日FOMC——三张牌一张一张出，每出一张市场都会重估一次。在不确定性最高的时间里，少动比多动好。交易的最高境界不是看准每一次波动，而是在你看不懂的时候管住手。—— 我是阿扬，我们明天早上见。
+      </div>
+
+      <!-- 名词解释 -->
+      <div class="glossary">
+        <h4>📖 名词解释 · 小白友好版</h4>
+        <table>
+          <tr><th>专业词</th><th>大白话</th><th>为什么重要</th></tr>
+          <tr><td>CPO（共封装光学）</td><td>把光模块和芯片封装在一起，让数据跑得更快更省电</td><td>AI算力爆发的"高速公路"，1.6T光模块元年开启</td></tr>
+          <tr><td>Vera Rubin</td><td>英伟达最新一代AI加速平台，算力密度大幅提升</td><td>Vera Rubin投产→拉动光互联/PCB/MLCC全产业链需求</td></tr>
+          <tr><td>深V反转</td><td>指数先大跌后大涨，走势像字母V</td><td>说明市场在当天完成了多空切换，是强博弈信号</td></tr>
+          <tr><td>结构性分化</td><td>同一市场里有的涨有的跌，不是全体一起动</td><td>现在A股就是典型的结构市，选板块比判断大盘更重要</td></tr>
+          <tr><td>地缘风险溢价</td><td>因为打仗风险导致的价格"加价"部分</td><td>布伦特$95里$10是"打仗加价"，协议一签这$10就消失</td></tr>
+          <tr><td>FOMC</td><td>美联储的议息会议，决定加息还是降息</td><td>6月17日这次会议可能决定下半年所有资产的方向</td></tr>
+        </table>
+      </div>
+
+    </div>
+
+    <!-- ============================================ -->
+    <!-- LAYER 3: 关键市场数据一览 -->
+    <!-- ============================================ -->
+    <div class="layer3">
+      <div class="l3-title">📊 关键市场数据一览</div>
+
+      <table>
+        <tr><th>品种</th><th>最新</th><th>涨跌幅</th></tr>
+        <tr><td>上证指数</td><td>4,075.10</td><td class="up">+0.43%</td></tr>
+        <tr><td>深证成指</td><td>15,591.13</td><td class="up">+1.63%</td></tr>
+        <tr><td>创业板指</td><td>4,055.87</td><td class="up">+2.66%</td></tr>
+        <tr><td>科创50</td><td>1,690.56</td><td class="up">+1.62%</td></tr>
+        <tr><td>恒生指数</td><td>26,038.32</td><td class="up">+2.52%</td></tr>
+        <tr><td>标普500</td><td>7,599.96</td><td class="up">+0.26%</td></tr>
+        <tr><td>纳斯达克</td><td>27,086.81</td><td class="up">+0.42%</td></tr>
+        <tr><td>道琼斯</td><td>51,078.88</td><td class="up">+0.09%</td></tr>
+        <tr><td>COMEX黄金</td><td>$4,514.80</td><td class="down">-1.70%</td></tr>
+        <tr><td>WTI原油</td><td>$92.47</td><td class="up">+5.85%</td></tr>
+        <tr><td>布伦特原油</td><td>$95.33</td><td class="up">+4.62%</td></tr>
+        <tr><td>美元指数</td><td>99.18</td><td class="down">-0.06%</td></tr>
+        <tr><td>VIX恐慌指数</td><td>16.05</td><td class="up">+4.77%</td></tr>
+        <tr><td>人民币（在岸）</td><td>6.7622</td><td class="up">升值28点</td></tr>
+        <tr><td>A股成交额</td><td>2.79万亿</td><td class="down">缩量839亿</td></tr>
+      </table>
+
+      <div class="list">
+        <div class="list-item"><span class="tag-b">01</span>三大指数全线收涨但3876只个股下跌——结构性分化加剧</div>
+        <div class="list-item"><span class="tag-b">02</span>CPO涨停潮：通信+5.08%，光库科技涨15%，亨通光电涨停创历史新高</div>
+        <div class="list-item"><span class="tag-b">03</span>英伟达Vera Rubin全面投产，黄仁勋力挺Marvell将成"下一家万亿"</div>
+        <div class="list-item"><span class="tag-b">04</span>恒指大涨2.52%重返26000，美团涨8%，腾讯涨6%，科网股集体爆发</div>
+        <div class="list-item"><span class="tag-b">05</span>WTI暴涨5.85%破92美元，中东拉锯持续，地缘风险溢价10美元</div>
+        <div class="list-item"><span class="tag-b">06</span>黄金跌1.7%至4514，非农前震荡，6月17日FOMC定中期方向</div>
+      </div>
+
+      <div class="sources">
+        <h3>📌 数据来源</h3>
+        <div style="line-height:2;">
+          · <a href="https://cd.nbd.com.cn/articles/2026-06-02/4415189.html">每日经济新闻 — A股收评：创业板指涨2.66%，CPO板块大爆发</a><br>
+          · <a href="https://m.21jingji.com/article/20260602/herald/034b6fd3b24ea75b3420be0d0cc76af7_zaker.html">21世纪经济报道 — A股收评：创业板指涨2.66%，CPO概念涨幅居前</a><br>
+          · <a href="http://news.10jqka.com.cn/20260602/c677147395.shtml">同花顺 — A股早盘走势分化</a><br>
+          · <a href="http://yuanchuang.10jqka.com.cn/20260602/c677151934.shtml">同花顺 — 涨停复盘：创业板指高开高走涨2.66%</a><br>
+          · <a href="https://cn.investing.com/news/stock-market-news/article-3396992">Investing.com — 焦点复盘：沪指深V反转，硬科技重获资金抱团</a><br>
+          · <a href="https://finance.eastmoney.com/a/202606023757451820.html">东方财富 — CPO爆发！通信ETF盘中飙涨超5%</a><br>
+          · <a href="https://www.jiemian.com/article/14520508.html">界面新闻 — CPO爆发！通信ETF华夏飙涨超5%</a><br>
+          · <a href="https://finance.sina.com.cn/money/fund/jjgsgd/2026-06-02/doc-inhzysxu3300751.shtml">新浪财经 — 海外金融市场早报 2026-6-2</a><br>
+          · <a href="https://finance.sina.com.cn/money/fund/jjgsgd/2026-06-02/doc-inhzysxu3300751.shtml">新浪财经 — 人民币汇率中间价</a><br>
+          · <a href="https://www.cls.cn/detail/2387176">财联社 — 人气板块及个股点评</a>
+        </div>
+      </div>
+
+      <div class="foot">
+        <div class="icon">📡</div>
+        <div class="t">扬说财经</div>
+        <div class="d">用漫画看懂财经 — 每天早报速览，晚报深度，陪你读懂市场</div>
+      </div>
+
+      <div class="warn">⚠️ <strong>风险提示：</strong>以上内容仅为信息分享，不构成投资建议。市场有风险，投资需谨慎。数据来源于公开信息，如有出入请以官方数据为准。</div>
+
+    </div>
+
+  </div>
+</div>
+
+<script>
+// ===== 音频/漫画/图片 资源完整性检查 =====
+document.addEventListener('DOMContentLoaded',function(){
+  var player=document.querySelector('.player');
+  var audioEl=player?player.querySelector('audio'):null;
+  if(audioEl&&player){
+    var timeoutId=setTimeout(function(){player.style.display='none';},8000);
+    audioEl.addEventListener('canplay',function(){clearTimeout(timeoutId);});
+    audioEl.addEventListener('error',function(){
+      clearTimeout(timeoutId);
+      player.style.display='none';
+    });
+  }
+  document.querySelectorAll('.section-img img').forEach(function(img){
+    if(img.getAttribute('src')&&img.getAttribute('src').indexOf('comic/')===0){
+      img.addEventListener('error',function(){
+        this.outerHTML='<div style="padding:32px 16px;text-align:center;background:#F8FAFC;border-radius:8px;color:#94A3B8;font-size:13px;line-height:1.8;">🖼️ 漫画加载失败<br><span style="font-size:11px;">'+(this.getAttribute('alt')||'')+'</span></div>';
+      });
+    }
+  });
+});
+
+// 动态返回首页 — 根据URL路径深度自动计算
+document.addEventListener('DOMContentLoaded',function(){
+  var back=document.querySelector('.back');
+  if(back){
+    back.addEventListener('click',function(e){
+      e.preventDefault();
+      var p=location.pathname.replace(/\/$/,'').split('/');
+      location.href='../'.repeat(Math.max(0,p.length-3))||'.';
+    });
+  }
+});
+</script>
+</body>
+</html>
