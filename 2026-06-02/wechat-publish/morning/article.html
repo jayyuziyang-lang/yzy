@@ -102,6 +102,29 @@
   .strategy-box { background: linear-gradient(135deg,#F0FDF4,#DCFCE7); border-radius: 10px; padding: 14px; margin: 12px 0; border: 1px solid #BBF7D0; }
   .strategy-box .str-title { font-size: 14px; font-weight: 700; color: #166534; margin-bottom: 6px; }
   .strategy-box .str-content { font-size: 13.5px; color: #14532D; line-height: 1.7; }
+
+  .key-insight { background: linear-gradient(135deg,#EFF6FF,#DBEAFE); border-radius: 10px; padding: 12px 14px; margin: 14px 0; border: 1px solid #BFDBFE; }
+  .key-insight .ki-label { font-size: 12px; font-weight: 700; color: #1A56DB; margin-bottom: 4px; }
+  .key-insight .ki-content { font-size: 13.5px; color: #1E3A7A; line-height: 1.7; }
+
+  .anomaly-signal { background: #F0F9FF; border-left: 4px solid #0284C7; border-radius: 0 8px 8px 0; padding: 10px 14px; margin: 10px 0 14px; font-size: 13.5px; color: #0C4A6E; line-height: 1.7; }
+  .anomaly-signal .as-label { font-weight: 700; font-size: 12px; color: #0284C7; margin-bottom: 2px; }
+
+  .invest-view { background: linear-gradient(135deg,#FFFBEB,#FEF3C7); border-radius: 8px; padding: 10px 14px; margin: 12px 0; border: 1px solid #FDE68A; font-size: 13.5px; color: #78350F; line-height: 1.7; }
+  .invest-view .iv-label { font-weight: 700; font-size: 12px; color: #D4A017; margin-bottom: 2px; }
+
+  .timeline-item { display: flex; gap: 10px; padding: 6px 0; border-left: 2px solid #E2E8F0; padding-left: 12px; margin-left: 4px; font-size: 13.5px; color: #475569; line-height: 1.6; }
+  .timeline-item .tl-time { font-weight: 700; color: #1A56DB; white-space: nowrap; flex-shrink: 0; }
+
+  .layer-box { background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 10px; padding: 12px; margin: 10px 0; }
+  .layer-box .l-title { font-weight: 700; font-size: 13px; margin-bottom: 4px; }
+  .layer-box .l-content { font-size: 13px; color: #475569; line-height: 1.7; }
+  .layer-box .l-tag { display: inline-block; font-size: 10px; padding: 1px 8px; border-radius: 8px; font-weight: 600; margin-bottom: 4px; }
+  .layer-box .l-short { background: #FFF5F5; color: #DC2626; }
+  .layer-box .l-mid { background: #FFFBEB; color: #D4A017; }
+  .layer-box .l-long { background: #F0FDF4; color: #16A34A; }
+
+  .price-action { display: inline-block; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 4px; padding: 1px 6px; font-size: 12px; font-weight: 600; }
 </style>
 </head>
 <body>
@@ -135,7 +158,7 @@
 
     <!-- Lead -->
     <div class="lead">
-      <strong>隔夜，两条完全独立的叙事线同时引爆。</strong> 黄仁勋在台北COMPUTEX扔出N1X超级芯片，英伟达正式向Intel/AMD宣战。同一时间，伊朗革命卫队宣布计划彻底封锁霍尔木兹海峡，油价暴涨5.5%。美股三大指数齐创历史新高，A股今天上午AI硬件全线反弹。两枚炸弹同时引爆，市场的答案比任何预测都精彩。下面拆开来看。
+      <strong>隔夜，两条完全独立的叙事线同时引爆。</strong> 黄仁勋在台北COMPUTEX扔出N1X超级芯片，英伟达正式向Intel/AMD宣战。同一时间，伊朗革命卫队宣布计划彻底封锁霍尔木兹海峡，油价暴涨5.5%。美股三大指数齐创历史新高。但今天最有意思的不是这两件事本身——而是它们通过同一条传导链缠绕在一起：<strong>油价→通胀预期→Fed路径→所有资产的重新定价</strong>。看懂这条链，就看懂了今天的市场。下面拆开来看。
     </div>
 
     <!-- === 行情总览表 === -->
@@ -143,7 +166,7 @@
       <table>
         <tr><th>市场</th><th>最新收盘</th><th>隔夜涨跌幅</th><th>备注</th></tr>
         <tr><td>道琼斯工业指数</td><td>51,078.88</td><td class="up">+0.09%</td><td>历史新高</td></tr>
-        <tr><td>标普500</td><td>7,599.96</td><td class="up">+0.26%</td><td>历史新高</td></tr>
+        <tr><td>标普500</td><td>7,599.96</td><td class="up">+0.26%</td><td>历史新高，8连涨</td></tr>
         <tr><td>纳斯达克</td><td>27,086.81</td><td class="up">+0.42%</td><td>首破27,000</td></tr>
         <tr><td>费城半导体</td><td>8,679.78</td><td class="up">+5.12%</td><td>英伟达+6.3%领涨</td></tr>
         <tr><td>上证指数</td><td>4,057.74</td><td class="down">-0.27%</td><td>6月首日</td></tr>
@@ -154,7 +177,13 @@
         <tr><td>现货黄金</td><td>$4,483.04</td><td class="down">-1.26%</td><td>一度跌破$4,448</td></tr>
         <tr><td>10年美债收益率</td><td>4.78%</td><td class="up">+8bp</td><td>ISM数据推升</td></tr>
         <tr><td>美元指数</td><td>99.80</td><td class="up">+0.8%</td><td>ISM强劲提振</td></tr>
+        <tr><td>VIX恐慌指数</td><td>16.05</td><td class="up">+4.77%</td><td>⚠ 与指数新高背离</td></tr>
       </table>
+    </div>
+
+    <div class="anomaly-signal">
+      <div class="as-label">🚨 反常信号识别</div>
+      VIX跳涨4.77%至16.05，与三大指数齐创历史新高的图景<b>形成罕见背离</b>。通常指数上涨→波动率回落，但6月1日的情况恰好相反——投资者为本周AVGO/CRWD财报+周五非农+MOU签字时点等多重事件<b>提前买入对冲</b>。这不是"恐慌"，而是"有组织的谨慎"。
     </div>
 
     <div class="section-img">
@@ -168,7 +197,7 @@
     <div class="focus-box">
       <div class="focus-header">🔥 头号焦点 &mdash; 隔夜双响炮：AI PC革命 + 中东能源风暴</div>
       <div class="focus-content">
-        <p><strong>周一（6月1日）是一个罕见的"双主线日"。</strong> 两条彼此独立的叙事线几乎在同一时间触发，全球市场在它们各自的逻辑里剧烈分岔。英伟达暴涨6.3%创历史新高，ARM暴涨16%，而Intel暴跌4.7%、高通暴跌8.8%。与此同时，WTI原油跳涨5.5%重回$92——持有科技股和商品仓位的人在这一天都感受到了"自己的逻辑是对的"（来源：搜狐科技、CNBC、新华社）。</p>
+        <p><strong>周一（6月1日）是一个罕见的"双主线日"。</strong> 两条彼此独立的叙事线几乎在同一时间触发，全球市场在它们各自的逻辑里剧烈分岔。但更关键的在于：<strong>它们通过同一条传导链——油价→通胀→Fed——相互纠缠</strong>。AI叙事推动科技股暴涨，能源叙事推动油价跳升，而通胀预期升温反过来压制了降息预期，间接影响了所有资产（来源：搜狐科技、CNBC、新华社）。</p>
 
         <p><strong>线一，英伟达N1X芯片。</strong> 黄仁勋在COMPUTEX 2026开幕演讲中，正式发布与微软、联发科联合研发的PC超级芯片RTX Spark（代号N1X），采用台积电3nm制程、Arm架构，集成20核Grace CPU + Blackwell GPU，AI算力高达1 Petaflop。黄仁勋称这是"从功能手机到智能手机般的跨越"。首批搭载设备由戴尔、联想、华硕、惠普、微星同步推出，2026年秋季上市。英伟达同时宣布Vera Rubin平台全面投产，N2X和N3X已在研发中（来源：搜狐科技、财联社、凤凰科技）。</p>
 
@@ -177,9 +206,19 @@
         <p><strong>线三，隐藏在双主线之下的暗线——</strong> Anthropic于6月1日向SEC秘密提交Form S-1上市申请，最新估值高达$9,650亿，已超越OpenAI的$8,520亿。高盛、摩根大通、摩根士丹利预计担任承销商，最快2026秋季登陆资本市场。这是AI行业的一个里程碑——Claude的制造商即将成为公众公司，OpenAI大概率随后跟上（来源：搜狐财经、ABC News、东方财富）。</p>
       </div>
       <div class="logic-chain">
-        <div class="lc-label">⚡ 双主线逻辑链</div>
-        N1X发布 → Arm PC生态成型 → x86垄断松动 → 英伟达+6%/ARM+16%/Intel-5%<br>
-        伊朗封锁海峡 → 油价+5.5% → 通胀预期升温 → 紧缩预期强化 → 金价承压/美元走强
+        <div class="lc-label">⚡ 本周主轴传导链（核心框架）</div>
+        美伊局势 → 油价<span class="price-action" style="color:#EF4444;">$92 (+5.5%)</span> → 通胀预期升温（PCE 3.8%/ISM价格指数82.1）→ Warsh加息预期强化（12月加息概率40%）→ 实际利率维持高位 → <b>黄金承压、成长股估值受压</b><br>
+        <span style="color:#64748B;font-size:12px;margin-top:4px;display:inline-block;">平行分支：ComputeX → N1X/Vera Rubin量产 → AI全产业链估值重估 → 半导体+5.12%</span>
+      </div>
+    </div>
+
+    <div class="key-insight">
+      <div class="ki-label">关键提示：本周的定价权在谁手里？</div>
+      <div class="ki-content">
+        <strong>三条核心传导链决定本周资产走向：</strong><br>
+        <strong>①</strong> 美伊MOU若落地→油价$95跌至$80-85→通胀预期降温→Fed转向鸽派→<b>利好科技股+黄金</b>；若Trump拒签→油价重回$100+→紧缩预期锁定→<b>承压</b><br>
+        <strong>②</strong> 英伟达N1X+RTX Spark→Arm PC生态成型→x86垄断松动→<b>利好台积电/联发科/Arm，承压Intel/AMD</b><br>
+        <strong>③</strong> 周五非农：&gt;13万→加息预期强化；&lt;10万→降息预期复燃。<b>这是本周最大的宏观变量</b>
       </div>
     </div>
 
@@ -196,7 +235,7 @@
     <div class="section-block">
       <div class="section-title"><span class="section-num" style="background:#DC2626;">1</span><span class="tag tag-a">A股</span>6月开门"指数跌个股涨"，半导体重挫5%，煤炭逆势爆发</div>
       <div class="section-content">
-        <p>周一（6月1日）A股冲高回落，没能实现"开门红"。<strong>上证指数跌0.27%报4,057.74点，失守4,060；创业板指重挫2.15%报3,950.94点；科创50暴跌5.00%报1,663.69点</strong>，连续第二个交易日跌5%，两个交易日累计跌幅近10%。但全市场<span class="highlight">3,700余只个股上涨</span>，近170只涨停——"指数跌、个股涨"的背后，是一场大规模的风格切换（来源：新浪财经、证券时报、东方财富）。</p>
+        <p>周一（6月1日）A股冲高回落，没能实现"开门红"。<strong>上证指数跌0.27%报4,057.74点，失守4,060；创业板指重挫2.15%报3,950.94点；科创50暴跌5.00%报1,663.69点</strong>，连续第二个交易日跌5%，两个交易日累计跌幅近10%（vs 同期标普500涨0.26%创新高——中美科技股走出完全相反的方向）。但全市场<span class="highlight">3,700余只个股上涨</span>，近170只涨停——"指数跌、个股涨"的背后，是一场大规模的风格切换（来源：新浪财经、证券时报、东方财富）。</p>
 
         <p><strong>半导体板块是当日重灾区，</strong> 先进封装、光刻机、CPO概念领跌。电子板块全天净流出约240亿元，半导体遭121亿抛售。核心驱动：①大基金密集减持高位套现；②MSCI季调后千亿被动资金调仓；③长鑫科技百亿IPO过会分流流动性；④美伊局势反复导致资金从高弹性科技撤向防御板块（来源：财联社、证券时报）。</p>
 
@@ -207,6 +246,10 @@
       <div class="core-contradiction">
         <div class="cc-label">🔴 核心矛盾</div>
         6月1日 3,700股上涨 vs 科创50两天跌10%，6月2日上午 创业板涨2% vs 4,100股下跌——A股的结构性撕裂不但没缓解，反而在加剧。AI板块的内部轮动（硬件→应用→硬件）节奏极快，追涨杀跌的资金正在双向亏损。
+      </div>
+      <div class="invest-view">
+        <div class="iv-label">📌 投资视角</div>
+        当前A股的核心矛盾不是"牛还是熊"，而是"钱去哪里了"。半导体流出240亿→煤炭/能源/AI应用流入——这条资金迁移路线告诉我们：<b>短期市场在押注能源防御+AI应用落地，而非AI硬件</b>。关注CPO/光通信（数据中心升级核心受益方向）和煤炭（能源安全逻辑）的持续性，而非盲目追半导体反弹。
       </div>
       <div class="section-img">
         <img loading="lazy" src="../../../docs/charts/astock_flow_june2.svg" alt="A股6月1日主力资金流向">
@@ -228,12 +271,18 @@
 
         <p>赢家的另一边是输家：<strong>英特尔暴跌4.67%，高通暴跌8.78%</strong>——英伟达一纸宣战，PC芯片两巨头股价一天被削去数百亿美元市值。特斯拉跌4.57%，亚马逊跌3.47%，Meta跌5.07%——科技七姐妹内部剧烈分化，市场正在重新定价每一家公司在AI时代的生态位（来源：Investing.com、Wind数据）。</p>
 
-        <p>经济数据层面，<strong>美国5月ISM制造业PMI飙升至54.0</strong>（预期53.0，前值52.7），创四年新高，连续第五个月处于扩张区间。新订单指数56.8为四个月高位。但价格指数仍高达82.1，供应商交货指数60.6——不是健康的扩张，是"过热式繁荣"。利率互换显示市场已完全消化2027年3月前加息的预期（来源：TradingEconomics、财联社）。</p>
+        <p>经济数据层面，<strong>美国5月ISM制造业PMI飙升至54.0</strong>（预期53.0，前值52.7），创四年新高，连续第五个月处于扩张区间。新订单指数56.8为四个月高位。但价格指数仍高达82.1，供应商交货指数60.6——不是健康的扩张，是"过热式繁荣"。利率互换显示市场已完全消化2027年3月前加息的预期。更重要的是：<strong>4月PCE 3.8%、核心PCE 3.3%</strong>——均为2023年5月以来最高，远超2%目标——Lisa Cook已表态"若通胀不回落，支持进一步加息"（来源：TradingEconomics、财联社）。</p>
+
+        <p><strong>本周重头戏：</strong> 明晚（6/3）盘后，<b>博通AVGO</b>发布财报。华尔街共识预期Q2营收约220亿美元（同比+47%），其中AI半导体收入约107亿美元（同比+140%）。CEO Hock Tan关于"AI芯片营收路径迈向2027年1000亿美元"的进度更新，将是核心催化剂。<b>CRWD</b>（周三盘后）同样是本周焦点——周一逆势涨5.24%，多家投行上调目标价、穆迪上调评级（来源：华尔街日报、财联社）。</p>
       </div>
       <div class="logic-chain">
         <div class="lc-label">⚡ 逻辑链</div>
         N1X+AI PC → 英伟达从GPU供应商升级为平台定义者 → AI全产业链估值重估 → 半导体暴涨5.12%<br>
-        <span style="color:#64748B;font-size:12px;">⚠ 风险：8连涨后市场对利空敏感，科技七姐妹内部分化加剧</span>
+        <span style="color:#64748B;font-size:12px;">⚠ 风险：8连涨后市场对利空敏感。VIX跳升+科技七姐妹内部分化 → 本周非农是关键验证点</span>
+      </div>
+      <div class="invest-view">
+        <div class="iv-label">📌 投资视角</div>
+        市场的逻辑很清晰：AI资本支出周期在加速——大摩预测标普500盈利增速上调至23%。AVGO的ASIC芯片与NVDA的GPU构成AI算力的两条腿，<b>AVGO财报将验证"AI投资是全面开花还是仅仅英伟达一家独秀"</b>。如果AVGO AI收入也超预期，AI算力叙事将被进一步强化；如果不及预期，当前的高估值需要重新定价。
       </div>
       <div class="section-img">
         <img loading="lazy" src="../../../docs/charts/chip_divergence_june2.svg" alt="芯片板块隔夜涨跌幅分化">
@@ -259,6 +308,10 @@
         <div class="cc-label">🔴 关键判断</div>
         Anthropic抢先递表的核心战略意义不在融资额，而在"定义披露标准"——作为第一家走向公开市场的AI巨头，Anthropic将决定AI行业如何向公众披露其财务状况。OpenAI虽估值略低，但将获得"后发优势"：观察市场对Anthropic的反应后再定价。先手和后手，各有筹码。
       </div>
+      <div class="invest-view">
+        <div class="iv-label">📌 投资视角</div>
+        未来6个月，AI赛道的焦点将从"产品比拼"转向"资本化竞争"。谁能先上市、拿到更高的公开市场定价，谁就在人才战、算力军备竞赛中占得先机。关注Anthropic毛利率→这将是AI行业财务透明度的一个分水岭数字。
+      </div>
       <div class="section-img">
         <img loading="lazy" src="../../../docs/charts/ai_valuations_june2.svg" alt="AI巨头估值飞跃对比">
         <div class="caption">Anthropic两年内估值从180亿飙至9,650亿，超越OpenAI，AI资本化进入加速阶段</div>
@@ -271,21 +324,39 @@
     <!-- 04 前沿/国际 -->
     <!-- ============================================================ -->
     <div class="section-block">
-      <div class="section-title"><span class="section-num" style="background:#1A56DB;">4</span><span class="tag tag-intl">前沿/国际</span>霍尔木兹海峡封锁威胁：油价暴涨5.5%，中美300亿对等降税</div>
+      <div class="section-title"><span class="section-num" style="background:#1A56DB;">4</span><span class="tag tag-intl">前沿/国际</span>美伊"一日三转"：霍尔木兹封锁威胁→油价暴涨→特朗普放储应对</div>
       <div class="section-content">
-        <p><strong>中东局势一夜之间急转直下。</strong> 伊朗革命卫队6月1日宣布，计划彻底封锁霍尔木兹海峡，并同步启动曼德海峡"战线"。伊朗同时暂停通过中间人与美国的对话和文本交换，要求以色列立即停止在黎巴嫩的军事行动。革命卫队向商船发出警告：任何与"域外敌对力量"合作的行为将被视为"迫在眉睫的安全威胁"（来源：新华社、央视新闻、环球网）。</p>
+        <p><strong>昨晚中东局势是一部典型的一日三转剧本。</strong></p>
 
-        <p>伊朗最高领袖军事顾问雷扎伊强硬表态："霍尔木兹海峡由伊朗控制，伊朗武装部队的耐心是有限的。"特朗普回应称预计"未来一周内"与伊朗达成协议，并下令大规模释放战略石油储备。市场选择相信伊朗的威胁而非特朗普的承诺——<strong>WTI原油暴涨5.49%至$92.16，布伦特涨4.24%至$94.98</strong>（来源：华尔街见闻、新浪财经、新华财经）。</p>
+        <div class="timeline-item"><span class="tl-time">第一转</span> 伊朗革命卫队宣布计划彻底封锁霍尔木兹海峡，并同步启动曼德海峡"战线"，暂停与美国通过中间人的对话。革命卫队向商船发出严正警告。市场情绪瞬间收紧，<b>油价应声暴涨</b>（来源：新华社、央视新闻）。</div>
+
+        <div class="timeline-item" style="margin-top:6px;"><span class="tl-time">第二转</span> 特朗普回应：预计"未来一周内"与伊朗达成协议，并立即下令大规模释放战略石油储备。谈判团队同步加速推进。市场短暂喘息，但效果有限——<b>投资者更相信伊朗的枪，而非特朗普的电话</b>（来源：华尔街见闻、新浪财经）。</div>
+
+        <div class="timeline-item" style="margin-top:6px;"><span class="tl-time">第三转</span> 伊朗最高领袖军事顾问雷扎伊强硬回应："霍尔木兹海峡由伊朗控制，武装部队的耐心是有限的。"——硬碰硬，没有任何软化迹象。与此同时，美军与伊朗在霍尔木兹海峡仍发生数次小规模军事摩擦。美伊60天停火MOU草案虽已谈妥，但特朗普本人仍在编辑条款，副总统万斯承认"还在几个语言点上来回拉锯"（来源：央视新闻、CBS、Axios）。</div>
+
+        <p style="margin-top:10px;"><strong>结果：WTI原油暴涨5.49%至$92.16，布伦特涨4.24%至$94.98。</strong></p>
+
+        <p><strong>当前最重要的问题是：</strong> 市场已经price in了什么？<strong>布伦特$94.98/桶反映的是市场对MOU"大概率签署但时间不明"的定价。</strong> 协议最终大概率会签署——这是美伊双方的最大公约数——但签字时点高度不确定。这意味着：一旦MOU正式落地，油价大概率回落至$80-85区间（接近4月8日临时停火后的低点）；若特朗普改稿不改签或谈判破裂，油价存在重新上探$100+的可能（来源：CNBC、中金在线）。</p>
 
         <p><strong>中美关税方面：</strong> 中国商务部6月1日正式确认，中美已就各300亿美元及以上规模的对等降税达成原则共识。中方承诺2026-2028年每年采购170亿美元美国农产品，按商业原则引进200架波音飞机。但美方贸易代表格里尔同日表态：对华关税将长期高于其他国家。受降税预期提振，远东至美西运价单周飙涨31.5%（来源：商务部、雅虎财经、新华财经）。</p>
+      </div>
+      <div class="logic-chain">
+        <div class="lc-label">⚡ 当前油价定价拆解</div>
+        布伦特$95 = 基准情境$85（临时停火后低点）+ $10地缘风险溢价（MOU签字不确定）<br>
+        若MOU签署 → 溢价消失 → 油价回落$80-85 → 通胀预期降温 → Fed潜在转鸽<br>
+        若谈判破裂 → 溢价翻倍 → 油价$100+ → 通胀黏性巩固 → Fed鹰派 → 风险资产集体承压
       </div>
       <div class="scenario-box">
         <div class="sc-title">🔮 情景推演：霍尔木兹海峡</div>
         <div class="sc-content">
-          <p><strong class="sc-path-a">【路径A · 谈判突破】</strong> 特朗普释放储备+未来一周谈成 → 油价快速回落至$80-85 → 通胀预期降温 → 美联储压力减轻 → 风险资产反弹</p>
-          <p><strong class="sc-path-b">【路径B · 对峙持续】</strong><strong>（当前基准）</strong> 伊朗维持强硬+低烈度摩擦 → 油价$90-100震荡 → 通胀黏性+加息预期强化 → 黄金承压/科技股分化</p>
-          <p><strong class="sc-path-a">【路径C · 冲突升级】</strong><strong>（尾部风险）</strong> 海峡实际封锁 → 油价冲击$120+ → 全球供应链断裂 → 滞胀危机 → 避险为王</p>
+          <p><strong class="sc-path-a">【路径A · 谈判突破】</strong> MOU签署 + 伊朗清除水雷30天过渡期 → 油价分阶段回落至$80-85 → 通胀预期下行 → 6月17-18日FOMC可能转鸽 → <b>利好科技股/黄金</b></p>
+          <p><strong class="sc-path-b">【路径B · 对峙持续】</strong><strong>（当前基准）</strong> MOU拉锯+低烈度摩擦持续 → 油价$90-100震荡 → 通胀高位 + Warsh鹰派 → <b>黄金承压、成长股内部分化</b></p>
+          <p><strong class="sc-path-a">【路径C · 冲突升级】</strong><strong>（尾部风险）</strong> 海峡实际封锁 → 油价冲击$120+ → 全球滞胀危机 → <b>避险为王</b></p>
         </div>
+      </div>
+      <div class="invest-view">
+        <div class="iv-label">📌 投资视角</div>
+        本周中东的<strong>唯一关键变量不是冲突是否升级</strong>（均势格局下大规模升级概率不高），而是"MOU签字日"的具体时点。每拖延一天，油价就在$90-100区间多停留一天，降息预期就多被压制一天。盯紧特朗普签字——这是本周全球市场最重要的单一事件。
       </div>
     </div>
 
@@ -303,35 +374,62 @@
 
         <p>中国这边，上周公布的5月PMI降至50.0，刚好卡在荣枯线上。新订单指数49.8跌入收缩区间——工厂还在开工，但客户已在减单。两大数据形成鲜明对比：一个需求过热，一个需求不足；一个面临加息压力，一个面临宽松需求。这是前所未有的全球宏观错位（来源：国家统计局、财联社）。</p>
 
-        <p><strong>本周焦点：</strong> 周五美国5月非农就业（市场预期+11.5~13万人，失业率4.2-4.3%）。若数据超预期，将进一步强化市场加息预期，成长股承压。若大幅低于预期，降息呼声将重新点燃。同样关注周三ADP就业和JOLTs职位空缺——三组数据将共同决定本周华尔街的情绪基调（来源：Investopedia、Schwab）。</p>
+        <p><strong>本周焦点：</strong> 周五美国5月非农就业（市场预期+11.5~13万人，失业率4.2-4.3%）。若数据超预期，将进一步强化市场加息预期——目前CME FedWatch已显示12月加息概率升至约40%（6月时仅3%）。若大幅低于预期，降息呼声将重新点燃。同样关注周三ADP就业和JOLTs职位空缺——三组数据将共同决定本周华尔街的情绪基调（来源：Investopedia、Schwab）。</p>
       </div>
       <div class="logic-chain">
-        <div class="lc-label">⚡ 宏观传导链</div>
-        美国ISM 54.0（需求过热）→ 价格指数82.1 → 加息预期升温 → 实际利率维持高位 → 成长股估值承压<br>
-        中国PMI 50.0（需求不足）→ 新订单49.8 → 政策宽松预期 → 但地缘风险制约风险偏好
+        <div class="lc-label">⚡ 宏观主轴传导链</div>
+        油价$95（伊朗局势）→ PCE 3.8%/ISM价格指数82.1（通胀顽固）→ Warsh鹰派+加息概率40%（Fed路径收紧）→ 实际利率维持高位 → 成长股估值承压/黄金缺乏催化剂<br>
+        <span style="color:#64748B;font-size:12px;">反向情景：MOU签署 → 油价$80-85 → 通胀预期下行 → 6月FOMC可能转鸽 → 黄金短暂反弹/科技股获支撑</span>
+      </div>
+      <div class="invest-view">
+        <div class="iv-label">📌 投资视角</div>
+        当前全球宏观的核心矛盾已从前几个月的"衰退or软着陆"切换为"<b>通胀有没有可能二次加速</b>"。4月PCE 3.8%的读数意味着：即使油价回落，通胀回到2%仍然远路漫漫。Warsh首场FOMC（6月17-18日）将是第一个关键测试——市场需要听到他对"加息"这个词的具体态度。
       </div>
     </div>
 
     <hr class="section-divider">
 
     <!-- ============================================================ -->
-    <!-- 06 商品 -->
+    <!-- 06 商品/黄金 -->
     <!-- ============================================================ -->
     <div class="section-block">
-      <div class="section-title"><span class="section-num" style="background:#EA580C;">6</span><span class="tag tag-commodity">商品/黄金</span>油价一夜暴涨5.5%，金价跌破$4,500——"石油-黄金"跷跷板剧烈反转</div>
+      <div class="section-title"><span class="section-num" style="background:#EA580C;">6</span><span class="tag tag-commodity">商品/黄金</span>油价一夜暴涨5.5%，金价跌破$4,500——你以为是避险？其实是利率预期</div>
       <div class="section-content">
         <p><strong>原油：</strong> 周一成为6月原油市场的标志性交易日。WTI 7月合约暴涨<span class="highlight">5.49%至$92.16/桶</span>，布伦特8月合约涨4.24%至$94.98/桶。直接导火索是伊朗的封锁威胁——霍尔木兹海峡每日承载约1,700万桶石油，占全球消费量近20%。伊朗表态"过去24小时有28艘船通过"意味着通道仍在运转，但威胁本身已足够推高风险溢价（来源：新华财经、中金在线、申万期货）。</p>
 
-        <p><strong>但黄金走出了截然相反的路径。</strong> 现货黄金周一纽约尾盘跌1.26%至<span class="highlight">$4,483.04/盎司</span>，盘中一度跌破$4,448创近期新低。逻辑很简单：油价暴涨 → 通胀预期升温 → 市场预期美联储维持紧缩 → 实际利率走高 → 零息资产黄金承压。从1月底$5,600的历史高点计算，金价已累计回调约20%，接近技术性熊市（来源：格隆汇、金投网、九方智投）。</p>
+        <p><strong>黄金经历了更值得深思的一幕：</strong> 现货黄金周一纽约尾盘跌1.26%至<span class="highlight">$4,483.04/盎司</span>，盘中一度跌破$4,448创近期新低。从1月底$5,600的历史高点计算，金价已累计回调约20%，接近技术性熊市（来源：格隆汇、金投网、九方智投）。</p>
 
-        <p><strong>"黄金-石油-美元"三角正在剧烈重组：</strong> 油价推高通胀预期 → 美元指数走强至99.80 → 金价承压。但另一方面，股市创新高压制避险需求，美债收益率跳升至4.78%进一步侵蚀黄金的吸引力。6月2日上午，现货黄金已站回$4,500附近，短期在deal-on/deal-off的节奏中剧烈波动（来源：搜狐财经、网易财经）。</p>
+        <p><strong>等等——中东在打仗，黄金为什么跌？</strong> 这恰恰是今天最关键的市场洞察。<strong>当前的黄金，与其说是"避险资产"，不如说是"利率预期资产"。</strong></p>
+
+        <p>逻辑链很清晰：伊朗封锁威胁 → 油价暴涨 → 通胀预期进一步升温（4月PCE已3.8%）→ 市场预期Fed维持紧缩（12月加息概率40%）→ 实际利率走高 → 零息资产黄金承压。真正驱动金价下跌的不是避险需求下降，而是<b>利率预期在变紧</b>。在同一地缘事件下，原油和黄金走出了完全相反的方向——"避险"内部也在剧烈分化（来源：搜狐财经、网易财经）。</p>
+
+        <div class="layer-box">
+          <span class="l-tag l-short">短期 · 本周</span>
+          <div class="l-content">观察点：美伊MOU签字日。签→油价跌→通胀预期回落→金价技术性反弹至$4,550-4,600区间；不签→油价$95+→金价继续承压，$4,400支撑面临考验。<b>短期黄金是MOU的衍生品。</b></div>
+        </div>
+
+        <div class="layer-box">
+          <span class="l-tag l-mid">中期 · 1-3个月</span>
+          <div class="l-content">观察点：Fed路径。Warsh首场FOMC（6月17-18日）将定调下半年利率方向。若PCE未明显回落前加息信号强化→金价可能测试$4,200-4,300区间（较历史高点回调25%）。但目前CME FedWatch显示市场尚未完全定价加息——<b>加息预期的不确定性本身就在压制黄金。</b></div>
+        </div>
+
+        <div class="layer-box">
+          <span class="l-tag l-long">长期 · 1年+</span>
+          <div class="l-content">全球主权货币信任危机持续深化、全球政治经济不稳定周期强化——这两条主线是真正的大趋势。央行购金需求、去美元化进程、全球央行储备多元化——这些结构性力量并未因短期利率预期而逆转。<b>对黄金，消息面再怎么反复，长期大方向不变。</b></div>
+        </div>
+
+        <p><strong>"黄金-石油-美元"三角正在剧烈重组：</strong> 油价推高通胀预期 → 美元指数走强至99.80 → 金价承压。股市创新高压制避险需求，美债收益率跳升至4.78%进一步侵蚀黄金的吸引力。6月2日上午，现货黄金已站回$4,500附近，短期在deal-on/deal-off的节奏中剧烈波动（来源：搜狐财经、网易财经）。</p>
 
         <p><strong>伦铜：</strong> LME铜收于$13,832/吨（+1.4%），AI投资热潮推升铜需求预期，5月累计涨幅约5%（来源：LME数据）。</p>
       </div>
       <div class="core-contradiction">
         <div class="cc-label">🔴 核心矛盾</div>
-        油价暴涨 = 通胀预期升温 = 紧缩预期强化 = 金价承压。<br>
-        在同一中东事件下，原油和黄金走出了完全相反的方向——"避险"的内部也在分化。真正的避险资产不是黄金，是能源本身。
+        当前黄金的核心矛盾不是"中东打仗就该涨"，而是<b>油价高→通胀黏性→Fed无法转鸽→实际利率高位</b>这条链正在压制黄金。过去十年"黄金=抗通胀"的简单公式已不再适用——全球利率环境已天翻地覆。<br>
+        <span style="font-size:12px;color:#64748B;">真正的避险资产不是黄金，是能源本身。</span>
+      </div>
+      <div class="invest-view">
+        <div class="iv-label">📌 投资视角</div>
+        短期看MOU签字节奏，中期看Fed路径，长期看主权信用。三条时间线对应不同的金价驱动力，不要混为一谈。<b>当前$4,450-4,500区间属于"消息面估值"而非"基本面估值"</b>——MOU签字前不适合追空，降息信号明确前也不适合抄底。等待催化剂，而非猜测方向。
       </div>
       <div class="section-img">
         <img loading="lazy" src="../../../docs/charts/oil_gold_seesaw_june2.svg" alt="油金跷跷板：油价暴涨vs金价回落">
@@ -348,8 +446,8 @@
       <div class="section-title">📅 本周财经日历</div>
       <div style="background:#F8FAFC;border-radius:10px;padding:10px 14px;border:1px solid #E2E8F0;">
         <div class="cal-item"><span class="cal-day">周一</span><span class="cal-event"><span class="cal-star">★</span> 黄仁勋COMPUTEX演讲已结束 · 美国5月ISM制造业PMI 54.0（创四年新高）已公布</span></div>
-        <div class="cal-item"><span class="cal-day">周二</span><span class="cal-event"><span class="cal-star">★</span> COMPUTEX 2026第2天 · 微软Build开发者大会 · 美国4月JOLTs职位空缺（预期687万）</span></div>
-        <div class="cal-item"><span class="cal-day">周三</span><span class="cal-event"><span class="cal-star">★</span> 美国5月ADP就业（预期11万） · <span class="cal-star">★</span> 美国5月ISM非制造业PMI</span></div>
+        <div class="cal-item"><span class="cal-day">周二</span><span class="cal-event"><span class="cal-star">★</span> COMPUTEX 2026第2天 · 英特尔CEO演讲 · 美国4月JOLTs职位空缺（预期687万）</span></div>
+        <div class="cal-item"><span class="cal-day">周三</span><span class="cal-event"><span class="cal-star">★</span> 美国5月ADP就业（预期11万） · <span class="cal-star">★</span> 美国5月ISM非制造业PMI · <span class="cal-star">★★</span> AVGO/CRWD盘后财报</span></div>
         <div class="cal-item"><span class="cal-day">周四</span><span class="cal-event"><span class="cal-star">★</span> 美联储褐皮书 02:00 · 欧央行行长拉加德讲话 · 英国央行行长贝利讲话</span></div>
         <div class="cal-item"><span class="cal-day">周五</span><span class="cal-event"><span class="cal-star">★★★</span> 美国5月非农（预期+11.5~13万） · 失业率（预期4.2-4.3%） · 平均时薪</span></div>
         <div class="cal-item"><span class="cal-day">周末</span><span class="cal-event">华为nova 16系列发布会(6/6) · OPEC+部长级监督委员会(6/7)</span></div>
@@ -359,42 +457,56 @@
     <hr class="section-divider">
 
     <!-- ============================================================ -->
-    <!-- 🧠 逻辑框架 -->
+    <!-- 🧠 逻辑框架（升级版） -->
     <!-- ============================================================ -->
     <div class="section-block">
-      <div class="section-title">🧠 本周逻辑框架：三线交织，谁占上风？</div>
+      <div class="section-title">🧠 本周核心逻辑框架</div>
 
-      <div class="scenario-box">
-        <div class="sc-title" style="color:#DC2626;">线一 · 美伊对峙</div>
+      <p style="font-size:14px;color:#475569;margin-bottom:14px;line-height:1.8;"><strong>我们当前的总体判断：</strong> 本周市场由<b>一条主轴</b>驱动——油价→通胀→Fed路径→所有资产重新定价。AI叙事是平行分支，不影响主轴方向但改变了内部权重。本周的三大验证事件将决定主轴往哪个方向拐。</p>
+
+      <div class="logic-chain" style="background:#EFF6FF;border-left-color:#1A56DB;">
+        <div class="lc-label">📡 主轴：美伊「签字时点」决定一切</div>
+        油价$95（MOU悲观定价）→通胀（PCE 3.8%高烧不退）→Fed（Warsh鹰派+加息概率40%）→实际利率走高→<b>黄金承压vs成长股分化</b><br>
+        <span style="font-size:12px;color:#64748B;">反向若MOU签：油价→$80-85→通胀预期降温→Fed可能转鸽→黄金反弹、科技获支撑</span>
+      </div>
+
+      <div class="scenario-box" style="margin-top:16px;">
+        <div class="sc-title" style="color:#9333EA;">分支一 · AI叙事（加速中）</div>
         <div class="sc-content">
-          <p><strong>基准情景（持续拉锯）：</strong> 伊朗封锁威胁停留在"计划"阶段 → 油价$90-100区间震荡 → 通胀预期维持高位 → 全球风险资产承压</p>
-          <p><strong>上行情景（谈判突破）：</strong> 特朗普+伊朗一周内达成 → 油价回落$80-85 → 通胀预期降温 → 科技股反弹，黄金再承压</p>
-          <p><strong>尾部风险（实际封锁）：</strong> 海峡中断 → 油价冲击$120+ → 全球滞胀危机</p>
+          <p><strong>事实：</strong> ComputeX发布N1X+Vera Rubin量产 → 英伟达从"卖铲人"升级为"建工厂" → AI全产业链估值重估。</p>
+          <p><strong>定价：</strong> NVDA +6%/ARM +16%反映了市场对AI PC前景的乐观预期；INTC -5%/QCOM -9%则是对x86双寡头格局松动的提前计价。</p>
+          <p><strong>本周验证点：</strong> AVGO财报（6/3盘后）——ASIC定制芯片是大规模AI部署的另一条腿。若AVGO AI收入超目标→印证AI投资全面开花；若不及预期→AI行情可能从"普涨"进入"分化"。</p>
         </div>
       </div>
 
       <div class="scenario-box">
-        <div class="sc-title" style="color:#9333EA;">线二 · AI叙事</div>
+        <div class="sc-title" style="color:#D4A017;">分支二 · 宏观数据（本周三大验证）</div>
         <div class="sc-content">
-          <p>N1X和Vera Rubin全面量产 → AI算力基础设施确定性最强。但黄仁勋已将战线拉到PC——这意味着AI从"基建故事"走向"应用落地"。Arm PC生态是长期叙事，短期资金会寻找最快能转化为业绩的方向：CPO/光通信（数据中心升级）、MLCC（服务器成本项第三大）、先进封装。</p>
+          <p><strong>周三 ADP/ISM非制造业 + 周五 NFP</strong>：三组数据构成对ISM 54.0的交叉验证。</p>
+          <p>若NFP > 13万 → 经济过热叙事强化 → 加息预期再升温 → 成长股承压、金价再跌</p>
+          <p>若NFP < 10万 → 经济转弱信号 → 降息预期修复 → 成长股反弹、黄金短暂打开上行空间</p>
+          <p><span style="color:#64748B;">核心矛盾：ISM 54.0（过热）vs 中国PMI 50.0（停滞）——全球宏观从未如此分裂。</span></p>
         </div>
       </div>
 
       <div class="scenario-box">
-        <div class="sc-title" style="color:#D4A017;">线三 · 宏观数据</div>
+        <div class="sc-title" style="color:#DC2626;">尾部风险 · 油价意外冲击</div>
         <div class="sc-content">
-          <p><strong>如果非农>13万：</strong> 加息预期强化 → 成长股估值压力 → 防御板块受益 → 美元走强</p>
-          <p><strong>如果非农<10万：</strong> 降息预期复苏 → 成长股反弹 → 金价打开上行空间 → 美元走弱</p>
-          <p><span style="color:#64748B;">核心矛盾：ISM 54.0（过热）vs PMI 50.0（停滞）——全球宏观从未如此分裂。</span></p>
+          <p>若MOU谈判意外破裂 + 海峡实际封锁 → 油价冲击$120+ → 全球滞胀危机 → 当前所有"温和通胀"定价将被彻底推翻。此情景概率低（伊朗实力有限，持续封锁经济代价太大），但一旦发生将引发全球资产剧烈重置。</p>
         </div>
+      </div>
+
+      <div class="invest-view" style="margin-top:16px;">
+        <div class="iv-label">📌 核心判断</div>
+        <strong>本周最重要的不是英伟达，不是Anthropic，而是特朗普什么时候签字。</strong> 美伊MOU的签字时点将通过油价→通胀→Fed路径这条主轴，影响所有资产。AI叙事再强，也只是平行分支。盯紧签字笔——其他都是噪音。
       </div>
     </div>
 
     <!-- Pull Quote -->
     <div class="pull-quote">
       隔夜，黄仁勋宣布PC芯片新时代，伊朗威胁封锁全球能源命脉。<br>
-      AI的叙事在加速，能源的现实在逼近。<br>
-      市场在同一天同时见证了两条完全正确的逻辑。
+      两件事看似无关，却通过同一条传导链缠绕：油价→通胀→Fed→一切。<br>
+      本周最重要的一个判断：<strong>看懂这条链，就看懂了市场。</strong>
     </div>
 
     <!-- Sources -->
@@ -414,6 +526,7 @@
       <p style="margin-bottom:4px;">12. 网易财经 — <a href="https://www.163.com/dy/article/KUDM1D590534A4SC.html">美股三大股指齐创新高</a></p>
       <p style="margin-bottom:4px;">13. CNBC — Wall Street ends at record highs</p>
       <p style="margin-bottom:4px;">14. Investopedia — May Jobs Report Preview</p>
+      <p style="margin-bottom:4px;">15. CBS/Axios — Iran MOU细节与特朗普改稿门</p>
     </div>
 
     <!-- End Box -->

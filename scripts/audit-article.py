@@ -518,6 +518,365 @@ def audit_story_structure(date, edition, html):
     return audit
 
 
+# ----------------------------------------------------------------
+# Audit 8: 技术颗粒度 — 关键事件是否有精确参数
+# ----------------------------------------------------------------
+def audit_technical_depth(date, edition, html):
+    """检查关键事件的技术描述是否具有精确参数（对标全球财经简报标准）"""
+    audit = AuditItem('technical_depth', '技术颗粒度 — 关键数据应有精确参数（晶体管数/制程/带宽等）', severity='warning')
+
+    text = strip_html(html)
+
+    # 检查技术关键词附近是否有精确数字参数
+    tech_keywords = {
+        '芯片': ['纳米', 'nm', '晶体管', '亿', '核', 'GHz', 'TOPS', 'TFLOPS', 'Petaflop'],
+        'AI模型': ['亿参数', 'B参数', '万亿', 'Token', '上下文'],
+        '内存': ['GB', 'TB', 'HBM', 'LPDDR', 'DDR', 'MHz', 'MT/s'],
+        '带宽/算力': ['GB/s', 'TB/s', 'TFLOPS', 'Petaflop', 'EXA'],
+        '制程': ['纳米', 'nm', '微米'],
+    }
+
+    missing_details = []
+    for category, expected_patterns in tech_keywords.items():
+        # 检查文章是否提到这个技术类别
+        for cat_word in list(tech_keywords.keys()):
+            if cat_word == category:
+                # 检查该类别关键词在文章中出现的位置附近是否有精确参数
+                for kw in [category, 'N1X', 'RTX', 'Vera', 'Rubin', 'Blackwell', 'Arm', 'GPU', 'CPU']:
+                    if kw in text:
+                        # 在关键词周围100字范围内搜索精确参数
+                        kw_positions = [m.start() for m in re.finditer(re.escape(kw), text)]
+                        has_detail = False
+                        for pos in kw_positions[:3]:
+                            context = text[max(0, pos-50):min(len(text), pos+150)]
+                            for pat in expected_patterns:
+                                if pat in context:
+                                    has_detail = True
+                                    break
+                        if not has_detail and kw_positions:
+                            # 只对含技术内容的文章警告
+                            if any(tech in text for tech in ['AI', '芯片', '半导体', '算力']):
+                                pass  # 标记但不报错
+                            break
+                        break
+
+    # 正面检查: N1X/RTX场景是否有具体参数
+    if re.search(r'N1X|RTX Spark|超级芯片|PC芯片', text):
+        param_score = 0
+        tech_params = ['纳米', 'nm', 'Arm', '核', 'GPU', 'Blackwell', 'Petaflop', 'TFLOPS', 'GB', 'LPDDR', 'PCIe', '台积电', '3nm']
+        for p in tech_params:
+            if p in text:
+                param_score += 1
+        if param_score < 3:
+            audit.warn(f'N1X/RTX Spark场景技术参数不足（得分{param_score}/11），建议补充制程/架构/算力/内存等具体参数')
+        else:
+            audit.ok(f'N1X场景技术参数覆盖度尚可（得分{param_score}/11）')
+
+    # 检查油价/金价是否有具体点位和精确变动
+    if re.search(r'油价|原油|布伦特|WTI', text):
+        if not re.search(r'\$\d+\.\d+|\d+[\.\d]*\s*美元|原油.*[涨跌]\s*\d+\.?\d*%', text):
+            audit.warn('油价描述缺少精确点位和涨跌幅')
+
+    if re.search(r'黄金|金价', text):
+        if not re.search(r'\$\d+[\.\,\d]*|\d+[\.\d]*\s*美元/盎司', text):
+            audit.warn('金价描述缺少精确点位')
+
+    # 美股指数是否有精确点位
+    if re.search(r'道指|纳指|标普|纳斯达克|道琼斯', text):
+        if not re.search(r'\d{4,}[\.\d]*\s*点', text):
+            audit.warn('美股指数缺少精确收盘点位')
+
+    if not audit.errors and not audit.warnings:
+        audit.ok('技术数据颗粒度检查通过')
+
+    return audit
+
+
+# ----------------------------------------------------------------
+# Audit 9: 传导链系统化 — 跨资产因果传导链
+# ----------------------------------------------------------------
+def audit_transmission_chain(date, edition, html):
+    """检查是否有系统化的跨事件因果传导链"""
+    audit = AuditItem('transmission_chain', '传导链系统化 — 跨资产因果传导逻辑链', severity='warning')
+
+    text = strip_html(html)
+
+    # 检查是否有传导链标记（logic-chain / 传导链 / 逻辑链）
+    chain_markers = ['传导链', '逻辑链', '传导', '导致', '引发', '推高→', '推升→', '→']
+    chain_count = 0
+    for m in chain_markers:
+        chain_count += text.count(m)
+
+    # 检查是否有"→"箭头模式（表示因果传导）
+    arrow_count = text.count('→')
+    if arrow_count >= 2:
+        audit.ok(f'发现 {arrow_count} 个因果传导箭头（→），传导链意识良好')
+    elif arrow_count == 1:
+        audit.warn('仅发现1个因果传导链，建议至少2-3条跨资产传导（如"油价→通胀→Fed→黄金"）')
+    else:
+        audit.warn('未发现因果传导链（→），建议系统化呈现跨资产传导（油价→通胀→Fed→黄金）')
+
+    # 检查是否有跨资产关联分析
+    cross_asset_patterns = [
+        (r'油价.*通胀', '油价→通胀'),
+        (r'通胀.*(利率|降息|加息|Fed|美联储)', '通胀→利率预期'),
+        (r'利率|加息|降息', '利率政策'),
+        (r'ISM|PMI.*CPI|PCE|PCE.*ISM|PMI', 'ISM/PCE交叉分析'),
+        (r'美债.*黄金|黄金.*美债', '美债↔黄金'),
+        (r'美元.*黄金|黄金.*美元', '美元↔黄金'),
+        (r'原油.*黄金|黄金.*原油|通胀.*黄金', '能源↔黄金三角'),
+    ]
+    found_cross = 0
+    for pat, desc in cross_asset_patterns:
+        if re.search(pat, text, re.IGNORECASE):
+            found_cross += 1
+
+    if found_cross >= 2:
+        audit.ok(f'发现 {found_cross} 处跨资产关联分析')
+    else:
+        audit.warn(f'跨资产关联分析不足（仅{found_cross}处），建议至少3类（如油价→通胀、通胀→Fed、Fed→黄金）')
+
+    return audit
+
+
+# ----------------------------------------------------------------
+# Audit 10: 双向观察 — 同步写利好/承压方
+# ----------------------------------------------------------------
+def audit_dual_perspective(date, edition, html):
+    """检查是否同时呈现赢家和输家"""
+    audit = AuditItem('dual_perspective', '双向观察 — 每个事件同步呈现利好/承压方', severity='warning')
+
+    text = strip_html(html)
+
+    # 检查"涨/跌""利好/承压""赢家/输家"等对立表述
+    dual_indicators = {
+        '但.*跌|但.*承压|但.*风险': '风险提示',
+        '另一.*边|另一方|同时.*跌|也.*跌': '对立方',
+        '利空|承压|拖累|打压|冲击': '负面表述',
+        '受益|利好|提振|催化|推动': '利好表述',
+    }
+
+    has_positive = False
+    has_negative = False
+    for pat, desc in dual_indicators.items():
+        if re.search(pat, text):
+            if desc == '利好表述':
+                has_positive = True
+            if desc in ['风险提示', '对立方', '负面表述']:
+                has_negative = True
+
+    # 扫描特定个股涨跌
+    stock_up_down = re.findall(r'(英伟达|英特尔|高通|AMD|ARM|台积电|戴尔|特斯拉|亚马逊|Meta|博通)[^\d]*[涨跌]\s*[\d\.]+%', text)
+    if stock_up_down:
+        # 检查是否有正反两方
+        up_count = sum(1 for s in stock_up_down if '涨' in s)
+        down_count = sum(1 for s in stock_up_down if '跌' in s)
+        if up_count > 0 and down_count > 0:
+            audit.ok(f'个股双向定价：{up_count}涨 vs {down_count}跌')
+        elif up_count > 0:
+            audit.warn(f'仅呈现上涨方（{up_count}只），建议同步写承压方')
+        elif down_count > 0:
+            audit.warn(f'仅呈现下跌方（{down_count}只），建议同步写受益方')
+
+    if has_positive and has_negative:
+        audit.ok('利好/承压双向观察覆盖')
+    elif has_positive:
+        audit.warn('仅有利好分析，缺少风险提示和承压方分析')
+    elif has_negative:
+        audit.warn('仅有风险提示，缺少利好或受益方分析')
+
+    return audit
+
+
+# ----------------------------------------------------------------
+# Audit 11: 投资视角 — 读者价值区块
+# ----------------------------------------------------------------
+def audit_investor_value(date, edition, html):
+    """检查是否有明确的"投资视角"或读者价值指引"""
+    audit = AuditItem('investor_value', '投资视角 — 读者价值指引区块', severity='warning')
+
+    text = strip_html(html)
+
+    # 检查"投资视角"类关键词
+    value_markers = [
+        '投资视角', '对A股影响', '对美股影响', '对你来说',
+        '投资者关注', '投资启示', '关键提示', '投资要点',
+        '操作策略', '策略提示', '仓位', '配置建议',
+        '受益链', '承压方', '利好方向', '风险方向',
+    ]
+
+    found_markers = []
+    for m in value_markers:
+        if m in text:
+            found_markers.append(m)
+
+    # 检查是否有"投资视角"相关区块
+    has_value_section = bool(re.search(
+        r'投资视角|关键提示|受益链|承压方|操作策略|仓位',
+        text
+    ))
+
+    if len(found_markers) >= 3:
+        audit.ok(f'发现 {len(found_markers)} 处读者价值指引')
+    elif len(found_markers) >= 1:
+        audit.warn(f'读者价值指引不足（仅{len(found_markers)}处标记），建议增加"投资视角""关键提示"等明确区块')
+    else:
+        audit.warn('未发现明确的读者价值指引区块，建议每个大事件后加"投资视角"或"关键提示"')
+
+    # 检查是否早报/晚报（早报可以更简略）
+    return audit
+
+
+# ----------------------------------------------------------------
+# Audit 12: VIX分析 — 市场情绪指标
+# ----------------------------------------------------------------
+def audit_vix_analysis(date, edition, html):
+    """检查是否包含VIX数据和解读"""
+    audit = AuditItem('vix_analysis', 'VIX/波动率分析 — 市场情绪温度计', severity='warning')
+
+    text = strip_html(html)
+
+    # 检查VIX关键词
+    vix_present = bool(re.search(r'VIX|恐慌指数|波动率|波动指数', text))
+
+    if vix_present:
+        # 检查是否有具体VIX数值
+        vix_value = re.search(r'VIX[^\d]*(\d+\.?\d*)', text)
+        if vix_value:
+            audit.ok(f'包含VIX数据（{vix_value.group(1)}）')
+        else:
+            audit.warn('提到VIX但缺少具体数值')
+    else:
+        audit.warn('未包含VIX/恐慌指数数据 — 建议每次日报补充VIX收盘值和解读')
+
+    return audit
+
+
+# ----------------------------------------------------------------
+# Audit 13: 宏观三角 — PCE→FedWatch→FOMC
+# ----------------------------------------------------------------
+def audit_macro_triangle(date, edition, html):
+    """检查宏观板块是否包含完整的PCE→FedWatch→FOMC→官员表态链条"""
+    audit = AuditItem('macro_triangle', '宏观三角 — PCE→FedWatch→FOMC→官员表态', severity='warning')
+
+    text = strip_html(html)
+
+    # 检查PCE/通胀数据
+    has_pce = bool(re.search(r'PCE|CPI|通胀|通货膨胀', text))
+
+    # 检查FedWatch/加息概率
+    has_fedwatch = bool(re.search(r'FedWatch|加息概率|降息概率|CME|利率互换', text))
+
+    # 检查FOMC日期
+    has_fomc = bool(re.search(r'FOMC|议息|6月17|6月18|利率决议', text))
+
+    # 检查官员表态
+    has_official = bool(re.search(r'(美联储|Fed|Warsh|鲍威尔|库克|Lisa|柯林斯|沃勒)[^。]*表[态势]', text))
+
+    items = []
+    if has_pce:
+        items.append('PCE/通胀数据')
+    if has_fedwatch:
+        items.append('FedWatch概率')
+    if has_fomc:
+        items.append('FOMC时间线')
+    if has_official:
+        items.append('官员表态')
+
+    if len(items) >= 3:
+        audit.ok(f'宏观三角覆盖完整：{", ".join(items)}')
+    elif len(items) >= 1:
+        audit.warn(f'宏观三角仅覆盖 {len(items)}/4：{", ".join(items)}，建议补全PCE→FedWatch→FOMC→官员表态完整链条')
+    else:
+        audit.warn('宏观三角未覆盖，建议增加PCE/FedWatch/FOMC/官员表态链条')
+
+    return audit
+
+
+# ----------------------------------------------------------------
+# Audit 14: 情景推演成熟度 — 概率判断+条件
+# ----------------------------------------------------------------
+def audit_scenario_maturity(date, edition, html):
+    """检查情景推演是否有概率判断、触发条件、时间窗口"""
+    audit = AuditItem('scenario_maturity', '情景推演深度 — 概率判断+触发条件+时间窗口', severity='warning')
+
+    text = strip_html(html)
+
+    # 检查是否有scenario-box
+    has_scenario_box = 'scenario-box' in html or 'scenario' in html.lower()
+
+    # 检查概率判断词
+    prob_markers = re.findall(r'概率|可能|大概率|小概率|基准.*情[景形]|尾部风险|触发条件', text)
+    time_markers = re.findall(r'未来.*周|本周|下周|个月内|季度|半年', text)
+
+    # 检查路径标记
+    path_markers = re.findall(r'路径[AB]|情景[一二三四五]|情景A|情景B|Scenario|情景[1-5]', text)
+
+    if has_scenario_box:
+        audit.ok('包含情景推演框')
+
+    if len(path_markers) >= 2:
+        audit.ok(f'多路径推演清晰（{len(path_markers)}条路径）')
+    elif len(path_markers) == 1:
+        audit.warn('仅有1条推演路径，建议至少2-3条（基准/乐观/尾部风险）')
+
+    if len(prob_markers) >= 2:
+        pass  # 概率判断覆盖
+    else:
+        audit.warn('情景推演缺少概率判断词，建议为每条路径标注概率估计')
+
+    if not time_markers:
+        audit.warn('情景推演缺少时间窗口描述，建议标注"未来X周/月"等时间范围')
+
+    if not has_scenario_box and not path_markers:
+        pass  # 不是所有文章都需要情景推演
+
+    if not audit.errors and not audit.warnings:
+        audit.ok('情景推演深度检查通过')
+
+    return audit
+
+
+# ----------------------------------------------------------------
+# Audit 15: 数据可视化密度 — 图表+漫画数量
+# ----------------------------------------------------------------
+def audit_visualization_density(date, edition, html):
+    """检查图表和漫画数量是否充足"""
+    audit = AuditItem('visualization_density', '数据可视化密度 — 图表+漫画数量', severity='warning')
+
+    # 统计文章中的图片引用
+    chart_count = len(re.findall(r'docs/charts/', html))
+    comic_count = len(re.findall(r'comic/', html))
+
+    total_viz = chart_count + comic_count
+
+    # 检查comic目录
+    article_dir = os.path.dirname(find_article_path(date, edition) or '')
+    comic_dir = os.path.join(article_dir, 'comic')
+
+    if os.path.isdir(comic_dir):
+        svgs = [f for f in os.listdir(comic_dir) if f.endswith('.svg')]
+        actual_comics = len(svgs)
+    else:
+        actual_comics = 0
+
+    if total_viz >= 3:
+        audit.ok(f'可视化数量充足：{chart_count}图表 + {comic_count}漫画 = {total_viz}')
+    elif total_viz >= 1:
+        audit.warn(f'可视化偏少（{total_viz}），建议日报至少2图表+1漫画')
+        if actual_comics > 0:
+            audit.info.append(f'comic目录有 {actual_comics} 个SVG文件')
+    else:
+        audit.warn('无数据可视化，建议至少2张图表+1张漫画')
+
+    if actual_comics > 1:
+        audit.ok(f'漫画数量充足：{actual_comics}张')
+    elif actual_comics == 1:
+        pass  # 1张勉强可接受
+
+    return audit
+
+
 # ================================================================
 # 主流程
 # ================================================================
@@ -536,9 +895,13 @@ def main():
 
     print(f'\n{CYAN}{"="*60}{RESET}')
     print(f'{CYAN}  扬说财经 · 综合审核脚本 v1.0{RESET}')
+
     print(f'{CYAN}  日期: {date} | 版次: {edition}{RESET}')
-    print(f'{CYAN}  覆盖: 时效性 | 真实性 | 来源审查 | 文案一致性{RESET}')
+
+    print(f'{CYAN}  覆盖: 时效性 | 真实性 | 来源审查 | 文案一致性 | 行业质量基准(8项){RESET}')
+
     print(f'{CYAN}{"="*60}{RESET}')
+
 
     # 查找文件
     article_path = find_article_path(date, edition)
@@ -564,65 +927,136 @@ def main():
     has_warnings = False
 
     # Audit 1: 新闻时效性
-    print(f'\n{"─"*55}')
-    print(f'  [AUDIT 1/7] 新闻时效性')
-    print(f'{"─"*55}')
+    print(f'\n')
+    print(f'  [AUDIT 1/15] 新闻时效性')
     r = audit_timeliness(date, edition, html, script)
     results['timeliness'] = r.to_dict()
     if not r.passed:
         has_blocking_errors = True
 
     # Audit 2: 新闻真实性
-    print(f'\n{"─"*55}')
-    print(f'  [AUDIT 2/7] 新闻真实性 — 数据来源追溯')
-    print(f'{"─"*55}')
+    print(f'\n')
+    print(f'  [AUDIT 2/15] 新闻真实性 — 数据来源追溯')
     r = audit_authenticity(date, edition, html)
     results['authenticity'] = r.to_dict()
     if not r.passed:
         has_blocking_errors = True
 
     # Audit 3: 新闻来源审查
-    print(f'\n{"─"*55}')
-    print(f'  [AUDIT 3/7] 新闻来源审查 — URL清单')
-    print(f'{"─"*55}')
+    print(f'\n')
+    print(f'  [AUDIT 3/15] 新闻来源审查 — URL清单')
     r = audit_sources(date, edition, html)
     results['sources'] = r.to_dict()
     if not r.passed:
         has_warnings = True
 
     # Audit 4: 文案一致性
-    print(f'\n{"─"*55}')
-    print(f'  [AUDIT 4/7] 文案一致性 — article.html vs script.txt')
-    print(f'{"─"*55}')
+    print(f'\n')
+    print(f'  [AUDIT 4/15] 文案一致性 — article.html vs script.txt')
     r = audit_consistency(date, edition, html, script)
     results['consistency'] = r.to_dict()
     if not r.passed:
         has_blocking_errors = True
 
     # Audit 5: 套话检查
-    print(f'\n{"─"*55}')
-    print(f'  [AUDIT 5/7] 套话检查')
-    print(f'{"─"*55}')
+    print(f'\n')
+    print(f'  [AUDIT 5/15] 套话检查')
     r = audit_banned_phrases(date, edition, html, script)
     results['banned_phrases'] = r.to_dict()
     if not r.passed:
         has_blocking_errors = True
 
     # Audit 6: 模板占位符
-    print(f'\n{"─"*55}')
-    print(f'  [AUDIT 6/7] 模板占位符')
-    print(f'{"─"*55}')
+    print(f'\n')
+    print(f'  [AUDIT 6/15] 模板占位符')
     r = audit_placeholders(date, edition, html)
     results['placeholders'] = r.to_dict()
     if not r.passed:
         has_blocking_errors = True
 
     # Audit 7: 6故事结构
-    print(f'\n{"─"*55}')
-    print(f'  [AUDIT 7/7] 6故事结构完整性')
-    print(f'{"─"*55}')
+    print(f'\n')
+    print(f'  [AUDIT 7/15] 6故事结构完整性')
     r = audit_story_structure(date, edition, html)
     results['story_structure'] = r.to_dict()
+
+    # ---- 行业质量基准审计 (8-15) ----
+    quality_warnings = 0
+    quality_total = 0
+
+    # Audit 8: 技术颗粒度
+    print(f'  [AUDIT 8/15] 技术颗粒度 — 精确参数覆盖')
+    r = audit_technical_depth(date, edition, html)
+    results['technical_depth'] = r.to_dict()
+    quality_total += 1
+    if not r.passed:
+        quality_warnings += 1
+        has_warnings = True
+
+    # Audit 9: 传导链系统化
+    print(f'  [AUDIT 9/15] 传导链系统化 — 跨资产因果逻辑')
+    r = audit_transmission_chain(date, edition, html)
+    results['transmission_chain'] = r.to_dict()
+    quality_total += 1
+    if not r.passed:
+        quality_warnings += 1
+        has_warnings = True
+
+    # Audit 10: 双向观察
+    print(f'  [AUDIT 10/15] 双向观察 — 利好/承压方同步呈现')
+    r = audit_dual_perspective(date, edition, html)
+    results['dual_perspective'] = r.to_dict()
+    quality_total += 1
+    if not r.passed:
+        quality_warnings += 1
+        has_warnings = True
+
+    # Audit 11: 投资视角
+    print(f'  [AUDIT 11/15] 投资视角 — 读者价值指引')
+    r = audit_investor_value(date, edition, html)
+    results['investor_value'] = r.to_dict()
+    quality_total += 1
+    if not r.passed:
+        quality_warnings += 1
+        has_warnings = True
+
+    # Audit 12: VIX分析
+    print(f'  [AUDIT 12/15] VIX/波动率 — 市场情绪温度计')
+    r = audit_vix_analysis(date, edition, html)
+    results['vix_analysis'] = r.to_dict()
+    quality_total += 1
+    if not r.passed:
+        quality_warnings += 1
+        has_warnings = True
+
+    # Audit 13: 宏观三角
+    print(f'  [AUDIT 13/15] 宏观三角 — PCE→FedWatch→FOMC')
+    r = audit_macro_triangle(date, edition, html)
+    results['macro_triangle'] = r.to_dict()
+    quality_total += 1
+    if not r.passed:
+        quality_warnings += 1
+        has_warnings = True
+
+    # Audit 14: 情景推演深度
+    print(f'  [AUDIT 14/15] 情景推演 — 概率/条件/时间窗口')
+    r = audit_scenario_maturity(date, edition, html)
+    results['scenario_maturity'] = r.to_dict()
+    quality_total += 1
+    if not r.passed:
+        quality_warnings += 1
+        has_warnings = True
+
+    # Audit 15: 可视化密度
+    print(f'  [AUDIT 15/15] 可视化密度 — 图表+漫画数量')
+    r = audit_visualization_density(date, edition, html)
+    results['visualization_density'] = r.to_dict()
+    quality_total += 1
+    if not r.passed:
+        quality_warnings += 1
+        has_warnings = True
+
+
 
     # 总体结果
     print(f'\n{CYAN}{"="*60}{RESET}')
@@ -640,6 +1074,7 @@ def main():
         exit_code = 0
 
     print(f'{CYAN}{"="*60}{RESET}')
+
 
     if args.json:
         report = {
