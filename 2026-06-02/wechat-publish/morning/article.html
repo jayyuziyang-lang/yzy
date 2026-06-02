@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>扬说财经 · 早报 | 2026.06.02</title>
+<style>
+  :root { --accent: #1A56DB; --accent2: #D4A017; --bg: #0F172A; --card: #1E293B; --text: #E2E8F0; --muted: #94A3B8; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans SC', sans-serif; background: var(--bg); color: var(--text); line-height: 1.8; }
+  .nav-bar { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(15,23,42,0.92); backdrop-filter: blur(8px); padding: 10px 20px; display: flex; align-items: center; gap: 12px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .nav-bar a { color: var(--muted); text-decoration: none; font-size: 14px; display: flex; align-items: center; gap: 6px; transition: color 0.2s; }
+  .nav-bar a:hover { color: #fff; }
+  .header { background: linear-gradient(135deg, #1A56DB, #1E3A7A); padding: 72px 20px 36px; text-align: center; position: relative; overflow: hidden; }
+  .header::after { content: ''; position: absolute; bottom: -20px; left: 0; right: 0; height: 40px; background: var(--bg); border-radius: 50% 50% 0 0; }
+  .header .label { display: inline-block; background: rgba(255,255,255,0.2); padding: 4px 16px; border-radius: 20px; font-size: 14px; margin-bottom: 12px; }
+  .header h1 { font-size: clamp(1.5rem, 4vw, 2.2rem); margin-bottom: 8px; font-weight: 700; }
+  .header .date { font-size: 15px; color: rgba(255,255,255,0.8); }
+  .header .subtitle { font-size: 13px; color: rgba(255,255,255,0.6); margin-top: 4px; }
+  .container { max-width: 720px; margin: 0 auto; padding: 32px 16px; }
+  .story-card { background: var(--card); border-radius: 16px; padding: 28px; margin-bottom: 24px; border-left: 4px solid var(--accent); }
+  .story-card .num { font-size: 13px; font-weight: 600; color: var(--accent2); margin-bottom: 4px; }
+  .story-card h2 { font-size: 20px; margin-bottom: 16px; color: #fff; }
+  .story-card p { margin-bottom: 12px; color: var(--text); font-size: 15px; }
+  .story-card .highlight { background: rgba(212, 160, 23, 0.12); padding: 12px 16px; border-radius: 8px; margin: 12px 0; border-left: 3px solid var(--accent2); }
+  .story-card .data-row { display: flex; flex-wrap: wrap; gap: 12px; margin: 12px 0; }
+  .story-card .data-item { background: rgba(26, 86, 219, 0.1); padding: 8px 14px; border-radius: 8px; font-size: 14px; }
+  .story-card .data-item strong { color: var(--accent2); }
+  .story-card .chart-container { margin: 16px 0; text-align: center; }
+  .story-card .chart-container img { max-width: 100%; border-radius: 8px; }
+  .story-card .source { font-size: 12px; color: var(--muted); margin-top: 12px; }
+  .story-card .source a { color: var(--accent); text-decoration: none; }
+  .story-card .source a:hover { text-decoration: underline; }
+  .comic-section { margin-bottom: 24px; }
+  .comic-section img { width: 100%; border-radius: 16px; }
+  .audio-section { text-align: center; background: var(--card); border-radius: 16px; padding: 24px; margin-bottom: 24px; }
+  .footer { text-align: center; padding: 24px; color: var(--muted); font-size: 13px; border-top: 1px solid rgba(255,255,255,0.06); }
+  @media (max-width: 480px) { .story-card { padding: 20px; } }
+</style>
+</head>
+<body>
+  <div class="nav-bar">
+    <a href="javascript:history.back()">&#8592; 返回</a>
+    <span style="color:rgba(255,255,255,0.15);">|</span>
+    <a id="home-link" href="../../../index.html">&#127968; 首页</a>
+  </div>
+
+  <div class="header">
+    <div class="label">📰 扬说早报</div>
+    <h1>英伟达宣战英特尔，中东引爆能源市场</h1>
+    <div class="date">2026年6月2日 · 星期二</div>
+    <div class="subtitle">美股三指数创新高 · 英伟达RTX Spark进军PC芯片 · 伊朗计划封锁霍尔木兹海峡 · 中美各300亿美元对等降税</div>
+  </div>
+
+  <div class="container">
+
+    <!-- 今日漫画 -->
+    <div class="comic-section">
+      <img src="./comic/panel-000.svg" alt="今日早报漫画" loading="lazy">
+    </div>
+
+    <!-- 音频区域 -->
+    <div class="audio-section" id="audio">
+      <audio controls style="width:100%; max-width:400px;">
+        <source src="./audio.mp3" type="audio/mpeg">
+        您的浏览器不支持音频播放
+      </audio>
+      <p style="color:var(--muted); font-size:13px; margin-top:8px;">🔊 扬说财经 · 早报音频版</p>
+    </div>
+
+    <!-- ===== 故事一 ===== -->
+    <div class="story-card" style="border-left-color: #EF4444;">
+      <div class="num">🇨🇳 01 | A股</div>
+      <h2>6月开门"指数跌个股涨"，AI硬件切换软件</h2>
+      <p>6月首个交易日，A股呈现鲜明的结构分化：上证指数微跌0.27%报4057点，创业板指跌2.15%，科创50重挫5%。但全市场3776只个股上涨，168只涨停——"指数跌、个股涨"背后，是一场大规模的风格切换。</p>
+      <p>电子板块单日净流出240亿元，半导体遭121亿抛售，东山精密、胜宏科技跌停。与此同时，计算机板块净流入41.6亿居首，传媒板块净流入39.6亿、大涨3.32%，AIGC概念全线爆发。资金正从AI硬件（算力基建）大规模迁移至AI应用（软件落地）——这不是撤退，是内部接力。</p>
+      <div class="data-row">
+        <div class="data-item">📉 科创50 <strong>-5%</strong></div>
+        <div class="data-item">📈 上涨个股 <strong>3776只</strong></div>
+        <div class="data-item">💰 电子净流出 <strong>-240亿</strong></div>
+        <div class="data-item">🔄 计算机净流入 <strong>+41.6亿</strong></div>
+        <div class="data-item">📊 两市成交 <strong>2.88万亿</strong></div>
+      </div>
+      <div class="source">来源：<a href="https://stcn.com/article/detail/3937025.html" target="_blank" rel="noopener">证券时报</a> · <a href="https://www.stcn.com/article/detail/3938641.html" target="_blank" rel="noopener">Wind数据</a> · 东方财富</div>
+    </div>
+
+    <!-- ===== 故事二 ===== -->
+    <div class="story-card" style="border-left-color: #10B981;">
+      <div class="num">🇺🇸 02 | 美股</div>
+      <h2>三大指数齐创收盘新高，英伟达GTC Taipei引爆AI PC革命</h2>
+      <p>美股周一全线收涨，道指涨0.09%报51078点，纳指涨0.42%报27086点，标普500涨0.26%报7600点——三大指数同步刷新历史收盘新高。标普科技板块单日飙升2.48%，成为最强推手。</p>
+      <p>英伟达在GTC Taipei 2026大会上投下重磅炸弹：发布与微软联合研发的<strong>RTX Spark（N1X）超级芯片</strong>，正式进军个人电脑处理器市场。黄仁勋称"堪比功能手机到智能手机的跨越"。该芯片将率先应用于微软、戴尔、惠普、华硕、联想、微星六大品牌的Windows PC，2026年秋季上市。</p>
+      <div class="data-row">
+        <div class="data-item">🚀 英伟达 <strong>+6.3%</strong></div>
+        <div class="data-item">📈 ARM <strong>+16.1%</strong></div>
+        <div class="data-item">💾 美光 <strong>+6.6%</strong></div>
+        <div class="data-item">🔻 英特尔 <strong>-4.7%</strong></div>
+        <div class="data-item">🔻 高通 <strong>-5.6%</strong></div>
+      </div>
+      <p>芯片板块剧烈分化：ARM暴涨16%（富国上调目标价至410美元），戴尔涨超10%，美光突破1000美元大关。英特尔暴跌近5%、高通跌近6%——英伟达一纸宣战，PC芯片格局天翻地覆。AI应用软件股同步走强，ServiceNow涨9.2%、Cadence涨10.5%，市场焦点从基础设施向应用层扩散。</p>
+      <div class="highlight">
+        <p><strong>AI PC</strong>被视作40年来PC最大变革。高盛重申英伟达买入评级，目标价285美元。本周关注博通财报（AI ASIC风向标）及美国非农就业报告。</p>
+      </div>
+      <div class="source">来源：<a href="https://www.chinatimes.com/realtimenews/20260602001724-260410" target="_blank" rel="noopener">工商时报</a> · <a href="https://www.163.com/dy/article/KUCAG2OJ05568W0A.html" target="_blank" rel="noopener">网易财经</a> · CNBC · 高盛研报</div>
+    </div>
+
+    <!-- ===== 故事三 ===== -->
+    <div class="story-card" style="border-left-color: #8B5CF6;">
+      <div class="num">🤖 03 | 科技/AI</div>
+      <h2>Anthropic秘密提交IPO，估值9650亿美元超OpenAI</h2>
+      <p>AI赛道再掀巨浪。Claude母公司<strong>Anthropic</strong>于6月1日向SEC秘密提交Form S-1上市申请，最新估值高达<strong>9650亿美元</strong>，已超越OpenAI的8520亿美元，成为全球估值最高的AI独角兽。最快预计2026年秋季正式登陆资本市场。</p>
+      <p>Anthropic 2026年5月年化收入运行率已突破470亿美元，2026年Q2预估营收109亿美元（同比增130%），有望首次实现季度盈利。其80%收入来自企业客户（OpenAI仅约40%），企业粘性显著更强。高盛、摩根大通、摩根士丹利预计担任承销商。与此同时，6月1日有消息称Alphabet（谷歌）宣布计划出售800亿美元股票，用于投资AI运算基础设施。</p>
+      <div class="data-row">
+        <div class="data-item">💰 Anthropic估值 <strong>9650亿</strong></div>
+        <div class="data-item">📊 Q2预估营收 <strong>$109亿</strong></div>
+        <div class="data-item">🏢 企业客户占比 <strong>80%</strong></div>
+        <div class="data-item">📅 预计上市 <strong>2026秋</strong></div>
+      </div>
+      <div class="source">来源：<a href="https://www.sohu.com/a/1030907870_334198" target="_blank" rel="noopener">搜狐财经</a> · <a href="https://finance.sina.com.cn/roll/2026-06-02/doc-inhzyhiz1883424.shtml" target="_blank" rel="noopener">新浪财经</a> · SEC文件 · 华尔街日报</div>
+    </div>
+
+    <!-- ===== 故事四 ===== -->
+    <div class="story-card" style="border-left-color: #06B6D4;">
+      <div class="num">🌍 04 | 前沿/国际</div>
+      <h2>伊朗宣布计划彻底封锁霍尔木兹海峡，油价暴涨</h2>
+      <p>中东局势骤然升级。伊朗革命卫队6月1日宣布，计划与"抵抗阵线"共同<strong>彻底封锁霍尔木兹海峡</strong>，并同步在曼德海峡开启行动。全球约20%的石油通过霍尔木兹海峡运输，这一通道若被切断，意味着全球能源供应的"心脏骤停"。</p>
+      <p>伊朗最高领袖军事顾问雷扎伊6月2日发出强硬警告："霍尔木兹海峡由伊朗控制，武装部队的耐心是有限的。"伊朗同时于6月1日宣布暂停与美国通过中间人的谈判，将黎巴嫩停火作为任何协议的前提条件。革命卫队海军称已使用巡航导弹击中属于美以势力的船只，美军中央司令部称拦截了两枚瞄准驻科威特基地的弹道导弹。</p>
+      <div class="highlight">
+        <p><strong>油价暴涨、金价骤跌、汇市巨震。</strong>WTI原油单日暴涨5.49%重返92美元，布伦特站上95美元。特朗普称预计"未来一周内"与伊朗达成协议，同时下令大规模释放战略石油储备。这场能源博弈的走向，将成为6月全球市场的核心变量。</p>
+      </div>
+      <div class="source">来源：<a href="https://www.sohu.com/a/1030758453_161795" target="_blank" rel="noopener">搜狐国际</a> · <a href="http://news.cri.cn/20260602/d1317b01-803e-a32d-db9e-51a9edc0a561.html" target="_blank" rel="noopener">国际在线</a> · <a href="https://www.sohu.com/a/1030793279_120244154" target="_blank" rel="noopener">路透社</a> · 央视新闻 · 新华社</div>
+    </div>
+
+    <!-- ===== 故事五 ===== -->
+    <div class="story-card" style="border-left-color: #F59E0B;">
+      <div class="num">🏛️ 05 | 宏观</div>
+      <h2>中美各300亿美元对等降税，美方称关税"长期高于他国"</h2>
+      <p>中国商务部6月1日确认，中美已就"贸易理事会"框架下<strong>各300亿美元及以上规模的双向对等降税</strong>达成原则共识。双方将成立政府间贸易理事会和投资理事会，将经贸磋商从"危机式应对"转向"机制化管理"。</p>
+      <p>中方承诺2026-2028年每年采购170亿美元美国农产品，恢复美牛肉及禽肉对华出口资格，按商业化原则重启引进200架波音飞机。然而，美国贸易代表格里尔同日表态：保住对华关税"相当棒"，对华关税将长期高于其他国家。受降税预期刺激，远东至美西运价单周飙涨31.5%。</p>
+      <p>美国5月ISM制造业数据创四年新高，利率互换显示交易员已完全消化2027年3月前加息预期，美元指数走强。关税缓和的"蜜月期"与政策收紧的"紧箍咒"同时收紧，市场在双重信号间摇摆。</p>
+      <div class="data-row">
+        <div class="data-item">🇨🇳🇺🇸 各300亿降税</div>
+        <div class="data-item">🌾 年购170亿农产品</div>
+        <div class="data-item">✈️ 200架波音</div>
+        <div class="data-item">📦 美线运价 <strong>+31.5%</strong></div>
+      </div>
+      <div class="source">来源：<a href="https://ccpit.nanjing.gov.cn/jmzx/202606/t20260601_5850120.html" target="_blank" rel="noopener">商务部</a> · <a href="https://www.chwang.com/news/206168430559" target="_blank" rel="noopener">新华财经</a> · <a href="https://tw.stock.yahoo.com/news/%E7%BE%8E%E8%B2%BF%E6%98%93%E4%BB%A3%E8%A1%A8-%E4%BF%9D%E4%BD%8F%E5%B0%8D%E4%B8%AD%E9%97%9C%E7%A8%85-%E7%9B%B8%E7%95%B6%E6%A3%92-%E7%BE%8E%E4%B8%AD%E6%93%AC%E5%95%9F%E5%8A%95%E9%99%8D%E7%A8%85%E6%B8%85%E5%96%AE-021003679.html" target="_blank" rel="noopener">雅虎财经</a></div>
+    </div>
+
+    <!-- ===== 故事六 ===== -->
+    <div class="story-card" style="border-left-color: #F97316;">
+      <div class="num">🛢️ 06 | 商品/黄金</div>
+      <h2>油价单日暴涨5.5%，金价高位回落近20%</h2>
+      <p>大宗商品市场呈现罕见的冰火两重天。WTI原油7月合约暴涨5.49%至<strong>92.16美元/桶</strong>，布伦特8月合约涨4.24%至<strong>94.98美元/桶</strong>，均创近期最大单日涨幅。直接导火索是伊朗封锁霍尔木兹海峡的威胁——该通道每日承载约1700万桶石油运输，占全球消费量的近20%。</p>
+      <div class="data-row">
+        <div class="data-item">🛢️ WTI <strong>$92.16</strong> <span style="color:#10B981;">+5.49%</span></div>
+        <div class="data-item">🛢️ 布伦特 <strong>$94.98</strong> <span style="color:#10B981;">+4.24%</span></div>
+        <div class="data-item">🥇 现货黄金 <strong>$4,485</strong> <span style="color:#EF4444;">-1.2%</span></div>
+        <div class="data-item">🔴 LME铜 <strong>$13,832</strong> <span style="color:#10B981;">+1.4%</span></div>
+      </div>
+      <p>黄金则上演"跷跷板"行情——现货金价跌至4485美元/盎司，COMEX期货跌1.21%至4515美元。自1月底创下近5600美元历史高点后，金价已累计下跌近20%。油价暴涨推高通胀预期，反而强化了央行维持紧缩的预期，压制了黄金的避险吸引力。</p>
+      <p>伦铜涨1.4%至13832美元/吨，受AI投资热潮及美国关税决定预期双向提振，5月累计涨幅约5%。整个商品市场正被同一只手操纵——中东局势将油价推向高点，而通胀预期反过来压制金价与宽松预期。</p>
+      <div class="highlight">
+        <p><strong>关键信号：</strong>"石油-黄金-美元"三角正在剧烈重组。油价若持续站上95美元，通胀预期将进一步失控，美联储可能被迫转向鹰派——届时受冲击的将不只是黄金，还有整个全球风险资产。</p>
+      </div>
+      <div class="source">来源：<a href="https://finance.sina.com.cn/money/bond/2026-06-02/doc-inhzyhiy3433561.shtml" target="_blank" rel="noopener">新华财经</a> · <a href="https://www.163.com/dy/article/KUDORS6N0530QLU6.html" target="_blank" rel="noopener">网易财经</a> · <a href="https://www.sohu.com/a/1030819314_122014422" target="_blank" rel="noopener">搜狐财经</a> · COMEX · LME</div>
+    </div>
+
+    <!-- 核心标签 -->
+    <div style="background:var(--card); border-radius:16px; padding:24px; margin-bottom:24px;">
+      <h3 style="font-size:16px; color:var(--accent2); margin-bottom:12px;">🏷️ 本期核心标签</h3>
+      <div style="display:flex; flex-wrap:wrap; gap:8px;">
+        <span style="background:rgba(16,185,129,0.15); color:#10B981; padding:4px 12px; border-radius:20px; font-size:13px;">#美股新高</span>
+        <span style="background:rgba(139,92,246,0.15); color:#8B5CF6; padding:4px 12px; border-radius:20px; font-size:13px;">#英伟达RTXSpark</span>
+        <span style="background:rgba(239,68,68,0.15); color:#EF4444; padding:4px 12px; border-radius:20px; font-size:13px;">#AnthropicIPO</span>
+        <span style="background:rgba(6,182,212,0.15); color:#06B6D4; padding:4px 12px; border-radius:20px; font-size:13px;">#霍尔木兹海峡</span>
+        <span style="background:rgba(249,115,22,0.15); color:#F97316; padding:4px 12px; border-radius:20px; font-size:13px;">#油价暴涨</span>
+        <span style="background:rgba(245,158,11,0.15); color:#F59E0B; padding:4px 12px; border-radius:20px; font-size:13px;">#中美降税</span>
+        <span style="background:rgba(239,68,68,0.15); color:#EF4444; padding:4px 12px; border-radius:20px; font-size:13px;">#A股风格切换</span>
+        <span style="background:rgba(249,115,22,0.15); color:#F97316; padding:4px 12px; border-radius:20px; font-size:13px;">#AI应用爆发</span>
+        <span style="background:rgba(16,185,129,0.15); color:#10B981; padding:4px 12px; border-radius:20px; font-size:13px;">#AI PC革命</span>
+        <span style="background:rgba(6,182,212,0.15); color:#06B6D4; padding:4px 12px; border-radius:20px; font-size:13px;">#金价回落</span>
+      </div>
+    </div>
+
+    <!-- 数据核查说明 -->
+    <div style="background:rgba(239,68,68,0.08); border:1px solid rgba(239,68,68,0.3); border-radius:16px; padding:20px; margin-bottom:24px;">
+      <h3 style="font-size:15px; color:#EF4444; margin-bottom:8px;">⚠️ 数据核查说明</h3>
+      <p style="font-size:13px; color:var(--muted);">
+        本文数据来源：(1) A股数据来自Wind、东方财富、证券时报；(2) 美股数据来自CNBC、各公司公告；(3) Anthropic IPO信息来自SEC文件、华尔街日报、Yahoo Finance；(4) 中东局势来自新华社、央视新闻、路透社；(5) 中美关税消息来自商务部新闻发布会；(6) 大宗商品数据来自COMEX、LME、新华财经。部分前瞻性判断（AI PC前景、油价走势等）基于券商研报观点，仅供参考。市场有风险，投资需谨慎。
+      </p>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <p>扬说财经 · 每日早报 | 数据截至2026.06.01 美股收盘</p>
+    <p>数据来源：Wind · 东方财富 · CNBC · 路透社 · 新华社 · 商务部 · 更多见各章节标注</p>
+    <p style="margin-top:6px; color: var(--muted);">⚠️ 本文不构成任何投资建议，市场有风险，投资需谨慎。</p>
+  </div>
+
+  <script>
+    // 返回首页导航
+    (function(){
+      var p = location.pathname.split('/');
+      var homeLink = document.getElementById('home-link');
+      if(homeLink) {
+        homeLink.href = '../'.repeat(Math.max(0, p.length - 3)) || '.';
+        if (homeLink.href.endsWith('/')) homeLink.href += 'index.html';
+      }
+    })();
+  </script>
+</body>
+</html>
