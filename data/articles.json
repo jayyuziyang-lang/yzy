@@ -1,7 +1,19 @@
 {
-  "generated_at": "2026-06-03T11:19:06+08:00",
+  "generated_at": "2026-06-03T17:34:19+08:00",
   "latest_date": "2026-06-03",
   "articles": [
+    {
+      "date": "2026-06-03",
+      "session": "evening",
+      "edition_cn": "晚报",
+      "icon": "🌙",
+      "title": "A股冲高回落·创业板+1.65%·CPO千亿成交·ADP低于预期·黄金跌至4442",
+      "url": "2026-06-03/wechat-publish/evening/article.html",
+      "has_audio": true,
+      "audio_size_bytes": 1402416,
+      "has_comic": true,
+      "comic_count": 2
+    },
     {
       "date": "2026-06-03",
       "session": "morning",
@@ -283,6 +295,18 @@
   ],
   "by_date": {
     "2026-06-03": {
+      "evening": {
+        "date": "2026-06-03",
+        "session": "evening",
+        "edition_cn": "晚报",
+        "icon": "🌙",
+        "title": "A股冲高回落·创业板+1.65%·CPO千亿成交·ADP低于预期·黄金跌至4442",
+        "url": "2026-06-03/wechat-publish/evening/article.html",
+        "has_audio": true,
+        "audio_size_bytes": 1402416,
+        "has_comic": true,
+        "comic_count": 2
+      },
       "morning": {
         "date": "2026-06-03",
         "session": "morning",

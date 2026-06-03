@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 220">
+  <rect width="300" height="220" fill="#FAFAFA"/>
+
+  <!-- Title bar -->
+  <rect x="0" y="0" width="300" height="30" fill="#D4A017"/>
+  <text x="150" y="20" text-anchor="middle" font-size="12" font-weight="700" fill="#fff" font-family="PingFang SC, Microsoft YaHei, sans-serif">📈 A股冲高回落：创业板的"一日游"</text>
+
+  <!-- Left: Morning peak -->
+  <text x="12" y="52" font-size="8" fill="#64748B" font-family="PingFang SC, Microsoft YaHei, sans-serif">早盘高点</text>
+  <rect x="12" y="56" width="90" height="18" rx="4" fill="#DC2626"/>
+  <text x="105" y="70" font-size="8" font-weight="700" fill="#DC2626" font-family="PingFang SC, Microsoft YaHei, sans-serif">+3.97%</text>
+
+  <!-- Down arrow -->
+  <text x="55" y="90" font-size="14" fill="#16A34A">↓</text>
+
+  <!-- Right: Close -->
+  <text x="12" y="112" font-size="8" fill="#64748B" font-family="PingFang SC, Microsoft YaHei, sans-serif">收盘</text>
+  <rect x="12" y="116" width="50" height="18" rx="4" fill="#DC2626"/>
+  <text x="65" y="130" font-size="8" font-weight="700" fill="#DC2626" font-family="PingFang SC, Microsoft YaHei, sans-serif">+1.65%</text>
+
+  <!-- Divider -->
+  <line x1="155" y1="38" x2="155" y2="155" stroke="#E2E8F0" stroke-width="1"/>
+
+  <!-- Right: Key stats -->
+  <text x="163" y="55" font-size="8" fill="#64748B" font-family="PingFang SC, Microsoft YaHei, sans-serif">成交额</text>
+  <text x="163" y="71" font-size="10" font-weight="700" fill="#D4A017" font-family="PingFang SC, Microsoft YaHei, sans-serif">3.15万亿</text>
+
+  <text x="163" y="95" font-size="8" fill="#64748B" font-family="PingFang SC, Microsoft YaHei, sans-serif">涨跌家数</text>
+  <text x="163" y="111" font-size="10" fill="#DC2626" font-family="PingFang SC, Microsoft YaHei, sans-serif">1,711 涨</text>
+  <text x="163" y="127" font-size="10" fill="#16A34A" font-family="PingFang SC, Microsoft YaHei, sans-serif">3,723 跌</text>
+
+  <!-- Bottom: Insight -->
+  <rect x="10" y="158" width="280" height="52" rx="6" fill="#FFFBEB" stroke="#FDE68A" stroke-width="1"/>
+  <text x="20" y="176" font-size="8" font-weight="700" fill="#B8860B" font-family="PingFang SC, Microsoft YaHei, sans-serif">💡 核心信号</text>
+  <text x="20" y="192" font-size="7" fill="#92400E" font-family="PingFang SC, Microsoft YaHei, sans-serif">指数涨了，但三分之二的个股在跌。</text>
+  <text x="20" y="204" font-size="7" fill="#92400E" font-family="PingFang SC, Microsoft YaHei, sans-serif">CPO板块成交占比超3%——拥挤度已达极端。</text>
+</svg>

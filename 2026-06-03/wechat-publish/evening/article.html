@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>A股冲高回落·创业板+1.65%·CPO千亿成交·ADP低于预期·黄金跌至4442</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system,"PingFang SC","Microsoft YaHei","Helvetica Neue",sans-serif; background: #F5F7FA; color: #1E293B; line-height: 1.8; font-size: 16px; }
+  .c { max-width: 640px; margin: 0 auto; background: #fff; padding: 44px 0 40px; }
+  .top-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; max-width: 640px; margin: 0 auto; background: rgba(255,255,255,0.95); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-bottom: 1px solid #E2E8F0; display: flex; align-items: center; padding: 0 16px; height: 44px; }
+  .top-nav .back { display: flex; align-items: center; gap: 4px; color: #1A56DB; text-decoration: none; font-size: 13px; font-weight: 600; }
+  .top-nav .back:active { opacity: 0.6; }
+  .top-nav .nav-date { flex: 1; text-align: center; font-size: 12px; color: #64748B; }
+  .top-nav .nav-edition { font-size: 11px; color: #D4A017; background: #FFFBEB; padding: 2px 8px; border-radius: 8px; font-weight: 600; }
+  .header { background: linear-gradient(135deg,#D4A017,#B8860B); padding: 20px 20px 16px; color: white; }
+  .header h1 { font-size: 22px; font-weight: 700; line-height: 1.4; margin-bottom: 6px; }
+  .header .meta { font-size: 12px; opacity: 0.8; display: flex; gap: 12px; flex-wrap: wrap; }
+  .player { display: flex; align-items: center; gap: 12px; margin-top: 14px; }
+  .player-icon { width: 40px; height: 40px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 18px; }
+  .player-info { flex: 1; }
+  .player-title { font-size: 13px; font-weight: 600; }
+  .player-desc { font-size: 11px; opacity: 0.7; }
+  .player audio { width: 100%; margin-top: 4px; border-radius: 20px; }
+  .body { padding: 20px 20px 0; }
+  .layer1 { margin-bottom: 28px; }
+  .l1-title { font-size: 16px; font-weight: 700; color: #D4A017; margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
+  .l1-comic { margin: 8px 0 0; }
+  .l1-comic img { width: 100%; border-radius: 10px; border: 1px solid #E2E8F0; }
+  .l1-divider { border: none; border-top: 2px dashed #D4A017; margin: 16px 0; }
+  .layer2 { margin-bottom: 24px; }
+  .l2-title { font-size: 16px; font-weight: 700; color: #D4A017; margin-bottom: 14px; display: flex; align-items: center; gap: 6px; }
+  .quote { background: #FFFBEB; border-left: 4px solid #D4A017; padding: 12px 14px; margin: 14px 0; border-radius: 0 8px 8px 0; font-size: 14px; color: #92400E; line-height: 1.7; }
+  p { margin-bottom: 12px; text-align: justify; font-size: 15px; }
+  .story { margin: 22px 0; }
+  .story-head { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .story-num { width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; color: #fff; flex-shrink: 0; }
+  .story-num.s01 { background: #EF4444; } .story-num.s02 { background: #7C3AED; } .story-num.s03 { background: #F59E0B; }
+  .story-num.s04 { background: #1A56DB; } .story-num.s05 { background: #10B981; } .story-num.s06 { background: #D4A017; }
+  .story-tag { font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 3px; }
+  .story-tag.s01 { background: #FEF2F2; color: #DC2626; } .story-tag.s02 { background: #F5F3FF; color: #7C3AED; }
+  .story-tag.s03 { background: #FFF7ED; color: #D97706; } .story-tag.s04 { background: #EFF6FF; color: #1A56DB; }
+  .story-tag.s05 { background: #F0FDF4; color: #16A34A; } .story-tag.s06 { background: #FFFBEB; color: #B8860B; }
+  .story-title { font-size: 16px; font-weight: 700; color: #1E293B; line-height: 1.4; }
+  .story-content { font-size: 14px; color: #334155; line-height: 1.8; margin-bottom: 8px; }
+  .story-content p { margin-bottom: 8px; font-size: 14px; }
+  .story-img { margin: 10px 0 0; border-radius: 8px; border: 1px solid #E2E8F0; overflow: hidden; background: #FAFAFA; }
+  .story-img img { width: 100%; display: block; }
+  .story-divider { border: none; height: 1px; background: linear-gradient(to right, transparent, #E2E8F0, transparent); margin: 6px 0; }
+  .gold-box { background: linear-gradient(135deg,#FFF8E7,#FFF3D6); border: 1px solid #D4A017; border-radius: 12px; padding: 18px 20px; margin: 22px 0; text-align: center; font-size: 16px; font-weight: 700; color: #B8860B; line-height: 1.5; }
+  .layer3 { margin-bottom: 24px; }
+  .l3-title { font-size: 16px; font-weight: 700; color: #D4A017; margin-bottom: 10px; }
+  .l3-highlight-box { background: #FFFBEB; border-radius: 10px; padding: 12px 14px; margin: 12px 0; font-size: 13px; color: #92400E; line-height: 1.6; border: 1px solid #FDE68A; }
+  table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 13px; }
+  th { background: #D4A017; color: #fff; padding: 8px 10px; text-align: left; font-weight: 600; }
+  th:first-child { border-radius: 6px 0 0 0; }
+  th:last-child { border-radius: 0 6px 0 0; }
+  td { padding: 8px 10px; border-bottom: 1px solid #E2E8F0; }
+  tr:nth-child(even) { background: #F8F9FA; }
+  .up { color: #DC2626; font-weight: 600; }
+  .down { color: #16A34A; font-weight: 600; }
+  .warn { background: #FFF5F5; border: 1px solid #FECACA; border-radius: 10px; padding: 12px 14px; margin-top: 24px; font-size: 12px; color: #991B1B; line-height: 1.5; }
+  .list { background: #F8F9FA; border-radius: 8px; padding: 10px 14px; margin: 10px 0; }
+  .list-item { padding: 5px 0; border-bottom: 1px solid #E2E8F0; font-size: 13px; display: flex; gap: 6px; }
+  .list-item:last-child { border-bottom: none; }
+  .tag-b { display: inline-block; background: #D4A017; color: #fff; font-size: 10px; padding: 1px 7px; border-radius: 8px; white-space: nowrap; }
+  .sources { background: #FFFBEB; border-radius: 10px; padding: 12px 14px; margin: 16px 0; font-size: 12px; color: #92400E; line-height: 1.6; }
+  .sources h3 { font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+  .sources a { color: #1A56DB; text-decoration: none; }
+  .foot { background: linear-gradient(135deg,#D4A017,#B8860B); border-radius: 12px; padding: 18px 20px; margin: 22px 0; color: white; text-align: center; }
+  .foot .icon { font-size: 28px; margin-bottom: 4px; }
+  .foot .t { font-size: 16px; font-weight: 700; margin-bottom: 2px; }
+  .foot .d { font-size: 11px; opacity: 0.85; }
+  .highlight { background: #FFFBEB; padding: 1px 4px; border-radius: 2px; font-weight: 600; color: #92400E; }
+  .key-num { font-weight: 700; color: #D4A017; }
+  .glossary { background: #FFFBEB; border: 1px solid #FDE68A; border-radius: 10px; padding: 12px 14px; margin: 16px 0; font-size: 12px; line-height: 1.6; }
+  .glossary h4 { font-size: 13px; font-weight: 700; color: #92400E; margin-bottom: 8px; }
+  .glossary table { width: 100%; font-size: 12px; margin: 0; }
+  .glossary th { background: #D4A017; color: #fff; padding: 5px 8px; font-size: 11px; text-align: left; }
+  .glossary td { padding: 5px 8px; font-size: 11px; }
+</style>
+</head>
+<body>
+<div class="c">
+
+  <div class="top-nav">
+    <a class="back" href="../../../index.html">&larr; 返回首页</a>
+    <span class="nav-date">2026.06.03 · 周三</span>
+    <span class="nav-edition">扬说·晚报</span>
+  </div>
+
+  <div class="header">
+    <h1>A股冲高回落：创业板从+4%到+1.65%，CPO"易中天"成交超千亿，超3700只个股下跌</h1>
+    <div class="meta">
+      <span>📅 2026年6月3日 · 星期三</span>
+      <span>🏷️ A股冲高回落 / CPO千亿成交 / ADP低于预期 / 黄金跌至4442 / 原油波动加剧 / 恒指跌1.56%</span>
+    </div>
+    <div class="player">
+      <div class="player-icon">🎧</div>
+      <div class="player-info">
+        <div class="player-title">扬说夜话 · 约 6 分钟</div>
+        <div class="player-desc">边听边看，体验更佳</div>
+        <audio controls preload="none"><source src="audio.mp3" type="audio/mpeg"></audio>
+      </div>
+    </div>
+  </div>
+
+  <div class="body">
+
+    <!-- ============================================================ -->
+    <!-- LAYER 1：精华版 -->
+    <!-- ============================================================ -->
+    <div class="layer1">
+      <div class="l1-title">⚡ 精华版 · 三句话</div>
+
+      <table>
+        <tr><th>市场</th><th>最新收盘</th><th>日涨跌幅</th><th>近一周</th></tr>
+        <tr><td>上证指数</td><td>4,083.97</td><td class="up">+0.22%</td><td class="up">+0.65%</td></tr>
+        <tr><td>深证成指</td><td>15,704.71</td><td class="up">+0.73%</td><td class="up">+1.89%</td></tr>
+        <tr><td>创业板指</td><td>4,122.99</td><td class="up">+1.65%</td><td class="up">+4.34%</td></tr>
+        <tr><td>科创综指</td><td>2,061.05</td><td class="up">+2.10%</td><td class="up">+3.57%</td></tr>
+        <tr><td>恒生指数</td><td>25,633.21</td><td class="down">-1.56%</td><td class="down">-0.31%</td></tr>
+        <tr><td>恒生科技</td><td>5,056.97</td><td class="down">-2.74%</td><td class="down">-1.43%</td></tr>
+        <tr><td>WTI原油</td><td>$97.21</td><td class="up">+3.68%</td><td class="up">+8.12%</td></tr>
+        <tr><td>现货黄金</td><td>$4,461</td><td class="down">-0.59%</td><td class="down">-1.42%</td></tr>
+        <tr><td>美元指数</td><td>99.21</td><td class="up">+0.02%</td><td class="up">+1.04%</td></tr>
+        <tr><td>VIX</td><td>16.05</td><td class="up">+4.77%</td><td class="down">-5.53%</td></tr>
+      </table>
+
+      <p>今日A股上演经典的"冲高回落"剧本。创业板早盘一度飙升近4%，午后涨幅收窄至1.65%。CPO三剑客"易中天"单日合计成交超千亿，板块拥挤度达极端水平。另一边，全市场超3,700只个股下跌——指数的涨幅掩盖了结构的巨大分化。</p>
+      <p>宏观面上，今晚20:15公布的美国5月ADP私营就业<span class="highlight">10.9万</span>，低于市场预期的11.8万。在昨晚JOLTS炸裂（761.8万 vs 687万预期）的背景下，ADP的偏弱给数据链条增添了一丝不确定性——就业市场到底是热是冷？周五非农将给出裁决。</p>
+      <p>隔夜美股三大指数继续创历史新高，Marvell再涨32%。中东方面美伊各执一词，WTI原油在93.76-96区间宽幅震荡。黄金跌至4,442后企稳于4,461附近。</p>
+
+      <div class="l1-comic">
+        <img loading="lazy" src="comic/panel-001.svg" alt="A股冲高回落">
+      </div>
+
+      <hr class="l1-divider">
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- LAYER 2：6故事深度版 -->
+    <!-- ============================================================ -->
+    <div class="layer2">
+      <div class="l2-title">🔍 深度拆解 · 6个故事</div>
+
+      <!-- ===== Story 01: A股 ===== -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s01">1</div>
+          <div class="story-tag s01">A股</div>
+          <div class="story-title">冲高回落：创业板从+4%到+1.65%，CPO千亿成交的喜与忧</div>
+        </div>
+        <div class="story-content">
+          <p><strong>今日A股的关键词只有一个：冲高回落。</strong></p>
+          <p>创业板指早盘气势如虹，一度涨近4%报4,185.67点——这是2025年7月以来最强盘中涨势。但午后风云突变，涨幅持续收窄，最终收报<span class="key-num">4,122.99</span>，涨1.65%。上证指数收报4,083.97，涨0.22%；深证成指收报15,704.71，涨0.73%。科创综指表现最强，收涨2.10%报2,061.05。（来源：东方财富、每日经济新闻）</p>
+          <p><strong>成交额方面，沪深北全天成交31,531亿元</strong>，较上日放量约3,403亿元。但绝对值掩盖了结构的极端分化——全市场仅约1,711只个股上涨，3,723只下跌。也就是说，指数涨了但超三分之二的股票在跌。这是典型的"指数失真"。</p>
+          <p><strong>CPO（光模块）板块是今天最热的话题。</strong> 中际旭创、新易盛、天孚通信"易中天"三剑客合计成交超<span class="key-num">1,077亿元</span>——中际旭创438.8亿、新易盛337.1亿、天孚通信301.6亿。这三只个股的成交额超过了整个教育板块总市值的数倍。板块指数涨约4.80%，盘中创历史新高，但成交额的爆发式增长本身就是一个需要警惕的信号——当一只板块的成交达到整个市场3%以上时，通常意味着拥挤交易已经接近极致。（来源：每日经济新闻、东方财富）</p>
+          <p><strong>资金流向方面，</strong> CPO板块全天主力净流入约109.6亿元，排名板块第2（仅次于芯片的119.3亿元）。但值得注意的是，午盘时CPO主力净流入高达199.2亿元——午后有近90亿元获利了结，说明机构在借冲高减仓。光纤概念（+83.52亿元）和消费电子（+68.51亿元）同步走强，科技主线的扩散仍在继续，但速度在放缓。（来源：同花顺、东方财富）</p>
+          <p><strong>滞涨板块方面，</strong> 培育钻石（惠丰钻石涨超17%）、煤炭开采、电力板块午后逆市拉升。白酒、银行等权重板块持续低迷。这种"科技狂欢+权重沉睡+多数股下跌"的结构，历史上往往出现在一轮行情的末期或中继阶段——方向判断取决于后续催化剂的力度。</p>
+          <p><strong>港股方面，恒生指数跌1.56%报25,633.21点，恒生科技指数跌2.74%。</strong> 大型科技股普跌——美团跌近6%、京东跌超4%、腾讯和阿里巴巴跌超3%。南向资金净买入186.82亿港元，逆势加仓。港股走弱的核心原因：一是高盛下调H股评级（战术性降级至"低配"），二是人民币汇率承压。港股对流动性更为敏感，A股的结构性行情向港股的传递存在时滞。（来源：证券时报、智通财经、东方财富）</p>
+
+          <div class="story-img">
+            <img loading="lazy" src="comic/panel-002.svg" alt="CPO千亿成交的分化真相">
+          </div>
+        </div>
+      </div>
+
+      <hr class="story-divider">
+
+      <!-- ===== Story 02: 美股 ===== -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s02">2</div>
+          <div class="story-tag s02">美股</div>
+          <div class="story-title">标普首次收于7,600上方，Marvell再涨32%——AI叙事火力全开</div>
+        </div>
+        <div class="story-content">
+          <p><strong>隔夜美股延续疯狂。</strong> 道指涨0.45%报51,307.79，标普500涨0.13%报7,609.78（首次收于7,600点上方），纳指涨0.03%报27,093.90。三大指数连续第六个交易日同步创历史新高，标普和纳指实现9连涨。（来源：MarketWatch、东方财富）</p>
+          <p><strong>Marvell Technology再涨32%，</strong> 两日累计涨幅超50%。黄仁勋"下一家万亿美元公司"的言论持续发酵。英伟达3月向Marvell投资的20亿美元，按目前价格已浮盈超过10亿。Marvell最新市值约2,540亿美元，按黄仁勋的"万亿"预期还有约3倍空间。当晚Marvell发布了Teralynx T100——全球首款102.4Tbps AI优化交换芯片，FY2028营收展望上调至165亿美元。（来源：Investing.com、CNBC）</p>
+          <p><strong>Alphabet的800亿美元股权融资细节继续发酵。</strong> 伯克希尔·哈撒韦的100亿美元定向配售已完成关闭。市场开始将这笔融资解读为"巴菲特的AI bet"——虽然巴菲特本人并未直接投资AI公司，但通过 Alphabet 的资本支出间接押注AI基础设施。GCP营收同比增63%、积压订单4,600亿美元，说明这些资本开支有营收支撑。（来源：Yahoo Finance、CNBC）</p>
+        </div>
+      </div>
+
+      <hr class="story-divider">
+
+      <!-- ===== Story 03: 科技/AI ===== -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s03">3</div>
+          <div class="story-tag s03">科技/AI</div>
+          <div class="story-title">CPO产业逻辑持续验证：从"卖铲子"到"铺管道"，光纤概念接力爆发</div>
+        </div>
+        <div class="story-content">
+          <p><strong>今晚CPO板块的爆发有明确的产业催化剂。</strong> 英伟达6月2日盘后宣布，Spectrum-X以太网硅光技术现已全面量产，新一代Spectrum-X交换机基于光电一体封装技术（CPO）构建，支持NVIDIA Vera Rubin平台部署AI工厂。黄仁勋在COMPUTEX上反复强调的一个观点是：AI数据中心的瓶颈已从"算力"转向"互联"——GPU不够用可以多买，但网络带宽不够就根本跑不起来。（来源：Nvidia Newsroom）</p>
+          <p><strong>这条逻辑直接映射到了A股。</strong> CPO板块只是表象，真正的产业趋势是：AI军备竞赛已从"买GPU"升级到"铺光纤"和"建网络"。光纤概念股今日集体涨停，长飞光纤光缆在港股涨超10%。国盛证券研报指出，2027年全年需求节奏与业绩轮廓已逐步清晰，上游光芯片缺料问题正在缓解。（来源：每日经济新闻、国盛证券）</p>
+          <p><strong>但需要注意风险。</strong> "易中天"三剑客单日成交超千亿是一个历史级信号。放眼A股历史，当一个板块的成交额占全市场3%以上时，后续往往面临阶段性回调。CPO板块指数自4月以来已累计上涨超过80%，估值层面已不再便宜。产业趋势看多和短期过热不矛盾——两者可以同时成立。</p>
+        </div>
+      </div>
+
+      <hr class="story-divider">
+
+      <!-- ===== Story 04: 前沿/国际 ===== -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s04">4</div>
+          <div class="story-tag s04">前沿/国际</div>
+          <div class="story-title">美伊各执一词，黎巴嫩局势拖累谈判，油价在93-96区间剧烈波动</div>
+        </div>
+        <div class="story-content">
+          <p><strong>中东地缘继续"一日三转"。</strong> 伊朗法尔斯通讯社称伊美信息交换"已暂停数日"，特朗普方面则强势否认。但新一轮紧张因素来自黎巴嫩——以色列在黎南部持续定点突袭，黎方称至少10人死亡。伊朗将"以色列停止对黎军事行动"作为谈判红线。特朗普与内塔尼亚胡就此事发生激烈争执，被美媒称为"特朗普上任以来最糟糕的通话之一"。（来源：新华网、中国青年网、上游新闻）</p>
+          <p><strong>WTI原油今天延续高波动。</strong> 凌晨结算价报93.76美元（+1.74%），亚盘早间一度突破96美元，此后回落至95美元附近。美国API原油库存连续第七周下降，截至5月29日当周骤减680万桶（预期为减少360万桶）。美国战略石油储备降至3.57亿桶，为2024年1月以来最低。霍尔木兹海峡的封锁状态仍在持续，全球每日约1,200-1,300万桶的供应缺口没有变化。（来源：财联社、21世纪经济报道）</p>
+          <p><strong>油价短期面临一个二元结果：</strong> 美伊谈成可能跌回80-85美元，谈崩可能破100美元。这个结果将决定整个6月的通胀叙事和美联储路径。今晚的ISM非制造业PMI（20:00）会提供额外的需求侧线索——如果服务业PMI强劲，叠加油价高企，通胀压力将进一步加剧。（来源：汇通网、新浪财经）</p>
+        </div>
+      </div>
+
+      <hr class="story-divider">
+
+      <!-- ===== Story 05: 宏观 ===== -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s05">5</div>
+          <div class="story-tag s05">宏观</div>
+          <div class="story-title">ADP 10.9万低于预期：JOLTS炸裂后的"冷水"——数据链条出现第一个裂缝</div>
+        </div>
+        <div class="story-content">
+          <p><strong>今晚20:15公布的美国5月ADP私营就业数据录得10.9万，低于市场预期的11.8万，与前值持平。</strong> 在昨晚JOLTS大超预期（761.8万 vs 687万）的背景之下，ADP的偏弱至少传递了一个信号：就业市场并非全面过热。（来源：Investing.com、财联社）</p>
+          <p><strong>如何理解JOLTS和ADP的背离？</strong> JOLTS（职位空缺数）衡量的是"企业的招聘需求"，ADP衡量的是"实际新增就业"。两者可以背离——企业有很多职位在招（JOLTS高），但因为技能错配、薪资分歧等原因，实际招到的人并不多（ADP低）。这正是昨晚文章中提到的那组分裂数据：职位空缺与失业人口比回升至1.0，但辞职人数降至297.7万（2020年以来最低）——企业在招但招不到人，在职者也不敢跳槽。（来源：Yahoo Finance）</p>
+          <p><strong>这对6月加息的预期有何影响？</strong> ADP偏弱给加息预期降了温——市场认为6月17日加息的概率约35-40%，较JOLTS公布后的高点略有回落。但周五非农才是决定性变量。目前市场对5月非农的预期为+11.5~13万。如果非农在ADP偏弱的基调下还超预期，那才是真正让市场重新定价的信号。如果非农低于10万，加息概率可能快速降至20%以下。</p>
+          <p><strong>一个重要的反常信号值得注意：</strong> VIX指数昨晚收于16.05（+4.77%），这是美股创新高过程中VIX同步上升的罕见组合。这通常意味着市场在用ETF和期权做对冲——指数在涨，但聪明钱也在买保险。加上ADP偏弱与非农的不确定性，接下来两天的资产波动率可能显著放大。今晚还有ISM非制造业PMI（22:00），预期51.5左右。（来源：新浪财经）</p>
+        </div>
+      </div>
+
+      <hr class="story-divider">
+
+      <!-- ===== Story 06: 黄金/商品 ===== -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s06">6</div>
+          <div class="story-tag s06">商品/黄金</div>
+          <div class="story-title">黄金跌至4,442后企稳：ADP偏弱提供短线支撑，但下跌趋势未破</div>
+        </div>
+        <div class="story-content">
+          <p><strong>现货黄金今日延续弱势。</strong> 日内最低触及<span class="key-num">4,442.95美元</span>，跌幅达1%，此后在4,460-4,470区间企稳，截至发稿交投于<span class="key-num">4,461美元</span>附近，日跌约0.59%。COMEX黄金期货报约4,519美元。（来源：Investing.com、财联社）</p>
+          <p><strong>今日黄金的叙事是"ADP逻辑先行"。 </strong>从上周末到本周二，黄金经历了两轮冲击：第一轮是周二亚盘从4,476反弹至4,563（避险逻辑主导），第二轮是周二晚JOLTS炸裂后金价回吐至4,488（利率逻辑反扑）。今晚ADP低于预期，理论上对黄金是利好（弱数据→加息放缓），但金价在短暂企稳后并未强劲反弹——说明市场在非农前不愿下注。（来源：中金在线）</p>
+          <p><strong>黄金三层分析框架：</strong></p>
+          <p><strong>短期（本周）：</strong> 4,400-4,520区间震荡。非农是方向触发器。超预期（>15万）→ 金价可能破4,400；不及预期（<10万）→ 金价有望反弹至4,600以上。</p>
+          <p><strong>中期（1-3个月）：</strong> 全球央行购金趋势未变，美元储备地位被黄金侵蚀的趋势没有改变——欧洲央行近期报告确认黄金已替代美元成为全球官方储备第一大资产。但短期利率预期的不确定性压制了金价的上行空间。</p>
+          <p><strong>反直觉判断：</strong> 当前市场普遍认为"黄金是避险资产"，但在4,400-4,600这个区间，黄金定价的锚其实是实际利率——不是地缘风险。这意味着如果周五非农超预期导致加息预期升温，即使中东在打仗，黄金也可能继续下跌。这是当前环境下最容易被忽视的交易风险。（来源：FX168、汇通网）</p>
+          <p><strong>原油方面，</strong> WTI最新报97.21美元（+3.68%），盘中WTI原油日内涨幅扩大至2.00%时触及97.21美元，此前突破96美元关口。EIA库存数据将在今晚公布，预计将显示库存继续下降。油价的短期锚点在中东局势而非宏观数据——即使ADP偏弱，只要霍尔木兹海峡不开放，油价就下不来。</p>
+        </div>
+      </div>
+
+      <hr class="story-divider">
+
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- LAYER 3：数据+名词解释 -->
+    <!-- ============================================================ -->
+    <div class="layer3">
+      <div class="l3-title">📊 本周关键数据链</div>
+
+      <table>
+        <tr><th>日期</th><th>数据</th><th>实际</th><th>预期</th><th>影响</th></tr>
+        <tr><td>6/2 周二</td><td>JOLTS职位空缺(4月)</td><td>761.8万</td><td>687万</td><td class="up">远超预期 🔴</td></tr>
+        <tr><td>6/3 周三</td><td>ADP就业(5月)</td><td>10.9万</td><td>11.8万</td><td class="down">低于预期 🟢</td></tr>
+        <tr><td>6/3 周三</td><td>ISM非制造业PMI(5月)</td><td>待公布(22:00)</td><td>51.5</td><td>—</td></tr>
+        <tr><td>6/4 周四</td><td>美联储褐皮书</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td>6/5 周五</td><td>非农就业(5月)</td><td>待公布20:30</td><td>+11.5~13万</td><td>★★★</td></tr>
+        <tr><td>6/5 周五</td><td>失业率(5月)</td><td>待公布</td><td>4.2-4.3%</td><td>★★★</td></tr>
+        <tr><td>6/10</td><td>CPI(5月)</td><td>待公布</td><td>—</td><td>★★★</td></tr>
+        <tr><td>6/17</td><td>FOMC利率决议</td><td>待公布</td><td>4.25-4.50%</td><td>★★★</td></tr>
+      </table>
+
+      <div class="l3-highlight-box">
+        <strong>🔴 核心矛盾：</strong> JOLTS（企业想招人）和ADP（企业实际招了人）的两条数据指向相反方向——前者提示就业过热、后者提示就业温和。周五非农是"裁决者"。如果非农>13万，市场将加速定价6月加息；如果非农<10万，加息逻辑将大幅降温。在裁决出来之前，所有资产都在"等信号"。
+      </div>
+
+      <!-- Glossary -->
+      <div class="glossary">
+        <h4>📖 名词解释 · 小白友好版</h4>
+        <table>
+          <tr><th>术语</th><th>大白话</th><th>为什么重要</th></tr>
+          <tr><td>CPO</td><td>光电共封装——把光模块和芯片封在一起，让数据中心内部数据传输更快</td><td>AI时代的关键互联技术，英伟达力推，直接带动光模块/光纤产业链</td></tr>
+          <tr><td>"易中天"</td><td>市场给中际旭创、新易盛、天孚通信三只CPO龙头股的昵称</td><td>合计成交超千亿是板块拥挤度的体温计</td></tr>
+          <tr><td>ADP就业</td><td>美国自动数据处理公司统计的私营企业就业变化，俗称"小非农"</td><td>周五非农的前瞻指标。今晚低于预期，为加息预期降温</td></tr>
+          <tr><td>JOLTS</td><td>美国劳工部统计的职位空缺数据</td><td>衡量企业招人需求的温度计，昨晚大超预期为加息预期升温</td></tr>
+          <tr><td>实际利率</td><td>名义利率减去通胀率，持有黄金的"机会成本"</td><td>目前黄金定价的核心锚点——实际利率上升=黄金下跌</td></tr>
+          <tr><td>策略性/战术性降级</td><td>券商基于短期因素下调对某市场或个股的评级</td><td>高盛下调H股至"低配"是今日港股下跌的重要催化剂</td></tr>
+        </table>
+      </div>
+
+      <!-- Quote -->
+      <div class="quote">
+        CPO三剑客一天成交超千亿，超3,700只个股下跌——<br>
+        这就是当前A股最真实的写照：少数人的狂欢，多数人的落寞。<br>
+        明日凌晨还有ISM服务业PMI，周五非农前少动多看。
+      </div>
+
+      <!-- Gold Box Ending -->
+      <div class="gold-box">
+        📡 扬说财经 · 晚报<br>
+        <span style="font-size:13px;font-weight:400;">用漫画看懂财经 · 每日晚8点更新 · 约6分钟音频</span>
+      </div>
+
+      <div class="warn">⚠️ <strong>风险提示：</strong>本文仅为信息分享与知识科普，不构成任何投资建议。市场有风险，投资需谨慎。数据来源于公开信息，如有出入请以官方数据为准。</div>
+
+      <!-- Sources -->
+      <div class="sources">
+        <h3>📚 参考来源</h3>
+        <p style="margin-bottom:4px;">1. 东方财富 — <a href="https://finance.eastmoney.com/a/202606033758964837.html">A股收盘：上证涨0.22% 光纤概念大涨</a></p>
+        <p style="margin-bottom:4px;">2. 每日经济新闻 — <a href="https://cd.nbd.com.cn/articles/2026-06-03/4416444.html">A股冲高回落 CPO易中天成交超千亿</a></p>
+        <p style="margin-bottom:4px;">3. 证券时报 — <a href="https://www.stcn.com/article/detail/3941692.html">港股收评：恒指跌1.56% 科指跌2.74%</a></p>
+        <p style="margin-bottom:4px;">4. 东方财富 — <a href="https://fund.eastmoney.com/a/202606033757996310.html">美股收盘：三大指数续创新高 迈威尔科技涨超32%</a></p>
+        <p style="margin-bottom:4px;">5. 财联社 — JOLTS 761.8万 / ADP 10.9万 / WTI突破96美元</p>
+        <p style="margin-bottom:4px;">6. Investing.com — <a href="https://cn.investing.com/economic-calendar/adp-nonfarm-employment-change-1">ADP就业数据历史</a></p>
+        <p style="margin-bottom:4px;">7. Nvidia Newsroom — Spectrum-X硅光技术量产</p>
+        <p style="margin-bottom:4px;">8. 中国青年网 — 黎巴嫩局势与美伊谈判困局</p>
+        <p style="margin-bottom:4px;">9. 金投网 — <a href="https://www.cngold.org/c/2026-06-03/c10537837.html">6月3日金市早评</a></p>
+        <p style="margin-bottom:4px;">10. 汇通网 — <a href="https://gold.fx678.com/content/202606031555519065.shtml">ADP数据前黄金区间震荡</a></p>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+  var player=document.querySelector('.player');
+  var audioEl=player?player.querySelector('audio'):null;
+  if(audioEl&&player){
+    var timeoutId=setTimeout(function(){player.style.display='none';},8000);
+    audioEl.addEventListener('canplay',function(){clearTimeout(timeoutId);});
+    audioEl.addEventListener('error',function(){
+      clearTimeout(timeoutId);
+      player.style.display='none';
+    });
+  }
+});
+</script>
+
+</body>
+</html>
