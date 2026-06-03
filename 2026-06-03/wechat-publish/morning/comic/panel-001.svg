@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 220">
+  <rect width="300" height="220" fill="#FAFAFA"/>
+
+  <!-- Title bar -->
+  <rect x="0" y="0" width="300" height="30" fill="#1A56DB"/>
+  <text x="150" y="20" text-anchor="middle" font-size="12" font-weight="700" fill="#fff" font-family="PingFang SC, Microsoft YaHei, sans-serif">📊 JOLTS 761.8万 vs 预期687万 — 炸裂</text>
+
+  <!-- Left: JOLTS data visualization -->
+  <!-- Bar chart for expected vs actual -->
+  <text x="20" y="55" font-size="8" fill="#64748B" font-family="PingFang SC, Microsoft YaHei, sans-serif">预期</text>
+  <rect x="20" y="60" width="60" height="14" rx="3" fill="#CBD5E1"/>
+  <text x="82" y="72" font-size="8" fill="#64748B" font-family="PingFang SC, Microsoft YaHei, sans-serif">687万</text>
+
+  <text x="20" y="95" font-size="8" fill="#64748B" font-family="PingFang SC, Microsoft YaHei, sans-serif">实际</text>
+  <rect x="20" y="100" width="85" height="14" rx="3" fill="#DC2626"/>
+  <text x="107" y="112" font-size="8" font-weight="700" fill="#DC2626" font-family="PingFang SC, Microsoft YaHei, sans-serif">761.8万</text>
+
+  <!-- Up arrow -->
+  <text x="125" y="108" font-size="11" fill="#DC2626">↑</text>
+  <text x="132" y="108" font-size="7" fill="#DC2626" font-family="PingFang SC, Microsoft YaHei, sans-serif">+74.8万</text>
+
+  <!-- Divider -->
+  <line x1="165" y1="40" x2="165" y2="130" stroke="#E2E8F0" stroke-width="1"/>
+
+  <!-- Right: Market records -->
+  <text x="175" y="55" font-size="8" fill="#64748B" font-family="PingFang SC, Microsoft YaHei, sans-serif">三大指数五连创纪录</text>
+  <text x="175" y="72" font-size="7" font-weight="700" fill="#1E293B" font-family="PingFang SC, Microsoft YaHei, sans-serif">道指 51,307</text>
+  <text x="228" y="72" font-size="6" fill="#DC2626" font-family="PingFang SC, Microsoft YaHei, sans-serif">+0.45%</text>
+  <text x="175" y="86" font-size="7" font-weight="700" fill="#1E293B" font-family="PingFang SC, Microsoft YaHei, sans-serif">标普 7,609</text>
+  <text x="228" y="86" font-size="6" fill="#DC2626" font-family="PingFang SC, Microsoft YaHei, sans-serif">+0.13%</text>
+  <text x="175" y="100" font-size="7" font-weight="700" fill="#1E293B" font-family="PingFang SC, Microsoft YaHei, sans-serif">纳指 27,093</text>
+  <text x="228" y="100" font-size="6" fill="#DC2626" font-family="PingFang SC, Microsoft YaHei, sans-serif">+0.03%</text>
+
+  <!-- Trophy icons -->
+  <text x="265" y="72" font-size="12">🏆</text>
+  <text x="265" y="86" font-size="12">🏆</text>
+  <text x="265" y="100" font-size="12">🏆</text>
+
+  <!-- Bottom: Key insight -->
+  <rect x="10" y="140" width="280" height="68" rx="6" fill="#FEF2F2" stroke="#FECACA" stroke-width="1"/>
+  <text x="20" y="158" font-size="9" font-weight="700" fill="#991B1B" font-family="PingFang SC, Microsoft YaHei, sans-serif">🔴 核心矛盾</text>
+  <text x="20" y="174" font-size="7" fill="#7F1D1D" font-family="PingFang SC, Microsoft YaHei, sans-serif">就业数据越强 → 加息预期越强</text>
+  <text x="20" y="188" font-size="7" fill="#7F1D1D" font-family="PingFang SC, Microsoft YaHei, sans-serif">AI叙事暂时压过宏观压力</text>
+  <text x="20" y="202" font-size="7" fill="#7F1D1D" font-family="PingFang SC, Microsoft YaHei, sans-serif">周五非农 → 谁先断？</text>
+</svg>

@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 220">
+  <rect width="300" height="220" fill="#FAFAFA"/>
+
+  <!-- Title bar -->
+  <rect x="0" y="0" width="300" height="30" fill="#9333EA"/>
+  <text x="150" y="20" text-anchor="middle" font-size="12" font-weight="700" fill="#fff" font-family="PingFang SC, Microsoft YaHei, sans-serif">🤖 AI军备竞赛升级：Marvell + Alphabet</text>
+
+  <!-- Left box: Marvell -->
+  <rect x="12" y="40" width="135" height="100" rx="6" fill="#FAF5FF" stroke="#D8B4FE" stroke-width="1"/>
+  <text x="20" y="58" font-size="10" font-weight="700" fill="#6B21A8" font-family="PingFang SC, Microsoft YaHei, sans-serif">Marvell 🚀 +22%</text>
+  <text x="20" y="74" font-size="7" fill="#581C87" font-family="PingFang SC, Microsoft YaHei, sans-serif">黄仁勋："下一家万亿公司"</text>
+  <text x="20" y="90" font-size="7" fill="#581C87" font-family="PingFang SC, Microsoft YaHei, sans-serif">Teralynx T100 交换芯片</text>
+  <text x="20" y="106" font-size="7" fill="#581C87" font-family="PingFang SC, Microsoft YaHei, sans-serif">FY2028营收指引上调至$165亿</text>
+  <text x="20" y="122" font-size="7" fill="#581C87" font-family="PingFang SC, Microsoft YaHei, sans-serif">英伟达3月已投$20亿</text>
+
+  <!-- Connection arrow -->
+  <text x="152" y="90" font-size="14" fill="#9333EA">→</text>
+
+  <!-- Right box: Alphabet -->
+  <rect x="155" y="40" width="135" height="100" rx="6" fill="#EFF6FF" stroke="#93C5FD" stroke-width="1"/>
+  <text x="163" y="58" font-size="10" font-weight="700" fill="#1E40AF" font-family="PingFang SC, Microsoft YaHei, sans-serif">Alphabet 💰 $800亿</text>
+  <text x="163" y="74" font-size="7" fill="#1E3A7A" font-family="PingFang SC, Microsoft YaHei, sans-serif">股权融资+ATM+定向配售</text>
+  <text x="163" y="90" font-size="7" fill="#1E3A7A" font-family="PingFang SC, Microsoft YaHei, sans-serif">巴菲特投$100亿</text>
+  <text x="163" y="106" font-size="7" fill="#1E3A7A" font-family="PingFang SC, Microsoft YaHei, sans-serif">2026年资本支出$1800-1900亿</text>
+  <text x="163" y="122" font-size="7" fill="#1E3A7A" font-family="PingFang SC, Microsoft YaHei, sans-serif">GCP营收+63%，积压$4600亿</text>
+
+  <!-- Bottom: Data flow diagram -->
+  <rect x="10" y="150" width="280" height="60" rx="6" fill="#F0FDF4" stroke="#BBF7D0" stroke-width="1"/>
+
+  <!-- Chain -->
+  <text x="20" y="170" font-size="8" font-weight="700" fill="#166534" font-family="PingFang SC, Microsoft YaHei, sans-serif">⚡ 逻辑链</text>
+  <text x="20" y="186" font-size="7" fill="#14532D" font-family="PingFang SC, Microsoft YaHei, sans-serif">AI需求爆发 → 云厂商资本开支无上限</text>
+  <text x="20" y="200" font-size="7" fill="#14532D" font-family="PingFang SC, Microsoft YaHei, sans-serif">→ 芯片/互联/基础设施全链受益 → AI从故事走向业绩</text>
+</svg>
