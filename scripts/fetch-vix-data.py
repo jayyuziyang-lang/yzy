@@ -150,7 +150,7 @@ def _draw_vix_axes(ax, plot_data, dates, title, colors, mdates):
     ax.axhline(y=30, color=colors['RED'], linewidth=0.8, linestyle='--', alpha=0.4)
 
     # zone labels on the left side of chart (axes coordinate, inside plot area)
-    zone_style = dict(fontsize=11, fontweight='bold', va='center',
+    zone_style = dict(fontsize=13, fontweight='bold', va='center',
                       bbox=dict(boxstyle='round,pad=0.2', facecolor='white',
                                 edgecolor='none', alpha=0.85))
     ax.text(0.01, 0.25, '  贪婪', color=colors['GREEN'], transform=ax.transAxes, **zone_style)

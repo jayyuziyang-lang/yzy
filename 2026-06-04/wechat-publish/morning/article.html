@@ -73,6 +73,11 @@
   .sources { background: #FFFBEB; border-radius: 10px; padding: 12px 14px; margin: 16px 0; font-size: 12px; color: #92400E; line-height: 1.6; }
   .sources h3 { font-size: 13px; font-weight: 700; margin-bottom: 6px; }
   .sources a { color: #1A56DB; text-decoration: none; }
+  .glossary { background: #FFFBEB; border: 1px solid #FDE68A; border-radius: 10px; padding: 12px 14px; margin: 16px 0; font-size: 12px; line-height: 1.6; }
+  .glossary h4 { font-size: 13px; font-weight: 700; color: #92400E; margin-bottom: 8px; }
+  .glossary table { width: 100%; font-size: 12px; margin: 0; }
+  .glossary th { background: #D4A017; color: #fff; padding: 5px 8px; font-size: 11px; text-align: left; }
+  .glossary td { padding: 5px 8px; font-size: 11px; }
 
   table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 13px; }
   th { background: #1A56DB; color: #fff; padding: 8px 10px; text-align: left; font-weight: 600; }
@@ -345,20 +350,19 @@
       <p style="margin-bottom:4px;">12. 新华财经 — 日元跌破160关口</p>
     </div>
 
-    <!-- 名词解释 -->
-    <div class="sources" style="margin-top:20px;">
-      <h3>📖 名词解释</h3>
-      <div style="font-size:12px; line-height:1.8;">
-        <p><strong>褐皮书（Beige Book）：</strong> 美联储每年发布8次的经济状况评估报告，汇总12个联储辖区对经济活动的定性描述，是FOMC会议前的重要参考文件。</p>
-        <p><strong>K型分化：</strong> 经济复苏的不均衡形态——高收入群体资产增长（K的上行线），中低收入群体承压（K的下行线），形似字母K。</p>
-        <p><strong>ISM非制造业PMI：</strong> 供应管理协会发布的美国服务业景气指数，以50为荣枯线。54.5意味着服务业保持扩张但速度温和。</p>
-        <p><strong>JOLTS：</strong> 美国劳工部的职位空缺和劳动力流动调查，反映就业市场的供需紧张程度。</p>
-        <p><strong>ADP就业数据：</strong> 自动数据处理公司（ADP）每月发布的非农就业预估，通常被视为官方非农数据的"先行指标"。</p>
-        <p><strong>实际利率：</strong> 名义利率减去通胀率，是持有黄金等无息资产的机会成本。实际利率↑ = 黄金承压。</p>
-        <p><strong>VIX恐慌指数：</strong> 芝加哥期权交易所波动率指数，衡量标普500未来30天预期波动。数值越高代表市场越恐慌。</p>
-        <p><strong>战略石油储备（SPR）：</strong> 美国政府在得克萨斯州和路易斯安那州地下盐穴中储存的应急原油，目前约3.57亿桶。</p>
-        <p><strong>霍尔木兹海峡：</strong> 连接波斯湾和阿拉伯海的关键水道，全球约20%的石油运输经过此处。</p>
-      </div>
+    <!-- 名词解释 · 小白友好版 -->
+    <div class="glossary">
+      <h4>📖 名词解释 · 小白友好版</h4>
+      <table>
+        <tr><th>术语</th><th>大白话</th><th>为什么重要</th></tr>
+        <tr><td>褐皮书（Beige Book）</td><td>美联储每年8次发布的经济"体检报告"，汇总12个地区的企业真实感受</td><td>沃什首份褐皮书首次承认油价推升通胀，这是周五非农前最重要的政策信号</td></tr>
+        <tr><td>K型分化</td><td>经济复苏中"富者越富、中产承压"的分岔格局，形似字母K</td><td>褐皮书确认消费分化——高收入家庭继续花钱，中低收入在压缩开支，直接影响消费类资产</td></tr>
+        <tr><td>ISM非制造业PMI</td><td>美国服务业的"体温计"——超50扩张、低于50收缩</td><td>54.5超预期意味着服务业还在加速，美联储不急着降息，黄金/科技股承压</td></tr>
+        <tr><td>JOLTS</td><td>美国劳工部统计的企业"想招多少人"的数据</td><td>企业招人意愿强=就业热=加息预期升温，但ADP偏弱说明"想招"不等于"招到了"</td></tr>
+        <tr><td>ADP就业数据</td><td>企业"实际招了多少人"的月度统计，比官方非农早两天发布</td><td>10.9万略低于预期，给周五非农提供了一个偏保守的前瞻信号</td></tr>
+        <tr><td>实际利率</td><td>名义利率减去通胀率——持有黄金的"机会成本"</td><td>目前黄金定价的核心锚点：ISM超预期→实际利率↑→黄金跌</td></tr>
+        <tr><td>VIX恐慌指数</td><td>标普500未来30天预期波动的"体温计"——越高越恐慌</td><td>一周飙50%（12→17.82），说明市场在"边涨边买保险"，但未到恐慌级别</td></tr>
+      </table>
     </div>
 
     <!-- End Box -->
