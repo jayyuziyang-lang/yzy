@@ -1,5 +1,5 @@
 // VIX 恐慌指数 — 由 scripts/fetch-vix-data.py 自动生成
-// 生成时间: 2026-06-04 10:48 | 数据源: 备用数据 (WebSearch, VIX=17.82)
+// 生成时间: 2026-06-04 10:53 | 数据源: 备用数据 (WebSearch, VIX=17.82)
 // 备注: API暂不可用，使用搜索验证数据
 window.__VIX_DATA = {
   current: 17.82,
@@ -10,6 +10,6 @@ window.__VIX_DATA = {
   cls: "neutral",
   pct: 58.2,
   date: "2026-06-03",
-  updateTime: "2026-06-04 10:48",
+  updateTime: "2026-06-04 10:53",
   source: "备用数据 (WebSearch, VIX=17.82)",
 };
