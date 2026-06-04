@@ -71,10 +71,15 @@ jobs:
       - name: Warm CDN cache (instant sync)
         run: |
           SITE_URL="${{ steps.deployment.outputs.page_url }}"
-          echo "Warming CDN cache for: $SITE_URL"
-          curl -s -o /dev/null -w "  %{http_code}  %{url_effective}\n" "$SITE_URL"
-          curl -s -o /dev/null -w "  %{http_code}  %{url_effective}\n" "${SITE_URL}data/articles.js"
-          curl -s -o /dev/null -w "  %{http_code}  %{url_effective}\n" "${SITE_URL}data/articles.json"
+          CDN_URL="https://cdn.jsdmirror.com/gh/jayyuziyang-lang/yzy@main"
+          echo "Warming GitHub Pages CDN: $SITE_URL"
+          curl -s -o /dev/null -w "  %{http_code}  %{url_effective}\n" "$SITE_URL" || true
+          curl -s -o /dev/null -w "  %{http_code}  %{url_effective}\n" "${SITE_URL}data/articles.js" || true
+          curl -s -o /dev/null -w "  %{http_code}  %{url_effective}\n" "${SITE_URL}data/articles.json" || true
+          echo "Warming CDN mirror (jsDelivr): $CDN_URL"
+          curl -s -o /dev/null -w "  %{http_code}  %{url_effective}\n" "${CDN_URL}/index.html" || true
+          curl -s -o /dev/null -w "  %{http_code}  %{url_effective}\n" "${CDN_URL}/data/articles.js" || true
+          curl -s -o /dev/null -w "  %{http_code}  %{url_effective}\n" "${CDN_URL}/data/articles.json" || true
           echo "  CDN cache warmed successfully"
 
   # 提交 CDN 版本文件回仓库

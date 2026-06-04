@@ -121,8 +121,17 @@ GIT_PUSH_USING_DEPLOY=1 git push 2>&1 || {
     GIT_PUSH_USING_DEPLOY=1 git push -u origin main 2>&1
 }
 
+# CDN 镜像预热
+echo -e "\n🌐 预热 CDN 镜像..."
+CDN_URL="https://cdn.jsdmirror.com/gh/jayyuziyang-lang/yzy@main"
+curl -s -o /dev/null -w "  %{http_code}  ${CDN_URL}/index.html\n" "${CDN_URL}/index.html" 2>/dev/null || true
+curl -s -o /dev/null -w "  %{http_code}  ${CDN_URL}/data/articles.js\n" "${CDN_URL}/data/articles.js" 2>/dev/null || true
+echo "  CDN 镜像预热完成"
+
 echo ""
 echo -e "${GREEN}✅ 推送成功，等待部署...${NC}"
+echo -e "${GREEN}    🌐 GitHub Pages: https://jayyuziyang-lang.github.io/yzy/${NC}"
+echo -e "${GREEN}    🌐 CDN 镜像加速: https://cdn.jsdmirror.com/gh/jayyuziyang-lang/yzy@main/index.html${NC}"
 echo ""
 
 # 等待 GitHub Actions 部署完成 + 预热 CDN
