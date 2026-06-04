@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 220">
+  <rect width="300" height="220" fill="#FAFAFA"/>
+
+  <!-- Title bar -->
+  <rect x="0" y="0" width="300" height="30" fill="#D4A017"/>
+  <text x="150" y="20" text-anchor="middle" font-size="12" font-weight="700" fill="#fff" font-family="PingFang SC, Microsoft YaHei, sans-serif">🔬 A股分化的"两张脸"</text>
+
+  <!-- Left: 领涨 (green up) -->
+  <text x="12" y="50" font-size="9" font-weight="700" fill="#DC2626" font-family="PingFang SC, Microsoft YaHei, sans-serif">▲ 半导体/存储芯片涨停潮</text>
+
+  <rect x="12" y="58" width="136" height="14" rx="3" fill="#FEF2F2"/>
+  <text x="17" y="69" font-size="7" fill="#991B1B" font-family="PingFang SC, Microsoft YaHei, sans-serif">德明利 涨停（680.85元）</text>
+
+  <rect x="12" y="76" width="136" height="14" rx="3" fill="#FEF2F2"/>
+  <text x="17" y="87" font-size="7" fill="#991B1B" font-family="PingFang SC, Microsoft YaHei, sans-serif">京东方A 涨停（市值2000亿+）</text>
+
+  <rect x="12" y="94" width="136" height="14" rx="3" fill="#FEF2F2"/>
+  <text x="17" y="105" font-size="7" fill="#991B1B" font-family="PingFang SC, Microsoft YaHei, sans-serif">兆易创新 成交293亿（A股第一）</text>
+
+  <rect x="12" y="112" width="136" height="14" rx="3" fill="#FEF2F2"/>
+  <text x="17" y="123" font-size="7" fill="#991B1B" font-family="PingFang SC, Microsoft YaHei, sans-serif">沪硅产业 +14% / 华特气体 +15%</text>
+
+  <rect x="12" y="130" width="136" height="14" rx="3" fill="#FEF2F2"/>
+  <text x="17" y="141" font-size="7" fill="#991B1B" font-family="PingFang SC, Microsoft YaHei, sans-serif">电子化学品 +5.63% / 元件 +2.57%</text>
+
+  <!-- Divider -->
+  <line x1="150" y1="38" x2="150" y2="175" stroke="#E2E8F0" stroke-width="1"/>
+
+  <!-- Right: 领跌 (red down) -->
+  <text x="158" y="50" font-size="9" font-weight="700" fill="#16A34A" font-family="PingFang SC, Microsoft YaHei, sans-serif">▼ 传统蓝筹全面走低</text>
+
+  <rect x="158" y="58" width="134" height="14" rx="3" fill="#F0FDF4"/>
+  <text x="163" y="69" font-size="7" fill="#166534" font-family="PingFang SC, Microsoft YaHei, sans-serif">油气开采 -3.98%（油价回落拖累）</text>
+
+  <rect x="158" y="76" width="134" height="14" rx="3" fill="#F0FDF4"/>
+  <text x="163" y="87" font-size="7" fill="#166534" font-family="PingFang SC, Microsoft YaHei, sans-serif">工业金属 -3.82%（需求担忧）</text>
+
+  <rect x="158" y="94" width="134" height="14" rx="3" fill="#F0FDF4"/>
+  <text x="163" y="105" font-size="7" fill="#166534" font-family="PingFang SC, Microsoft YaHei, sans-serif">白酒板块 -3.05%（消费疲软）</text>
+
+  <rect x="158" y="112" width="134" height="14" rx="3" fill="#F0FDF4"/>
+  <text x="163" y="123" font-size="7" fill="#166534" font-family="PingFang SC, Microsoft YaHei, sans-serif">AI应用题材 回调</text>
+
+  <rect x="158" y="130" width="134" height="14" rx="3" fill="#F0FDF4"/>
+  <text x="163" y="141" font-size="7" fill="#166534" font-family="PingFang SC, Microsoft YaHei, sans-serif">北向净流出（消费/有色为主）</text>
+
+  <!-- Bottom insight -->
+  <rect x="10" y="178" width="280" height="34" rx="6" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="20" y="194" font-size="7" fill="#475569" font-family="PingFang SC, Microsoft YaHei, sans-serif">💡 存储芯片的独立景气周期 = AI需求驱动 + 全球涨价 + 国产替代三重共振</text>
+  <text x="20" y="206" font-size="7" fill="#475569" font-family="PingFang SC, Microsoft YaHei, sans-serif">   这可能是2026年A股最确定的投资主线之一，而非短期情绪炒作。</text>
+</svg>

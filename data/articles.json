@@ -1,7 +1,19 @@
 {
-  "generated_at": "2026-06-04T11:09:57+08:00",
+  "generated_at": "2026-06-04T23:43:19+08:00",
   "latest_date": "2026-06-04",
   "articles": [
+    {
+      "date": "2026-06-04",
+      "session": "evening",
+      "edition_cn": "晚报",
+      "icon": "🌙",
+      "title": "沪指跌0.64%·4100股下跌·存储芯片涨停潮·台积电AI数年内供不应求·美以黎停火·黄金破4500·原油跳水4%",
+      "url": "2026-06-04/wechat-publish/evening/article.html",
+      "has_audio": true,
+      "audio_size_bytes": 3009168,
+      "has_comic": true,
+      "comic_count": 3
+    },
     {
       "date": "2026-06-04",
       "session": "morning",
@@ -307,6 +319,18 @@
   ],
   "by_date": {
     "2026-06-04": {
+      "evening": {
+        "date": "2026-06-04",
+        "session": "evening",
+        "edition_cn": "晚报",
+        "icon": "🌙",
+        "title": "沪指跌0.64%·4100股下跌·存储芯片涨停潮·台积电AI数年内供不应求·美以黎停火·黄金破4500·原油跳水4%",
+        "url": "2026-06-04/wechat-publish/evening/article.html",
+        "has_audio": true,
+        "audio_size_bytes": 3009168,
+        "has_comic": true,
+        "comic_count": 3
+      },
       "morning": {
         "date": "2026-06-04",
         "session": "morning",

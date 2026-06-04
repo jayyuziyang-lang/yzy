@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 220">
+  <rect width="300" height="220" fill="#FAFAFA"/>
+
+  <!-- Title bar -->
+  <rect x="0" y="0" width="300" height="30" fill="#D4A017"/>
+  <text x="150" y="20" text-anchor="middle" font-size="12" font-weight="700" fill="#fff" font-family="PingFang SC, Microsoft YaHei, sans-serif">🔥 极致分化：4100股下跌 vs 存储芯片涨停潮</text>
+
+  <!-- Left: Big numbers -->
+  <text x="12" y="52" font-size="8" fill="#64748B" font-family="PingFang SC, Microsoft YaHei, sans-serif">指数表现</text>
+
+  <!-- 上证 -->
+  <text x="12" y="70" font-size="7" fill="#1E293B" font-family="PingFang SC, Microsoft YaHei, sans-serif">上证 4,058</text>
+  <rect x="14" y="74" width="40" height="10" rx="2" fill="#16A34A"/>
+  <text x="56" y="83" font-size="6" fill="#16A34A" font-family="PingFang SC, Microsoft YaHei, sans-serif">-0.64%</text>
+
+  <!-- 深证 -->
+  <text x="12" y="96" font-size="7" fill="#1E293B" font-family="PingFang SC, Microsoft YaHei, sans-serif">深证 15,662</text>
+  <rect x="14" y="100" width="20" height="10" rx="2" fill="#16A34A"/>
+  <text x="36" y="109" font-size="6" fill="#16A34A" font-family="PingFang SC, Microsoft YaHei, sans-serif">-0.27%</text>
+
+  <!-- 创业板 -->
+  <text x="12" y="122" font-size="7" fill="#1E293B" font-family="PingFang SC, Microsoft YaHei, sans-serif">创业板 4,089</text>
+  <rect x="14" y="126" width="50" height="10" rx="2" fill="#16A34A"/>
+  <text x="66" y="135" font-size="6" fill="#16A34A" font-family="PingFang SC, Microsoft YaHei, sans-serif">-0.83%</text>
+
+  <!-- 科创50 (逆势涨) -->
+  <text x="12" y="148" font-size="7" fill="#1E293B" font-family="PingFang SC, Microsoft YaHei, sans-serif">科创50 1,738</text>
+  <rect x="14" y="152" width="42" height="10" rx="2" fill="#DC2626"/>
+  <text x="58" y="161" font-size="6" fill="#DC2626" font-family="PingFang SC, Microsoft YaHei, sans-serif">+0.69%</text>
+
+  <!-- Divider -->
+  <line x1="140" y1="38" x2="140" y2="175" stroke="#E2E8F0" stroke-width="1"/>
+
+  <!-- Right: Key stats -->
+  <text x="148" y="55" font-size="8" fill="#64748B" font-family="PingFang SC, Microsoft YaHei, sans-serif">市场全貌</text>
+
+  <rect x="148" y="62" width="144" height="18" rx="3" fill="#FFF5F5" stroke="#FECACA" stroke-width="0.5"/>
+  <text x="153" y="74" font-size="7" font-weight="700" fill="#DC2626" font-family="PingFang SC, Microsoft YaHei, sans-serif">4120只个股下跌</text>
+
+  <rect x="148" y="84" width="144" height="18" rx="3" fill="#F0FDF4" stroke="#BBF7D0" stroke-width="0.5"/>
+  <text x="153" y="96" font-size="7" fill="#166534" font-family="PingFang SC, Microsoft YaHei, sans-serif">成交 2.75万亿（缩量3726亿）</text>
+
+  <rect x="148" y="106" width="144" height="18" rx="3" fill="#FFFBEB" stroke="#FDE68A" stroke-width="0.5"/>
+  <text x="153" y="118" font-size="7" fill="#92400E" font-family="PingFang SC, Microsoft YaHei, sans-serif">存储芯片：德明利涨停/兆易创293亿</text>
+
+  <rect x="148" y="128" width="144" height="18" rx="3" fill="#FAF5FF" stroke="#E9D5FF" stroke-width="0.5"/>
+  <text x="153" y="140" font-size="7" fill="#6B21A8" font-family="PingFang SC, Microsoft YaHei, sans-serif">台积电：数年内无法满足AI芯片需求</text>
+
+  <rect x="148" y="150" width="144" height="18" rx="3" fill="#F0F4FF" stroke="#BFDBFE" stroke-width="0.5"/>
+  <text x="153" y="162" font-size="7" fill="#1E40AF" font-family="PingFang SC, Microsoft YaHei, sans-serif">以黎停火→原油跳水4%→黄金破4500</text>
+
+  <!-- Bottom insight -->
+  <rect x="10" y="178" width="280" height="34" rx="6" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="20" y="194" font-size="7" fill="#475569" font-family="PingFang SC, Microsoft YaHei, sans-serif">💡 当4000+个股下跌而存储芯片涨停潮时——寻找独立于宏观的景气逻辑</text>
+  <text x="20" y="206" font-size="7" fill="#475569" font-family="PingFang SC, Microsoft YaHei, sans-serif">   才是穿越周期的关键。储芯片涨价≠宏观好，而是AI需求自驱。</text>
+</svg>
