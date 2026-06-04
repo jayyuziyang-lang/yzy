@@ -77,6 +77,10 @@ python scripts/update-index.py || {
 echo -e "\n🏥 站点健康检查..."
 python scripts/site-health.py 2>/dev/null || echo "  (skip — 非阻塞)"
 
+# 预抓取 VIX 数据（含趋势图）
+echo -e "\n📊 更新 VIX 恐慌指数数据..."
+python scripts/fetch-vix-data.py 2>&1 || echo "  (跳过 — VIX 数据将在 GitHub Actions 中更新)"
+
 # 部署前自动检查
 echo -e "\n🔍 运行部署前检查..."
 if [ -f "scripts/pre-deploy-check.sh" ]; then

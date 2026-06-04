@@ -1,14 +1,15 @@
 // VIX 恐慌指数 — 由 scripts/fetch-vix-data.py 自动生成
-// 生成时间: 2026-05-29 | 数据源: Yahoo Finance (2026.05.29收盘)
+// 生成时间: 2026-06-04 10:09 | 数据源: 备用数据 (WebSearch/Yahoo Finance)
+// 备注: API暂不可用，使用上次有效数据
 window.__VIX_DATA = {
-  current: 15.74,
-  prev: 16.29,
-  change: -0.55,
-  changePct: -3.38,
-  level: "冷静",
-  cls: "calm",
-  pct: 34.8,
-  date: "2026-05-29",
-  updateTime: "2026-05-29 16:30",
-  source: "Yahoo Finance (2026.05.29 close)",
+  current: 16.59,
+  prev: 16.76,
+  change: -0.17,
+  changePct: -1.01,
+  level: "贪婪",
+  cls: "greed",
+  pct: 41.5,
+  date: "2026-05-26",
+  updateTime: "2026-06-04 10:09",
+  source: "备用数据 (WebSearch/Yahoo Finance)",
 };

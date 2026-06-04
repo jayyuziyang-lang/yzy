@@ -1,13 +1,17 @@
 #!/usr/bin/env python3
 """
-扬说财经 · VIX 恐慌指数预抓取脚本
+扬说财经 · VIX 恐慌指数预抓取 + 趋势图生成
 
-从 Yahoo Finance 获取 VIX 指数数据，生成 data/vix-data.js 供首页静态渲染。
+从 Yahoo Finance 获取 VIX 指数数据：
+  1. 生成 data/vix-data.js 供首页仪表盘静态渲染（当前值+恐惧贪婪级别）
+  2. 生成 docs/charts/vix_trend.svg 趋势图（近1周+近1月走势）
+
 使用 yfinance 库（自动处理 cookie/crumb 认证）。
 
 用法：
-  python scripts/fetch-vix-data.py          # 抓取并写入 data/vix-data.js
-  python scripts/fetch-vix-data.py --print  # 只打印不写入
+  python scripts/fetch-vix-data.py              # 抓取并写入所有文件
+  python scripts/fetch-vix-data.py --no-chart   # 只抓取数据，不生成图表
+  python scripts/fetch-vix-data.py --print      # 只打印不写入
 """
 
 import json
@@ -19,6 +23,11 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TODAY = time.strftime('%Y-%m-%d')
 
 OUTPUT_FILE = os.path.join(ROOT, 'data', 'vix-data.js')
+CHART_FILE = os.path.join(ROOT, 'docs', 'charts', 'vix_trend.svg')
+
+# ===== 确保目录存在 =====
+os.makedirs(os.path.join(ROOT, 'data'), exist_ok=True)
+os.makedirs(os.path.join(ROOT, 'docs', 'charts'), exist_ok=True)
 
 # ===== 备用数据：当所有 API 均失败时使用 =====
 # 数据来源：WebSearch 交叉验证 (Yahoo Finance / Schwab / TexMetals)
@@ -44,6 +53,162 @@ def get_vix_level(vix: float) -> dict:
     if vix > 20:
         return {'level': '中性', 'cls': 'neutral', 'pct': 50 + ((vix - 20) / 10) * 50}
     return {'level': '贪婪', 'cls': 'greed', 'pct': max(0, (vix / 20) * 50)}
+
+
+# ===== VIX 趋势图生成（matplotlib） =====
+
+def generate_vix_chart(hist_df):
+    """
+    用 matplotlib 生成 VIX 趋势 SVG 图
+    hist_df: yfinance DataFrame with 'Close' column
+    """
+    try:
+        import matplotlib
+        matplotlib.use('Agg')
+        import matplotlib.pyplot as plt
+        import matplotlib.dates as mdates
+        import matplotlib.font_manager as fm
+        import numpy as np
+    except ImportError:
+        print('  [VIX 图表] matplotlib 不可用，跳过', file=sys.stderr)
+        return
+
+    # 字体
+    chinese_fonts = [
+        'Noto Sans SC', 'Noto Sans CJK SC', 'Source Han Sans SC',
+        'PingFang SC', 'Microsoft YaHei', 'SimHei',
+        'WenQuanYi Micro Hei', 'Droid Sans Fallback'
+    ]
+    font_set = False
+    available = {f.name for f in fm.fontManager.ttflist}
+    for font in chinese_fonts:
+        if font in available:
+            plt.rcParams['font.family'] = font
+            plt.rcParams['axes.unicode_minus'] = False
+            font_set = True
+            break
+    if not font_set:
+        for f in fm.fontManager.ttflist:
+            if 'CJK' in f.name or 'SC' in f.name or 'Hei' in f.name or 'YaHei' in f.name:
+                plt.rcParams['font.family'] = f.name
+                plt.rcParams['axes.unicode_minus'] = False
+                break
+
+    # 品牌色
+    BRAND_BLUE = '#1A56DB'
+    BRAND_DARK = '#1E293B'
+    BRAND_GRAY = '#64748B'
+    BRAND_BG = '#F8FAFC'
+    BRAND_LINE = '#E2E8F0'
+    COLOR_RED = '#DC2626'
+    COLOR_GREEN = '#16A34A'
+    COLOR_GOLD = '#D4A017'
+    WHITE = '#FFFFFF'
+
+    # 准备数据
+    df = hist_df['Close'].dropna().copy()
+    if len(df) < 2:
+        print('  [VIX 图表] 数据点不足，跳过', file=sys.stderr)
+        return
+
+    dates = df.index
+    values = df.values
+    latest_val = values[-1]
+
+    # 确定恐惧贪婪区间
+    def fear_greed_zones(ax, max_v):
+        """绘制恐惧贪婪背景色带"""
+        ax.axhspan(0, 20, xmin=0, xmax=1, facecolor=COLOR_GREEN, alpha=0.06, zorder=0)
+        ax.axhspan(20, 30, xmin=0, xmax=1, facecolor=COLOR_GOLD, alpha=0.06, zorder=0)
+        ax.axhspan(30, max_v * 1.1, xmin=0, xmax=1, facecolor=COLOR_RED, alpha=0.06, zorder=0)
+        # 分界线
+        ax.axhline(y=20, color=COLOR_GREEN, linewidth=0.8, linestyle='--', alpha=0.4)
+        ax.axhline(y=30, color=COLOR_RED, linewidth=0.8, linestyle='--', alpha=0.4)
+        # 区间标签
+        ax.text(dates[-1] + (dates[-1] - dates[0]) * 0.03, 10,
+                '贪婪', fontsize=9, color=COLOR_GREEN, alpha=0.6, va='center')
+        ax.text(dates[-1] + (dates[-1] - dates[0]) * 0.03, 25,
+                '中性', fontsize=9, color=COLOR_GOLD, alpha=0.6, va='center')
+        ax.text(dates[-1] + (dates[-1] - dates[0]) * 0.03, 35,
+                '恐慌', fontsize=9, color=COLOR_RED, alpha=0.6, va='center')
+
+    # ========================================
+    # 上：近 1 周（5 个交易日）
+    # 下：近 1 月（约 22 个交易日）
+    # ========================================
+    fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(5.5, 4.8),
+                                    gridspec_kw={'height_ratios': [1, 1.2]})
+    fig.patch.set_facecolor(WHITE)
+
+    # ---- 上子图：近 1 周 ----
+    d1w = df.tail(7)
+    v1w = values[-7:]
+    ax1.set_facecolor(WHITE)
+    max_v1w = max(v1w) * 1.25
+    fear_greed_zones(ax1, max_v1w)
+    ax1.fill_between(d1w.index, v1w, alpha=0.10, color=BRAND_BLUE)
+    ax1.plot(d1w.index, v1w, color=BRAND_BLUE, linewidth=2.0, marker='o',
+             markersize=5, markeredgecolor=WHITE, markeredgewidth=1.5, zorder=3)
+    # 最新值标注
+    ax1.annotate(f'{latest_val:.2f}',
+                 xy=(d1w.index[-1], latest_val),
+                 xytext=(5, 12), textcoords='offset points',
+                 fontsize=11, fontweight='bold', color=BRAND_BLUE,
+                 bbox=dict(boxstyle='round,pad=0.2', facecolor=WHITE,
+                           edgecolor=BRAND_BLUE, linewidth=0.8))
+
+    ax1.set_title('VIX 恐慌指数 · 近 1 周', fontsize=12, fontweight='bold',
+                  color=BRAND_DARK, pad=8)
+    ax1.spines[['top', 'right']].set_visible(False)
+    ax1.spines['left'].set_color(BRAND_LINE)
+    ax1.spines['left'].set_linewidth(0.5)
+    ax1.spines['bottom'].set_color(BRAND_LINE)
+    ax1.spines['bottom'].set_linewidth(0.5)
+    ax1.tick_params(colors=BRAND_GRAY, labelsize=8)
+    ax1.xaxis.set_major_formatter(mdates.DateFormatter('%m/%d'))
+    ax1.yaxis.set_major_formatter(plt.FuncFormatter(lambda x, _: f'{x:.0f}'))
+    ax1.grid(axis='y', alpha=0.12, color=BRAND_GRAY, linewidth=0.5)
+    ax1.set_axisbelow(True)
+
+    # ---- 下子图：近 1 月 ----
+    d1m = df.tail(23)
+    v1m = values[-23:]
+    ax2.set_facecolor(WHITE)
+    max_v1m = max(v1m) * 1.25
+    fear_greed_zones(ax2, max_v1m)
+    ax2.fill_between(d1m.index, v1m, alpha=0.10, color=BRAND_BLUE)
+    ax2.plot(d1m.index, v1m, color=BRAND_BLUE, linewidth=1.8, marker='o',
+             markersize=4, markeredgecolor=WHITE, markeredgewidth=1.2, zorder=3)
+    # 最新值标注
+    ax2.annotate(f'{latest_val:.2f}',
+                 xy=(d1m.index[-1], latest_val),
+                 xytext=(5, 12), textcoords='offset points',
+                 fontsize=11, fontweight='bold', color=BRAND_BLUE,
+                 bbox=dict(boxstyle='round,pad=0.2', facecolor=WHITE,
+                           edgecolor=BRAND_BLUE, linewidth=0.8))
+
+    ax2.set_title('VIX 恐慌指数 · 近 1 月', fontsize=12, fontweight='bold',
+                  color=BRAND_DARK, pad=8)
+    ax2.spines[['top', 'right']].set_visible(False)
+    ax2.spines['left'].set_color(BRAND_LINE)
+    ax2.spines['left'].set_linewidth(0.5)
+    ax2.spines['bottom'].set_color(BRAND_LINE)
+    ax2.spines['bottom'].set_linewidth(0.5)
+    ax2.tick_params(colors=BRAND_GRAY, labelsize=8)
+    ax2.xaxis.set_major_formatter(mdates.DateFormatter('%m/%d'))
+    ax2.yaxis.set_major_formatter(plt.FuncFormatter(lambda x, _: f'{x:.0f}'))
+    ax2.grid(axis='y', alpha=0.12, color=BRAND_GRAY, linewidth=0.5)
+    ax2.set_axisbelow(True)
+
+    # 整体水印
+    fig.text(0.5, 0.01, '数据来源: Yahoo Finance | 扬说财经',
+             ha='center', fontsize=7, color='#94A3B8')
+
+    plt.tight_layout(pad=1.5)
+    fig.savefig(CHART_FILE, dpi=120, bbox_inches='tight',
+                facecolor=WHITE, edgecolor='none')
+    plt.close(fig)
+    print(f'  [VIX 图表] 生成: docs/charts/vix_trend.svg ({len(df)} 个数据点)')
 
 
 def fetch_via_yfinance() -> dict:
@@ -83,6 +248,23 @@ def fetch_via_yfinance() -> dict:
         }
     except Exception as e:
         print(f'  [VIX] yfinance 抓取失败: {e}', file=sys.stderr)
+        return None
+
+
+def fetch_vix_history(period='1mo') -> object:
+    """
+    获取 VIX 历史行情用于生成趋势图
+    返回 yfinance DataFrame 或 None
+    """
+    try:
+        import yfinance as yf
+        vix = yf.Ticker('^VIX')
+        hist = vix.history(period=period)
+        if hist.empty or len(hist['Close'].dropna()) < 2:
+            return None
+        return hist
+    except Exception as e:
+        print(f'  [VIX 历史] 抓取失败: {e}', file=sys.stderr)
         return None
 
 
@@ -151,11 +333,22 @@ def main():
         print('\n' + js_content)
         return
 
-    # 写入文件
+    # 写入 JS 数据文件
     os.makedirs(os.path.dirname(OUTPUT_FILE), exist_ok=True)
     with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
         f.write(js_content)
     print(f'  [OK] 写入: data/vix-data.js')
+
+    # 生成趋势图（除非指定 --no-chart）
+    if '--no-chart' not in sys.argv and vix_data is not None:
+        print('[VIX] 正在获取历史数据生成趋势图...')
+        hist = fetch_vix_history(period='1mo')
+        if hist is not None:
+            generate_vix_chart(hist)
+        else:
+            print('  [VIX 图表] 历史数据不可用，跳过')
+    else:
+        print('  [VIX 图表] 跳过')
 
 
 if __name__ == '__main__':
