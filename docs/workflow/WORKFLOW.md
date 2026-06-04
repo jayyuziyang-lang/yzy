@@ -1,6 +1,7 @@
 # 扬说财经 · 生产工作流程 v5.0
 
-> 版本: v6.0 | 更新: 2026-06-02
+> 版本: v6.1 | 更新: 2026-06-04
+> v6.1核心变更: 名词解释强制嵌入文章(9项铁律) + VIX更新扩展到早报前置 + deploy.sh自动rebase防冲突
 > v6.0核心变更: 7大质量升级体系（主轴传导链框架/黄金三层分析/市场价格定价意识/反常信号识别/地缘叙事化/投资视角标记/立场透明）— 源自对标行业顶尖日报的系统性升级
 > 核心理念: Claude为质量门，Codex为生产力 | 产品质量是我们的核心竞争力
 > v5.1核心变更: 新增charts_today.py专项图表脚本 + 今日热点速览强制 + 质量门禁扩展套话grep覆盖.html
@@ -123,6 +124,7 @@ Claude Code（质量门核心） → 定调、终审、复盘、规则更新
 - **禁止套话：** "值得关注""后市可期""需警惕"
 - **禁止编造历史对比：** "历史第X次"等必须有精确来源
 - **公司名：** 首次出现中英对照，后续只用中文
+- **名词解释强制：** 文末必须有"名词解释"板块（`.sources` 样式），覆盖文中5-10个关键专业术语
 
 ### Phase 3: 漫画生产（Claude Code设计+生成，质量门控）
 
@@ -226,14 +228,15 @@ Phase 5: 将生成图表嵌入文章HTML
          ↓ 逐图检查：ChartCard布局完整 + 暖灰纯白零脊线 + 来源脚注
 ```
 
-**VIX恐慌指数更新（晚报前置步骤 — 2026-05-27新增）：**
+**VIX恐慌指数更新（早报/晚报前置步骤 — 2026-05-27新增，2026-06-04扩展为早晚通用）：**
 
-每次更新晚报前，必须更新首页的 VIX 恐慌指数数据：
+每次更新早报或晚报前，必须更新首页的 VIX 恐慌指数数据：
 
 ```
-1. 运行 python scripts/fetch-vix-data.py（自动抓取 Yahoo Finance）
-2. 若API失败 → 搜索最新VIX数据 → 手动更新 data/vix-data.js
+1. 运行 python scripts/fetch-vix-data.py（自动抓取 Yahoo Finance + 生成趋势图）
+2. 若API失败 → 搜索最新VIX数据 → 备用数据自动启用
 3. 验证数据：current不为空、变动合理、日期为最近交易日
+4. 确认 docs/charts/vix_trend_1w.svg 和 vix_trend_1m.svg 已生成
 ```
 
 **数据可视化质量门禁（Layer 2.5 — v4.0升级版）：**
@@ -319,6 +322,7 @@ python scripts/audit-article.py --date YYYY-MM-DD --edition evening
 □ [v6.0] 地缘叙事化：有时间线推进的事件用叙事结构而非事实清单
 □ [v6.0] 投资视角标记：每节结尾有📌 投资视角So what段落
 □ [v6.0] 立场透明：框架部分有明确的"我们判断"或"核心判断"
+□ [v6.0] 名词解释：文末有术语解释表格，覆盖文中出现的专业术语（9项铁律强制）
 □ [新增] audit-article.py 审核通过（时效性/真实性/来源/一致性）
 □ 文章 > 10KB
 □ 6故事结构完整（或合理跳过）
@@ -355,12 +359,13 @@ python scripts/audit-article.py --date YYYY-MM-DD --edition evening
 ```
 1. python scripts/audit-article.py（综合审核 — 阻塞检查）
 2. python scripts/update-index.py（更新数据索引）
-3. 验证 data/articles.json 包含最新文章
-4. grep -n '{{' index.html article.html（检查无模板占位符）
-5. git add → commit → push (必须使用 deploy.sh)
-6. 等待 2 分钟（GitHub Pages 构建部署）
-7. 运行验证脚本（验证清单逐一检查）
-8. 告知用户：已推送，约 1-2 分钟后生效
+3. python scripts/fetch-vix-data.py（更新VIX数据+趋势图 — 早报前置）
+4. 验证 data/articles.json 包含最新文章
+5. grep -n '{{' index.html article.html（检查无模板占位符）
+6. bash deploy.sh "提交信息"（自动处理git add/commit/pull --rebase/push）
+7. 等待 2 分钟（GitHub Pages 构建部署）
+8. 运行验证脚本（验证清单逐一检查）
+9. 告知用户：已推送，约 1-2 分钟后生效
 ```
 
 **部署验证清单（逐一检查）：**

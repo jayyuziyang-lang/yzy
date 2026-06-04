@@ -115,7 +115,17 @@ echo ""
 echo -e "📤 提交中..."
 git commit -m "$COMMIT_MSG" 2>/dev/null || echo "  无新变更"
 
-echo -e "📤 推送到远程..."
+echo -e "📤 推送中..."
+# 自动同步远程变更（防止 GitHub Actions 提交导致的冲突）
+git pull --rebase origin main 2>/dev/null || {
+  echo -e "${YELLOW}[!] Rebase 冲突，自动解决（接受本地版本）${NC}"
+  # 常见冲突：data/latest-cdn.json（时间戳不同）
+  if [ -f "data/latest-cdn.json" ]; then
+    git checkout --ours data/latest-cdn.json 2>/dev/null || true
+    git add data/latest-cdn.json
+  fi
+  git rebase --continue 2>/dev/null || git rebase --skip 2>/dev/null || true
+}
 GIT_PUSH_USING_DEPLOY=1 git push 2>&1 || {
     echo -e "${YELLOW}[!] 推送失败，尝试设置 upstream${NC}"
     GIT_PUSH_USING_DEPLOY=1 git push -u origin main 2>&1
