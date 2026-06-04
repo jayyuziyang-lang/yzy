@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 220">
+  <rect width="300" height="220" fill="#FAFAFA"/>
+
+  <!-- Title bar -->
+  <rect x="0" y="0" width="300" height="30" fill="#D4A017"/>
+  <text x="150" y="20" text-anchor="middle" font-size="11" font-weight="700" fill="#fff" font-family="PingFang SC, Microsoft YaHei, sans-serif">🔗 数据三连击 + 油价=定价锚</text>
+
+  <!-- Top: Three data boxes -->
+  <!-- ISM -->
+  <rect x="6" y="38" width="93" height="65" rx="5" fill="#F0FDF4" stroke="#BBF7D0" stroke-width="1"/>
+  <text x="14" y="56" font-size="8" font-weight="700" fill="#166534" font-family="PingFang SC, Microsoft YaHei, sans-serif">ISM服务业PMI</text>
+  <text x="14" y="74" font-size="14" font-weight="700" fill="#16A34A" font-family="PingFang SC, Microsoft YaHei, sans-serif">54.5</text>
+  <text x="14" y="90" font-size="6" fill="#166534" font-family="PingFang SC, Microsoft YaHei, sans-serif">预期53.7 → 超预期</text>
+
+  <!-- ADP -->
+  <rect x="104" y="38" width="92" height="65" rx="5" fill="#FFFBEB" stroke="#FDE68A" stroke-width="1"/>
+  <text x="112" y="56" font-size="8" font-weight="700" fill="#92400E" font-family="PingFang SC, Microsoft YaHei, sans-serif">ADP就业</text>
+  <text x="112" y="74" font-size="14" font-weight="700" fill="#D4A017" font-family="PingFang SC, Microsoft YaHei, sans-serif">10.9万</text>
+  <text x="112" y="90" font-size="6" fill="#92400E" font-family="PingFang SC, Microsoft YaHei, sans-serif">预期11.8万 → 偏弱</text>
+
+  <!-- 褐皮书 -->
+  <rect x="201" y="38" width="93" height="65" rx="5" fill="#FEF2F2" stroke="#FECACA" stroke-width="1"/>
+  <text x="209" y="56" font-size="8" font-weight="700" fill="#991B1B" font-family="PingFang SC, Microsoft YaHei, sans-serif">褐皮书</text>
+  <text x="209" y="74" font-size="10" font-weight="700" fill="#DC2626" font-family="PingFang SC, Microsoft YaHei, sans-serif">通胀传导</text>
+  <text x="209" y="90" font-size="6" fill="#991B1B" font-family="PingFang SC, Microsoft YaHei, sans-serif">沃什任期首份</text>
+
+  <!-- Middle: Key chain -->
+  <rect x="6" y="110" width="288" height="18" rx="4" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="0.5"/>
+  <text x="150" y="123" text-anchor="middle" font-size="8" font-weight="700" fill="#1E293B" font-family="PingFang SC, Microsoft YaHei, sans-serif">油价↑→ 通胀↑ → 加息预期↑ → 黄金↓ → 美元↑</text>
+
+  <!-- Bottom: Impact boxes -->
+  <!-- Dollar -->
+  <rect x="6" y="135" width="93" height="32" rx="4" fill="#EFF6FF" stroke="#BFDBFE" stroke-width="0.5"/>
+  <text x="14" y="152" font-size="9" font-weight="700" fill="#1E40AF" font-family="PingFang SC, Microsoft YaHei, sans-serif">美元 99.53</text>
+  <text x="14" y="163" font-size="6" fill="#1E40AF" font-family="PingFang SC, Microsoft YaHei, sans-serif">日元跌破160</text>
+
+  <!-- Gold -->
+  <rect x="104" y="135" width="92" height="32" rx="4" fill="#FFF7ED" stroke="#FED7AA" stroke-width="0.5"/>
+  <text x="112" y="152" font-size="9" font-weight="700" fill="#EA580C" font-family="PingFang SC, Microsoft YaHei, sans-serif">黄金 4,450</text>
+  <text x="112" y="163" font-size="6" fill="#EA580C" font-family="PingFang SC, Microsoft YaHei, sans-serif">跌至4,433后企稳</text>
+
+  <!-- Oil -->
+  <rect x="201" y="135" width="93" height="32" rx="4" fill="#F0FDF4" stroke="#BBF7D0" stroke-width="0.5"/>
+  <text x="209" y="152" font-size="9" font-weight="700" fill="#166534" font-family="PingFang SC, Microsoft YaHei, sans-serif">WTI 96.02</text>
+  <text x="209" y="163" font-size="6" fill="#166534" font-family="PingFang SC, Microsoft YaHei, sans-serif">+2.41% 连涨</text>
+
+  <!-- Bottom insight -->
+  <rect x="6" y="175" width="288" height="38" rx="6" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="14" y="192" font-size="7" fill="#475569" font-family="PingFang SC, Microsoft YaHei, sans-serif">🔴 核心矛盾：经济"温而不火"——既不需要急加息、也不需要紧急降息</text>
+  <text x="14" y="205" font-size="7" fill="#475569" font-family="PingFang SC, Microsoft YaHei, sans-serif">    周五非农是打破"稳态"的第一块石头</text>
+</svg>

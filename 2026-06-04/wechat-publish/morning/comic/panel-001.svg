@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 220">
+  <rect width="300" height="220" fill="#FAFAFA"/>
+
+  <!-- Title bar -->
+  <rect x="0" y="0" width="300" height="30" fill="#1A56DB"/>
+  <text x="150" y="20" text-anchor="middle" font-size="12" font-weight="700" fill="#fff" font-family="PingFang SC, Microsoft YaHei, sans-serif">📉 美股九连涨终结 + 褐皮书预警</text>
+
+  <!-- Left: Index decline -->
+  <text x="12" y="55" font-size="8" fill="#64748B" font-family="PingFang SC, Microsoft YaHei, sans-serif">指数表现</text>
+
+  <!-- Dow -->
+  <text x="12" y="72" font-size="7" fill="#1E293B" font-family="PingFang SC, Microsoft YaHei, sans-serif">道指 50,687</text>
+  <rect x="14" y="76" width="50" height="10" rx="2" fill="#16A34A"/>
+  <text x="66" y="85" font-size="6" fill="#16A34A" font-family="PingFang SC, Microsoft YaHei, sans-serif">-1.21%</text>
+
+  <!-- S&P -->
+  <text x="12" y="98" font-size="7" fill="#1E293B" font-family="PingFang SC, Microsoft YaHei, sans-serif">标普 7,567</text>
+  <rect x="14" y="102" width="30" height="10" rx="2" fill="#16A34A"/>
+  <text x="46" y="111" font-size="6" fill="#16A34A" font-family="PingFang SC, Microsoft YaHei, sans-serif">-0.56%</text>
+
+  <!-- Nasdaq -->
+  <text x="12" y="124" font-size="7" fill="#1E293B" font-family="PingFang SC, Microsoft YaHei, sans-serif">纳指 26,853</text>
+  <rect x="14" y="128" width="40" height="10" rx="2" fill="#16A34A"/>
+  <text x="56" y="137" font-size="6" fill="#16A34A" font-family="PingFang SC, Microsoft YaHei, sans-serif">-0.89%</text>
+
+  <!-- VIX -->
+  <text x="12" y="152" font-size="7" fill="#1E293B" font-family="PingFang SC, Microsoft YaHei, sans-serif">VIX 17.82</text>
+  <rect x="14" y="154" width="58" height="10" rx="2" fill="#DC2626"/>
+  <text x="74" y="163" font-size="6" fill="#DC2626" font-family="PingFang SC, Microsoft YaHei, sans-serif">+8.70%</text>
+
+  <!-- Divider -->
+  <line x1="140" y1="38" x2="140" y2="175" stroke="#E2E8F0" stroke-width="1"/>
+
+  <!-- Right: Beige book key points -->
+  <text x="148" y="55" font-size="8" fill="#64748B" font-family="PingFang SC, Microsoft YaHei, sans-serif">褐皮书核心要点</text>
+
+  <rect x="148" y="62" width="144" height="16" rx="3" fill="#FEF2F2" stroke="#FECACA" stroke-width="0.5"/>
+  <text x="153" y="74" font-size="6" fill="#991B1B" font-family="PingFang SC, Microsoft YaHei, sans-serif">油价↑ 推升通胀，传导至各领域</text>
+
+  <rect x="148" y="82" width="144" height="16" rx="3" fill="#FFFBEB" stroke="#FDE68A" stroke-width="0.5"/>
+  <text x="153" y="94" font-size="6" fill="#92400E" font-family="PingFang SC, Microsoft YaHei, sans-serif">消费"K型分化"——贫富差距扩大</text>
+
+  <rect x="148" y="102" width="144" height="16" rx="3" fill="#F0FDF4" stroke="#BBF7D0" stroke-width="0.5"/>
+  <text x="153" y="114" font-size="6" fill="#166534" font-family="PingFang SC, Microsoft YaHei, sans-serif">AI放缓招聘——"低招低辞"僵局</text>
+
+  <rect x="148" y="122" width="144" height="16" rx="3" fill="#EFF6FF" stroke="#BFDBFE" stroke-width="0.5"/>
+  <text x="153" y="134" font-size="6" fill="#1E40AF" font-family="PingFang SC, Microsoft YaHei, sans-serif">沃什首份褐皮书——鹰派基调</text>
+
+  <!-- Bottom insight -->
+  <rect x="10" y="178" width="280" height="34" rx="6" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="20" y="194" font-size="7" fill="#475569" font-family="PingFang SC, Microsoft YaHei, sans-serif">💡 VIX一周飙50%：市场在涨的时候就在买保险，现在保险用上了</text>
+  <text x="20" y="206" font-size="7" fill="#475569" font-family="PingFang SC, Microsoft YaHei, sans-serif">   但17.82仍属温和，不是恐慌信号</text>
+</svg>

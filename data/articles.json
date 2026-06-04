@@ -1,7 +1,19 @@
 {
-  "generated_at": "2026-06-03T17:34:19+08:00",
-  "latest_date": "2026-06-03",
+  "generated_at": "2026-06-04T09:46:42+08:00",
+  "latest_date": "2026-06-04",
   "articles": [
+    {
+      "date": "2026-06-04",
+      "session": "morning",
+      "edition_cn": "早报",
+      "icon": "🌅",
+      "title": "美股九连涨终结·ISM超预期·褐皮书预警通胀·创业板突破4200·黄金跌至4433",
+      "url": "2026-06-04/wechat-publish/morning/article.html",
+      "has_audio": true,
+      "audio_size_bytes": 977472,
+      "has_comic": true,
+      "comic_count": 2
+    },
     {
       "date": "2026-06-03",
       "session": "evening",
@@ -294,6 +306,20 @@
     }
   ],
   "by_date": {
+    "2026-06-04": {
+      "morning": {
+        "date": "2026-06-04",
+        "session": "morning",
+        "edition_cn": "早报",
+        "icon": "🌅",
+        "title": "美股九连涨终结·ISM超预期·褐皮书预警通胀·创业板突破4200·黄金跌至4433",
+        "url": "2026-06-04/wechat-publish/morning/article.html",
+        "has_audio": true,
+        "audio_size_bytes": 977472,
+        "has_comic": true,
+        "comic_count": 2
+      }
+    },
     "2026-06-03": {
       "evening": {
         "date": "2026-06-03",
