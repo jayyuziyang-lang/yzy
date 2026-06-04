@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -35,6 +35,19 @@ jobs:
 
       - name: Pre-fetch VIX index data (static render)
         run: python scripts/fetch-vix-data.py
+
+      - name: Generate CDN version file (for jsDelivr mirror access)
+        run: |
+          cat > data/latest-cdn.json << 'JSONEOF'
+          {
+            "sha": "${{ github.sha }}",
+            "date": "$(date +'%Y-%m-%d')",
+            "updatedAt": "$(date -u +'%Y-%m-%dT%H:%M:%SZ')",
+            "cdnUrl": "https://cdn.jsdmirror.com/gh/jayyuziyang-lang/yzy@${{ github.sha }}/index.html",
+            "cdnUrlMain": "https://cdn.jsdmirror.com/gh/jayyuziyang-lang/yzy@main/index.html",
+            "githubUrl": "https://jayyuziyang-lang.github.io/yzy/"
+          }
+          JSONEOF
 
       - name: Run site health check
         run: python scripts/site-health.py
@@ -63,3 +76,37 @@ jobs:
           curl -s -o /dev/null -w "  %{http_code}  %{url_effective}\n" "${SITE_URL}data/articles.js"
           curl -s -o /dev/null -w "  %{http_code}  %{url_effective}\n" "${SITE_URL}data/articles.json"
           echo "  CDN cache warmed successfully"
+
+  # 提交 CDN 版本文件回仓库
+  commit-cdn-version:
+    runs-on: ubuntu-latest
+    needs: deploy
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Generate CDN version file
+        run: |
+          cat > data/latest-cdn.json << JSONEOF
+          {
+            "sha": "${{ github.sha }}",
+            "date": "$(date +'%Y-%m-%d')",
+            "updatedAt": "$(date -u +'%Y-%m-%dT%H:%M:%SZ')",
+            "cdnUrl": "https://cdn.jsdmirror.com/gh/jayyuziyang-lang/yzy@${{ github.sha }}/index.html",
+            "cdnUrlMain": "https://cdn.jsdmirror.com/gh/jayyuziyang-lang/yzy@main/index.html",
+            "githubUrl": "https://jayyuziyang-lang.github.io/yzy/"
+          }
+          JSONEOF
+          echo "Generated data/latest-cdn.json"
+          cat data/latest-cdn.json
+
+      - name: Commit CDN version file
+        run: |
+          git config user.name "yang shuo"
+          git config user.email "jayyuziyang@gmail.com"
+          git add data/latest-cdn.json
+          git diff --cached --quiet || git commit -m "Update CDN version file [skip ci]"
+          git push

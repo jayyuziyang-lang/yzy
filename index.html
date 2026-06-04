@@ -90,6 +90,8 @@
   .footer { text-align: center; padding: 20px 0 32px; font-size: 11px; color: #94A3B8; }
   .footer a { color: #1A56DB; text-decoration: none; }
   .footer .powered { margin-top: 6px; font-size: 10px; color: #CBD5E1; }
+  .footer .cdn-info { margin-top: 4px; font-size: 9px; color: #CBD5E1; }
+  .footer .cdn-info a { color: #93C5FD; }
 
   /* ===== Loading ===== */
   .loading { text-align: center; padding: 20px; color: #94A3B8; font-size: 13px; }
@@ -418,7 +420,15 @@
   <div class="footer">
     <p>📡 扬说财经 · 每日更新</p>
     <p class="powered">Powered by AI + Python + GitHub Pages</p>
+    <p class="cdn-info">国内加速: <a href="data/latest-cdn.json" target="_blank">版本信息</a></p>
   </div>
+
+<script>
+// CDN 来源检测
+if (location.hostname.includes('jsdmirror') || location.hostname.includes('jsdelivr')) {
+  document.querySelector('.powered').textContent += ' · CDN\u955C\u50CF\u52A0\u901F';
+}
+</script>
 
 </div>
 

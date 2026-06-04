@@ -81,6 +81,21 @@ python scripts/site-health.py 2>/dev/null || echo "  (skip — 非阻塞)"
 echo -e "\n📊 更新 VIX 恐慌指数数据..."
 python scripts/fetch-vix-data.py 2>&1 || echo "  (跳过 — VIX 数据将在 GitHub Actions 中更新)"
 
+# 生成 CDN 版本文件（用于 jsDelivr 镜像访问）
+echo -e "\n📡 生成 CDN 版本文件..."
+CURRENT_SHA=$(git rev-parse HEAD 2>/dev/null || echo "unknown")
+cat > data/latest-cdn.json << JSONEOF
+{
+  "sha": "${CURRENT_SHA}",
+  "date": "$(date +'%Y-%m-%d')",
+  "updatedAt": "$(date -u +'%Y-%m-%dT%H:%M:%SZ')",
+  "cdnUrl": "https://cdn.jsdmirror.com/gh/jayyuziyang-lang/yzy@${CURRENT_SHA}/index.html",
+  "cdnUrlMain": "https://cdn.jsdmirror.com/gh/jayyuziyang-lang/yzy@main/index.html",
+  "githubUrl": "https://jayyuziyang-lang.github.io/yzy/"
+}
+JSONEOF
+echo "  [OK] 生成: data/latest-cdn.json (sha: ${CURRENT_SHA})"
+
 # 部署前自动检查
 echo -e "\n🔍 运行部署前检查..."
 if [ -f "scripts/pre-deploy-check.sh" ]; then
