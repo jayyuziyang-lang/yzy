@@ -142,18 +142,20 @@ def _draw_vix_axes(ax, plot_data, dates, title, colors, mdates):
     latest_val = v[-1]
     max_v = max(v) * 1.25
 
-    # fear/greed zone backgrounds
+    # fear/greed zone backgrounds (keep same subtle alpha)
     ax.axhspan(0, 20, xmin=0, xmax=1, facecolor=colors['GREEN'], alpha=0.06, zorder=0)
     ax.axhspan(20, 30, xmin=0, xmax=1, facecolor=colors['GOLD'], alpha=0.06, zorder=0)
     ax.axhspan(30, max_v * 1.1, xmin=0, xmax=1, facecolor=colors['RED'], alpha=0.06, zorder=0)
     ax.axhline(y=20, color=colors['GREEN'], linewidth=0.8, linestyle='--', alpha=0.4)
     ax.axhline(y=30, color=colors['RED'], linewidth=0.8, linestyle='--', alpha=0.4)
-    ax.text(dates[-1] + (dates[-1] - dates[0]) * 0.03, 10,
-            '贪婪', fontsize=9, color=colors['GREEN'], alpha=0.6, va='center')
-    ax.text(dates[-1] + (dates[-1] - dates[0]) * 0.03, 25,
-            '中性', fontsize=9, color=colors['GOLD'], alpha=0.6, va='center')
-    ax.text(dates[-1] + (dates[-1] - dates[0]) * 0.03, 35,
-            '恐慌', fontsize=9, color=colors['RED'], alpha=0.6, va='center')
+
+    # zone labels on the left side of chart (axes coordinate, inside plot area)
+    zone_style = dict(fontsize=11, fontweight='bold', va='center',
+                      bbox=dict(boxstyle='round,pad=0.2', facecolor='white',
+                                edgecolor='none', alpha=0.85))
+    ax.text(0.01, 0.25, '  贪婪', color=colors['GREEN'], transform=ax.transAxes, **zone_style)
+    ax.text(0.01, 0.55, '  中性', color=colors['GOLD'], transform=ax.transAxes, **zone_style)
+    ax.text(0.01, 0.82, '  恐慌', color=colors['RED'], transform=ax.transAxes, **zone_style)
 
     ax.set_facecolor(colors['WHITE'])
     ax.fill_between(d.index, v, alpha=0.10, color=colors['BLUE'])
