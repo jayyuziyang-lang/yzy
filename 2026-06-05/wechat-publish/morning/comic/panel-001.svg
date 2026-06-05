@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 220">
+  <rect width="300" height="220" fill="#FAFAFA"/>
+
+  <!-- Title bar -->
+  <rect x="0" y="0" width="300" height="30" fill="#1A56DB"/>
+  <text x="150" y="20" text-anchor="middle" font-size="12" font-weight="700" fill="#fff" font-family="PingFang SC, Microsoft YaHei, sans-serif">🎭 隔夜极端分化：道指创新高 vs 博通暴跌</text>
+
+  <!-- Left: 道指暴涨 -->
+  <text x="12" y="52" font-size="8" fill="#64748B" font-family="PingFang SC, Microsoft YaHei, sans-serif">道指创历史新高</text>
+
+  <rect x="12" y="58" width="80" height="18" rx="4" fill="#DC2626"/>
+  <text x="95" y="72" font-size="8" font-weight="700" fill="#DC2626" font-family="PingFang SC, Microsoft YaHei, sans-serif">+874点</text>
+  <text x="12" y="90" font-size="22" font-weight="700" fill="#DC2626" font-family="PingFang SC, Microsoft YaHei, sans-serif">51,562</text>
+
+  <!-- Divider -->
+  <line x1="145" y1="38" x2="145" y2="175" stroke="#E2E8F0" stroke-width="1"/>
+
+  <!-- Right: 博通暴跌 -->
+  <text x="153" y="52" font-size="8" fill="#64748B" font-family="PingFang SC, Microsoft YaHei, sans-serif">博通AI指引"不及预期"</text>
+
+  <rect x="153" y="62" width="60" height="18" rx="4" fill="#16A34A"/>
+  <text x="216" y="76" font-size="8" font-weight="700" fill="#16A34A" font-family="PingFang SC, Microsoft YaHei, sans-serif">-12%</text>
+
+  <rect x="153" y="86" width="140" height="14" rx="3" fill="#F0FDF4"/>
+  <text x="158" y="97" font-size="6" fill="#166534" font-family="PingFang SC, Microsoft YaHei, sans-serif">美光 -7% / ARM -4% / AMD -3%</text>
+
+  <rect x="153" y="105" width="140" height="14" rx="3" fill="#FFFBEB"/>
+  <text x="158" y="116" font-size="6" fill="#92400E" font-family="PingFang SC, Microsoft YaHei, sans-serif">英伟达 +1.94%（逆势涨）</text>
+
+  <rect x="153" y="124" width="140" height="14" rx="3" fill="#EFF6FF"/>
+  <text x="158" y="135" font-size="6" fill="#1E40AF" font-family="PingFang SC, Microsoft YaHei, sans-serif">联合健康 +5% / 摩根大通 +4%</text>
+
+  <rect x="153" y="143" width="140" height="14" rx="3" fill="#FAF5FF"/>
+  <text x="158" y="154" font-size="6" fill="#6B21A8" font-family="PingFang SC, Microsoft YaHei, sans-serif">长线资金入市5000亿利好A股</text>
+
+  <!-- Bottom insight -->
+  <rect x="10" y="178" width="280" height="34" rx="6" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="20" y="194" font-size="7" fill="#475569" font-family="PingFang SC, Microsoft YaHei, sans-serif">💡 博通CEO承认客户正在多元化——AI产业链的"唯一供应商"溢价开始消退</text>
+  <text x="20" y="206" font-size="7" fill="#475569" font-family="PingFang SC, Microsoft YaHei, sans-serif">   今晚非农数据将决定市场下一个方向</text>
+</svg>

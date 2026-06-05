@@ -1,7 +1,19 @@
 {
-  "generated_at": "2026-06-04T23:43:19+08:00",
-  "latest_date": "2026-06-04",
+  "generated_at": "2026-06-05T10:49:56+08:00",
+  "latest_date": "2026-06-05",
   "articles": [
+    {
+      "date": "2026-06-05",
+      "session": "morning",
+      "edition_cn": "早报",
+      "icon": "🌅",
+      "title": "道指暴涨874点创新高·博通暴跌12%·长线资金入市5000亿·黄金反弹4500·成品油大幅下调",
+      "url": "2026-06-05/wechat-publish/morning/article.html",
+      "has_audio": true,
+      "audio_size_bytes": 1685088,
+      "has_comic": true,
+      "comic_count": 1
+    },
     {
       "date": "2026-06-04",
       "session": "evening",
@@ -318,6 +330,20 @@
     }
   ],
   "by_date": {
+    "2026-06-05": {
+      "morning": {
+        "date": "2026-06-05",
+        "session": "morning",
+        "edition_cn": "早报",
+        "icon": "🌅",
+        "title": "道指暴涨874点创新高·博通暴跌12%·长线资金入市5000亿·黄金反弹4500·成品油大幅下调",
+        "url": "2026-06-05/wechat-publish/morning/article.html",
+        "has_audio": true,
+        "audio_size_bytes": 1685088,
+        "has_comic": true,
+        "comic_count": 1
+      }
+    },
     "2026-06-04": {
       "evening": {
         "date": "2026-06-04",
