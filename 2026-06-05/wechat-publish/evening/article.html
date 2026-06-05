@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>A股指数跌个股涨·北证50暴涨5.59%·非农大超预期17.2万·机器人涨停潮·黄金跌破4400</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system,"PingFang SC","Microsoft YaHei","Helvetica Neue",sans-serif; background: #F5F7FA; color: #1E293B; line-height: 1.8; font-size: 16px; }
+  .c { max-width: 640px; margin: 0 auto; background: #fff; padding: 44px 0 40px; }
+  .top-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; max-width: 640px; margin: 0 auto; background: rgba(255,255,255,0.95); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-bottom: 1px solid #E2E8F0; display: flex; align-items: center; padding: 0 16px; height: 44px; }
+  .top-nav .back { display: flex; align-items: center; gap: 4px; color: #1A56DB; text-decoration: none; font-size: 13px; font-weight: 600; }
+  .top-nav .back:active { opacity: 0.6; }
+  .top-nav .nav-date { flex: 1; text-align: center; font-size: 12px; color: #64748B; }
+  .top-nav .nav-edition { font-size: 11px; color: #D4A017; background: #FFFBEB; padding: 2px 8px; border-radius: 8px; font-weight: 600; }
+  .header { background: linear-gradient(135deg,#D4A017,#B8860B); padding: 20px 20px 16px; color: white; }
+  .header h1 { font-size: 22px; font-weight: 700; line-height: 1.4; margin-bottom: 6px; }
+  .header .meta { font-size: 12px; opacity: 0.8; display: flex; gap: 12px; flex-wrap: wrap; }
+  .player { display: flex; align-items: center; gap: 12px; margin-top: 14px; }
+  .player-icon { width: 40px; height: 40px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 18px; }
+  .player-info { flex: 1; }
+  .player-title { font-size: 13px; font-weight: 600; }
+  .player-desc { font-size: 11px; opacity: 0.7; }
+  .player audio { width: 100%; margin-top: 4px; border-radius: 20px; }
+  .body { padding: 20px 20px 0; }
+  .layer1 { margin-bottom: 28px; }
+  .l1-title { font-size: 16px; font-weight: 700; color: #D4A017; margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
+  .l1-comic { margin: 8px 0 0; }
+  .l1-comic img { width: 100%; border-radius: 10px; border: 1px solid #E2E8F0; }
+  .l1-divider { border: none; border-top: 2px dashed #D4A017; margin: 16px 0; }
+  .layer2 { margin-bottom: 24px; }
+  .l2-title { font-size: 16px; font-weight: 700; color: #D4A017; margin-bottom: 14px; display: flex; align-items: center; gap: 6px; }
+  .quote { background: #FFFBEB; border-left: 4px solid #D4A017; padding: 12px 14px; margin: 14px 0; border-radius: 0 8px 8px 0; font-size: 14px; color: #92400E; line-height: 1.7; }
+  p { margin-bottom: 12px; text-align: justify; font-size: 15px; }
+  .story { margin: 22px 0; }
+  .story-head { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .story-num { width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; color: #fff; flex-shrink: 0; }
+  .story-num.s01 { background: #DC2626; } .story-num.s02 { background: #16A34A; } .story-num.s03 { background: #7C3AED; }
+  .story-num.s04 { background: #1A56DB; } .story-num.s05 { background: #D4A017; } .story-num.s06 { background: #EA580C; }
+  .story-tag { font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 3px; }
+  .story-tag.s01 { background: #FEF2F2; color: #DC2626; } .story-tag.s02 { background: #F0FDF4; color: #16A34A; }
+  .story-tag.s03 { background: #FAF5FF; color: #7C3AED; } .story-tag.s04 { background: #EFF6FF; color: #1A56DB; }
+  .story-tag.s05 { background: #FFFBEB; color: #D4A017; } .story-tag.s06 { background: #FFF7ED; color: #EA580C; }
+  .story-title { font-size: 16px; font-weight: 700; color: #1E293B; line-height: 1.4; }
+  .story-content { font-size: 14px; color: #334155; line-height: 1.8; margin-bottom: 8px; }
+  .story-content p { margin-bottom: 8px; font-size: 14px; }
+  .story-img { margin: 10px 0 0; border-radius: 8px; border: 1px solid #E2E8F0; overflow: hidden; background: #FAFAFA; }
+  .story-img img { width: 100%; display: block; }
+  .story-divider { border: none; height: 1px; background: linear-gradient(to right, transparent, #E2E8F0, transparent); margin: 6px 0; }
+  .gold-box { background: linear-gradient(135deg,#FFF8E7,#FFF3D6); border: 1px solid #D4A017; border-radius: 12px; padding: 18px 20px; margin: 22px 0; text-align: center; font-size: 16px; font-weight: 700; color: #B8860B; line-height: 1.5; }
+  .layer3 { margin-bottom: 24px; }
+  .l3-title { font-size: 16px; font-weight: 700; color: #D4A017; margin-bottom: 10px; }
+  .l3-highlight-box { background: #FFFBEB; border-radius: 10px; padding: 12px 14px; margin: 12px 0; font-size: 13px; color: #92400E; line-height: 1.6; border: 1px solid #FDE68A; }
+  table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 13px; }
+  th { background: #D4A017; color: #fff; padding: 8px 10px; text-align: left; font-weight: 600; }
+  th:first-child { border-radius: 6px 0 0 0; }
+  th:last-child { border-radius: 0 6px 0 0; }
+  td { padding: 8px 10px; border-bottom: 1px solid #E2E8F0; }
+  tr:nth-child(even) { background: #F8F9FA; }
+  .up { color: #DC2626; font-weight: 600; }
+  .down { color: #16A34A; font-weight: 600; }
+  .warn { background: #FFF5F5; border: 1px solid #FECACA; border-radius: 10px; padding: 12px 14px; margin-top: 24px; font-size: 12px; color: #991B1B; line-height: 1.5; }
+  .list { background: #F8F9FA; border-radius: 8px; padding: 10px 14px; margin: 10px 0; }
+  .list-item { padding: 5px 0; border-bottom: 1px solid #E2E8F0; font-size: 13px; display: flex; gap: 6px; }
+  .list-item:last-child { border-bottom: none; }
+  .tag-b { display: inline-block; background: #D4A017; color: #fff; font-size: 10px; padding: 1px 7px; border-radius: 8px; white-space: nowrap; }
+  .sources { background: #FFFBEB; border-radius: 10px; padding: 12px 14px; margin: 16px 0; font-size: 12px; color: #92400E; line-height: 1.6; }
+  .sources h3 { font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+  .sources a { color: #1A56DB; text-decoration: none; }
+  .foot { background: linear-gradient(135deg,#D4A017,#B8860B); border-radius: 12px; padding: 18px 20px; margin: 22px 0; color: white; text-align: center; }
+  .foot .icon { font-size: 28px; margin-bottom: 4px; }
+  .foot .t { font-size: 16px; font-weight: 700; margin-bottom: 2px; }
+  .foot .d { font-size: 11px; opacity: 0.85; }
+  .highlight { background: #FFFBEB; padding: 1px 4px; border-radius: 2px; font-weight: 600; color: #92400E; }
+  .key-num { font-weight: 700; color: #D4A017; }
+  .glossary { background: #FFFBEB; border: 1px solid #FDE68A; border-radius: 10px; padding: 12px 14px; margin: 16px 0; font-size: 12px; line-height: 1.6; }
+  .glossary h4 { font-size: 13px; font-weight: 700; color: #92400E; margin-bottom: 8px; }
+  .glossary table { width: 100%; font-size: 12px; margin: 0; }
+  .glossary th { background: #D4A017; color: #fff; padding: 5px 8px; font-size: 11px; text-align: left; }
+  .glossary td { padding: 5px 8px; font-size: 11px; }
+  .logic-chain { background: #F0F4FF; border-left: 4px solid #1A56DB; border-radius: 0 8px 8px 0; padding: 10px 14px; margin: 10px 0 14px; font-size: 13.5px; color: #1E3A7A; line-height: 1.7; }
+  .logic-chain .lc-label { font-weight: 700; font-size: 12px; color: #1A56DB; margin-bottom: 2px; }
+  .logic-chain .lc-arrow { color: #1A56DB; font-weight: 700; }
+  .invest-view { background: #F0FDF4; border-left: 4px solid #16A34A; border-radius: 0 8px 8px 0; padding: 10px 14px; margin: 10px 0 14px; font-size: 13.5px; color: #14532D; line-height: 1.7; }
+  .invest-view .iv-label { font-weight: 700; font-size: 12px; color: #16A34A; margin-bottom: 2px; }
+  .scenario-box { background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 10px; padding: 12px; margin: 12px 0; }
+  .scenario-box .sc-title { font-weight: 700; font-size: 14px; margin-bottom: 6px; }
+  .scenario-box .sc-path-a { color: #DC2626; }
+  .scenario-box .sc-path-b { color: #16A34A; }
+  .scenario-box .sc-content { font-size: 13.5px; color: #475569; line-height: 1.7; }
+  .scenario-box .sc-content p { margin-bottom: 6px; }
+</style>
+</head>
+<body>
+<div class="c">
+
+  <div class="top-nav">
+    <a class="back" href="../../../index.html">&larr; 返回首页</a>
+    <span class="nav-date">2026.06.05 · 周五</span>
+    <span class="nav-edition">扬说·晚报</span>
+  </div>
+
+  <div class="header">
+    <h1>沪指失守半年线：指数跌但3200股涨，北证50暴涨5.59%；非农大超预期17.2万，加息预期急升温；机器人板块涨停潮</h1>
+    <div class="meta">
+      <span>📅 2026年6月5日 · 星期五</span>
+      <span>🏷️ 非农17.2万 / 北证50暴涨 / 机器人涨停潮 / 中际旭创583亿 / 黄金跌破4400 / 物理AI新方向</span>
+    </div>
+    <div class="player">
+      <div class="player-icon">🎧</div>
+      <div class="player-info">
+        <div class="player-title">听全文 · 扬说财经</div>
+        <div class="player-desc">约12分钟 · 周五深度复盘</div>
+        <audio controls><source src="audio.mp3" type="audio/mpeg"></audio>
+      </div>
+    </div>
+  </div>
+
+  <div class="body">
+
+    <!-- ===== 本周主轴 ===== -->
+    <div class="logic-chain" style="margin-bottom:20px;">
+      <div class="lc-label">本周主轴传导链</div>
+      <strong>前半周：</strong> 中东冲突 <span class="lc-arrow">→</span> 油价涨 <span class="lc-arrow">→</span> 通胀预期升温 <span class="lc-arrow">→</span> 降息预期退潮 <span class="lc-arrow">→</span> 权益承压。<br>
+      <strong>周四周五转折：</strong> 以黎停火 <span class="lc-arrow">→</span> 油价暴跌 <span class="lc-arrow">→</span> 通胀预期缓和 <span class="lc-arrow">→</span> <strong>但非农17.2万大超预期</strong> <span class="lc-arrow">→</span> 加息预期重燃 <span class="lc-arrow">→</span> 股债双杀、科技领跌。<br>
+      <strong>核心矛盾转换：</strong> 市场从"中东油价"切换到了"非农→加息"逻辑。
+    </div>
+
+    <!-- ===== Layer 1: 大势一览 ===== -->
+    <div class="layer1">
+      <div class="l1-title">📊 今日大势一览</div>
+      <p>周五（6月5日）A股呈现罕见的"<strong>指数跌、多数个股涨</strong>"格局。上证指数跌0.74%失守半年线，创业板指重挫3.2%失守4000点——但全市场却有超3200只个股上涨，84只涨停。北证50暴涨5.59%，机器人板块掀起涨停潮。</p>
+      <p>盘后，美国5月非农数据重磅落地——<strong>新增17.2万人，远超市场预期8.5万人</strong>，近乎翻倍。数据公布后，加息预期急剧升温，美元走强，黄金短线暴跌50美元跌破4400关口，美股期货全线转跌。</p>
+      <p>今天是一个"<strong>市场结构剧烈变化</strong>"的交易日：A股内部结构大变、AI赛道从芯片向机器人切换、全球宏观从"油价担忧"切换到了"非农→加息"逻辑。</p>
+
+      <div class="l1-comic">
+        <img src="comic/panel-001.svg" alt="今日大势一览漫画">
+      </div>
+    </div>
+    <hr class="l1-divider">
+
+    <!-- ===== Layer 2: 6故事深度分析 ===== -->
+    <div class="layer2">
+      <div class="l2-title">🔍 深度 · 六面看市</div>
+
+      <!-- 故事01 A股 -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s01">01</div>
+          <span class="story-tag s01">A股</span>
+          <div class="story-title">指数跌、多数股涨——A股内部正在"换血"</div>
+        </div>
+        <div class="story-content">
+          <p>上证指数收报<span class="key-num">4027.74点</span>，跌0.74%（-30.04点）；深成指收15314.70点，跌2.21%；<strong>创业板指重挫3.20%</strong>收报3957.94点，失守4000点大关。但全市场超3200只个股上涨、84只涨停——指数大跌的背后，是权重大幅杀跌拖累。</p>
+          <p>两市成交<span class="key-num">3.07万亿元</span>，较周四放量约3200亿，属于放量下跌。北向资金净流出约80亿元，主要减持科技权重股。</p>
+          <p><strong>两大极端现象</strong>：</p>
+          <div class="list">
+            <div class="list-item"><span class="tag-b">1</span> <strong>北证50暴涨5.59%</strong>——盘中一度涨超7%，成份股戈碧迦、同惠电子等涨超10%。北交所长期低迷后的低位爆发</div>
+            <div class="list-item"><span class="tag-b">2</span> <strong>中际旭创成交583亿</strong>——A股历史第四天量，股价大跌7.81%报1179.99元，核心员工激励价仅35.16元引发市场争议</div>
+          </div>
+          <p><strong>领涨板块</strong>：电机、机器人（绿的谐波20cm涨停、丰光精密29.96%涨停）、自动化设备、减速器、金属新材料。</p>
+          <p><strong>领跌板块</strong>：CPO（中际旭创领跌）、半导体、电力、贵金属、存储芯片。</p>
+
+          <div class="logic-chain">
+            <div class="lc-label">逻辑链</div>
+            非农预期压制科技权重 <span class="lc-arrow">→</span> 创业板/半导体/CPO等指数权重暴跌 <span class="lc-arrow">→</span> 创业板重挫3.2% <span class="lc-arrow">→</span> 但存量资金并未离场 <span class="lc-arrow">→</span> 涌入北交所/机器人/电机等低位方向 <span class="lc-arrow">→</span> 形成"指数跌、多数涨"的奇特格局
+          </div>
+        </div>
+        <div class="story-img">
+          <img src="comic/panel-002.svg" alt="A股内部换血">
+        </div>
+      </div>
+      <hr class="story-divider">
+
+      <!-- 故事02 美股 -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s02">02</div>
+          <span class="story-tag s02">美股</span>
+          <div class="story-title">非农大超预期：17.2万 vs 预期8.5万，加息预期急升温</div>
+        </div>
+        <div class="story-content">
+          <p>北京时间周五晚20:30，美国5月非农就业报告公布，数据全面炸裂：</p>
+          <table>
+            <tr><th>指标</th><th>实际</th><th>预期</th><th>前值（上修后）</th></tr>
+            <tr><td>新增非农就业</td><td><span class="key-num">17.2万</span></td><td>8.5万</td><td>17.9万</td></tr>
+            <tr><td>失业率</td><td>4.3%</td><td>4.3%</td><td>4.3%</td></tr>
+            <tr><td>时薪环比</td><td>+0.3%</td><td>+0.3%</td><td>+0.2%</td></tr>
+          </table>
+          <p>实际值17.2万几乎是预期8.5万的两倍。加上3月从18.5万上修至21.4万、4月从11.5万上修至17.9万，<span class="highlight">两个月合计上修9.3万人</span>——意味着上半年就业市场比之前看到的要强劲得多。</p>
+          <p><strong>市场即时反应</strong>：</p>
+          <div class="list">
+            <div class="list-item"><span class="tag-b">1</span> 美股全线跳水——道指由涨转跌约0.1%，纳指跌超<span class="key-num">1.27%</span>，费城半导体指数暴跌<span class="key-num">4.43%</span></div>
+            <div class="list-item"><span class="tag-b">2</span> 美债收益率飙升——2年期上行至4.13%，10年期至4.54%</div>
+            <div class="list-item"><span class="tag-b">3</span> 黄金短线暴跌50美元——由4470一线急跌至4405美元</div>
+            <div class="list-item"><span class="tag-b">4</span> 美元指数由跌转升——报99.45</div>
+            <div class="list-item"><span class="tag-b">5</span> <strong>加息预期急剧升温</strong>——利率互换完全定价年底前加息25bp，10月概率近60%</div>
+          </div>
+          <p>芯片股再度重挫：英伟达跌超3%，英特尔跌近7%，台积电跌3.27%，美光跌4.82%。博通在前日暴跌后继续承压。</p>
+
+          <div class="core-contradiction" style="background:#FFF5F5;border-left:4px solid #DC2626;border-radius:0 8px 8px 0;padding:10px 14px;margin:10px 0 14px;font-size:13.5px;color:#7F1D1D;line-height:1.7;">
+            <div style="font-weight:700;font-size:12px;color:#DC2626;margin-bottom:2px;">核心矛盾</div>
+            <strong>非农超预期 ≠ 经济好。</strong> 17.2万确实强劲，但前值大幅上修才是真正让市场恐慌的——说明整个上半年就业都比之前认为的强。对美联储来说，这意味着通胀粘性可能持续。降息已经被彻底扫下台面，加息正从"讨论"走向"行动"。
+          </div>
+        </div>
+      </div>
+      <hr class="story-divider">
+
+      <!-- 故事03 科技/AI -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s03">03</div>
+          <span class="story-tag s03">科技/AI</span>
+          <div class="story-title">AI大分化：中际旭创583亿天量暴跌，机器人涨停潮接棒</div>
+        </div>
+        <div class="story-content">
+          <p>今天AI赛道两个极端同时上演。</p>
+          <p><strong>第一幕：CPO龙头中际旭创放量暴跌。</strong> 成交额高达<span class="key-num">583.25亿元</span>，排A股历史第四（仅次东方财富900亿、中国石油699亿、中国平安679亿）。股价大跌7.81%报1179.99元。核心导火索：公司公告核心员工股权激励归属价仅35.16元/股，对应市值约3.83亿元，市场质疑管理层的利益绑定机制。</p>
+          <p><strong>第二幕：机器人板块掀起涨停潮。</strong> 英伟达在2026台北GTC大会上正式官宣<span class="highlight">NVIDIA Cosmos 3</span>——全球首款全模态物理AI模型。黄仁勋明确表示机器人技术及物理AI将成为下一阶段重点发展产业。A股机器人概念应声爆发：绿的谐波20cm涨停、丰光精密29.96%涨停、中大力德涨停、科力尔涨停。</p>
+
+          <div class="quote">
+            "AI交易的第三阶段已经开始：从'买算力'到'买芯片'到'买应用'。物理AI和机器人可能是未来半年最大的主题。"<br>
+            —— 黄仁勋在台北GTC大会
+          </div>
+
+          <div class="invest-view">
+            <div class="iv-label">📌 投资视角</div>
+            <p>中际旭创的583亿天量不是"抄底资金"而是"多空决战"——这个信号意味着CPO/光模块的筹码结构已经极度拥挤，短期很难涨回去。机器人板块则处于"主题萌芽期"，类似2023年初的ChatGPT概念——涨幅大但波动也大。关注核心标的：绿的谐波（谐波减速器龙头）、中大力德（伺服系统）。</p>
+          </div>
+        </div>
+      </div>
+      <hr class="story-divider">
+
+      <!-- 故事04 前沿/国际 -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s04">04</div>
+          <span class="story-tag s04">前沿/国际</span>
+          <div class="story-title">中东停火执行陷入僵局，美伊谈判现微妙转机</div>
+        </div>
+        <div class="story-content">
+          <p>以黎停火协议签署后，执行层面陷入僵局。真主党拒绝承认协议，以军参谋长明确表示将保持"最大限度行动自由"。<span class="highlight">纸面停火vs实际执行</span>的差距仍在扩大。</p>
+          <p>但美伊谈判出现了微妙转机。特朗普在公开讲话中首次表示"有史以来第一次与真主党进行了对话"，暗示中东外交渠道正在发挥作用。伊朗方面立场有所软化，不再坚持将所有战线停火与美伊谈判挂钩。市场因此继续押注<span class="highlight">霍尔木兹海峡可能重新开放</span>，WTI原油维持在93美元附近。</p>
+          <p>众议院以215:208通过的限战决议虽然不具法律约束力，但为特朗普的对伊行动套上了一道政治缰绳。</p>
+
+          <div class="invest-view">
+            <div class="iv-label">📌 投资视角</div>
+            <p>中东对市场的影响正在减弱——当非农数据公布后，市场的核心变量已经从"中东油价"切换到了"美联储利率"。油价93美元的位置是短期均衡，上下空间都不大。</p>
+          </div>
+        </div>
+      </div>
+      <hr class="story-divider">
+
+      <!-- 故事05 宏观 -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s05">05</div>
+          <span class="story-tag s05">宏观</span>
+          <div class="story-title">非农彻底改变加息预期——10月加息概率近60%</div>
+        </div>
+        <div class="story-content">
+          <p>今晚的非农数据可能是2026年以来最重要的经济数据之一。理由有三：</p>
+          <p><strong>第一，超预期幅度惊人。</strong> 17.2万 vs 预期8.5万，差距之大在非农历史上都属罕见。实际值几乎是预期的两倍。叠加前两月合计上修9.3万，整个上半年劳动力市场呈现出"持续强劲、不断上修"的态势。</p>
+          <p><strong>第二，对美联储6月会议的影响。</strong> 沃什将于6月16-17日主持上任后首次FOMC会议。此前的褐皮书已明确提示通胀压力回升，再加上这份火热的非农——摆在沃什面前的不再是"降不降息"的问题，而是"加不加息、加多少"的问题。</p>
+          <p><strong>第三，市场定价已完全转向。</strong> 利率互换市场目前已<strong>完全定价</strong>年底前加息25个基点，10月加息概率接近60%。2027年3月前已完全消化一次加息。这意味着"降息预期"这个过去两年支撑全球风险资产上涨的核心叙事，<span class="highlight">已经彻底终结</span>。</p>
+
+          <div class="scenario-box">
+            <div class="sc-title">情景推演 · 加息路径</div>
+            <div class="sc-content">
+              <p><span class="sc-path-a">📈 路径A（10月加息·概率60%）：</span> 5月CPI继续偏高 + 非农持续强劲 → 沃什在6月FOMC释放鹰派信号 → 7月铺垫 → 10月正式加息25bp → 全球风险资产承压</p>
+              <p><span class="sc-path-b">📉 路径B（维持不变·概率30%）：</span> 油价持续回落 + 通胀压力缓解 → 非农后续数据温和 → 美联储按兵不动 → 市场情绪修复</p>
+              <p>极端路径C（概率10%）： 经济急剧放缓 → 滞胀 → 美联储陷入政策困境</p>
+            </div>
+          </div>
+
+          <p><strong>此外，AI裁员潮不容忽视。</strong> 5月因AI导致的裁员公告达38,242人，AI已连续三个月成为企业裁员首要原因，占全部裁员的40%。结构性失业问题正在浮出水面。</p>
+        </div>
+      </div>
+      <hr class="story-divider">
+
+      <!-- 故事06 商品/黄金 -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s06">06</div>
+          <span class="story-tag s06">商品/黄金</span>
+          <div class="story-title">非农暴击黄金：短线暴跌50美元跌破4400，原油退守93</div>
+        </div>
+        <div class="story-content">
+          <p><strong>黄金：非农数据落地后急转直下。</strong> 在非农公布前，现货黄金交投于4470美元附近。数据公布后，强劲就业数据推动美元指数急拉、美债收益率飙升，<span class="highlight">黄金短线暴跌超50美元</span>，一度跌至4405美元/盎司，跌幅超1.5%。COMEX黄金期货同步下挫至约4450美元。</p>
+          <p>这完美验证了我们过去一周反复强调的核心判断：<span class="highlight">黄金是利率预期资产，不是避险资产。</span> 非农超预期→加息预期升温→美元走强→黄金跌。中东停火带来的避险溢价根本无法阻挡利率逻辑的冲击。</p>
+          <p><strong>原油：维持在93美元附近整理。</strong> WTI原油报92.87美元，跌幅约0.5%，较前一日的大跌有所企稳。以黎停火+美伊谈判变数是当前油价的核心驱动，但非农数据对原油的直接影响有限——因为加息预期更多通过"需求端"传导到油价，而非短期地缘风险溢价。</p>
+
+          <table>
+            <tr><th>品种</th><th>最新价</th><th>非农后变化</th></tr>
+            <tr><td>现货黄金</td><td>$4,405</td><td class="down">-1.5%</td></tr>
+            <tr><td>WTI原油</td><td>$92.87</td><td class="down">-0.5%</td></tr>
+            <tr><td>布伦特原油</td><td>$95.03</td><td class="down">-0.4%</td></tr>
+            <tr><td>美元指数</td><td>99.45</td><td class="up">+0.6%</td></tr>
+          </table>
+
+          <div class="invest-view">
+            <div class="iv-label">📌 投资视角</div>
+            <p><strong>黄金</strong>：4400是多空分水岭。若美股继续回调->流动性紧缩->黄金可能进一步下探至4350。但中长期看，各国央行购金趋势未变，4400以下对长线投资者而言可能是配置机会。</p>
+            <p><strong>关注下周</strong>：美国5月CPI（下周公布）将是非农之后的第二个关键数据——若CPI同步偏高，10月加息将基本确定。届时黄金将面临更大压力。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== Layer 1: 漫画第三条 ===== -->
+    <div class="l1-comic" style="margin:22px 0;">
+      <img src="comic/panel-003.svg" alt="周五主题漫画">
+    </div>
+
+    <!-- ===== Layer 3: 数据复盘 ===== -->
+    <div class="layer3">
+      <div class="l3-title">📋 数据复盘 · 2026.06.05</div>
+
+      <p style="font-size:13px;font-weight:700;color:#D4A017;margin-bottom:4px;">全球主要市场</p>
+      <table>
+        <tr><th>市场</th><th>收盘</th><th>涨跌幅</th></tr>
+        <tr><td>上证指数</td><td>4,027.74</td><td class="down">-0.74%</td></tr>
+        <tr><td>深证成指</td><td>15,314.70</td><td class="down">-2.21%</td></tr>
+        <tr><td>创业板指</td><td>3,957.94</td><td class="down">-3.20%</td></tr>
+        <tr><td>北证50</td><td>1,299.07</td><td class="up">+5.59%</td></tr>
+        <tr><td>道琼斯（盘前）</td><td>~51,562</td><td class="up">+0.1%</td></tr>
+        <tr><td>纳斯达克（盘前）</td><td>~26,830</td><td class="down">-1.27%</td></tr>
+        <tr><td>恒生指数</td><td>24,986</td><td class="down">-0.92%</td></tr>
+      </table>
+
+      <p style="font-size:13px;font-weight:700;color:#D4A017;margin-bottom:4px;margin-top:10px;">商品/非农</p>
+      <table>
+        <tr><th>品种</th><th>价格</th><th>涨跌幅</th></tr>
+        <tr><td>现货黄金</td><td>$4,405</td><td class="down">-1.5%</td></tr>
+        <tr><td>WTI原油</td><td>$92.87</td><td class="down">-0.5%</td></tr>
+        <tr><td>布伦特原油</td><td>$95.03</td><td class="down">-0.4%</td></tr>
+        <tr><td>美国5月非农</td><td>+17.2万</td><td>vs 预期8.5万</td></tr>
+        <tr><td>失业率</td><td>4.3%</td><td>符合预期</td></tr>
+      </table>
+
+      <p style="font-size:13px;font-weight:700;color:#D4A017;margin-bottom:4px;margin-top:10px;">A股板块</p>
+      <table>
+        <tr><th>领涨板块</th><th>涨幅</th><th>领跌板块</th><th>跌幅</th></tr>
+        <tr><td>电机</td><td class="up">+4.82%</td><td>CPO</td><td class="down">-5.12%</td></tr>
+        <tr><td>机器人</td><td class="up">+4.15%</td><td>半导体</td><td class="down">-3.47%</td></tr>
+        <tr><td>金属新材料</td><td class="up">+3.28%</td><td>电力</td><td class="down">-2.15%</td></tr>
+        <tr><td>自动化设备</td><td class="up">+2.96%</td><td>贵金属</td><td class="down">-1.83%</td></tr>
+      </table>
+
+      <div class="l3-highlight-box">
+        <strong>两市成交：</strong>3.07万亿（放量3200亿） · <strong>涨跌家数：</strong>3200+涨 / 84涨停 · <strong>北向资金：</strong>净流出约80亿<br>
+        <strong>本周总结：</strong>沪指周跌1%，连跌四周。全周核心驱动从"中东油价"切换为"非农→加息"。</div>
+
+      <!-- 本周回顾 -->
+      <div class="l3-highlight-box" style="margin-top:8px;">
+        <strong>📅 本周速览</strong><br>
+        <strong>周一：</strong> 中东冲突升级，油价突破96，黄金4500遇阻<br>
+        <strong>周二：</strong> 台积电股东大会——魏哲家"数年内无法满足AI芯片需求"<br>
+        <strong>周三：</strong> 美股九连涨终结，道指暴跌620点；褐皮书预警通胀<br>
+        <strong>周四：</strong> 以黎停火→原油跳水4%；道指暴涨874点创新高；博通暴跌12%<br>
+        <strong>周五：</strong> 非农17.2万超预期→加息预期急升温；机器人涨停潮接棒AI
+      </div>
+
+      <!-- 名词解释 -->
+      <div class="glossary">
+        <h4>📖 名词解释 · 小白友好版</h4>
+        <table>
+          <tr><th>术语</th><th>大白话</th><th>为什么重要</th></tr>
+          <tr><td>非农就业报告</td><td>每个月第一个周五发布的美国最重要就业数据</td><td>这次实际17.2万是预期8.5万的两倍——直接决定了美联储加息还是降息</td></tr>
+          <tr><td>北证50</td><td>北京证券交易所的50只龙头股票组成的指数</td><td>北证50暴涨5.59%，说明资金从高位科技股转向了长期低迷的小盘股，是风格切换的信号</td></tr>
+          <tr><td>CPO（共封装光学）</td><td>一种将光模块和芯片封装在一起的技术，用于AI数据中心的高速数据传输</td><td>中际旭创是CPO龙头，一天成交583亿——说明这个板块的筹码已经极度拥挤</td></tr>
+          <tr><td>物理AI（Physical AI）</td><td>能够在物理世界中行动的AI，不只是生成文字图片，而是能控制机器人运动</td><td>英伟达推出Cosmos 3模型，标志AI下一阶段从"虚拟"走向"物理"——机器人和自动化将是受益方向</td></tr>
+          <tr><td>股权激励归属价</td><td>公司给核心员工的股票购买价格，通常远低于市价</td><td>35.16元的归属价 vs 1179.99元的市价差距太大，引发市场对"利益输送"的质疑</td></tr>
+          <tr><td>利率互换市场定价</td><td>金融机构之间对利率走向的"对赌"价格，反映市场对加息的概率判断</td><td>完全定价年底加息=市场已经100%相信美联储会加息，这是比任何预测都更准确的温度计</td></tr>
+        </table>
+      </div>
+
+      <!-- 数据来源 -->
+      <div class="sources">
+        <h3>📎 数据来源</h3>
+        <a href="https://finance.eastmoney.com/a/202606053761932163.html" target="_blank">东方财富 · A股收盘</a> ·
+        <a href="https://www.cnstock.com/commonDetail/725446" target="_blank">证券时报 · 北证50涨5.59%</a> ·
+        <a href="https://finance.sina.com.cn/wm/2026-06-05/doc-iniaiyyr1663900.shtml" target="_blank">新浪 · 中际旭创583亿</a> ·
+        <a href="https://news.futunn.com/post/74199266" target="_blank">富途 · 非农17.2万</a> ·
+        <a href="https://international.caixin.com/m/2026-06-05/102451495.html" target="_blank">财新 · 非农超预期</a> ·
+        <a href="https://www.cls.cn/detail/2391959" target="_blank">财联社 · 焦点复盘</a> ·
+        <a href="https://www.163.com/dy/article/KUMIE0OV05198NMR.html" target="_blank">网易 · 非农炸裂</a>
+      </div>
+
+      <!-- End Box -->
+      <div class="foot">
+        <div class="icon">🧠</div>
+        <div class="t">一周结束，市场完成了两次"逻辑切换"</div>
+        <div class="d">周一你在盯着中东打仗，周五你在盯着非农数字——这就是全球宏观的节奏。<br><br>过去两年支撑全球资产上涨的"降息预期"已经正式终结。下周CPI数据将是决定10月加息与否的关键一票。<strong>做好利率"更高更久"的准备——甚至更高。</strong></div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+</body>
+</html>

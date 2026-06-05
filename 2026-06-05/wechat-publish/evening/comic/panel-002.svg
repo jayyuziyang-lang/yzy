@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 220">
+  <rect width="300" height="220" fill="#FAFAFA"/>
+
+  <!-- Title bar -->
+  <rect x="0" y="0" width="300" height="30" fill="#D4A017"/>
+  <text x="150" y="20" text-anchor="middle" font-size="12" font-weight="700" fill="#fff" font-family="PingFang SC, Microsoft YaHei, sans-serif">🤖 AI大分化：中际旭创暴跌 vs 机器人涨停</text>
+
+  <!-- Left: 中际旭创 -->
+  <text x="12" y="52" font-size="8" fill="#64748B" font-family="PingFang SC, Microsoft YaHei, sans-serif">CPO龙头：中际旭创</text>
+
+  <rect x="12" y="58" width="136" height="20" rx="4" fill="#F0FDF4" stroke="#BBF7D0" stroke-width="0.5"/>
+  <text x="17" y="68" font-size="9" font-weight="700" fill="#16A34A" font-family="PingFang SC, Microsoft YaHei, sans-serif">股价：-7.81%</text>
+  <text x="88" y="68" font-size="8" fill="#64748B" font-family="PingFang SC, Microsoft YaHei, sans-serif">报1179.99元</text>
+  <text x="17" y="76" font-size="6" fill="#166534" font-family="PingFang SC, Microsoft YaHei, sans-serif">成交额583亿 · A股历史第四</text>
+
+  <rect x="12" y="84" width="136" height="20" rx="4" fill="#FEF2F2"/>
+  <text x="17" y="94" font-size="7" font-weight="700" fill="#DC2626" font-family="PingFang SC, Microsoft YaHei, sans-serif">核心员工激励价：35.16元</text>
+  <text x="17" y="102" font-size="6" fill="#991B1B" font-family="PingFang SC, Microsoft YaHei, sans-serif">vs 市价1179.99元 · 引发争议</text>
+
+  <!-- Arrow down -->
+  <text x="75" y="118" font-size="14" fill="#16A34A" font-family="PingFang SC, Microsoft YaHei, sans-serif">▼</text>
+
+  <rect x="12" y="126" width="136" height="14" rx="3" fill="#FFF7ED"/>
+  <text x="17" y="137" font-size="6" fill="#9A3412" font-family="PingFang SC, Microsoft YaHei, sans-serif">筹码拥挤 · 短期难以修复</text>
+
+  <!-- Divider -->
+  <line x1="150" y1="38" x2="150" y2="175" stroke="#E2E8F0" stroke-width="1"/>
+
+  <!-- Right: 机器人涨停潮 -->
+  <text x="158" y="52" font-size="8" fill="#64748B" font-family="PingFang SC, Microsoft YaHei, sans-serif">机器人板块涨停潮</text>
+
+  <rect x="158" y="58" width="134" height="20" rx="4" fill="#FFF5F5" stroke="#FECACA" stroke-width="0.5"/>
+  <text x="163" y="68" font-size="10" font-weight="700" fill="#DC2626" font-family="PingFang SC, Microsoft YaHei, sans-serif">绿的谐波</text>
+  <text x="240" y="68" font-size="10" font-weight="700" fill="#DC2626" font-family="PingFang SC, Microsoft YaHei, sans-serif">20cm</text>
+  <text x="163" y="76" font-size="6" fill="#991B1B" font-family="PingFang SC, Microsoft YaHei, sans-serif">丰光精密+29.96% · 中大力德涨停</text>
+
+  <rect x="158" y="84" width="134" height="14" rx="3" fill="#EFF6FF"/>
+  <text x="163" y="95" font-size="6" fill="#1E40AF" font-family="PingFang SC, Microsoft YaHei, sans-serif">电机 +4.82% · 自动化设备 +2.96%</text>
+
+  <rect x="158" y="102" width="134" height="14" rx="3" fill="#FFFBEB"/>
+  <text x="163" y="113" font-size="6" fill="#92400E" font-family="PingFang SC, Microsoft YaHei, sans-serif">催化剂：英伟达Cosmos 3物理AI模型</text>
+
+  <rect x="158" y="120" width="134" height="14" rx="3" fill="#FAF5FF"/>
+  <text x="163" y="131" font-size="6" fill="#6B21A8" font-family="PingFang SC, Microsoft YaHei, sans-serif">黄仁勋：AI第三阶段 = 物理AI + 机器人</text>
+
+  <!-- Bottom insight -->
+  <rect x="10" y="178" width="280" height="34" rx="6" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="20" y="194" font-size="7" fill="#475569" font-family="PingFang SC, Microsoft YaHei, sans-serif">💡 中际旭创的583亿不是"抄底"而是"多空决战"——筹码结构已极度拥挤</text>
+  <text x="20" y="206" font-size="7" fill="#475569" font-family="PingFang SC, Microsoft YaHei, sans-serif">   机器人处于"主题萌芽期"，类似2023年初的ChatGPT概念</text>
+</svg>

@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 220">
+  <rect width="300" height="220" fill="#FAFAFA"/>
+
+  <!-- Title bar -->
+  <rect x="0" y="0" width="300" height="30" fill="#D4A017"/>
+  <text x="150" y="20" text-anchor="middle" font-size="12" font-weight="700" fill="#fff" font-family="PingFang SC, Microsoft YaHei, sans-serif">📅 一周速览：两次"逻辑切换"</text>
+
+  <!-- Timeline: Mon-Fri -->
+  <!-- Mon -->
+  <circle cx="20" cy="50" r="5" fill="#DC2626"/>
+  <text x="32" y="54" font-size="8" font-weight="700" fill="#DC2626" font-family="PingFang SC, Microsoft YaHei, sans-serif">周一</text>
+  <text x="70" y="54" font-size="7" fill="#1E293B" font-family="PingFang SC, Microsoft YaHei, sans-serif">中东冲突升级 · 油价突破96 · 黄金4500遇阻</text>
+
+  <line x1="20" y1="55" x2="20" y2="72" stroke="#E2E8F0" stroke-width="1.5"/>
+
+  <!-- Tue -->
+  <circle cx="20" cy="80" r="5" fill="#D4A017"/>
+  <text x="32" y="84" font-size="8" font-weight="700" fill="#D4A017" font-family="PingFang SC, Microsoft YaHei, sans-serif">周二</text>
+  <text x="70" y="84" font-size="7" fill="#1E293B" font-family="PingFang SC, Microsoft YaHei, sans-serif">台积电股东大会 · AI芯片"多年无法满足需求"</text>
+
+  <line x1="20" y1="85" x2="20" y2="102" stroke="#E2E8F0" stroke-width="1.5"/>
+
+  <!-- Wed -->
+  <circle cx="20" cy="110" r="5" fill="#16A34A"/>
+  <text x="32" y="114" font-size="8" font-weight="700" fill="#16A34A" font-family="PingFang SC, Microsoft YaHei, sans-serif">周三</text>
+  <text x="70" y="114" font-size="7" fill="#1E293B" font-family="PingFang SC, Microsoft YaHei, sans-serif">美股9连涨终结 · 道指跌620点 · 褐皮书预警通胀</text>
+
+  <line x1="20" y1="115" x2="20" y2="132" stroke="#E2E8F0" stroke-width="1.5"/>
+
+  <!-- Thu -->
+  <circle cx="20" cy="140" r="5" fill="#1A56DB"/>
+  <text x="32" y="144" font-size="8" font-weight="700" fill="#1A56DB" font-family="PingFang SC, Microsoft YaHei, sans-serif">周四</text>
+  <text x="70" y="144" font-size="7" fill="#1E293B" font-family="PingFang SC, Microsoft YaHei, sans-serif">以黎停火 · 原油跳水4% · 道指暴涨874创新高</text>
+
+  <line x1="20" y1="145" x2="20" y2="162" stroke="#E2E8F0" stroke-width="1.5"/>
+
+  <!-- Fri -->
+  <circle cx="20" cy="170" r="5" fill="#EA580C"/>
+  <text x="32" y="174" font-size="8" font-weight="700" fill="#EA580C" font-family="PingFang SC, Microsoft YaHei, sans-serif">周五</text>
+  <text x="70" y="174" font-size="7" fill="#1E293B" font-family="PingFang SC, Microsoft YaHei, sans-serif">非农17.2万大超预期 · 机器人涨停潮 · 加息预期重燃</text>
+
+  <!-- Right insight panel -->
+  <rect x="10" y="188" width="280" height="24" rx="6" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="20" y="204" font-size="7" fill="#475569" font-family="PingFang SC, Microsoft YaHei, sans-serif">💡 两次逻辑切换：前半周"中东油价" → 周四五"非农加息" · 过去两年支撑市场的"降息预期"已正式终结</text>
+</svg>
