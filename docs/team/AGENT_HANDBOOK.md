@@ -375,17 +375,17 @@ python scripts/audit-article.py --date YYYY-MM-DD --edition evening
 
 | 场景 | TTS语音 | 语速 | 预期时长 | 材料来源 |
 |------|---------|------|---------|---------|
-| 深度专题 | zh-CN-YunyangNeural | -50% | ~12分钟 | script.txt |
+| 深度专题 | zh-CN-YunyangNeural | -5% | ~8-12分钟 | script.txt |
 | 晚报（日常） | zh-CN-XiaoxiaoNeural | -20% | ~6分钟 | evening/script.txt |
 | 晚报（周五/重大事件） | zh-CN-YunyangNeural | -30% | ~9-12分钟 | evening/script.txt |
-| 早报 | zh-CN-XiaoxiaoNeural | -10% | ~3分钟 | morning/script.txt |
+| 早报 | zh-CN-YunyangNeural | -5% | ~2-3分钟 | morning/script.txt |
 
 ### 生成命令示例
 
 ```bash
-python3 -m edge_tts \
+python -m edge_tts \
   --voice zh-CN-YunyangNeural \
-  --rate=-50% \
+  --rate=-5% \
   -f special/<专题目录>/script.txt \
   --write-media special/<专题目录>/audio.mp3
 ```
@@ -450,7 +450,7 @@ assert duration_min > 9, '音频太短，可能不完整'
 ```
 
 **阈值门禁（在 pre-deploy-check.sh 中实现）：**
-- 深度专题音频 ≥ 5MB（约 8+ 分钟）
+- 深度专题音频 ≥ 1MB（约 8+ 分钟 @ -5%）
 - 晚报音频 ≥ 1.5MB（约 3+ 分钟）
 - 早报音频 ≥ 0.5MB（约 1+ 分钟）
 

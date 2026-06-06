@@ -336,6 +336,23 @@ if [ -d "$SPECIAL_DIR" ]; then
 
                 echo -e "  ${GREEN}    ✅ audio.mp3 ($((AUDIO_SIZE/1024))KB)${NC}"
 
+                # 音频完整性检测（2026-06-06 复盘追加）
+                AUDIO_DURATION=$(ffprobe -v error -show_entries format=duration \
+                    -of default=noprint_wrappers=1:nokey=1 "$topic_dir/audio.mp3" 2>/dev/null || echo 0)
+                if [ "$(echo "$AUDIO_DURATION > 60" | bc 2>/dev/null)" = "1" ] || [ "$AUDIO_DURATION" = "0" ]; then
+                    if [ "$AUDIO_DURATION" != "0" ]; then
+                        echo -e "  ${GREEN}      ├ 时长: $(printf "%.0f" "$AUDIO_DURATION")秒 ($(echo "scale=1; $AUDIO_DURATION/60" | bc)分)${NC}"
+                    fi
+                else
+                    echo -e "  ${YELLOW}    ⚠️ audio.mp3 时长异常 ($AUDIO_DURATION 秒) — 可能损坏或太短${NC}"
+                fi
+                # 检查文件末尾是否有大量填充字节（损坏标志）
+                TAIL_HEX=$(tail -c 100 "$topic_dir/audio.mp3" 2>/dev/null | od -An -tx1 2>/dev/null)
+                TAIL_AA=$(echo "$TAIL_HEX" | grep -o 'aa' | wc -l 2>/dev/null || echo 0)
+                if [ "$TAIL_AA" -gt 80 ] 2>/dev/null; then
+                    echo -e "  ${RED}    ❌ audio.mp3 末尾填充字节过多，文件可能损坏${NC}"; ((SPECIAL_ERRORS++))
+                fi
+
             else
 
                 echo -e "  ${RED}    ❌ audio.mp3 文件过小 ($AUDIO_SIZE 字节)${NC}"; ((SPECIAL_ERRORS++))
