@@ -35,17 +35,17 @@ os.makedirs(os.path.join(ROOT, 'docs', 'charts'), exist_ok=True)
 # ===== 备用数据：当所有 API 均失败时使用 =====
 # 数据来源：WebSearch 交叉验证 (Yahoo Finance / Schwab / TexMetals)
 FALLBACK_DATA = {
-    'current': 18.72,
-    'prev': 15.25,
-    'change': 3.47,
-    'changePct': 22.75,
-    'level': '贪婪',
-    'cls': 'greed',
-    'pct': 46.8,
+    'current': 21.51,
+    'prev': 15.40,
+    'change': 6.11,
+    'changePct': 39.7,
+    'level': '恐慌',
+    'cls': 'fear',
+    'pct': 23.7,
     'date': '2026-06-05',
     'updateTime': '2026-06-06 12:00',
-    'source': '备用数据 (东方财富/网易, VIX=18.72)',
-    'note': '6/5非农超预期引发恐慌抛售，VIX单日飙升22.75%'
+    'source': '备用数据 (ts2.tech/CBOE, VIX=21.51)',
+    'note': '6/5非农超预期引发恐慌抛售，VIX单日飙升39.7%'
 }
 
 # ===== 备用历史数据（用于生成趋势图） =====
@@ -63,18 +63,21 @@ FALLBACK_HISTORY = {
         13.01, 13.57, 13.89, 14.22,
         14.05, 13.88, 14.56, 15.10,
         15.72, 16.39, 16.44, 17.82,
-        15.25, 18.72,
+        15.25, 21.51,
     ]
 }
 
 
 def get_vix_level(vix: float) -> dict:
-    """根据 VIX 数值返回恐慌级别和进度条位置（同前端逻辑）"""
-    if vix > 30:
-        return {'level': '恐慌', 'cls': 'fear', 'pct': min(100, (vix / 50) * 100)}
+    """根据 VIX 数值返回恐慌级别和进度条位置
+    标准：VIX<15=平静, 15-20=焦虑, 20+=恐慌"""
     if vix > 20:
-        return {'level': '中性', 'cls': 'neutral', 'pct': 50 + ((vix - 20) / 10) * 50}
-    return {'level': '贪婪', 'cls': 'greed', 'pct': max(0, (vix / 20) * 50)}
+        pct = max(0, 25 - ((vix - 20) / 30) * 25)
+        return {'level': '恐慌', 'cls': 'fear', 'pct': round(pct, 1)}
+    if vix > 15:
+        pct = 50 - ((vix - 15) / 5) * 25
+        return {'level': '焦虑', 'cls': 'neutral', 'pct': round(pct, 1)}
+    return {'level': '平静', 'cls': 'greed', 'pct': max(50, 100 - (vix / 15) * 50)}
 
 
 # ===== VIX 趋势图生成（matplotlib） =====
@@ -145,18 +148,18 @@ def _draw_vix_axes(ax, plot_data, dates, title, colors, mdates):
     max_v = max(v) * 1.25
 
     # fear/greed zone backgrounds (keep same subtle alpha)
-    ax.axhspan(0, 20, xmin=0, xmax=1, facecolor=colors['GREEN'], alpha=0.06, zorder=0)
-    ax.axhspan(20, 30, xmin=0, xmax=1, facecolor=colors['GOLD'], alpha=0.06, zorder=0)
-    ax.axhspan(30, max_v * 1.1, xmin=0, xmax=1, facecolor=colors['RED'], alpha=0.06, zorder=0)
-    ax.axhline(y=20, color=colors['GREEN'], linewidth=0.8, linestyle='--', alpha=0.4)
-    ax.axhline(y=30, color=colors['RED'], linewidth=0.8, linestyle='--', alpha=0.4)
+    ax.axhspan(0, 15, xmin=0, xmax=1, facecolor=colors['GREEN'], alpha=0.06, zorder=0)
+    ax.axhspan(15, 20, xmin=0, xmax=1, facecolor=colors['GOLD'], alpha=0.06, zorder=0)
+    ax.axhspan(20, max_v * 1.1, xmin=0, xmax=1, facecolor=colors['RED'], alpha=0.06, zorder=0)
+    ax.axhline(y=15, color=colors['GREEN'], linewidth=0.8, linestyle='--', alpha=0.4)
+    ax.axhline(y=20, color=colors['RED'], linewidth=0.8, linestyle='--', alpha=0.4)
 
     # zone labels on the left side of chart (axes coordinate, inside plot area)
     zone_style = dict(fontsize=13, fontweight='bold', va='center',
                       bbox=dict(boxstyle='round,pad=0.2', facecolor='white',
                                 edgecolor='none', alpha=0.85))
-    ax.text(0.01, 0.25, '  贪婪', color=colors['GREEN'], transform=ax.transAxes, **zone_style)
-    ax.text(0.01, 0.55, '  中性', color=colors['GOLD'], transform=ax.transAxes, **zone_style)
+    ax.text(0.01, 0.25, '  平静', color=colors['GREEN'], transform=ax.transAxes, **zone_style)
+    ax.text(0.01, 0.55, '  焦虑', color=colors['GOLD'], transform=ax.transAxes, **zone_style)
     ax.text(0.01, 0.82, '  恐慌', color=colors['RED'], transform=ax.transAxes, **zone_style)
 
     ax.set_facecolor(colors['WHITE'])
