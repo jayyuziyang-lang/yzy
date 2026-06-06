@@ -479,7 +479,7 @@ python scripts/audit-article.py --date YYYY-MM-DD --edition evening
 ### 深度专题发布前自检清单（2026-05-31 新增）
 
 ```
-□ 音频完整性 — 文件≥5MB / edge-tts @ -50% Yunyang / 脚本全文生成
+□ 音频完整性 — 文件≥1MB / edge-tts @ -5% YunyangNeural / 脚本全文生成
 □ 音频时长标注 — 与文件实际时长偏差 < 20%
 □ 漫画SVG — panel-001~00N 全部存在，N与设计一致
 □ 阅读时间 — 与音频时间标注一致（均标"约X分钟"）
@@ -500,7 +500,7 @@ python scripts/audit-article.py --date YYYY-MM-DD --edition evening
 |------|------|
 | 数据图表 | `python scripts/generate-charts.py` |
 | 质量门禁 | `python scripts/gate-check.py`（阻塞项 → 不可发布） |
-| 音频合成（深度专题） | `python -m edge_tts --voice zh-CN-YunyangNeural --rate=-50% -f script.txt --write-media audio.mp3` |
+| 音频合成（深度专题） | `python -m edge_tts --voice zh-CN-YunyangNeural --rate=-5% -f script.txt --write-media audio.mp3` |
 | 音频合成（早报） | `python -m edge_tts --voice zh-CN-YunyangNeural --rate=-5% -f script.txt --write-media audio.mp3` |
 | 音频合成（晚报） | `python -m edge_tts --voice zh-CN-XiaoxiaoNeural --rate=-20% -f script.txt --write-media audio.mp3` |
 

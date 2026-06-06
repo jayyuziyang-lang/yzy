@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-06T12:16:15+08:00",
+  "generated_at": "2026-06-06T12:25:25+08:00",
   "latest_date": "2026-06-06",
   "articles": [
     {
@@ -11,7 +11,7 @@
       "url": "special/非农三路径推演/article.html",
       "series": "市场分析",
       "has_audio": true,
-      "audio_size_bytes": 7317216,
+      "audio_size_bytes": 2820960,
       "has_comic": true,
       "comic_count": 4
     },
@@ -144,7 +144,7 @@
       "url": "special/全球央行囤金/article.html",
       "series": "宏观货币",
       "has_audio": true,
-      "audio_size_bytes": 8322192,
+      "audio_size_bytes": 4668480,
       "has_comic": true,
       "comic_count": 7
     },
@@ -365,7 +365,7 @@
         "url": "special/非农三路径推演/article.html",
         "series": "市场分析",
         "has_audio": true,
-        "audio_size_bytes": 7317216,
+        "audio_size_bytes": 2820960,
         "has_comic": true,
         "comic_count": 4
       }
@@ -510,7 +510,7 @@
         "url": "special/全球央行囤金/article.html",
         "series": "宏观货币",
         "has_audio": true,
-        "audio_size_bytes": 8322192,
+        "audio_size_bytes": 4668480,
         "has_comic": true,
         "comic_count": 7
       }
