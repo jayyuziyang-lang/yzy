@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F8FAFC"/>
+      <stop offset="100%" stop-color="#F1F5F9"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="340" fill="url(#bg)" rx="10"/>
+  <rect x="16" y="14" width="568" height="32" rx="6" fill="#EFF6FF" stroke="#1A56DB" stroke-width="1"/>
+  <text x="300" y="35" text-anchor="middle" fill="#1A56DB" font-size="14" font-weight="700" font-family="system-ui,sans-serif">三大催化剂：近在眼前的三个"审判日"</text>
+
+  <!-- Timeline -->
+  <line x1="50" y1="80" x2="550" y2="80" stroke="#CBD5E1" stroke-width="3"/>
+  <circle cx="120" cy="80" r="7" fill="#DC2626"/>
+  <circle cx="300" cy="80" r="7" fill="#7C3AED"/>
+  <circle cx="480" cy="80" r="7" fill="#1A56DB"/>
+  <text x="120" y="64" text-anchor="middle" fill="#DC2626" font-size="11" font-weight="700">6月10日</text>
+  <text x="300" y="64" text-anchor="middle" fill="#7C3AED" font-size="11" font-weight="700">6月12日</text>
+  <text x="480" y="64" text-anchor="middle" fill="#1A56DB" font-size="11" font-weight="700">6月16-17日</text>
+  <text x="120" y="98" text-anchor="middle" fill="#94A3B8" font-size="9">周二</text>
+  <text x="300" y="98" text-anchor="middle" fill="#94A3B8" font-size="9">周四</text>
+  <text x="480" y="98" text-anchor="middle" fill="#94A3B8" font-size="9">周二~周三</text>
+
+  <!-- Card 1: CPI -->
+  <g transform="translate(16, 114)">
+    <rect width="186" height="210" rx="8" fill="rgba(220,38,38,0.03)" stroke="#DC2626" stroke-width="1.2"/>
+    <rect width="186" height="28" rx="8" fill="#DC2626"/>
+    <rect y="10" width="186" height="18" fill="#DC2626"/>
+    <text x="93" y="19" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">CPI · 降息叙事的命运</text>
+    <text x="10" y="46" fill="#DC2626" font-size="10" font-weight="600">为什么关键：</text>
+    <text x="10" y="62" fill="#475569" font-size="9.5">非农超预期后，CPI是判断</text>
+    <text x="10" y="76" fill="#475569" font-size="9.5">通胀粘性的唯一关键数据</text>
+    <line x1="10" y1="84" x2="176" y2="84" stroke="#E2E8F0" stroke-width="0.5"/>
+    <text x="10" y="100" fill="#DC2626" font-size="10" font-weight="600">两种结果：</text>
+    <rect x="10" y="108" width="166" height="38" rx="6" fill="rgba(16,185,129,0.06)" stroke="#10B981" stroke-width="0.5"/>
+    <text x="14" y="126" fill="#10B981" font-size="9">CPI回落 → 降息叙事重建</text>
+    <text x="14" y="140" fill="#10B981" font-size="9">→ 科技股技术性反弹</text>
+    <rect x="10" y="150" width="166" height="38" rx="6" fill="rgba(220,38,38,0.06)" stroke="#DC2626" stroke-width="0.5"/>
+    <text x="14" y="168" fill="#DC2626" font-size="9">CPI偏高 → 加息确定</text>
+    <text x="14" y="182" fill="#DC2626" font-size="9">→ 科技持续承压</text>
+  </g>
+  <!-- Card 2: SpaceX -->
+  <g transform="translate(206, 114)">
+    <rect width="188" height="210" rx="8" fill="rgba(124,58,237,0.03)" stroke="#7C3AED" stroke-width="1.2"/>
+    <rect width="188" height="28" rx="8" fill="#7C3AED"/>
+    <rect y="10" width="188" height="18" fill="#7C3AED"/>
+    <text x="94" y="19" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">SpaceX IPO · 情绪测试</text>
+    <text x="10" y="46" fill="#7C3AED" font-size="10" font-weight="600">为什么关键：</text>
+    <text x="10" y="62" fill="#475569" font-size="9.5">$750亿IPO + 15日内纳入</text>
+    <text x="10" y="76" fill="#475569" font-size="9.5">纳斯达克100</text>
+    <line x1="10" y1="84" x2="178" y2="84" stroke="#E2E8F0" stroke-width="0.5"/>
+    <text x="10" y="100" fill="#7C3AED" font-size="10" font-weight="600">市场结构影响：</text>
+    <text x="10" y="118" fill="#475569" font-size="9.5">被动基金强制买入</text>
+    <text x="10" y="134" fill="#475569" font-size="9.5">从其他科技股分流资金</text>
+    <text x="10" y="150" fill="#475569" font-size="9.5">首日表现=科技情绪温度计</text>
+    <line x1="10" y1="158" x2="178" y2="158" stroke="#E2E8F0" stroke-width="0.5"/>
+    <text x="10" y="174" fill="#7C3AED" font-size="10" font-weight="600">两种情景：</text>
+    <text x="10" y="192" fill="#475569" font-size="9.5">🔥 首日强劲 → 科技叙事点火</text>
+    <text x="10" y="206" fill="#475569" font-size="9.5">💧 首日低迷 → 恐慌延续</text>
+  </g>
+  <!-- Card 3: FOMC -->
+  <g transform="translate(398, 114)">
+    <rect width="186" height="210" rx="8" fill="rgba(26,86,219,0.03)" stroke="#1A56DB" stroke-width="1.2"/>
+    <rect width="186" height="28" rx="8" fill="#1A56DB"/>
+    <rect y="10" width="186" height="18" fill="#1A56DB"/>
+    <text x="93" y="19" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">FOMC · 沃什首次会议</text>
+    <text x="10" y="46" fill="#1A56DB" font-size="10" font-weight="600">为什么关键：</text>
+    <text x="10" y="62" fill="#475569" font-size="9.5">沃什上任后首次主持FOMC</text>
+    <text x="10" y="76" fill="#475569" font-size="9.5">非农+CPI是政策输入</text>
+    <line x1="10" y1="84" x2="176" y2="84" stroke="#E2E8F0" stroke-width="0.5"/>
+    <text x="10" y="100" fill="#1A56DB" font-size="10" font-weight="600">关键看点：</text>
+    <text x="10" y="118" fill="#475569" font-size="9.5">① 利率决议（不加息确定）</text>
+    <text x="10" y="134" fill="#475569" font-size="9.5">② 点阵图——加息信号？</text>
+    <text x="10" y="150" fill="#475569" font-size="9.5">③ 沃什框架：数据依赖？</text>
+    <line x1="10" y1="158" x2="176" y2="158" stroke="#E2E8F0" stroke-width="0.5"/>
+    <text x="10" y="174" fill="#1A56DB" font-size="10" font-weight="600">最大尾部风险：</text>
+    <text x="10" y="192" fill="#475569" font-size="9.5">点阵图出现加息信号</text>
+    <text x="10" y="206" fill="#475569" font-size="9.5">即使3-4个票委也足够冲击市场</text>
+  </g>
+</svg>

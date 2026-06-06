@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>非农17.2万之后——市场三路径推演：CPI·FOMC·SpaceX三大催化剂</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system,"PingFang SC","Microsoft YaHei","Helvetica Neue",sans-serif; background: #F5F7FA; color: #1E293B; line-height: 1.9; font-size: 16px; }
+  .c { max-width: 640px; margin: 0 auto; background: #fff; padding: 44px 0 40px; }
+
+  .top-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; max-width: 640px; margin: 0 auto; background: rgba(255,255,255,0.95); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-bottom: 1px solid #E2E8F0; display: flex; align-items: center; padding: 0 16px; height: 44px; }
+  .top-nav .back { display: flex; align-items: center; gap: 4px; color: #1A56DB; text-decoration: none; font-size: 13px; font-weight: 600; }
+  .top-nav .back:active { opacity: 0.6; }
+  .top-nav .nav-date { flex: 1; text-align: center; font-size: 12px; color: #64748B; }
+  .top-nav .nav-edition { font-size: 11px; color: #D4A017; background: #FFFBEB; padding: 2px 8px; border-radius: 8px; font-weight: 600; }
+
+  .header { background: linear-gradient(135deg,#DC2626,#991B1B); padding: 20px 20px 16px; color: white; }
+  .header .series-tag { display: inline-block; font-size: 11px; background: rgba(255,255,255,0.15); padding: 2px 10px; border-radius: 10px; margin-bottom: 8px; letter-spacing: 1px; }
+  .header .series-tag .gold { color: #FCD34D; font-weight: 700; }
+  .header h1 { font-size: 22px; font-weight: 700; line-height: 1.4; margin-bottom: 8px; }
+  .header .meta { font-size: 12px; opacity: 0.8; display: flex; gap: 12px; flex-wrap: wrap; }
+  .header .meta .reading-time { background: rgba(255,255,255,0.1); padding: 1px 8px; border-radius: 8px; }
+
+  .player { display: flex; align-items: center; gap: 12px; margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.15); }
+  .player-icon { width: 40px; height: 40px; background: rgba(255,255,255,0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 18px; }
+  .player-info { flex: 1; }
+  .player-title { font-size: 13px; font-weight: 600; }
+  .player-desc { font-size: 11px; opacity: 0.7; }
+  .player audio { width: 100%; margin-top: 4px; border-radius: 20px; }
+
+  .body { padding: 20px; }
+
+  .lead { font-size: 15px; color: #475569; line-height: 1.8; margin-bottom: 20px; padding: 14px 16px; background: #F8FAFC; border-radius: 10px; border-left: 4px solid #D4A017; }
+  .lead strong { color: #1E293B; }
+
+  .section-block { margin: 28px 0; }
+  .section-num { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; background: #DC2626; color: #fff; font-size: 13px; font-weight: 700; margin-right: 8px; flex-shrink: 0; }
+  .section-title { font-size: 18px; font-weight: 700; color: #1E293B; margin-bottom: 12px; display: flex; align-items: center; }
+  .section-content { font-size: 15px; color: #334155; line-height: 1.9; margin-bottom: 12px; }
+  .section-content p { margin-bottom: 12px; text-align: justify; }
+  .section-content .highlight { background: #FEF2F2; padding: 1px 4px; border-radius: 2px; font-weight: 600; color: #DC2626; }
+  .section-content .key-point { font-weight: 700; color: #DC2626; }
+
+  .section-img { margin: 14px 0; border-radius: 8px; border: 1px solid #E2E8F0; overflow: hidden; background: #FAFAFA; }
+  .section-img img { width: 100%; display: block; }
+  .section-img .caption { font-size: 12px; color: #64748B; text-align: center; padding: 6px 10px; background: #F8FAFC; }
+
+  .section-divider { border: none; height: 1px; background: linear-gradient(to right, transparent, #D4A017, transparent); margin: 8px 0; }
+
+  .pull-quote { font-size: 16px; font-weight: 700; color: #DC2626; text-align: center; padding: 16px 20px; margin: 16px 0; border-top: 2px solid #FEF2F2; border-bottom: 2px solid #FEF2F2; line-height: 1.6; }
+
+  .glossary { background: #F8FAFC; border-radius: 10px; padding: 14px 16px; margin: 20px 0; border: 1px solid #E2E8F0; }
+  .glossary h3 { font-size: 14px; font-weight: 700; color: #1E293B; margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+  .glossary-item { padding: 5px 0; border-bottom: 1px solid #E2E8F0; font-size: 13px; display: flex; gap: 6px; }
+  .glossary-item:last-child { border-bottom: none; }
+  .glossary-item .g-term { font-weight: 600; color: #DC2626; white-space: nowrap; min-width: 80px; }
+  .glossary-item .g-def { color: #475569; }
+
+  .sources { background: #FFFBEB; border-radius: 10px; padding: 12px 14px; margin: 16px 0; font-size: 12px; color: #92400E; line-height: 1.6; }
+  .sources h3 { font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+  .sources a { color: #1A56DB; text-decoration: none; }
+  .sources a:hover { text-decoration: underline; }
+
+  .end-box { background: linear-gradient(135deg,#DC2626,#991B1B); border-radius: 12px; padding: 16px 20px; margin: 22px 0; color: white; text-align: center; }
+  .end-box .end-icon { font-size: 28px; margin-bottom: 4px; }
+  .end-box .end-title { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+  .end-box .end-desc { font-size: 12px; opacity: 0.8; }
+
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 13px; }
+  th { background: #DC2626; color: #fff; padding: 8px 10px; text-align: left; font-weight: 600; }
+  th:first-child { border-radius: 6px 0 0 0; }
+  th:last-child { border-radius: 0 6px 0 0; }
+  td { padding: 8px 10px; border-bottom: 1px solid #E2E8F0; }
+  tr:nth-child(even) { background: #F8F9FA; }
+
+  .warn { background: #FFF5F5; border: 1px solid #FECACA; border-radius: 10px; padding: 12px 14px; margin-top: 16px; font-size: 12px; color: #991B1B; line-height: 1.5; }
+
+  .tag-red { display: inline-block; background: #DC2626; color: #fff; font-size: 10px; padding: 1px 7px; border-radius: 8px; white-space: nowrap; }
+  .tag-blue { display: inline-block; background: #1A56DB; color: #fff; font-size: 10px; padding: 1px 7px; border-radius: 8px; white-space: nowrap; }
+  .tag-gold { display: inline-block; background: #D4A017; color: #fff; font-size: 10px; padding: 1px 7px; border-radius: 8px; white-space: nowrap; }
+
+  .quote-box { background: #FEF2F2; border-left: 4px solid #DC2626; padding: 12px 14px; margin: 12px 0; border-radius: 0 8px 8px 0; font-size: 14px; color: #991B1B; line-height: 1.7; }
+  .quote-box .qb-label { font-weight: 700; font-size: 11px; margin-bottom: 2px; }
+  .quote-box .qb-author { display: block; margin-top: 4px; font-size: 11px; color: #94A3B8; }
+
+  .insight-box { background: #EFF6FF; border-left: 4px solid #1A56DB; padding: 12px 14px; margin: 12px 0; border-radius: 0 8px 8px 0; font-size: 13.5px; color: #1E3A7A; line-height: 1.7; }
+  .insight-box .ib-label { font-weight: 700; font-size: 11px; color: #1A56DB; margin-bottom: 2px; }
+
+  .warn-box { background: #FFF5F5; border-left: 4px solid #DC2626; padding: 12px 14px; margin: 12px 0; border-radius: 0 8px 8px 0; }
+  .warn-box .wb-label { font-weight: 700; font-size: 11px; color: #DC2626; margin-bottom: 2px; }
+  .warn-box p { color: #7F1D1D; font-size: 13.5px; margin-bottom: 4px; }
+
+  .highlight-bar { background: linear-gradient(135deg,#FFF5F5,#FEF2F2); border-radius: 8px; padding: 10px 14px; margin: 12px 0; font-size: 13.5px; color: #7F1D1D; line-height: 1.7; }
+  .highlight-bar .hb-label { font-weight: 700; color: #DC2626; }
+
+  .path-block { padding: 12px 14px; margin: 12px 0; border-radius: 8px; }
+  .path-block p { font-size: 14px; margin-bottom: 6px; }
+  .path-a { background: rgba(220,38,38,0.03); border: 1px solid rgba(220,38,38,0.2); }
+  .path-a h4 { color: #DC2626; font-size: 15px; margin-bottom: 6px; }
+  .path-b { background: rgba(26,86,219,0.03); border: 1px solid rgba(26,86,219,0.2); }
+  .path-b h4 { color: #1A56DB; font-size: 15px; margin-bottom: 6px; }
+  .path-c { background: rgba(212,160,23,0.03); border: 1px solid rgba(212,160,23,0.2); }
+  .path-c h4 { color: #D4A017; font-size: 15px; margin-bottom: 6px; }
+</style>
+</head>
+<body>
+<div class="c">
+
+  <div class="top-nav">
+    <a class="back" href="../../index.html">&larr; 返回首页</a>
+    <span class="nav-date">专题 · 第3期</span>
+    <span class="nav-edition">扬说·深度</span>
+  </div>
+
+  <div class="header">
+    <div class="series-tag"><span class="gold">扬说·深度</span> · 市场分析</div>
+    <h1>非农17.2万之后——市场三路径推演</h1>
+    <div class="meta">
+      <span>📅 2026年6月6日</span>
+      <span>🏷️ 非农 / 三路径 / CPI / FOMC / SpaceX</span>
+      <span class="reading-time">📖 阅读约 15 分钟</span>
+    </div>
+    <div class="player">
+      <div class="player-icon">🎧</div>
+      <div class="player-info">
+        <div class="player-title">音频深度解读 · 约 9 分钟</div>
+        <div class="player-desc">边听边看，体验更佳</div>
+        <audio controls preload="none"><source src="audio.mp3" type="audio/mpeg"></audio>
+      </div>
+    </div>
+  </div>
+
+  <div class="body">
+
+    <!-- Lead -->
+    <div class="lead">
+      <strong>2026年6月5日</strong>，美国5月非农就业报告落地——<strong>新增17.2万人，市场预期只有8.5万</strong>。这是近乎翻倍的超预期。数据公布后，全球资产在72小时内经历了一次彻底的逻辑切换：降息预期正式关闭，美债收益率飙至4.536%，美元指数突破100，费城半导体指数单日暴跌10.25%。<br><br>
+      但更关键的问题不是"为什么跌"，而是"接下来往哪走"。非农只是一个信号，决定6月全球资产走向的，是接下来一周内将要落地的<strong>三组催化剂</strong>：CPI（6月10日）、SpaceX IPO（6月12日）、FOMC（6月16-17日）。<br><br>
+      本文用一套<strong>三路径推演框架</strong>，拆解非农之后的市场状态：每条路径的触发条件、概率权重、资产影响，以及——你该怎么办。
+    </div>
+
+    <!-- Section 1: 全景 -->
+    <div class="section-block">
+      <div class="section-title"><span class="section-num">1</span>全景：非农之夜，市场发生了什么</div>
+      <div class="section-content">
+        <p>5月非农新增<span class="highlight">17.2万人</span>，市场预期仅8-10万。但真正让市场恐慌的不是17.2万这个数字本身——而是<strong>前值大幅上修</strong>：3月从18.5万上修至21.4万，4月从11.5万上修至17.9万。两个月合计上修9.3万。这意味着整个上半年就业市场都比之前看到的要强劲得多。</p>
+
+        <p>时薪同比+4.1%，高于预期的+3.9%。经济学家埃里安的评论一针见血——"5月就业报告确实关闭了7月降息的大门。"</p>
+
+        <table>
+          <tr><th>指标</th><th>实际值</th><th>预期值</th><th>差距</th></tr>
+          <tr><td>新增非农就业</td><td>17.2万</td><td>8.5万</td><td>≈2倍</td></tr>
+          <tr><td>失业率</td><td>4.3%</td><td>4.3%</td><td>持平</td></tr>
+          <tr><td>时薪同比</td><td>+4.1%</td><td>+3.9%</td><td>高于预期</td></tr>
+          <tr><td>前值上修合计</td><td>+9.3万</td><td>—</td><td>上半年更强</td></tr>
+        </table>
+
+        <div class="insight-box">
+          <div class="ib-label">🔑 预期定价思维：市场在赌什么</div>
+          <p>非农之前，市场已经在Price-in"降息延后"——博通财报低于预期、美股九连涨终结、道指暴跌620点，这些都发生在非农之前。但17.2万这个数字带来的"预期差"太大了——大到需要重新定价整个利率路径。这就是为什么数据公布后市场反应如此剧烈：<strong>不是非农本身有多"坏"，而是市场发现"之前太乐观了"。</strong></p>
+        </div>
+
+        <p>非农落地后的连锁反应：非农17.2万超预期 → 降息预期关闭 → 10年美债收益率飙至4.536%（+5.9bp）→ 美元指数突破100（100.07，+0.66%）→ 高估值芯片股遭无差别抛售 → SOX崩跌10.25% → VIX从15.4飙至21.51（+39.7%）→ 恐慌情绪蔓延。</p>
+
+        <p>但最重要的结构特征是<strong>分化</strong>：SOX跌10.25%，纳指跌4.18%，道指仅跌1.35%。这不是全面崩盘，而是精准打击AI算力叙事中过度估值的芯片环节。传统蓝筹反而相对抗跌——银行股受益于利率走高。</p>
+
+        <div class="warn-box">
+          <div class="wb-label">⚠️ 核心矛盾</div>
+          <p>这不是"基本面逻辑崩塌"——AI的基本面没有变。这是一个"估值修正"事件：<strong>当利率预期从"降息"切换到"加息"时，40-60倍PE的芯片股无法在高折现率环境中自圆其说。</strong> 不是公司变差了，是"市场愿意为未来收益支付的价格"变低了。</p>
+        </div>
+      </div>
+      <div class="section-img">
+        <img loading="lazy" src="comic/panel-001.svg" alt="非农17.2万全景数据图">
+        <div class="caption">非农超预期2倍 + 前值上修9.3万 → 全球资产剧烈重定价</div>
+      </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- Section 2: 三路径 -->
+    <div class="section-block">
+      <div class="section-title"><span class="section-num">2</span>三路径推演：市场站在十字路口</div>
+      <div class="section-content">
+        <p>非农之后，市场已经不可能回到"降息预期"主导的单边叙事。未来一个月的走向取决于三条路径的博弈。这三条路径不是互斥的——它们可以同时演进，最终由最大公约数决定市场方向。</p>
+
+        <div class="section-img">
+          <img loading="lazy" src="comic/panel-002.svg" alt="三路径推演决策树">
+          <div class="caption">非农之后的市场三路径：AI估值修正（60%）、降息推后重定价（30%）、地缘独立主线（10%+高冲击）</div>
+        </div>
+
+        <div class="path-block path-a">
+          <h4>路径A · AI估值泡沫修正 <span class="tag-red" style="margin-left:6px;">概率 60%</span></h4>
+          <p><strong>核心逻辑：</strong> 非农关闭降息窗口 → 高利率长期化 → 科技股估值持续承压 → SOX在12,000-12,500区间震荡寻底。博通AI指引低于预期已经发生，若6月10日CPI继续偏高，则路径A将完全激活。</p>
+          <p><strong>资产影响：</strong> 英伟达、博通持续承压；科技QDII继续亏损；资金继续从科技向传统蓝筹轮换。</p>
+          <p><strong>反转条件：</strong> CPI显著回落 + 6月FOMC点阵图不加息信号 → 科技股可能技术性反弹。但趋势性修复需两个条件同时满足。</p>
+        </div>
+
+        <div class="path-block path-b">
+          <h4>路径B · 降息推后下的大类资产重定价 <span class="tag-blue" style="margin-left:6px;">概率 30%</span></h4>
+          <p><strong>核心逻辑：</strong> 市场从"何时降息"转向"利率高位持续多久" → 全球资产价格体系重新锚定。BofA已将首次降息预期推至2027年7月。</p>
+          <p><strong>资产影响：</strong> 黄金（$4,354）受利率+美元双重压制，可能下探$4,200；美债收益率高位震荡；新兴市场承压；A股结构性行情延续但外部流动性收缩抑制估值。</p>
+          <p><strong>市场结构：</strong> 道指 > 纳指，价值 > 成长，防御 > 进攻。</p>
+        </div>
+
+        <div class="path-block path-c">
+          <h4>独立主线 · 美伊地缘 <span class="tag-gold" style="margin-left:6px;">高冲击 · 低基准概率</span></h4>
+          <p><strong>核心逻辑：</strong> 今晨（6月6日06:07）伊朗向霍尔木兹方向发射多架无人机，美军击落至少3架。但特朗普仍维持"最终达成协议"基调。短期升级被视为谈判压力战术。</p>
+          <p><strong>两种情景：</strong> 升级情景→布伦特反弹至$97-100，通胀预期重燃。协议落签情景→426艘等待油轮集中放行→布伦特回落至$75-80→降息叙事间接复活。</p>
+          <p><strong>关键判断：</strong> 协议的正面影响 > 冲突升级的负面影响。布伦特$93这个位置很有意思——市场在赌协议会落地，但还没完全排除升级风险。做多协议的赔率更好。</p>
+        </div>
+
+        <div class="insight-box">
+          <div class="ib-label">🔑 黄金多因子分析：短期/中期/长期</div>
+          <p><strong>短期</strong>（本周）：非农→加息预期+美元破百，$4,354是关键支撑，可能下探$4,200。<br>
+          <strong>中期</strong>（1-3月）：央行购金趋势未变，若CPI回落则降息预期重建→快速反弹。<br>
+          <strong>长期</strong>（1年+）：全球去美元化加速，各国央行继续分散外汇储备，$4,500甚至$5,000目标路径未变。<br>
+          <span style="color:#DC2626;font-weight:600;">$4,354是此轮上涨（$3,200→$4,490）中的首次显著技术性修正，一次-2.72%在40%涨幅面前是健康的。</span></p>
+        </div>
+      </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- Section 3: 三大催化剂 -->
+    <div class="section-block">
+      <div class="section-title"><span class="section-num">3</span>三大催化剂：近在眼前的"审判日"</div>
+      <div class="section-content">
+        <p>非农只是开胃菜。6月10日开始的连续8天，市场将先后经历三个可能改变走向的关键事件。</p>
+
+        <div class="section-img">
+          <img loading="lazy" src="comic/panel-003.svg" alt="三大催化剂日历">
+          <div class="caption">6月10日CPI → 6月12日SpaceX IPO → 6月16-17日FOMC：连续8天决定6月走向</div>
+        </div>
+
+        <p><span class="tag-red">6月10日 · 周二</span> <strong>CPI数据：降息叙事的"最后一根稻草"</strong></p>
+        <p>非农超预期之后，CPI成为判断通胀粘性的唯一关键数据。非农告诉我们"就业很强"，CPI告诉我们"通胀是不是也强"。两者结合才能判断美联储的行动路径。</p>
+        <p>🟢 <strong>CPI回落</strong>（共识预测约3.5%）→ 降息叙事部分重建 → 科技股技术性反弹 → 黄金收复$4,400。</p>
+        <p>🔴 <strong>CPI偏高</strong>（高于3.7%）→ 10月加息基本确定 → 科技持续承压 → 黄金下探$4,200。</p>
+
+        <p style="margin-top:16px;"><span class="tag-blue" style="background:#7C3AED;">6月12日 · 周四</span> <strong>SpaceX IPO：科技板块情绪的温度计</strong></p>
+        <p>SpaceX以$750亿估值在纳斯达克挂牌，发行价$135/股。上市后15个交易日内将快速纳入纳斯达克100指数——这意味着被动基金强制买入，从其他科技股分流资金。首日表现=科技板块当前情绪的温度计。🔥 首日强劲 → 对科技叙事起到"点火"作用；💧 首日低迷 → 非农后的恐慌情绪延续。</p>
+
+        <div class="insight-box">
+          <div class="ib-label">🔑 市场结构思维：SpaceX IPO不只是一只新股</div>
+          <p>15日内纳入纳指100 → 追踪纳指100的ETF和指数基金必须在15天内完成强制买入 → 资金从其他科技股分流 → 加剧纳指内部结构分化。<strong>如果SpaceX上市后一路走低，对整体科技情绪的冲击会比IPO本身的流动性影响大得多。</strong> 这是二级传导效应——往往大于一级效应。</p>
+        </div>
+
+        <p style="margin-top:16px;"><span class="tag-red">6月16-17日 · 周二~周三</span> <strong>FOMC会议：沃什的"第一次大考"</strong></p>
+        <p>这是美联储新主席沃什上任后的第一次FOMC会议。利率决议本身不是悬念——几乎100%不会加息。真正的悬念是<strong>点阵图（dot plot）是否出现加息信号</strong>。即使只是3-4个票委上调利率预测，也会对市场造成显著冲击。</p>
+        <p>最大尾部风险：如果5月CPI再偏高，沃什可能比市场预期的更鹰派。鲍威尔时代的"数据依赖"框架可能被更具前瞻性的"风险管理"框架取代。</p>
+      </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- Section 4: 你该怎么办 -->
+    <div class="section-block">
+      <div class="section-title"><span class="section-num">4</span>你该怎么办：不同投资者的决策框架</div>
+      <div class="section-content">
+        <p>在"降息终结+利率重定价+三路径并行"的环境下，没有一个统一的"正确答案"。你的行动取决于你的风险承受能力和持仓结构。</p>
+
+        <div class="section-img">
+          <img loading="lazy" src="comic/panel-004.svg" alt="投资者决策框架">
+          <div class="caption">三类投资者的仓位参考：防御型（低风险）、平衡型（中等风险）、进取型（高风险）</div>
+        </div>
+
+        <p><span class="tag-blue">关于黄金</span> <strong>从中长期看，$4,354的下跌是健康的技术性修正。</strong> 黄金从$3,200涨到$4,490，涨了40%，期间没有经历过一次像样的回调。一次-2.72%的回撤在40%的涨幅面前非常健康。中长期看多逻辑（央行购金+全球去美元化）没有变。如果跌到$4,200-4,300区间，对长线投资者而言是配置窗口。</p>
+
+        <p><span class="tag-red">关于QDII</span> <strong>不要现在恐慌赎回。</strong> 周五美股暴跌已经反映在净值中，你现在赎回卖在的是周五的低点。QDII赎回到账需要3-7个工作日，届时市场可能已经反弹。等CPI和FOMC落地后再做判断。</p>
+
+        <p><span class="tag-gold">关于A股</span> <strong>3万亿成交支撑的结构性行情延续。</strong> 关注机器人/物理AI方向（英伟达Cosmos 3开启的新叙事），回避筹码拥挤的CPO/光模块。北交所暴涨不是偶然，是资金从高位向低位迁徙的信号。</p>
+
+        <div class="insight-box">
+          <div class="ib-label">🧭 行为投资提示：不要被"近因效应"绑架</div>
+          <p>当前最容易犯的认知偏差是<strong>近因效应</strong>——因为非农后SOX暴跌10.25%，就本能地觉得"科技股完了"。但市场真实图景是：SOX跌10.25% ≠ AI逻辑破裂。这是估值修正，不是基本面崩塌。</p>
+          <p>另一个容易被忽略的偏差是<strong>灾难化思维</strong>——加息预期升温让人联想到"一切都完了"。但降息预期只是从"7月"推后到"明年"，利率确实更高更久，但<strong>这不意味着市场没有机会</strong>。A股内部换血、资金从CPO涌向机器人，说明市场永远在寻找新方向。</p>
+          <p>最容易犯的错：<strong>在恐慌中做出永久性决策。</strong> 先问自己：这笔钱3年内需要用吗？如果不需要，现在的回调只是曲线上的一个点。</p>
+        </div>
+
+        <div class="highlight-bar">
+          <span class="hb-label">仓位纪律：</span>
+          不满仓是最好的风控。满仓的人，调整只有压力。留子弹不是因为怕，是因为贪——贪的是更低的价格、更大的赔率。
+        </div>
+
+        <p style="margin-top:12px;"><strong>接下来一周的观盘优先级：</strong></p>
+        <div class="highlight-bar" style="margin-bottom:6px;"><span class="hb-label">最高：</span>6月10日（周二）美国5月CPI → 降息叙事能否重建</div>
+        <div class="highlight-bar" style="margin-bottom:6px;"><span class="hb-label">第二：</span>美伊谈判进展 → 油价方向 → 间接影响Fed决策</div>
+        <div class="highlight-bar" style="margin-bottom:6px;"><span class="hb-label">第三：</span>6月12日SpaceX上市首日 → 科技情绪温度计</div>
+        <div class="highlight-bar"><span class="hb-label">终极：</span>6月16-17日FOMC → 沃什首次会议 + 点阵图</div>
+      </div>
+    </div>
+
+    <!-- Pull Quote -->
+    <div class="pull-quote">
+      非农不是终点，是起跑线。<br>
+      过去两年支撑全球资产上涨的"降息预期"已经正式终结。<br>
+      但终结旧叙事的同时也在开启新叙事——关键是你要知道自己在哪条路径上。
+    </div>
+
+    <!-- 关键数据表 -->
+    <div class="section-content">
+      <p style="font-size:14px;font-weight:700;color:#1E293B;margin-bottom:6px;">全球市场收盘 · 2026.06.05（美东）</p>
+      <table>
+        <tr><th>品种</th><th>收盘价</th><th>涨跌幅</th></tr>
+        <tr><td>标普500</td><td>7,383.74</td><td>-2.64%</td></tr>
+        <tr><td>纳斯达克综合</td><td>25,709</td><td>-4.18%</td></tr>
+        <tr><td>费城半导体 SOX</td><td>12,221</td><td>-10.25%</td></tr>
+        <tr><td>VIX恐慌指数</td><td>21.51</td><td>+39.7%</td></tr>
+        <tr><td>现货黄金</td><td>$4,354</td><td>-2.72%</td></tr>
+        <tr><td>布伦特原油</td><td>$93.09</td><td>-2.04%</td></tr>
+        <tr><td>10年美债收益率</td><td>4.536%</td><td>+5.9bp</td></tr>
+        <tr><td>美元指数</td><td>100.07</td><td>+0.66%</td></tr>
+      </table>
+    </div>
+
+    <!-- Glossary -->
+    <div class="glossary">
+      <h3>📖 术语解释</h3>
+      <div class="glossary-item"><span class="g-term">点阵图</span><span class="g-def">每位美联储官员对未来利率走向的匿名预测——这是FOMC会议最重要的输出，比利率决议本身更影响市场</span></div>
+      <div class="glossary-item"><span class="g-term">预期定价</span><span class="g-def">市场在事件发生前已经通过价格涨跌提前反映事件的预期影响——非农超预期但股价暴跌，因为"超预期"本身已被提前定价</span></div>
+      <div class="glossary-item"><span class="g-term">SOX</span><span class="g-def">费城半导体指数，30家主要半导体公司组成的指数——比纳指更纯粹地反映AI芯片产业链温度</span></div>
+      <div class="glossary-item"><span class="g-term">QDII基金</span><span class="g-def">合格境内机构投资者基金，允许中国投资者用人民币投资海外市场——周五纳指暴跌4.18%意味着QDII持仓净值将显著下降</span></div>
+      <div class="glossary-item"><span class="g-term">FOMC</span><span class="g-def">美国联邦公开市场委员会——美联储核心决策机构，决定美国利率，全球金融市场的"最高法院"</span></div>
+      <div class="glossary-item"><span class="g-term">霍尔木兹海峡</span><span class="g-def">连接波斯湾和印度洋的狭窄水道，全球约20%的石油经过这里——每一次交火都牵动油价和通胀预期</span></div>
+    </div>
+
+    <!-- Sources -->
+    <div class="sources">
+      <h3>📚 参考来源</h3>
+      <p style="margin-bottom:4px;">1. 财联社 · 焦点复盘 — <a href="https://www.cls.cn/detail/2391959" target="_blank">cls.cn</a></p>
+      <p style="margin-bottom:4px;">2. 财新 · 非农超预期 — <a href="https://international.caixin.com/m/2026-06-05/102451495.html" target="_blank">caixin.com</a></p>
+      <p style="margin-bottom:4px;">3. 富途 · 非农17.2万 — <a href="https://news.futunn.com/post/74199266" target="_blank">futunn.com</a></p>
+      <p style="margin-bottom:4px;">4. 网易 · 非农炸裂 — <a href="https://www.163.com/dy/article/KUMIE0OV05198NMR.html" target="_blank">163.com</a></p>
+      <p style="margin-bottom:4px;">5. 新浪 · 中际旭创583亿 — <a href="https://finance.sina.com.cn/wm/2026-06-05/doc-iniaiyyr1663900.shtml" target="_blank">sina.com.cn</a></p>
+      <p style="margin-bottom:4px;">6. 东方财富 · A股收盘 — <a href="https://finance.eastmoney.com/a/202606053761932163.html" target="_blank">eastmoney.com</a></p>
+      <p style="margin-bottom:4px;">7. 证券时报 · 北证50涨5.59% — <a href="https://www.cnstock.com/commonDetail/725446" target="_blank">cnstock.com</a></p>
+      <p>8. 天天基金 · QDII净值估算</p>
+    </div>
+
+    <!-- End Box -->
+    <div class="end-box">
+      <div class="end-icon">🧠</div>
+      <div class="end-title">扬说·深度</div>
+      <div class="end-desc">用逻辑穿透表象 · 每周六更新</div>
+    </div>
+
+    <div class="warn">⚠️ <strong>风险提示：</strong>本文仅为信息分享与市场分析，不构成任何投资建议。市场有风险，投资需谨慎。数据来源于公开信息，部分数据因截稿时间差可能存在微小偏差，请以官方数据为准。</div>
+
+  </div>
+</div>
+
+<script>
+// ===== 音频/漫画/图片 资源完整性检查 =====
+document.addEventListener('DOMContentLoaded',function(){
+  var player=document.querySelector('.player');
+  var audioEl=player?player.querySelector('audio'):null;
+  if(audioEl&&player){
+    var timeoutId=setTimeout(function(){player.style.display='none';},8000);
+    audioEl.addEventListener('canplay',function(){clearTimeout(timeoutId);});
+    audioEl.addEventListener('error',function(){
+      clearTimeout(timeoutId);
+      player.style.display='none';
+    });
+  }
+  document.querySelectorAll('.section-img img').forEach(function(img){
+    if(img.getAttribute('src')&&img.getAttribute('src').indexOf('comic/')===0){
+      img.addEventListener('error',function(){
+        this.outerHTML='<div style="padding:32px 16px;text-align:center;background:#F8FAFC;border-radius:8px;color:#94A3B8;font-size:13px;line-height:1.8;">🖼️ 漫画加载失败<br><span style="font-size:11px;">'+(this.getAttribute('alt')||'')+'</span></div>';
+      });
+    }
+  });
+});
+
+// 动态返回首页 — 根据URL路径深度自动计算，不依赖静态相对路径
+document.addEventListener('DOMContentLoaded',function(){
+  var back=document.querySelector('.back');
+  if(back){
+    back.addEventListener('click',function(e){
+      e.preventDefault();
+      var p=location.pathname.replace(/\/$/,'').split('/');
+      location.href='../'.repeat(Math.max(0,p.length-3))||'.';
+    });
+  }
+});
+</script>
+</body>
+</html>

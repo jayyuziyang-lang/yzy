@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F8FAFC"/>
+      <stop offset="100%" stop-color="#F1F5F9"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" fill="url(#bg)" rx="10"/>
+  <!-- Title -->
+  <rect x="16" y="14" width="568" height="32" rx="6" fill="#EFF6FF" stroke="#1A56DB" stroke-width="1"/>
+  <text x="300" y="35" text-anchor="middle" fill="#1A56DB" font-size="14" font-weight="700" font-family="system-ui,sans-serif">三路径推演：站在十字路口的全球资产</text>
+
+  <!-- Center circle -->
+  <circle cx="300" cy="84" r="24" fill="rgba(220,38,38,0.1)" stroke="#DC2626" stroke-width="2"/>
+  <text x="300" y="89" text-anchor="middle" fill="#DC2626" font-size="11" font-weight="700">非农</text>
+  <!-- Lines -->
+  <line x1="300" y1="108" x2="300" y2="130" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <line x1="300" y1="130" x2="100" y2="170" stroke="#DC2626" stroke-width="2"/>
+  <line x1="300" y1="130" x2="300" y2="170" stroke="#1A56DB" stroke-width="2"/>
+  <line x1="300" y1="130" x2="500" y2="170" stroke="#D4A017" stroke-width="2"/>
+  <!-- Probability tags -->
+  <rect x="138" y="138" width="36" height="18" rx="9" fill="rgba(220,38,38,0.1)" stroke="#DC2626" stroke-width="0.5"/>
+  <text x="156" y="151" text-anchor="middle" fill="#DC2626" font-size="10" font-weight="700">60%</text>
+  <rect x="282" y="148" width="36" height="18" rx="9" fill="rgba(26,86,219,0.1)" stroke="#1A56DB" stroke-width="0.5"/>
+  <text x="300" y="161" text-anchor="middle" fill="#1A56DB" font-size="10" font-weight="700">30%</text>
+  <rect x="426" y="138" width="36" height="18" rx="9" fill="rgba(212,160,23,0.1)" stroke="#D4A017" stroke-width="0.5"/>
+  <text x="444" y="151" text-anchor="middle" fill="#D4A017" font-size="10" font-weight="700">10%</text>
+
+  <!-- Path A -->
+  <g transform="translate(6, 178)">
+    <rect width="193" height="210" rx="8" fill="rgba(220,38,38,0.03)" stroke="#DC2626" stroke-width="1.2"/>
+    <rect width="193" height="28" rx="8" fill="#DC2626"/>
+    <rect y="10" width="193" height="18" fill="#DC2626"/>
+    <text x="96" y="19" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">路径A · AI估值修正</text>
+    <text x="10" y="46" fill="#DC2626" font-size="10" font-weight="600">触发条件：</text>
+    <text x="10" y="62" fill="#475569" font-size="9.5">· 博通AI指引低于预期</text>
+    <text x="10" y="78" fill="#475569" font-size="9.5">· 非农→高利率长期化</text>
+    <text x="10" y="94" fill="#475569" font-size="9.5">· 谷歌分散采购暗示</text>
+    <line x1="10" y1="100" x2="183" y2="100" stroke="#E2E8F0" stroke-width="0.5"/>
+    <text x="10" y="116" fill="#DC2626" font-size="10" font-weight="600">资产影响：</text>
+    <text x="10" y="134" fill="#475569" font-size="9.5">SOX 12,000-12,500震荡</text>
+    <text x="10" y="150" fill="#475569" font-size="9.5">英伟达/博通持续承压</text>
+    <text x="10" y="166" fill="#475569" font-size="9.5">科技QDII继续亏损</text>
+    <line x1="10" y1="172" x2="183" y2="172" stroke="#E2E8F0" stroke-width="0.5"/>
+    <text x="10" y="188" fill="#DC2626" font-size="10" font-weight="600">反转条件：</text>
+    <text x="10" y="204" fill="#475569" font-size="9.5">CPI回落 + FOMC不加息</text>
+  </g>
+  <!-- Path B -->
+  <g transform="translate(203, 178)">
+    <rect width="193" height="210" rx="8" fill="rgba(26,86,219,0.03)" stroke="#1A56DB" stroke-width="1.2"/>
+    <rect width="193" height="28" rx="8" fill="#1A56DB"/>
+    <rect y="10" width="193" height="18" fill="#1A56DB"/>
+    <text x="96" y="19" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">路径B · 降息推后重定价</text>
+    <text x="10" y="46" fill="#1A56DB" font-size="10" font-weight="600">触发条件：</text>
+    <text x="10" y="62" fill="#475569" font-size="9.5">· 非农持续强劲</text>
+    <text x="10" y="78" fill="#475569" font-size="9.5">· CPI维持高位</text>
+    <text x="10" y="94" fill="#475569" font-size="9.5">· 工资螺旋风险延续</text>
+    <line x1="10" y1="100" x2="183" y2="100" stroke="#E2E8F0" stroke-width="0.5"/>
+    <text x="10" y="116" fill="#1A56DB" font-size="10" font-weight="600">资产影响：</text>
+    <text x="10" y="134" fill="#475569" font-size="9.5">黄金下探$4,200</text>
+    <text x="10" y="150" fill="#475569" font-size="9.5">传统蓝筹相对强势</text>
+    <text x="10" y="166" fill="#475569" font-size="9.5">新兴市场承压</text>
+    <line x1="10" y1="172" x2="183" y2="172" stroke="#E2E8F0" stroke-width="0.5"/>
+    <text x="10" y="188" fill="#1A56DB" font-size="10" font-weight="600">市场结构：</text>
+    <text x="10" y="204" fill="#475569" font-size="9.5">价值 > 成长 · 防御 > 进攻</text>
+  </g>
+  <!-- Path C -->
+  <g transform="translate(400, 178)">
+    <rect width="194" height="210" rx="8" fill="rgba(212,160,23,0.03)" stroke="#D4A017" stroke-width="1.2"/>
+    <rect width="194" height="28" rx="8" fill="#D4A017"/>
+    <rect y="10" width="194" height="18" fill="#D4A017"/>
+    <text x="97" y="19" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">独立主线 · 美伊地缘</text>
+    <text x="10" y="46" fill="#B8860B" font-size="10" font-weight="600">如果地缘升级（高冲击）：</text>
+    <text x="10" y="64" fill="#475569" font-size="9.5">伊朗无人机交火扩大</text>
+    <text x="10" y="80" fill="#475569" font-size="9.5">布伦特→$97-100</text>
+    <line x1="10" y1="88" x2="184" y2="88" stroke="#E2E8F0" stroke-width="0.5"/>
+    <text x="10" y="104" fill="#B8860B" font-size="10" font-weight="600">如果协议落签（中期利好）：</text>
+    <text x="10" y="122" fill="#475569" font-size="9.5">426艘油轮集中放货</text>
+    <text x="10" y="138" fill="#475569" font-size="9.5">布伦特→$75-80</text>
+    <text x="10" y="154" fill="#475569" font-size="9.5">降息叙事间接复活</text>
+    <line x1="10" y1="162" x2="184" y2="162" stroke="#E2E8F0" stroke-width="0.5"/>
+    <text x="10" y="178" fill="#B8860B" font-size="10" font-weight="600">关键判断：</text>
+    <text x="10" y="196" fill="#475569" font-size="9.5">非对称——协议的正面影响</text>
+    <text x="10" y="210" fill="#475569" font-size="9.5">大于冲突升级的负面影响</text>
+  </g>
+</svg>
