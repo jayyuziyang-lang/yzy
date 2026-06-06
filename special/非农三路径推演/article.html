@@ -102,6 +102,25 @@
   .path-b h4 { color: #1A56DB; font-size: 15px; margin-bottom: 6px; }
   .path-c { background: rgba(212,160,23,0.03); border: 1px solid rgba(212,160,23,0.2); }
   .path-c h4 { color: #D4A017; font-size: 15px; margin-bottom: 6px; }
+
+  /* VIX恐慌区仪表盘 */
+  .vix-gauge { background: #FAFAFA; border: 1px solid #E2E8F0; border-radius: 10px; padding: 14px 16px; margin: 20px 0; }
+  .vix-gauge-title { font-size: 14px; font-weight: 700; color: #1E293B; margin-bottom: 8px; }
+  .vix-gauge-current { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+  .vix-gauge-value { font-size: 26px; font-weight: 800; }
+  .vix-gauge-badge { font-size: 11px; color: #fff; padding: 2px 8px; border-radius: 8px; font-weight: 600; }
+  .vix-gauge-change { font-size: 12px; color: #64748B; }
+  .vix-gauge-bar-wrapper { position: relative; margin: 4px 0 2px; }
+  .vix-gauge-bar { display: flex; height: 28px; border-radius: 6px; overflow: hidden; }
+  .vix-gauge-zone { display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 600; color: #fff; }
+  .vix-zone-calm { background: #22C55E; }
+  .vix-zone-anxiety { background: #EAB308; }
+  .vix-zone-panic { background: #DC2626; }
+  .vix-gauge-marker { position: absolute; top: -22px; transform: translateX(-50%); text-align: center; font-size: 11px; font-weight: 700; color: #DC2626; line-height: 1.2; }
+  .vix-gauge-marker::before { content: ''; display: block; margin: 0 auto; width: 0; height: 0; border-left: 6px solid transparent; border-right: 6px solid transparent; border-top: 8px solid #DC2626; }
+  .vix-gauge-scale { display: flex; justify-content: space-between; font-size: 10px; color: #94A3B8; padding: 0 2px; margin-top: 2px; }
+  .vix-gauge-desc { font-size: 11px; color: #64748B; text-align: center; margin-top: 6px; }
+
 </style>
 </head>
 <body>
@@ -312,6 +331,33 @@
         <tr><td>10年美债收益率</td><td>4.536%</td><td>+5.9bp</td></tr>
         <tr><td>美元指数</td><td>100.07</td><td>+0.66%</td></tr>
       </table>
+    </div>
+
+    <!-- VIX 恐慌区仪表盘 -->
+    <div class="vix-gauge">
+      <div class="vix-gauge-title">📊 VIX恐慌指数仪表盘</div>
+      <div class="vix-gauge-current">
+        <span class="vix-gauge-value" style="color:#DC2626;">21.51</span>
+        <span class="vix-gauge-badge" style="background:#DC2626;">恐慌区</span>
+        <span class="vix-gauge-change"><span style="color:#DC2626;">+39.7%</span> 非农后跳升</span>
+      </div>
+      <div class="vix-gauge-bar-wrapper">
+        <div class="vix-gauge-bar">
+          <div class="vix-gauge-zone vix-zone-calm" style="flex:15;">平静</div>
+          <div class="vix-gauge-zone vix-zone-anxiety" style="flex:5;">焦虑</div>
+          <div class="vix-gauge-zone vix-zone-panic" style="flex:10;">恐慌</div>
+        </div>
+        <div class="vix-gauge-marker" style="left: calc(21.51 / 30 * 100%);">21.51</div>
+      </div>
+      <div class="vix-gauge-scale">
+        <span>0</span>
+        <span>15</span>
+        <span>20</span>
+        <span>30</span>
+      </div>
+      <div class="vix-gauge-desc">
+        VIX &lt; 15 = 市场平静 · 15-20 = 焦虑 · 20+ = <strong style="color:#DC2626;">恐慌</strong>
+      </div>
     </div>
 
     <!-- Glossary -->

@@ -64,10 +64,13 @@
     <text x="67" y="68" text-anchor="middle" fill="#10B981" font-size="10">-2.72% 双重压制</text>
   </g>
   <g transform="translate(454, 200)">
-    <rect width="130" height="78" rx="8" fill="rgba(212,160,23,0.06)" stroke="#D4A017" stroke-width="1"/>
-    <text x="65" y="26" text-anchor="middle" fill="#D4A017" font-size="10" font-weight="600">VIX恐慌指数</text>
-    <text x="65" y="50" text-anchor="middle" fill="#D4A017" font-size="22" font-weight="800">21.51</text>
-    <text x="65" y="68" text-anchor="middle" fill="#D4A017" font-size="10">+39.7% 急速拉升</text>
+    <rect width="130" height="82" rx="8" fill="rgba(220,38,38,0.08)" stroke="#DC2626" stroke-width="1.5"/>
+    <rect x="0" y="0" width="130" height="20" rx="8" fill="#DC2626"/>
+    <rect y="10" width="130" height="10" fill="#DC2626"/>
+    <text x="65" y="14" text-anchor="middle" fill="#fff" font-size="9" font-weight="700">⚠️ VIX恐慌指数</text>
+    <text x="65" y="46" text-anchor="middle" fill="#DC2626" font-size="22" font-weight="800">21.51</text>
+    <text x="65" y="62" text-anchor="middle" fill="#DC2626" font-size="10" font-weight="700">+39.7% 恐慌区!</text>
+    <text x="65" y="76" text-anchor="middle" fill="#DC2626" font-size="8">平静←15→焦虑←20→恐慌</text>
   </g>
   <!-- Key insight -->
   <rect x="16" y="288" width="568" height="42" rx="8" fill="rgba(26,86,219,0.04)" stroke="#1A56DB" stroke-width="1" stroke-dasharray="4,3"/>
