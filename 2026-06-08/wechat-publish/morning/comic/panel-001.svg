@@ -34,8 +34,8 @@
   <text x="188" y="129" font-size="6" fill="#166534" font-family="PingFang SC, Microsoft YaHei, sans-serif">英特尔 -11%</text>
 
   <rect x="12" y="136" width="275" height="14" rx="3" fill="#F0FDF4"/>
-  <text x="16" y="147" font-size="6" fill="#166534" font-family="PingFang SC, Microsoft YaHei, sans-serif">高通 -11%</text>
-  <text x="80" y="147" font-size="6" fill="#166534" font-family="PingFang SC, Microsoft YaHei, sans-serif">AMD -11%</text>
+  <text x="16" y="147" font-size="6" fill="#166534" font-family="PingFang SC, Microsoft YaHei, sans-serif">高通 -4%+</text>
+  <text x="80" y="147" font-size="6" fill="#166534" font-family="PingFang SC, Microsoft YaHei, sans-serif">AMD -6%</text>
   <text x="143" y="147" font-size="6" fill="#166534" font-family="PingFang SC, Microsoft YaHei, sans-serif">英伟达 -6%</text>
   <text x="200" y="147" font-size="6" fill="#166534" font-family="PingFang SC, Microsoft YaHei, sans-serif">台积电 -6%</text>
 
