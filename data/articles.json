@@ -1,7 +1,19 @@
 {
-  "generated_at": "2026-06-06T12:31:21+08:00",
-  "latest_date": "2026-06-06",
+  "generated_at": "2026-06-08T07:25:24+08:00",
+  "latest_date": "2026-06-08",
   "articles": [
+    {
+      "date": "2026-06-08",
+      "session": "morning",
+      "edition_cn": "早报",
+      "icon": "🌅",
+      "title": "非农17.2万远超预期引爆加息恐慌·纳指暴跌4.18%费半重挫10%·A股4000点保卫战·黄金暴跌3.6%·本周CPI+ECB+SpaceX",
+      "url": "2026-06-08/wechat-publish/morning/article.html",
+      "has_audio": true,
+      "audio_size_bytes": 1331712,
+      "has_comic": true,
+      "comic_count": 1
+    },
     {
       "date": "2026-06-06",
       "session": "special",
@@ -355,6 +367,20 @@
     }
   ],
   "by_date": {
+    "2026-06-08": {
+      "morning": {
+        "date": "2026-06-08",
+        "session": "morning",
+        "edition_cn": "早报",
+        "icon": "🌅",
+        "title": "非农17.2万远超预期引爆加息恐慌·纳指暴跌4.18%费半重挫10%·A股4000点保卫战·黄金暴跌3.6%·本周CPI+ECB+SpaceX",
+        "url": "2026-06-08/wechat-publish/morning/article.html",
+        "has_audio": true,
+        "audio_size_bytes": 1331712,
+        "has_comic": true,
+        "comic_count": 1
+      }
+    },
     "2026-06-06": {
       "special": {
         "date": "2026-06-06",

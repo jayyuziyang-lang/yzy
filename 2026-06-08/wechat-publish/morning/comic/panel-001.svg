@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 220">
+  <rect width="300" height="220" fill="#FAFAFA"/>
+
+  <!-- Title bar -->
+  <rect x="0" y="0" width="300" height="30" fill="#DC2626"/>
+  <text x="150" y="20" text-anchor="middle" font-size="11" font-weight="700" fill="#fff" font-family="PingFang SC, Microsoft YaHei, sans-serif">🔴 黑色星期五：非农炸翻全场，纳指暴跌4.18%</text>
+
+  <!-- Left: 非农超预期 -->
+  <text x="12" y="52" font-size="8" fill="#64748B" font-family="PingFang SC, Microsoft YaHei, sans-serif">美国5月非农就业</text>
+
+  <rect x="12" y="58" width="110" height="24" rx="4" fill="#FFF5F5" stroke="#DC2626" stroke-width="1"/>
+  <text x="15" y="66" font-size="7" fill="#991B1B" font-family="PingFang SC, Microsoft YaHei, sans-serif">公布值</text>
+  <text x="15" y="78" font-size="11" font-weight="700" fill="#DC2626" font-family="PingFang SC, Microsoft YaHei, sans-serif">+17.2万</text>
+
+  <text x="100" y="66" font-size="7" fill="#64748B" font-family="PingFang SC, Microsoft YaHei, sans-serif">预期</text>
+  <text x="100" y="78" font-size="11" font-weight="700" fill="#64748B" font-family="PingFang SC, Microsoft YaHei, sans-serif">8.5万</text>
+
+  <!-- Right: 加息预期 -->
+  <text x="165" y="52" font-size="8" fill="#64748B" font-family="PingFang SC, Microsoft YaHei, sans-serif">12月加息概率</text>
+  <rect x="165" y="58" width="125" height="24" rx="4" fill="#FFF5F5" stroke="#DC2626" stroke-width="1"/>
+  <text x="168" y="66" font-size="7" fill="#991B1B" font-family="PingFang SC, Microsoft YaHei, sans-serif">非农前 → 非农后</text>
+  <text x="168" y="78" font-size="11" font-weight="700" fill="#DC2626" font-family="PingFang SC, Microsoft YaHei, sans-serif">48% → 68%</text>
+
+  <!-- Divider -->
+  <line x1="0" y1="92" x2="300" y2="92" stroke="#E2E8F0" stroke-width="1" stroke-dasharray="4,2"/>
+
+  <!-- 费半暴跌 -->
+  <text x="12" y="110" font-size="9" font-weight="700" fill="#1E293B" font-family="PingFang SC, Microsoft YaHei, sans-serif">📉 费城半导体指数 -10.26%</text>
+
+  <rect x="12" y="118" width="275" height="14" rx="3" fill="#F0FDF4"/>
+  <text x="16" y="129" font-size="6" fill="#166534" font-family="PingFang SC, Microsoft YaHei, sans-serif">迈威尔 -16%</text>
+  <text x="80" y="129" font-size="6" fill="#166534" font-family="PingFang SC, Microsoft YaHei, sans-serif">美光 -13%</text>
+  <text x="143" y="129" font-size="6" fill="#166534" font-family="PingFang SC, Microsoft YaHei, sans-serif">ARM -13%</text>
+  <text x="188" y="129" font-size="6" fill="#166534" font-family="PingFang SC, Microsoft YaHei, sans-serif">英特尔 -11%</text>
+
+  <rect x="12" y="136" width="275" height="14" rx="3" fill="#F0FDF4"/>
+  <text x="16" y="147" font-size="6" fill="#166534" font-family="PingFang SC, Microsoft YaHei, sans-serif">高通 -11%</text>
+  <text x="80" y="147" font-size="6" fill="#166534" font-family="PingFang SC, Microsoft YaHei, sans-serif">AMD -11%</text>
+  <text x="143" y="147" font-size="6" fill="#166534" font-family="PingFang SC, Microsoft YaHei, sans-serif">英伟达 -6%</text>
+  <text x="200" y="147" font-size="6" fill="#166534" font-family="PingFang SC, Microsoft YaHei, sans-serif">台积电 -6%</text>
+
+  <!-- 中国对冲 -->
+  <text x="12" y="168" font-size="9" font-weight="700" fill="#1E293B" font-family="PingFang SC, Microsoft YaHei, sans-serif">🛡️ 中国政策对冲</text>
+
+  <rect x="12" y="175" width="275" height="14" rx="3" fill="#FFFBEB"/>
+  <text x="16" y="186" font-size="6" fill="#92400E" font-family="PingFang SC, Microsoft YaHei, sans-serif">国常会: 布局低空经济/6G/量子/氢能</text>
+
+  <rect x="12" y="193" width="275" height="14" rx="3" fill="#EFF6FF"/>
+  <text x="16" y="204" font-size="6" fill="#1E40AF" font-family="PingFang SC, Microsoft YaHei, sans-serif">央行连续19月增持黄金 / 5000亿逆回购</text>
+
+  <!-- Bottom insight -->
+  <rect x="0" y="212" width="300" height="8" fill="#DC2626" opacity="0.1"/>
+  <text x="150" y="219" text-anchor="middle" font-size="7" fill="#DC2626" font-weight="600" font-family="PingFang SC, Microsoft YaHei, sans-serif">本周三CPI才是真正的分水岭 — CPI出来前管住手不盲动</text>
+</svg>
