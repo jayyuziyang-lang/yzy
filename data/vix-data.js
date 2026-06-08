@@ -1,15 +1,16 @@
-// VIX 恐慌指数 — 由 scripts/fetch-vix-data.py 自动生成
-// 生成时间: 2026-06-08 19:49 | 数据源: 备用数据 (ts2.tech/CBOE, VIX=21.51)
-// 备注: 6/5非农超预期引发恐慌抛售，VIX单日飙升39.7%
+// VIX 恐慌指数 — 手动更新（yfinance限流，使用多源交叉验证）
+// 生成时间: 2026-06-09 凌晨 | 数据源: 多源交叉验证 (CBOE/Barron's/MarketScreener)
+// 备注: 6/8周一VIX从21.5回落至19.92(-7.39%)，科技股逢低买入情绪恢复
+//       日内区间19.74-20.35，周三CPI前仍有波动预期
 window.__VIX_DATA = {
-  current: 21.51,
-  prev: 15.4,
-  change: 6.11,
-  changePct: 39.7,
-  level: "恐慌",
-  cls: "fear",
-  pct: 23.7,
-  date: "2026-06-05",
-  updateTime: "2026-06-08 19:49",
-  source: "备用数据 (ts2.tech/CBOE, VIX=21.51)",
+  current: 19.92,
+  prev: 21.51,
+  change: -1.59,
+  changePct: -7.39,
+  level: "中性偏谨慎",
+  cls: "neutral",
+  pct: 48.5,
+  date: "2026-06-08",
+  updateTime: "2026-06-09 凌晨",
+  source: "手动更新 (CBOE/Barron's, VIX=19.92)",
 };
