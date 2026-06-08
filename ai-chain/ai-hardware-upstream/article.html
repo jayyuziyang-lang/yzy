@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>AI硬件上游 · 4大核心赛道精研 — 扬说财经</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system,"PingFang SC","Microsoft YaHei","Helvetica Neue",sans-serif; background: #F5F7FA; color: #1E293B; line-height: 1.9; font-size: 16px; }
+  .c { max-width: 640px; margin: 0 auto; background: #fff; padding: 44px 0 40px; }
+
+  .top-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; max-width: 640px; margin: 0 auto; background: rgba(255,255,255,0.95); backdrop-filter: blur(8px); border-bottom: 1px solid #E2E8F0; display: flex; align-items: center; padding: 0 16px; height: 44px; }
+  .top-nav .back { display: flex; align-items: center; gap: 4px; color: #1A56DB; text-decoration: none; font-size: 13px; font-weight: 600; }
+  .top-nav .back:active { opacity: 0.6; }
+  .top-nav .nav-date { flex: 1; text-align: center; font-size: 12px; color: #64748B; }
+  .top-nav .nav-edition { font-size: 11px; background: #EFF6FF; color: #1A56DB; padding: 2px 8px; border-radius: 8px; font-weight: 600; }
+
+  .header { background: linear-gradient(135deg,#1A56DB,#1E3A7A); padding: 20px 20px 16px; color: white; }
+  .header .series-tag { display: inline-block; font-size: 11px; background: rgba(255,255,255,0.15); padding: 2px 10px; border-radius: 10px; margin-bottom: 8px; letter-spacing: 1px; color: #93C5FD; }
+  .header h1 { font-size: 22px; font-weight: 700; line-height: 1.4; margin-bottom: 8px; }
+  .header .meta { font-size: 12px; opacity: 0.8; display: flex; gap: 12px; flex-wrap: wrap; }
+  .header .meta .reading-time { background: rgba(255,255,255,0.1); padding: 1px 8px; border-radius: 8px; }
+
+  .body { padding: 20px; }
+  .lead { font-size: 15px; color: #475569; line-height: 1.8; margin-bottom: 20px; padding: 14px 16px; background: #EFF6FF; border-radius: 10px; border-left: 4px solid #1A56DB; }
+  .lead strong { color: #1E293B; }
+
+  .section-block { margin: 28px 0; }
+  .section-title { font-size: 18px; font-weight: 700; color: #1E293B; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .section-title .num { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; color: #fff; font-size: 13px; font-weight: 700; flex-shrink: 0; }
+  .section-title .num-red { background: #DC2626; }
+  .section-title .num-green { background: #059669; }
+  .section-title .num-gold { background: #D4A017; }
+  .section-title .num-purple { background: #7C3AED; }
+  .section-content { font-size: 15px; color: #334155; line-height: 1.9; margin-bottom: 12px; }
+  .section-content p { margin-bottom: 12px; text-align: justify; }
+
+  .section-img { margin: 14px 0; border-radius: 8px; border: 1px solid #E2E8F0; overflow: hidden; background: #FAFAFA; }
+  .section-img img { width: 100%; display: block; }
+  .section-img .caption { font-size: 12px; color: #64748B; text-align: center; padding: 6px 10px; background: #F8FAFC; }
+
+  .section-divider { border: none; height: 1px; background: linear-gradient(to right, transparent, #1A56DB, transparent); margin: 8px 0; }
+
+  .data-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin: 12px 0; }
+  .data-item { background: #F8FAFC; border-radius: 8px; padding: 8px; text-align: center; }
+  .data-item .num { font-size: 16px; font-weight: 800; }
+  .data-item .num-red { color: #DC2626; }
+  .data-item .num-green { color: #059669; }
+  .data-item .num-blue { color: #2563EB; }
+  .data-item .num-gold { color: #D4A017; }
+  .data-item .lbl { font-size: 10px; color: #64748B; margin-top: 2px; line-height: 1.3; }
+
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 12px; }
+  th { background: #1A56DB; color: #fff; padding: 7px 8px; text-align: left; font-weight: 600; white-space: nowrap; }
+  th:first-child { border-radius: 6px 0 0 0; }
+  th:last-child { border-radius: 0 6px 0 0; }
+  td { padding: 6px 8px; border-bottom: 1px solid #E2E8F0; color: #334155; }
+  tr:nth-child(even) { background: #F8F9FA; }
+  .table-wrap { overflow-x: auto; margin: 10px 0; }
+
+  .badge { display: inline-block; font-size: 10px; padding: 1px 7px; border-radius: 8px; white-space: nowrap; font-weight: 600; }
+  .badge-red { background: #DC2626; color: #fff; }
+  .badge-green { background: #059669; color: #fff; }
+  .badge-gold { background: #D4A017; color: #fff; }
+  .badge-blue { background: #2563EB; color: #fff; }
+
+  .signal { display: flex; gap: 8px; padding: 10px 14px; border-radius: 8px; margin: 6px 0; font-size: 13px; align-items: flex-start; line-height: 1.6; }
+  .signal.bull { background: #F0FDF4; border-left: 3px solid #059669; color: #065F46; }
+  .signal.bear { background: #FEF2F2; border-left: 3px solid #DC2626; color: #991B1B; }
+  .signal.neutral { background: #FFFBEB; border-left: 3px solid #D4A017; color: #92400E; }
+  .signal .icon { font-size: 15px; flex-shrink: 0; margin-top: 1px; }
+
+  .core-card { border-radius: 10px; padding: 14px 16px; margin: 12px 0; }
+  .core-card.red { background: #FEF2F2; border-left: 4px solid #DC2626; }
+  .core-card.green { background: #F0FDF4; border-left: 4px solid #059669; }
+  .core-card.gold { background: #FFFBEB; border-left: 4px solid #D4A017; }
+  .core-card.purple { background: #F5F3FF; border-left: 4px solid #7C3AED; }
+  .core-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+  .core-card p { font-size: 14px; line-height: 1.7; }
+  .core-card.red h3 { color: #DC2626; }
+  .core-card.green h3 { color: #059669; }
+  .core-card.gold h3 { color: #D4A017; }
+  .core-card.purple h3 { color: #7C3AED; }
+
+  .tag-group { display: flex; flex-wrap: wrap; gap: 4px; margin: 8px 0; }
+  .tag { padding: 2px 8px; border-radius: 10px; font-size: 10px; font-weight: 600; border: 1px solid #E2E8F0; }
+  .tag-ai { border-color: #DC2626; color: #DC2626; background: rgba(220,38,38,0.06); }
+  .tag-dom { border-color: #D4A017; color: #D4A017; background: rgba(212,160,23,0.06); }
+  .tag-ord { border-color: #059669; color: #059669; background: rgba(5,150,105,0.06); }
+
+  .glossary { background: #F8FAFC; border-radius: 10px; padding: 14px 16px; margin: 20px 0; border: 1px solid #E2E8F0; }
+  .glossary h3 { font-size: 14px; font-weight: 700; color: #1E293B; margin-bottom: 8px; }
+  .glossary-item { padding: 5px 0; border-bottom: 1px solid #E2E8F0; font-size: 13px; display: flex; gap: 6px; }
+  .glossary-item:last-child { border-bottom: none; }
+  .glossary-item .g-term { font-weight: 600; color: #2563EB; white-space: nowrap; min-width: 80px; }
+  .glossary-item .g-def { color: #475569; }
+
+  .sources { background: #FFFBEB; border-radius: 10px; padding: 12px 14px; margin: 16px 0; font-size: 12px; color: #92400E; line-height: 1.6; }
+  .sources h3 { font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+  .sources a { color: #1A56DB; text-decoration: none; }
+  .sources a:hover { text-decoration: underline; }
+
+  .end-box { background: linear-gradient(135deg,#1A56DB,#1E3A7A); border-radius: 12px; padding: 16px 20px; margin: 22px 0; color: white; text-align: center; }
+  .end-box .end-icon { font-size: 28px; margin-bottom: 4px; }
+  .end-box .end-title { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+  .end-box .end-desc { font-size: 12px; opacity: 0.8; }
+
+  .red { color: #DC2626; font-weight: 700; }
+  .green { color: #059669; font-weight: 700; }
+  .blue { color: #2563EB; font-weight: 700; }
+  .gold { color: #D4A017; font-weight: 700; }
+
+  .nav-links { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; background: #F8FAFC; border-radius: 10px; padding: 10px 14px; }
+  .nav-links a { color: #1A56DB; text-decoration: none; font-size: 13px; font-weight: 600; }
+  .nav-links a:active { opacity: 0.6; }
+
+  @media (max-width:480px) {
+    .data-grid { grid-template-columns: repeat(2, 1fr); }
+    th, td { font-size: 11px; padding: 5px 6px; }
+  }
+</style>
+</head>
+<body>
+<div class="c">
+
+  <div class="top-nav">
+    <a class="back" href="../../index.html#ai">&larr; 返回首页</a>
+    <span class="nav-date">AI产业链 · 第1期</span>
+    <span class="nav-edition">扬说·AI</span>
+  </div>
+
+  <div class="header">
+    <div class="series-tag">AI硬件上游 · 深度研究</div>
+    <h1>AI硬件上游 · 4大核心赛道精研</h1>
+    <div class="meta">
+      <span>📅 2026年6月</span>
+      <span>🏷️ MLCC / PCB / CCL / 封装材料 / InP / SiC</span>
+      <span class="reading-time">📖 阅读约 20 分钟</span>
+    </div>
+  </div>
+
+  <div class="body">
+
+    <div class="nav-links">
+      <a href="#mlcc">① MLCC</a>
+      <a href="#pcb">② PCB/CCL</a>
+      <a href="#packaging">③ 封装材料</a>
+      <a href="#compound">④ InP/SiC</a>
+      <a href="#matrix">对比矩阵</a>
+    </div>
+
+    <div class="lead">
+      <strong>只聚焦 MLCC / PCB &amp; CCL / 先进封装材料 / 磷化铟&amp;碳化硅</strong> —— 每个赛道只讲订单、业绩、缺口、催化剂。数据截至2026Q1季报及最新行业动态。
+    </div>
+
+    <!-- ============= 1. MLCC ============= -->
+    <section id="mlcc">
+    <div class="section-block">
+      <div class="section-title"><span class="num num-red">1</span> MLCC 多层陶瓷电容 <span class="badge badge-red">超级周期</span></div>
+
+      <div class="core-card red">
+        <h3>⚡ 核心判断：结构性缺货，超级周期已至</h3>
+        <p>高盛2026年6月报告指出：MLCC已成为AI服务器BOM中<span class="red">第三大成本项</span>（仅次于GPU和HBM），市场规模预计<span class="red">2030年×4.3倍</span>。村田产能利用率已达90-99%，订单咨询量达产能的<span class="red">2倍</span>，高端MLCC交期从8周延至<span class="red">16-24周</span>。</p>
+      </div>
+
+      <div class="section-img">
+        <img src="images/chart_f1_mlcc_per_server.png" alt="MLCC用量演变">
+        <div class="caption">AI服务器MLCC用量演变：从DGX-1到Rubin</div>
+      </div>
+
+      <div class="data-grid">
+        <div class="data-item"><div class="num num-red">600K</div><div class="lbl">单台Rubin MLCC用量(颗)</div></div>
+        <div class="data-item"><div class="num num-green">$4,320</div><div class="lbl">VR200单机架MLCC价值</div></div>
+        <div class="data-item"><div class="num num-red">+182%</div><div class="lbl">VR200 vs GB300价值增幅</div></div>
+        <div class="data-item"><div class="num num-blue">15-35%</div><div class="lbl">村田高端MLCC涨价</div></div>
+        <div class="data-item"><div class="num num-gold">1.36x</div><div class="lbl">村田BB Ratio</div></div>
+        <div class="data-item"><div class="num num-red">15-20%</div><div class="lbl">2026H2高端供给缺口</div></div>
+      </div>
+
+      <div class="section-content">
+        <h3>📊 供应链格局：日韩垄断，国产替代窗口打开</h3>
+      </div>
+
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>企业</th><th>全球份额</th><th>AI高端份额</th><th>AI认证状态</th><th>产能动态</th></tr></thead>
+        <tbody>
+          <tr><td><b>村田</b></td><td><span class="red">31.8%</span></td><td><span class="red">~40%+</span></td><td>NVIDIA主力</td><td>利用率90-99%</td></tr>
+          <tr><td><b>三星电机</b></td><td>22.9%</td><td>~30%</td><td>NVIDIA认证</td><td>未来3年产能已抢空</td></tr>
+          <tr><td><b>太阳诱电</b></td><td>11.2%</td><td>~10%</td><td>消费/汽车为主</td><td>中低端涨价6-13%</td></tr>
+          <tr><td><span class="green">三环集团</span></td><td>~2.5%</td><td><span class="gold">~1%</span></td><td>华为/浪潮认证中</td><td>900→1200亿颗/月</td></tr>
+          <tr><td><span class="green">风华高科</span></td><td>~1.9%</td><td><span class="gold">~1%</span></td><td><span class="red">通过英伟达Gamma级！</span></td><td>650→900亿颗/月</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <div class="tag-group">
+        <span class="tag tag-dom">日韩占AI高端~97%，替代空间巨大</span>
+        <span class="tag tag-ai">高端缺口持续至2027年</span>
+      </div>
+
+      <div class="section-img">
+        <img src="images/chart_f2_mlcc_companies.png" alt="MLCC公司对比">
+        <div class="caption">MLCC核心公司业绩产能对比</div>
+      </div>
+
+      <div class="section-content">
+        <h4>A股MLCC产业链深度剖析（2026Q1业绩验证）</h4>
+      </div>
+
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>指标</th><th><span class="green">三环集团</span></th><th><span class="green">风华高科</span></th></tr></thead>
+        <tbody>
+          <tr><td>2026Q1营收</td><td><span class="red">26.81亿</span> (+46.25%)</td><td>15.15亿 (+18.90%)</td></tr>
+          <tr><td>2026Q1净利润</td><td><span class="red">7.91亿</span> (+48.48%)</td><td>0.886亿 (+37.14%)</td></tr>
+          <tr><td>毛利率</td><td><span class="red">43.49%</span></td><td>16.78%</td></tr>
+          <tr><td>月产能</td><td>900→1200亿颗</td><td>650→900亿颗</td></tr>
+          <tr><td>AI认证</td><td>华为/浪潮</td><td><span class="red">NVIDIA Gamma认证✓</span></td></tr>
+          <tr><td>ROE(2026Q1)</td><td><span class="red">3.59%</span></td><td>0.71%</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <div class="signal bull">
+        <div class="icon">📌</div>
+        <div><b>三环集团（300408）：</b>英伟达GB300认证预计2026Q3-Q4完成，一旦通过将打开NVIDIA供应链；高容良率目标从20%→35-40%。</div>
+      </div>
+      <div class="signal bull">
+        <div class="icon">📌</div>
+        <div><b>风华高科（000636）：</b>唯一通过NVIDIA Gamma认证的国内MLCC厂商，GB300认证预计Q3完成；祥和工业园扩产结项。</div>
+      </div>
+
+      <div class="section-content">
+        <h4>上游材料：国瓷材料 + 博迁新材</h4>
+      </div>
+
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>指标</th><th><span class="green">国瓷材料(300285)</span></th><th><span class="green">博迁新材(605376)</span></th></tr></thead>
+        <tbody>
+          <tr><td>产品</td><td>钛酸钡陶瓷粉体</td><td>80nm纳米镍粉</td></tr>
+          <tr><td>行业地位</td><td><span class="red">全球第二，国内市占80-90%</span></td><td><span class="red">全球唯一量产80nm镍粉</span></td></tr>
+          <tr><td>2026Q1净利润增速</td><td>+4.79%</td><td><span class="red">+49.6%</span></td></tr>
+          <tr><td>AI催化剂</td><td>高端粉体验证通过</td><td>三星电机大单(5420-6495吨)</td></tr>
+          <tr><td>投资逻辑</td><td>稳增低估，涨价传导受益</td><td><span class="red">高弹性，量价齐升</span></td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ============= 2. PCB/CCL ============= -->
+    <section id="pcb">
+    <div class="section-block">
+      <div class="section-title"><span class="num num-green">2</span> PCB与CCL <span class="badge badge-red">超级周期</span></div>
+
+      <div class="core-card green">
+        <h3>⚡ 核心判断：量价齐升最确定赛道，CCL"卖水人"弹性最大</h3>
+        <p>高盛最新报告：2026年AI服务器PCB市场增速<span class="red">+113%</span>，CCL市场增速<span class="red">+142%</span>。AI训练服务器PCB价值量是通用服务器的<span class="red">3倍</span>，M4→M8/M9的升级驱动"量×价"双击。CCL材料升级带来的涨价弹性是产业链最大。</p>
+      </div>
+
+      <div class="section-img">
+        <img src="images/chart_f4_pcb_ccl_boom.png" alt="PCB/CCL市场爆发">
+        <div class="caption">PCB/CCL产业链爆发全景</div>
+      </div>
+
+      <div class="data-grid">
+        <div class="data-item"><div class="num num-red">+113%</div><div class="lbl">AI服务器PCB 2026增速</div></div>
+        <div class="data-item"><div class="num num-gold">+142%</div><div class="lbl">AI服务器CCL 2026增速</div></div>
+        <div class="data-item"><div class="num num-green">$66B</div><div class="lbl">2026E AI服务器PCB规模</div></div>
+        <div class="data-item"><div class="num num-blue">$36B</div><div class="lbl">2026E AI服务器CCL规模</div></div>
+        <div class="data-item"><div class="num num-red">~1500+</div><div class="lbl">M9级CCL单价(元/㎡)</div></div>
+        <div class="data-item"><div class="num num-gold">7.5x</div><div class="lbl">M9/M4价差倍数</div></div>
+      </div>
+
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>指标</th><th><span class="green">沪电股份</span></th><th><span class="green">深南电路</span></th><th><span class="green">生益科技</span></th></tr></thead>
+        <tbody>
+          <tr><td>位置</td><td>AI服务器PCB</td><td>PCB+封装基板</td><td><span class="red">上游CCL（卖水人）</span></td></tr>
+          <tr><td>2025净利润</td><td>~38.2亿 (+48%)</td><td>~32.5亿 (+73%)</td><td>~33.5亿 (+93%)</td></tr>
+          <tr><td>2026Q1利润增速</td><td><span class="red">+62.9%</span></td><td><span class="red">+73.0%</span></td><td><span class="red">+105.5%</span></td></tr>
+          <tr><td>核心壁垒</td><td>英伟达高端PCB核心供应商</td><td>国内唯一ABF载板批量</td><td><span class="red">大陆唯一M9级英伟达认证CCL</span></td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <div class="signal bull">
+        <div class="icon">📌</div>
+        <div><b>生益科技（600183）——"卖水人"逻辑最强：</b>2026Q1净利润<span class="red">+105.5%</span>，M9级CCL全大陆唯一通过英伟达认证。CCL涨价有序向下传导，高盛预计2026-2028净利润CAGR约50%。</div>
+      </div>
+      <div class="signal bull">
+        <div class="icon">📌</div>
+        <div><b>沪电股份（002463）：</b>28层以上高阶板订单占比>40%，Rubin平台核心供应商，170亿扩产。高盛预计2026-2028 CAGR约47%。</div>
+      </div>
+      <div class="signal bull">
+        <div class="icon">📌</div>
+        <div><b>深南电路（002916）：</b>双轮驱动，最大预期差。Computex 2026获NVIDIA鸣谢为核心PCB供应商，ABF载板毛利率>40%。</div>
+      </div>
+
+      <div class="section-content">
+        <h4>📈 涨价传导链与高频数据</h4>
+      </div>
+
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>环节</th><th>高频指标</th><th>2026Q1数据</th><th>趋势</th></tr></thead>
+        <tbody>
+          <tr><td>电子布</td><td>宏和科技净利润</td><td><span class="red">+354%</span></td><td><span class="red">🔥 极度紧缺</span></td></tr>
+          <tr><td>铜箔</td><td>铜冠铜箔净利润</td><td><span class="red">+2138%</span></td><td><span class="red">🔥 极度紧缺</span></td></tr>
+          <tr><td>CCL</td><td>南亚新材净利润</td><td><span class="red">+610.8%</span></td><td><span class="red">🔥 涨价窗口</span></td></tr>
+          <tr><td>CCL</td><td>生益科技净利润</td><td><span class="red">+105.5%</span></td><td><span class="green">量价齐升</span></td></tr>
+          <tr><td>PCB</td><td>沪电股份净利润</td><td><span class="red">+62.9%</span></td><td><span class="green">AI需求驱动</span></td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ============= 3. Advanced Packaging ============= -->
+    <section id="packaging">
+    <div class="section-block">
+      <div class="section-title"><span class="num num-gold">3</span> 先进封装与载板材料 <span class="badge badge-red">最脆弱供应链瓶颈</span></div>
+
+      <div class="core-card gold">
+        <h3>⚡ 核心判断：味之素垄断98%的单点瓶颈</h3>
+        <p>全球ABF载板材料链存在两大单点瓶颈：味之素（日本味精公司）垄断<span class="red">95-98%</span>ABF积层薄膜；日东纺垄断<span class="red">~90%</span>T-Glass玻纤布。2026年味之素宣布涨价30%、日东纺产能缺口达50%。ABF供需缺口2027年预计达<span class="red">27%</span>，2028年达<span class="red">35%</span>。</p>
+      </div>
+
+      <div class="section-img">
+        <img src="images/chart_f6_packaging_gap.png" alt="封装材料供需缺口">
+        <div class="caption">先进封装材料供需缺口趋势</div>
+      </div>
+
+      <div class="data-grid">
+        <div class="data-item"><div class="num num-red">98%</div><div class="lbl">味之素ABF膜份额</div></div>
+        <div class="data-item"><div class="num num-red">90%</div><div class="lbl">日东纺T-Glass份额</div></div>
+        <div class="data-item"><div class="num num-gold">30%</div><div class="lbl">味之素2026涨价</div></div>
+        <div class="data-item"><div class="num num-red">50%</div><div class="lbl">T-Glass供给缺口</div></div>
+        <div class="data-item"><div class="num num-blue">27%</div><div class="lbl">ABF总缺口(2027E)</div></div>
+        <div class="data-item"><div class="num num-gold">~4%</div><div class="lbl">大陆ABF国产化率</div></div>
+      </div>
+
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>材料环节</th><th>全球垄断</th><th>A股受益标的</th><th>催化剂</th></tr></thead>
+        <tbody>
+          <tr><td><b>ABF积层薄膜</b></td><td><span class="red">味之素(98%)</span></td><td><span class="green">华正新材</span></td><td>华为验证通过，良率85%+</td></tr>
+          <tr><td><b>T-Glass玻纤布</b></td><td><span class="red">日东纺(90%)</span></td><td><span class="green">宏和科技</span></td><td>Low-CTE替代空间</td></tr>
+          <tr><td><b>ABF载板(制造)</b></td><td>欣兴/揖斐电(46%)</td><td><span class="green">深南电路</span></td><td>AI载板毛利率>40%</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <div class="signal bull">
+        <div class="icon">📌</div>
+        <div><b>宏和科技（603256）：</b>2026Q1净利润<span class="red">+354%</span>。AI服务器带动高速PCB需求翻倍，电子布供需缺口扩大（日东纺扩产需到2027年），宏和已具备Low-CTE替代能力。</div>
+      </div>
+      <div class="signal bull">
+        <div class="icon">📌</div>
+        <div><b>华正新材：</b>CBF膜已通过华为验证，良率85%+，进入小批量生产。大陆ABF国产化率仅4%，替代空间巨大。</div>
+      </div>
+      <div class="signal bear">
+        <div class="icon">⚠️</div>
+        <div><b>兴森科技（002436）：</b>累计投入60亿+，ABF载板2025年仅0.27-0.58亿收入，IC基板毛利率-16%。2026年拐点但量产时间屡次推迟，高风险高弹性。</div>
+      </div>
+    </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ============= 4. InP + SiC ============= -->
+    <section id="compound">
+    <div class="section-block">
+      <div class="section-title"><span class="num num-purple">4</span> 化合物半导体：InP + SiC <span class="badge badge-blue">光模块+AI电源</span></div>
+
+      <div class="core-card purple">
+        <h3>⚡ 核心判断：InP是当前最紧缺环节</h3>
+        <p>磷化铟（InP）是800G/1.6T光模块核心衬底材料，供需缺口<span class="red">>70%</span>，2英寸衬底价格从$800暴涨至$2,500（+190%），订单已排至2027年。英伟达预测2026-2030年InP晶圆需求激增约20倍。而SiC正处于行业洗牌期——价格两年跌58%、Wolfspeed破产。</p>
+      </div>
+
+      <div class="section-img">
+        <img src="images/chart_f3_inp_supply_gap.png" alt="InP供需缺口">
+        <div class="caption">InP衬底供需缺口演变</div>
+      </div>
+
+      <div class="data-grid">
+        <div class="data-item"><div class="num num-red">>70%</div><div class="lbl">InP供需缺口</div></div>
+        <div class="data-item"><div class="num num-red">+190%</div><div class="lbl">2英寸InP衬底涨价</div></div>
+        <div class="data-item"><div class="num num-green">$5,000</div><div class="lbl">6英寸InP衬底价格</div></div>
+        <div class="data-item"><div class="num num-gold">~20x</div><div class="lbl">英伟达预测InP需求增速</div></div>
+        <div class="data-item"><div class="num num-red">-58%</div><div class="lbl">SiC衬底两年价格跌幅</div></div>
+        <div class="data-item">⚠️<div class="lbl">Wolfspeed破产(2026.3)</div></div>
+      </div>
+
+      <div class="section-content">
+        <h4>4.1 磷化铟（InP）—— AI光模块"心脏"</h4>
+      </div>
+
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>指标</th><th>2025</th><th>2026E</th><th>2027E</th></tr></thead>
+        <tbody>
+          <tr><td>全球需求(万片)</td><td><span class="red">210</span></td><td><span class="red">280-300</span></td><td>420+</td></tr>
+          <tr><td>有效产能</td><td><span class="red">65-70</span></td><td>~75</td><td>~110</td></tr>
+          <tr><td>供需缺口</td><td><span class="red">~70%</span></td><td><span class="red">>70%</span></td><td>~50%+</td></tr>
+          <tr><td>2英寸衬底价格</td><td>$800→$2,300</td><td>$2,500</td><td>$3,200E</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <div class="section-content">
+        <h4>全球竞争格局（CR3 > 95%）</h4>
+      </div>
+
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>排名</th><th>企业</th><th>市占率</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td><b>住友电工（日本）</b></td><td><span class="red">43-60%</span></td></tr>
+          <tr><td>2</td><td><b>AXT/北京通美（美国）</b></td><td>~35%</td></tr>
+          <tr><td>3</td><td><b>JX金属（日本）</b></td><td>~13%</td></tr>
+          <tr><td style="background:#F0FDF4">🇨🇳</td><td><span class="green">云南锗业/鑫耀半导体</span></td><td><span class="gold">国内80%+</span></td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <div class="signal bear">
+        <div class="icon">⚠️</div>
+        <div><b>云南锗业（002428）风险警示：</b>静态PE高达3287倍，2025年化合物半导体收入仅占总营收12.93%。增收不增利——毛利率下滑+费用上升，应收账款8亿。InP逻辑极强，但估值和业绩兑现之间存在巨大落差。</div>
+      </div>
+
+      <div class="section-content">
+        <h4>4.2 碳化硅（SiC）—— 行业洗牌中的左侧机会</h4>
+      </div>
+
+      <div class="signal neutral">
+        <div class="icon">🔬</div>
+        <div><b>SiC所处阶段与InP完全不同：</b>全球产能2年翻了8倍（46万→390万片），需求仅增长3倍。价格两年跌58%，Wolfspeed 2026年3月破产。天岳先进2026Q1亏损6051万。行业正在出清中，<span class="gold">当前处于左侧布局窗口而非业绩兑现期。</span></div>
+      </div>
+
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>指标</th><th>2024</th><th>2025</th><th>2026E</th></tr></thead>
+        <tbody>
+          <tr><td>6英寸SiC衬底价格</td><td>$400→$280</td><td>$230</td><td>预计H2触底</td></tr>
+          <tr><td>AI电源SiC需求占比</td><td>~15%</td><td>~25%</td><td>~38%</td></tr>
+          <tr><td>全球SiC器件市场</td><td>$41B</td><td>$50B</td><td>$70B</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <p><strong>天岳先进（688234）</strong> — 全球SiC衬底第一（27.6%份额），8英寸市占率51.3%。但短期Q1亏损6051万。8英寸量产元年成本降30%+。中长期逻辑清晰——AI电源SiC需求每季度环比+20-30%。左侧布局关注点：SiC价格何时触底（预计2026H2）、8英寸良率何时达标。</p>
+    </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ============= 5. Matrix ============= -->
+    <section id="matrix">
+    <div class="section-block">
+      <div class="section-title"><span class="num num-blue">5</span> 4大赛道终极对比矩阵 <span class="badge badge-blue">Decision Matrix</span></div>
+
+      <div class="section-img">
+        <img src="images/chart_f5_all_stars.png" alt="4大赛道对比">
+        <div class="caption">4大赛道业绩与周期对比</div>
+      </div>
+
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>维度</th><th style="color:#DC2626;">MLCC</th><th style="color:#059669;">PCB/CCL</th><th style="color:#D4A017;">封装材料</th><th style="color:#7C3AED;">InP/SiC</th></tr></thead>
+        <tbody>
+          <tr><td><b>周期位置</b></td><td><span class="red">超级周期初段</span></td><td><span class="red">超级周期中段</span></td><td><span class="red">结构性短缺初期</span></td><td><span class="gold">InP:暴涨期/SiC:洗牌末段</span></td></tr>
+          <tr><td><b>供需缺口</b></td><td><span class="red">高端15-20%</span></td><td><span class="red">材料极缺</span></td><td><span class="red">27-35%(2027-28)</span></td><td><span class="red">InP >70%</span></td></tr>
+          <tr><td><b>涨价确定性</b></td><td><span class="red">极高(15-35%已落地)</span></td><td><span class="red">极高(季度环比+10%)</span></td><td><span class="red">极高(味之素+30%)</span></td><td><span class="red">InP极高(+190%)</span></td></tr>
+          <tr><td><b>A股兑现度</b></td><td><span class="green">三环+48%✓</span></td><td><span class="red">生益+105%✓✓</span></td><td>低基数</td><td>云南锗业<span class="red">-10.7%✗</span></td></tr>
+          <tr><td><b>核心标的</b></td><td>三环/风华/博迁</td><td>生益/沪电</td><td>宏和/华正</td><td>云南锗业(高风险)/天岳(左侧)</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <div class="core-card red">
+        <h3>🎯 综合排序</h3>
+        <div class="table-wrap">
+        <table>
+          <thead><tr><th>排名</th><th>赛道</th><th>理由</th></tr></thead>
+          <tbody>
+            <tr><td><span class="red">1</span></td><td><b>MLCC</b></td><td>超级周期初段，供需缺口至2027年，三环/风华业绩已验证，国产替代窗口打开。</td></tr>
+            <tr><td><span class="green">2</span></td><td><b>PCB/CCL</b></td><td>生益+沪电业绩强劲(+63-105%)，CCL涨价传导链已打通，"卖水人"逻辑最清晰。</td></tr>
+            <tr><td><span class="gold">3</span></td><td><b>封装材料</b></td><td>ABF缺口2027-28达27-35%，但A股纯正标的少且业绩体量小，宏和弹性大。</td></tr>
+            <tr><td><span class="blue">4</span></td><td><b>InP/SiC</b></td><td>InP逻辑极强但A股龙头增收不增利(PE 3287x)；SiC行业仍在洗牌左侧。</td></tr>
+          </tbody>
+        </table>
+        </div>
+      </div>
+
+      <div class="section-content">
+        <h4>📅 未来6-12个月关键催化剂</h4>
+      </div>
+
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>时间</th><th>催化剂</th><th>赛道</th></tr></thead>
+        <tbody>
+          <tr><td>2026Q3</td><td>风华/三环英伟达GB300认证</td><td><span class="red">MLCC</span></td></tr>
+          <tr><td>2026H2</td><td>村田/三星电机新一轮涨价</td><td><span class="red">MLCC</span></td></tr>
+          <tr><td>2026H2</td><td>沪电昆山AI芯片PCB项目试产</td><td><span class="green">PCB</span></td></tr>
+          <tr><td>2026H2</td><td>国瓷材料二期3000吨粉体释放</td><td><span class="red">MLCC上游</span></td></tr>
+          <tr><td>2026H2</td><td>SiC价格触底信号</td><td><span class="blue">SiC</span></td></tr>
+          <tr><td>2027H1</td><td><span class="red">MLCC缺口峰值(~30%)</span></td><td><span class="red">MLCC</span></td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+    </section>
+
+    <!-- Glossary -->
+    <div class="glossary">
+      <h3>📖 术语解释</h3>
+      <div class="glossary-item"><span class="g-term">MLCC</span><span class="g-def">多层陶瓷电容，电子电路中最基础的被动元件，AI服务器用量暴增</span></div>
+      <div class="glossary-item"><span class="g-term">CCL</span><span class="g-def">覆铜板，PCB的上游核心材料，AI高速PCB需用M8/M9级以上CCL</span></div>
+      <div class="glossary-item"><span class="g-term">ABF</span><span class="g-def">Ajinomoto Build-up Film，味之素积层薄膜，先进封装载板核心材料</span></div>
+      <div class="glossary-item"><span class="g-term">InP</span><span class="g-def">磷化铟，化合物半导体衬底，800G/1.6T光模块核心材料</span></div>
+      <div class="glossary-item"><span class="g-term">SiC</span><span class="g-def">碳化硅，宽禁带半导体，AI电源/电动汽车核心功率器件</span></div>
+      <div class="glossary-item"><span class="g-term">BB Ratio</span><span class="g-def">订单出货比（Book-to-Bill），>1表示订单超过出货量，需求旺盛</span></div>
+      <div class="glossary-item"><span class="g-term">Gamma认证</span><span class="g-def">英伟达供应链分级认证，Gamma级为成熟量产供应商</span></div>
+    </div>
+
+    <!-- Sources -->
+    <div class="sources">
+      <h3>📚 数据来源</h3>
+      <p>高盛 · SEMI · TrendForce · 摩根士丹利 · 各公司2026Q1季报 · 东方财富 · 证券之星 · 山西证券 · 招商证券</p>
+      <p style="margin-top:4px;">数据截至各公司2026Q1季报及最新行业动态。</p>
+    </div>
+
+    <!-- End Box -->
+    <div class="end-box">
+      <div class="end-icon">🧠</div>
+      <div class="end-title">扬说·AI产业链洞察</div>
+      <div class="end-desc">不定期更新 · 专注于AI硬件上游核心赛道的深度研究<br>只讲订单、业绩、缺口、催化剂</div>
+    </div>
+
+  </div><!-- /.body -->
+</div><!-- /.c -->
+</body>
+</html>

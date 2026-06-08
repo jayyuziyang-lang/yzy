@@ -3,14 +3,14 @@
   "description": "AI产业链洞察 — 不定期更新的深度分析",
   "articles": [
     {
-      "id": "ai-chip-overview",
-      "title": "AI芯片产业链全景图（上）",
-      "date": "",
-      "summary": "从设计到封装，一张图看懂AI芯片产业链",
-      "readTime": 15,
-      "status": "draft",
-      "url": "",
-      "tags": ["AI芯片", "产业链"]
+      "id": "ai-hardware-upstream",
+      "title": "AI硬件上游 · 4大核心赛道精研",
+      "date": "2026-06-09",
+      "summary": "MLCC/PCB-CCL/封装材料/InP-SiC——只讲订单、业绩、缺口、催化剂",
+      "readTime": 20,
+      "status": "published",
+      "url": "ai-chain/ai-hardware-upstream/article.html",
+      "tags": ["AI芯片", "MLCC", "PCB", "CCL", "封装材料", "InP", "SiC"]
     }
   ]
 }
