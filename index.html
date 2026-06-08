@@ -713,34 +713,68 @@ function renderDeepTab() {
     return;
   }
 
-  var html = '';
   specials.sort(function(a, b) { return a.date < b.date ? 1 : -1; });
-  for (var j = 0; j < specials.length; j++) {
-    var s = specials[j];
-    var seriesLabel = s.series ? ' · ' + s.series : '';
+  window.__deepSpecials = specials;
+  window.__deepPage = 1;
+  window.__deepPerPage = 5;
+  renderDeepPage(container);
+}
+
+function renderDeepPage(container) {
+  var specials = window.__deepSpecials;
+  var page = window.__deepPage;
+  var perPage = window.__deepPerPage;
+  var totalPages = Math.ceil(specials.length / perPage);
+  var start = (page - 1) * perPage;
+  var end = Math.min(start + perPage, specials.length);
+  var slice = specials.slice(start, end);
+  var html = '';
+
+  for (var j = 0; j < slice.length; j++) {
+    var s = slice[j];
     var mediaParts = [];
     if (s.has_audio) mediaParts.push('🎧 音频');
     if (s.has_comic && s.comic_count > 0) mediaParts.push('📝 ' + s.comic_count + '张漫画');
     var mediaLabel = mediaParts.length > 0 ? '<br>' + mediaParts.join(' ') : '';
-    var editionNum = specials.length - j;
 
     html +=
       '<a class="deep-card" href="' + s.url + '">' +
-        '<div class="deep-num">' + editionNum + '</div>' +
+        '<div class="deep-num">' + (start + j + 1) + '</div>' +
         '<div class="deep-body">' +
           '<div class="deep-title">' + s.title + '</div>' +
-          '<div class="deep-meta">' + s.date + ' · 第' + editionNum + '期' + seriesLabel + '</div>' +
+          '<div class="deep-meta">' + s.date + ' · 系列深度' + '</div>' +
           '<div class="deep-desc">' + mediaLabel + '</div>';
     if (s.series) {
       html += '<div class="deep-tags"><span class="deep-tag">' + s.series + '</span></div>';
     }
     html += '</div></a>';
   }
+
+  html += '<div class="pagination-bar">' +
+    '<button class="page-btn" onclick="deepPrevPage()"' + (page <= 1 ? ' disabled' : '') + '>‹ 上一页</button>' +
+    '<span class="page-info">' + page + ' / ' + totalPages + '</span>' +
+    '<button class="page-btn" onclick="deepNextPage()"' + (page >= totalPages ? ' disabled' : '') + '>下一页 ›</button>' +
+    '</div>';
+
   container.innerHTML = html;
 }
 
+function deepPrevPage() {
+  if (window.__deepPage <= 1) return;
+  window.__deepPage--;
+  renderDeepPage(document.getElementById('deepList'));
+}
+
+function deepNextPage() {
+  var specials = window.__deepSpecials;
+  var totalPages = Math.ceil(specials.length / window.__deepPerPage);
+  if (window.__deepPage >= totalPages) return;
+  window.__deepPage++;
+  renderDeepPage(document.getElementById('deepList'));
+}
+
 // ============================================================
-// Render: AI Chain Tab
+// Render: AI Chain Tab — 分页
 // ============================================================
 function renderAiChain() {
   var container = document.getElementById('aiChainList');
@@ -755,49 +789,14 @@ function renderAiChain() {
     }
     try {
       var data = JSON.parse(xhr.responseText);
-      var articles = data.articles || [];
-      if (articles.length === 0) {
+      window.__aiArticles = data.articles || [];
+      if (window.__aiArticles.length === 0) {
         container.innerHTML = '<div class="no-data"><span class="big">⏳</span>内容编辑中</div>';
         return;
       }
-
-      var html = '';
-      for (var i = 0; i < articles.length; i++) {
-        var a = articles[i];
-        var statusHtml = '';
-        if (a.status === 'draft' || !a.url) {
-          statusHtml = '<span class="ai-status-draft">📝 编辑中</span>';
-        }
-        var tagsHtml = '';
-        if (a.tags && a.tags.length > 0) {
-          tagsHtml = '<div class="ai-tags">';
-          for (var t = 0; t < a.tags.length; t++) {
-            tagsHtml += '<span class="ai-tag">' + a.tags[t] + '</span>';
-          }
-          tagsHtml += '</div>';
-        }
-        var dateStr = a.date || '待定';
-
-        if (a.url && a.status !== 'draft') {
-          html += '<a class="ai-card" href="' + a.url + '">';
-        } else {
-          html += '<div class="ai-card">';
-        }
-        html +=
-          '<div class="ai-icon">🤖</div>' +
-          '<div class="ai-body">' +
-            '<div class="ai-title">' + a.title + '</div>' +
-            '<div class="ai-meta">' + dateStr + ' · 预计阅读' + a.readTime + '分钟 ' + statusHtml + '</div>' +
-            '<div class="ai-summary">' + (a.summary || '') + '</div>' +
-            tagsHtml +
-          '</div>';
-        if (a.url && a.status !== 'draft') {
-          html += '</a>';
-        } else {
-          html += '</div>';
-        }
-      }
-      container.innerHTML = html;
+      window.__aiPage = 1;
+      window.__aiPerPage = 5;
+      renderAiPage(container);
     } catch(e) {
       container.innerHTML = '<div class="no-data"><span class="big">⚠️</span>数据解析失败</div>';
     }
@@ -806,6 +805,74 @@ function renderAiChain() {
     container.innerHTML = '<div class="no-data"><span class="big">⏳</span>内容编辑中</div>';
   };
   xhr.send();
+}
+
+function renderAiPage(container) {
+  var articles = window.__aiArticles;
+  var page = window.__aiPage;
+  var perPage = window.__aiPerPage;
+  var totalPages = Math.ceil(articles.length / perPage);
+  var start = (page - 1) * perPage;
+  var end = Math.min(start + perPage, articles.length);
+  var slice = articles.slice(start, end);
+  var html = '';
+
+  for (var i = 0; i < slice.length; i++) {
+    var a = slice[i];
+    var statusHtml = '';
+    if (a.status === 'draft' || !a.url) {
+      statusHtml = '<span class="ai-status-draft">📝 编辑中</span>';
+    }
+    var tagsHtml = '';
+    if (a.tags && a.tags.length > 0) {
+      tagsHtml = '<div class="ai-tags">';
+      for (var t = 0; t < a.tags.length; t++) {
+        tagsHtml += '<span class="ai-tag">' + a.tags[t] + '</span>';
+      }
+      tagsHtml += '</div>';
+    }
+    var dateStr = a.date || '待定';
+
+    if (a.url && a.status !== 'draft') {
+      html += '<a class="ai-card" href="' + a.url + '">';
+    } else {
+      html += '<div class="ai-card">';
+    }
+    html +=
+      '<div class="ai-icon">🤖</div>' +
+      '<div class="ai-body">' +
+        '<div class="ai-title">' + a.title + '</div>' +
+        '<div class="ai-meta">' + dateStr + ' · 预计阅读' + a.readTime + '分钟 ' + statusHtml + '</div>' +
+        '<div class="ai-summary">' + (a.summary || '') + '</div>' +
+        tagsHtml +
+      '</div>';
+    if (a.url && a.status !== 'draft') {
+      html += '</a>';
+    } else {
+      html += '</div>';
+    }
+  }
+
+  html += '<div class="pagination-bar">' +
+    '<button class="page-btn" onclick="aiPrevPage()"' + (page <= 1 ? ' disabled' : '') + '>‹ 上一页</button>' +
+    '<span class="page-info">' + page + ' / ' + totalPages + '</span>' +
+    '<button class="page-btn" onclick="aiNextPage()"' + (page >= totalPages ? ' disabled' : '') + '>下一页 ›</button>' +
+    '</div>';
+
+  container.innerHTML = html;
+}
+
+function aiPrevPage() {
+  if (window.__aiPage <= 1) return;
+  window.__aiPage--;
+  renderAiPage(document.getElementById('aiChainList'));
+}
+
+function aiNextPage() {
+  var totalPages = Math.ceil(window.__aiArticles.length / window.__aiPerPage);
+  if (window.__aiPage >= totalPages) return;
+  window.__aiPage++;
+  renderAiPage(document.getElementById('aiChainList'));
 }
 
 // ============================================================
