@@ -49,11 +49,12 @@ def main():
         with open(index_path, encoding='utf-8') as f:
             idx_html = f.read()
         checks = [
-            ('Beijing clock widget', 'clockTime'),
-            ('Holiday display', 'holidayInfo'),
+            ('Hero clock widget', 'heroClockValue'),
+            ('Hero date display', 'heroDateValue'),
             ('Today section', 'todayContent'),
             ('History section', 'historyContent'),
-            ('Character decoration', 'char-decoration'),
+            ('Hero character area', 'hero-char-area'),
+            ('Tab navigation', 'switchTab'),
             ('Articles data embedded', 'ARTICLES_BY_DATE'),
             ('Holidays data embedded', 'HOLIDAYS_DATA'),
             ('Midnight refresh', 'scheduleMidnightRefresh'),
