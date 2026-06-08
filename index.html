@@ -26,19 +26,31 @@
   body { font-family: -apple-system,"PingFang SC","Microsoft YaHei","Helvetica Neue",sans-serif; background: #F5F7FA; color: #1E293B; line-height: 1.6; font-size: 15px; }
   .c { max-width: 640px; margin: 0 auto; padding: 0 16px 40px; }
 
-  /* ===== Banner ===== */
-  .banner { position: relative; background: linear-gradient(135deg,#1A56DB 0%,#1E3A7A 50%,#153060 100%); margin: 0 -16px 16px; padding: 28px 20px 24px; color: white; text-align: center; overflow: hidden; }
-  .banner::after { content: ''; position: absolute; top: -40px; right: -40px; width: 160px; height: 160px; border-radius: 50%; background: rgba(255,255,255,0.04); }
-  .banner::before { content: ''; position: absolute; bottom: -20px; left: -20px; width: 100px; height: 100px; border-radius: 50%; background: rgba(255,255,255,0.03); }
-  .banner .char-row { display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 8px; position: relative; z-index: 1; }
-  .banner .char-img { width: 52px; height: 52px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.3); object-fit: cover; flex-shrink: 0; }
-  .banner h1 { font-size: 22px; font-weight: 700; letter-spacing: 1px; }
-  .banner .subtitle { font-size: 12px; opacity: 0.7; margin-top: 2px; }
-  .banner .gold { color: #D4A017; }
+  /* ===== Hero Section ===== */
+  .hero { text-align: center; padding: 24px 0 8px; margin-bottom: 8px; }
+  .hero-brand h1 { font-size: 24px; font-weight: 800; letter-spacing: 2px; color: #1A56DB; }
+  .hero-brand .hero-subtitle { font-size: 12px; color: #94A3B8; margin-top: 2px; letter-spacing: 1px; }
+
+  .hero-char-area { margin: 16px auto 12px; position: relative; }
+  .hero-char-img { width: 80px; height: 80px; border-radius: 50%; border: 3px solid #E2E8F0; object-fit: cover; display: block; margin: 0 auto; background: #fff; padding: 3px; }
+  .hero-quote { font-size: 13px; color: #64748B; margin-top: 8px; line-height: 1.5; padding: 0 20px; min-height: 20px; }
+
+  /* ===== Hero Cards Row ===== */
+  .hero-cards { display: flex; gap: 8px; margin: 12px 0; }
+  .hero-card { flex: 1; background: #fff; border-radius: 14px; padding: 14px 10px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); text-align: center; min-width: 0; }
+  .hero-card-icon { font-size: 22px; margin-bottom: 6px; line-height: 1; }
+  .hero-card-value { font-size: 22px; font-weight: 700; color: #1E293B; font-variant-numeric: tabular-nums; letter-spacing: 1px; }
+  .hero-card-label { font-size: 11px; color: #94A3B8; margin-top: 3px; }
+
+  /* VIX within hero card */
+  .hero-vix-num { font-size: 24px; font-weight: 800; color: #D97706; display: block; margin-bottom: 6px; }
+  .hero-vix-track { display: block; height: 5px; border-radius: 3px; background: linear-gradient(to right, #DC2626, #D97706, #10B981); position: relative; margin: 0 4px; }
+  .hero-vix-dot { position: absolute; top: -4px; width: 13px; height: 13px; border-radius: 50%; background: #1E293B; border: 2px solid #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.3); transition: left 0.5s ease; }
+  .hero-vix-level { font-size: 12px; font-weight: 600; color: #D97706; margin-top: 5px; }
 
   /* ===== Tab Navigation ===== */
   .tab-nav { display: flex; align-items: center; gap: 4px; background: #fff; border-radius: 12px; padding: 4px; margin-bottom: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.07); position: relative; }
-  .tab-btn { flex: 1; padding: 10px 6px; border: none; background: none; border-radius: 8px; font-size: 13px; font-weight: 600; color: #64748B; cursor: pointer; transition: all 0.15s; text-align: center; white-space: nowrap; }
+  .tab-btn { flex: 1; padding: 10px 4px; border: none; background: none; border-radius: 8px; font-size: 12px; font-weight: 600; color: #64748B; cursor: pointer; transition: all 0.15s; text-align: center; white-space: nowrap; }
   .tab-btn:hover { color: #1A56DB; background: #F8FAFC; }
   .tab-btn.active { color: #fff; background: linear-gradient(135deg,#1A56DB,#1E3A7A); box-shadow: 0 2px 4px rgba(26,86,219,0.2); }
   .tab-btn:active { transform: scale(0.96); }
@@ -48,16 +60,6 @@
   /* ===== Tab Content ===== */
   .tab-content { display: none; }
   .tab-content.active { display: block; }
-
-  /* ===== Clock Widget ===== */
-  .clock-card { background: #fff; border-radius: 12px; padding: 14px 16px; margin-bottom: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.07); display: flex; align-items: center; gap: 12px; }
-  .clock-card .clock-icon { font-size: 24px; flex-shrink: 0; }
-  .clock-card .clock-info { flex: 1; }
-  .clock-card .clock-time { font-size: 22px; font-weight: 700; color: #1A56DB; font-variant-numeric: tabular-nums; letter-spacing: 1px; }
-  .clock-card .clock-date { font-size: 12px; color: #64748B; margin-top: 1px; }
-  .clock-card .holiday-tag { display: inline-block; font-size: 11px; background: #FEF3C7; color: #D97706; padding: 1px 8px; border-radius: 8px; margin-top: 2px; }
-  .clock-card .holiday-tag.market { background: #FEE2E2; color: #DC2626; }
-  .clock-card .no-holiday { font-size: 11px; color: #94A3B8; }
 
   /* ===== Sections ===== */
   .section { background: #fff; border-radius: 12px; padding: 16px; margin-bottom: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.07); }
@@ -93,11 +95,6 @@
   .load-more { display: block; width: 100%; padding: 10px; margin-top: 8px; text-align: center; font-size: 13px; color: #1A56DB; background: #F8FAFC; border-radius: 8px; cursor: pointer; border: none; }
   .load-more:active { background: #F1F5F9; }
 
-  /* ===== Character Decoration ===== */
-  .char-decoration { display: flex; align-items: center; gap: 12px; background: linear-gradient(135deg,#FFF7ED,#FFFBEB); border-radius: 12px; padding: 12px 16px; margin-bottom: 12px; }
-  .char-decoration .char-thumb { width: 44px; height: 44px; border-radius: 10px; object-fit: cover; flex-shrink: 0; }
-  .char-decoration .char-msg { font-size: 13px; color: #92400E; line-height: 1.5; }
-
   /* ===== About / Footer ===== */
   .about-card { background: #fff; border-radius: 12px; padding: 14px 16px; margin-bottom: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.07); }
   .about-card .about-row { display: flex; align-items: center; gap: 12px; }
@@ -116,7 +113,7 @@
   .loading .spinner { display: inline-block; width: 16px; height: 16px; border: 2px solid #E2E8F0; border-top-color: #1A56DB; border-radius: 50%; animation: spin 0.6s linear infinite; margin-right: 6px; vertical-align: middle; }
   @keyframes spin { to { transform: rotate(360deg); } }
 
-  /* ===== VIX Fear & Greed Index ===== */
+  /* ===== VIX Full Card (in data tab) ===== */
   .vix-card { background: #fff; border-radius: 12px; padding: 14px 16px; margin-bottom: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.07); }
   .vix-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
   .vix-header h3 { font-size: 13px; font-weight: 600; color: #1E293B; }
@@ -158,7 +155,7 @@
   .share-qr-box .qr-hint { font-size: 12px; color: #64748B; }
   .share-qr-box .qr-close { margin-top: 10px; padding: 6px 20px; border-radius: 8px; border: none; background: #F1F5F9; color: #475569; font-size: 12px; cursor: pointer; }
 
-  /* ===== Mobile Tab Menu ===== */
+  /* ===== Mobile ===== */
   @media (max-width: 640px) {
     .tab-nav { flex-wrap: wrap; padding: 4px; }
     .hamburger { display: flex; }
@@ -167,6 +164,10 @@
     .tab-btn.active.mobile-show { display: block; }
     .tab-nav.menu-open { flex-direction: column; align-items: stretch; }
     .tab-nav.menu-open .hamburger { align-self: flex-end; }
+    .hero-cards { gap: 6px; }
+    .hero-card { padding: 12px 8px; }
+    .hero-card-value { font-size: 18px; }
+    .hero-vix-num { font-size: 20px; }
   }
 
   /* ===== AI Chain Tab ===== */
@@ -197,69 +198,57 @@
 <body>
 <div class="c">
 
-  <!-- Banner -->
-  <div class="banner">
-    <div class="char-row">
-      <img class="char-img" src="assets/character/ayang-sticker.png" alt="阿扬" loading="lazy">
-      <div>
-        <h1>扬说财经</h1>
-        <div class="subtitle">用漫画看懂财经 — <span class="gold">你好，我是阿扬</span></div>
+  <!-- ================================================================ -->
+  <!-- Hero Section — 始终可见                                                   -->
+  <!-- ================================================================ -->
+  <div class="hero">
+    <div class="hero-brand">
+      <h1>扬说 · YANG SHUO</h1>
+      <p class="hero-subtitle">每日财经 / 深度阅读 / 独立思考</p>
+    </div>
+
+    <div class="hero-char-area">
+      <img class="hero-char-img" src="assets/character/ayang-sticker.png" alt="阿扬" loading="lazy">
+      <div class="hero-quote" id="heroQuote">📡 每日早报 + 晚报，用漫画和音频解读财经大事。</div>
+    </div>
+
+    <div class="hero-cards">
+      <div class="hero-card">
+        <div class="hero-card-icon">🕐</div>
+        <div class="hero-card-value" id="heroClockValue">--:--:--</div>
+        <div class="hero-card-label">北京时间</div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-icon">📊 VIX</div>
+        <div class="hero-vix-num" id="heroVixNum">--</div>
+        <div class="hero-vix-track">
+          <span class="hero-vix-dot" id="heroVixDot" style="left:50%"></span>
+        </div>
+        <div class="hero-vix-level" id="heroVixLevel">加载中...</div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-icon">📅</div>
+        <div class="hero-card-value" id="heroDateValue">--月--日</div>
+        <div class="hero-card-label" id="heroHolidayLabel">--</div>
       </div>
     </div>
   </div>
 
-  <!-- ===== Tab Navigation ===== -->
+  <!-- ================================================================ -->
+  <!-- Tab Navigation                                                  -->
+  <!-- ================================================================ -->
   <nav class="tab-nav" id="tabNav">
-    <button class="tab-btn active" data-tab="daily" onclick="switchTab('daily')">📰 日报</button>
-    <button class="tab-btn" data-tab="deep" onclick="switchTab('deep')">📚 深度专题</button>
-    <button class="tab-btn" data-tab="tools" onclick="switchTab('tools')">📊 数据工具</button>
-    <button class="tab-btn" data-tab="ai" onclick="switchTab('ai')">🤖 AI产业链</button>
+    <button class="tab-btn active" data-tab="daily" onclick="switchTab('daily')">扬说·日报</button>
+    <button class="tab-btn" data-tab="deep" onclick="switchTab('deep')">扬说·深度</button>
+    <button class="tab-btn" data-tab="tools" onclick="switchTab('tools')">扬说·数据</button>
+    <button class="tab-btn" data-tab="ai" onclick="switchTab('ai')">扬说·AI产业链</button>
     <button class="hamburger" id="menuToggle" onclick="toggleMobileMenu()" aria-label="菜单">☰</button>
   </nav>
 
   <!-- ================================================================ -->
-  <!-- Tab: 日报 (default)                                                 -->
+  <!-- Tab: 扬说·日报                                                      -->
   <!-- ================================================================ -->
   <div class="tab-content active" id="tab-daily">
-
-    <!-- Clock + Holiday -->
-    <div class="clock-card" id="clockCard">
-      <div class="clock-icon">🕐</div>
-      <div class="clock-info">
-        <div class="clock-time" id="clockTime">--:--:--</div>
-        <div class="clock-date" id="clockDate">加载中...</div>
-        <div id="holidayInfo"></div>
-      </div>
-    </div>
-
-    <!-- Character Decoration -->
-    <div class="char-decoration">
-      <img class="char-thumb" src="assets/character/ayang-square.jpg" alt="阿扬" loading="lazy">
-      <div class="char-msg" id="charMsg">📡 每日早报 + 晚报，用漫画和音频解读财经大事。</div>
-    </div>
-
-    <!-- VIX Fear & Greed Index -->
-    <div class="vix-card">
-      <div class="vix-header">
-        <h3>📊 恐慌贪婪指数</h3>
-        <span class="vix-update" id="vixUpdateDaily">--</span>
-      </div>
-      <div class="vix-body" id="vixBodyDaily">
-        <div class="vix-loading">暂无数据</div>
-      </div>
-      <div class="vix-trend">
-        <div class="vix-trend-header">
-          <span class="vix-trend-label">趋势</span>
-          <div class="vix-toggle-group">
-            <button class="vix-toggle-btn active" data-period="1w" onclick="switchVixPeriod('1w','vixTrendImgDaily')">1周</button>
-            <button class="vix-toggle-btn" data-period="1m" onclick="switchVixPeriod('1m','vixTrendImgDaily')">1月</button>
-          </div>
-        </div>
-        <img id="vixTrendImgDaily" loading="lazy" src="docs/charts/vix_trend_1w.svg" alt="VIX趋势图" onerror="this.style.display='none'">
-        <div class="vix-trend-note">盘中数据更新以实际走势为准</div>
-      </div>
-    </div>
-    <script src="data/vix-data.js"></script>
 
     <!-- Today's Content -->
     <div class="section">
@@ -494,7 +483,7 @@
   </div><!-- /tab-daily -->
 
   <!-- ================================================================ -->
-  <!-- Tab: 深度专题                                                      -->
+  <!-- Tab: 扬说·深度                                                      -->
   <!-- ================================================================ -->
   <div class="tab-content" id="tab-deep">
     <div class="section">
@@ -504,7 +493,7 @@
   </div>
 
   <!-- ================================================================ -->
-  <!-- Tab: 数据工具                                                      -->
+  <!-- Tab: 扬说·数据                                                      -->
   <!-- ================================================================ -->
   <div class="tab-content" id="tab-tools">
     <div class="vix-card">
@@ -537,7 +526,7 @@
   </div>
 
   <!-- ================================================================ -->
-  <!-- Tab: AI产业链                                                      -->
+  <!-- Tab: 扬说·AI产业链                                                   -->
   <!-- ================================================================ -->
   <div class="tab-content" id="tab-ai">
     <div class="section">
@@ -581,7 +570,7 @@
 <script>
 // CDN 来源检测
 if (location.hostname.includes('jsdmirror') || location.hostname.includes('jsdelivr')) {
-  document.querySelector('.powered').textContent += ' · CDN\u955C\u50CF\u52A0\u901F';
+  document.querySelector('.powered').textContent += ' · CDN镜像加速';
 }
 </script>
 
@@ -598,21 +587,15 @@ if (location.hostname.includes('jsdmirror') || location.hostname.includes('jsdel
 // Tab Switching
 // ============================================================
 function switchTab(tabId) {
-  // Update tab buttons
   document.querySelectorAll('.tab-btn').forEach(function(btn) {
     btn.classList.toggle('active', btn.dataset.tab === tabId);
   });
-  // Update tab content
   document.querySelectorAll('.tab-content').forEach(function(tc) {
     tc.classList.toggle('active', tc.id === 'tab-' + tabId);
   });
-  // Update URL hash (without scroll)
   history.replaceState(null, '', '#' + tabId);
-  // Close mobile menu
   closeMobileMenu();
-  // Save preference
   try { localStorage.setItem('yzyTab', tabId); } catch(e) {}
-  // Re-render VIX if switching to tools tab (it might not have rendered yet)
   if (tabId === 'tools') {
     renderVixBody('vixBodyTools', 'vixUpdateTools');
   }
@@ -620,12 +603,10 @@ function switchTab(tabId) {
 
 function initTab() {
   var tab = 'daily';
-  // Check hash
   var hash = location.hash.slice(1);
   if (hash && document.querySelector('.tab-btn[data-tab="' + hash + '"]')) {
     tab = hash;
   } else {
-    // Check localStorage
     try {
       var saved = localStorage.getItem('yzyTab');
       if (saved && document.querySelector('.tab-btn[data-tab="' + saved + '"]')) {
@@ -636,7 +617,6 @@ function initTab() {
   switchTab(tab);
 }
 
-// Listen for hash changes (browser back/forward)
 window.addEventListener('hashchange', function() {
   var hash = location.hash.slice(1) || 'daily';
   if (document.querySelector('.tab-btn[data-tab="' + hash + '"]')) {
@@ -684,7 +664,7 @@ function formatDate(bj) {
   const m = bj.getMonth() + 1;
   const d = bj.getDate();
   const wd = WEEKDAYS[bj.getDay()];
-  return y + '\u5E74' + m + '\u6708' + d + '\u65E5 ' + wd;
+  return y + '年' + m + '月' + d + '日 ' + wd;
 }
 
 function formatDateISO(bj) {
@@ -696,21 +676,24 @@ function formatDateISO(bj) {
 
 function updateClock() {
   const bj = getBeijingNow();
-  document.getElementById('clockTime').textContent =
+  // Hero clock
+  document.getElementById('heroClockValue').textContent =
     pad2(bj.getHours()) + ':' + pad2(bj.getMinutes()) + ':' + pad2(bj.getSeconds());
-  document.getElementById('clockDate').textContent = formatDate(bj);
+  // Hero date
+  document.getElementById('heroDateValue').textContent =
+    (bj.getMonth() + 1) + '月' + bj.getDate() + '日';
 }
 
 // ============================================================
-// Holiday Check
+// Holiday Check (Hero card)
 // ============================================================
 function updateHoliday() {
   const today = formatDateISO(getBeijingNow());
   const todayHolidays = HOLIDAYS_DATA.filter(function(h) { return h.date === today; });
+  var label = document.getElementById('heroHolidayLabel');
 
-  const info = document.getElementById('holidayInfo');
   if (todayHolidays.length === 0) {
-    info.innerHTML = '<span class="no-holiday">今日无假期</span>';
+    label.textContent = '今日无假期';
     return;
   }
 
@@ -722,17 +705,13 @@ function updateHoliday() {
     else if (h.type === 'international') intlH = h;
   }
 
-  var html = '';
   if (publicH) {
-    html += '<span class="holiday-tag">\uD83C\uDF89 ' + publicH.name + '</span> ';
+    label.textContent = publicH.name + (marketH ? ' · ' + marketH.name : '');
+  } else if (intlH) {
+    label.textContent = intlH.name;
+  } else {
+    label.textContent = '今日无假期';
   }
-  if (marketH) {
-    html += '<span class="holiday-tag market">\uD83D\uDCCA ' + marketH.name + '</span> ';
-  }
-  if (!publicH && intlH) {
-    html += '<span class="holiday-tag">\uD83C\uDF0D ' + intlH.name + '</span> ';
-  }
-  info.innerHTML = html || '<span class="no-holiday">今日无假期</span>';
 }
 
 // ============================================================
@@ -765,27 +744,27 @@ function renderSpecialDaily() {
   var html = '';
   for (var j = 0; j < specials.length; j++) {
     var s = specials[j];
-    var seriesLabel = s.series ? ' \u00B7 ' + s.series : '';
+    var seriesLabel = s.series ? ' · ' + s.series : '';
     var mediaParts = [];
     if (s.has_audio) mediaParts.push('音频');
     if (s.has_comic && s.comic_count > 0) mediaParts.push(s.comic_count + '张漫画');
-    var mediaLabel = mediaParts.length > 0 ? ' \u00B7 ' + mediaParts.join('+') : '';
+    var mediaLabel = mediaParts.length > 0 ? ' · ' + mediaParts.join('+') : '';
     var borderStyle = (j === specials.length - 1) ? 'border-bottom:none;' : 'border-bottom:1px solid #F1F5F9;';
     html +=
       '<a class="edition edition-evening" href="' + s.url + '" style="' + borderStyle + '">' +
-        '<div class="edition-icon" style="background:#FFFBEB;">\uD83D\uDCDA</div>' +
+        '<div class="edition-icon" style="background:#FFFBEB;">📚</div>' +
         '<div class="edition-info">' +
           '<div class="edition-title">' + s.title + '</div>' +
-          '<div class="edition-desc">' + s.date + ' \u00B7 深度' + seriesLabel + mediaLabel + '</div>' +
+          '<div class="edition-desc">' + s.date + ' · 深度' + seriesLabel + mediaLabel + '</div>' +
         '</div>' +
-        '<span class="edition-arrow">\u203A</span>' +
+        '<span class="edition-arrow">›</span>' +
       '</a>';
   }
   container.innerHTML = html;
 }
 
 // ============================================================
-// Render: Deep Dive Tab (独立的深度专题Tab)
+// Render: Deep Dive Tab
 // ============================================================
 function renderDeepTab() {
   var container = document.getElementById('deepList');
@@ -796,19 +775,18 @@ function renderDeepTab() {
   }
 
   if (specials.length === 0) {
-    container.innerHTML = '<div class="no-data"><span class="big">\uD83D\uDCDA</span>\u6682\u65E0\u6DF1\u5EA6\u5185\u5BB9</div>';
+    container.innerHTML = '<div class="no-data"><span class="big">📚</span>暂无深度内容</div>';
     return;
   }
 
   var html = '';
-  // Sort by date descending
   specials.sort(function(a, b) { return a.date < b.date ? 1 : -1; });
   for (var j = 0; j < specials.length; j++) {
     var s = specials[j];
-    var seriesLabel = s.series ? ' \u00B7 ' + s.series : '';
+    var seriesLabel = s.series ? ' · ' + s.series : '';
     var mediaParts = [];
-    if (s.has_audio) mediaParts.push('\uD83C\uDFA7 音频');
-    if (s.has_comic && s.comic_count > 0) mediaParts.push('\uD83D\uDCDD ' + s.comic_count + '\u5F20\u6F2B\u753B');
+    if (s.has_audio) mediaParts.push('🎧 音频');
+    if (s.has_comic && s.comic_count > 0) mediaParts.push('📝 ' + s.comic_count + '张漫画');
     var mediaLabel = mediaParts.length > 0 ? '<br>' + mediaParts.join(' ') : '';
     var editionNum = specials.length - j;
 
@@ -817,7 +795,7 @@ function renderDeepTab() {
         '<div class="deep-num">' + editionNum + '</div>' +
         '<div class="deep-body">' +
           '<div class="deep-title">' + s.title + '</div>' +
-          '<div class="deep-meta">' + s.date + ' \u00B7 \u7B2C' + editionNum + '\u671F' + seriesLabel + '</div>' +
+          '<div class="deep-meta">' + s.date + ' · 第' + editionNum + '期' + seriesLabel + '</div>' +
           '<div class="deep-desc">' + mediaLabel + '</div>';
     if (s.series) {
       html += '<div class="deep-tags"><span class="deep-tag">' + s.series + '</span></div>';
@@ -838,14 +816,14 @@ function renderAiChain() {
   xhr.open('GET', 'data/ai-chain.json', true);
   xhr.onload = function() {
     if (xhr.status !== 200) {
-      container.innerHTML = '<div class="no-data"><span class="big">\u26A0\uFE0F</span>\u52A0\u8F7D\u5931\u8D25</div>';
+      container.innerHTML = '<div class="no-data"><span class="big">⚠️</span>加载失败</div>';
       return;
     }
     try {
       var data = JSON.parse(xhr.responseText);
       var articles = data.articles || [];
       if (articles.length === 0) {
-        container.innerHTML = '<div class="no-data"><span class="big">\u23F3</span>\u5185\u5BB9\u7F16\u8F91\u4E2D</div>';
+        container.innerHTML = '<div class="no-data"><span class="big">⏳</span>内容编辑中</div>';
         return;
       }
 
@@ -854,7 +832,7 @@ function renderAiChain() {
         var a = articles[i];
         var statusHtml = '';
         if (a.status === 'draft' || !a.url) {
-          statusHtml = '<span class="ai-status-draft">\uD83D\uDCDD \u7F16\u8F91\u4E2D</span>';
+          statusHtml = '<span class="ai-status-draft">📝 编辑中</span>';
         }
         var tagsHtml = '';
         if (a.tags && a.tags.length > 0) {
@@ -864,7 +842,7 @@ function renderAiChain() {
           }
           tagsHtml += '</div>';
         }
-        var dateStr = a.date || '\u5F85\u5B9A';
+        var dateStr = a.date || '待定';
 
         if (a.url && a.status !== 'draft') {
           html += '<a class="ai-card" href="' + a.url + '">';
@@ -872,10 +850,10 @@ function renderAiChain() {
           html += '<div class="ai-card">';
         }
         html +=
-          '<div class="ai-icon">\uD83E\uDD16</div>' +
+          '<div class="ai-icon">🤖</div>' +
           '<div class="ai-body">' +
             '<div class="ai-title">' + a.title + '</div>' +
-            '<div class="ai-meta">' + dateStr + ' \u00B7 \u9884\u8BA1\u9605\u8BFB' + a.readTime + '\u5206\u949F ' + statusHtml + '</div>' +
+            '<div class="ai-meta">' + dateStr + ' · 预计阅读' + a.readTime + '分钟 ' + statusHtml + '</div>' +
             '<div class="ai-summary">' + (a.summary || '') + '</div>' +
             tagsHtml +
           '</div>';
@@ -887,11 +865,11 @@ function renderAiChain() {
       }
       container.innerHTML = html;
     } catch(e) {
-      container.innerHTML = '<div class="no-data"><span class="big">\u26A0\uFE0F</span>\u6570\u636E\u89E3\u6790\u5931\u8D25</div>';
+      container.innerHTML = '<div class="no-data"><span class="big">⚠️</span>数据解析失败</div>';
     }
   };
   xhr.onerror = function() {
-    container.innerHTML = '<div class="no-data"><span class="big">\u23F3</span>\u5185\u5BB9\u7F16\u8F91\u4E2D</div>';
+    container.innerHTML = '<div class="no-data"><span class="big">⏳</span>内容编辑中</div>';
   };
   xhr.send();
 }
@@ -901,13 +879,13 @@ function renderAiChain() {
 // ============================================================
 function updateCharMsg() {
   const todayStr = formatDateISO(getBeijingNow());
+  var el = document.getElementById('heroQuote');
+  if (!el) return;
   if (ARTICLES_BY_DATE[todayStr]) {
-    document.getElementById('charMsg').textContent =
-      '\uD83D\uDCE1 \u6BCF\u65E5\u65E9\u62A5 + \u665A\u62A5\uFF0C\u7528\u6F2B\u753B\u548C\u97F3\u9891\u89E3\u8BFB\u8D22\u7ECF\u5927\u4E8B\u3002';
+    el.textContent = '📡 每日早报 + 晚报，用漫画和音频解读财经大事。';
   } else {
     if (ARTICLES_LATEST) {
-      document.getElementById('charMsg').textContent =
-        '\uD83D\uDCE1 \u6682\u65E0\u4ECA\u65E5\u5185\u5BB9\uFF0C\u663E\u793A\u6700\u8FD1\u66F4\u65B0\uFF08' + ARTICLES_LATEST + '\uFF09';
+      el.textContent = '📡 暂无今日内容，显示最近更新（' + ARTICLES_LATEST + '）';
     }
   }
 }
@@ -925,9 +903,9 @@ function renderToday() {
 
 function renderEditionList(container, data) {
   var sessions = [
-    { key: 'morning', icon: '\uD83C\uDF05', label: '\u65E9\u62A5' },
-    { key: 'evening', icon: '\uD83C\uDF19', label: '\u665A\u62A5' },
-    { key: 'special', icon: '\uD83D\uDCDA', label: '\u6DF1\u5EA6' },
+    { key: 'morning', icon: '🌅', label: '早报' },
+    { key: 'evening', icon: '🌙', label: '晚报' },
+    { key: 'special', icon: '📚', label: '深度' },
   ];
 
   var hasAny = false;
@@ -942,7 +920,7 @@ function renderEditionList(container, data) {
     var mediaParts = [];
     if (item.has_audio) mediaParts.push('音频');
     if (item.has_comic && item.comic_count > 0) mediaParts.push('漫画');
-    var mediaLabel = mediaParts.length > 0 ? ' \u00B7 ' + mediaParts.join('+') : '';
+    var mediaLabel = mediaParts.length > 0 ? ' · ' + mediaParts.join('+') : '';
     var editionLabel = s.label + mediaLabel;
     html +=
       '<a class="edition ' + cls + '" href="' + item.url + '">' +
@@ -951,12 +929,12 @@ function renderEditionList(container, data) {
           '<div class="edition-title">' + title + '</div>' +
           '<div class="edition-desc">' + editionLabel + '</div>' +
         '</div>' +
-        '<span class="edition-arrow">\u203A</span>' +
+        '<span class="edition-arrow">›</span>' +
       '</a>';
   }
 
   if (!hasAny) {
-    container.innerHTML = '<div class="no-data"><span class="big">\uD83D\uDCED</span>\u6682\u65E0\u4ECA\u65E5\u5185\u5BB9</div>';
+    container.innerHTML = '<div class="no-data"><span class="big">📭</span>暂无今日内容</div>';
   } else {
     container.innerHTML = html;
   }
@@ -975,7 +953,7 @@ function renderHistory() {
   var dates = Object.keys(ARTICLES_BY_DATE).filter(function(d) { return d !== todayStr; });
 
   if (dates.length === 0) {
-    container.innerHTML = '<div class="no-data" style="padding:16px 0;">\u6682\u65E0\u5386\u53F2\u5185\u5BB9</div>';
+    container.innerHTML = '<div class="no-data" style="padding:16px 0;">暂无历史内容</div>';
     return;
   }
 
@@ -992,7 +970,7 @@ function renderHistorySlice(container, dates, start, end) {
     var date = slice[i];
     var data = ARTICLES_BY_DATE[date];
     var parts = date.split('-');
-    var displayDate = parts[0] + '\u5E74' + parseInt(parts[1]) + '\u6708' + parseInt(parts[2]) + '\u65E5';
+    var displayDate = parts[0] + '年' + parseInt(parts[1]) + '月' + parseInt(parts[2]) + '日';
 
     html += '<div class="history-group">';
     html += '<div class="history-date-label">' + displayDate + '</div>';
@@ -1000,7 +978,7 @@ function renderHistorySlice(container, dates, start, end) {
     if (data.morning) {
       html +=
         '<div class="history-item">' +
-          '<span class="h-icon">\uD83C\uDF05</span>' +
+          '<span class="h-icon">🌅</span>' +
           '<a href="' + data.morning.url + '">' + (data.morning.title || '早报') + '</a>' +
           '<span class="h-time">早报</span>' +
         '</div>';
@@ -1008,7 +986,7 @@ function renderHistorySlice(container, dates, start, end) {
     if (data.evening) {
       html +=
         '<div class="history-item">' +
-          '<span class="h-icon">\uD83C\uDF19</span>' +
+          '<span class="h-icon">🌙</span>' +
           '<a href="' + data.evening.url + '">' + (data.evening.title || '晚报') + '</a>' +
           '<span class="h-time">晚报</span>' +
         '</div>';
@@ -1033,12 +1011,35 @@ function loadMoreHistory(btn) {
 }
 
 // ============================================================
-// VIX Fear & Greed Index (shared render function)
+// Hero VIX — 首页卡片(数值+温度计, 无趋势图)
 // ============================================================
-function renderVix() {
-  renderVixBody('vixBodyDaily', 'vixUpdateDaily');
+function renderHeroVix() {
+  var d = window.__VIX_DATA;
+  if (!d || d.current == null) {
+    document.getElementById('heroVixNum').textContent = '--';
+    document.getElementById('heroVixLevel').textContent = '暂无数据';
+    return;
+  }
+
+  document.getElementById('heroVixNum').textContent = d.current.toFixed(1);
+  document.getElementById('heroVixLevel').textContent = d.level;
+
+  // Position the thermometer dot
+  var dot = document.getElementById('heroVixDot');
+  if (dot) {
+    dot.style.left = d.pct + '%';
+  }
+
+  // Color the VIX number based on level
+  var numEl = document.getElementById('heroVixNum');
+  numEl.style.color = d.cls === 'fear' ? '#DC2626' : d.cls === 'neutral' ? '#D97706' : '#059669';
+  var levelEl = document.getElementById('heroVixLevel');
+  levelEl.style.color = numEl.style.color;
 }
 
+// ============================================================
+// VIX Full Card (in tools tab) — 完整模式含趋势图
+// ============================================================
 function renderVixBody(bodyId, updateId) {
   var d = window.__VIX_DATA;
   var body = document.getElementById(bodyId);
@@ -1052,7 +1053,7 @@ function renderVixBody(bodyId, updateId) {
 
   if (update) update.textContent = d.date;
 
-  var arrow = d.change >= 0 ? '\u2191' : '\u2193';
+  var arrow = d.change >= 0 ? '↑' : '↓';
   var cls = d.change >= 0 ? 'vix-change-up' : 'vix-change-down';
   var absChg = Math.abs(d.change).toFixed(1);
   var pctStr = (d.changePct >= 0 ? '+' : '') + d.changePct.toFixed(1) + '%';
@@ -1132,19 +1133,19 @@ function fallbackCopy(text) {
 }
 
 // ============================================================
-// Character message rotation
+// Character message rotation (in hero)
 // ============================================================
 var CHAR_MSGS = [
-  '\uD83D\uDCE1 \u6BCF\u65E5\u65E9\u62A5 + \u665A\u62A5\uFF0C\u7528\u6F2B\u753B\u548C\u97F3\u9891\u89E3\u8BFB\u8D22\u7ECF\u5927\u4E8B\u3002',
-  '\uD83D\uDCA1 \u6BCF\u4E2A\u4EA4\u6613\u65E5\u66F4\u65B0\uFF0C\u966A\u4F60\u8BFB\u61C2\u8D22\u7ECF\u4E16\u754C\u3002',
-  '\uD83C\uDFA7 \u8FB9\u542C\u8FB9\u770B\uFF0C\u901A\u52E4\u8DEF\u4E0A\u4E5F\u80FD\u5B66\u8D22\u7ECF\u3002',
-  '\uD83D\uDCCA \u6570\u636E\u6765\u81EA\u6743\u5A01\u6765\u6E90\uFF0CPython \u751F\u6210\u56FE\u8868\u786E\u4FDD\u4E25\u8C28\u3002',
+  '📡 每日早报 + 晚报，用漫画和音频解读财经大事。',
+  '💡 每个交易日更新，陪你读懂财经世界。',
+  '🎧 边听边看，通勤路上也能学财经。',
+  '📊 数据来自权威来源，Python 生成图表确保严谨。',
 ];
 var msgIdx = 0;
 function rotateCharMsg() {
-  var el = document.getElementById('charMsg');
+  var el = document.getElementById('heroQuote');
   if (!el) return;
-  if (el.textContent.indexOf('\uD83D\uDCE1 \u6BCF\u65E5') === 0) {
+  if (el.textContent.indexOf('📡 每日') === 0) {
     msgIdx = (msgIdx + 1) % CHAR_MSGS.length;
     el.textContent = CHAR_MSGS[msgIdx];
   }
@@ -1164,14 +1165,13 @@ function initData() {
 
 // VIX init: wait for vix-data.js to load
 function initVix() {
-  // vix-data.js sets window.__VIX_DATA via <script> before this block
   if (window.__VIX_DATA) {
-    renderVix();
+    renderHeroVix();
     renderVixBody('vixBodyTools', 'vixUpdateTools');
   } else {
     var checkVix = setInterval(function() {
       if (window.__VIX_DATA) {
-        renderVix();
+        renderHeroVix();
         renderVixBody('vixBodyTools', 'vixUpdateTools');
         clearInterval(checkVix);
       }
