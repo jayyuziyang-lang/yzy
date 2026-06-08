@@ -197,6 +197,18 @@ Claude Code（质量门核心） → 定调、终审、复盘、规则更新
 
 **铁律：** 人名/机构混淆是P0级错误。写"某某讲话"前必须确认此人在哪个机构、什么职位。
 
+### Phase 3.6: VIX数据更新（2026-06-09复盘追加）
+
+VIX数据更新流程：
+1. 运行 `python scripts/fetch-vix-data.py`（自动获取）
+2. 如果yfinance限流 → 搜索"CBOE VIX 最新"交叉验证
+3. 如果必须手动修正数据 → **必须同时修改 `fetch-vix-data.py` 的 `FALLBACK_DATA`**
+   ❌ 不要只改 `vix-data.js`！deploy.sh和CI都会覆盖手动修改
+   ✅ 改脚本层的FALLBACK_DATA，然后重新运行脚本生成正确输出
+4. 验证：current、prev、changePct计算合理，日期为最近交易日
+
+**数据源优先级：** investing.com（权威源，但有Cloudflare防护）→ yfinance → 多源交叉验证 → 备用数据
+
 ### Phase 4: 音频制作
 
 1. 写口播稿 script.txt（阿扬人格化，第一人称）
