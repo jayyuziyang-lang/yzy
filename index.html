@@ -36,6 +36,19 @@
   .banner .subtitle { font-size: 12px; opacity: 0.7; margin-top: 2px; }
   .banner .gold { color: #D4A017; }
 
+  /* ===== Tab Navigation ===== */
+  .tab-nav { display: flex; align-items: center; gap: 4px; background: #fff; border-radius: 12px; padding: 4px; margin-bottom: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.07); position: relative; }
+  .tab-btn { flex: 1; padding: 10px 6px; border: none; background: none; border-radius: 8px; font-size: 13px; font-weight: 600; color: #64748B; cursor: pointer; transition: all 0.15s; text-align: center; white-space: nowrap; }
+  .tab-btn:hover { color: #1A56DB; background: #F8FAFC; }
+  .tab-btn.active { color: #fff; background: linear-gradient(135deg,#1A56DB,#1E3A7A); box-shadow: 0 2px 4px rgba(26,86,219,0.2); }
+  .tab-btn:active { transform: scale(0.96); }
+  .hamburger { display: none; width: 40px; height: 40px; border: none; background: none; border-radius: 8px; font-size: 20px; cursor: pointer; color: #64748B; flex-shrink: 0; align-items: center; justify-content: center; }
+  .hamburger:active { background: #F1F5F9; }
+
+  /* ===== Tab Content ===== */
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+
   /* ===== Clock Widget ===== */
   .clock-card { background: #fff; border-radius: 12px; padding: 14px 16px; margin-bottom: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.07); display: flex; align-items: center; gap: 12px; }
   .clock-card .clock-icon { font-size: 24px; flex-shrink: 0; }
@@ -144,6 +157,41 @@
   .share-qr-box img { width: 180px; height: 180px; border-radius: 8px; margin-bottom: 8px; }
   .share-qr-box .qr-hint { font-size: 12px; color: #64748B; }
   .share-qr-box .qr-close { margin-top: 10px; padding: 6px 20px; border-radius: 8px; border: none; background: #F1F5F9; color: #475569; font-size: 12px; cursor: pointer; }
+
+  /* ===== Mobile Tab Menu ===== */
+  @media (max-width: 640px) {
+    .tab-nav { flex-wrap: wrap; padding: 4px; }
+    .hamburger { display: flex; }
+    .tab-btn { display: none; width: 100%; text-align: left; padding: 12px 14px; border-radius: 8px; }
+    .tab-btn.mobile-show { display: block; }
+    .tab-btn.active.mobile-show { display: block; }
+    .tab-nav.menu-open { flex-direction: column; align-items: stretch; }
+    .tab-nav.menu-open .hamburger { align-self: flex-end; }
+  }
+
+  /* ===== AI Chain Tab ===== */
+  .ai-card { display: flex; gap: 12px; padding: 14px 0; border-bottom: 1px solid #F1F5F9; }
+  .ai-card:last-child { border-bottom: none; }
+  .ai-card .ai-icon { width: 40px; height: 40px; border-radius: 10px; background: #FAF5FF; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+  .ai-card .ai-body { flex: 1; min-width: 0; }
+  .ai-card .ai-title { font-size: 14px; font-weight: 600; color: #1E293B; }
+  .ai-card .ai-meta { font-size: 12px; color: #94A3B8; margin-top: 2px; }
+  .ai-card .ai-summary { font-size: 13px; color: #64748B; margin-top: 4px; line-height: 1.5; }
+  .ai-card .ai-tags { display: flex; gap: 4px; margin-top: 6px; flex-wrap: wrap; }
+  .ai-card .ai-tag { font-size: 10px; padding: 2px 8px; border-radius: 8px; background: #F3F0FF; color: #7C3AED; }
+  .ai-card .ai-status-draft { font-size: 11px; color: #D97706; background: #FFFBEB; padding: 2px 8px; border-radius: 8px; display: inline-block; }
+
+  /* ===== Deep Dive Tab ===== */
+  .deep-card { display: flex; gap: 12px; padding: 16px 0; border-bottom: 1px solid #F1F5F9; text-decoration: none; color: inherit; }
+  .deep-card:last-child { border-bottom: none; }
+  .deep-card:active { opacity: 0.6; }
+  .deep-card .deep-num { width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg,#D4A017,#B8860B); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; flex-shrink: 0; }
+  .deep-card .deep-body { flex: 1; min-width: 0; }
+  .deep-card .deep-title { font-size: 14px; font-weight: 600; color: #1E293B; }
+  .deep-card .deep-meta { font-size: 12px; color: #94A3B8; margin-top: 2px; }
+  .deep-card .deep-desc { font-size: 13px; color: #64748B; margin-top: 4px; }
+  .deep-card .deep-tags { display: flex; gap: 4px; margin-top: 6px; flex-wrap: wrap; }
+  .deep-card .deep-tag { font-size: 10px; padding: 2px 8px; border-radius: 8px; background: #FFFBEB; color: #D4A017; }
 </style>
 </head>
 <body>
@@ -160,50 +208,63 @@
     </div>
   </div>
 
-  <!-- Clock + Holiday -->
-  <div class="clock-card" id="clockCard">
-    <div class="clock-icon">🕐</div>
-    <div class="clock-info">
-      <div class="clock-time" id="clockTime">--:--:--</div>
-      <div class="clock-date" id="clockDate">加载中...</div>
-      <div id="holidayInfo"></div>
-    </div>
-  </div>
+  <!-- ===== Tab Navigation ===== -->
+  <nav class="tab-nav" id="tabNav">
+    <button class="tab-btn active" data-tab="daily" onclick="switchTab('daily')">📰 日报</button>
+    <button class="tab-btn" data-tab="deep" onclick="switchTab('deep')">📚 深度专题</button>
+    <button class="tab-btn" data-tab="tools" onclick="switchTab('tools')">📊 数据工具</button>
+    <button class="tab-btn" data-tab="ai" onclick="switchTab('ai')">🤖 AI产业链</button>
+    <button class="hamburger" id="menuToggle" onclick="toggleMobileMenu()" aria-label="菜单">☰</button>
+  </nav>
 
-  <!-- Character Decoration -->
-  <div class="char-decoration">
-    <img class="char-thumb" src="assets/character/ayang-square.jpg" alt="阿扬" loading="lazy">
-    <div class="char-msg" id="charMsg">📡 每日早报 + 晚报，用漫画和音频解读财经大事。</div>
-  </div>
+  <!-- ================================================================ -->
+  <!-- Tab: 日报 (default)                                                 -->
+  <!-- ================================================================ -->
+  <div class="tab-content active" id="tab-daily">
 
-  <!-- VIX Fear & Greed Index (deploy-time pre-fetched) -->
-  <div class="vix-card" id="vixCard">
-    <div class="vix-header">
-      <h3>📊 恐慌贪婪指数</h3>
-      <span class="vix-update" id="vixUpdate">--</span>
-    </div>
-    <div class="vix-body" id="vixBody">
-      <div class="vix-loading">暂无数据</div>
-    </div>
-    <!-- VIX Trend Chart toggle (generated by fetch-vix-data.py) -->
-    <div class="vix-trend">
-      <div class="vix-trend-header">
-        <span class="vix-trend-label">趋势</span>
-        <div class="vix-toggle-group">
-          <button class="vix-toggle-btn active" data-period="1w" onclick="switchVixPeriod('1w')">1周</button>
-          <button class="vix-toggle-btn" data-period="1m" onclick="switchVixPeriod('1m')">1月</button>
-        </div>
+    <!-- Clock + Holiday -->
+    <div class="clock-card" id="clockCard">
+      <div class="clock-icon">🕐</div>
+      <div class="clock-info">
+        <div class="clock-time" id="clockTime">--:--:--</div>
+        <div class="clock-date" id="clockDate">加载中...</div>
+        <div id="holidayInfo"></div>
       </div>
-      <img id="vixTrendImg" loading="lazy" src="docs/charts/vix_trend_1w.svg" alt="VIX趋势图" onerror="this.closest('.vix-trend').style.display='none'">
-      <div class="vix-trend-note">盘中数据更新以实际走势为准</div>
     </div>
-  </div>
-  <script src="data/vix-data.js"></script>
 
-  <!-- Today's Content — pre-rendered (JS enhancement below) -->
-  <div class="section">
-    <h2>📅 今日内容</h2>
-    <div id="todayContent" data-date="2026-06-08">
+    <!-- Character Decoration -->
+    <div class="char-decoration">
+      <img class="char-thumb" src="assets/character/ayang-square.jpg" alt="阿扬" loading="lazy">
+      <div class="char-msg" id="charMsg">📡 每日早报 + 晚报，用漫画和音频解读财经大事。</div>
+    </div>
+
+    <!-- VIX Fear & Greed Index -->
+    <div class="vix-card">
+      <div class="vix-header">
+        <h3>📊 恐慌贪婪指数</h3>
+        <span class="vix-update" id="vixUpdateDaily">--</span>
+      </div>
+      <div class="vix-body" id="vixBodyDaily">
+        <div class="vix-loading">暂无数据</div>
+      </div>
+      <div class="vix-trend">
+        <div class="vix-trend-header">
+          <span class="vix-trend-label">趋势</span>
+          <div class="vix-toggle-group">
+            <button class="vix-toggle-btn active" data-period="1w" onclick="switchVixPeriod('1w','vixTrendImgDaily')">1周</button>
+            <button class="vix-toggle-btn" data-period="1m" onclick="switchVixPeriod('1m','vixTrendImgDaily')">1月</button>
+          </div>
+        </div>
+        <img id="vixTrendImgDaily" loading="lazy" src="docs/charts/vix_trend_1w.svg" alt="VIX趋势图" onerror="this.style.display='none'">
+        <div class="vix-trend-note">盘中数据更新以实际走势为准</div>
+      </div>
+    </div>
+    <script src="data/vix-data.js"></script>
+
+    <!-- Today's Content -->
+    <div class="section">
+      <h2>📅 今日内容</h2>
+      <div id="todayContent" data-date="2026-06-08">
 <!-- TODAY_PRERENDER_START -->
       <a class="edition edition-morning" href="2026-06-08/wechat-publish/morning/article.html">
         <div class="edition-icon">🌅</div>
@@ -220,44 +281,44 @@
         <span class="edition-arrow">›</span>
       </a>
 <!-- TODAY_PRERENDER_END -->
+      </div>
     </div>
-  </div>
 
-  <!-- Special: Weekly Deep Dive -->
-  <div class="section">
-    <h2>📚 扬说·深度 <span style="font-size: 11px; color: #94A3B8; font-weight: 400;">— 每周六，用逻辑穿透表象</span></h2>
-    <div id="specialContent">
-      <a class="edition edition-evening" href="special/非农三路径推演/article.html" style="border-bottom: 1px solid #F1F5F9;">
-        <div class="edition-icon" style="background:#FFFBEB;">📚</div>
-        <div class="edition-info">
-          <div class="edition-title">非农17.2万之后——市场三路径推演：CPI·FOMC·SpaceX三大催化剂</div>
-          <div class="edition-desc">2026-06-06 · 第3期 · 深度 · 市场分析 · 音频+4张漫画</div>
-        </div>
-        <span class="edition-arrow">›</span>
-      </a>
-      <a class="edition edition-evening" href="special/全球央行囤金/article.html" style="border-bottom: 1px solid #F1F5F9;">
-        <div class="edition-icon" style="background:#FFFBEB;">🥇</div>
-        <div class="edition-info">
-          <div class="edition-title">全球央行囤金：黄金超越美债意味着什么？</div>
-          <div class="edition-desc">2026-05-31 · 第2期 · 深度 · 音频+7张漫画</div>
-        </div>
-        <span class="edition-arrow">›</span>
-      </a>
-      <a class="edition edition-evening" href="special/央行法修订/article.html" style="border-bottom:none;">
-        <div class="edition-icon" style="background:#FFFBEB;">📚</div>
-        <div class="edition-info">
-          <div class="edition-title">央行法修订：一部法律如何影响你的钱袋子</div>
-          <div class="edition-desc">2026-05-23 · 第1期 · 深度 · 政策解读 · 音频+4张漫画</div>
-        </div>
-        <span class="edition-arrow">›</span>
-      </a>
+    <!-- Special: Weekly Deep Dive -->
+    <div class="section">
+      <h2>📚 扬说·深度 <span style="font-size: 11px; color: #94A3B8; font-weight: 400;">— 每周六，用逻辑穿透表象</span></h2>
+      <div id="specialContentDaily">
+        <a class="edition edition-evening" href="special/非农三路径推演/article.html" style="border-bottom: 1px solid #F1F5F9;">
+          <div class="edition-icon" style="background:#FFFBEB;">📚</div>
+          <div class="edition-info">
+            <div class="edition-title">非农17.2万之后——市场三路径推演：CPI·FOMC·SpaceX三大催化剂</div>
+            <div class="edition-desc">2026-06-06 · 第3期 · 深度 · 市场分析 · 音频+4张漫画</div>
+          </div>
+          <span class="edition-arrow">›</span>
+        </a>
+        <a class="edition edition-evening" href="special/全球央行囤金/article.html" style="border-bottom: 1px solid #F1F5F9;">
+          <div class="edition-icon" style="background:#FFFBEB;">🥇</div>
+          <div class="edition-info">
+            <div class="edition-title">全球央行囤金：黄金超越美债意味着什么？</div>
+            <div class="edition-desc">2026-05-31 · 第2期 · 深度 · 音频+7张漫画</div>
+          </div>
+          <span class="edition-arrow">›</span>
+        </a>
+        <a class="edition edition-evening" href="special/央行法修订/article.html" style="border-bottom:none;">
+          <div class="edition-icon" style="background:#FFFBEB;">📚</div>
+          <div class="edition-info">
+            <div class="edition-title">央行法修订：一部法律如何影响你的钱袋子</div>
+            <div class="edition-desc">2026-05-23 · 第1期 · 深度 · 政策解读 · 音频+4张漫画</div>
+          </div>
+          <span class="edition-arrow">›</span>
+        </a>
+      </div>
     </div>
-  </div>
 
-  <!-- History Archive — pre-rendered (JS handles "load more") -->
-  <div class="section">
-    <h2>📖 历史内容</h2>
-    <div id="historyContent">
+    <!-- History Archive -->
+    <div class="section">
+      <h2>📖 历史内容</h2>
+      <div id="historyContent">
 <!-- HISTORY_PRERENDER_START -->
       <div class="history-group">
         <div class="history-date-label">2026年6月6日</div>
@@ -427,6 +488,63 @@
         </div>
       </div>
 <!-- HISTORY_PRERENDER_END -->
+      </div>
+    </div>
+
+  </div><!-- /tab-daily -->
+
+  <!-- ================================================================ -->
+  <!-- Tab: 深度专题                                                      -->
+  <!-- ================================================================ -->
+  <div class="tab-content" id="tab-deep">
+    <div class="section">
+      <h2>📚 扬说·深度 <span style="font-size: 11px; color: #94A3B8; font-weight: 400;">— 每周六，用逻辑穿透表象</span></h2>
+      <div id="deepList"></div>
+    </div>
+  </div>
+
+  <!-- ================================================================ -->
+  <!-- Tab: 数据工具                                                      -->
+  <!-- ================================================================ -->
+  <div class="tab-content" id="tab-tools">
+    <div class="vix-card">
+      <div class="vix-header">
+        <h3>📊 恐慌贪婪指数</h3>
+        <span class="vix-update" id="vixUpdateTools">--</span>
+      </div>
+      <div class="vix-body" id="vixBodyTools">
+        <div class="vix-loading">暂无数据</div>
+      </div>
+      <div class="vix-trend">
+        <div class="vix-trend-header">
+          <span class="vix-trend-label">趋势</span>
+          <div class="vix-toggle-group">
+            <button class="vix-toggle-btn active" data-period="1w" onclick="switchVixPeriod('1w','vixTrendImgTools')">1周</button>
+            <button class="vix-toggle-btn" data-period="1m" onclick="switchVixPeriod('1m','vixTrendImgTools')">1月</button>
+          </div>
+        </div>
+        <img id="vixTrendImgTools" loading="lazy" src="docs/charts/vix_trend_1w.svg" alt="VIX趋势图" onerror="this.style.display='none'">
+        <div class="vix-trend-note">盘中数据更新以实际走势为准</div>
+      </div>
+    </div>
+
+    <!-- Future tools placeholder -->
+    <div class="section" style="text-align:center; padding: 20px; color: #94A3B8; font-size: 13px;">
+      <div class="big" style="font-size: 28px; margin-bottom: 8px;">📈</div>
+      <p>更多数据工具正在开发中...</p>
+      <p style="font-size: 11px; margin-top: 4px;">黄金/原油比价 · 美债收益率 · FedWatch利率概率</p>
+    </div>
+  </div>
+
+  <!-- ================================================================ -->
+  <!-- Tab: AI产业链                                                      -->
+  <!-- ================================================================ -->
+  <div class="tab-content" id="tab-ai">
+    <div class="section">
+      <h2>🤖 AI产业链洞察 <span style="font-size: 11px; color: #94A3B8; font-weight: 400;">— 不定期更新 · 深度分析</span></h2>
+      <div id="aiChainList">
+        <div class="no-data"><span class="big">⏳</span>内容编辑中</div>
+      </div>
     </div>
   </div>
 
@@ -467,7 +585,7 @@ if (location.hostname.includes('jsdmirror') || location.hostname.includes('jsdel
 }
 </script>
 
-</div>
+</div><!-- /.c -->
 
 <script src="data/articles.js"></script>
 <script>
@@ -475,6 +593,78 @@ if (location.hostname.includes('jsdmirror') || location.hostname.includes('jsdel
 // Data — loaded from data/articles.js as globals:
 //   ARTICLES_DATA, ARTICLES_BY_DATE, ARTICLES_LATEST, HOLIDAYS_DATA
 // ============================================================
+
+// ============================================================
+// Tab Switching
+// ============================================================
+function switchTab(tabId) {
+  // Update tab buttons
+  document.querySelectorAll('.tab-btn').forEach(function(btn) {
+    btn.classList.toggle('active', btn.dataset.tab === tabId);
+  });
+  // Update tab content
+  document.querySelectorAll('.tab-content').forEach(function(tc) {
+    tc.classList.toggle('active', tc.id === 'tab-' + tabId);
+  });
+  // Update URL hash (without scroll)
+  history.replaceState(null, '', '#' + tabId);
+  // Close mobile menu
+  closeMobileMenu();
+  // Save preference
+  try { localStorage.setItem('yzyTab', tabId); } catch(e) {}
+  // Re-render VIX if switching to tools tab (it might not have rendered yet)
+  if (tabId === 'tools') {
+    renderVixBody('vixBodyTools', 'vixUpdateTools');
+  }
+}
+
+function initTab() {
+  var tab = 'daily';
+  // Check hash
+  var hash = location.hash.slice(1);
+  if (hash && document.querySelector('.tab-btn[data-tab="' + hash + '"]')) {
+    tab = hash;
+  } else {
+    // Check localStorage
+    try {
+      var saved = localStorage.getItem('yzyTab');
+      if (saved && document.querySelector('.tab-btn[data-tab="' + saved + '"]')) {
+        tab = saved;
+      }
+    } catch(e) {}
+  }
+  switchTab(tab);
+}
+
+// Listen for hash changes (browser back/forward)
+window.addEventListener('hashchange', function() {
+  var hash = location.hash.slice(1) || 'daily';
+  if (document.querySelector('.tab-btn[data-tab="' + hash + '"]')) {
+    switchTab(hash);
+  }
+});
+
+// ============================================================
+// Mobile Menu
+// ============================================================
+function toggleMobileMenu() {
+  var nav = document.getElementById('tabNav');
+  var btn = document.getElementById('menuToggle');
+  nav.classList.toggle('menu-open');
+  document.querySelectorAll('.tab-btn').forEach(function(b) {
+    b.classList.toggle('mobile-show');
+  });
+  btn.textContent = nav.classList.contains('menu-open') ? '✕' : '☰';
+}
+
+function closeMobileMenu() {
+  var nav = document.getElementById('tabNav');
+  nav.classList.remove('menu-open');
+  document.querySelectorAll('.tab-btn').forEach(function(b) {
+    b.classList.remove('mobile-show');
+  });
+  document.getElementById('menuToggle').textContent = '☰';
+}
 
 // ============================================================
 // Beijing Time Clock (UTC+8)
@@ -494,20 +684,20 @@ function formatDate(bj) {
   const m = bj.getMonth() + 1;
   const d = bj.getDate();
   const wd = WEEKDAYS[bj.getDay()];
-  return `${y}年${m}月${d}日 ${wd}`;
+  return y + '\u5E74' + m + '\u6708' + d + '\u65E5 ' + wd;
 }
 
 function formatDateISO(bj) {
   const y = bj.getFullYear();
   const m = pad2(bj.getMonth() + 1);
   const d = pad2(bj.getDate());
-  return `${y}-${m}-${d}`;
+  return y + '-' + m + '-' + d;
 }
 
 function updateClock() {
   const bj = getBeijingNow();
   document.getElementById('clockTime').textContent =
-    `${pad2(bj.getHours())}:${pad2(bj.getMinutes())}:${pad2(bj.getSeconds())}`;
+    pad2(bj.getHours()) + ':' + pad2(bj.getMinutes()) + ':' + pad2(bj.getSeconds());
   document.getElementById('clockDate').textContent = formatDate(bj);
 }
 
@@ -516,7 +706,7 @@ function updateClock() {
 // ============================================================
 function updateHoliday() {
   const today = formatDateISO(getBeijingNow());
-  const todayHolidays = HOLIDAYS_DATA.filter(h => h.date === today);
+  const todayHolidays = HOLIDAYS_DATA.filter(function(h) { return h.date === today; });
 
   const info = document.getElementById('holidayInfo');
   if (todayHolidays.length === 0) {
@@ -524,20 +714,23 @@ function updateHoliday() {
     return;
   }
 
-  // Show public holiday first, then market/international
-  const publicH = todayHolidays.find(h => h.type === 'public');
-  const marketH = todayHolidays.find(h => h.type === 'market');
-  const intlH = todayHolidays.find(h => h.type === 'international');
+  var publicH = null, marketH = null, intlH = null;
+  for (var i = 0; i < todayHolidays.length; i++) {
+    var h = todayHolidays[i];
+    if (h.type === 'public') publicH = h;
+    else if (h.type === 'market') marketH = h;
+    else if (h.type === 'international') intlH = h;
+  }
 
-  let html = '';
+  var html = '';
   if (publicH) {
-    html += `<span class="holiday-tag">🎉 ${publicH.name}</span> `;
+    html += '<span class="holiday-tag">\uD83C\uDF89 ' + publicH.name + '</span> ';
   }
   if (marketH) {
-    html += `<span class="holiday-tag market">📊 ${marketH.name}</span> `;
+    html += '<span class="holiday-tag market">\uD83D\uDCCA ' + marketH.name + '</span> ';
   }
   if (!publicH && intlH) {
-    html += `<span class="holiday-tag">🌍 ${intlH.name}</span> `;
+    html += '<span class="holiday-tag">\uD83C\uDF0D ' + intlH.name + '</span> ';
   }
   info.innerHTML = html || '<span class="no-holiday">今日无假期</span>';
 }
@@ -552,121 +745,218 @@ function scheduleMidnightRefresh() {
     now.getMinutes() * 60000 -
     now.getSeconds() * 1000 -
     now.getMilliseconds() + 1000;
-  setTimeout(() => {
+  setTimeout(function() {
     window.location.reload();
   }, msToMidnight);
 }
 
 // ============================================================
-// Render: Special Editions (Weekly Deep Dive)
+// Render: Special Editions (Weekly Deep Dive) — used by daily tab
 // ============================================================
-function renderSpecial() {
-  const container = document.getElementById('specialContent');
-  const specials = ARTICLES_DATA.filter(a => a.session === 'special');
-
-  if (specials.length === 0) {
-    // Keep the pre-rendered placeholder
-    return;
+function renderSpecialDaily() {
+  var container = document.getElementById('specialContentDaily');
+  if (!container) return;
+  var specials = [];
+  for (var i = 0; i < ARTICLES_DATA.length; i++) {
+    if (ARTICLES_DATA[i].session === 'special') specials.push(ARTICLES_DATA[i]);
   }
+  if (specials.length === 0) return;
 
-  let html = '';
-  for (const s of specials) {
-    const seriesLabel = s.series ? ` · ${s.series}` : '';
-    // Build media indicators dynamically from metadata
-    const mediaParts = [];
+  var html = '';
+  for (var j = 0; j < specials.length; j++) {
+    var s = specials[j];
+    var seriesLabel = s.series ? ' \u00B7 ' + s.series : '';
+    var mediaParts = [];
     if (s.has_audio) mediaParts.push('音频');
-    if (s.has_comic && s.comic_count > 0) mediaParts.push(`${s.comic_count}张漫画`);
-    const mediaLabel = mediaParts.length > 0 ? ` · ${mediaParts.join('+')}` : '';
-    html += `
-      <a class="edition edition-evening" href="${s.url}" style="border-bottom:none;">
-        <div class="edition-icon" style="background:#FFFBEB;">📚</div>
-        <div class="edition-info">
-          <div class="edition-title">${s.title}</div>
-          <div class="edition-desc">${s.date} · 深度${seriesLabel}${mediaLabel}</div>
-        </div>
-        <span class="edition-arrow">›</span>
-      </a>`;
+    if (s.has_comic && s.comic_count > 0) mediaParts.push(s.comic_count + '张漫画');
+    var mediaLabel = mediaParts.length > 0 ? ' \u00B7 ' + mediaParts.join('+') : '';
+    var borderStyle = (j === specials.length - 1) ? 'border-bottom:none;' : 'border-bottom:1px solid #F1F5F9;';
+    html +=
+      '<a class="edition edition-evening" href="' + s.url + '" style="' + borderStyle + '">' +
+        '<div class="edition-icon" style="background:#FFFBEB;">\uD83D\uDCDA</div>' +
+        '<div class="edition-info">' +
+          '<div class="edition-title">' + s.title + '</div>' +
+          '<div class="edition-desc">' + s.date + ' \u00B7 深度' + seriesLabel + mediaLabel + '</div>' +
+        '</div>' +
+        '<span class="edition-arrow">\u203A</span>' +
+      '</a>';
   }
   container.innerHTML = html;
 }
 
 // ============================================================
-// Render
+// Render: Deep Dive Tab (独立的深度专题Tab)
 // ============================================================
-function initData() {
-  updateHoliday();
-  renderToday();
-  renderSpecial();
-  updateCharMsg();
+function renderDeepTab() {
+  var container = document.getElementById('deepList');
+  if (!container) return;
+  var specials = [];
+  for (var i = 0; i < ARTICLES_DATA.length; i++) {
+    if (ARTICLES_DATA[i].session === 'special') specials.push(ARTICLES_DATA[i]);
+  }
+
+  if (specials.length === 0) {
+    container.innerHTML = '<div class="no-data"><span class="big">\uD83D\uDCDA</span>\u6682\u65E0\u6DF1\u5EA6\u5185\u5BB9</div>';
+    return;
+  }
+
+  var html = '';
+  // Sort by date descending
+  specials.sort(function(a, b) { return a.date < b.date ? 1 : -1; });
+  for (var j = 0; j < specials.length; j++) {
+    var s = specials[j];
+    var seriesLabel = s.series ? ' \u00B7 ' + s.series : '';
+    var mediaParts = [];
+    if (s.has_audio) mediaParts.push('\uD83C\uDFA7 音频');
+    if (s.has_comic && s.comic_count > 0) mediaParts.push('\uD83D\uDCDD ' + s.comic_count + '\u5F20\u6F2B\u753B');
+    var mediaLabel = mediaParts.length > 0 ? '<br>' + mediaParts.join(' ') : '';
+    var editionNum = specials.length - j;
+
+    html +=
+      '<a class="deep-card" href="' + s.url + '">' +
+        '<div class="deep-num">' + editionNum + '</div>' +
+        '<div class="deep-body">' +
+          '<div class="deep-title">' + s.title + '</div>' +
+          '<div class="deep-meta">' + s.date + ' \u00B7 \u7B2C' + editionNum + '\u671F' + seriesLabel + '</div>' +
+          '<div class="deep-desc">' + mediaLabel + '</div>';
+    if (s.series) {
+      html += '<div class="deep-tags"><span class="deep-tag">' + s.series + '</span></div>';
+    }
+    html += '</div></a>';
+  }
+  container.innerHTML = html;
 }
 
 // ============================================================
-// Render: Today's Content — pre-rendered in HTML
-// JS only fills in if pre-rendered content is stale
+// Render: AI Chain Tab
+// ============================================================
+function renderAiChain() {
+  var container = document.getElementById('aiChainList');
+  if (!container) return;
+
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', 'data/ai-chain.json', true);
+  xhr.onload = function() {
+    if (xhr.status !== 200) {
+      container.innerHTML = '<div class="no-data"><span class="big">\u26A0\uFE0F</span>\u52A0\u8F7D\u5931\u8D25</div>';
+      return;
+    }
+    try {
+      var data = JSON.parse(xhr.responseText);
+      var articles = data.articles || [];
+      if (articles.length === 0) {
+        container.innerHTML = '<div class="no-data"><span class="big">\u23F3</span>\u5185\u5BB9\u7F16\u8F91\u4E2D</div>';
+        return;
+      }
+
+      var html = '';
+      for (var i = 0; i < articles.length; i++) {
+        var a = articles[i];
+        var statusHtml = '';
+        if (a.status === 'draft' || !a.url) {
+          statusHtml = '<span class="ai-status-draft">\uD83D\uDCDD \u7F16\u8F91\u4E2D</span>';
+        }
+        var tagsHtml = '';
+        if (a.tags && a.tags.length > 0) {
+          tagsHtml = '<div class="ai-tags">';
+          for (var t = 0; t < a.tags.length; t++) {
+            tagsHtml += '<span class="ai-tag">' + a.tags[t] + '</span>';
+          }
+          tagsHtml += '</div>';
+        }
+        var dateStr = a.date || '\u5F85\u5B9A';
+
+        if (a.url && a.status !== 'draft') {
+          html += '<a class="ai-card" href="' + a.url + '">';
+        } else {
+          html += '<div class="ai-card">';
+        }
+        html +=
+          '<div class="ai-icon">\uD83E\uDD16</div>' +
+          '<div class="ai-body">' +
+            '<div class="ai-title">' + a.title + '</div>' +
+            '<div class="ai-meta">' + dateStr + ' \u00B7 \u9884\u8BA1\u9605\u8BFB' + a.readTime + '\u5206\u949F ' + statusHtml + '</div>' +
+            '<div class="ai-summary">' + (a.summary || '') + '</div>' +
+            tagsHtml +
+          '</div>';
+        if (a.url && a.status !== 'draft') {
+          html += '</a>';
+        } else {
+          html += '</div>';
+        }
+      }
+      container.innerHTML = html;
+    } catch(e) {
+      container.innerHTML = '<div class="no-data"><span class="big">\u26A0\uFE0F</span>\u6570\u636E\u89E3\u6790\u5931\u8D25</div>';
+    }
+  };
+  xhr.onerror = function() {
+    container.innerHTML = '<div class="no-data"><span class="big">\u23F3</span>\u5185\u5BB9\u7F16\u8F91\u4E2D</div>';
+  };
+  xhr.send();
+}
+
+// ============================================================
+// Render: Today's Content
 // ============================================================
 function updateCharMsg() {
   const todayStr = formatDateISO(getBeijingNow());
-  const data = ARTICLES_BY_DATE[todayStr];
-  if (data) {
+  if (ARTICLES_BY_DATE[todayStr]) {
     document.getElementById('charMsg').textContent =
-      '📡 每日早报 + 晚报，用漫画和音频解读财经大事。';
+      '\uD83D\uDCE1 \u6BCF\u65E5\u65E9\u62A5 + \u665A\u62A5\uFF0C\u7528\u6F2B\u753B\u548C\u97F3\u9891\u89E3\u8BFB\u8D22\u7ECF\u5927\u4E8B\u3002';
   } else {
-    const latestDate = ARTICLES_LATEST;
-    if (latestDate) {
+    if (ARTICLES_LATEST) {
       document.getElementById('charMsg').textContent =
-        `📡 暂无今日内容，显示最近更新（${latestDate}）`;
+        '\uD83D\uDCE1 \u6682\u65E0\u4ECA\u65E5\u5185\u5BB9\uFF0C\u663E\u793A\u6700\u8FD1\u66F4\u65B0\uFF08' + ARTICLES_LATEST + '\uFF09';
     }
   }
 }
 
 function renderToday() {
-  const container = document.getElementById('todayContent');
+  var container = document.getElementById('todayContent');
+  if (!container) return;
   const todayStr = formatDateISO(getBeijingNow());
-  // Always re-generate from JS data when available.
-  // Pre-rendered HTML is for SEO/initial view only;
-  // JS data layer is authoritative (covers title changes, link updates, etc.)
   const data = ARTICLES_BY_DATE[todayStr];
   if (data) {
     renderEditionList(container, data, todayStr);
     container.dataset.date = todayStr;
   }
-  // If no data for today, keep the pre-rendered HTML as fallback
 }
 
-function renderEditionList(container, data, dateStr) {
-  const sessions = [
-    { key: 'morning', icon: '🌅', label: '早报' },
-    { key: 'evening', icon: '🌙', label: '晚报' },
-    { key: 'special', icon: '📚', label: '深度' },
+function renderEditionList(container, data) {
+  var sessions = [
+    { key: 'morning', icon: '\uD83C\uDF05', label: '\u65E9\u62A5' },
+    { key: 'evening', icon: '\uD83C\uDF19', label: '\u665A\u62A5' },
+    { key: 'special', icon: '\uD83D\uDCDA', label: '\u6DF1\u5EA6' },
   ];
 
-  let hasAny = false;
-  let html = '';
-  for (const s of sessions) {
-    const item = data[s.key];
+  var hasAny = false;
+  var html = '';
+  for (var i = 0; i < sessions.length; i++) {
+    var s = sessions[i];
+    var item = data[s.key];
     if (!item) continue;
     hasAny = true;
-    const cls = s.key === 'morning' ? 'edition-morning' : 'edition-evening';
-    const title = item.title || '财经内容';
-    // 媒体指示器：根据元数据动态生成
-    const mediaParts = [];
+    var cls = s.key === 'morning' ? 'edition-morning' : 'edition-evening';
+    var title = item.title || '财经内容';
+    var mediaParts = [];
     if (item.has_audio) mediaParts.push('音频');
     if (item.has_comic && item.comic_count > 0) mediaParts.push('漫画');
-    const mediaLabel = mediaParts.length > 0 ? ' · ' + mediaParts.join('+') : '';
-    const editionLabel = s.label + mediaLabel;
-    html += `
-      <a class="edition ${cls}" href="${item.url}">
-        <div class="edition-icon">${s.icon}</div>
-        <div class="edition-info">
-          <div class="edition-title">${title}</div>
-          <div class="edition-desc">${editionLabel}</div>
-        </div>
-        <span class="edition-arrow">›</span>
-      </a>`;
+    var mediaLabel = mediaParts.length > 0 ? ' \u00B7 ' + mediaParts.join('+') : '';
+    var editionLabel = s.label + mediaLabel;
+    html +=
+      '<a class="edition ' + cls + '" href="' + item.url + '">' +
+        '<div class="edition-icon">' + s.icon + '</div>' +
+        '<div class="edition-info">' +
+          '<div class="edition-title">' + title + '</div>' +
+          '<div class="edition-desc">' + editionLabel + '</div>' +
+        '</div>' +
+        '<span class="edition-arrow">\u203A</span>' +
+      '</a>';
   }
 
   if (!hasAny) {
-    container.innerHTML = '<div class="no-data"><span class="big">📭</span>暂无今日内容</div>';
+    container.innerHTML = '<div class="no-data"><span class="big">\uD83D\uDCED</span>\u6682\u65E0\u4ECA\u65E5\u5185\u5BB9</div>';
   } else {
     container.innerHTML = html;
   }
@@ -675,80 +965,84 @@ function renderEditionList(container, data, dateStr) {
 // ============================================================
 // Render: History Archive
 // ============================================================
-const INITIAL_HISTORY = 5; // Show last 5 dates initially
+const INITIAL_HISTORY = 5;
 
 function renderHistory() {
-  const container = document.getElementById('historyContent');
+  var container = document.getElementById('historyContent');
+  if (!container) return;
 
   const todayStr = formatDateISO(getBeijingNow());
-  const dates = Object.keys(ARTICLES_BY_DATE).filter(d => d !== todayStr);
+  var dates = Object.keys(ARTICLES_BY_DATE).filter(function(d) { return d !== todayStr; });
 
   if (dates.length === 0) {
-    container.innerHTML = '<div class="no-data" style="padding:16px 0;">暂无历史内容</div>';
+    container.innerHTML = '<div class="no-data" style="padding:16px 0;">\u6682\u65E0\u5386\u53F2\u5185\u5BB9</div>';
     return;
   }
 
-  // Sort newest first
   dates.sort().reverse();
-
   renderHistorySlice(container, dates, 0, INITIAL_HISTORY);
 }
 
 function renderHistorySlice(container, dates, start, end) {
-  const slice = dates.slice(start, end);
-  const hasMore = end < dates.length;
-  let html = '';
+  var slice = dates.slice(start, end);
+  var hasMore = end < dates.length;
+  var html = '';
 
-  for (const date of slice) {
-    const data = ARTICLES_BY_DATE[date];
-    const [y, m, d] = date.split('-');
-    const displayDate = `${y}年${parseInt(m)}月${parseInt(d)}日`;
+  for (var i = 0; i < slice.length; i++) {
+    var date = slice[i];
+    var data = ARTICLES_BY_DATE[date];
+    var parts = date.split('-');
+    var displayDate = parts[0] + '\u5E74' + parseInt(parts[1]) + '\u6708' + parseInt(parts[2]) + '\u65E5';
 
-    html += `<div class="history-group">`;
-    html += `<div class="history-date-label">${displayDate}</div>`;
+    html += '<div class="history-group">';
+    html += '<div class="history-date-label">' + displayDate + '</div>';
 
     if (data.morning) {
-      html += `
-        <div class="history-item">
-          <span class="h-icon">🌅</span>
-          <a href="${data.morning.url}">${data.morning.title || '早报'}</a>
-          <span class="h-time">早报</span>
-        </div>`;
+      html +=
+        '<div class="history-item">' +
+          '<span class="h-icon">\uD83C\uDF05</span>' +
+          '<a href="' + data.morning.url + '">' + (data.morning.title || '早报') + '</a>' +
+          '<span class="h-time">早报</span>' +
+        '</div>';
     }
     if (data.evening) {
-      html += `
-        <div class="history-item">
-          <span class="h-icon">🌙</span>
-          <a href="${data.evening.url}">${data.evening.title || '晚报'}</a>
-          <span class="h-time">晚报</span>
-        </div>`;
+      html +=
+        '<div class="history-item">' +
+          '<span class="h-icon">\uD83C\uDF19</span>' +
+          '<a href="' + data.evening.url + '">' + (data.evening.title || '晚报') + '</a>' +
+          '<span class="h-time">晚报</span>' +
+        '</div>';
     }
-    html += `</div>`;
+    html += '</div>';
   }
 
   if (hasMore) {
-    html += `<button class="load-more" onclick="loadMoreHistory(this)" data-start="${end}" data-end="${end + INITIAL_HISTORY}">加载更多 ↑</button>`;
+    html += '<button class="load-more" onclick="loadMoreHistory(this)" data-start="' + end + '" data-end="' + (end + INITIAL_HISTORY) + '">加载更多 ↑</button>';
   }
 
   container.innerHTML = html;
 }
 
 function loadMoreHistory(btn) {
-  const start = parseInt(btn.dataset.start);
-  const end = parseInt(btn.dataset.end);
+  var start = parseInt(btn.dataset.start);
+  var end = parseInt(btn.dataset.end);
   const todayStr = formatDateISO(getBeijingNow());
-  const dates = Object.keys(ARTICLES_BY_DATE).filter(d => d !== todayStr);
+  var dates = Object.keys(ARTICLES_BY_DATE).filter(function(d) { return d !== todayStr; });
   dates.sort().reverse();
   renderHistorySlice(btn.parentElement, dates, start, end);
 }
 
 // ============================================================
-// VIX Fear & Greed Index (静态渲染 — 数据由 GitHub Actions 预抓取)
+// VIX Fear & Greed Index (shared render function)
 // ============================================================
 function renderVix() {
-  const d = window.__VIX_DATA;
-  const body = document.getElementById('vixBody');
-  const update = document.getElementById('vixUpdate');
+  renderVixBody('vixBodyDaily', 'vixUpdateDaily');
+}
+
+function renderVixBody(bodyId, updateId) {
+  var d = window.__VIX_DATA;
+  var body = document.getElementById(bodyId);
+  var update = document.getElementById(updateId);
   if (!d || !body) return;
 
   if (d.current == null) {
@@ -756,47 +1050,43 @@ function renderVix() {
     return;
   }
 
-  update.textContent = d.date;
+  if (update) update.textContent = d.date;
 
-  const arrow = d.change >= 0 ? '↑' : '↓';
-  const cls = d.change >= 0 ? 'vix-change-up' : 'vix-change-down';
-  const absChg = Math.abs(d.change).toFixed(1);
-  const pctStr = (d.changePct >= 0 ? '+' : '') + d.changePct.toFixed(1) + '%';
+  var arrow = d.change >= 0 ? '\u2191' : '\u2193';
+  var cls = d.change >= 0 ? 'vix-change-up' : 'vix-change-down';
+  var absChg = Math.abs(d.change).toFixed(1);
+  var pctStr = (d.changePct >= 0 ? '+' : '') + d.changePct.toFixed(1) + '%';
 
-  body.innerHTML = [
-    '<div class="vix-gauge ' + d.cls + '">',
-    '  <span class="vix-value">' + d.current.toFixed(1) + '</span>',
-    '  <span class="vix-label">' + d.level + '</span>',
-    '</div>',
-    '<div class="vix-details">',
-    '  <div class="vix-bar">',
-    '    <div class="vix-bar-indicator" style="left: ' + d.pct + '%;"></div>',
-    '  </div>',
-    '  <div class="vix-stats">',
-    '    <span class="vix-stat">前一交易日: ' + d.prev + '</span>',
-    '    <span class="vix-stat ' + cls + '">' + arrow + ' ' + absChg + ' (' + pctStr + ')</span>',
-    '  </div>',
-    '  <div style="margin-top:6px;font-size:9px;color:#94A3B8;text-align:center">VIX &lt; 15 市场平静 · 15-20 焦虑 · 20+ 恐慌</div>',
-    '</div>'
-  ].join('');
-}
-
-// DOM ready 后渲染 VIX
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', renderVix);
-} else {
-  renderVix();
+  body.innerHTML =
+    '<div class="vix-gauge ' + d.cls + '">' +
+      '<span class="vix-value">' + d.current.toFixed(1) + '</span>' +
+      '<span class="vix-label">' + d.level + '</span>' +
+    '</div>' +
+    '<div class="vix-details">' +
+      '<div class="vix-bar">' +
+        '<div class="vix-bar-indicator" style="left: ' + d.pct + '%;"></div>' +
+      '</div>' +
+      '<div class="vix-stats">' +
+        '<span class="vix-stat">前一交易日: ' + d.prev + '</span>' +
+        '<span class="vix-stat ' + cls + '">' + arrow + ' ' + absChg + ' (' + pctStr + ')</span>' +
+      '</div>' +
+      '<div style="margin-top:6px;font-size:9px;color:#94A3B8;text-align:center">VIX < 15 市场平静 · 15-20 焦虑 · 20+ 恐慌</div>' +
+    '</div>';
 }
 
 // ============================================================
-// VIX 趋势图切换（近1周 / 近1月）
+// VIX 趋势图切换
 // ============================================================
-function switchVixPeriod(period) {
-  const img = document.getElementById('vixTrendImg');
-  const btns = document.querySelectorAll('.vix-toggle-btn');
-  btns.forEach(function(b) {
-    b.classList.toggle('active', b.dataset.period === period);
-  });
+function switchVixPeriod(period, imgId) {
+  var img = document.getElementById(imgId);
+  if (!img) return;
+  var parent = img.closest('.vix-trend');
+  if (parent) {
+    var btns = parent.querySelectorAll('.vix-toggle-btn');
+    btns.forEach(function(b) {
+      b.classList.toggle('active', b.dataset.period === period);
+    });
+  }
   img.src = period === '1w'
     ? 'docs/charts/vix_trend_1w.svg'
     : 'docs/charts/vix_trend_1m.svg';
@@ -806,8 +1096,8 @@ function switchVixPeriod(period) {
 // QR Share / WeChat Share
 // ============================================================
 function shareWeChat() {
-  const url = window.location.href;
-  const qrUrl = 'https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=' + encodeURIComponent(url);
+  var url = window.location.href;
+  var qrUrl = 'https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=' + encodeURIComponent(url);
   document.getElementById('qrImage').src = qrUrl;
   document.getElementById('qrModal').classList.add('show');
 }
@@ -817,11 +1107,11 @@ function closeQR() {
 }
 
 function copyLink() {
-  const url = window.location.href;
+  var url = window.location.href;
   if (navigator.clipboard && navigator.clipboard.writeText) {
-    navigator.clipboard.writeText(url).then(() => {
+    navigator.clipboard.writeText(url).then(function() {
       alert('✅ 链接已复制，可粘贴发送给朋友');
-    }).catch(() => {
+    }).catch(function() {
       fallbackCopy(url);
     });
   } else {
@@ -830,7 +1120,7 @@ function copyLink() {
 }
 
 function fallbackCopy(text) {
-  const ta = document.createElement('textarea');
+  var ta = document.createElement('textarea');
   ta.value = text;
   ta.style.position = 'fixed';
   ta.style.opacity = '0';
@@ -844,17 +1134,17 @@ function fallbackCopy(text) {
 // ============================================================
 // Character message rotation
 // ============================================================
-const CHAR_MSGS = [
-  '📡 每日早报 + 晚报，用漫画和音频解读财经大事。',
-  '💡 每个交易日更新，陪你读懂财经世界。',
-  '🎧 边听边看，通勤路上也能学财经。',
-  '📊 数据来自权威来源，Python 生成图表确保严谨。',
+var CHAR_MSGS = [
+  '\uD83D\uDCE1 \u6BCF\u65E5\u65E9\u62A5 + \u665A\u62A5\uFF0C\u7528\u6F2B\u753B\u548C\u97F3\u9891\u89E3\u8BFB\u8D22\u7ECF\u5927\u4E8B\u3002',
+  '\uD83D\uDCA1 \u6BCF\u4E2A\u4EA4\u6613\u65E5\u66F4\u65B0\uFF0C\u966A\u4F60\u8BFB\u61C2\u8D22\u7ECF\u4E16\u754C\u3002',
+  '\uD83C\uDFA7 \u8FB9\u542C\u8FB9\u770B\uFF0C\u901A\u52E4\u8DEF\u4E0A\u4E5F\u80FD\u5B66\u8D22\u7ECF\u3002',
+  '\uD83D\uDCCA \u6570\u636E\u6765\u81EA\u6743\u5A01\u6765\u6E90\uFF0CPython \u751F\u6210\u56FE\u8868\u786E\u4FDD\u4E25\u8C28\u3002',
 ];
-let msgIdx = 0;
+var msgIdx = 0;
 function rotateCharMsg() {
-  const el = document.getElementById('charMsg');
-  // Only rotate if it's the default message (not the "no today" override)
-  if (el.textContent.startsWith('📡 每日早报')) {
+  var el = document.getElementById('charMsg');
+  if (!el) return;
+  if (el.textContent.indexOf('\uD83D\uDCE1 \u6BCF\u65E5') === 0) {
     msgIdx = (msgIdx + 1) % CHAR_MSGS.length;
     el.textContent = CHAR_MSGS[msgIdx];
   }
@@ -863,11 +1153,41 @@ function rotateCharMsg() {
 // ============================================================
 // Init
 // ============================================================
+function initData() {
+  updateHoliday();
+  renderToday();
+  renderSpecialDaily();
+  renderDeepTab();
+  renderAiChain();
+  updateCharMsg();
+}
+
+// VIX init: wait for vix-data.js to load
+function initVix() {
+  // vix-data.js sets window.__VIX_DATA via <script> before this block
+  if (window.__VIX_DATA) {
+    renderVix();
+    renderVixBody('vixBodyTools', 'vixUpdateTools');
+  } else {
+    var checkVix = setInterval(function() {
+      if (window.__VIX_DATA) {
+        renderVix();
+        renderVixBody('vixBodyTools', 'vixUpdateTools');
+        clearInterval(checkVix);
+      }
+    }, 100);
+    setTimeout(function() { clearInterval(checkVix); }, 5000);
+  }
+}
+
+// DOM ready
 updateClock();
 setInterval(updateClock, 1000);
 setInterval(rotateCharMsg, 6000);
 
+initTab();
 initData();
+initVix();
 scheduleMidnightRefresh();
 </script>
 </body>

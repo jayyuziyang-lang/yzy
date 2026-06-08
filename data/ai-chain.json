@@ -1,0 +1,16 @@
+{
+  "generated_at": "2026-06-09",
+  "description": "AI产业链洞察 — 不定期更新的深度分析",
+  "articles": [
+    {
+      "id": "ai-chip-overview",
+      "title": "AI芯片产业链全景图（上）",
+      "date": "",
+      "summary": "从设计到封装，一张图看懂AI芯片产业链",
+      "readTime": 15,
+      "status": "draft",
+      "url": "",
+      "tags": ["AI芯片", "产业链"]
+    }
+  ]
+}
