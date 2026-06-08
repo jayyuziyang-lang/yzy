@@ -92,8 +92,12 @@
   .history-item .h-icon { font-size: 14px; flex-shrink: 0; }
   .history-item .h-time { font-size: 11px; color: #94A3B8; flex-shrink: 0; }
 
-  .load-more { display: block; width: 100%; padding: 10px; margin-top: 8px; text-align: center; font-size: 13px; color: #1A56DB; background: #F8FAFC; border-radius: 8px; cursor: pointer; border: none; }
-  .load-more:active { background: #F1F5F9; }
+  .pagination-bar { display: flex; align-items: center; justify-content: center; gap: 6px; margin-top: 10px; padding: 4px 0; }
+  .pagination-bar .page-btn { padding: 7px 14px; border: 1px solid #E2E8F0; background: #fff; border-radius: 8px; font-size: 13px; color: #1A56DB; cursor: pointer; font-weight: 600; transition: all 0.15s; min-width: 64px; }
+  .pagination-bar .page-btn:hover { background: #F8FAFC; border-color: #1A56DB; }
+  .pagination-bar .page-btn:active { transform: scale(0.96); }
+  .pagination-bar .page-btn:disabled { opacity: 0.35; cursor: not-allowed; background: #F8FAFC; }
+  .pagination-bar .page-info { font-size: 12px; color: #64748B; min-width: 70px; text-align: center; user-select: none; }
 
   /* ===== About / Footer ===== */
   .about-card { background: #fff; border-radius: 12px; padding: 14px 16px; margin-bottom: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.07); }
@@ -871,29 +875,35 @@ function renderEditionList(container, data) {
 }
 
 // ============================================================
-// Render: History Archive
+// Render: History Archive — 分页（每页5天）
 // ============================================================
-const INITIAL_HISTORY = 5;
+const HISTORY_PER_PAGE = 5;
+var historyCurrentPage = 1;
+var historyTotalPages = 1;
+var historyDates = [];
 
 function renderHistory() {
   var container = document.getElementById('historyContent');
   if (!container) return;
 
   const todayStr = formatDateISO(getBeijingNow());
-  var dates = Object.keys(ARTICLES_BY_DATE).filter(function(d) { return d !== todayStr; });
+  historyDates = Object.keys(ARTICLES_BY_DATE).filter(function(d) { return d !== todayStr; });
 
-  if (dates.length === 0) {
+  if (historyDates.length === 0) {
     container.innerHTML = '<div class="no-data" style="padding:16px 0;">暂无历史内容</div>';
     return;
   }
 
-  dates.sort().reverse();
-  renderHistorySlice(container, dates, 0, INITIAL_HISTORY);
+  historyDates.sort().reverse();
+  historyTotalPages = Math.ceil(historyDates.length / HISTORY_PER_PAGE);
+  historyCurrentPage = 1;
+  renderHistoryPage(container);
 }
 
-function renderHistorySlice(container, dates, start, end) {
-  var slice = dates.slice(start, end);
-  var hasMore = end < dates.length;
+function renderHistoryPage(container) {
+  var start = (historyCurrentPage - 1) * HISTORY_PER_PAGE;
+  var end = Math.min(start + HISTORY_PER_PAGE, historyDates.length);
+  var slice = historyDates.slice(start, end);
   var html = '';
 
   for (var i = 0; i < slice.length; i++) {
@@ -924,20 +934,26 @@ function renderHistorySlice(container, dates, start, end) {
     html += '</div>';
   }
 
-  if (hasMore) {
-    html += '<button class="load-more" onclick="loadMoreHistory(this)" data-start="' + end + '" data-end="' + (end + INITIAL_HISTORY) + '">加载更多 ↑</button>';
-  }
+  // 分页栏
+  html += '<div class="pagination-bar">' +
+    '<button class="page-btn" onclick="historyPrevPage()"' + (historyCurrentPage <= 1 ? ' disabled' : '') + '>‹ 上一页</button>' +
+    '<span class="page-info">' + historyCurrentPage + ' / ' + historyTotalPages + '</span>' +
+    '<button class="page-btn" onclick="historyNextPage()"' + (historyCurrentPage >= historyTotalPages ? ' disabled' : '') + '>下一页 ›</button>' +
+    '</div>';
 
   container.innerHTML = html;
 }
 
-function loadMoreHistory(btn) {
-  var start = parseInt(btn.dataset.start);
-  var end = parseInt(btn.dataset.end);
-  const todayStr = formatDateISO(getBeijingNow());
-  var dates = Object.keys(ARTICLES_BY_DATE).filter(function(d) { return d !== todayStr; });
-  dates.sort().reverse();
-  renderHistorySlice(btn.parentElement, dates, start, end);
+function historyPrevPage() {
+  if (historyCurrentPage <= 1) return;
+  historyCurrentPage--;
+  renderHistoryPage(document.getElementById('historyContent'));
+}
+
+function historyNextPage() {
+  if (historyCurrentPage >= historyTotalPages) return;
+  historyCurrentPage++;
+  renderHistoryPage(document.getElementById('historyContent'));
 }
 
 // ============================================================
