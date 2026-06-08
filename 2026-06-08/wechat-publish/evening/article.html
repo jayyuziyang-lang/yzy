@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>沪指失守4000点·科创50暴跌4.3%·4600股下跌·中东局势骤升油价暴涨4%·黄金跌破4300</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system,"PingFang SC","Microsoft YaHei","Helvetica Neue",sans-serif; background: #F5F7FA; color: #1E293B; line-height: 1.8; font-size: 16px; }
+  .c { max-width: 640px; margin: 0 auto; background: #fff; padding: 44px 0 40px; }
+  .top-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; max-width: 640px; margin: 0 auto; background: rgba(255,255,255,0.95); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-bottom: 1px solid #E2E8F0; display: flex; align-items: center; padding: 0 16px; height: 44px; }
+  .top-nav .back { display: flex; align-items: center; gap: 4px; color: #1A56DB; text-decoration: none; font-size: 13px; font-weight: 600; }
+  .top-nav .back:active { opacity: 0.6; }
+  .top-nav .nav-date { flex: 1; text-align: center; font-size: 12px; color: #64748B; }
+  .top-nav .nav-edition { font-size: 11px; color: #D4A017; background: #FFFBEB; padding: 2px 8px; border-radius: 8px; font-weight: 600; }
+  .header { background: linear-gradient(135deg,#D4A017,#B8860B); padding: 20px 20px 16px; color: white; }
+  .header h1 { font-size: 22px; font-weight: 700; line-height: 1.4; margin-bottom: 6px; }
+  .header .meta { font-size: 12px; opacity: 0.8; display: flex; gap: 12px; flex-wrap: wrap; }
+  .player { display: flex; align-items: center; gap: 12px; margin-top: 14px; }
+  .player-icon { width: 40px; height: 40px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 18px; }
+  .player-info { flex: 1; }
+  .player-title { font-size: 13px; font-weight: 600; }
+  .player-desc { font-size: 11px; opacity: 0.7; }
+  .player audio { width: 100%; margin-top: 4px; border-radius: 20px; }
+  .body { padding: 20px 20px 0; }
+  .layer1 { margin-bottom: 28px; }
+  .l1-title { font-size: 16px; font-weight: 700; color: #D4A017; margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
+  .l1-comic { margin: 8px 0 0; }
+  .l1-comic img { width: 100%; border-radius: 10px; border: 1px solid #E2E8F0; }
+  .l1-divider { border: none; border-top: 2px dashed #D4A017; margin: 16px 0; }
+  .layer2 { margin-bottom: 24px; }
+  .l2-title { font-size: 16px; font-weight: 700; color: #D4A017; margin-bottom: 14px; display: flex; align-items: center; gap: 6px; }
+  .quote { background: #FFFBEB; border-left: 4px solid #D4A017; padding: 12px 14px; margin: 14px 0; border-radius: 0 8px 8px 0; font-size: 14px; color: #92400E; line-height: 1.7; }
+  p { margin-bottom: 12px; text-align: justify; font-size: 15px; }
+  .story { margin: 22px 0; }
+  .story-head { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .story-num { width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; color: #fff; flex-shrink: 0; }
+  .story-num.s01 { background: #DC2626; } .story-num.s02 { background: #16A34A; } .story-num.s03 { background: #7C3AED; }
+  .story-num.s04 { background: #1A56DB; } .story-num.s05 { background: #D4A017; } .story-num.s06 { background: #EA580C; }
+  .story-tag { font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 3px; }
+  .story-tag.s01 { background: #FEF2F2; color: #DC2626; } .story-tag.s02 { background: #F0FDF4; color: #16A34A; }
+  .story-tag.s03 { background: #FAF5FF; color: #7C3AED; } .story-tag.s04 { background: #EFF6FF; color: #1A56DB; }
+  .story-tag.s05 { background: #FFFBEB; color: #D4A017; } .story-tag.s06 { background: #FFF7ED; color: #EA580C; }
+  .story-title { font-size: 16px; font-weight: 700; color: #1E293B; line-height: 1.4; }
+  .story-content { font-size: 14px; color: #334155; line-height: 1.8; margin-bottom: 8px; }
+  .story-content p { margin-bottom: 8px; font-size: 14px; }
+  .story-img { margin: 10px 0 0; border-radius: 8px; border: 1px solid #E2E8F0; overflow: hidden; background: #FAFAFA; }
+  .story-img img { width: 100%; display: block; }
+  .story-divider { border: none; height: 1px; background: linear-gradient(to right, transparent, #E2E8F0, transparent); margin: 6px 0; }
+  .gold-box { background: linear-gradient(135deg,#FFF8E7,#FFF3D6); border: 1px solid #D4A017; border-radius: 12px; padding: 18px 20px; margin: 22px 0; text-align: center; font-size: 16px; font-weight: 700; color: #B8860B; line-height: 1.5; }
+  .layer3 { margin-bottom: 24px; }
+  .l3-title { font-size: 16px; font-weight: 700; color: #D4A017; margin-bottom: 10px; }
+  .l3-highlight-box { background: #FFFBEB; border-radius: 10px; padding: 12px 14px; margin: 12px 0; font-size: 13px; color: #92400E; line-height: 1.6; border: 1px solid #FDE68A; }
+  table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 13px; }
+  th { background: #D4A017; color: #fff; padding: 8px 10px; text-align: left; font-weight: 600; }
+  th:first-child { border-radius: 6px 0 0 0; }
+  th:last-child { border-radius: 0 6px 0 0; }
+  td { padding: 8px 10px; border-bottom: 1px solid #E2E8F0; }
+  tr:nth-child(even) { background: #F8F9FA; }
+  .up { color: #DC2626; font-weight: 600; }
+  .down { color: #16A34A; font-weight: 600; }
+  .warn { background: #FFF5F5; border: 1px solid #FECACA; border-radius: 10px; padding: 12px 14px; margin-top: 24px; font-size: 12px; color: #991B1B; line-height: 1.5; }
+  .list { background: #F8F9FA; border-radius: 8px; padding: 10px 14px; margin: 10px 0; }
+  .list-item { padding: 5px 0; border-bottom: 1px solid #E2E8F0; font-size: 13px; display: flex; gap: 6px; }
+  .list-item:last-child { border-bottom: none; }
+  .tag-b { display: inline-block; background: #D4A017; color: #fff; font-size: 10px; padding: 1px 7px; border-radius: 8px; white-space: nowrap; }
+  .sources { background: #FFFBEB; border-radius: 10px; padding: 12px 14px; margin: 16px 0; font-size: 12px; color: #92400E; line-height: 1.6; }
+  .sources h3 { font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+  .sources a { color: #1A56DB; text-decoration: none; }
+  .foot { background: linear-gradient(135deg,#D4A017,#B8860B); border-radius: 12px; padding: 18px 20px; margin: 22px 0; color: white; text-align: center; }
+  .foot .icon { font-size: 28px; margin-bottom: 4px; }
+  .foot .t { font-size: 16px; font-weight: 700; margin-bottom: 2px; }
+  .foot .d { font-size: 11px; opacity: 0.85; }
+  .highlight { background: #FFFBEB; padding: 1px 4px; border-radius: 2px; font-weight: 600; color: #92400E; }
+  .key-num { font-weight: 700; color: #D4A017; }
+  .glossary { background: #FFFBEB; border: 1px solid #FDE68A; border-radius: 10px; padding: 12px 14px; margin: 16px 0; font-size: 12px; line-height: 1.6; }
+  .glossary h4 { font-size: 13px; font-weight: 700; color: #92400E; margin-bottom: 8px; }
+  .glossary table { width: 100%; font-size: 12px; margin: 0; }
+  .glossary th { background: #D4A017; color: #fff; padding: 5px 8px; font-size: 11px; text-align: left; }
+  .glossary td { padding: 5px 8px; font-size: 11px; }
+  .logic-chain { background: #F0F4FF; border-left: 4px solid #1A56DB; border-radius: 0 8px 8px 0; padding: 10px 14px; margin: 10px 0 14px; font-size: 13.5px; color: #1E3A7A; line-height: 1.7; }
+  .logic-chain .lc-label { font-weight: 700; font-size: 12px; color: #1A56DB; margin-bottom: 2px; }
+  .logic-chain .lc-arrow { color: #1A56DB; font-weight: 700; }
+  .invest-view { background: #F0FDF4; border-left: 4px solid #16A34A; border-radius: 0 8px 8px 0; padding: 10px 14px; margin: 10px 0 14px; font-size: 13.5px; color: #14532D; line-height: 1.7; }
+  .invest-view .iv-label { font-weight: 700; font-size: 12px; color: #16A34A; margin-bottom: 2px; }
+  .scenario-box { background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 10px; padding: 12px; margin: 12px 0; }
+  .scenario-box .sc-title { font-weight: 700; font-size: 14px; margin-bottom: 6px; }
+  .scenario-box .sc-path-a { color: #DC2626; }
+  .scenario-box .sc-path-b { color: #16A34A; }
+  .scenario-box .sc-content { font-size: 13.5px; color: #475569; line-height: 1.7; }
+  .scenario-box .sc-content p { margin-bottom: 6px; }
+  .behavior-box { background: #F0F4FF; border-left: 4px solid #1A56DB; border-radius: 0 10px 10px 0; padding: 12px 14px; margin: 16px 0; font-size: 13px; color: #1E3A7A; line-height: 1.6; }
+  .behavior-box .bb-label { font-weight: 700; font-size: 12px; color: #1A56DB; margin-bottom: 3px; }
+  .core-contradiction { background: #FFF5F5; border-left: 4px solid #DC2626; border-radius: 0 8px 8px 0; padding: 10px 14px; margin: 10px 0 14px; font-size: 13.5px; color: #7F1D1D; line-height: 1.7; }
+  .core-contradiction .cc-label { font-weight: 700; font-size: 12px; color: #DC2626; margin-bottom: 2px; }
+  .l3-comic { margin: 22px 0; }
+  .l3-comic img { width: 100%; border-radius: 10px; border: 1px solid #E2E8F0; }
+</style>
+</head>
+<body>
+<div class="c">
+
+  <div class="top-nav">
+    <a class="back" href="../../../index.html">&larr; 返回首页</a>
+    <span class="nav-date">2026.06.08 · 周一</span>
+    <span class="nav-edition">扬说·晚报</span>
+  </div>
+
+  <div class="header">
+    <h1>沪指失守4000点报3959·4600股下跌·科创50暴跌4.3%·半导体重挫5%·中东局势骤升油价暴涨4%·黄金跌破4300·银行逆势上涨</h1>
+    <div class="meta">
+      <span>📅 2026年6月8日 · 星期一</span>
+      <span>🏷️ 沪指失守4000 / 科创50暴跌4.3% / 4600股下跌 / 中东局势升级 / 油价暴涨4% / 黄金跌破4300 / 银行逆势走强</span>
+    </div>
+    <div class="player">
+      <div class="player-icon">🎧</div>
+      <div class="player-info">
+        <div class="player-title">听全文 · 扬说财经</div>
+        <div class="player-desc">约6分钟 · 深度复盘</div>
+        <audio controls><source src="audio.mp3" type="audio/mpeg"></audio>
+      </div>
+    </div>
+  </div>
+
+  <div class="body">
+
+    <!-- ===== 本周主轴 ===== -->
+    <div class="logic-chain" style="margin-bottom:20px;">
+      <div class="lc-label">本周主轴传导链</div>
+      <strong>上周五：</strong> 非农+17.2万（超预期1倍） <span class="lc-arrow">→</span> 加息预期急升温 <span class="lc-arrow">→</span> 纳指-4.18%、费半-10.26%<br>
+      <strong>本周一：</strong> 美股暴跌情绪传导 <span class="lc-arrow">→</span> A股恐慌低开 <span class="lc-arrow">→</span> 沪指失守4000 <span class="lc-arrow">→</span> 科技半导体暴跌<br>
+      <strong>周一下午突发：</strong> 伊朗向以色列发射导弹 <span class="lc-arrow">→</span> 以色列反击石化设施 <span class="lc-arrow">→</span> 油价暴涨4% <span class="lc-arrow">→</span> 通胀担忧再起<br>
+      <strong>核心矛盾：</strong> "非农→加息" + "中东→油价"双重压力叠加，市场进入高波动模式。
+    </div>
+
+    <!-- ===== Layer 1: 大势一览 ===== -->
+    <div class="layer1">
+      <div class="l1-title">📊 今日大势一览</div>
+      <p>今天A股全线溃退。<strong>上证指数收报3959.34点，跌1.70%</strong>，失守4000点大关。深成指跌3.22%，创业板指跌3.69%，<span class="key-num">科创50暴跌4.30%</span>领跌全市场。全市场近4600只个股下跌，仅约900只上涨，成交额缩量至2.82万亿。</p>
+      <p>盘后突发重大地缘事件：<strong>伊朗向以色列发射"警告性"导弹</strong>，以色列随即反击伊朗军事目标及石化设施——中东局势骤然升级。布伦特原油飙升4%逼近97美元，黄金跌破4300美元关口。美股期货涨跌不一：纳指期货反弹约0.65%反映科技超跌修复需求，道指期货仍偏弱。</p>
+      <p>这是一场"<strong>三重冲击</strong>"：非农后加息预期 + 中东冲突再起 + A股自身脆弱性集中释放。但盘中结构显示：银行、工程机械、油气等低估值板块逆势走强，资金正在从成长切换到价值的路上。</p>
+
+      <div class="l1-comic">
+        <img src="comic/panel-001.svg" alt="今日大势一览漫画">
+      </div>
+    </div>
+    <hr class="l1-divider">
+
+    <!-- ===== Layer 2: 6故事深度分析 ===== -->
+    <div class="layer2">
+      <div class="l2-title">🔍 深度 · 六面看市</div>
+
+      <!-- 故事01 A股 -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s01">01</div>
+          <span class="story-tag s01">A股</span>
+          <div class="story-title">4000点保卫战失败：券商称"情绪冲击，中期上行不变"</div>
+        </div>
+        <div class="story-content">
+          <p>三大指数全线收跌。沪指收报<span class="key-num">3,959.34</span>，跌1.70%失守4000点心理关口。深成指收14,821.19（-3.22%），创业板指收3,811.79（-3.69%），科创50暴跌4.30%领跌全市场。北证50逆势涨1.33%，是唯一红盘的宽基指数——资金跷跷板效应明显。</p>
+          <p>两市成交<span class="key-num">2.82万亿元</span>，较上周五缩量约2773亿。涨跌比约1:5——上涨约899只，下跌约4,591只。</p>
+
+          <div class="core-contradiction">
+            <div class="cc-label">核心矛盾</div>
+            今天A股的下跌有两个不同的"病因"：上午跌是因为非农→加息预期的"情绪传导"；下午加速跌是因为伊朗导弹→油价暴涨的"地缘恐慌"。两种病因对应不同应对策略，不能混为一谈。
+          </div>
+
+          <p><strong>机构观点：</strong> 兴业证券认为美股调整是交易结构再平衡，对A股偏情绪面扰动非系统性风险；光大证券认为下跌与宏观因素有关，非产业基本面变化，市场大方向仍向上；中泰证券强调A股科技板块独立运行逻辑未变。总的来说——<strong>多数券商定性为"情绪冲击"，不建议恐慌离场。</strong></p>
+
+          <div class="invest-view">
+            <div class="iv-label">投资视角</div>
+            4000点以下，是买点还是卖点？取决于你的持仓结构：如果你持有的是半导体/算力/CPO等前期暴涨的高位科技股，今天还没走的话，等反弹减仓更理智；如果你持有的是银行/煤炭/电力等高股息，今天反而是正收益——结构比方向重要。
+          </div>
+        </div>
+      </div>
+      <hr class="story-divider">
+
+      <!-- 故事02 美股 -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s02">02</div>
+          <span class="story-tag s02">美股</span>
+          <div class="story-title">黑色星期五之后：纳指期货反弹0.65%，科技股超跌修复窗口</div>
+        </div>
+        <div class="story-content">
+          <p>上周五的暴跌创下多项纪录：纳指-4.18%（2025年4月来最差）、费半-10.26%（六年最大单日跌幅）。今晚（北京时间晚间）美股将迎来暴跌后的首个交易日。</p>
+          <p><strong>期货表现（北京时间18:00）：</strong> 纳指100期货涨约0.65%（+近200点），标普500期货涨约0.19%，道指期货跌约0.29%。科技股显示出超跌反弹意愿，但道指仍承压——</p>
+          <p>关键变量：<span class="highlight">中东局势今晚将如何影响美股开盘？</span>以往经验，这种级别的地缘冲击（伊朗-以色列直接交火）在美股开盘前发生，通常引发开盘后短暂的避险抛售，随后市场会评估冲突升级的概率。油价暴涨4%本身就是市场在为"最坏情况"定价。</p>
+
+          <div class="quote">
+            本周的美股逻辑很简单：前半周看中东（油价→通胀→利率预期），周三开始看CPI和非农余波。CPI数据才是真正的方向标。
+          </div>
+        </div>
+      </div>
+      <hr class="story-divider">
+
+      <!-- 故事03 科技/AI -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s03">03</div>
+          <span class="story-tag s03">科技/AI</span>
+          <div class="story-title">半导体重挫5%，算力链全面回调——利空出尽还是下跌中继？</div>
+        </div>
+        <div class="story-content">
+          <p>A股半导体板块今日重挫5.13%，CPO、铜缆高速连接、消费电子等前期热门方向跌幅在4-7%不等。逻辑很清晰：费半-10.26%的冲击通过"情绪对标+估值锚定"直接传导至A股。</p>
+          <p><strong>但需要分清两个层面的影响：</strong></p>
+          <p><strong>1. 情绪层面：</strong> 费半暴跌的直接触发因素是博通AI指引miss + 非农好到不该好。这是美国的故事，A股半导体只是"被连坐"。国产替代的产业逻辑没有变。</p>
+          <p><strong>2. 资金层面：</strong> A股科技板块在上半年积累了巨大涨幅，本身就存在获利了结需求。今天科创50跌4.3%但北证50涨1.33%，说明资金没有离开市场，只是在高低切换。</p>
+
+          <div class="invest-view">
+            <div class="iv-label">投资视角</div>
+            急跌之后等企稳。判断企稳的信号：成交量萎缩到地量、指数不再创新低、强势股补跌完成。半导体设备、先进封装等有订单支撑的方向，回调是布局机会。纯粹蹭概念的算力/CPO标的需要等更深的调整。
+          </div>
+        </div>
+      </div>
+      <hr class="story-divider">
+
+      <!-- 故事04 前沿/国际 -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s04">04</div>
+          <span class="story-tag s04">前沿/国际</span>
+          <div class="story-title">伊朗导弹打击以色列！中东剧情"一日三转"，油价暴涨4%</div>
+        </div>
+        <div class="story-content">
+          <p><strong>北京时间周一下午，中东局势急剧升级。</strong> 伊朗向以色列发射"警告性"导弹打击，以色列随即反击，攻击了伊朗军事目标及石化设施。这是继上周以黎停火协议破裂之后，中东冲突的又一次重大升级。</p>
+          <p><strong>油价应声暴涨：</strong> 布伦特原油飙升4%至<span class="key-num">96.96美元</span>，WTI同步大涨。国内SC原油期货涨超2%，液化气涨超6%，沥青、燃料油涨超4%。A股油气开采板块逆势上涨0.94%，中国石油涨3.2%。</p>
+          <p><strong>市场正在定价什么？</strong> 三点：一是霍尔木兹海峡重新关闭的概率再次上升（上周刚有重开预期）；二是伊朗-以色列直接冲突意味着美国更可能被拖入更大规模的军事行动；三是油价突破95美元后，全球通胀—利率的传导链条将再次收紧。</p>
+
+          <div class="logic-chain">
+            <div class="lc-label">地缘传导链</div>
+            伊朗导弹打击以色列 <span class="lc-arrow">→</span> 以色列反击石化设施 <span class="lc-arrow">→</span> 霍尔木兹海峡风险重燃 <span class="lc-arrow">→</span> 布伦特逼近97美元 <span class="lc-arrow">→</span> 通胀预期升温 <span class="lc-arrow">→</span> 加息预期强化 <span class="lc-arrow">→</span> 黄金大跌+科技承压
+          </div>
+        </div>
+      </div>
+      <hr class="story-divider">
+
+      <!-- 故事05 宏观 -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s05">05</div>
+          <span class="story-tag s05">宏观</span>
+          <div class="story-title">本周三CPI定生死：4.2%上方→加息预期前移，3.8%下方→市场反转</div>
+        </div>
+        <div class="story-content">
+          <p>非农数据还在消化中，中东又开始"搞事情"。但站在本周维度看，<span class="key-num">周三的美国5月CPI</span>才是真正能决定市场方向的变量。</p>
+          <p><strong>CPI情景推演：</strong></p>
+          <div class="scenario-box">
+            <div class="sc-title">情景推演 · 本周CPI</div>
+            <div class="sc-content">
+              <p><span class="sc-path-a">🔥 CPI > 4.2%：</span> 通胀意外走高 → 7月加息概率从"尾部风险"变为"基准情景" → 10年美债突破4.8% → 科技股继续承压 → A股外资流出加速 → 但利率上升利好银行利差</p>
+              <p><span class="sc-path-b">❄️ CPI < 3.8%：</span> 通胀意外降温 → 加息预期退潮 → 科技股暴力反弹 → 黄金修复 → 对A股4000点收复形成最强助攻</p>
+              <p>中性区间3.8-4.2%：市场在当前水平窄幅震荡，等待下周FOMC给出更多信号。</p>
+            </div>
+          </div>
+
+          <p><strong>本周其他关键事件：</strong> 周四欧央行利率决议（预期+25bp至2.25%），该行拉加德将召开新闻发布会。周五SpaceX纳指上市（SPCX，$135），将抽走约750亿美元流动性——这是本周的潜在"暗雷"。</p>
+
+          <p><strong>国内数据：</strong> 周二公布中国5月CPI/PPI。若国内通胀继续走低，将为央行进一步宽松提供空间，对A股构成流动性利好。</p>
+        </div>
+      </div>
+      <hr class="story-divider">
+
+      <!-- 故事06 商品/黄金 -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s06">06</div>
+          <span class="story-tag s06">商品/黄金</span>
+          <div class="story-title">油价暴涨4% vs 黄金跌破4300——"战争买油，利率卖金"</div>
+        </div>
+        <div class="story-content">
+          <p>今天的商品市场呈现出罕见的"油涨金跌"格局——看似矛盾，实则逻辑清晰。</p>
+          <p><strong>原油：</strong> 布伦特原油飙升至<span class="key-num">96.96美元</span>（+4%），WTI突破92美元。伊朗导弹打击以色列石化设施是最直接的催化剂，但更底层的原因是：霍尔木兹海峡——全球约20%石油运输的咽喉要道——重陷关闭风险。今天油气板块是A股极少数逆势上涨的方向，中国石油涨3.2%，中国海油跟着涨。</p>
+          <p><strong>黄金：</strong> 现货黄金跌破4,300美元至<span class="key-num">4,323美元</span>（-0.46%），盘中最低触及4,311美元。国内沪金主力合约跌超3%，沪银跌超8%。按理说中东打仗应该利好黄金，但黄金反而跌了——为什么？<span class="highlight">因为黄金现在定价的是"利率预期"，不是"避险情绪"。</span></p>
+
+          <div class="quote">
+            黄金的逻辑链：中东打仗→油价暴涨→通胀预期升温→加息预期强化→实际利率走高→黄金承压。这是一个完整的传导链条——黄金在"利率预期"和"避险情绪"之间选择了前者，因为美联储对市场的影响力远大于地缘冲突。
+          </div>
+
+          <table>
+            <tr><th>品种</th><th>最新价</th><th>涨跌幅</th></tr>
+            <tr><td>布伦特原油</td><td>$96.96</td><td class="up">+4.0%</td></tr>
+            <tr><td>WTI原油</td><td>$93.50</td><td class="up">+3.2%</td></tr>
+            <tr><td>现货黄金</td><td>$4,323</td><td class="down">-0.46%</td></tr>
+            <tr><td>现货白银</td><td>$67.66</td><td class="down">-0.75%</td></tr>
+            <tr><td>沪金主力</td><td>—</td><td class="down">-3.0%+</td></tr>
+            <tr><td>沪银主力</td><td>—</td><td class="down">-8.0%+</td></tr>
+          </table>
+
+          <div class="invest-view">
+            <div class="iv-label">投资视角</div>
+            今天商品市场的信号很明确：油价短期看中东、中期看CPI。如果周三CPI走高，油价+利率上行将形成"双杀"格局。黄金方面，4,300美元关口是短期关键支撑——这里恰好是200日均线位置。如果跌破，下一支撑在4,200。但记住：央行连续19个月买入黄金，战略资金在跌的时候反而在买。
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== Layer 3: 行为金融 ===== -->
+    <div class="layer3">
+      <hr class="l1-divider">
+      <div class="l3-title">🧠 今日行为金融笔记</div>
+
+      <div class="behavior-box">
+        <div class="bb-label">交易纪律</div>
+        <p style="font-size:14px; margin-bottom:8px;">今天市场最危险的不是下跌本身，而是在恐慌中做出"非此即彼"的决策——要么全仓抄底，要么清仓离场。</p>
+        <p style="font-size:14px; margin-bottom:0;">好的做法是：审视你的持仓，问问自己"如果我今天没持有这个票，我会在恐慌中买入吗？"如果答案是否定的，那就不要因为"跌太多了不忍心卖"而持有。反过来，如果你看好的方向今天跌了15%以上且基本面没有变化，恐慌割肉往往是最差的选择。</p>
+      </div>
+
+      <!-- 漫画二 -->
+      <div class="l3-comic">
+        <img src="comic/panel-002.svg" alt="行为金融漫画">
+      </div>
+    </div>
+
+    <!-- === 本周关键日历 === -->
+    <div class="l3-highlight-box">
+      <strong>📅 本周"超级星期三"日历</strong><br>
+      ▸ 周二：中国5月CPI/PPI<br>
+      ▸ <strong>周三 ⭐ 美国5月CPI（关键！目前市场预期4.2%）</strong><br>
+      ▸ 周四：ECB利率决议（+25bp至2.25%预期）+ 拉加德新闻发布会<br>
+      ▸ 周四：美国5月PPI<br>
+      ▸ <strong>周五 ⭐ SpaceX纳指上市（SPCX，$135）</strong>
+    </div>
+
+    <!-- === 名词解释 === -->
+    <div class="glossary">
+      <h4>📖 名词解释 · 小白友好版</h4>
+      <table>
+        <tr><th>术语</th><th>大白话</th><th>为什么重要</th></tr>
+        <tr><td>200日均线</td><td>过去200个交易日的平均收盘价</td><td>黄金今天跌破了200日均线——技术派认为这是"趋势转为下跌"的信号，但往往也是长期资金开始买入的位置</td></tr>
+        <tr><td>霍尔木兹海峡</td><td>波斯湾通往印度洋的狭窄水道，全球约20%石油经过这里</td><td>伊朗—以色列冲突加剧意味着海峡可能再次关闭，全球油价短期可能再涨5-10美元</td></tr>
+        <tr><td>超跌反弹</td><td>价格在短期内跌太多后出现的技术性修复</td><td>纳指期货今晚涨0.65%就是典型超跌反弹——不是因为基本面变好了，只是跌得太快太猛需要喘口气</td></tr>
+        <tr><td>资金跷跷板</td><td>资金从一个板块流出流入另一个板块的现象</td><td>今天科创50跌4.3%但北证50涨1.33%，说明资金没有离场，而是从高位科技切换到了低位品种</td></tr>
+        <tr><td>SPACEX IPO</td><td>SpaceX公司在纳斯达克的首次公开上市</td><td>本周五上市，定价$135，募资750亿美元——会从市场抽走大量流动性，对科技股是短期利空</td></tr>
+      </table>
+    </div>
+
+    <!-- === 数据来源 === -->
+    <div class="sources">
+      <h3>📎 数据来源</h3>
+      <a href="https://news.sina.cn/2026-06-08/detail-iniasscn8724785.d.html" target="_blank">新浪财经 · 沪指收报3959</a> ·
+      <a href="http://finance.ce.cn/stock/gsgdbd/202606/t20260608_3017690.shtml" target="_blank">中国经济网 · 沪指失守4000</a> ·
+      <a href="https://finance.sina.cn/2026-06-08/detail-iniaswmn5438260.d.html" target="_blank">新浪 · 商品日报：中东局势升级油价涨</a> ·
+      <a href="https://news.qq.com/rain/a/20260608A037HK00" target="_blank">腾讯新闻 · 全线跳水！原油大涨黄金大跌</a> ·
+      <a href="http://news.cnfol.com/zhengquanyaowen/20260608/32272874.shtml" target="_blank">中金在线 · A股收评</a> ·
+      <a href="https://www.nasdaq.com/articles/stock-market-news-jun-8-2026" target="_blank">Nasdaq · June 8 Market News</a> ·
+      <a href="http://forex.cnfol.com/jingjiyaowen/20260608/32272321.shtml" target="_blank">中金在线 · 强劲非农吓坏黄金</a>
+    </div>
+
+    <!-- === 收尾 === -->
+    <div class="foot">
+      <div class="icon">🧠</div>
+      <div class="t">暴跌的时候不要问"为什么会这样"</div>
+      <div class="d">要问"我该怎么做"<br>分清你的下跌是哪种病因——非农情绪还是地缘恐慌<br>对症下药，不要恐慌出逃也不要在下跌中硬扛</div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 220">
+  <rect width="300" height="220" fill="#FAFAFA"/>
+
+  <!-- Title -->
+  <rect x="0" y="0" width="300" height="30" fill="#1A56DB"/>
+  <text x="150" y="20" text-anchor="middle" font-size="12" font-weight="700" fill="#fff" font-family="PingFang SC, Microsoft YaHei, sans-serif">🧠 恐惧时的三个问题</text>
+
+  <!-- Question 1 -->
+  <rect x="12" y="44" width="276" height="46" rx="6" fill="#F0F4FF" stroke="#BFDBFE" stroke-width="1"/>
+  <text x="20" y="62" font-size="9" font-weight="700" fill="#1E3A7A" font-family="PingFang SC, Microsoft YaHei, sans-serif">Q1 我的下跌是什么"病因"？</text>
+  <text x="20" y="78" font-size="8" fill="#475569" font-family="PingFang SC, Microsoft YaHei, sans-serif">非农情绪传导？ 地缘恐慌？ 还是自身基本面变差？</text>
+
+  <!-- Arrow -->
+  <text x="140" y="105" text-anchor="middle" font-size="14" fill="#D4A017" font-family="PingFang SC, Microsoft YaHei, sans-serif">↓</text>
+
+  <!-- Question 2 -->
+  <rect x="12" y="114" width="276" height="46" rx="6" fill="#FFFBEB" stroke="#FDE68A" stroke-width="1"/>
+  <text x="20" y="132" font-size="9" font-weight="700" fill="#92400E" font-family="PingFang SC, Microsoft YaHei, sans-serif">Q2 如果现在没持有，我会买入吗？</text>
+  <text x="20" y="148" font-size="8" fill="#475569" font-family="PingFang SC, Microsoft YaHei, sans-serif">否 → 反弹减仓。是 → 控制仓位逐步低吸，不抄底。</text>
+
+  <!-- Arrow -->
+  <text x="140" y="175" text-anchor="middle" font-size="14" fill="#D4A017" font-family="PingFang SC, Microsoft YaHei, sans-serif">↓</text>
+
+  <!-- Question 3 -->
+  <rect x="12" y="184" width="276" height="28" rx="6" fill="#F0FDF4" stroke="#86EFAC" stroke-width="1"/>
+  <text x="20" y="198" font-size="9" font-weight="700" fill="#166534" font-family="PingFang SC, Microsoft YaHei, sans-serif">Q3 周三CPI出来前，我的仓位让我能睡好觉吗？</text>
+  <text x="20" y="210" font-size="8" fill="#475569" font-family="PingFang SC, Microsoft YaHei, sans-serif">不能 → 减仓到能睡着的水平。</text>
+</svg>

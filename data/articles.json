@@ -1,7 +1,19 @@
 {
-  "generated_at": "2026-06-08T07:33:48+08:00",
+  "generated_at": "2026-06-08T19:41:13+08:00",
   "latest_date": "2026-06-08",
   "articles": [
+    {
+      "date": "2026-06-08",
+      "session": "evening",
+      "edition_cn": "晚报",
+      "icon": "🌙",
+      "title": "沪指失守4000点·科创50暴跌4.3%·4600股下跌·中东局势骤升油价暴涨4%·黄金跌破4300",
+      "url": "2026-06-08/wechat-publish/evening/article.html",
+      "has_audio": true,
+      "audio_size_bytes": 2180160,
+      "has_comic": true,
+      "comic_count": 2
+    },
     {
       "date": "2026-06-08",
       "session": "morning",
@@ -368,6 +380,18 @@
   ],
   "by_date": {
     "2026-06-08": {
+      "evening": {
+        "date": "2026-06-08",
+        "session": "evening",
+        "edition_cn": "晚报",
+        "icon": "🌙",
+        "title": "沪指失守4000点·科创50暴跌4.3%·4600股下跌·中东局势骤升油价暴涨4%·黄金跌破4300",
+        "url": "2026-06-08/wechat-publish/evening/article.html",
+        "has_audio": true,
+        "audio_size_bytes": 2180160,
+        "has_comic": true,
+        "comic_count": 2
+      },
       "morning": {
         "date": "2026-06-08",
         "session": "morning",
