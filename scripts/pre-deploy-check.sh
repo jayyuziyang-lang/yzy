@@ -64,7 +64,7 @@ EVENING_IN_INDEX=$(grep -c "wechat-publish/evening" index.html || true)
 
 EVENING_IN_JS=$(grep -c '"evening"' data/articles.js || true)
 
-if [ "$EVENING_IN_JS" -gt 0 ] && [ "$EVENING_IN_INDEX" -lt 1 ]; then
+if [ "$EVENING_IN_JS" -gt 0 ] && [ "$EVENING_IN_INDEX" -lt 2 ]; then
 
     echo -e "${RED}  ❌ 有晚报数据但 index.html 缺少晚报链接！${NC}"; ((ERRORS++))
 
