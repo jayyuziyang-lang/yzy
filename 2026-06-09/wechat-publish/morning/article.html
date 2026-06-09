@@ -40,6 +40,15 @@
   .focus-box .focus-content p { margin-bottom: 10px; text-align: justify; }
   .focus-box .focus-content .hl { background: #FDE68A; padding: 1px 4px; border-radius: 2px; font-weight: 600; }
 
+  .catalyst-box { margin: 28px 0; background: linear-gradient(135deg,#F0F4FF,#DBEAFE); border-radius: 12px; padding: 16px; border: 1px solid #BFDBFE; }
+  .catalyst-box .cat-header { font-size: 16px; font-weight: 700; color: #1E3A7A; margin-bottom: 10px; }
+  .catalyst-box table { width: 100%; font-size: 12.5px; margin: 0; border-collapse: collapse; }
+  .catalyst-box th { background: #1A56DB; color: #fff; padding: 6px 8px; text-align: left; font-weight: 600; font-size: 11px; }
+  .catalyst-box td { padding: 6px 8px; border-bottom: 1px solid #E2E8F0; font-size: 12px; }
+  .catalyst-box tr:nth-child(even) { background: #F8FAFC; }
+  .star5 { color: #DC2626; font-weight: 700; } .star4 { color: #EA580C; font-weight: 700; }
+  .star3 { color: #D4A017; font-weight: 600; } .star2 { color: #64748B; }
+
   .section-block { margin: 28px 0; }
   .section-num { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; font-size: 13px; font-weight: 700; margin-right: 8px; flex-shrink: 0; color: #fff; }
   .section-title { font-size: 18px; font-weight: 700; color: #1E293B; margin-bottom: 12px; display: flex; align-items: center; flex-wrap: wrap; gap: 4px; }
@@ -101,6 +110,21 @@
   .tag-macro { background: #FFFBEB; color: #D4A017; } .tag-commodity { background: #FFF7ED; color: #EA580C; }
 
   .invest-tip { background: #F0F4FF; border-left: 3px solid #1A56DB; padding: 8px 12px; margin: 8px 0; border-radius: 0 6px 6px 0; font-size: 13px; color: #1E40AF; line-height: 1.6; }
+
+  .quick-read { background: #FAFAFA; border: 1px dashed #94A3B8; border-radius: 8px; padding: 10px 14px; margin: 6px 0 12px; font-size: 12.5px; color: #475569; line-height: 1.6; }
+  .quick-read .qr-label { font-weight: 700; font-size: 12px; color: #1A56DB; margin-bottom: 3px; }
+
+  .calendar-grid { display: flex; flex-direction: column; gap: 6px; margin: 10px 0; }
+  .cal-row { display: flex; align-items: center; gap: 8px; font-size: 12.5px; padding: 6px 10px; background: #F8FAFC; border-radius: 6px; border-left: 3px solid #1A56DB; }
+  .cal-row.cal-today { background: #EFF6FF; border-left-color: #DC2626; font-weight: 600; }
+  .cal-row .cal-date { width: 80px; font-weight: 700; color: #1A56DB; flex-shrink: 0; }
+  .cal-row .cal-event { flex: 1; color: #334155; }
+  .cal-row .cal-star { flex-shrink: 0; font-size: 11px; }
+
+  .qdii-table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 12px; }
+  .qdii-table th { background: #1A56DB; color: #fff; padding: 5px 8px; font-size: 11px; text-align: left; }
+  .qdii-table td { padding: 5px 8px; font-size: 11px; border-bottom: 1px solid #E2E8F0; }
+  .qdii-table tr:nth-child(even) { background: #F8F9FA; }
 </style>
 </head>
 <body>
@@ -117,8 +141,8 @@
   <h1>科技强势反弹·Intel暴涨12%·Google下300万颗TPU订单·A股集体高开·黄金跌破4300</h1>
   <div class="meta">
     <span>📅 2026年6月9日 · 星期二</span>
-    <span>🏷️ Intel暴涨12% / Google 300万TPU / Apple WWDC / 费城半导体+6% / VIX 18.95 / 中东停火 / WTI 94.59 / 黄金4318</span>
-    <span class="reading-time">📖 阅读约 6 分钟</span>
+    <span>🏷️ Intel暴涨12% / Google 300万TPU / SOX+5.61% / 韩股熔断 / 苹果WWDC / 霍尔木兹僵局 / VIX 18.95 / 黄金4318</span>
+    <span class="reading-time">📖 阅读约 8 分钟</span>
   </div>
   <div class="player">
     <div class="player-icon">🎧</div>
@@ -134,22 +158,25 @@
 
 <!-- Lead -->
 <div class="lead">
-  <strong>隔夜，市场经历了一场"情绪修复"与"利率重压"的拉锯。</strong> 上周五非农超预期引发的暴力加息恐慌经过一个周末消化后，资金开始结构性回补科技股。费城半导体指数暴涨约6%，Intel因Google 300万颗TPU订单消息暴涨12%。但美债收益率继续攀升至4.55%创两周新高，道指逆势微跌——反弹并非普涨，分化才是主旋律。A股今日三大指数集体高开，半导体板块受隔夜情绪传导领涨。下面拆开来看。
+  <strong>隔夜，市场经历了一场"情绪修复"与"利率重压"的极限拉锯。</strong> 上周五非农超预期引发的暴力加息恐慌经过周末消化后，资金开始结构性回补科技股。费城半导体指数（SOX）暴涨+5.61%收复逾半失地，韩国KOSPI今晨开盘再涨4.21%触发熔断。Intel因Google 300万颗TPU订单暴涨12%，AI供需叙事韧性重新主导市场情绪。但美债收益率续升至4.57%创两周新高，道指逆势微跌——反弹并非普涨，分化才是主旋律。A股三大指数集体高开，半导体受隔夜情绪传导领涨。下面拆开来看。
 </div>
 
 <!-- === 行情总览表 === -->
 <div class="section-block">
   <table>
     <tr><th>市场</th><th>最新收盘</th><th>日涨跌幅</th><th>备注</th></tr>
-    <tr><td>道琼斯工业指数</td><td>50,786.01</td><td class="down">-0.16%</td><td>早盘涨410点后完全回吐</td></tr>
-    <tr><td>标普500</td><td>7,405.73</td><td class="up">+0.30%</td><td>科技股反弹支撑</td></tr>
-    <tr><td>纳斯达克</td><td>25,929.66</td><td class="up">+0.86%</td><td>费城半导体暴涨6%</td></tr>
+    <tr><td>标普500</td><td>7,405.73</td><td class="up">+0.30%</td><td>科技反弹支撑</td></tr>
+    <tr><td>纳斯达克</td><td>25,930</td><td class="up">+0.86%</td><td>SOX暴涨5.61%领涨</td></tr>
+    <tr><td>道琼斯</td><td>50,786</td><td class="down">-0.16%</td><td>盘中涨410点后回吐</td></tr>
+    <tr><td>费城半导体(SOX)</td><td>12,907</td><td class="up">+5.61%</td><td>超卖大反弹，收复上周五逾半</td></tr>
     <tr><td>上证指数</td><td>3,977.54（开）</td><td class="up">+0.46%</td><td>A股集体高开</td></tr>
     <tr><td>创业板指</td><td>3,865.69（开）</td><td class="up">+1.41%</td><td>半导体活跃</td></tr>
+    <tr><td>VIX恐慌指数</td><td>18.95</td><td class="down">-12.04%</td><td>从21.51暴跌，回到20以下</td></tr>
+    <tr><td>10年期美债收益率</td><td>4.572%</td><td class="up">+0.13%</td><td>创两周新高</td></tr>
     <tr><td>WTI原油</td><td>$94.59</td><td class="up">+1.71%</td><td>中东停火后回落</td></tr>
-    <tr><td>现货黄金</td><td>$4,318</td><td class="down">-0.30%</td><td>创2026年新低</td></tr>
-    <tr><td>10年期美债收益率</td><td>4.55%</td><td class="up">+2.8bp</td><td>创两周新高</td></tr>
-    <tr><td>VIX恐慌指数</td><td>18.95</td><td class="down">-11.9%</td><td>回到20以下</td></tr>
+    <tr><td>布伦特原油</td><td>$93.93</td><td class="down">-0.34%</td><td>亚盘从$95.24回落</td></tr>
+    <tr><td>现货黄金</td><td>$4,329.44</td><td class="down">-0.01%</td><td>逼近$4,300关口</td></tr>
+    <tr><td>美元指数</td><td>99.99</td><td class="down">-0.01%</td><td>逼近100关口</td></tr>
   </table>
 </div>
 
@@ -157,18 +184,33 @@
 <!-- 🔥 头号焦点 -->
 <!-- ============================================================ -->
 <div class="focus-box">
-  <div class="focus-header">🔥 隔夜头号焦点 &mdash; Intel暴涨12%：Google下300万颗TPU订单，AI供应链"去台积电化"标志性事件</div>
+  <div class="focus-header">🔥 隔夜头号焦点 &mdash; SOX超卖反弹+5.61%+韩股熔断：芯片需求叙事强势修复</div>
   <div class="focus-content">
-    <p><strong>据The Information报道，Google已向Intel下达超过300万颗Tensor Processing Units（TPU）的制造订单，计划2028年量产。</strong> 消息一出，Intel股价盘中暴涨约13%，收涨约12%。这是Intel Foundry业务自2021年启动以来最大的外部客户赢单，也是CEO陈立武（Lip-Bu Tan）Foundry转型战略的关键商业验证。（来源：The Information、Reuters、Bloomberg）</p>
+    <p><strong>费城半导体指数周一收涨+5.61%至12,907，一个交易日内收复上周五-10.26%历史惨跌逾半。</strong> 上周五Broadcom AI展望弱于预期触发的恐慌，在周一被迅速重新定价。Intel因Google 300万颗TPU订单消息暴涨12%，美光涨+6.9%（盘前），台积电ADR同步反弹。VIX从21.51骤跌至18.95（-12.04%），市场在一天内完成情绪去极端化。（来源：Investopedia、MarketWatch）</p>
 
-    <p><strong>更大的产业图景正在展开：</strong> Google转向Intel的核心原因是台积电先进封装产能（CoWoS）持续紧张——已被Nvidia、AMD、Broadcom占满。Morgan Stanley估计Google在2027-2028年间将建造超过600万颗TPU，这意味着Intel的订单规模还有翻倍空间。Nvidia也正在评估Intel 18A工艺，但尚未正式下单。（来源：Yahoo Finance、GuruFocus）</p>
+    <p><strong>韩国市场成为亚洲情绪放大器：</strong> 三星+5%、SK海力士+7.8%，KOSPI今晨开盘大涨+4.21%至7,799.52触发熔断暂停。三星与SK海力士的联袂大涨直接印证NVIDIA韩国25万块GPU部署战略落地带来的HBM内存超级需求，也是对上周"AI支出见顶"恐慌的有力反驳。韩股熔断为今日A股和美盘提供了正向情绪参考。（来源：韩联社、Yahoo Finance）</p>
 
-    <p><strong>受此带动，整个半导体产业链情绪修复。</strong> 费城半导体指数暴涨约6%，美光涨约10%，Marvell Technology暴涨15%（纳入标普500成分股消息叠加）。Apple在WWDC发布iOS 27、Siri深度AI升级，但市场以sell the news回应，Apple跌约1.9%。</p>
+    <p><strong>更大的产业叙事：</strong> Google向Intel下300万颗TPU订单，计划2028年量产。这是Intel Foundry最大外部客户赢单，标志着AI芯片供应链从"台积电一家独大"走向多元代工时代。Nvidia也在评估Intel 18A工艺。同日工信部/国资委联合启动人形机器人实景实训专项行动，AI硬件叙事从芯片蔓延至具身智能——政策层面对产业链的最强推动信号。（来源：The Information、Reuters、工信部）</p>
 
     <div class="invest-tip">
-      📌 <strong>投资视角：</strong> Intel获得Google订单是AI产业链"去台积电单一化"的标志性事件。核心受益方向：Intel自身（Foundry业务估值重塑）+ 先进封装设备商 + IC载板/封装材料。但注意2028年量产，业绩兑现还很遥远，短期更多是情绪驱动。真正的基本面变化需要跟踪Nvidia是否跟进下单。
+      📌 <strong>投资视角：</strong> SOX+5.61%是技术性超卖修复而非宏观基本面改善。趋势能否延续取决于明日（周三）美国5月CPI——若回落则降息叙事局部重建，芯片反弹可延续；若再超预期则高利率持续压制，超卖反弹夭折。苹果WWDC今日开幕是盘前情绪的独立正向催化剂。
     </div>
   </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- ⚡ 本周催化剂排序 -->
+<!-- ============================================================ -->
+<div class="catalyst-box">
+  <div class="cat-header">⚡ 本周催化剂排序 · 波动密度超高的一周</div>
+  <table>
+    <tr><th>排序</th><th>日期</th><th>事件</th><th>重要度</th></tr>
+    <tr><td>①</td><td>6月10日(周三)</td><td><strong>美国5月CPI</strong> — 年内最关键数据节点，决定降息叙事能否重建</td><td class="star5">★★★★★</td></tr>
+    <tr><td>②</td><td>6月16-17日</td><td><strong>FOMC会议</strong> — 沃什主持首次+点阵图，全市场最大政策尾部风险</td><td class="star5">★★★★★</td></tr>
+    <tr><td>③</td><td>6月11日(周四)</td><td><strong>欧央行利率决议</strong> — 预计+25bp，G7率先收紧，拉加德信号关键</td><td class="star4">★★★★</td></tr>
+    <tr><td>④</td><td>6月12日(周五)</td><td><strong>SpaceX (SPCX)</strong> 纳斯达克挂牌 — 史上最大IPO，$1.75万亿市值</td><td class="star4">★★★★</td></tr>
+    <tr><td>⑤</td><td>6月9日(今日)</td><td><strong>苹果WWDC</strong> 开幕（至13日）— iOS 20 + AI功能发布</td><td class="star3">★★★</td></tr>
+  </table>
 </div>
 
 <hr class="section-divider">
@@ -181,17 +223,17 @@
   <div class="section-content">
     <p><strong>今早开盘（6月9日）：</strong> 三大指数集体高开。上证指数报3,977.54点（<span class="up">+0.46%</span>），深证成指14,992.55（<span class="up">+1.16%</span>），创业板指3,865.69（<span class="up">+1.41%</span>）。科创综指以<span class="up">+1.78%</span>领涨，全市场超4,100只个股开盘上涨，仅约850只下跌。成交额约5,161亿元。（来源：新浪财经、东方财富）</p>
 
-    <p><strong>但板块极度分化：</strong> 半导体、通信设备、建材、存储芯片、CPO、PCB概念领涨——受隔夜费城半导体指数暴涨6%的情绪传导。煤炭（<span class="down">-2.30%</span>）、石油天然气、白酒、银行板块逆势下跌，反映市场对油价冲高回落的担忧及资金从防御板块流出。</p>
+    <p><strong>但板块极度分化：</strong> 半导体、通信设备、建材、存储芯片、CPO、PCB概念领涨——受隔夜SOX暴涨5.61%情绪传导。煤炭（<span class="down">-2.30%</span>）、石油天然气、白酒、银行板块逆势下跌，反映市场对油价冲高回落的担忧及资金从防御板块向科技成长轮动。</p>
 
-    <p><strong>消息面催化：</strong> 国家数据局昨日印发《关于推进行业高质量数据集建设行动的实施方案》，首次提出探索词元交易等新型数据交易模式，直接利好科技板块。央行开展1,530亿元7天期逆回购操作，利率1.40%，流动性保持充裕。</p>
+    <p><strong>政策催化：</strong> 工信部/国资委联合启动人形机器人实景实训专项行动，目标2026年底实现万台级规模落地。叠加国家数据局"数据要素"行动方案，科技板块迎来政策+情绪双重驱动。央行1,530亿元7天逆回购，利率1.40%，流动性充裕。</p>
 
     <div class="logic-chain">
       <div class="lc-label">🧩 传导链</div>
-      隔夜费城半导体+6% → A股半导体情绪传导 → 科创综指+1.78%领涨 → 但沪指仍在4,000点以下 → 煤炭/银行逆势下跌说明市场并非全面转多
+      SOX+5.61% → A股半导体情绪传导 → 科创综指+1.78%领涨 → 但沪指仍在4,000以下 → 煤炭/银行逆势下跌说明非全面转多
     </div>
 
     <div class="invest-tip">
-      📌 <strong>投资视角：</strong> A股今日的反弹是外部情绪传导，而非内部基本面改善。半导体板块可以跟涨但持续性存疑。关注两个信号：①沪指能否站稳4,000点 ②成交量能否持续放大。在加息预期未消的背景下，追高需谨慎。
+      📌 <strong>投资视角：</strong> 今日反弹是外部情绪传导，非内部基本面改善。关注两个信号：①沪指能否站稳4,000点 ②成交量能否持续放大。人形机器人政策利好结构性的传感器/精密制造方向，但短线追高半导体需谨慎。
     </div>
   </div>
 </div>
@@ -202,18 +244,17 @@
 <!-- 02 美股 -->
 <!-- ============================================================ -->
 <div class="section-block">
-  <div class="section-title"><span class="section-num" style="background:#16A34A;">2</span><span class="tag tag-us">美股</span>科技暴力反弹，但道指逆势下跌——市场并未全面转多</div>
+  <div class="section-title"><span class="section-num" style="background:#16A34A;">2</span><span class="tag tag-us">美股</span>科技暴力反弹，但道指逆势下跌——资金主动流向科技成长</div>
   <div class="section-content">
-    <p><strong>隔夜美股走势严重分化。</strong> 纳斯达克大涨0.86%，标普500涨0.30%，但道琼斯微跌0.16%（-80.77点），从盘中一度涨超410点后完全回吐。科技与防御板块的极致分化意味着：这不是一轮普涨，而是一次结构性的仓位再平衡。（来源：Investopedia、MarketWatch）</p>
+    <p><strong>隔夜美股走势严重分化。</strong> 纳斯达克大涨0.86%，标普500涨0.30%，但道琼斯微跌0.16%（-80.77点），从盘中一度涨超410点后完全回吐。公用事业跌1.9%、房地产跌1.6%——利率敏感板块的下跌与10年期收益率升至4.57%直接相关。Apple跌约1.9%（WWDC后sell the news）。（来源：Investopedia、MarketWatch）</p>
 
-    <p><strong>费城半导体指数暴涨约6%</strong>，是当日最大亮点。Intel暴涨约12%、美光涨约10%、Marvell Technology暴涨15%（纳入标普500成分股消息刺激）。AI/Chatbot概念股全线反弹。</p>
+    <p><strong>板块轮动信号清晰：</strong> 资金从防御（公用/地产）主动流向科技成长，而非全面避险。SOX暴涨5.61%、Intel暴涨12%、美光涨约10%、Marvell Technology暴涨15%（纳入标普500成分股）。这说明市场对AI资本支出周期的信心维持相对稳定，而非全面转向悲观——这是躲在上周五恐慌表象之下的真实结构。</p>
 
-    <p><strong>反转力量：</strong> 公用事业跌1.9%、房地产跌1.6%——这些利率敏感型板块的下跌与10年期收益率升至4.55%直接相关。Apple跌约1.9%（WWDC后sell the news）。</p>
+    <p><strong>VIX指数收于18.95，单日暴跌12.04%。</strong> 从上周五非农后21.51的高点回落至20以下。VIX在一天内完成如此剧烈的收缩，说明"暴力加息恐慌"的极端情绪在快速消退，但18.95仍高于年初均值（~15），市场尚未回到"无忧"水平。</p>
 
-    <p><strong>VIX指数收于18.95，单日暴跌11.90%。</strong> 从上周五非农后的21.51回落至20以下，但18.95仍高于年初均值（~15）。VIX下跌说明市场对"暴力加息"的极端恐慌在消退，但尚未回到"无忧"水平。</p>
-
-    <div class="invest-tip">
-      📌 <strong>投资视角：</strong> 指数的分化是一个重要信号。资金从防御（公用/地产）轮动到科技，说明市场在"加息恐慌"后开始寻找结构性机会。但如果10年期收益率突破4.6%甚至4.7%，科技股的估值压力会再次显现。短期可关注半导体板块的修复行情，但需做好仓位管理。
+    <div class="quick-read">
+      <div class="qr-label">📌 核心逻辑快读</div>
+      SOX+5.61%是技术性超卖修复，并非基本面改善。反弹能否延续取决于明日CPI——回落则降息叙事局部重建，科技可涨；再超预期则年内降息归零，超卖反弹夭折。
     </div>
   </div>
 </div>
@@ -224,16 +265,17 @@
 <!-- 03 科技/AI -->
 <!-- ============================================================ -->
 <div class="section-block">
-  <div class="section-title"><span class="section-num" style="background:#9333EA;">3</span><span class="tag tag-tech">科技/AI</span>Intel Foundry获最大外部订单，AI供应链格局正在被改写</div>
+  <div class="section-title"><span class="section-num" style="background:#9333EA;">3</span><span class="tag tag-tech">科技/AI</span>Intel Foundry获最大外部订单 + 工信部人形机器人双重催化</div>
   <div class="section-content">
-    <p><strong>Google的300万颗TPU订单，不仅是一笔大单——它正在改变全球AI芯片的供应链格局。</strong> 长期以来，AI训练芯片的制造高度依赖台积电的先进封装产能（CoWoS、SoIC等）。但随着AI算力需求爆发式增长，台积电的产能被Nvidia、AMD、Broadcom等大客户占满，Google不得不寻求第二供应源。（来源：The Street、Economic Times）</p>
+    <p><strong>Google的300万颗TPU订单，正在改变全球AI芯片的供应链格局。</strong> 长期以来AI训练芯片制造高度依赖台积电CoWoS封装产能——已被Nvidia、AMD、Broadcom占满。Google转向Intel Foundry，意味着AI芯片进入"多元代工"时代。Morgan Stanley估计Google 2027-2028年将建造超600万颗TPU，Intel订单有翻倍空间。Nvidia也在评估Intel 18A工艺。（来源：The Street、Yahoo Finance）</p>
 
-    <p><strong>Intel Foundry迎来真正的"分水岭时刻"。</strong> 自2021年启动代工业务以来，Intel一直在寻找能证明其技术能力的"锚定客户"。Google的订单意味着Intel 18A工艺获得了全球顶级AI芯片设计商的认可。CEO陈立武此前表示Intel将"不惜一切代价"重建代工能力，Google订单是这一战略的第一个里程碑。（来源：SimplyWallSt、Yahoo Finance）</p>
+    <p><strong>工信部/国资委联合发布人形机器人实景实训专项行动通知，</strong> 目标2026年底实现人形机器人在代表性场景"常态部署+作业模式"，凝练百个以上高价值场景，形成万台级规模落地能力。这是继AI芯片、大模型之后，政策面对具身智能产业链的最强推动信号，半导体/传感器/精密制造受益链条值得重点关注。</p>
 
-    <p><strong>Apple WWDC则展示了AI的另一面：</strong> 同日Apple在WWDC上发布iOS 27，Siri深度集成AI能力，包括更自然的对话、上下文感知、跨应用操作等。但Apple股价跌约1.9%——典型的"利好兑现即利空"（sell the news），说明市场早已将WWDC的AI升级预期打入价格。</p>
+    <p><strong>苹果WWDC 2026今日正式开幕</strong>（至6月13日），iOS 20与Apple Intelligence升级是最大看点。市场预期包括更强Siri推理能力与第三方大模型集成（Google Gemini/OpenAI均传闻有深度合作）。但Apple股价跌约1.9%——典型的sell the news，说明市场已提前将WWDC预期打入价格。</p>
 
-    <div class="invest-tip">
-      📌 <strong>投资视角：</strong> Intel + Google的组合标志着AI芯片供应链从"台积电一家独大"走向"多元代工"时代。核心关注三条线：①Intel Foundry业务估值 ②先进封装（CoWoS/RDL）供应链溢出效应——台积电产能排满后，订单会外溢到日月光、Amkor等封测厂 ③Nvidia是否跟进下单Intel——这将是下一个催化剂。
+    <div class="quick-read">
+      <div class="qr-label">📌 核心逻辑快读</div>
+      Intel+Google = AI芯片供应链"去台积电化"标志性事件。关注三条线：①Intel Foundry估值重塑 ②先进封装供应链溢出（日月光/Amkor等）③Nvidia是否跟进下单Intel——将是下一个催化剂。人形机器人政策为精密制造/传感器方向提供结构性加分。
     </div>
   </div>
 </div>
@@ -244,16 +286,15 @@
 <!-- 04 前沿/国际 -->
 <!-- ============================================================ -->
 <div class="section-block">
-  <div class="section-title"><span class="section-num" style="background:#1A56DB;">4</span><span class="tag tag-intl">前沿/国际</span>中东一幕三转：导弹→停火→油价过山车</div>
+  <div class="section-title"><span class="section-num" style="background:#1A56DB;">4</span><span class="tag tag-intl">前沿/国际</span>中东一幕三转 + 伊朗嘲讽特朗普 + 霍尔木兹僵局</div>
   <div class="section-content">
-    <p><strong>中东局势在6月7日-8日经历了戏剧性的一日三转。</strong> 伊朗向以色列发射导弹、以色列回击、双方随后在Trump总统的斡旋下宣布停止军事行动。油价随之走出一条剧烈的过山车曲线——WTI原油盘中从92美元飙升至95美元以上，最终收于94.59美元（+1.7%），较日内高点回落明显。（来源：Vietnam.vn、Hart Energy）</p>
+    <p><strong>中东局势再添变数。</strong> 伊朗今晨通过官方媒体发文嘲讽特朗普"两周内战胜伊朗"为"口头造胜利"，称其目的是通过模糊政治概念影响油价、防止经济危机冲击政府形象。这一表态显示伊朗短期谈判意愿极低，霍尔木兹海峡封锁僵局短期破冰概率几近于零。自3月起海峡实际已关闭，约27%的全球原油贸易持续受阻。（来源：塔斯尼姆通讯社、Hart Energy）</p>
 
-    <p><strong>市场如何定价地缘风险：</strong> 油价的冲高回落说明市场在理性评估——当前WTI价格（$94.59）包含了约$8-10的地缘风险溢价（对比非农前的$85-86区间）。OPEC+已批准7月额外增产18.8万桶/日，部分对冲了供给端担忧。布伦特-WTI价差走阔至约2.5美元，反映全球市场供给端不确定性仍高于美国本土。</p>
+    <p><strong>油价走势：</strong> 布伦特原油周一从亚盘$95.24回落至$93.93——冲突溢价部分消退但底部支撑仍强。OPEC+七国7月起日增产18.8万桶构成供应侧压制，但海峡封锁+美国库存连降8周（至2024年2月低点）限制下行空间。WTI收于$94.59，日内波动$92.20-$95.25（波动率3.28%为三周最宽）。（来源：Vietnam.vn、Hart Energy）</p>
 
-    <p><strong>但一个反直觉的信号值得注意：</strong> 油价在中东冲突中仅涨1.7%，而VIX却暴跌11.9%——市场在说"地缘风险是可控的"。真正的风险不是战争本身，而是油价持续高位→推高通胀→Fed被迫加息→压制所有风险资产。</p>
-
-    <div class="invest-tip">
-      📌 <strong>投资视角：</strong> 油价的走向对全球宏观有决定性影响。如果WTI持续在$95以上，将推高CPI，直接削弱Fed降息的可能性。关注本周四的美国CPI数据——如果核心CPI超预期，油价+通胀的双重压力将引发市场新一轮恐慌。
+    <div class="quick-read">
+      <div class="qr-label">📌 核心逻辑快读</div>
+      霍尔木兹谈判破裂 = 能源供应不确定性长期高位。两条路径：若以色列继续克制+新谈判接触 → 油价$90-95震荡；若伊朗兑现"完全封锁"或以色列偷袭能源设施 → 布伦特直冲$100+，通胀剧增，Fed降息窗口彻底关闭。以色列态度是本周最关键地缘变量。
     </div>
   </div>
 </div>
@@ -264,21 +305,22 @@
 <!-- 05 宏观 -->
 <!-- ============================================================ -->
 <div class="section-block">
-  <div class="section-title"><span class="section-num" style="background:#D4A017;">5</span><span class="tag tag-macro">宏观</span>美债收益率创两周新高，加息概率持续攀升——本周CPI定方向</div>
+  <div class="section-title"><span class="section-num" style="background:#D4A017;">5</span><span class="tag tag-macro">宏观</span>美债收益率创两周新高 + 日债突破3.9%：全球利率体系正在上移</div>
   <div class="section-content">
-    <p><strong>隔夜美国10年期国债收益率升至4.55%-4.57%区间，创两周新高。</strong> 2年期收益率约4.17%，30年期约5.02%。收益率曲线继续走陡——长端上行速度高于短端，反映市场对中长期通胀的担忧而非对近期加息的恐慌。（来源：CNBC、TradingEconomics）</p>
+    <p><strong>隔夜美国10年期国债收益率升至4.572%，创两周新高。</strong> 2年期约4.17%，30年期约5.02%。收益率曲线继续走陡——长端上行速度高于短端，反映市场对中长期通胀的担忧。JPMorgan上调年底预测至4.7%，为2025年初以来最高。（来源：CNBC、TradingEconomics、GuruFocus）</p>
 
-    <p><strong>JPMorgan上调预测：</strong> 将2026年底10年期收益率预测从4.4%上调至4.7%，为2025年初以来最高。核心驱动是非农数据超预期（17.2万 vs 预期8.8万）带来的通胀预期重定价。（来源：GuruFocus）</p>
+    <p><strong>日本国债收益率的飙升释放了另一个重要信号：</strong> 10年期日债升至2.74%，20年期3.66%，30年期3.965%——逼近4%历史高位。日本财务大臣表示"利率上升可能通过多种渠道影响经济"。日债上行对全球固收估值形成系统性冲击，同时压制依赖低利率的日股估值扩张。（来源：日本财务省、路透）</p>
 
-    <p><strong>加息定价方面：</strong> 市场目前定价12月加息概率65-70%，10月加息概率约52%。新美联储主席Warsh（6月16-17日首次主持会议）的鹰派立场也被计入价格。本周四的CPI数据将是决定加息路径的关键变量——如果核心CPI环比超0.3%，10月加息将成为基准情形。</p>
+    <p><strong>加息定价：</strong> 市场定价12月加息概率65-70%，10月加息概率约52%。沃什（6月16-17日首次主持FOMC）的鹰派立场已被计入价格。明日CPI将决定方向——核心CPI环比>0.3%则10月加息将成基准情形。</p>
 
     <div class="logic-chain">
       <div class="lc-label">🧩 传导链</div>
-      非农17.2万超预期 → 经济过热担忧 → 利率预期重定价 → 10年期收益率升至4.55% → 美元走强 → 黄金/新兴市场承压 → 本周CPI决定方向
+      地缘能源冲击 → 全球通胀高企 → 美/日央行双维紧缩 → 全球无风险利率上行 → 高估值科技股长期承压 → 明日CPI决定方向
     </div>
 
-    <div class="invest-tip">
-      📌 <strong>投资视角：</strong> 债券市场正在经历一次关键的重定价。关键问题不是"Fed会不会加息"，而是"加多少、什么时候加"。如果CPI数据后收益率突破4.6%，科技股将面临新一轮估值压缩。建议：①减配长期债券 ②关注浮动利率资产 ③对科技股保持灵活仓位。
+    <div class="quick-read">
+      <div class="qr-label">📌 核心逻辑快读</div>
+      关键问题不是"Fed会不会加息"，是"加多少、什么时候加"。若CPI后收益率突破4.6%，科技股将面临新一轮估值压缩。建议：减配长期债券，关注浮动利率资产，对科技股保持灵活仓位。
     </div>
   </div>
 </div>
@@ -289,18 +331,16 @@
 <!-- 06 商品/黄金 -->
 <!-- ============================================================ -->
 <div class="section-block">
-  <div class="section-title"><span class="section-num" style="background:#EA580C;">6</span><span class="tag tag-commodity">商品/黄金</span>黄金逼近$4,300创年内新低，油价冲高回落——黄金定价权已从避险转向利率预期</div>
+  <div class="section-title"><span class="section-num" style="background:#EA580C;">6</span><span class="tag tag-commodity">商品/黄金</span>黄金逼近$4,300创年内新低——央行19连增持托底，但利率预期压过一切</div>
   <div class="section-content">
-    <p><strong>隔夜现货黄金收于约$4,318/盎司（-0.3%），盘中一度跌至$4,268，创2026年新低。</strong> COMEX黄金期货（8月合约）报$4,355.60。从52周高点$5,477.79算起，黄金已累计下跌超过21%。（来源：CNBC TV18、Zawya、Kitco）</p>
+    <p><strong>隔夜现货黄金收于$4,329.44，盘中一度跌至$4,268，创2026年新低。</strong> 从52周高点$5,477.79算起已跌超21%。COMEX黄金期货（8月合约）报$4,355.60。三重压制：①强非农→加息预期→实际利率上行 ②美元走强 ③中东停火→避险需求消退。（来源：CNBC TV18、Zawya、Kitco）</p>
 
-    <p><strong>三重压制叠加：</strong> ①强非农引爆加息预期→实际利率上行，黄金持有成本上升 ②美元走强 ③中东停火信号→避险需求消退。黄金当前既不是通胀对冲工具（利率上行更快），也不是避险资产（资金流向美元和美债），处于一个"两头不着"的尴尬位置。</p>
+    <p><strong>但央行买盘提供结构性托底：</strong> 中国央行连续19个月增持黄金，5月末储备再增32万盎司。全球央行的连续买入行为是超越短期利率逻辑的战略性支撑——即使高利率抑制部分需求，央行侧买盘为黄金提供了$4,200以下的隐性托底。</p>
 
-    <p><strong>反直觉判断再次被验证：</strong> 黄金在中东冲突时期不涨反跌——定价权已彻底从"避险"转向"利率预期"。$4,300是心理关口，$4,200是2025年底的密集成交区。如果本周CPI超预期导致收益率进一步上行，黄金可能测试$4,200甚至更低。</p>
-
-    <p><strong>原油方面，</strong> WTI收于$94.59，日内波动区间$92.20-$95.25（波动率3.28%为三周最宽）。中东停火消息让油价从日内高点回落，OPEC+追加增产也限制了涨幅。</p>
+    <p><strong>反直觉判断再次被验证：</strong> 黄金在中东冲突+霍尔木兹封锁时期不涨反跌——定价权已彻底从"避险"转向"利率预期"。$4,300是心理关口，$4,200是2025年底密集成交区。若明日CPI后收益率突破4.6%，黄金可能测试$4,200。</p>
 
     <div class="invest-tip">
-      📌 <strong>投资视角：</strong> 黄金下跌趋势短期内难以逆转。除非CPI大幅低于预期（触发利率预期拐点），否则不建议抄底黄金。对于持有黄金ETF的投资者，可以在$4,300-$4,400区间设置止损。关注本周CPI——如果通胀低于预期，黄金可能迎来一个喘息窗口。
+      📌 <strong>投资视角：</strong> 短期不抄底黄金——除非CPI大幅低于预期触发利率预期拐点。持有黄金ETF的投资者可在$4,300-$4,400区间设止损。但央行19连增持+地缘风险未消，$4,200以下中长期配置价值开始显现。
     </div>
   </div>
 </div>
@@ -311,33 +351,85 @@
 <!-- 🧠 情景推演 -->
 <!-- ============================================================ -->
 <div class="section-block">
-  <div class="section-title">🧠 本周主轴：非农冲击波正在消化，周四CPI是第一个真正的方向测试</div>
+  <div class="section-title">🧠 三路径框架：明日的CPI决定一切</div>
 
   <div class="scenario-box">
-    <div class="sc-title" style="color:#DC2626;">情景一 · CPI超预期（核心CPI环比>0.3%）→ 加息预期强化 → 风险资产承压</div>
+    <div class="sc-title" style="color:#16A34A;">路径A · CPI回落（核心环比<0.2%）+ AI叙事强化 → 科技反弹延续</div>
     <div class="sc-content">
-      <p>油价$94+推升CPI → 核心CPI超0.3% → 10年期收益率突破4.6% → 11月/12月加息概率升至80%+ → 科技股估值承压 → 黄金测试$4,200 → 但有Intel/Google订单的AI结构性逻辑支撑，半导体板块跌幅有限</p>
+      <p>CPI温和 → 降息叙事局部重建 → 10年期回落至4.4% → 12月加息概率降至40%以下 → 科技股延续反弹 → 黄金反弹挑战$4,500 → 全球risk-on重启，半导体/AI领涨</p>
     </div>
   </div>
 
   <div class="scenario-box">
-    <div class="sc-title" style="color:#16A34A;">情景二 · CPI温和（核心CPI环比<0.2%）→ 加息叙事冷却 → 风险资产全面反弹</div>
+    <div class="sc-title" style="color:#DC2626;">路径B · CPI再超预期（核心环比>0.3%）+ 地缘恶化 → 双重压制再现</div>
     <div class="sc-content">
-      <p>CPI温和 → 市场重新定价"非农是噪音不是趋势" → 10年期收益率回落至4.4% → 12月加息概率降至40%以下 → 科技股延续反弹 → 黄金反弹挑战$4,500 → 全球risk-on重启，半导体/AI板块领涨</p>
+      <p>油价$94+推高CPI → 核心CPI超0.3% → 10年期突破4.6% → 年内降息彻底归零 → 伊朗落实"完全封锁"或以色列报复 → 布伦特冲破$100 → 通胀二次加速 → SOX超卖反弹夭折，能源/防御板块切换</p>
     </div>
   </div>
 
   <div class="core-contradiction">
     <div class="cc-label">🔴 核心矛盾</div>
-    Intel/Google的订单验证了AI结构性机会，这是"好消息"。但10年期美债收益率在4.55%且在上升，这是"坏消息"。两个力量在同时作用——AI的长期逻辑在改善，宏观的短期压力在加大。周四CPI将决定哪个力量占据主导。
+    Intel/Google的订单+人形机器人政策验证了AI结构性机会（好消息）。但10年期美债收益率在4.57%且日债逼近4%（坏消息）。两个力量同时作用——AI长期逻辑在改善，宏观短期压力在加大。本周四大催化剂（WWDC×CPI×欧央行×SpaceX）任一超预期均可放大当日振幅，波动率预期极高。明日CPI将决定哪个力量占据主导。
   </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- 📅 本周财经日历 -->
+<!-- ============================================================ -->
+<div class="section-block">
+  <div class="section-title">📅 本周财经日历</div>
+  <div class="calendar-grid">
+    <div class="cal-row cal-today">
+      <span class="cal-date">6月9日(今日)</span>
+      <span class="cal-event"><strong>苹果WWDC开幕</strong>（至13日）· 中国/美国贸易账</span>
+      <span class="cal-star" style="color:#D4A017;">★★★</span>
+    </div>
+    <div class="cal-row">
+      <span class="cal-date">6月10日(周三)</span>
+      <span class="cal-event"><strong>🇺🇸 美国5月CPI</strong> · 中国5月CPI/PPI · 加拿大央行决议</span>
+      <span class="cal-star" style="color:#DC2626;">★★★★★</span>
+    </div>
+    <div class="cal-row">
+      <span class="cal-date">6月11日(周四)</span>
+      <span class="cal-event"><strong>🇪🇺 欧央行利率决议</strong>（预计+25bp）· 美国5月PPI · 甲骨文财报</span>
+      <span class="cal-star" style="color:#EA580C;">★★★★</span>
+    </div>
+    <div class="cal-row">
+      <span class="cal-date">6月12日(周五)</span>
+      <span class="cal-event"><strong>🚀 SpaceX (SPCX) 纳斯达克上市</strong> · 世界杯开幕</span>
+      <span class="cal-star" style="color:#EA580C;">★★★★</span>
+    </div>
+    <div class="cal-row">
+      <span class="cal-date">6月16-17日</span>
+      <span class="cal-event"><strong>🏛️ FOMC会议</strong> 沃什主持首次+点阵图</span>
+      <span class="cal-star" style="color:#DC2626;">★★★★★</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- 💰 QDII基金净值估算 -->
+<!-- ============================================================ -->
+<div class="section-block">
+  <div class="section-title">💰 QDII基金净值估算 · 科技QDII全面反弹</div>
+  <table class="qdii-table">
+    <tr><th>基金名称</th><th>估算涨跌</th><th>限额</th></tr>
+    <tr><td>华夏移动互联混合人民币 002891</td><td class="up">▲ +5.07%</td><td>¥200/日</td></tr>
+    <tr><td>嘉实全球产业升级股票发起式(QDII) 017731</td><td class="up">▲ +4.21%</td><td>¥100/日</td></tr>
+    <tr><td>富国全球科技互联网股票(QDII) 022184</td><td class="up">▲ +1.22%</td><td>¥1,000/日</td></tr>
+    <tr><td>广发全球精选股票(QDII) 021277</td><td class="up">▲ +2.53%</td><td>¥100/日</td></tr>
+    <tr><td>创金合信全球芯片产业(QDII) 017654</td><td class="up">▲ +0.78%</td><td>¥1,000/日</td></tr>
+    <tr><td>建信新兴市场混合(QDII) 018147</td><td class="up">▲ +2.09%</td><td>¥30/日</td></tr>
+    <tr><td>国富全球科技互联混合(QDII) 021842</td><td class="up">▲ +3.59%</td><td>¥100/日</td></tr>
+  </table>
+  <div style="font-size:11px; color:#94A3B8; line-height:1.5;">⚠️ 以上为实时估算净值，非实际净值；以天天基金/各基金公司公告为准。数据来源：天天基金 · 富途</div>
 </div>
 
 <!-- Pull Quote -->
 <div class="pull-quote">
-  技术性反弹 ≠ 趋势反转<br>
-  非农之后的市场需要至少一周消化期<br>
-  周四CPI才是第一个真正的方向测试
+  SOX+5.61% ≠ 趋势反转<br>
+  本周四大催化剂并发，波动密度极高<br>
+  明日CPI才是第一个真正的方向测试
 </div>
 
 <!-- Sources -->
@@ -347,13 +439,14 @@
   <p style="margin-bottom:4px;">2. Nasdaq — <a href="https://www.nasdaq.com/articles/stock-market-news-jun-8-2026" target="_blank">Stock Market News for Jun 8, 2026</a></p>
   <p style="margin-bottom:4px;">3. Nasdaq — <a href="https://www.nasdaq.com/articles/stock-market-today-june-8-intel-surges-reported-google-ai-chip-foundry-order" target="_blank">Intel Surges on Reported Google AI Chip Foundry Order</a></p>
   <p style="margin-bottom:4px;">4. MarketWatch — <a href="https://www.marketwatch.com/livecoverage/stock-market-today-dow-set-to-weaken-nasdaq-to-rise-after-worst-day-for-stocks-in-ten-months" target="_blank">U.S. stocks end mostly higher</a></p>
-  <p style="margin-bottom:4px;">5. CNBC — <a href="https://www.cnbc.com/2026/06/08/treasury-yields-rise-as-traders-weigh-inflationary-pressures.html" target="_blank">Treasury yields rise as traders weigh inflationary pressures</a></p>
-  <p style="margin-bottom:4px;">6. 新浪财经 — <a href="https://finance.sina.com.cn/wm/2026-06-09/doc-iniaukpc2009951.shtml" target="_blank">A股指数集体高开，半导体板块涨幅居前</a></p>
+  <p style="margin-bottom:4px;">5. CNBC — <a href="https://www.cnbc.com/2026/06/08/treasury-yields-rise-as-traders-weigh-inflationary-pressures.html" target="_blank">Treasury yields rise</a></p>
+  <p style="margin-bottom:4px;">6. 新浪财经 — <a href="https://finance.sina.com.cn/wm/2026-06-09/doc-iniaukpc2009951.shtml" target="_blank">A股指数集体高开，半导体涨幅居前</a></p>
   <p style="margin-bottom:4px;">7. 东方财富 — <a href="https://fund.eastmoney.com/a/202606093764558036.html" target="_blank">A股开盘沪指涨0.46%</a></p>
-  <p style="margin-bottom:4px;">8. The Street — <a href="https://www.thestreet.com/investing/stocks/intel-stock-makes-eye-popping-move-on-google-nvidia-news" target="_blank">Intel stock makes eye-popping move on Google, Nvidia news</a></p>
+  <p style="margin-bottom:4px;">8. The Street — <a href="https://www.thestreet.com/investing/stocks/intel-stock-makes-eye-popping-move-on-google-nvidia-news" target="_blank">Intel stock makes eye-popping move</a></p>
   <p style="margin-bottom:4px;">9. Yahoo Finance — <a href="https://finance.yahoo.com/sectors/technology/articles/google-orders-3-million-tpus-145618727.html" target="_blank">Google orders 3 million TPUs from Intel</a></p>
   <p style="margin-bottom:4px;">10. Barron's — <a href="https://www.barrons.com/livecoverage/stock-market-news-today-060826/card/market-fear-index-slides-as-investors-pile-back-into-tech-stocks-lMyiHu0LDahwtFCIDX6G" target="_blank">Market Fear Index Slides</a></p>
-  <p style="margin-bottom:4px;">11. Zawya — <a href="https://www.zawya.com/en/business/commodities/gold-extends-losses-on-us-interest-rate-hike-fears-c0vjczl9" target="_blank">Gold extends losses on rate-hike fears</a></p>
+  <p style="margin-bottom:4px;">11. Zawya — <a href="https://www.zawya.com/en/business/commodities/gold-extends-losses-on-us-interest-rate-hike-fears-c0vjczl9" target="_blank">Gold extends losses</a></p>
+  <p style="margin-bottom:4px;">12. The Information / Reuters — Google TPU订单独家</p>
 </div>
 
 <!-- 名词解释 · 小白友好版 -->
@@ -361,13 +454,14 @@
   <h4>📖 名词解释 · 小白友好版</h4>
   <table>
     <tr><th>术语</th><th>大白话</th><th>为什么重要</th></tr>
-    <tr><td>TPU (Tensor Processing Unit)</td><td>Google专门为AI训练设计的定制芯片</td><td>Google向Intel下300万颗订单意味着AI芯片供应链正从台积电一家独大走向多元化</td></tr>
-    <tr><td>Intel Foundry</td><td>Intel的代工业务，为其他公司制造芯片</td><td>以前Intel只做自家芯片，现在开始为别人代工，这是其战略转型的核心</td></tr>
-    <tr><td>费城半导体指数</td><td>追踪30家主要半导体公司的行业指数</td><td>被视为全球芯片行业景气度的风向标，暴涨6%是极强的情绪信号</td></tr>
-    <tr><td>sell the news</td><td>"利好出尽是利空"——好消息发布后股价反而下跌</td><td>说明市场早已把好消息"定价"进去，正式发布后获利盘涌出</td></tr>
-    <tr><td>10年期美债收益率</td><td>美国政府10年期债券的年化收益率</td><td>全球资产定价的"锚"——它上升意味着所有资产（股票、黄金、房产）的估值都要往下调</td></tr>
-    <tr><td>VIX恐慌指数</td><td>标普500未来30天预期波动的"体温计"</td><td>从21.51暴跌至18.95回到20以下，说明市场对"暴力加息"的极端恐慌在消退</td></tr>
-    <tr><td>实际利率</td><td>名义利率减去通胀率——持有黄金的"机会成本"</td><td>目前黄金定价的核心锚点：实际利率↑→黄金跌，中东打仗也救不了</td></tr>
+    <tr><td>SOX（费城半导体指数）</td><td>追踪30家主要半导体公司</td><td>全球芯片行业景气度风向标，+5.61%是极强的情绪修复信号</td></tr>
+    <tr><td>TPU (Tensor Processing Unit)</td><td>Google的AI训练定制芯片</td><td>Google向Intel下300万颗=AI芯片供应链从台积电一家独大走向多元</td></tr>
+    <tr><td>HBM（高带宽内存）</td><td>AI芯片用的超高速内存</td><td>三星/SK海力士暴涨=AI算力需求拉动HBM超级需求周期</td></tr>
+    <tr><td>KOSPI熔断</td><td>韩国股市涨跌幅超过阈值暂停交易</td><td>韩股+4.21%触发熔断=亚洲AI情绪极度亢奋</td></tr>
+    <tr><td>霍尔木兹海峡</td><td>中东关键石油运输通道</td><td>约27%全球原油贸易通过这里，封锁=油价暴涨风险</td></tr>
+    <tr><td>10年期美债收益率</td><td>美国政府10年债券年化收益率</td><td>全球资产定价"锚"——4.57%意味着所有资产估值都要下调</td></tr>
+    <tr><td>VIX恐慌指数</td><td>标普500未来30天预期波动体温计</td><td>从21.51暴跌至18.95=极端恐慌快速消退，但尚未无忧</td></tr>
+    <tr><td>QDII基金</td><td>可投资海外股市的国内公募基金</td><td>普通投资者参与美/港/日股的主要渠道，限额每日申购</td></tr>
   </table>
 </div>
 

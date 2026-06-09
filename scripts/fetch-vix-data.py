@@ -35,17 +35,17 @@ os.makedirs(os.path.join(ROOT, 'docs', 'charts'), exist_ok=True)
 # ===== 备用数据：当所有 API 均失败时使用 =====
 # 数据来源：WebSearch 交叉验证 (Yahoo Finance / Schwab / TexMetals)
 FALLBACK_DATA = {
-    'current': 19.92,
+    'current': 18.95,
     'prev': 21.51,
-    'change': -1.59,
-    'changePct': -7.39,
-    'level': '中性偏谨慎',
+    'change': -2.56,
+    'changePct': -11.90,
+    'level': '中性偏低',
     'cls': 'neutral',
-    'pct': 48.5,
+    'pct': 38,
     'date': '2026-06-08',
-    'updateTime': '2026-06-09 00:00',
-    'source': '备用数据 (CBOE/Barron\'s, VIX=19.92)',
-    'note': '6/8周一VIX从21.5回落至19.92(-7.39%)，科技股逢低买入情绪恢复'
+    'updateTime': '2026-06-09 08:00',
+    'source': '备用数据 (CBOE/Barron\'s, VIX=18.95)',
+    'note': '6/8周一VIX从21.51暴跌至18.95(-11.9%)，回到20以下，科技反弹情绪恢复'
 }
 
 # ===== 备用历史数据（用于生成趋势图） =====
@@ -63,7 +63,7 @@ FALLBACK_HISTORY = {
         13.01, 13.57, 13.89, 14.22,
         14.05, 13.88, 14.56, 15.10,
         15.72, 16.39, 16.44, 17.82,
-        15.25, 21.51, 19.92,
+        15.25, 21.51, 18.95,
     ]
 }
 
