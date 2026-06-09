@@ -1,7 +1,19 @@
 {
-  "generated_at": "2026-06-09T00:26:45+08:00",
-  "latest_date": "2026-06-08",
+  "generated_at": "2026-06-09T12:00:15+08:00",
+  "latest_date": "2026-06-09",
   "articles": [
+    {
+      "date": "2026-06-09",
+      "session": "morning",
+      "edition_cn": "早报",
+      "icon": "🌅",
+      "title": "科技强势反弹·Intel暴涨12%·Google下300万颗TPU订单·A股集体高开·黄金跌破4300",
+      "url": "2026-06-09/wechat-publish/morning/article.html",
+      "has_audio": true,
+      "audio_size_bytes": 1560672,
+      "has_comic": false,
+      "comic_count": 0
+    },
     {
       "date": "2026-06-08",
       "session": "evening",
@@ -379,6 +391,20 @@
     }
   ],
   "by_date": {
+    "2026-06-09": {
+      "morning": {
+        "date": "2026-06-09",
+        "session": "morning",
+        "edition_cn": "早报",
+        "icon": "🌅",
+        "title": "科技强势反弹·Intel暴涨12%·Google下300万颗TPU订单·A股集体高开·黄金跌破4300",
+        "url": "2026-06-09/wechat-publish/morning/article.html",
+        "has_audio": true,
+        "audio_size_bytes": 1560672,
+        "has_comic": false,
+        "comic_count": 0
+      }
+    },
     "2026-06-08": {
       "evening": {
         "date": "2026-06-08",

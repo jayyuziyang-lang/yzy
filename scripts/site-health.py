@@ -86,6 +86,29 @@ def main():
     if article_total == 0:
         print('  (no articles to check)')
 
+    # 3b. Check AI chain articles
+    print('\n[3b/6] AI chain articles')
+    ai_chain_json = os.path.join(ROOT, 'data', 'ai-chain.json')
+    if os.path.exists(ai_chain_json):
+        with open(ai_chain_json, encoding='utf-8') as f:
+            ai_data = json.load(f)
+        ai_articles = ai_data.get('articles', [])
+        check(len(ai_articles) > 0, f'ai-chain.json — {len(ai_articles)} articles')
+        for aa in ai_articles:
+            url = aa.get('url', '')
+            status = aa.get('status', 'draft')
+            if url and status != 'draft':
+                ap = os.path.join(ROOT, url)
+                if os.path.exists(ap):
+                    with open(ap, encoding='utf-8') as f:
+                        html = f.read()
+                    has_nav = 'top-nav' in html and '返回首页' in html
+                    check(has_nav, f'AI: {aa.get("title","?")} — article.html + nav')
+                else:
+                    check(False, f'AI: {aa.get("title","?")} — file MISSING: {url}')
+    else:
+        check(False, 'ai-chain.json not found')
+
     # 4. Check character assets
     print('\n[4/6] Character assets')
     char_dir = os.path.join(ROOT, 'assets', 'character')

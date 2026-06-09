@@ -469,6 +469,55 @@ else
 
 fi
 
+# [9b/9] AI产业链文章检查
+echo -e "\n🤖 [9b/9] AI产业链文章检查..."
+AI_CHAIN_DIR="$ROOT_DIR/ai-chain"
+AI_ERRORS=0
+
+if [ -d "$AI_CHAIN_DIR" ]; then
+
+    for topic_dir in "$AI_CHAIN_DIR"/*/; do
+        [ ! -d "$topic_dir" ] && continue
+        topic_name=$(basename "$topic_dir")
+        [[ "$topic_name" == .* ]] && continue
+
+        echo -e "  📖 检查AI文章: $topic_name"
+
+        # 检查 article.html
+        if [ ! -f "$topic_dir/article.html" ]; then
+            echo -e "  ${RED}    ❌ 缺少 article.html${NC}"; ((AI_ERRORS++))
+        else
+            LINK=$(grep -oP 'href="[^"]*index\.html"' "$topic_dir/article.html" 2>/dev/null || echo "")
+            if echo "$LINK" | grep -qE "../../index.html"; then
+                echo -e "  ${GREEN}    ✅ article.html + 返回链接${NC}"
+            else
+                echo -e "  ${YELLOW}    ⚠️ $topic_dir/article.html: 返回链接异常 ($LINK)${NC}"
+            fi
+        fi
+
+        # 检查 images/
+        if [ -d "$topic_dir/images" ]; then
+            IMG_COUNT=$(ls "$topic_dir/images/"*.png "$topic_dir/images/"*.svg "$topic_dir/images/"*.jpg 2>/dev/null | wc -l)
+            if [ "$IMG_COUNT" -gt 0 ]; then
+                echo -e "  ${GREEN}    ✅ images/ — $IMG_COUNT 张图片${NC}"
+            else
+                echo -e "  ${YELLOW}    ⚠️ images/ 目录为空${NC}"
+            fi
+        else
+            echo -e "  ${YELLOW}    ⚠️ 无 images/ 目录${NC}"
+        fi
+        echo ""
+    done
+
+fi
+
+if [ "$AI_ERRORS" -gt 0 ]; then
+    echo -e "  ${RED}❌ AI产业链文章检查: $AI_ERRORS 个错误${NC}"
+    ((ERRORS+=AI_ERRORS))
+else
+    echo -e "  ${GREEN}✅ AI产业链文章检查通过${NC}"
+fi
+
 
 
 # 结果
