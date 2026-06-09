@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 220">
+  <rect width="300" height="220" fill="#FAFAFA"/>
+
+  <!-- Title bar -->
+  <rect x="0" y="0" width="300" height="30" fill="#D4A017"/>
+  <text x="150" y="20" text-anchor="middle" font-size="12" font-weight="700" fill="#fff" font-family="PingFang SC, Microsoft YaHei, sans-serif">📈 沪指一日收复4000 · 科创50暴涨4.17%</text>
+
+  <!-- Left: Big numbers -->
+  <text x="12" y="52" font-size="8" fill="#64748B" font-family="PingFang SC, Microsoft YaHei, sans-serif">三大指数收盘</text>
+
+  <!-- 上证 -->
+  <text x="12" y="70" font-size="7" fill="#1E293B" font-family="PingFang SC, Microsoft YaHei, sans-serif">上证 4,010</text>
+  <rect x="14" y="74" width="82" height="10" rx="2" fill="#FEF2F2"/>
+  <text x="98" y="83" font-size="6" fill="#DC2626" font-family="PingFang SC, Microsoft YaHei, sans-serif">+1.28%（+50.69）</text>
+
+  <!-- 深证 -->
+  <text x="12" y="96" font-size="7" fill="#1E293B" font-family="PingFang SC, Microsoft YaHei, sans-serif">深证 15,269</text>
+  <rect x="14" y="100" width="82" height="10" rx="2" fill="#FEF2F2"/>
+  <text x="98" y="109" font-size="6" fill="#DC2626" font-family="PingFang SC, Microsoft YaHei, sans-serif">+3.02%（+447.53）</text>
+
+  <!-- 创业板 -->
+  <text x="12" y="122" font-size="7" fill="#1E293B" font-family="PingFang SC, Microsoft YaHei, sans-serif">创业板 3,962</text>
+  <rect x="14" y="126" width="82" height="10" rx="2" fill="#FEF2F2"/>
+  <text x="98" y="135" font-size="6" fill="#DC2626" font-family="PingFang SC, Microsoft YaHei, sans-serif">+3.93%（+149.96）</text>
+
+  <!-- 科创50 -->
+  <text x="12" y="148" font-size="7" font-weight="700" fill="#1E293B" font-family="PingFang SC, Microsoft YaHei, sans-serif">⭐ 科创50 1,663</text>
+  <rect x="14" y="152" width="82" height="10" rx="2" fill="#FEF2F2" stroke="#DC2626" stroke-width="0.5"/>
+  <text x="98" y="161" font-size="6" fill="#DC2626" font-weight="700" font-family="PingFang SC, Microsoft YaHei, sans-serif">+4.17% 领跑全市场</text>
+
+  <!-- Divider -->
+  <line x1="140" y1="38" x2="140" y2="175" stroke="#E2E8F0" stroke-width="1"/>
+
+  <!-- Right: Key stats -->
+  <text x="148" y="55" font-size="8" fill="#64748B" font-family="PingFang SC, Microsoft YaHei, sans-serif">市场特征</text>
+
+  <rect x="148" y="62" width="144" height="18" rx="3" fill="#FEF2F2" stroke="#FECACA" stroke-width="0.5"/>
+  <text x="153" y="74" font-size="7" font-weight="700" fill="#DC2626" font-family="PingFang SC, Microsoft YaHei, sans-serif">半导体涨停潮 · 沪硅20cm涨停</text>
+
+  <rect x="148" y="84" width="144" height="18" rx="3" fill="#F0FDF4" stroke="#BBF7D0" stroke-width="0.5"/>
+  <text x="153" y="96" font-size="7" fill="#166534" font-family="PingFang SC, Microsoft YaHei, sans-serif">成交 2.64万亿（缩量1567亿）</text>
+
+  <rect x="148" y="106" width="144" height="18" rx="3" fill="#FFFBEB" stroke="#FDE68A" stroke-width="0.5"/>
+  <text x="153" y="118" font-size="7" fill="#92400E" font-family="PingFang SC, Microsoft YaHei, sans-serif">北向净流入46亿（连续12日）</text>
+
+  <rect x="148" y="128" width="144" height="18" rx="3" fill="#FAF5FF" stroke="#E9D5FF" stroke-width="0.5"/>
+  <text x="153" y="140" font-size="7" fill="#6B21A8" font-family="PingFang SC, Microsoft YaHei, sans-serif">半导体全链净流入127亿元</text>
+
+  <rect x="148" y="150" width="144" height="18" rx="3" fill="#F0F4FF" stroke="#BFDBFE" stroke-width="0.5"/>
+  <text x="153" y="162" font-size="7" fill="#1E40AF" font-family="PingFang SC, Microsoft YaHei, sans-serif">煤炭-2.3%/白酒-1.8%资金流出</text>
+
+  <!-- Bottom insight -->
+  <rect x="10" y="178" width="280" height="34" rx="6" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="20" y="194" font-size="7" fill="#475569" font-family="PingFang SC, Microsoft YaHei, sans-serif">💡 缩量反攻不是趋势反转——半导体有独立景气，但2.64万亿不足支撑全市场</text>
+  <text x="20" y="206" font-size="7" fill="#475569" font-family="PingFang SC, Microsoft YaHei, sans-serif">   周四CPI才是真正的方向测试，勿把反弹当反转。</text>
+</svg>

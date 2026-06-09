@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-09T18:33:57+08:00",
+  "generated_at": "2026-06-09T18:38:48+08:00",
   "latest_date": "2026-06-09",
   "articles": [
     {
@@ -11,8 +11,8 @@
       "url": "2026-06-09/wechat-publish/evening/article.html",
       "has_audio": true,
       "audio_size_bytes": 1176192,
-      "has_comic": false,
-      "comic_count": 0
+      "has_comic": true,
+      "comic_count": 3
     },
     {
       "date": "2026-06-09",
@@ -413,8 +413,8 @@
         "url": "2026-06-09/wechat-publish/evening/article.html",
         "has_audio": true,
         "audio_size_bytes": 1176192,
-        "has_comic": false,
-        "comic_count": 0
+        "has_comic": true,
+        "comic_count": 3
       },
       "morning": {
         "date": "2026-06-09",
