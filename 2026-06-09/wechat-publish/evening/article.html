@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>沪指收复4000点·半导体暴涨·沪硅产业20cm涨停·科创50涨4.17%·Google向Intel下TPU大单·黄金4327弱势</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system,"PingFang SC","Microsoft YaHei","Helvetica Neue",sans-serif; background: #F5F7FA; color: #1E293B; line-height: 1.8; font-size: 16px; }
+  .c { max-width: 640px; margin: 0 auto; background: #fff; padding: 44px 0 40px; }
+  .top-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; max-width: 640px; margin: 0 auto; background: rgba(255,255,255,0.95); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-bottom: 1px solid #E2E8F0; display: flex; align-items: center; padding: 0 16px; height: 44px; }
+  .top-nav .back { display: flex; align-items: center; gap: 4px; color: #1A56DB; text-decoration: none; font-size: 13px; font-weight: 600; }
+  .top-nav .back:active { opacity: 0.6; }
+  .top-nav .nav-date { flex: 1; text-align: center; font-size: 12px; color: #64748B; }
+  .top-nav .nav-edition { font-size: 11px; color: #D4A017; background: #FFFBEB; padding: 2px 8px; border-radius: 8px; font-weight: 600; }
+  .header { background: linear-gradient(135deg,#D4A017,#B8860B); padding: 20px 20px 16px; color: white; }
+  .header h1 { font-size: 22px; font-weight: 700; line-height: 1.4; margin-bottom: 6px; }
+  .header .meta { font-size: 12px; opacity: 0.8; display: flex; gap: 12px; flex-wrap: wrap; }
+  .player { display: flex; align-items: center; gap: 12px; margin-top: 14px; }
+  .player-icon { width: 40px; height: 40px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 18px; }
+  .player-info { flex: 1; }
+  .player-title { font-size: 13px; font-weight: 600; }
+  .player-desc { font-size: 11px; opacity: 0.7; }
+  .player audio { width: 100%; margin-top: 4px; border-radius: 20px; }
+  .body { padding: 20px 20px 0; }
+  .layer1 { margin-bottom: 28px; }
+  .l1-title { font-size: 16px; font-weight: 700; color: #D4A017; margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
+  .l1-comic { margin: 8px 0 0; }
+  .l1-comic img { width: 100%; border-radius: 10px; border: 1px solid #E2E8F0; }
+  .l1-divider { border: none; border-top: 2px dashed #D4A017; margin: 16px 0; }
+  .layer2 { margin-bottom: 24px; }
+  .l2-title { font-size: 16px; font-weight: 700; color: #D4A017; margin-bottom: 14px; display: flex; align-items: center; gap: 6px; }
+  .quote { background: #FFFBEB; border-left: 4px solid #D4A017; padding: 12px 14px; margin: 14px 0; border-radius: 0 8px 8px 0; font-size: 14px; color: #92400E; line-height: 1.7; }
+  p { margin-bottom: 12px; text-align: justify; font-size: 15px; }
+  .story { margin: 22px 0; }
+  .story-head { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .story-num { width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; color: #fff; flex-shrink: 0; }
+  .story-num.s01 { background: #DC2626; } .story-num.s02 { background: #16A34A; } .story-num.s03 { background: #7C3AED; }
+  .story-num.s04 { background: #1A56DB; } .story-num.s05 { background: #D4A017; } .story-num.s06 { background: #EA580C; }
+  .story-tag { font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 3px; }
+  .story-tag.s01 { background: #FEF2F2; color: #DC2626; } .story-tag.s02 { background: #F0FDF4; color: #16A34A; }
+  .story-tag.s03 { background: #FAF5FF; color: #7C3AED; } .story-tag.s04 { background: #EFF6FF; color: #1A56DB; }
+  .story-tag.s05 { background: #FFFBEB; color: #D4A017; } .story-tag.s06 { background: #FFF7ED; color: #EA580C; }
+  .story-title { font-size: 16px; font-weight: 700; color: #1E293B; line-height: 1.4; }
+  .story-content { font-size: 14px; color: #334155; line-height: 1.8; margin-bottom: 8px; }
+  .story-content p { margin-bottom: 8px; font-size: 14px; }
+  .story-img { margin: 10px 0 0; border-radius: 8px; border: 1px solid #E2E8F0; overflow: hidden; background: #FAFAFA; }
+  .story-img img { width: 100%; display: block; }
+  .story-divider { border: none; height: 1px; background: linear-gradient(to right, transparent, #E2E8F0, transparent); margin: 6px 0; }
+  .gold-box { background: linear-gradient(135deg,#FFF8E7,#FFF3D6); border: 1px solid #D4A017; border-radius: 12px; padding: 18px 20px; margin: 22px 0; text-align: center; font-size: 16px; font-weight: 700; color: #B8860B; line-height: 1.5; }
+  .layer3 { margin-bottom: 24px; }
+  .l3-title { font-size: 16px; font-weight: 700; color: #D4A017; margin-bottom: 10px; }
+  .l3-highlight-box { background: #FFFBEB; border-radius: 10px; padding: 12px 14px; margin: 12px 0; font-size: 13px; color: #92400E; line-height: 1.6; border: 1px solid #FDE68A; }
+  table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 13px; }
+  th { background: #D4A017; color: #fff; padding: 8px 10px; text-align: left; font-weight: 600; }
+  th:first-child { border-radius: 6px 0 0 0; }
+  th:last-child { border-radius: 0 6px 0 0; }
+  td { padding: 8px 10px; border-bottom: 1px solid #E2E8F0; }
+  tr:nth-child(even) { background: #F8F9FA; }
+  .up { color: #DC2626; font-weight: 600; }
+  .down { color: #16A34A; font-weight: 600; }
+  .warn { background: #FFF5F5; border: 1px solid #FECACA; border-radius: 10px; padding: 12px 14px; margin-top: 24px; font-size: 12px; color: #991B1B; line-height: 1.5; }
+  .list { background: #F8F9FA; border-radius: 8px; padding: 10px 14px; margin: 10px 0; }
+  .list-item { padding: 5px 0; border-bottom: 1px solid #E2E8F0; font-size: 13px; display: flex; gap: 6px; }
+  .list-item:last-child { border-bottom: none; }
+  .tag-b { display: inline-block; background: #D4A017; color: #fff; font-size: 10px; padding: 1px 7px; border-radius: 8px; white-space: nowrap; }
+  .sources { background: #FFFBEB; border-radius: 10px; padding: 12px 14px; margin: 16px 0; font-size: 12px; color: #92400E; line-height: 1.6; }
+  .sources h3 { font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+  .sources a { color: #1A56DB; text-decoration: none; }
+  .foot { background: linear-gradient(135deg,#D4A017,#B8860B); border-radius: 12px; padding: 18px 20px; margin: 22px 0; color: white; text-align: center; }
+  .foot .icon { font-size: 28px; margin-bottom: 4px; }
+  .foot .t { font-size: 16px; font-weight: 700; margin-bottom: 2px; }
+  .foot .d { font-size: 11px; opacity: 0.85; }
+  .highlight { background: #FFFBEB; padding: 1px 4px; border-radius: 2px; font-weight: 600; color: #92400E; }
+  .key-num { font-weight: 700; color: #D4A017; }
+  .glossary { background: #FFFBEB; border: 1px solid #FDE68A; border-radius: 10px; padding: 12px 14px; margin: 16px 0; font-size: 12px; line-height: 1.6; }
+  .glossary h4 { font-size: 13px; font-weight: 700; color: #92400E; margin-bottom: 8px; }
+  .glossary table { width: 100%; font-size: 12px; margin: 0; }
+  .glossary th { background: #D4A017; color: #fff; padding: 5px 8px; font-size: 11px; text-align: left; }
+  .glossary td { padding: 5px 8px; font-size: 11px; }
+
+  .logic-chain { background: #F0F4FF; border-left: 4px solid #1A56DB; border-radius: 0 8px 8px 0; padding: 10px 14px; margin: 10px 0 14px; font-size: 13.5px; color: #1E3A7A; line-height: 1.7; }
+  .logic-chain .lc-label { font-weight: 700; font-size: 12px; color: #1A56DB; margin-bottom: 2px; }
+  .logic-chain .lc-arrow { color: #1A56DB; font-weight: 700; }
+  .invest-view { background: #F0FDF4; border-left: 4px solid #16A34A; border-radius: 0 8px 8px 0; padding: 10px 14px; margin: 10px 0 14px; font-size: 13.5px; color: #14532D; line-height: 1.7; }
+  .invest-view .iv-label { font-weight: 700; font-size: 12px; color: #16A34A; margin-bottom: 2px; }
+  .scenario-box { background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 10px; padding: 12px; margin: 12px 0; }
+  .scenario-box .sc-title { font-weight: 700; font-size: 14px; margin-bottom: 6px; }
+  .scenario-box .sc-path-a { color: #DC2626; }
+  .scenario-box .sc-path-b { color: #16A34A; }
+  .scenario-box .sc-content { font-size: 13.5px; color: #475569; line-height: 1.7; }
+  .scenario-box .sc-content p { margin-bottom: 6px; }
+</style>
+</head>
+<body>
+<div class="c">
+
+  <div class="top-nav">
+    <a class="back" href="../../../index.html">&larr; 返回首页</a>
+    <span class="nav-date">2026.06.09 · 周二</span>
+    <span class="nav-edition">扬说·晚报</span>
+  </div>
+
+  <div class="header">
+    <h1>沪指收复4000点：半导体爆发沪硅产业20cm涨停，科创50涨4.17%；Google向Intel下TPU大单，日债衝击全球固收；黄金4327弱势</h1>
+    <div class="meta">
+      <span>📅 2026年6月9日 · 星期二</span>
+      <span>🏷️ 沪指收复4000 / 半导体涨停潮 / Google-Intel TPU / 日债飙升 / 黄金弱势 / 缩量反弹</span>
+    </div>
+    <div class="player">
+      <div class="player-icon">🎧</div>
+      <div class="player-info">
+        <div class="player-title">听全文 · 扬说财经</div>
+        <div class="player-desc">约12分钟 · 深度复盘</div>
+        <audio controls><source src="audio.mp3" type="audio/mpeg"></audio>
+      </div>
+    </div>
+  </div>
+
+  <div class="body">
+
+    <!-- ===== 本周主轴 ===== -->
+    <div class="logic-chain" style="margin-bottom:20px;">
+      <div class="lc-label">本周主轴传导链</div>
+      非农超预期→加息恐慌→周一科技暴跌→SOX暴涨5.61%带领情绪修复→A股缩量反弹收复4000→但日债衝击全球固收+美债收益率4.57%创两周新高→<span class="hl">反弹的真实成色全看周四CPI</span>
+    </div>
+
+    <!-- ===== Layer 1: 大势一览 ===== -->
+    <div class="layer1">
+      <div class="l1-title">📊 今日大势一览</div>
+      <p>周二（6月9日），A股三大指数集体收涨，上证指数成功收复4000点关口。隔夜费城半导体指数暴涨5.61%的情绪传导至A股，电子化学品、半导体、存储芯片全线爆发，沪硅产业20%涨停，科创50大涨4.17%领跑全市场。但全市场成交额缩至2.64万亿元——这轮反弹是"缩量修复"而非"增量反攻"，资金从煤炭、白酒、石油等前期强势板块撤出，集中涌入科技成长。</p>
+      <p>隔夜美股科技暴力反弹（SOX+5.61%、Intel+12%），但道指逆势微跌0.16%，分化信号明确。全球固收市场同步承压：日本10年期国债收益率升至2.74%，30年期逼近4%历史高位。现货黄金延续弱势，报4327美元，从年内高点跌超21%。市场等待周四CPI数据——这是本周第一个真正的方向测试。</p>
+
+      <div class="l1-comic">
+        <img src="comic/panel-001.svg" alt="今日大势一览漫画">
+      </div>
+    </div>
+    <hr class="l1-divider">
+
+    <!-- ===== Layer 2: 6故事深度分析 ===== -->
+    <div class="layer2">
+      <div class="l2-title">🔍 深度 · 六面看市</div>
+
+      <!-- 故事01 A股 -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s01">01</div>
+          <span class="story-tag s01">A股</span>
+          <div class="story-title">沪指一日收复4000点，半导体全线爆发，但缩量反弹存隐忧</div>
+        </div>
+        <div class="story-content">
+          <p>上证指数收报<span class="key-num">4010.03点</span>，涨1.28%（+50.69点）；深证成指报15268.71点，涨3.02%；<strong>创业板指</strong>收3961.75点，大涨3.93%。<span class="highlight">科创50收1663.11点，暴涨4.17%领跑全市场</span>；北证50涨1.64%。全市场3322只上涨、2049只下跌，142只涨停、16只跌停，涨跌比约3:2。</p>
+          <p>成交量方面，沪深两市合计成交<span class="key-num">2.64万亿元</span>，较前一交易日缩量约1567亿元——市场以存量资金为主，未出现增量资金大举入场。连续42个交易日成交额突破2万亿。</p>
+          <p><strong>领涨板块</strong>：电子化学品（+8.2%）、存储芯片（+5.64%）、光刻机（+5.24%）、第三代半导体（+5.08%）。<span class="highlight">沪硅产业20%涨停</span>，主力资金净流入8.59亿元；深南电路涨停，净流入7.36亿元；中芯国际涨4.41%，净流入7.30亿元。半导体全链主力资金净流入超127亿元，其中半导体方向约24亿元，国家大基金持股概念净流入63.76亿元。</p>
+          <p><strong>领跌板块</strong>：煤炭（-2.3%）、白酒（-1.8%）、石油石化（-1.5%）、房地产服务（-2.1%）。<span class="highlight">资金从防御转向进攻</span>——前期避险资金从红利/资源股撤出，追入科技成长。</p>
+
+          <div class="logic-chain">
+            <div class="lc-label">逻辑链</div>
+            隔夜SOX暴涨5.61% <span class="lc-arrow">→</span> 情绪传导至A股半导体 <span class="lc-arrow">→</span> 沪硅产业涨停引领板块爆发 <span class="lc-arrow">→</span> 资金从煤炭/白酒撤出转战科技 <span class="lc-arrow">→</span> 上证收复4000 <span class="lc-arrow">→</span> 但成交缩量=存量博弈 <span class="lc-arrow">→</span> 持续性存疑
+          </div>
+
+          <div class="invest-view">
+            <div class="iv-label">📌 投资视角</div>
+            <p><strong>短期</strong>：缩量反弹意味着这不是趋势反转——上证4000点的攻防战尚未结束。半导体有独立景气逻辑（Google TPU订单+全球芯片销售额同比+93.9%），但追高风险已累积。关注周四CPI数据，若超预期则可能打断反弹节奏。</p>
+            <p><strong>关注</strong>：沪硅产业（20cm涨停情绪指标）、中芯国际（半导体风向标）、半导体成交占全市场比（若超25%注意过热风险）。</p>
+          </div>
+        </div>
+        <div class="story-img">
+          <img src="comic/panel-002.svg" alt="A股半导体涨停潮">
+        </div>
+      </div>
+      <hr class="story-divider">
+
+      <!-- 故事02 美股 -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s02">02</div>
+          <span class="story-tag s02">美股</span>
+          <div class="story-title">科技暴力反弹但道指逆势微跌——SOX暴涨5.61%，分化信号明确</div>
+        </div>
+        <div class="story-content">
+          <p>美东时间6月8日（北京时间6月9日凌晨），美股三大指数涨跌不一。在上周五非农超预期引发的"暴力加息恐慌"后，本周开盘资金开始结构性回补科技股。</p>
+
+          <table>
+            <tr><th>指数</th><th>收盘价</th><th>涨跌幅</th></tr>
+            <tr><td>道琼斯工业指数</td><td>50,786.01</td><td class="down">-0.16%（-80.77点）</td></tr>
+            <tr><td>纳斯达克综合指数</td><td>25,929.66</td><td class="up">+0.86%</td></tr>
+            <tr><td>标普500指数</td><td>7,405.73</td><td class="up">+0.30%</td></tr>
+            <tr><td>费城半导体指数</td><td>12,907</td><td class="up">+5.61%</td></tr>
+          </table>
+
+          <p><strong>科技股强势反弹</strong>：<span class="highlight">Intel暴涨12%</span>（Google 300万颗TPU订单）、美光涨约10%、Marvell Technology暴涨15%（纳入标普500成分股）。芯片存储方向全线走强，存储、光通信概念批量涨停。</p>
+          <p>但<span class="highlight">道指逆势微跌0.16%</span>，公用事业跌1.92%、房地产跌1.63%——利率敏感板块承压，与10年期美债收益率升至4.57%创两周新高直接相关。Apple跌约1.9%（WWDC后sell the news）。</p>
+          <p><strong>盘面本质</strong>：这不是全面反弹，而是资金主动从防御（公用/地产）流向科技成长。SOX暴涨5.61%收复了上周五逾半失地，说明市场对AI资本支出周期的信心仍然坚定——这是躲在上周五恐慌表象之下的真实结构。</p>
+
+          <div class="logic-chain">
+            <div class="lc-label">传导链</div>
+            非农超预期 <span class="lc-arrow">→</span> 加息恐慌 <span class="lc-arrow">→</span> 周五科技暴跌 <span class="lc-arrow">→</span> 周末消化 <span class="lc-arrow">→</span> Google TPU大单刺激 <span class="lc-arrow">→</span> 资金回补科技 <span class="lc-arrow">→</span> SOX暴涨5.61% <span class="lc-arrow">→</span> 但道指仍跌=分化，非普涨
+          </div>
+        </div>
+      </div>
+      <hr class="story-divider">
+
+      <!-- 故事03 科技/AI -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s03">03</div>
+          <span class="story-tag s03">科技/AI</span>
+          <div class="story-title">Google向Intel下单300万颗TPU——晶圆代工格局正在重塑</div>
+        </div>
+        <div class="story-content">
+          <p>6月8日，《The Information》报道：<span class="highlight">Google母公司Alphabet向Intel下达了超过300万颗TPU芯片的代工订单</span>，计划2028年前完成生产。这是Intel晶圆代工业务（IFS）有史以来最大的一笔外部客户订单。</p>
+
+          <div class="quote">
+            <strong>"台积电的先进封装产能已被Nvidia、AMD、Broadcom占满，Google等不及了。"</strong><br>
+            —— 供应链消息人士
+          </div>
+
+          <p><strong>三大关键信号</strong>：</p>
+          <div class="list">
+            <div class="list-item"><span class="tag-b">1</span> <strong>台积电产能瓶颈已到临界点</strong>——AI需求爆发导致先进工艺产能严重不足，大客户被迫寻找第二供应商</div>
+            <div class="list-item"><span class="tag-b">2</span> <strong>Intel代工战略兑现</strong>——CEO陈立武主导的复兴计划迈出最关键一步。Intel股价2026年已翻约3倍</div>
+            <div class="list-item"><span class="tag-b">3</span> <strong>Nvidia也在测试Intel 18A</strong>——可能用于2028年Feynman GPU架构。若Nvidia也下单，Intel代工将真正形成"台积电、Intel、三星"三足鼎立之势</div>
+          </div>
+
+          <p><strong>Apple WWDC · sell the news</strong>：同日Apple在WWDC发布iOS 27，Siri深度集成AI能力。但市场以sell the news回应，Apple股价跌约1.9%。利好出尽即利空——预期早已打满。</p>
+
+          <div class="invest-view">
+            <div class="iv-label">📌 投资视角</div>
+            <p><strong>Intel代工崛起</strong>：Google大单验证了Intel Foundry的商业可行性，产业链机会在半导体设备/材料（Intel扩建产能利好应用材料、泛林等设备商）。<strong>A股映射</strong>：半导体设备材料是直接受益方向——沪硅产业、华特气体、中微公司等。</p>
+            <p><strong>对台积电生态的冲击</strong>：大客户分散订单是趋势，台积电不再是唯一选择。但短期不影响台积电议价能力（2026年产能仍满载）。</p>
+          </div>
+        </div>
+      </div>
+      <hr class="story-divider">
+
+      <!-- 故事04 前沿/国际 -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s04">04</div>
+          <span class="story-tag s04">前沿/国际</span>
+          <div class="story-title">日债收益率飙升冲击全球固收，KOSPI熔断，中东停火后反复</div>
+        </div>
+        <div class="story-content">
+          <p><strong>日本国债：全球固收的"灰犀牛"</strong></p>
+          <p>日本10年期国债收益率升至<span class="key-num">2.74%</span>，20年期3.66%，30年期3.965%——逼近4%历史高位。日本财务大臣加藤胜信表示"利率上升可能通过多种渠道影响经济"。日本央行6月会议纪要显示部分委员认为"需讨论进一步加息"。</p>
+          <p>日债上行对全球固收估值形成系统性冲击：日本是全球最大的债权国之一，日债收益率上行意味着全球资金重定价——持有日债的全球金融机构（养老基金、保险）面临账面浮亏，或被迫减持海外资产回流日本。这可能是近期美国长期国债收益率同步上行的隐性推手之一。</p>
+
+          <p><strong>韩国KOSPI今晨开盘熔断</strong>：韩国KOSPI指数今晨开盘大涨<span class="key-num">4.21%</span>触发熔断机制。韩国金融委员会宣布今日起扩大做空禁令范围，将半导体、电池等核心产业列入禁止做空名单。这是继2023年11月全面禁止做空以来的又一次政策加码。</p>
+
+          <p><strong>中东：停火后仍有反复</strong>：伊朗-以色列宣布"立即停火"后，伊朗驻联合国代表表示期待6月底前达成美伊协议。但以色列总理内塔尼亚胡称"若伊朗恢复袭击，将再次全面反击"。特朗普称"未来两周对伊朗全面胜利"。中东核心矛盾远未解决。（来源：路透、新华社）</p>
+
+          <div class="logic-chain">
+            <div class="lc-label">全球传导链</div>
+            日债收益率飙升 <span class="lc-arrow">→</span> 全球固收重定价 <span class="lc-arrow">→</span> 美债同步上行至4.57% <span class="lc-arrow">→</span> 估值压制成长股 <span class="lc-arrow">→</span> 与科技反弹形成矛盾 <span class="lc-arrow">→</span> 市场分化or脱敏？
+          </div>
+        </div>
+      </div>
+      <hr class="story-divider">
+
+      <!-- 故事05 宏观 -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s05">05</div>
+          <span class="story-tag s05">宏观</span>
+          <div class="story-title">加息定价升温：12月加息概率65-70%，周四CPI是第一个方向测试</div>
+        </div>
+        <div class="story-content">
+          <p>市场对美联储的预期已彻底从"何时降息"转向"何时加息"。</p>
+
+          <p><strong>核心数据</strong>：美国5月非农新增17.2万个岗位，薪资同比+4.3%，双双超预期。4月PCE同比3.8%，核心PCE 3.3%，持续高于2%目标。花旗上调6月CPI预测，核心CPI环比预计+0.3%。</p>
+
+          <p><strong>加息定价</strong>：FedWatch数据显示，<span class="key-num">12月加息概率65-70%</span>，10月加息概率约52%。美联储新主席沃什（6月16-17日首次主持FOMC）的鹰派立场已被价格消化。若周四核心CPI环比>0.3%，10月加息将成为基准情形。</p>
+
+          <p><strong>美元指数</strong>维持在100.00附近，刷新近两个月高位。强势美元对新兴市场和大宗商品（尤其是黄金）形成持续压制。</p>
+
+          <p><strong>日本央行也在行动</strong>：日央行6月会议纪要显示，部分委员认为"需讨论进一步加息"，日美利差收窄预期下，套息交易平仓风险上升。日股今天虽随全球反弹，但日债利率上行长期压制取决于低利率的日股估值。</p>
+
+          <div class="scenario-box">
+            <div class="sc-title">情景推演 · 周四CPI</div>
+            <div class="sc-content">
+              <p><span class="sc-path-a">📈 路径A（偏鹰 · 概率40%）：</span> 核心CPI环比>0.3% → 10月加息概率升至70%+ → 美债收益率突破4.7% → 科技反弹夭折 → 黄金跌破4250</p>
+              <p><span class="sc-path-b">📉 路径B（偏鸽 · 概率35%）：</span> 核心CPI环比<0.2% → 加息预期降温 → 收益率回落 → 全球风险资产反弹延续 → 黄金收复4400</p>
+              <p>路径C（中性 · 概率25%）： 核心CPI环比=0.2-0.3% → 市场维持现有定价 → 方向待下周三FOMC</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr class="story-divider">
+
+      <!-- 故事06 商品/黄金 -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s06">06</div>
+          <span class="story-tag s06">商品/黄金</span>
+          <div class="story-title">黄金4327持续承压——从避险宠儿沦为利率预期牺牲品</div>
+        </div>
+        <div class="story-content">
+          <p><strong>黄金：弱势盘整，年内高点跌超21%</strong></p>
+          <p>现货黄金周一收报<span class="key-num">4329.67美元</span>，周二亚盘交投于4327美元附近。从年内高点5477美元计算，黄金已跌超21%，进入技术性熊市区域。COMEX黄金期货报4353.80美元，跌0.26%。沪金主连报951.96元/克，微涨0.06%。</p>
+          <p>最关键的是：<span class="highlight">中东冲突爆发期间黄金不涨反跌</span>——伊朗-以色列停火协议消息出笼后，黄金仅短暂反弹。花旗已下调短期金价目标至4000美元。黄金的定价权已彻底从"避险"转向"利率预期"：加息预期主导了一切。</p>
+
+          <p><strong>原油：中东停火后回落</strong></p>
+          <p>WTI原油周一收报94.59美元（+1.71%），周二亚盘回落至91.35美元。布伦特收报93.93美元，亚盘从95.24美元回落。OPEC+同意四个月内第四次提高产量目标，沙特连续第二个月下调7月对亚洲官方售价——供给端压力正在累积。</p>
+
+          <table>
+            <tr><th>品种</th><th>价格</th><th>日涨跌幅</th></tr>
+            <tr><td>现货黄金（XAU/USD）</td><td>$4,327/盎司</td><td class="down">-0.05%</td></tr>
+            <tr><td>COMEX黄金期货</td><td>$4,353.80/盎司</td><td class="down">-0.26%</td></tr>
+            <tr><td>沪金主连</td><td>951.96元/克</td><td class="up">+0.06%</td></tr>
+            <tr><td>WTI原油</td><td>$91.35/桶</td><td class="down">-0.84%</td></tr>
+            <tr><td>布伦特原油</td><td>$93.93/桶</td><td class="down">-0.34%</td></tr>
+          </table>
+
+          <div class="logic-chain">
+            <div class="lc-label">核心矛盾：黄金是利率预期资产，不是避险资产</div>
+            加息预期升温 <span class="lc-arrow">→</span> 实际利率上行 <span class="lc-arrow">→</span> 持有黄金的机会成本上升 <span class="lc-arrow">→</span> 机构减仓黄金ETF <span class="lc-arrow">→</span> 金价持续承压。中东停火对大市偏利好，但对黄金无感——<strong>这说明黄金的风险定价权已彻底让渡给利率预期</strong>。
+          </div>
+
+          <div class="invest-view">
+            <div class="iv-label">📌 投资视角</div>
+            <p><strong>黄金</strong>：4327失守后下方支撑在4250附近（花旗新目标价）。加息预期消退前，盲目抄底黄金的风险极高。关注周四CPI——若数据偏鸽，黄金可能迎来超跌反弹窗口。但在加息预期彻底证伪前，黄金难有趋势性上涨。</p>
+            <p><strong>原油</strong>：中东停火+OPEC增产+沙特降价=三重压力。WTI短期支撑看90美元，跌破则可能加速至85美元。但美伊谈判若破裂，风险溢价将快速回归。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== Layer 1: 漫画第二条 ===== -->
+    <div class="l1-comic" style="margin:22px 0;">
+      <img src="comic/panel-003.svg" alt="本周主题漫画">
+    </div>
+
+    <!-- ===== Layer 3: 数据复盘 ===== -->
+    <div class="layer3">
+      <div class="l3-title">📋 数据复盘 · 2026.06.09</div>
+
+      <!-- 全球市场表 -->
+      <p style="font-size:13px;font-weight:700;color:#D4A017;margin-bottom:4px;">全球主要市场</p>
+      <table>
+        <tr><th>市场</th><th>收盘</th><th>涨跌幅</th></tr>
+        <tr><td>上证指数</td><td>4,010.03</td><td class="up">+1.28%</td></tr>
+        <tr><td>深证成指</td><td>15,268.71</td><td class="up">+3.02%</td></tr>
+        <tr><td>创业板指</td><td>3,961.75</td><td class="up">+3.93%</td></tr>
+        <tr><td>科创50</td><td>1,663.11</td><td class="up">+4.17%</td></tr>
+        <tr><td>道琼斯（隔夜）</td><td>50,786.01</td><td class="down">-0.16%</td></tr>
+        <tr><td>纳斯达克（隔夜）</td><td>25,929.66</td><td class="up">+0.86%</td></tr>
+        <tr><td>标普500（隔夜）</td><td>7,405.73</td><td class="up">+0.30%</td></tr>
+        <tr><td>韩国KOSPI</td><td>熔断+4.21%</td><td class="up">+4.21%</td></tr>
+      </table>
+
+      <!-- 商品表 -->
+      <p style="font-size:13px;font-weight:700;color:#D4A017;margin-bottom:4px;margin-top:10px;">商品/VIX/债市</p>
+      <table>
+        <tr><th>品种</th><th>价格</th><th>涨跌幅</th></tr>
+        <tr><td>现货黄金</td><td>$4,327/盎司</td><td class="down">-0.05%</td></tr>
+        <tr><td>WTI原油</td><td>$91.35/桶</td><td class="down">-0.84%</td></tr>
+        <tr><td>布伦特原油</td><td>$93.93/桶</td><td class="down">-0.34%</td></tr>
+        <tr><td>VIX恐慌指数</td><td>18.95</td><td class="down">-11.90%</td></tr>
+        <tr><td>10年期美债收益率</td><td>4.572%</td><td class="up">+0.13%</td></tr>
+        <tr><td>10年期日债收益率</td><td>2.74%</td><td class="up">+0.05%</td></tr>
+      </table>
+
+      <!-- A股板块 -->
+      <p style="font-size:13px;font-weight:700;color:#D4A017;margin-bottom:4px;margin-top:10px;">A股板块涨跌</p>
+      <table>
+        <tr><th>领涨板块</th><th>涨幅</th><th>领跌板块</th><th>跌幅</th></tr>
+        <tr><td>电子化学品</td><td class="up">+8.20%</td><td>煤炭</td><td class="down">-2.30%</td></tr>
+        <tr><td>存储芯片</td><td class="up">+5.64%</td><td>房地产服务</td><td class="down">-2.10%</td></tr>
+        <tr><td>光刻机</td><td class="up">+5.24%</td><td>白酒</td><td class="down">-1.80%</td></tr>
+        <tr><td>第三代半导体</td><td class="up">+5.08%</td><td>石油石化</td><td class="down">-1.50%</td></tr>
+      </table>
+
+      <!-- 成交额 -->
+      <div class="l3-highlight-box">
+        <strong>两市成交：</strong>2.64万亿元（缩量1567亿）· <strong>涨跌家数：</strong>3322涨 / 2049跌 · <strong>北向资金：</strong>净流入46.28亿元（连续12日净买入）<br>
+        <strong>VIX解读：</strong>18.95，较前一日21.51暴跌11.90%，回到20以下。极端恐慌快速消退，但18.95仍高于年初均值15附近，谨慎未散。<br>
+        <strong>半导体主力资金：</strong>全链净流入127亿元（半导体方向24亿元，国家大基金概念63.76亿元）</div>
+
+      <!-- 名词解释 -->
+      <div class="glossary">
+        <h4>📖 名词解释 · 小白友好版</h4>
+        <table>
+          <tr><th>术语</th><th>大白话</th><th>为什么重要</th></tr>
+          <tr><td>TPU（张量处理器）</td><td>Google自研的AI专用芯片，专门为训练和推理AI模型设计，比通用GPU更高效</td><td>Google敢于跳过台积电、把300万颗TPU交给Intel代工，说明AI算力需求已大到传统供应链无法满足</td></tr>
+          <tr><td>IFS（Intel代工服务）</td><td>Intel开放给外部客户的芯片代工业务，和台积电竞争</td><td>Google大单验证了Intel代工商业可行性，将改变全球芯片制造"台积电垄断"的格局</td></tr>
+          <tr><td>SOX（费城半导体指数）</td><td>由30家美国半导体公司组成的指数，是全球芯片股情绪的"体温计"</td><td>SOX暴涨5.61%意味着全球资金看好半导体，而不仅仅是中国在炒</td></tr>
+          <tr><td>套息交易（Carry Trade）</td><td>借入低利率货币（日元），投资高利率货币或资产，赚利差</td><td>日债收益率飙升→日美利差缩窄→套息交易平仓→全球市场可能剧烈波动。这是2024年8月"日元carry trade unwind"重演的风险</td></tr>
+          <tr><td>sell the news</td><td>"利好出尽即利空"——消息正式发布后，前期买入的交易者获利了结</td><td>Apple WWDC发布后跌1.9%、SOX暴涨但道指转跌，都说明"预期博弈"已经取代"事件驱动"成为定价核心</td></tr>
+          <tr><td>FOMC</td><td>美联储的议息会议，决定美国基准利率</td><td>6月16-17日是沃什首次主持FOMC，市场关注点已不是"降不降息"，而是"加不加息"</td></tr>
+          <tr><td>沪硅产业20cm涨停</td><td>科创板股票单日涨幅可达20%，涨停意味着买盘极端强势</td><td>沪硅产业是半导体材料龙头，20cm涨停是半导体板块情绪的"共振信号"，但也可能意味着短期过热</td></tr>
+        </table>
+      </div>
+
+      <!-- 数据来源 -->
+      <div class="sources">
+        <h3>📎 数据来源</h3>
+        <a href="https://finance.sina.com.cn/jjxw/2026-06-09/doc-iniauzkt5030850.shtml" target="_blank">新浪财经 · A股收评</a> ·
+        <a href="https://finance.eastmoney.com/a/202606093765078161.html" target="_blank">东方财富 · A股大涨</a> ·
+        <a href="https://news.ifeng.com/c/8toHOqGjdXC" target="_blank">凤凰网 · 美股收盘</a> ·
+        <a href="https://www.163.com/dy/article/KV01EJVN0514R9OJ.html" target="_blank">网易 · Google-Intel TPU</a> ·
+        <a href="https://m.nbd.com.cn/articles/2026-06-09/4420908.html" target="_blank">每日经济新闻 · 资金流向</a> ·
+        <a href="https://www.stcn.com/article/detail/3951447.html" target="_blank">证券时报 · 主力资金</a> ·
+        <a href="http://forex.cnfol.com/zhuanjiajianyi/20260609/32273675.shtml" target="_blank">中金在线 · 黄金/原油</a> ·
+        <a href="https://fund.eastmoney.com/a/202606093764053673.html" target="_blank">东方财富 · 国际金融要情</a>
+      </div>
+
+      <!-- End Box -->
+      <div class="foot">
+        <div class="icon">🧠</div>
+        <div class="t">今天市场教会我们三件事</div>
+        <div class="d">第一，缩量反弹永远不等于趋势反转——2.64万亿的成交不足以支撑4000点之上的全面上涨。半导体有独立逻辑，不代表全市场都安全。<br><br>第二，中东停火、金价不涨，说明黄金的定价权已经从"避险"彻底让渡给了"利率预期"。投资逻辑必须随定价权转移而更新，不能吃老本。<br><br>第三，Google和Intel的合作提醒我们：AI产业链的"物理瓶颈"不在需求端，而在供给侧。谁能先突破产能限制，谁就能吃到下一波红利——不管它叫台积电、Intel还是三星。</div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+</body>
+</html>

@@ -1,7 +1,19 @@
 {
-  "generated_at": "2026-06-09T12:13:14+08:00",
+  "generated_at": "2026-06-09T18:29:11+08:00",
   "latest_date": "2026-06-09",
   "articles": [
+    {
+      "date": "2026-06-09",
+      "session": "evening",
+      "edition_cn": "晚报",
+      "icon": "🌙",
+      "title": "沪指收复4000点·半导体暴涨·沪硅产业20cm涨停·科创50涨4.17%·Google向Intel下TPU大单·黄金4327弱势",
+      "url": "2026-06-09/wechat-publish/evening/article.html",
+      "has_audio": true,
+      "audio_size_bytes": 1176192,
+      "has_comic": false,
+      "comic_count": 0
+    },
     {
       "date": "2026-06-09",
       "session": "morning",
@@ -392,6 +404,18 @@
   ],
   "by_date": {
     "2026-06-09": {
+      "evening": {
+        "date": "2026-06-09",
+        "session": "evening",
+        "edition_cn": "晚报",
+        "icon": "🌙",
+        "title": "沪指收复4000点·半导体暴涨·沪硅产业20cm涨停·科创50涨4.17%·Google向Intel下TPU大单·黄金4327弱势",
+        "url": "2026-06-09/wechat-publish/evening/article.html",
+        "has_audio": true,
+        "audio_size_bytes": 1176192,
+        "has_comic": false,
+        "comic_count": 0
+      },
       "morning": {
         "date": "2026-06-09",
         "session": "morning",
