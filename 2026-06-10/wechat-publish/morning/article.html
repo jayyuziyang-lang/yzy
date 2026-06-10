@@ -67,8 +67,8 @@
   .end-box .end-icon { font-size: 26px; margin-bottom: 4px; }
   .end-box .end-title { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
   .end-box .end-desc { font-size: 11.5px; opacity: 0.8; line-height: 1.5; }
-  .comic-row { display: flex; gap: 6px; margin: 12px 0; overflow-x: auto; -webkit-overflow-scrolling: touch; }
-  .comic-row img { width: 100%; max-width: 300px; border-radius: 8px; border: 1px solid #E2E8F0; flex-shrink: 0; }
+  .comic-img { margin: 12px 0; border-radius: 8px; border: 1px solid #E2E8F0; overflow: hidden; background: #FAFAFA; }
+  .comic-img img { width: 100%; display: block; }
   .warn { background: #FFF5F5; border: 1px solid #FECACA; border-radius: 10px; padding: 12px 14px; margin-top: 20px; font-size: 12px; color: #991B1B; line-height: 1.5; }
   .sources { background: #EFF6FF; border-radius: 10px; padding: 10px 12px; margin: 14px 0; font-size: 11px; color: #1E3A7A; line-height: 1.5; }
   .sources h3 { font-size: 12px; font-weight: 700; margin-bottom: 4px; }
@@ -134,7 +134,7 @@
     </div>
 
     <!-- Comic: CPI path scenarios -->
-    <div class="comic-row">
+    <div class="comic-img">
       <img src="comic/panel-001.svg" alt="CPI之夜三条路径推演">
     </div>
 
@@ -211,7 +211,7 @@
     </div>
 
     <!-- Comic: SOX fake rally + A股 open -->
-    <div class="comic-row">
+    <div class="comic-img">
       <img src="comic/panel-002.svg" alt="SOX假反弹 · A股4300跌">
     </div>
 
@@ -294,7 +294,7 @@
     </div>
 
     <!-- Comic: Gold breaks 4200 -->
-    <div class="comic-row">
+    <div class="comic-img">
       <img src="comic/panel-003.svg" alt="黄金跌破4200 · 加息预期摧毁避险溢价">
     </div>
 
