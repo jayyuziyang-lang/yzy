@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 220">
+  <rect width="300" height="220" fill="#FAFAFA"/>
+
+  <!-- Title bar -->
+  <rect x="0" y="0" width="300" height="30" fill="#DC2626"/>
+  <text x="150" y="20" text-anchor="middle" font-size="12" font-weight="700" fill="#fff" font-family="PingFang SC, Microsoft YaHei, sans-serif">⚡ SOX假反弹 · A股开盘4300跌</text>
+
+  <!-- Left: SOX fake rally -->
+  <text x="12" y="52" font-size="8" fill="#64748B" font-family="PingFang SC, Microsoft YaHei, sans-serif">隔夜美股 · 假反弹</text>
+
+  <rect x="12" y="58" width="136" height="40" rx="4" fill="#FEF2F2" stroke="#FECACA" stroke-width="1"/>
+  <text x="18" y="73" font-size="7" font-weight="700" fill="#DC2626" font-family="PingFang SC, Microsoft YaHei, sans-serif">SOX早盘 +5.6% → 收跌约-5%</text>
+  <text x="18" y="86" font-size="6" fill="#991B1B" font-family="PingFang SC, Microsoft YaHei, sans-serif">一日完成+5.6%到-5%的极端反转</text>
+  <text x="18" y="96" font-size="6" fill="#991B1B" font-family="PingFang SC, Microsoft YaHei, sans-serif">"上涨中继失败"——空头重新主导</text>
+
+  <rect x="12" y="104" width="136" height="18" rx="3" fill="#FAF5FF" stroke="#E9D5FF" stroke-width="0.5"/>
+  <text x="18" y="117" font-size="7" font-weight="700" fill="#7C3AED" font-family="PingFang SC, Microsoft YaHei, sans-serif">VIX 21.64（+14.37%）</text>
+
+  <rect x="12" y="126" width="136" height="18" rx="3" fill="#F0F4FF" stroke="#BFDBFE" stroke-width="0.5"/>
+  <text x="18" y="139" font-size="7" fill="#1E40AF" font-family="PingFang SC, Microsoft YaHei, sans-serif">纳指 -0.97%（盘中跌超3.5%）</text>
+
+  <!-- Divider -->
+  <line x1="153" y1="38" x2="153" y2="172" stroke="#E2E8F0" stroke-width="1"/>
+
+  <!-- Right: A股 open -->
+  <text x="160" y="52" font-size="8" fill="#64748B" font-family="PingFang SC, Microsoft YaHei, sans-serif">今日A股开盘</text>
+
+  <rect x="160" y="58" width="133" height="22" rx="4" fill="#FEF2F2" stroke="#FECACA" stroke-width="1"/>
+  <text x="166" y="73" font-size="8" font-weight="700" fill="#DC2626" font-family="PingFang SC, Microsoft YaHei, sans-serif">上证 3,985（-0.62%）</text>
+
+  <rect x="160" y="84" width="133" height="22" rx="4" fill="#FEF2F2" stroke="#FECACA" stroke-width="0.5"/>
+  <text x="166" y="99" font-size="7" fill="#991B1B" font-family="PingFang SC, Microsoft YaHei, sans-serif">深证 15,062（-1.35%）</text>
+
+  <rect x="160" y="110" width="133" height="22" rx="4" fill="#FEF2F2" stroke="#FECACA" stroke-width="0.5"/>
+  <text x="166" y="125" font-size="7" fill="#991B1B" font-family="PingFang SC, Microsoft YaHei, sans-serif">创业板 3,897（-1.62%）</text>
+
+  <rect x="160" y="136" width="133" height="18" rx="3" fill="#FFFBEB" stroke="#FDE68A" stroke-width="0.5"/>
+  <text x="166" y="149" font-size="7" font-weight="700" fill="#92400E" font-family="PingFang SC, Microsoft YaHei, sans-serif">超4,300只个股下跌</text>
+
+  <rect x="160" y="158" width="133" height="14" rx="3" fill="#F0FDF4" stroke="#BBF7D0" stroke-width="0.5"/>
+  <text x="166" y="169" font-size="6" fill="#166534" font-family="PingFang SC, Microsoft YaHei, sans-serif">银行/保险逆势走强（防御切换）</text>
+
+  <!-- Bottom insight -->
+  <rect x="10" y="178" width="280" height="34" rx="6" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="20" y="194" font-size="7" fill="#475569" font-family="PingFang SC, Microsoft YaHei, sans-serif">💡 隔夜SOX假反弹 → A股半导体情绪反转 → 4300股下跌 → CPI前资金全面避险。</text>
+  <text x="20" y="206" font-size="7" fill="#475569" font-family="PingFang SC, Microsoft YaHei, sans-serif">   昨日的缩量反弹已被证伪，4000点攻防仍将持续。</text>
+</svg>

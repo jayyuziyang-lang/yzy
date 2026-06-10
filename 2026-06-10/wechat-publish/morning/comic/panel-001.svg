@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 220">
+  <rect width="300" height="220" fill="#FAFAFA"/>
+
+  <!-- Title bar -->
+  <rect x="0" y="0" width="300" height="30" fill="#1A56DB"/>
+  <text x="150" y="20" text-anchor="middle" font-size="12" font-weight="700" fill="#fff" font-family="PingFang SC, Microsoft YaHei, sans-serif">🔥 CPI之夜 · 三条路径推演</text>
+
+  <!-- Left: CPI forecast -->
+  <text x="12" y="52" font-size="8" fill="#64748B" font-family="PingFang SC, Microsoft YaHei, sans-serif">市场预测 · 5月CPI</text>
+
+  <rect x="12" y="58" width="136" height="18" rx="3" fill="#EFF6FF" stroke="#BFDBFE" stroke-width="0.5"/>
+  <text x="18" y="71" font-size="7" fill="#1E40AF" font-family="PingFang SC, Microsoft YaHei, sans-serif">整体CPI同比 4.2-4.3%（破4！）</text>
+
+  <rect x="12" y="80" width="136" height="18" rx="3" fill="#EFF6FF" stroke="#BFDBFE" stroke-width="0.5"/>
+  <text x="18" y="93" font-size="7" fill="#1E40AF" font-family="PingFang SC, Microsoft YaHei, sans-serif">核心CPI同比 2.8-2.9%</text>
+
+  <rect x="12" y="102" width="136" height="18" rx="3" fill="#FFFBEB" stroke="#FDE68A" stroke-width="0.5"/>
+  <text x="18" y="115" font-size="7" fill="#92400E" font-family="PingFang SC, Microsoft YaHei, sans-serif">能源月环比 +6~7%（油价推手）</text>
+
+  <rect x="12" y="124" width="136" height="18" rx="3" fill="#F0FDF4" stroke="#BBF7D0" stroke-width="0.5"/>
+  <text x="18" y="137" font-size="7" fill="#166534" font-family="PingFang SC, Microsoft YaHei, sans-serif">华尔街四行预测核心环比较低</text>
+
+  <!-- Divider -->
+  <line x1="153" y1="38" x2="153" y2="168" stroke="#E2E8F0" stroke-width="1"/>
+
+  <!-- Right: Three paths -->
+  <text x="160" y="52" font-size="8" fill="#64748B" font-family="PingFang SC, Microsoft YaHei, sans-serif">三条路径 · 今晚20:30见分晓</text>
+
+  <!-- Path A: Hawkish -->
+  <rect x="160" y="58" width="133" height="40" rx="4" fill="#FEF2F2" stroke="#FECACA" stroke-width="1"/>
+  <text x="166" y="73" font-size="8" font-weight="700" fill="#DC2626" font-family="PingFang SC, Microsoft YaHei, sans-serif">📈 路径A · 偏鹰（40%）</text>
+  <text x="166" y="86" font-size="6" fill="#991B1B" font-family="PingFang SC, Microsoft YaHei, sans-serif">核心CPI环&gt;0.3% → 10月加息80%</text>
+  <text x="166" y="96" font-size="6" fill="#991B1B" font-family="PingFang SC, Microsoft YaHei, sans-serif">全球股市二次探底</text>
+
+  <!-- Path B: Dovish -->
+  <rect x="160" y="103" width="133" height="36" rx="4" fill="#F0FDF4" stroke="#BBF7D0" stroke-width="1"/>
+  <text x="166" y="118" font-size="8" font-weight="700" fill="#16A34A" font-family="PingFang SC, Microsoft YaHei, sans-serif">📉 路径B · 偏鸽（35%）</text>
+  <text x="166" y="131" font-size="6" fill="#166534" font-family="PingFang SC, Microsoft YaHei, sans-serif">核心CPI环&lt;0.2% → SOX反弹延续</text>
+  <text x="166" y="141" font-size="6" fill="#166534" font-family="PingFang SC, Microsoft YaHei, sans-serif">黄金收复4250</text>
+
+  <!-- Path C: Neutral -->
+  <rect x="160" y="144" width="133" height="24" rx="4" fill="#FFFBEB" stroke="#FDE68A" stroke-width="0.5"/>
+  <text x="166" y="157" font-size="7" font-weight="700" fill="#92400E" font-family="PingFang SC, Microsoft YaHei, sans-serif">⚖️ 路径C · 中性（25%）</text>
+  <text x="166" y="167" font-size="6" fill="#92400E" font-family="PingFang SC, Microsoft YaHei, sans-serif">等待6.16FOMC再定方向</text>
+
+  <!-- Bottom insight -->
+  <rect x="10" y="178" width="280" height="34" rx="6" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="20" y="194" font-size="7" fill="#475569" font-family="PingFang SC, Microsoft YaHei, sans-serif">💡 市场已在押注CPI偏鹰（A股低开+VIX飙+黄金破4200），但预期越一致，</text>
+  <text x="20" y="206" font-size="7" fill="#475569" font-family="PingFang SC, Microsoft YaHei, sans-serif">   意外偏鸽时的反扑就越猛。今夜20:30前保持灵活仓位，手握现金。</text>
+</svg>
