@@ -1,7 +1,19 @@
 {
-  "generated_at": "2026-06-09T18:38:48+08:00",
-  "latest_date": "2026-06-09",
+  "generated_at": "2026-06-10T18:49:50+08:00",
+  "latest_date": "2026-06-10",
   "articles": [
+    {
+      "date": "2026-06-10",
+      "session": "morning",
+      "edition_cn": "早报",
+      "icon": "🌅",
+      "title": "A股低开4300跌·美股SOX假反弹VIX飙升·CPI今晚定加息·黄金跌破4200·中东直升机被击落",
+      "url": "2026-06-10/wechat-publish/morning/article.html",
+      "has_audio": true,
+      "audio_size_bytes": 1359072,
+      "has_comic": false,
+      "comic_count": 0
+    },
     {
       "date": "2026-06-09",
       "session": "evening",
@@ -403,6 +415,20 @@
     }
   ],
   "by_date": {
+    "2026-06-10": {
+      "morning": {
+        "date": "2026-06-10",
+        "session": "morning",
+        "edition_cn": "早报",
+        "icon": "🌅",
+        "title": "A股低开4300跌·美股SOX假反弹VIX飙升·CPI今晚定加息·黄金跌破4200·中东直升机被击落",
+        "url": "2026-06-10/wechat-publish/morning/article.html",
+        "has_audio": true,
+        "audio_size_bytes": 1359072,
+        "has_comic": false,
+        "comic_count": 0
+      }
+    },
     "2026-06-09": {
       "evening": {
         "date": "2026-06-09",
