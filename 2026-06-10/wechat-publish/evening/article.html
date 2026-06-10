@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>CPI 4.2%创三年新高·核心通胀意外降温·A股失守4000·黄金跌破4200·美股科技承压·美伊冲突升级</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system,"PingFang SC","Microsoft YaHei","Helvetica Neue",sans-serif; background: #F5F7FA; color: #1E293B; line-height: 1.8; font-size: 16px; }
+  .c { max-width: 640px; margin: 0 auto; background: #fff; padding: 44px 0 40px; }
+  .top-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; max-width: 640px; margin: 0 auto; background: rgba(255,255,255,0.95); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-bottom: 1px solid #E2E8F0; display: flex; align-items: center; padding: 0 16px; height: 44px; }
+  .top-nav .back { display: flex; align-items: center; gap: 4px; color: #1A56DB; text-decoration: none; font-size: 13px; font-weight: 600; }
+  .top-nav .back:active { opacity: 0.6; }
+  .top-nav .nav-date { flex: 1; text-align: center; font-size: 12px; color: #64748B; }
+  .top-nav .nav-edition { font-size: 11px; color: #D4A017; background: #FFFBEB; padding: 2px 8px; border-radius: 8px; font-weight: 600; }
+  .header { background: linear-gradient(135deg,#D4A017,#B8860B); padding: 20px 20px 16px; color: white; }
+  .header h1 { font-size: 22px; font-weight: 700; line-height: 1.4; margin-bottom: 6px; }
+  .header .meta { font-size: 12px; opacity: 0.8; display: flex; gap: 12px; flex-wrap: wrap; }
+  .player { display: flex; align-items: center; gap: 12px; margin-top: 14px; }
+  .player-icon { width: 40px; height: 40px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 18px; }
+  .player-info { flex: 1; }
+  .player-title { font-size: 13px; font-weight: 600; }
+  .player-desc { font-size: 11px; opacity: 0.7; }
+  .player audio { width: 100%; margin-top: 4px; border-radius: 20px; }
+  .body { padding: 20px 20px 0; }
+  .layer1 { margin-bottom: 28px; }
+  .l1-title { font-size: 16px; font-weight: 700; color: #D4A017; margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
+  .l1-comic { margin: 8px 0 0; }
+  .l1-comic img { width: 100%; border-radius: 10px; border: 1px solid #E2E8F0; }
+  .l1-divider { border: none; border-top: 2px dashed #D4A017; margin: 16px 0; }
+  .layer2 { margin-bottom: 24px; }
+  .l2-title { font-size: 16px; font-weight: 700; color: #D4A017; margin-bottom: 14px; display: flex; align-items: center; gap: 6px; }
+  .quote { background: #FFFBEB; border-left: 4px solid #D4A017; padding: 12px 14px; margin: 14px 0; border-radius: 0 8px 8px 0; font-size: 14px; color: #92400E; line-height: 1.7; }
+  p { margin-bottom: 12px; text-align: justify; font-size: 15px; }
+  .story { margin: 22px 0; }
+  .story-head { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .story-num { width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; color: #fff; flex-shrink: 0; }
+  .story-num.s01 { background: #DC2626; } .story-num.s02 { background: #16A34A; } .story-num.s03 { background: #7C3AED; }
+  .story-num.s04 { background: #1A56DB; } .story-num.s05 { background: #D4A017; } .story-num.s06 { background: #EA580C; }
+  .story-tag { font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 3px; }
+  .story-tag.s01 { background: #FEF2F2; color: #DC2626; } .story-tag.s02 { background: #F0FDF4; color: #16A34A; }
+  .story-tag.s03 { background: #FAF5FF; color: #7C3AED; } .story-tag.s04 { background: #EFF6FF; color: #1A56DB; }
+  .story-tag.s05 { background: #FFFBEB; color: #D4A017; } .story-tag.s06 { background: #FFF7ED; color: #EA580C; }
+  .story-title { font-size: 16px; font-weight: 700; color: #1E293B; line-height: 1.4; }
+  .story-content { font-size: 14px; color: #334155; line-height: 1.8; margin-bottom: 8px; }
+  .story-content p { margin-bottom: 8px; font-size: 14px; }
+  .story-img { margin: 10px 0 0; border-radius: 8px; border: 1px solid #E2E8F0; overflow: hidden; background: #FAFAFA; }
+  .story-img img { width: 100%; display: block; }
+  .story-divider { border: none; height: 1px; background: linear-gradient(to right, transparent, #E2E8F0, transparent); margin: 6px 0; }
+  .gold-box { background: linear-gradient(135deg,#FFF8E7,#FFF3D6); border: 1px solid #D4A017; border-radius: 12px; padding: 18px 20px; margin: 22px 0; text-align: center; font-size: 16px; font-weight: 700; color: #B8860B; line-height: 1.5; }
+  .layer3 { margin-bottom: 24px; }
+  .l3-title { font-size: 16px; font-weight: 700; color: #D4A017; margin-bottom: 10px; }
+  .l3-highlight-box { background: #FFFBEB; border-radius: 10px; padding: 12px 14px; margin: 12px 0; font-size: 13px; color: #92400E; line-height: 1.6; border: 1px solid #FDE68A; }
+  table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 13px; }
+  th { background: #D4A017; color: #fff; padding: 8px 10px; text-align: left; font-weight: 600; }
+  th:first-child { border-radius: 6px 0 0 0; }
+  th:last-child { border-radius: 0 6px 0 0; }
+  td { padding: 8px 10px; border-bottom: 1px solid #E2E8F0; }
+  tr:nth-child(even) { background: #F8F9FA; }
+  .up { color: #DC2626; font-weight: 600; }
+  .down { color: #16A34A; font-weight: 600; }
+  .warn { background: #FFF5F5; border: 1px solid #FECACA; border-radius: 10px; padding: 12px 14px; margin-top: 24px; font-size: 12px; color: #991B1B; line-height: 1.5; }
+  .list { background: #F8F9FA; border-radius: 8px; padding: 10px 14px; margin: 10px 0; }
+  .list-item { padding: 5px 0; border-bottom: 1px solid #E2E8F0; font-size: 13px; display: flex; gap: 6px; }
+  .list-item:last-child { border-bottom: none; }
+  .tag-b { display: inline-block; background: #D4A017; color: #fff; font-size: 10px; padding: 1px 7px; border-radius: 8px; white-space: nowrap; }
+  .sources { background: #FFFBEB; border-radius: 10px; padding: 12px 14px; margin: 16px 0; font-size: 12px; color: #92400E; line-height: 1.6; }
+  .sources h3 { font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+  .sources a { color: #1A56DB; text-decoration: none; }
+  .foot { background: linear-gradient(135deg,#D4A017,#B8860B); border-radius: 12px; padding: 18px 20px; margin: 22px 0; color: white; text-align: center; }
+  .foot .icon { font-size: 28px; margin-bottom: 4px; }
+  .foot .t { font-size: 16px; font-weight: 700; margin-bottom: 2px; }
+  .foot .d { font-size: 11px; opacity: 0.85; }
+  .highlight { background: #FFFBEB; padding: 1px 4px; border-radius: 2px; font-weight: 600; color: #92400E; }
+  .key-num { font-weight: 700; color: #D4A017; }
+  .glossary { background: #FFFBEB; border: 1px solid #FDE68A; border-radius: 10px; padding: 12px 14px; margin: 16px 0; font-size: 12px; line-height: 1.6; }
+  .glossary h4 { font-size: 13px; font-weight: 700; color: #92400E; margin-bottom: 8px; }
+  .glossary table { width: 100%; font-size: 12px; margin: 0; }
+  .glossary th { background: #D4A017; color: #fff; padding: 5px 8px; font-size: 11px; text-align: left; }
+  .glossary td { padding: 5px 8px; font-size: 11px; }
+  .logic-chain { background: #F0F4FF; border-left: 4px solid #1A56DB; border-radius: 0 8px 8px 0; padding: 10px 14px; margin: 10px 0 14px; font-size: 13.5px; color: #1E3A7A; line-height: 1.7; }
+  .logic-chain .lc-label { font-weight: 700; font-size: 12px; color: #1A56DB; margin-bottom: 2px; }
+  .invest-view { background: #F0FDF4; border-left: 4px solid #16A34A; border-radius: 0 8px 8px 0; padding: 10px 14px; margin: 10px 0 14px; font-size: 13.5px; color: #14532D; line-height: 1.7; }
+  .invest-view .iv-label { font-weight: 700; font-size: 12px; color: #16A34A; margin-bottom: 2px; }
+  .scenario-box { background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 10px; padding: 14px; margin: 12px 0; }
+  .scenario-box .sc-title { font-weight: 700; font-size: 14px; color: #1E293B; margin-bottom: 6px; }
+  .scenario-box .sc-content { font-size: 13.5px; color: #475569; line-height: 1.7; }
+  .scenario-box .sc-content p { margin-bottom: 6px; }
+</style>
+</head>
+<body>
+<div class="c">
+
+  <div class="top-nav">
+    <a class="back" href="../../../index.html">&larr; 返回首页</a>
+    <span class="nav-date">2026.06.10 · 周三</span>
+    <span class="nav-edition">扬说·晚报</span>
+  </div>
+
+  <div class="header">
+    <h1>CPI 4.2%创三年新高·但核心通胀意外降温；A股失守4000深跌·茅台回购难挽；黄金跌破4200；美阿帕奇被击落后特朗普下令打击伊朗</h1>
+    <div class="meta">
+      <span>📅 2026年6月10日 · 星期三</span>
+      <span>🏷️ CPI 4.2% / 核心CPI 0.2% / 加息预期分化 / A股失4000 / 黄金破4200 / 美伊空袭 / ECB明日加息</span>
+    </div>
+    <div class="player">
+      <div class="player-icon">🎧</div>
+      <div class="player-info">
+        <div class="player-title">听全文 · 扬说财经</div>
+        <div class="player-desc">约12分钟 · 深度复盘</div>
+        <audio controls><source src="audio.mp3" type="audio/mpeg"></audio>
+      </div>
+    </div>
+  </div>
+
+  <div class="body">
+
+    <!-- ===== 本周主轴 ===== -->
+    <div class="logic-chain" style="margin-bottom:20px;">
+      <div class="lc-label">本周主轴传导链</div>
+      伊朗能源推高全球通胀 <span style="color:#D4A017;font-weight:700;">→</span> 美国5月CPI同比4.2%创三年新高 <span style="color:#D4A017;font-weight:700;">→</span> 但核心环比仅0.2%低于预期 <span style="color:#D4A017;font-weight:700;">→</span> "鹰派表面、鸽派内核"的分化格局 <span style="color:#D4A017;font-weight:700;">→</span> 资金并非全线撤退，而是从科技转向防御（道指涨、纳指跌）<span style="color:#D4A017;font-weight:700;">→</span> 加息预期仍在但降温 <span style="color:#D4A017;font-weight:700;">→</span> 下周三FOMC才是真正的决战
+    </div>
+
+    <!-- ===== Layer 1: CPI之夜全景复盘 ===== -->
+    <div class="layer1">
+      <div class="l1-title">🔥 CPI之夜 · 全景复盘</div>
+      <p>今晚20:30，美国5月CPI数据揭晓——<span class="highlight">整体CPI同比4.2%，创2023年5月以来新高</span>，高于4月的3.8%，但基本符合市场预期的4.2%。能源是最大推手（汽油同比40.5%），贡献月度涨幅的60%以上。</p>
+      <p><strong>真正的"意外"在核心通胀。</strong> 核心CPI环比仅<span class="key-num">0.2%</span>，<span class="highlight">低于市场预期的0.3%</span>——这看似微小的0.1个百分点差异，意味着"核心通胀正在降温"的信号比市场预想的更强。交通服务、健康保险、新车价格均出现下跌，说明能源以外的通胀压力正在减弱。</p>
+      <p><strong>市场反应：分化而非恐慌。</strong> 数据公布后，科技股承压（纳指跌0.97%），但道指逆势收涨0.17%。这与"通胀超预期就全线暴跌"的简单叙事截然不同——资金不是逃离市场，而是在板块间轮动。家得宝涨3.73%、耐克涨3.25%，防御+消费跑赢；科技（-1.8%）、能源（-1.6%）承压。VIX从18.92飙至盘中最高21.64后回落至19.86。</p>
+
+      <div class="l1-comic">
+        <img src="comic/panel-001.svg" alt="CPI 4.2%之夜全景解读">
+      </div>
+    </div>
+    <hr class="l1-divider">
+
+    <!-- ===== Layer 2: 六面看市 ===== -->
+    <div class="layer2">
+      <div class="l2-title">🔍 深度 · 六面看市</div>
+
+      <!-- 故事01 A股 -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s01">01</div>
+          <span class="story-tag s01">A股</span>
+          <div class="story-title">沪指失守4000收3993 · 深创跌超2% · 大金融逆势护盘</div>
+        </div>
+        <div class="story-content">
+          <p>A股今日三大指数集体低开后震荡下行。上证收报<span class="key-num">3993.23点</span>（<span class="down">-0.42%</span>），失守4000点整数关口；深证成指收14,954.10（<span class="down">-2.06%</span>）；<strong>创业板指</strong>收3,854.79（<span class="down">-2.70%</span>）；科创50跌0.65%。全市场1556只上涨、3878只下跌，超3800只个股飘绿。（来源：新浪财经、东方财富）</p>
+          <p>成交额方面，两市合计成交<span class="key-num">2.62万亿元</span>，较昨日缩量约210亿元。资金在大幅收缩。</p>
+          <p><strong>逆势上涨板块</strong>：银行（+1.2%）、保险（+1.5%）、证券（+0.8%）、工业气体、啤酒（世界杯概念）。<span class="highlight">大金融成为资金的"避风港"</span>——中农工建四大行悉数收涨，招商银行涨1.8%。</p>
+          <p><strong>领跌板块</strong>：存储芯片（-4.5%）、CPO概念（-3.8%）、超导（-3.5%）、煤炭（-2.8%）、AI应用。昨日涨停潮的半导体板块今日全线回调——隔夜SOX假反弹的情绪传染效应仍在延续。</p>
+          <p><strong>茅台今日公告拟以不超过2000元/股回购注销</strong>，金额上限60亿元。但市场反响寥寥，茅台仅微涨0.3%——在4000点失守的大背景下，单个公司的回购难以扭转市场情绪。</p>
+
+          <div class="logic-chain">
+            <div class="lc-label">🧩 传导链</div>
+            隔夜SOX假反弹（+5.6%→收跌约-5%）<span style="color:#D4A017;font-weight:700;">→</span> A股半导体情绪反转 <span style="color:#D4A017;font-weight:700;">→</span> 昨日涨停潮个股集体回调 <span style="color:#D4A017;font-weight:700;">→</span> 上证重回4000以下 <span style="color:#D4A017;font-weight:700;">→</span> 大金融护盘但独木难支 <span style="color:#D4A017;font-weight:700;">→</span> CPI数据公布后市场关注今夜美股方向
+          </div>
+
+          <div class="invest-view">
+            <div class="iv-label">📌 投资视角</div>
+            <p><strong>短期</strong>：4000点攻防战仍在持续。今日缩量下跌（2.62万亿）说明恐慌尚未蔓延——如果放量暴跌才是真正危险信号。CPI数据公布后，市场焦点转向今夜美股和下周三FOMC。建议在4000点区间保持中性仓位，不要左侧抄底也不要恐慌抛售。</p>
+            <p><strong>关注</strong>：半导体板块是否企稳（SOX期货是先行指标），大盘金融股能否延续护盘。</p>
+          </div>
+        </div>
+        <div class="story-img">
+          <img src="comic/panel-002.svg" alt="A股失守4000 · 大金融护盘">
+        </div>
+      </div>
+      <hr class="story-divider">
+
+      <!-- 故事02 美股 -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s02">02</div>
+          <span class="story-tag s02">美股</span>
+          <div class="story-title">CPI后科技承压道指逆势收涨——板块轮动而非恐慌抛售</div>
+        </div>
+        <div class="story-content">
+          <p>美东时间6月10日（CPI公布后交易时段），美股三大指数涨跌互现。纳指和标普下跌，但道指逆势收涨——这不是系统性抛售，而是资金在板块间有选择地轮动。</p>
+
+          <table>
+            <tr><th>指数</th><th>收盘价</th><th>涨跌幅</th></tr>
+            <tr><td>道琼斯工业指数</td><td>50,872.11</td><td class="up">+0.17%（+86点）</td></tr>
+            <tr><td>纳斯达克综合指数</td><td>25,678.82</td><td class="down">-0.97%（-250点）</td></tr>
+            <tr><td>标普500指数</td><td>7,386.65</td><td class="down">-0.26%</td></tr>
+            <tr><td>费城半导体指数</td><td>12,657.81</td><td class="down">-1.93%</td></tr>
+          </table>
+
+          <p><strong>板块轮动清晰</strong>：科技（-1.8%）、能源（-1.6%）承压；房地产（+2.1%）、医疗保健（+1.3%）、必需消费品（+1.0%）走强。典型的"通胀读数高→押注防御+利率敏感"交易逻辑。纳指盘中一度跌超3.5%，尾盘大幅收窄——说明有逢低买盘承接。</p>
+          <p><strong>科技七巨头普跌</strong>：苹果跌3.64%（WWDC后续跌）、微软跌超2%、特斯拉跌3%。但NVDA仅跌0.22%——AI需求逻辑未被CPI动摇。</p>
+          <p><strong>SOX假反弹续集</strong>：费城半导体指数在前一日假反弹后，今日再跌1.93%。盘中一度暴跌8.6%，尾盘跌幅收窄。迈威尔科技跌超7%，ARM跌超6%。Intel从昨日+12%回吐至-2%。</p>
+
+          <div class="logic-chain">
+            <div class="lc-label">🧩 传导链</div>
+            CPI 4.2%（符合预期）+核心0.2%（低于预期） <span style="color:#D4A017;font-weight:700;">→</span> 市场解读为"油价推高的表面通胀" <span style="color:#D4A017;font-weight:700;">→</span> 不是加息加速的信号 <span style="color:#D4A017;font-weight:700;">→</span> 道指涨（防御/消费轮动）<span style="color:#D4A017;font-weight:700;">→</span> 但科技仍受利率压制 <span style="color:#D4A017;font-weight:700;">→</span> 纳指跌、SOX跌
+          </div>
+
+          <div class="invest-view">
+            <div class="iv-label">📌 投资视角</div>
+            <p>CPI表面是"鹰派"（4.2%），内核是"鸽派"（核心0.2%）。市场定价的不是加息加速，而是"higher for longer"——不是更紧，而是维持现状更久。这对高估值科技股不利（时间不是朋友），但对价值/防御有利。SOX两次探底后关注是否能企稳——若CPI后SOX期货反弹，可能是二次下探完成的信号。</p>
+          </div>
+        </div>
+      </div>
+      <hr class="story-divider">
+
+      <!-- 故事03 科技/AI -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s03">03</div>
+          <span class="story-tag s03">科技/AI</span>
+          <div class="story-title">苹果跌3.64%·芯片股多日连跌——AI叙事遭遇宏观逆风</div>
+        </div>
+        <div class="story-content">
+          <p><strong>苹果WWDC后连跌</strong>：Apple股价今日再跌3.64%，WWDC发布iOS 27和Siri深度AI集成后市场持续sell the news。更关键的是，库克在本届WWDC上的致辞被称为"告别演讲"——市场将其解读为库克即将卸任的信号，增加了管理层不确定性。</p>
+          <p><strong>芯片股多日连跌</strong>：SOX在前一日假反弹后今日续跌1.93%，AMD跌超3%，高通跌超5%，ARM跌超6%。美光跌超1%但此前已涨约9%。全球芯片4月销售额同比+93.9%的基本面利好不改，但短期完全被CPI→利率→估值压缩的宏观逻辑压制。</p>
+          <p><strong>SpaceX IPO明日定价</strong>：全球最大IPO定价日（6月11日，周四）。发行价$135，对应市值1.75-1.77万亿美元，周五（6月12日）纳斯达克挂牌交易，代码SPCX。机构认购倍数约2倍，市场预期首日即破2万亿市值。SPCX挂牌或成为科技股情绪的重要催化剂。</p>
+
+          <div class="invest-view">
+            <div class="iv-label">📌 投资视角</div>
+            <p>AI半导体的长期景气逻辑（销售额+93.9%、Google TPU大单）未变，但宏观逆风（CPI利率）是短期主导力量。关注两个信号：①SOX能否在12,500附近企稳；②SpaceX IPO是否带动科技情绪回暖。若CPI后的今夜美股反弹，A股半导体明日有望迎来修复。</p>
+          </div>
+        </div>
+      </div>
+      <hr class="story-divider">
+
+      <!-- 故事04 前沿/国际 -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s04">04</div>
+          <span class="story-tag s04">前沿/国际</span>
+          <div class="story-title">美伊冲突升级：特朗普下令打击伊朗防空系统，ECB明日加息25bp</div>
+        </div>
+        <div class="story-content">
+          <p><strong>美伊冲突一日三转</strong>：周一伊朗-以色列停火后，周二（6月9日）伊朗击落美军阿帕奇直升机。北京时间周三晚间，特朗普在Truth Social上宣布已下令美军对伊朗防空系统实施"自卫性"打击。油价短线急涨后回落——市场对此类事件的反应已明显钝化。中东冲突持续数月，博弈进入"消耗战"模式：擦枪走火频繁，但全面战争概率不高。（来源：路透、新华社、央视新闻）</p>
+          <p><strong>油价不涨反跌的深层逻辑</strong>：WTI原油收报88.20美元（<span class="down">-3.4%</span>），盘中最低85.95美元。美国原油库存连续第八周下降（-912万桶）本是利多，但市场更关注亚洲大国5月原油进口骤降29%（八年来最低）带来的需求端焦虑。供给需求同时收缩——油价在寻找新的均衡点。</p>
+          <p><strong>欧洲央行明日议息</strong>：北京时间6月11日晚间，欧洲央行利率决议。市场预期加息25bp至2.25%，这是欧洲央行自2023年9月以来首次加息，也是G7中首个因中东能源冲击而加息的央行。欧央行若落地加息，将强化全球紧缩叙事，间接影响美联储的决策环境。</p>
+
+          <div class="invest-view">
+            <div class="iv-label">📌 投资视角</div>
+            <p>WTI若跌破85美元，将缓解通胀担忧，对CPI有利——油价的"通胀推手"角色正在减弱。但美伊冲突若意外升级（霍尔木兹全面封锁），油价可能瞬间飙至100美元以上，届时会彻底逆转当前任何鸽派预期。这是一个"低概率高影响"的尾部风险。</p>
+          </div>
+        </div>
+      </div>
+      <hr class="story-divider">
+
+      <!-- 故事05 宏观/CPI -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s05">05</div>
+          <span class="story-tag s05">宏观</span>
+          <div class="story-title">CPI深度拆解：4.2%的表面"鹰派"与0.2%的"鸽派"内核</div>
+        </div>
+        <div class="story-content">
+          <p><strong>先看数字</strong>：</p>
+          <table>
+            <tr><th>指标</th><th>实际值</th><th>预期值</th><th>前值</th></tr>
+            <tr><td>CPI同比</td><td class="up">4.2%</td><td>4.2%</td><td>3.8%</td></tr>
+            <tr><td>CPI环比</td><td>0.5%</td><td>0.5%</td><td>0.6%</td></tr>
+            <tr><td>核心CPI同比</td><td>2.9%</td><td>2.9%</td><td>2.8%</td></tr>
+            <tr><td><span class="highlight">核心CPI环比</span></td><td><span class="highlight">0.2%</span></td><td>0.3%</td><td>0.4%</td></tr>
+          </table>
+
+          <p><strong>为什么核心环比0.2%比4.2%更重要</strong>：整体CPI 4.2%几乎完全由能源（汽油+40.5%）驱动。美联储更关注的是核心通胀——剔除能源和食品后的"底色"。核心环比从0.4%降至0.2%，低于预期的0.3%，这是通胀在边际上降温的信号。交通服务、健康保险、新车价格的下降说明能源涨价的"第二轮传导"并未发生。</p>
+          <p><strong>加息预期变化</strong>：CPI公布前，12月加息概率70%。数据出炉后，CME FedWatch显示<span class="key-num">12月加息概率降至约43-50%</span>——市场下调了加息预期。但10月加息概率仍约52%，下周三FOMC才是真正决战。高盛维持"年内加息概率20%"的判断。</p>
+          <p><strong>核心洞察</strong>：CPI 4.2%中的60%来自油价，而油价6月已从高点回落。如果6月CPI进一步降温，那么5月CPI可能就是本轮通胀周期的"顶部"。这对市场意味着：加息预期可能已在数据公布前见顶。</p>
+
+          <div class="scenario-box">
+            <div class="sc-title">今夜CPI的启示</div>
+            <div class="sc-content">
+              <p>早报推演的三条路径中，实际数据落在了"路径C（中性）"和"路径B（偏鸽）"之间——整体符合预期，核心低于预期。市场没有出现路径A（偏鹰）的恐慌，也没有出现路径B的狂欢，而是选择了分化轮动：防御板块涨、科技跌。这是最"聪明"的解读方式——既不完全看空，也不全面做多。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr class="story-divider">
+
+      <!-- 故事06 商品/黄金 -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s06">06</div>
+          <span class="story-tag s06">商品/黄金</span>
+          <div class="story-title">黄金跌破4200创近3月新低——加息预期+强势美元双杀</div>
+        </div>
+        <div class="story-content">
+          <p><strong>黄金：从"避险宠儿"到"利率囚徒"</strong></p>
+          <p>现货黄金周三暴跌至<span class="key-num">4,182美元/盎司</span>（-1.94%），盘中一度触及4,134美元。从年内高点5,477美元算跌超23%，完全进入技术性熊市。沪金主连同步跌至约935元/克。全球最大黄金ETF（GLD）持仓持续下降。</p>
+          <p><span class="highlight">最关键的信号</span>：今晚特朗普宣布打击伊朗防空系统——地缘风险大幅升级——但黄金在短暂反弹后继续下跌。这已经是连续第三次"地缘利多黄金失败"（第一次是停火消息、第二次是直升机被击落）。黄金的定价权已经彻底从避险让渡给了利率预期——而在核心CPI仍为2.9%、10年美债收益率4.5%+的环境下，黄金没有任何反弹的基础。</p>
+          <p><strong>花旗目标价4,000美元</strong>，下一个技术支撑位在4,000整数关口。若今夜美股继续下跌触发追加保证金，黄金可能被进一步抛售换取流动性。</p>
+          <p><strong>原油：WTI 88.20，供需双弱</strong>。API库存-912万桶（连续8周下降），但亚洲需求骤降29%压过了供给收缩。OPEC+增产+沙特降价的结构性压力持续。</p>
+
+          <table>
+            <tr><th>品种</th><th>价格</th><th>日涨跌幅</th></tr>
+            <tr><td>现货黄金（XAU/USD）</td><td>$4,182/盎司</td><td class="down">-1.94%</td></tr>
+            <tr><td>COMEX黄金期货</td><td>$4,185/盎司</td><td class="down">-1.90%</td></tr>
+            <tr><td>沪金主连</td><td>~935元/克</td><td class="down">-1.8%</td></tr>
+            <tr><td>WTI原油</td><td>$88.20/桶</td><td class="down">-3.40%</td></tr>
+            <tr><td>布伦特原油</td><td>$91.45/桶</td><td class="down">-2.56%</td></tr>
+          </table>
+
+          <div class="logic-chain">
+            <div class="lc-label">🧩 黄金核心矛盾</div>
+            CPI 4.2%（油价推高）<span style="color:#D4A017;font-weight:700;">→</span> 市场定价higher for longer <span style="color:#D4A017;font-weight:700;">→</span> 实际利率维持高位 <span style="color:#D4A017;font-weight:700;">→</span> 持有黄金机会成本飙升 <span style="color:#D4A017;font-weight:700;">→</span> GLD持续减仓 <span style="color:#D4A017;font-weight:700;">→</span> 金价跌破4200 <span style="color:#D4A017;font-weight:700;">→</span> 特朗普打击伊朗=金价仍跌 <span style="color:#D4A017;font-weight:700;">→</span> <strong>定价权彻底在利率预期，不在避险</strong>
+          </div>
+
+          <div class="invest-view">
+            <div class="iv-label">📌 投资视角</div>
+            <p>黄金在加息周期中左侧抄底的风险极高——即便4,000美元也不能轻言"便宜"。两个观察窗口：①核心CPI若继续下行→加息预期降温→黄金可能迎来超跌反弹；②黄金ETF持仓开始企稳→机构资金重新入场。目前两个信号都未出现。不猜底，等信号。</p>
+            <p>原油关注85美元支撑位——若跌破可能加速至80美元。但中东尾部风险（霍尔木兹封锁）意味着做空原油也需要设置严格止损。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== 本周主题漫画 ===== -->
+    <div class="l1-comic" style="margin:22px 0;">
+      <img src="comic/panel-003.svg" alt="黄金破4200 · 定价权从避险→利率">
+    </div>
+
+    <!-- ===== Layer 3: 数据复盘 ===== -->
+    <div class="layer3">
+      <div class="l3-title">📋 数据复盘 · 2026.06.10</div>
+
+      <p style="font-size:13px;font-weight:700;color:#D4A017;margin-bottom:4px;">全球主要市场</p>
+      <table>
+        <tr><th>市场</th><th>收盘</th><th>涨跌幅</th></tr>
+        <tr><td>上证指数</td><td>3,993.23</td><td class="down">-0.42%</td></tr>
+        <tr><td>深证成指</td><td>14,954.10</td><td class="down">-2.06%</td></tr>
+        <tr><td>创业板指</td><td>3,854.79</td><td class="down">-2.70%</td></tr>
+        <tr><td>科创50</td><td>1,652.22</td><td class="down">-0.65%</td></tr>
+        <tr><td>道琼斯</td><td>50,872.11</td><td class="up">+0.17%</td></tr>
+        <tr><td>纳斯达克</td><td>25,678.82</td><td class="down">-0.97%</td></tr>
+        <tr><td>标普500</td><td>7,386.65</td><td class="down">-0.26%</td></tr>
+        <tr><td>费城半导体(SOX)</td><td>12,657.81</td><td class="down">-1.93%</td></tr>
+      </table>
+
+      <p style="font-size:13px;font-weight:700;color:#D4A017;margin-bottom:4px;margin-top:10px;">商品/VIX/债市</p>
+      <table>
+        <tr><th>品种</th><th>价格</th><th>涨跌幅</th></tr>
+        <tr><td>现货黄金</td><td>$4,182/盎司</td><td class="down">-1.94%</td></tr>
+        <tr><td>WTI原油</td><td>$88.20/桶</td><td class="down">-3.40%</td></tr>
+        <tr><td>布伦特原油</td><td>$91.45/桶</td><td class="down">-2.56%</td></tr>
+        <tr><td>VIX恐慌指数</td><td>19.86</td><td class="up">+4.80%</td></tr>
+        <tr><td>10年期美债收益率</td><td>~4.50%</td><td class="down">-0.07%</td></tr>
+        <tr><td>美元指数</td><td>100.15</td><td class="up">+0.15%</td></tr>
+      </table>
+
+      <p style="font-size:13px;font-weight:700;color:#D4A017;margin-bottom:4px;margin-top:10px;">A股板块涨跌</p>
+      <table>
+        <tr><th>领涨板块</th><th>涨幅</th><th>领跌板块</th><th>跌幅</th></tr>
+        <tr><td>保险</td><td class="up">+1.50%</td><td>存储芯片</td><td class="down">-4.50%</td></tr>
+        <tr><td>银行</td><td class="up">+1.20%</td><td>CPO概念</td><td class="down">-3.80%</td></tr>
+        <tr><td>啤酒（世界杯）</td><td class="up">+2.10%</td><td>煤炭</td><td class="down">-2.80%</td></tr>
+        <tr><td>工业气体</td><td class="up">+1.80%</td><td>AI应用</td><td class="down">-2.50%</td></tr>
+      </table>
+
+      <div class="l3-highlight-box">
+        <strong>两市成交：</strong>2.62万亿元（缩量210亿）· <strong>涨跌家数：</strong>1556涨 / 3878跌 · <strong>北向资金：</strong>方向不明<br>
+        <strong>VIX：</strong>19.86（+4.8%），盘中最高21.64，CPI公布后回落，市场情绪从恐慌回到焦虑区间。<br>
+        <strong>CPI速览：</strong>整体同比4.2%（创三年新高·预期4.2%·前值3.8%）/ 核心环比0.2%（低于预期0.3%·前值0.4%）— 能源推高整体，但核心意外降温。</div>
+
+      <!-- 名词解释 -->
+      <div class="glossary">
+        <h4>📖 名词解释 · 小白友好版</h4>
+        <table>
+          <tr><th>术语</th><th>大白话</th><th>为什么重要</th></tr>
+          <tr><td>核心CPI</td><td>剔除了价格波动极大的食品和能源后，看通胀的"底色"</td><td>整体CPI 4.2%是油价推的，但核心环比0.2%低于预期说明"底色"在降温——美联储更关注这个数字</td></tr>
+          <tr><td>higher for longer</td><td>利率在高位维持更长时间，不降息也不一定加息</td><td>CPI后的市场定价不是"加息加速"，而是"不加息也不降息"——这对高估值科技股最不利</td></tr>
+          <tr><td>板块轮动</td><td>资金从一个板块撤出，进入另一个板块，不是离开市场</td><td>今天道指涨、纳指跌，说明资金从科技转移到消费和防御——不是恐慌抛售，是有选择的避险</td></tr>
+          <tr><td>霍尔木兹海峡</td><td>连接波斯湾和阿拉伯海的狭窄水道，全球约30%的石油通过这里运输</td><td>如果美伊冲突导致霍尔木兹被封锁，油价可能瞬间飙至100美元以上——当前最大的尾部风险</td></tr>
+          <tr><td>技术性熊市</td><td>从近期高点下跌超过20%</td><td>黄金从5477跌到4182（-23.6%），已经进入技术性熊市。在加息预期逆转前抄底黄金如同接飞刀</td></tr>
+          <tr><td>FOMC + 点阵图</td><td>美联储议息会议 + 委员对利率的预测散点图</td><td>下周三（6月16-17日）是沃什首次主持FOMC，点阵图将揭示委员们对年内是否加息的真实看法</td></tr>
+          <tr><td>WTI原油</td><td>西得克萨斯中质原油，美国原油基准价</td><td>WTI跌破90美元对缓解通胀有利，但亚洲需求骤降是新的隐忧——供需都在收缩</td></tr>
+        </table>
+      </div>
+
+      <!-- 数据来源 -->
+      <div class="sources">
+        <h3>📎 数据来源</h3>
+        <a href="https://www.163.com/dy/article/KV3CT66L05198CJN.html" target="_blank">网易 · CPI 4.2%</a> ·
+        <a href="https://www.stcn.com/article/detail/3954564.html" target="_blank">证券时报 · CPI解读</a> ·
+        <a href="https://finance.eastmoney.com/a/202606103766232764.html" target="_blank">东方财富 · 美股收盘</a> ·
+        <a href="https://finance.eastmoney.com/a/202606103766658888.html" target="_blank">东方财富 · A股收盘</a> ·
+        <a href="https://finance.sina.com.cn/jjxw/2026-06-10/doc-iniaxeiq5937218.shtml" target="_blank">新浪财经 · A股收评</a> ·
+        <a href="https://www.edgen.tech/zh/news/post/sp-500-slides-03-as-hot-cpi-fuels-tech-exodus-into-defensive-stocks" target="_blank">Edgen · 美股板块轮动</a> ·
+        <a href="https://www.morningstar.com/economy/may-cpi-report-shows-inflation-42-annual-rate-line-with-forecasts" target="_blank">Morningstar · CPI详细拆解</a> ·
+        <a href="https://www.stheadline.com/stock-market/3581764" target="_blank">星岛头条 · CPI市场反应</a>
+      </div>
+
+      <!-- End Box -->
+      <div class="foot">
+        <div class="icon">🧠</div>
+        <div class="t">今晚CPI告诉我们三件事</div>
+        <div class="d">第一，不要被表面数字吓到。4.2%的CPI看起来很吓人，但拆开看就知道——60%是油价，核心通胀其实在降温。市场比媒体聪明：道指涨、黄金跌，都在反映同一个逻辑——"这波通胀不可持续"。<br><br>第二，黄金从5477跌到4182，途中经历了中东停火、直升机被击落、美军空袭——三次地缘危机金价都不涨。如果你还在用"乱世买黄金"的老逻辑做投资，今天的数据应该让你彻底更新方法论了。<br><br>第三，市场最喜欢的不是"好消息"或"坏消息"，而是"确定性"。CPI落地后，不管往哪边，方向至少清楚了。下周三FOMC之前，市场将进入"数据消化期"——这是最安静也最容易亏钱的阶段。方向出来了再动，比抢跑重要得多。</div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+</body>
+</html>

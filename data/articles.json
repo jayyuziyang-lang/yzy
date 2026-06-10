@@ -1,7 +1,19 @@
 {
-  "generated_at": "2026-06-10T19:08:57+08:00",
+  "generated_at": "2026-06-10T21:27:05+08:00",
   "latest_date": "2026-06-10",
   "articles": [
+    {
+      "date": "2026-06-10",
+      "session": "evening",
+      "edition_cn": "晚报",
+      "icon": "🌙",
+      "title": "CPI 4.2%创三年新高·核心通胀意外降温·A股失守4000·黄金跌破4200·美股科技承压·美伊冲突升级",
+      "url": "2026-06-10/wechat-publish/evening/article.html",
+      "has_audio": true,
+      "audio_size_bytes": 1856880,
+      "has_comic": true,
+      "comic_count": 3
+    },
     {
       "date": "2026-06-10",
       "session": "morning",
@@ -416,6 +428,18 @@
   ],
   "by_date": {
     "2026-06-10": {
+      "evening": {
+        "date": "2026-06-10",
+        "session": "evening",
+        "edition_cn": "晚报",
+        "icon": "🌙",
+        "title": "CPI 4.2%创三年新高·核心通胀意外降温·A股失守4000·黄金跌破4200·美股科技承压·美伊冲突升级",
+        "url": "2026-06-10/wechat-publish/evening/article.html",
+        "has_audio": true,
+        "audio_size_bytes": 1856880,
+        "has_comic": true,
+        "comic_count": 3
+      },
       "morning": {
         "date": "2026-06-10",
         "session": "morning",

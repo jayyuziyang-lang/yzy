@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 220">
+  <rect width="300" height="220" fill="#FAFAFA"/>
+
+  <!-- Title bar -->
+  <rect x="0" y="0" width="300" height="30" fill="#EA580C"/>
+  <text x="150" y="20" text-anchor="middle" font-size="12" font-weight="700" fill="#fff" font-family="PingFang SC, Microsoft YaHei, sans-serif">🥇 黄金破4200 · 定价权彻底转移</text>
+
+  <!-- Left: Gold path -->
+  <text x="12" y="52" font-size="8" fill="#64748B" font-family="PingFang SC, Microsoft YaHei, sans-serif">金价下跌路径</text>
+
+  <rect x="12" y="58" width="136" height="16" rx="3" fill="#F0FDF4" stroke="#BBF7D0" stroke-width="0.5"/>
+  <text x="18" y="70" font-size="7" fill="#166534" font-family="PingFang SC, Microsoft YaHei, sans-serif">年内高点 5,477（2月）</text>
+
+  <rect x="12" y="78" width="136" height="6" rx="3" fill="#FEF2F2"/>
+  <text x="60" y="86" font-size="6" fill="#DC2626" font-family="PingFang SC, Microsoft YaHei, sans-serif">▼ -23.6% 技术性熊市</text>
+
+  <rect x="12" y="92" width="136" height="16" rx="3" fill="#FEF2F2" stroke="#FECACA" stroke-width="0.5"/>
+  <text x="18" y="104" font-size="7" font-weight="700" fill="#DC2626" font-family="PingFang SC, Microsoft YaHei, sans-serif">最新 4,182（-1.94%）</text>
+
+  <rect x="12" y="112" width="136" height="16" rx="3" fill="#FFF7ED" stroke="#FED7AA" stroke-width="0.5"/>
+  <text x="18" y="124" font-size="7" fill="#D97706" font-family="PingFang SC, Microsoft YaHei, sans-serif">盘中低点 4,134</text>
+
+  <rect x="12" y="132" width="136" height="16" rx="3" fill="#FFFBEB" stroke="#FDE68A" stroke-width="0.5"/>
+  <text x="18" y="144" font-size="7" fill="#92400E" font-family="PingFang SC, Microsoft YaHei, sans-serif">花旗目标价 4,000</text>
+
+  <!-- Divider -->
+  <line x1="153" y1="38" x2="153" y2="172" stroke="#E2E8F0" stroke-width="1"/>
+
+  <!-- Right: Three fails -->
+  <text x="160" y="52" font-size="8" fill="#64748B" font-family="PingFang SC, Microsoft YaHei, sans-serif">三次地缘利多 · 黄金三次不涨</text>
+
+  <rect x="160" y="58" width="133" height="16" rx="3" fill="#FEF2F2" stroke="#FECACA" stroke-width="0.5"/>
+  <text x="166" y="70" font-size="6" fill="#991B1B" font-family="PingFang SC, Microsoft YaHei, sans-serif">① 6/8 停火消息 → 金价下跌</text>
+
+  <rect x="160" y="78" width="133" height="16" rx="3" fill="#FEF2F2" stroke="#FECACA" stroke-width="0.5"/>
+  <text x="166" y="90" font-size="6" fill="#991B1B" font-family="PingFang SC, Microsoft YaHei, sans-serif">② 6/9 直升机被击落 → 金价下跌</text>
+
+  <rect x="160" y="98" width="133" height="16" rx="3" fill="#FEF2F2" stroke="#FECACA" stroke-width="0.5"/>
+  <text x="166" y="110" font-size="6" fill="#991B1B" font-family="PingFang SC, Microsoft YaHei, sans-serif">③ 6/10 美军空袭伊朗 → 金价仍跌</text>
+
+  <rect x="160" y="120" width="133" height="34" rx="4" fill="#F0F4FF" stroke="#BFDBFE" stroke-width="1"/>
+  <text x="166" y="136" font-size="7" font-weight="700" fill="#DC2626" font-family="PingFang SC, Microsoft YaHei, sans-serif">定价权 = 利率预期，非避险</text>
+  <text x="166" y="151" font-size="6" fill="#1E40AF" font-family="PingFang SC, Microsoft YaHei, sans-serif">CPI→higher for longer→实际利率↑→金价↓</text>
+
+  <!-- Bottom insight -->
+  <rect x="10" y="178" width="280" height="34" rx="6" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="20" y="194" font-size="7" fill="#475569" font-family="PingFang SC, Microsoft YaHei, sans-serif">💡 如果"乱世买黄金"的老逻辑还在用，今晚的数据该让你彻底更新方法论了。</text>
+  <text x="20" y="206" font-size="7" fill="#475569" font-family="PingFang SC, Microsoft YaHei, sans-serif">   GLD未企稳前不抄底，等加息预期降温的信号出现再行动。</text>
+</svg>
