@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 220">
+  <rect width="300" height="220" fill="#FAFAFA"/>
+  <rect x="0" y="0" width="300" height="30" fill="#D4A017"/>
+  <text x="150" y="20" text-anchor="middle" font-size="12" font-weight="700" fill="#fff" font-family="PingFang SC, Microsoft YaHei, sans-serif">⚡ 三大利空共振 · 道指跌破5万</text>
+
+  <text x="12" y="52" font-size="8" fill="#64748B" font-family="PingFang SC, Microsoft YaHei, sans-serif">三重冲击 • 6月10日隔夜</text>
+
+  <rect x="12" y="58" width="136" height="46" rx="4" fill="#FEF2F2" stroke="#FECACA" stroke-width="1"/>
+  <text x="18" y="73" font-size="7" font-weight="700" fill="#DC2626" font-family="PingFang SC, Microsoft YaHei, sans-serif">🔥 美伊冲突升级</text>
+  <text x="18" y="86" font-size="6" fill="#991B1B" font-family="PingFang SC, Microsoft YaHei, sans-serif">特朗普下令二次打击伊朗</text>
+  <text x="18" y="98" font-size="6" fill="#991B1B" font-family="PingFang SC, Microsoft YaHei, sans-serif">WTI从85.95反弹至90+</text>
+
+  <rect x="12" y="110" width="136" height="46" rx="4" fill="#FAF5FF" stroke="#E9D5FF" stroke-width="1"/>
+  <text x="18" y="125" font-size="7" font-weight="700" fill="#7C3AED" font-family="PingFang SC, Microsoft YaHei, sans-serif">🤖 AI筹码出逃</text>
+  <text x="18" y="138" font-size="6" fill="#6B21A8" font-family="PingFang SC, Microsoft YaHei, sans-serif">SMCI暴跌28%（700亿融资）</text>
+  <text x="18" y="150" font-size="6" fill="#6B21A8" font-family="PingFang SC, Microsoft YaHei, sans-serif">Oracle再融资400亿盘后-7%</text>
+
+  <line x1="153" y1="38" x2="153" y2="172" stroke="#E2E8F0" stroke-width="1"/>
+
+  <text x="160" y="52" font-size="8" fill="#64748B" font-family="PingFang SC, Microsoft YaHei, sans-serif">市场数据</text>
+
+  <rect x="160" y="58" width="133" height="22" rx="4" fill="#FEF2F2" stroke="#FECACA" stroke-width="0.5"/>
+  <text x="166" y="73" font-size="7" font-weight="700" fill="#DC2626" font-family="PingFang SC, Microsoft YaHei, sans-serif">道指 49,918（-1.87%）</text>
+
+  <rect x="160" y="84" width="133" height="22" rx="4" fill="#FEF2F2" stroke="#FECACA" stroke-width="0.5"/>
+  <text x="166" y="99" font-size="7" fill="#991B1B" font-family="PingFang SC, Microsoft YaHei, sans-serif">纳指 25,169（-1.98%）</text>
+
+  <rect x="160" y="110" width="133" height="22" rx="4" fill="#FEF2F2" stroke="#FECACA" stroke-width="0.5"/>
+  <text x="166" y="125" font-size="7" fill="#991B1B" font-family="PingFang SC, Microsoft YaHei, sans-serif">SOX 12,206（-3.57%）</text>
+
+  <rect x="160" y="136" width="133" height="22" rx="4" fill="#FAF5FF" stroke="#E9D5FF" stroke-width="0.5"/>
+  <text x="166" y="151" font-size="7" font-weight="700" fill="#7C3AED" font-family="PingFang SC, Microsoft YaHei, sans-serif">VIX 22.22（+11.83%）</text>
+
+  <rect x="10" y="178" width="280" height="34" rx="6" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="20" y="194" font-size="7" fill="#475569" font-family="PingFang SC, Microsoft YaHei, sans-serif">💡 三大利空共振引发流动性挤兑——黄金/比特币/债券同步下跌。SOX三日跌超9%，</text>
+  <text x="20" y="206" font-size="7" fill="#475569" font-family="PingFang SC, Microsoft YaHei, sans-serif">   标普科技板块从高点回调11%进入技术性修正。下周三FOMC前市场提前"清场"。</text>
+</svg>

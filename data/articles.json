@@ -1,7 +1,19 @@
 {
-  "generated_at": "2026-06-10T21:27:05+08:00",
-  "latest_date": "2026-06-10",
+  "generated_at": "2026-06-11T22:38:58+08:00",
+  "latest_date": "2026-06-11",
   "articles": [
+    {
+      "date": "2026-06-11",
+      "session": "evening",
+      "edition_cn": "晚报",
+      "icon": "🌙",
+      "title": "道指跌破5万·SOX再跌3.6%·黄金闪崩至4070·ECB加息25bp·SpaceX定价135·美伊冲突升级",
+      "url": "2026-06-11/wechat-publish/evening/article.html",
+      "has_audio": true,
+      "audio_size_bytes": 1432800,
+      "has_comic": true,
+      "comic_count": 3
+    },
     {
       "date": "2026-06-10",
       "session": "evening",
@@ -427,6 +439,20 @@
     }
   ],
   "by_date": {
+    "2026-06-11": {
+      "evening": {
+        "date": "2026-06-11",
+        "session": "evening",
+        "edition_cn": "晚报",
+        "icon": "🌙",
+        "title": "道指跌破5万·SOX再跌3.6%·黄金闪崩至4070·ECB加息25bp·SpaceX定价135·美伊冲突升级",
+        "url": "2026-06-11/wechat-publish/evening/article.html",
+        "has_audio": true,
+        "audio_size_bytes": 1432800,
+        "has_comic": true,
+        "comic_count": 3
+      }
+    },
     "2026-06-10": {
       "evening": {
         "date": "2026-06-10",
