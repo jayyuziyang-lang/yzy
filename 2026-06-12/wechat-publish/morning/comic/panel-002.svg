@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" font-family="-apple-system,PingFang SC,Microsoft YaHei,sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFF7ED"/>
+      <stop offset="100%" stop-color="#FFEDD5"/>
+    </linearGradient>
+    <linearGradient id="bar" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#DC2626"/>
+      <stop offset="100%" stop-color="#B91C1C"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="500" fill="url(#bg)" rx="12"/>
+
+  <!-- Title bar -->
+  <rect x="0" y="0" width="800" height="56" fill="url(#bar)" rx="12"/>
+  <rect x="0" y="28" width="800" height="28" fill="url(#bar)"/>
+  <text x="400" y="37" text-anchor="middle" fill="white" font-size="22" font-weight="700">特朗普最后期限今夜到期 · 黄金跌至6月低点4070</text>
+
+  <!-- Panel 1: Trump Iran -->
+  <rect x="30" y="75" width="360" height="400" fill="white" rx="10" stroke="#FECACA" stroke-width="1.5"/>
+  <rect x="30" y="75" width="360" height="38" fill="#DC2626" rx="10"/>
+  <rect x="30" y="95" width="360" height="18" fill="#DC2626"/>
+  <text x="210" y="100" text-anchor="middle" fill="white" font-size="16" font-weight="700">🔥 特朗普·伊朗最后期限</text>
+
+  <!-- Timeline -->
+  <text x="50" y="140" fill="#1E293B" font-size="14" font-weight="700">⏰ 美东6月12日午夜到期</text>
+  <text x="50" y="164" fill="#475569" font-size="13">"若伊朗不签协议，将把它炸个稀巴烂"</text>
+
+  <!-- Military facts -->
+  <rect x="50" y="185" width="320" height="55" fill="#FEF2F2" rx="6" stroke="#FECACA" stroke-width="1"/>
+  <text x="70" y="208" fill="#DC2626" font-size="12" font-weight="600">美军已发射49枚战斧巡航导弹</text>
+  <text x="70" y="228" fill="#DC2626" font-size="12">伊朗声称攻击18处美军目标</text>
+
+  <!-- Diplomatic -->
+  <rect x="50" y="255" width="320" height="50" fill="#EFF6FF" rx="6" stroke="#BFDBFE" stroke-width="1"/>
+  <text x="70" y="278" fill="#1E40AF" font-size="12" font-weight="600">巴基斯坦仍在斡旋间接谈判</text>
+
+  <!-- Two paths -->
+  <text x="50" y="326" fill="#1E293B" font-size="13" font-weight="700">今夜两条路径</text>
+
+  <rect x="50" y="340" width="320" height="50" fill="#FEF2F2" rx="6" stroke="#FECACA" stroke-width="1"/>
+  <text x="70" y="360" fill="#DC2626" font-size="12" font-weight="600">🔴 路径A（升级）</text>
+  <text x="70" y="380" fill="#475569" font-size="11">大规模打击 → 霍尔木兹封锁 → 布油$100+</text>
+
+  <rect x="50" y="400" width="320" height="50" fill="#F0FDF4" rx="6" stroke="#BBF7D0" stroke-width="1"/>
+  <text x="70" y="420" fill="#16A34A" font-size="12" font-weight="600">🟢 路径B（缓和）</text>
+  <text x="70" y="440" fill="#475569" font-size="11">框架协议 → 停火 → 布油回落至$85-88</text>
+
+  <!-- Panel 2: Gold + Oil -->
+  <rect x="410" y="75" width="360" height="400" fill="white" rx="10" stroke="#FED7AA" stroke-width="1.5"/>
+  <rect x="410" y="75" width="360" height="38" fill="#EA580C" rx="10"/>
+  <rect x="410" y="95" width="360" height="18" fill="#EA580C"/>
+  <text x="590" y="100" text-anchor="middle" fill="white" font-size="16" font-weight="700">🥇 黄金 · 🛢️ 原油</text>
+
+  <!-- Gold -->
+  <text x="430" y="140" fill="#1E293B" font-size="14" font-weight="700">📉 黄金跌至6个月低点</text>
+
+  <!-- Gold big number -->
+  <text x="590" y="190" text-anchor="middle" fill="#EA580C" font-size="46" font-weight="800">$4,059</text>
+  <text x="590" y="212" text-anchor="middle" fill="#475569" font-size="13">盘中最低 $4,023 · 收于 $4,059-4,069</text>
+
+  <!-- Gold details -->
+  <rect x="430" y="230" width="320" height="60" fill="#FFF7ED" rx="6" stroke="#FED7AA" stroke-width="1"/>
+  <text x="450" y="252" fill="#EA580C" font-size="12" font-weight="600">从 ATH $5,477 回撤 -28.13%</text>
+  <text x="450" y="272" fill="#475569" font-size="12">技术上已进入熊市区间</text>
+
+  <!-- Oil -->
+  <text x="430" y="320" fill="#1E293B" font-size="14" font-weight="700">🛢️ 原油高位震荡</text>
+
+  <rect x="430" y="335" width="320" height="45" fill="#EFF6FF" rx="6" stroke="#BFDBFE" stroke-width="1"/>
+  <text x="450" y="356" fill="#1E40AF" font-size="12">布伦特 $93.74-93.88/桶</text>
+  <text x="450" y="372" fill="#1E40AF" font-size="12">WTI $90.59/桶</text>
+
+  <!-- Oil breakdown -->
+  <rect x="430" y="395" width="320" height="55" fill="#FFFBEB" rx="6" stroke="#FDE68A" stroke-width="1"/>
+  <text x="450" y="416" fill="#D4A017" font-size="12" font-weight="600">布油 = $85 基本面 + $10 风险溢价</text>
+  <text x="450" y="436" fill="#475569" font-size="11">市场在赌战争爆发，停火后溢价将消失</text>
+</svg>

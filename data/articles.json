@@ -1,7 +1,19 @@
 {
-  "generated_at": "2026-06-11T22:59:58+08:00",
-  "latest_date": "2026-06-11",
+  "generated_at": "2026-06-11T23:47:12+08:00",
+  "latest_date": "2026-06-12",
   "articles": [
+    {
+      "date": "2026-06-12",
+      "session": "morning",
+      "edition_cn": "早报",
+      "icon": "🌅",
+      "title": "SpaceX今日挂牌·PPI飙至6.5%·特朗普伊朗最后期限·黄金跌至6月低点·美股期货反弹",
+      "url": "2026-06-12/wechat-publish/morning/article.html",
+      "has_audio": true,
+      "audio_size_bytes": 986976,
+      "has_comic": true,
+      "comic_count": 2
+    },
     {
       "date": "2026-06-11",
       "session": "evening",
@@ -439,6 +451,20 @@
     }
   ],
   "by_date": {
+    "2026-06-12": {
+      "morning": {
+        "date": "2026-06-12",
+        "session": "morning",
+        "edition_cn": "早报",
+        "icon": "🌅",
+        "title": "SpaceX今日挂牌·PPI飙至6.5%·特朗普伊朗最后期限·黄金跌至6月低点·美股期货反弹",
+        "url": "2026-06-12/wechat-publish/morning/article.html",
+        "has_audio": true,
+        "audio_size_bytes": 986976,
+        "has_comic": true,
+        "comic_count": 2
+      }
+    },
     "2026-06-11": {
       "evening": {
         "date": "2026-06-11",

@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" font-family="-apple-system,PingFang SC,Microsoft YaHei,sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#EFF6FF"/>
+      <stop offset="100%" stop-color="#DBEAFE"/>
+    </linearGradient>
+    <linearGradient id="bar1" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1A56DB"/>
+      <stop offset="100%" stop-color="#1E40AF"/>
+    </linearGradient>
+    <linearGradient id="bar2" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#EA580C"/>
+      <stop offset="100%" stop-color="#C2410C"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="500" fill="url(#bg)" rx="12"/>
+
+  <!-- Title bar -->
+  <rect x="0" y="0" width="800" height="56" fill="url(#bar1)" rx="12"/>
+  <rect x="0" y="28" width="800" height="28" fill="url(#bar1)"/>
+  <text x="400" y="37" text-anchor="middle" fill="white" font-size="22" font-weight="700">SpaceX今日挂牌 · PPI飙至6.5%创近3年新高</text>
+
+  <!-- Panel 1: SpaceX IPO -->
+  <rect x="30" y="75" width="360" height="400" fill="white" rx="10" stroke="#BFDBFE" stroke-width="1.5"/>
+  <rect x="30" y="75" width="360" height="38" fill="#1A56DB" rx="10"/>
+  <rect x="30" y="95" width="360" height="18" fill="#1A56DB"/>
+  <text x="210" y="100" text-anchor="middle" fill="white" font-size="16" font-weight="700">🚀 SpaceX IPO</text>
+
+  <text x="50" y="140" fill="#1E293B" font-size="14" font-weight="700">发行价 $135/股</text>
+  <text x="50" y="162" fill="#475569" font-size="13">市值约 $1.75万亿 · 史上最大IPO</text>
+  <text x="50" y="184" fill="#475569" font-size="13">代码: SPCX · 纳斯达克挂牌</text>
+  <text x="50" y="206" fill="#475569" font-size="13">机构认购超4倍 · 零售订单超$700亿</text>
+
+  <!-- Valuation comparison box -->
+  <rect x="50" y="220" width="320" height="60" fill="#FEF2F2" rx="6" stroke="#FECACA" stroke-width="1"/>
+  <text x="70" y="244" fill="#DC2626" font-size="12" font-weight="600">Jim Cramer预测: $5万亿 (+180%)</text>
+  <text x="70" y="264" fill="#16A34A" font-size="12" font-weight="600">Morningstar公允价值: $7800亿 (-56%)</text>
+
+  <!-- Divider -->
+  <line x1="50" y1="298" x2="370" y2="298" stroke="#E2E8F0" stroke-width="1" stroke-dasharray="4,3"/>
+
+  <text x="50" y="322" fill="#1E293B" font-size="13" font-weight="700">📌 权重效应</text>
+  <text x="50" y="344" fill="#475569" font-size="12">MSCI宣布SPCX T+1纳入指数</text>
+  <text x="50" y="364" fill="#475569" font-size="12">指数基金被动增持 → 存量持仓腾挪</text>
+
+  <text x="50" y="394" fill="#1E293B" font-size="13" font-weight="700">📌 情绪意义</text>
+  <text x="50" y="416" fill="#475569" font-size="12">若首日大涨 → 科技情绪修复催化剂</text>
+  <text x="50" y="436" fill="#475569" font-size="12">若表现平淡 → 压制风险偏好</text>
+
+  <!-- Panel 2: PPI -->
+  <rect x="410" y="75" width="360" height="400" fill="white" rx="10" stroke="#BFDBFE" stroke-width="1.5"/>
+  <rect x="410" y="75" width="360" height="38" fill="#EA580C" rx="10"/>
+  <rect x="410" y="95" width="360" height="18" fill="#EA580C"/>
+  <text x="590" y="100" text-anchor="middle" fill="white" font-size="16" font-weight="700">📈 PPI 6.5%</text>
+
+  <!-- Big number -->
+  <text x="590" y="165" text-anchor="middle" fill="#EA580C" font-size="52" font-weight="800">6.5%</text>
+  <text x="590" y="188" text-anchor="middle" fill="#1E293B" font-size="14" font-weight="600">美国5月PPI同比 · 创2022年11月以来新高</text>
+
+  <!-- Data breakdown -->
+  <rect x="430" y="210" width="320" height="75" fill="#FFFBEB" rx="6" stroke="#FDE68A" stroke-width="1"/>
+  <text x="450" y="234" fill="#1E293B" font-size="13" font-weight="600">核心PPI同比 +4.9%</text>
+  <text x="450" y="256" fill="#EA580C" font-size="13" font-weight="600">能源价格环比 +10.7%</text>
+  <text x="450" y="276" fill="#EA580C" font-size="12">其中汽油暴涨 +23.4%</text>
+
+  <!-- Impact chain -->
+  <rect x="430" y="300" width="320" height="55" fill="#EFF6FF" rx="6" stroke="#BFDBFE" stroke-width="1"/>
+  <text x="450" y="324" fill="#1E40AF" font-size="12" font-weight="600">传导链已确认:</text>
+  <text x="450" y="344" fill="#1E40AF" font-size="12">油价 → 通胀 → 利率预期</text>
+
+  <!-- Invest view -->
+  <rect x="430" y="370" width="320" height="85" fill="#F0FDF4" rx="6" stroke="#BBF7D0" stroke-width="1"/>
+  <text x="450" y="394" fill="#16A34A" font-size="12" font-weight="600">📌 投资视角</text>
+  <text x="450" y="414" fill="#14532D" font-size="12">输入性通胀持续 → 所有长久期资产</text>
+  <text x="450" y="434" fill="#14532D" font-size="12">(科技/成长/新兴市场) 持续承压</text>
+  <text x="450" y="454" fill="#14532D" font-size="12">油价回落的唯一希望: 停火</text>
+</svg>

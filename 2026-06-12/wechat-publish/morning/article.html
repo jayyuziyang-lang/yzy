@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>SpaceX今日挂牌·PPI飙至6.5%·特朗普伊朗最后期限·黄金跌至6月低点·美股期货反弹</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system,"PingFang SC","Microsoft YaHei","Helvetica Neue",sans-serif; background: #F5F7FA; color: #1E293B; line-height: 1.8; font-size: 16px; }
+  .c { max-width: 640px; margin: 0 auto; background: #fff; padding: 44px 0 40px; }
+  .top-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; max-width: 640px; margin: 0 auto; background: rgba(255,255,255,0.95); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-bottom: 1px solid #E2E8F0; display: flex; align-items: center; padding: 0 16px; height: 44px; }
+  .top-nav .back { display: flex; align-items: center; gap: 4px; color: #1A56DB; text-decoration: none; font-size: 13px; font-weight: 600; }
+  .top-nav .back:active { opacity: 0.6; }
+  .top-nav .nav-date { flex: 1; text-align: center; font-size: 12px; color: #64748B; }
+  .top-nav .nav-edition { font-size: 11px; color: #1A56DB; background: #EFF6FF; padding: 2px 8px; border-radius: 8px; font-weight: 600; }
+  .header { background: linear-gradient(135deg,#1A56DB,#1E40AF); padding: 20px 20px 16px; color: white; }
+  .header h1 { font-size: 22px; font-weight: 700; line-height: 1.4; margin-bottom: 6px; }
+  .header .meta { font-size: 12px; opacity: 0.8; display: flex; gap: 12px; flex-wrap: wrap; }
+  .player { display: flex; align-items: center; gap: 12px; margin-top: 14px; }
+  .player-icon { width: 40px; height: 40px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 18px; }
+  .player-info { flex: 1; }
+  .player-title { font-size: 13px; font-weight: 600; }
+  .player-desc { font-size: 11px; opacity: 0.7; }
+  .player audio { width: 100%; margin-top: 4px; border-radius: 20px; }
+  .body { padding: 20px 20px 0; }
+  .layer1 { margin-bottom: 24px; }
+  .l1-title { font-size: 16px; font-weight: 700; color: #1A56DB; margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
+  .l1-comic { margin: 10px 0 0; }
+  .l1-comic img { width: 100%; border-radius: 10px; border: 1px solid #E2E8F0; }
+  .l1-divider { border: none; border-top: 2px dashed #1A56DB; margin: 16px 0; }
+  .layer2 { margin-bottom: 24px; }
+  .l2-title { font-size: 16px; font-weight: 700; color: #1A56DB; margin-bottom: 14px; display: flex; align-items: center; gap: 6px; }
+  .quote { background: #EFF6FF; border-left: 4px solid #1A56DB; padding: 12px 14px; margin: 14px 0; border-radius: 0 8px 8px 0; font-size: 14px; color: #1E3A7A; line-height: 1.7; }
+  p { margin-bottom: 12px; text-align: justify; font-size: 15px; }
+  .story { margin: 22px 0; }
+  .story-head { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .story-num { width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; color: #fff; flex-shrink: 0; }
+  .story-num.s01 { background: #DC2626; } .story-num.s02 { background: #16A34A; } .story-num.s03 { background: #7C3AED; }
+  .story-num.s04 { background: #1A56DB; } .story-num.s05 { background: #D4A017; } .story-num.s06 { background: #EA580C; }
+  .story-tag { font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 3px; }
+  .story-tag.s01 { background: #FEF2F2; color: #DC2626; } .story-tag.s02 { background: #F0FDF4; color: #16A34A; }
+  .story-tag.s03 { background: #FAF5FF; color: #7C3AED; } .story-tag.s04 { background: #EFF6FF; color: #1A56DB; }
+  .story-tag.s05 { background: #FFFBEB; color: #D4A017; } .story-tag.s06 { background: #FFF7ED; color: #EA580C; }
+  .story-title { font-size: 16px; font-weight: 700; color: #1E293B; line-height: 1.4; }
+  .story-content { font-size: 14px; color: #334155; line-height: 1.8; margin-bottom: 8px; }
+  .story-content p { margin-bottom: 8px; font-size: 14px; }
+  .story-img { margin: 10px 0 0; border-radius: 8px; border: 1px solid #E2E8F0; overflow: hidden; background: #FAFAFA; }
+  .story-img img { width: 100%; display: block; }
+  .story-divider { border: none; height: 1px; background: linear-gradient(to right, transparent, #E2E8F0, transparent); margin: 6px 0; }
+  .blue-box { background: linear-gradient(135deg,#EFF6FF,#DBEAFE); border: 1px solid #1A56DB; border-radius: 12px; padding: 18px 20px; margin: 22px 0; text-align: center; font-size: 16px; font-weight: 700; color: #1E40AF; line-height: 1.5; }
+  .layer3 { margin-bottom: 24px; }
+  .l3-title { font-size: 16px; font-weight: 700; color: #1A56DB; margin-bottom: 10px; }
+  .l3-highlight-box { background: #EFF6FF; border-radius: 10px; padding: 12px 14px; margin: 12px 0; font-size: 13px; color: #1E3A7A; line-height: 1.6; border: 1px solid #BFDBFE; }
+  table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 13px; }
+  th { background: #1A56DB; color: #fff; padding: 8px 10px; text-align: left; font-weight: 600; }
+  th:first-child { border-radius: 6px 0 0 0; }
+  th:last-child { border-radius: 0 6px 0 0; }
+  td { padding: 8px 10px; border-bottom: 1px solid #E2E8F0; }
+  tr:nth-child(even) { background: #F8F9FA; }
+  .up { color: #DC2626; font-weight: 600; }
+  .down { color: #16A34A; font-weight: 600; }
+  .highlight { background: #EFF6FF; padding: 1px 4px; border-radius: 2px; font-weight: 600; color: #1E40AF; }
+  .key-num { font-weight: 700; color: #1A56DB; }
+  .sources { background: #EFF6FF; border-radius: 10px; padding: 12px 14px; margin: 16px 0; font-size: 12px; color: #1E3A7A; line-height: 1.6; }
+  .sources h3 { font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+  .sources a { color: #1A56DB; text-decoration: none; }
+  .foot { background: linear-gradient(135deg,#1A56DB,#1E40AF); border-radius: 12px; padding: 18px 20px; margin: 22px 0; color: white; text-align: center; }
+  .foot .icon { font-size: 28px; margin-bottom: 4px; }
+  .foot .t { font-size: 16px; font-weight: 700; margin-bottom: 2px; }
+  .foot .d { font-size: 11px; opacity: 0.85; }
+  .logic-chain { background: #F0F4FF; border-left: 4px solid #1A56DB; border-radius: 0 8px 8px 0; padding: 10px 14px; margin: 10px 0 14px; font-size: 13.5px; color: #1E3A7A; line-height: 1.7; }
+  .logic-chain .lc-label { font-weight: 700; font-size: 12px; color: #1A56DB; margin-bottom: 2px; }
+  .invest-view { background: #F0FDF4; border-left: 4px solid #16A34A; border-radius: 0 8px 8px 0; padding: 10px 14px; margin: 10px 0 14px; font-size: 13.5px; color: #14532D; line-height: 1.7; }
+  .invest-view .iv-label { font-weight: 700; font-size: 12px; color: #16A34A; margin-bottom: 2px; }
+  .glossary { background: #EFF6FF; border: 1px solid #BFDBFE; border-radius: 10px; padding: 12px 14px; margin: 16px 0; font-size: 12px; line-height: 1.6; }
+  .glossary h4 { font-size: 13px; font-weight: 700; color: #1E40AF; margin-bottom: 8px; }
+  .glossary table { width: 100%; font-size: 12px; margin: 0; }
+  .glossary th { background: #1A56DB; color: #fff; padding: 5px 8px; font-size: 11px; text-align: left; }
+  .glossary td { padding: 5px 8px; font-size: 11px; }
+</style>
+</head>
+<body>
+<div class="c">
+
+  <div class="top-nav">
+    <a class="back" href="../../../index.html">&larr; 返回首页</a>
+    <span class="nav-date">2026.06.12 · 周五</span>
+    <span class="nav-edition">扬说·早报</span>
+  </div>
+
+  <div class="header">
+    <h1>SpaceX今日挂牌·PPI飙至6.5%创近3年新高·特朗普伊朗最后期限今夜到期·美股期货反弹纳指+1.16%·黄金跌至6月低点4070</h1>
+    <div class="meta">
+      <span>📅 2026年6月12日 · 星期五</span>
+      <span>🏷️ SpaceX IPO / PPI 6.5% / 特朗普伊朗最后期限 / 美股期货反弹 / 黄金6月低点 / 霍尔木兹封锁 / FOMC倒计时</span>
+    </div>
+    <div class="player">
+      <div class="player-icon">🎧</div>
+      <div class="player-info">
+        <div class="player-title">听全文 · 扬说财经</div>
+        <div class="player-desc">约5分钟 · 隔夜速览</div>
+        <audio controls><source src="audio.mp3" type="audio/mpeg"></audio>
+      </div>
+    </div>
+  </div>
+
+  <div class="body">
+
+    <!-- ===== 本周主轴 ===== -->
+    <div class="logic-chain" style="margin-bottom:20px;">
+      <div class="lc-label">本周主轴传导链</div>
+      伊朗能源推高全球通胀 <span style="color:#1A56DB;font-weight:700;">→</span> CPI 4.2% + PPI 6.5% <span style="color:#1A56DB;font-weight:700;">→</span> Warsh"缩表先行"路径成型 <span style="color:#1A56DB;font-weight:700;">→</span> 道指跌破5万/黄金闪崩 <span style="color:#1A56DB;font-weight:700;">→</span> SpaceX IPO今日挂牌 <span style="color:#1A56DB;font-weight:700;">→</span> 特朗普伊朗最后期限今夜到期 <span style="color:#1A56DB;font-weight:700;">→</span> 下周三FOMC定调
+    </div>
+
+    <!-- ===== Layer 1 ===== -->
+    <div class="layer1">
+      <div class="l1-title">🌅 隔夜速览 · 今日关注</div>
+      <p><strong>昨晚美股延续暴跌，但期货今早出现超卖反弹信号。</strong> 美股三大指数周三（6月10日）集体重挫后，隔夜（6月11日）延续弱势，但跌幅明显收窄。标普500收7,266.99（-1.62%），道指跌破50,000报49,918.78（-1.87%），纳斯达克收25,169.50（-1.98%）。</p>
+      <p><strong>进入周五（6月12日）盘前，美股期货反弹：</strong> 道指期货+0.73%，标普期货+0.69%，纳斯达克期货+1.16%——超卖后的技术性修复正在展开。但今夜特朗普对伊朗的"最后期限"到期，任何新的军事行动都可能再次打乱反弹节奏。</p>
+
+      <div class="l1-comic">
+        <img src="comic/panel-001.svg" alt="SpaceX今日挂牌·PPI飙至6.5%·特朗普伊朗最后期限">
+      </div>
+    </div>
+    <hr class="l1-divider">
+
+    <!-- ===== Layer 2 ===== -->
+    <div class="layer2">
+      <div class="l2-title">🔍 隔夜五件大事</div>
+
+      <!-- 01 美股 -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s02">01</div>
+          <span class="story-tag s02">美股</span>
+          <div class="story-title">美股延续暴跌·期货反弹·科技股超卖修复信号出现</div>
+        </div>
+        <div class="story-content">
+          <p>美股周三遭遇CPI+美伊+AI三杀后，标普500科技板块从6月2日高点回落11%进入技术性回调。VIX飙至22.22回到恐惧区间。但有两个积极信号：<span class="highlight">一是纳斯达克期货今早反弹+1.16%领先其他指数；二是苹果（AAPL）+0.35%成为Mag7唯一收红——WWDC悲观情绪可能出清。</span></p>
+          <p>盘前重点关注：SpaceX IPO首日表现、特朗普伊朗声明、美国5月PPI数据后续影响。</p>
+          <table>
+            <tr><th>指数</th><th>收盘</th><th>涨跌幅</th><th>期货</th></tr>
+            <tr><td>道琼斯</td><td>49,918.78</td><td class="down">-1.87%</td><td class="up">+0.73%</td></tr>
+            <tr><td>标普500</td><td>7,266.99</td><td class="down">-1.62%</td><td class="up">+0.69%</td></tr>
+            <tr><td>纳斯达克</td><td>25,169.50</td><td class="down">-1.98%</td><td class="up">+1.16%</td></tr>
+            <tr><td>费城半导体</td><td>12,206.46</td><td class="down">-3.57%</td><td>—</td></tr>
+            <tr><td>VIX</td><td>22.22</td><td class="up">+11.83%</td><td>恐惧</td></tr>
+          </table>
+        </div>
+      </div>
+      <hr class="story-divider">
+
+      <!-- 02 PPI -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s05">02</div>
+          <span class="story-tag s05">宏观</span>
+          <div class="story-title">PPI飙至6.5%创近3年新高·能源通胀传导确认·FOMC加息概率升温</div>
+        </div>
+        <div class="story-content">
+          <p>美国5月PPI数据周四（6月11日）公布，<span class="highlight">同比+6.5%</span>，创2022年11月以来最高。核心PPI同比+4.9%。更重要的是，<span class="key-num">能源价格环比暴涨10.7%</span>，其中汽油飙升23.4%——PPI近80%的涨幅来自能源。</p>
+          <p>PPI是CPI的前瞻指标。PPI 6.5%意味着未来2-3个月CPI将继续承受上行压力。结合周三CPI 4.2%的数据，<span class="highlight">油价→通胀→利率预期的传导链已被数据确认</span>。CME FedWatch显示年内不降息概率超85%，12月加息概率约50%。</p>
+          <p>Kevin Warsh的"缩表先行"路径面临更复杂的开局——输入性通胀压力越高，缩表的力度就需要越大。</p>
+
+          <div class="invest-view">
+            <div class="iv-label">📌 投资视角</div>
+            <p>PPI 6.5%确认能源通胀正在向上游全面传导。油价若不回落，三季度CPI可能从4.2%继续攀升至4.5-5%。这对所有长久期资产（科技股、成长股、新兴市场）都是持续压力。短期关注今夜特朗普对伊朗的决策——油价回落的唯一希望是停火。</p>
+          </div>
+        </div>
+      </div>
+      <hr class="story-divider">
+
+      <!-- 03 SpaceX -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s03">03</div>
+          <span class="story-tag s03">科技/AI</span>
+          <div class="story-title">SpaceX今日纳斯达克挂牌·史上最大IPO·能否带动科技情绪修复？</div>
+        </div>
+        <div class="story-content">
+          <p>SpaceX将于美东时间周五（6月12日）在纳斯达克正式挂牌交易，代码<span class="key-num">SPCX</span>。发行价$135/股，对应市值约1.75万亿美元。机构认购超4倍，零售订单超700亿美元。（来源：Yahoo Finance、Moneycontrol）</p>
+          <p><strong>关键看点：</strong></p>
+          <p>① <strong>首日涨幅预期分歧巨大。</strong> Jim Cramer预测可能冲至$5万亿估值（约+180%），但Morningstar计算公允价值仅$7800亿（较发行价折价56%）。历史数据显示，美国最大10宗IPO上市后平均跑输标普500约96个百分点。</p>
+          <p>② <strong>权重效应。</strong> MSCI已宣布SPCX符合提前纳入条件，T+1（6月13日）开始纳入指数。部分指数基金被动增持可能引发存量持仓腾挪。</p>
+          <p>③ <strong>市场情绪意义。</strong> 在AI板块连跌三日、SMCI暴跌28%的背景下，SpaceX若能首日大涨，可能成为科技情绪修复的催化剂；若表现平淡，则可能进一步压制风险偏好。</p>
+
+          <div class="invest-view">
+            <div class="iv-label">📌 投资视角</div>
+            <p>SpaceX IPO是今天最重要的市场事件。若首日涨超20%，可能带动SOX和纳指期货的修复行情延续到下周。但注意：IPO定价$135对应PS约92倍——这不是价值投资，这是情绪交易。首日大涨≠长期好标的。</p>
+          </div>
+        </div>
+      </div>
+      <hr class="story-divider">
+
+      <!-- 04 伊朗 -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s04">04</div>
+          <span class="story-tag s04">国际</span>
+          <div class="story-title">特朗普伊朗最后期限今夜到期·布油高位震荡·霍尔木兹封锁持续</div>
+        </div>
+        <div class="story-content">
+          <p>特朗普周四（6月11日）在Fox News采访中发出最后通牒——<span class="highlight">若伊朗在美东6月12日午夜前不签协议，"将把它炸个稀巴烂"。</span> 此前美军已发射49枚战斧巡航导弹打击伊朗防空系统。伊朗革命卫队声称已攻击18处美军目标，并宣布关闭霍尔木兹海峡。</p>
+          <p>巴基斯坦仍在斡旋间接谈判。伊朗议会国家安全委员会警告任何"鲁莽行动"将遭到"更严厉、更痛苦"的回应。双方强硬派均占据上风，今夜局势走向有两种可能：谈判窗口打开（路径B）或大规模军事打击升级（路径A）。</p>
+          <p><strong>布伦特原油收于93.74-93.88美元</strong>（较盘中高点95.40回落），WTI原油收90.59美元。油价在高位震荡，霍尔木兹封锁争议本身已推高风险溢价。</p>
+
+          <div class="logic-chain">
+            <div class="lc-label">今夜两条路径</div>
+            <strong style="color:#DC2626;">路径A（升级）：</strong> 今夜特朗普下令大规模打击 → 伊朗实质封锁霍尔木兹 → 布油突破$100 → VIX冲向25-28<br>
+            <strong style="color:#16A34A;">路径B（缓和）：</strong> 温和派促成框架协议 → 停火恢复 → 布油回落至$85-88 → VIX压缩至18以下
+          </div>
+        </div>
+      </div>
+      <hr class="story-divider">
+
+      <!-- 05 商品 -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s06">05</div>
+          <span class="story-tag s06">商品</span>
+          <div class="story-title">黄金跌至6个月低点4070·两力叠加持续施压·布油高位震荡</div>
+        </div>
+        <div class="story-content">
+          <p>现货黄金周四盘中最低触及4,023美元，收于4,059-4,069区间——这是6个月以来最低水平。从历史高点5,477计算，最大回撤28.13%，技术上已进入熊市。</p>
+          <p>黄金下跌的逻辑延续：投机资金撤退（2025年涨64.56%后的正常出清）+ 油价通胀推升利率预期。PPI 6.5%进一步确认了能源通胀的传导强度，市场开始定价"利率长期高位"。</p>
+          <p><strong>但流动性挤兑信号正在减弱：</strong> 目前黄金的下跌已从"恐慌性抛售"转向"有序下跌"。如果未来2-3个交易日金价能在4,000-4,100区间企稳，说明最恐慌的阶段已经过去。</p>
+
+          <table>
+            <tr><th>品种</th><th>价格</th><th>日涨跌幅</th></tr>
+            <tr><td>现货黄金</td><td>$4,059-4,069</td><td class="down">-0.2%至-0.3%</td></tr>
+            <tr><td>WTI原油</td><td>$90.59/桶</td><td class="up">+0.7%</td></tr>
+            <tr><td>布伦特原油</td><td>$93.74-93.88/桶</td><td class="up">+0.8%</td></tr>
+            <tr><td>VIX</td><td>22.22</td><td class="up">+11.83%</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== Layer 3 ===== -->
+    <div class="layer3">
+      <div class="l3-title">📋 数据速览 · 2026.06.12</div>
+
+      <p style="font-size:13px;font-weight:700;color:#1A56DB;margin-bottom:4px;">隔夜美股收盘（6月11日）</p>
+      <table>
+        <tr><th>指数</th><th>收盘</th><th>涨跌幅</th></tr>
+        <tr><td>道琼斯</td><td>49,918.78</td><td class="down">-1.87%</td></tr>
+        <tr><td>纳斯达克</td><td>25,169.50</td><td class="down">-1.98%</td></tr>
+        <tr><td>标普500</td><td>7,266.99</td><td class="down">-1.62%</td></tr>
+        <tr><td>费城半导体</td><td>12,206.46</td><td class="down">-3.57%</td></tr>
+      </table>
+
+      <p style="font-size:13px;font-weight:700;color:#1A56DB;margin-bottom:4px;margin-top:10px;">商品/VIX</p>
+      <table>
+        <tr><th>品种</th><th>价格</th><th>日涨跌幅</th></tr>
+        <tr><td>现货黄金</td><td>$4,059-4,069</td><td class="down">-0.2%至-0.3%</td></tr>
+        <tr><td>WTI原油</td><td>$90.59/桶</td><td class="up">+0.7%</td></tr>
+        <tr><td>布伦特原油</td><td>$93.74-93.88/桶</td><td class="up">+0.8%</td></tr>
+        <tr><td>VIX</td><td>22.22</td><td class="up">+11.83%</td></tr>
+      </table>
+
+      <p style="font-size:13px;font-weight:700;color:#1A56DB;margin-bottom:4px;margin-top:10px;">今日重点关注</p>
+      <table>
+        <tr><th>事件</th><th>时间</th><th>重要性</th></tr>
+        <tr><td>SpaceX IPO纳斯达克挂牌（SPCX）</td><td>6月12日</td><td style="color:#DC2626;font-weight:700;">🔴最高</td></tr>
+        <tr><td>特朗普伊朗最后期限到期</td><td>今夜（美东）</td><td style="color:#DC2626;font-weight:700;">🔴最高</td></tr>
+        <tr><td>FOMC六月议息会议（Warsh首次发声）</td><td>6/17-18</td><td style="color:#D4A017;font-weight:700;">🟡重要</td></tr>
+      </table>
+
+      <div class="l3-highlight-box">
+        <strong>核心判断：</strong> 美股期货反弹（纳指+1.16%）是超卖后的技术修复，但今夜伊朗最后期限是最大变量。<br>
+        <strong>路径A：</strong> 特朗普升级打击 → 避险延续 → 反弹夭折。<br>
+        <strong>路径B：</strong> 停火框架达成 → 油价回落+科技超卖反弹 → 下周初修复行情可期。<br>
+        <strong>路径C：</strong> SpaceX IPO大涨 → AI独立叙事强化 → 地缘影响边际减弱。
+      </div>
+
+      <!-- 名词解释 -->
+      <div class="glossary">
+        <h4>📖 名词解释 · 小白友好版</h4>
+        <table>
+          <tr><th>术语</th><th>大白话</th><th>为什么重要</th></tr>
+          <tr><td>PPI（生产者价格指数）</td><td>工厂出厂价的变化，可以理解为"企业端的CPI"</td><td>PPI 6.5%是CPI的前瞻指标——工厂成本涨了，迟早会传导到消费者</td></tr>
+          <tr><td>IPO权重效应</td><td>新股上市后被纳入指数，指数基金必须买入</td><td>SpaceX上市T+1就被纳入MSCI，意味着大量被动资金必须在下周初买入，可能推高股价</td></tr>
+          <tr><td>缩表先行</td><td>Fed减少持有的债券，收回市场上的流动性</td><td>Warsh倾向先缩表再加息——不直接加息但同样压制资产价格，对科技股尤其不利</td></tr>
+          <tr><td>纳指期货</td><td>基于纳斯达克指数未来价格的合约</td><td>期货+1.16%说明市场预期今晚美股会反弹——但伊朗局势可能改变一切</td></tr>
+        </table>
+      </div>
+
+      <!-- 数据来源 -->
+      <div class="sources">
+        <h3>📎 数据来源</h3>
+        <a href="https://www.nasdaq.com/articles/stock-market-news-jun-11-2026" target="_blank">Nasdaq · 市场综述</a> ·
+        <a href="https://www.benzinga.com/markets/market-summary/26/06/53133688/dow-tumbles-over-900-points-on-iran-strikes" target="_blank">Benzinga · 美股暴跌</a> ·
+        <a href="https://moneycontrol.com/news/business/commodities/commodity-corner-oil-surges-on-closure-of-strait-of-hormuz-gold-hits-six-month-low-13946624.html" target="_blank">Moneycontrol · 商品</a> ·
+        <a href="https://ca.finance.yahoo.com/news/us-producer-prices-increase-more-130231291.html" target="_blank">Yahoo Finance · PPI数据</a> ·
+        <a href="https://www.mitrade.com/au/insights/news/live-news/article-8-1803787-20260611" target="_blank">Mitrade · SpaceX IPO</a> ·
+        <a href="https://tass.com/world/2145593" target="_blank">TASS · 伊朗回应</a>
+      </div>
+
+      <!-- Foot -->
+      <div class="foot">
+        <div class="icon">🌅</div>
+        <div class="t">今天最重要的一件事</div>
+        <div class="d">
+          早上看SpaceX开盘怎么走——这是科技板块情绪的"温度计"。<br>
+          晚上看特朗普对伊朗说了什么——这是决定下周方向的"方向盘"。<br>
+          中间该干嘛干嘛，别在方向不明的时候赌方向。<br>
+          保持现金，等信号。<br><br>
+          以上是扬说财经早报，祝您投资顺利。
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+</body>
+</html>
