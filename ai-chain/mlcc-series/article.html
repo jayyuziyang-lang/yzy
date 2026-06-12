@@ -194,10 +194,11 @@
     <p>为什么必须堆这么多层？因为<strong>电容值 = 介质面积 × 层数 / 介质厚度</strong>。要想在米粒大小的体积里实现大容值，只有三条路：让介质更薄、让层数更多、让每层面积更大。但面积受限于元件尺寸（手机要求更小），所以技术竞赛的方向就是<strong>更薄介质 + 更多层数</strong>——这正是日系厂商村田和三星电机的核心壁垒所在。</p>
 
     <div class="video-container">
-      <video loop muted playsinline controls preload="none"
+      <video loop muted playsinline controls preload="auto"
              poster="assets/images/mlcc_structure_cover.jpg"
              style="width:100%; aspect-ratio:16/9; background:#F8FAFC;">
-        <source src="media/mlcc_structure.mp4" type="video/mp4">
+        <source src="https://cdn.jsdmirror.com/gh/jayyuziyang-lang/yzy@main/ai-chain/mlcc-series/media/mlcc_structure_compressed.mp4" type="video/mp4">
+        <source src="media/mlcc_structure_compressed.mp4" type="video/mp4">
         <source src="media/mlcc_structure.webm" type="video/webm">
         您的浏览器不支持HTML5视频播放。
       </video>
@@ -252,10 +253,11 @@
     <p class="lead">MLCC的制造不是组装，而是<strong>精密加工与材料科学的深度交叉</strong>。整个过程可以总结为一条物理主线：把陶瓷变成液体（浆料）→ 铺成极薄的膜 → 印上电极图案 → 交替堆叠 → 高压融合 → 切成小块 → 高温烧成陶瓷 → 磨圆棱角 → 装上导电端头 → 镀上焊接层。</p>
 
     <div class="video-container">
-      <video loop muted playsinline controls preload="none"
+      <video loop muted playsinline controls preload="auto"
              poster="assets/images/mlcc_process_cover.jpg"
              style="width:100%; aspect-ratio:16/9; background:#F8FAFC;">
-        <source src="media/mlcc_process.mp4" type="video/mp4">
+        <source src="https://cdn.jsdmirror.com/gh/jayyuziyang-lang/yzy@main/ai-chain/mlcc-series/media/mlcc_process_compressed.mp4" type="video/mp4">
+        <source src="media/mlcc_process_compressed.mp4" type="video/mp4">
         <source src="media/mlcc_process.webm" type="video/webm">
         您的浏览器不支持HTML5视频播放。
       </video>
@@ -775,26 +777,6 @@
      JavaScript
      ============================================================ -->
 <script src="js/main.js"></script>
-
-<!-- Lazy load videos to reduce stutter -->
-<script>
-(function(){
-  'use strict';
-  if (!('IntersectionObserver' in window)) return;
-  var vids = document.querySelectorAll('video[preload="none"]');
-  if (!vids.length) return;
-  var obs = new IntersectionObserver(function(e){
-    e.forEach(function(en){
-      if (!en.isIntersecting) return;
-      var v = en.target;
-      v.preload = 'metadata';
-      v.load();
-      obs.unobserve(v);
-    });
-  }, { rootMargin: '300px 0px' });
-  [].forEach.call(vids, function(v){ obs.observe(v); });
-})();
-</script>
 
 </body>
 </html>
