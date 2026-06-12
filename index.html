@@ -820,44 +820,26 @@ function renderAiPage(container) {
   var html = '';
 
   if (articles.length === 0) {
-    container.innerHTML = '<div class="no-data"><span class="big">⏳</span>内容编辑中</div>';
+    container.innerHTML = '<div class="no-data"><span class="big">\u23f3</span>\u5185\u5bb9\u7f16\u8f91\u4e2d</div>';
     return;
   }
 
-  // 最新内容：显示最新发布的文章（数组最后一个）
+  // \u6700\u65b0\u5185\u5bb9\uff1a\u663e\u793a\u6700\u65b0\u53d1\u5e03\u7684\u6587\u7ae0
   var latestArticle = articles[articles.length - 1];
-  html += '<div class="today-section" style="margin-top:0;">最新内容</div>';
+  html += '<div class="today-section" style="margin-top:0;">\u6700\u65b0\u5185\u5bb9</div>';
   html += '<div class="today-list">';
 
   var la = latestArticle;
-  var laStatus = '';
-  if (la.status === 'draft' || !la.url) {
-    laStatus = '<span class="ai-status-draft">📝 编辑中</span>';
-  }
-  var laTags = '';
-  if (la.tags && la.tags.length > 0) {
-    laTags = '<div class="ai-tags">';
-    for (var t = 0; t < la.tags.length; t++) {
-      laTags += '<span class="ai-tag">' + la.tags[t] + '</span>';
-    }
-    laTags += '</div>';
-  }
-  var laDateBadge = '<span class="ai-date-badge">' + (la.date || '待定') + '</span>';
-
   if (la.url && la.status !== 'draft') {
-    html += '<a class="ai-card" href="' + la.url + '">';
+    html += '<a class="edition edition-morning" href="' + la.url + '">';
   } else {
-    html += '<div class="ai-card">';
+    html += '<div class="edition edition-morning">';
   }
   html +=
-    '<div class="ai-icon"><span style="font-size:22px;">👑</span></div>' +
-    '<div class="ai-body">' +
-      '<div class="ai-title">' + la.title + '</div>' +
-      '<div class="ai-meta">' + laDateBadge + ' · ' + la.readTime + '分钟阅读' + ' ' + laStatus + '</div>' +
-      '<div class="ai-summary">' + (la.summary || '') + '</div>' +
-      laTags +
-    '</div>' +
-    '<span class="ai-arrow">›</span>';
+    '<div class="edition-icon">\u{1F451}</div>' +
+    '<div class="edition-info">' +
+      '<div class="edition-title">' + la.title + '</div>' +
+    '</div>';
   if (la.url && la.status !== 'draft') {
     html += '</a>';
   } else {
@@ -865,53 +847,32 @@ function renderAiPage(container) {
   }
   html += '</div>';
 
-  // 历史内容：最早发布的为 #1
+  // \u5386\u53f2\u5185\u5bb9\uff1a\u6700\u65e9\u53d1\u5e03\u7684\u4e3a #1
   var historyArticles = articles.slice(0, -1);
   if (historyArticles.length > 0) {
-    html += '<div class="history-header">历史内容</div>';
-    html += '<div class="history-list">';
+    html += '<div style="margin-top:20px;"><h2>\u5386\u53f2\u5185\u5bb9</h2></div>';
 
     for (var i = 0; i < historyArticles.length; i++) {
       var a = historyArticles[i];
       var idx = i + 1;
-
       var statusHtml = '';
       if (a.status === 'draft' || !a.url) {
-        statusHtml = '<span class="ai-status-draft">📝 编辑中</span>';
+        statusHtml = ' [\u7f16\u8f91\u4e2d]';
       }
-      var tagsHtml = '';
-      if (a.tags && a.tags.length > 0) {
-        tagsHtml = '<div class="ai-tags">';
-        for (var t = 0; t < a.tags.length; t++) {
-          tagsHtml += '<span class="ai-tag">' + a.tags[t] + '</span>';
-        }
-        tagsHtml += '</div>';
-      }
-      var dateStr = a.date || '待定';
-      var dateBadge = '<span class="ai-date-badge">' + dateStr + '</span>';
+      var dateStr = a.date || '';
 
+      html += '<div class="history-item">';
+      html += '<span class="h-icon">' + idx + '</span>';
       if (a.url && a.status !== 'draft') {
-        html += '<a class="ai-card" href="' + a.url + '">';
+        html += '<a href="' + a.url + '">' + a.title + '</a>';
       } else {
-        html += '<div class="ai-card">';
+        html += '<span style="flex:1;color:#94A3B8;font-size:13px;">' + a.title + statusHtml + '</span>';
       }
-      html +=
-        '<div class="ai-icon">' + idx + '</div>' +
-        '<div class="ai-body">' +
-          '<div class="ai-title">' + a.title + '</div>' +
-          '<div class="ai-meta">' + dateBadge + ' · ' + a.readTime + '分钟阅读' + ' ' + statusHtml + '</div>' +
-          '<div class="ai-summary">' + (a.summary || '') + '</div>' +
-          tagsHtml +
-        '</div>' +
-        '<span class="ai-arrow">›</span>';
-      if (a.url && a.status !== 'draft') {
-        html += '</a>';
-      } else {
-        html += '</div>';
+      if (dateStr) {
+        html += '<span class="h-time">' + dateStr + '</span>';
       }
+      html += '</div>';
     }
-
-    html += '</div>';
   }
 
   container.innerHTML = html;
