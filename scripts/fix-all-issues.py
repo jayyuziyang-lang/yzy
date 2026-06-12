@@ -167,7 +167,8 @@ if nav_start >= 0:
   .side-toc { top: 84px !important; }
   @media (max-width: 768px) {
     .article-header { padding-top: 84px !important; }
-  }"""
+  }
+</style>"""
 
     # Fix: the style block in the article uses JS unicode or actual Chinese
     # The original file might have actual Chinese characters
