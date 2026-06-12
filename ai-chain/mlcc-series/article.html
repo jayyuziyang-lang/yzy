@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="MLCC（多层陶瓷电容器）产业链深度研究——从电子大米到AI服务器供电命脉，客观呈现MLCC高端化趋势与国产替代现状。">
+<title>电子大米——MLCC如何成为AI服务器供电命脉 | 扬说·产业链 第1期</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+  /* ============================================================
+     适配扬说财经网站 — 返回首页导航栏
+     ============================================================ */
+  .site-top-bar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 2000;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-bottom: 1px solid #E2E8F0;
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    height: 44px;
+  }
+  .site-top-bar .back {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: #1A56DB;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .site-top-bar .back:active { opacity: 0.6; }
+  .site-top-bar .nav-label {
+    flex: 1;
+    text-align: center;
+    font-size: 12px;
+    color: #64748B;
+  }
+  .site-top-bar .nav-edition {
+    font-size: 11px;
+    background: #EFF6FF;
+    color: #1A56DB;
+    padding: 2px 8px;
+    border-radius: 8px;
+    font-weight: 600;
+  }
+
+  /* 调整顶距以容纳双导航栏 */
+  .top-nav { top: 44px !important; }
+  .article-header { padding-top: 144px !important; }
+  @media (max-width: 768px) {
+    .article-header { padding-top: 124px !important; }
+    .top-nav-links { display: flex !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     扬说财经返回导航栏
+     ============================================================ -->
+<nav class="site-top-bar">
+  <a class="back" href="../../index.html">&larr; 返回首页</a>
+  <span class="nav-label">扬说·产业链 · 不定时更新</span>
+  <span class="nav-edition">第1期</span>
+</nav>
+
+<!-- ============================================================
+     顶部导航栏（原文章目录导航）
+     ============================================================ -->
+<nav class="top-nav" role="navigation" aria-label="顶部导航">
+  <div class="logo">电子大米<span>| MLCC产业链深度</span></div>
+  <div class="top-nav-links">
+    <a href="#s1">引语</a>
+    <a href="#s2">是什么</a>
+    <a href="#s3">怎么造</a>
+    <a href="#s4">AI需求</a>
+    <a href="#s5">竞争格局</a>
+    <a href="#s6">市场周期</a>
+    <a href="#s7">公司档案</a>
+    <a href="#s8">趋势展望</a>
+  </div>
+</nav>
+
+<!-- ============================================================
+     左侧浮动目录
+     ============================================================ -->
+<aside class="side-toc" aria-label="目录">
+  <div class="side-toc-inner">
+    <h4>目录导航</h4>
+    <a href="#s1">§1 为什么现在要谈MLCC</a>
+    <a href="#s2">§2 它到底是什么</a>
+    <a href="#s3">§3 怎么造出来的</a>
+    <a href="#s4">§4 为什么AI需要它</a>
+    <a href="#s5">§5 全球竞争格局</a>
+    <a href="#s6">§6 市场与周期</a>
+    <a href="#s7">§7 关键公司档案</a>
+    <a href="#s8">§8 趋势展望</a>
+    <a href="#glossary">术语表</a>
+    <a href="#sources">数据来源</a>
+  </div>
+</aside>
+
+<!-- ============================================================
+     文章标题区
+     ============================================================ -->
+<header class="article-header">
+  <div class="article-tag">扬说·产业链 第1期</div>
+  <h1 class="article-title">电子大米——MLCC如何成为AI服务器供电命脉</h1>
+  <p class="article-subtitle">一颗米粒大小的电容如何决定千亿算力——从村田到风华，MLCC高端化与国产替代全景</p>
+  <div class="meta-bar">
+    <span class="meta-item">约 18 分钟阅读</span>
+    <span class="meta-item">2026年6月</span>
+    <span class="meta-item">产业深度研究</span>
+  </div>
+</header>
+
+<!-- ============================================================
+     主内容区
+     ============================================================ -->
+<main class="main-content">
+
+  <!-- §1 -->
+  <section id="s1" class="section">
+    <h2 class="section-title">
+      <span class="section-number">1</span>
+      为什么现在要谈MLCC
+    </h2>
+    <p class="section-subtitle">AI服务器BOM第三大成本项，GPU越强需要的电容越多——一个被忽视的物理约束</p>
+
+    <p class="lead">如果你拆开一块NVIDIA H100的电路板，你会看到密密麻麻的小方形元件——最小的不过米粒大小，最大的也只有芝麻大。这些不起眼的小方块就是MLCC（多层陶瓷电容器）。在一台8卡H100服务器里，它们的数量超过一万颗，总成本仅次于GPU和HBM，排在BOM（物料清单）第三位。</p>
+
+    <p>这个排名本身就是一个信号。在半导体和先进封装占据AI叙事中心的今天，一颗单价不到几毛钱的被动元件，凭什么成为AI服务器的"第三大成本项"？答案藏在物理定律里——而我们今天的文章，就是从一颗MLCC开始，讲清楚AI硬件供应链中被忽视的一环。</p>
+
+    <div class="data-grid">
+      <div class="data-card">
+        <div class="data-number">~200颗</div>
+        <div class="data-label">单颗H100 GPU外围MLCC用量</div>
+      </div>
+      <div class="data-card">
+        <div class="data-number">~3,500颗</div>
+        <div class="data-label">单颗GB200 GPU外围MLCC用量</div>
+      </div>
+      <div class="data-card">
+        <div class="data-number">~5,000颗</div>
+        <div class="data-label">单颗Rubin GPU外围MLCC用量（预估）</div>
+      </div>
+    </div>
+
+    <p>从200颗到5000颗，这不是线性增长——这是指数级的需求爆发。而驱动这个爆发的，是GPU功耗从700W（H100）到2700W（GB200）的跃升。功耗↑ → 电流↑ → 电压纹波↑ → 需要更多的电容来"稳压"。这就是本文的核心故事线。</p>
+
+    <p>以下Sankey图展示了从GPU功耗到MLCC供应商的完整传导链。每一条连线的粗细，对应着功率和需求的大小。</p>
+
+    <div class="chart-container">
+      <iframe src="charts/ai_position_sankey.html"
+              loading="lazy"
+              style="width:100%; height:700px; border:none;"
+              title="MLCC在AI硬件产业链中的位置 Sankey图"
+              sandbox="allow-scripts allow-same-origin">
+      </iframe>
+    </div>
+    <p class="chart-caption">数据来源：Morgan Stanley VR200 BOM拆解(2025)、村田/TDK公开技术资料、行业研究报告 | 数据时间：2024-2025</p>
+
+    <div class="insight-card">
+      <div class="insight-label">核心问题</div>
+      <p>GPU越强 → 功耗越大 → 电流瞬变越快 → MLCC需求越多。这不是"要不要"的问题，而是物理定律决定的"必须"。理解了这层因果关系，就理解了为什么MLCC会从"白菜价的电子大米"变成AI供应链中的战略性元件。</p>
+    </div>
+  </section>
+
+  <!-- §2 -->
+  <section id="s2" class="section">
+    <h2 class="section-title">
+      <span class="section-number">2</span>
+      它到底是什么——千层蛋糕的物理直觉
+    </h2>
+    <p class="section-subtitle">用电容器基础概念、千层蛋糕类比、以及"电子大米"的由来，建立对MLCC的物理直觉</p>
+
+    <p class="lead">在理解MLCC为什么对AI服务器如此重要之前，我们需要先回答一个更基础的问题：它到底是什么？它长什么样？它为什么叫"电子大米"？</p>
+
+    <h3 style="font-size:20px; color:var(--text); margin:28px 0 12px;">电容是什么——先理解"电的水桶"</h3>
+
+    <p>电容是电子电路中最基础的三大被动元件之一（另外两个是电阻和电感）。它的核心功能可以类比为一个<strong>微型水库</strong>：</p>
+
+    <div class="card-grid">
+      <div class="card">
+        <h3>蓄水（充电）</h3>
+        <p>当上游水压增大时，水库蓄水，防止下游洪峰——电容在电压升高时吸收电荷，平抑电压尖峰。</p>
+      </div>
+      <div class="card">
+        <h3>放水（放电）</h3>
+        <p>当上游水压不足时，水库放水，填补下游缺口——电容在电压跌落时释放电荷，填补电压谷底。</p>
+      </div>
+    </div>
+
+    <p>任何一个电子设备都离不开电容——你手机里有上千颗，笔记本电脑里有几千颗。它们安静地守在每一条供电线路旁，确保电压稳定、信号干净。没有它们，你的设备开机瞬间就会因为电压波动而崩溃。</p>
+
+    <h3 style="font-size:20px; color:var(--text); margin:28px 0 12px;">MLCC为什么是"千层蛋糕"</h3>
+
+    <p>MLCC的全称是Multi-Layer Ceramic Capacitor——多层陶瓷电容器。名称已经揭示了它的结构：在陶瓷介质薄片（通常是钛酸钡BaTiO₃）上印刷金属电极（通常是镍Ni），然后像千层蛋糕一样<strong>交替堆叠数百层</strong>，高温烧结成一体。</p>
+
+    <p>这里有一个直观的类比：想象一栋30层的写字楼。如果把每层楼板看作陶瓷介质，每层的管道看作金属电极，然后把这栋楼<strong>压缩到一粒米的大小</strong>——这就是一颗MLCC的内部结构。每层"楼板"的厚度不到0.5微米，比头发丝细200倍。</p>
+
+    <p>为什么必须堆这么多层？因为<strong>电容值 = 介质面积 × 层数 / 介质厚度</strong>。要想在米粒大小的体积里实现大容值，只有三条路：让介质更薄、让层数更多、让每层面积更大。但面积受限于元件尺寸（手机要求更小），所以技术竞赛的方向就是<strong>更薄介质 + 更多层数</strong>——这正是日系厂商村田和三星电机的核心壁垒所在。</p>
+
+    <div class="video-container">
+      <video loop muted playsinline controls
+             poster="images/mlcc_structure_cover.png"
+             style="width:100%; aspect-ratio:16/9; background:#F8FAFC;">
+        <source src="media/mlcc_structure.mp4" type="video/mp4">
+        <source src="media/mlcc_structure.webm" type="video/webm">
+        您的浏览器不支持HTML5视频播放。
+      </video>
+    </div>
+    <p class="chart-caption">动画：MLCC微观结构3D爆炸图——蓝色为陶瓷介质(BaTiO₃)、橙色为镍内电极(Ni)、灰色为端电极</p>
+
+    <div class="data-grid">
+      <div class="data-card">
+        <div class="data-number">&lt;0.5μm</div>
+        <div class="data-label">单层介质厚度，约为头发丝的1/200</div>
+      </div>
+      <div class="data-card">
+        <div class="data-number">800-1000层</div>
+        <div class="data-label">高端MLCC堆叠层数，村田最先进产品</div>
+      </div>
+      <div class="data-card">
+        <div class="data-number">~5万亿颗</div>
+        <div class="data-label">全球MLCC年出货量（所有规格合计）</div>
+      </div>
+    </div>
+
+    <h3 style="font-size:20px; color:var(--text); margin:28px 0 12px;">为什么叫"电子大米"</h3>
+
+    <p>日本产业界把MLCC称为<strong>「電子機器のコメ」</strong>（电子设备的大米）。这个比喻精准得令人印象深刻：</p>
+
+    <div class="card-grid">
+      <div class="card">
+        <h3>用量极大</h3>
+        <p>全球每年出货超过5万亿颗。一部智能手机用800-1200颗，一辆电动车用1-2万颗。没有任何其他电子元件有如此惊人的用量。</p>
+      </div>
+      <div class="card">
+        <h3>不可或缺</h3>
+        <p>不存在替代方案。电容是物理必需品——只要电路需要滤波、稳压、去耦，就必须有电容。而MLCC在所有电容类型中综合性能最优（小体积、大容值、高频率、宽温度）。</p>
+      </div>
+      <div class="card">
+        <h3>便宜但关键</h3>
+        <p>单颗通用MLCC仅几厘到几毛钱。但缺一颗，整机就得停工。2017-2018年MLCC大短缺期间，全球汽车和手机厂商因缺货而停产减产——就像大米涨价会引发社会动荡一样，MLCC短缺就是电子产业的"粮食危机"。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- §3 -->
+  <section id="s3" class="section">
+    <h2 class="section-title">
+      <span class="section-number">3</span>
+      怎么造出来的——9道工序的物理之旅
+    </h2>
+    <p class="section-subtitle">不是罗列工序，而是理解每一步的物理过程——以及为什么每一步都很难</p>
+
+    <p class="lead">MLCC的制造不是组装，而是<strong>精密加工与材料科学的深度交叉</strong>。整个过程可以总结为一条物理主线：把陶瓷变成液体（浆料）→ 铺成极薄的膜 → 印上电极图案 → 交替堆叠 → 高压融合 → 切成小块 → 高温烧成陶瓷 → 磨圆棱角 → 装上导电端头 → 镀上焊接层。</p>
+
+    <div class="video-container">
+      <video loop muted playsinline controls
+             poster="images/mlcc_process_cover.png"
+             style="width:100%; aspect-ratio:16/9; background:#F8FAFC;">
+        <source src="media/mlcc_process.mp4" type="video/mp4">
+        <source src="media/mlcc_process.webm" type="video/webm">
+        您的浏览器不支持HTML5视频播放。
+      </video>
+    </div>
+    <p class="chart-caption">动画：MLCC制造全流程——流延→印刷→叠层→等静压→切割→烧结→倒角→端电极→电镀（约35秒）</p>
+
+    <p>每一道工序都有各自的技术壁垒，但最核心的挑战集中在四个环节：</p>
+
+    <div class="card">
+      <h3>为什么这么难造？——四个核心壁垒</h3>
+      <p><strong>1. 陶瓷粉体</strong>：钛酸钡的纯度、粒度（需达到纳米级）、分布均匀度决定了介质厚度的下限。全球高端钛酸钡粉体市场长期由日系主导——村田自产自用，堺化学和昭荣化学对外供应。国内国瓷材料是全球最大MLCC陶瓷粉供应商之一，已打入村田和三星电机的供应链，但在最顶端的<strong>配方粉</strong>（添加剂配方决定介电常数和温度特性）领域与日系仍有差距。</p>
+      <p style="margin-top:14px;"><strong>2. 叠层精度</strong>：800层堆叠时，每一层都要对齐到微米级——相当于把800张打印纸精确叠在一起，每张的偏移不能超过纸厚度的1/10。一台高端叠层机价格可达数百万美元，且长期由日本和韩国设备商主导。</p>
+      <p style="margin-top:14px;"><strong>3. 烧结控制</strong>：1000-1300°C高温下，陶瓷收缩约20-30%，而镍电极的收缩率不同。如果两者收缩不同步，就会产生分层、裂纹、断层——导致整颗MLCC报废。控制"共烧收缩率"是各家的核心工艺秘密。</p>
+      <p style="margin-top:14px;"><strong>4. 可靠性验证</strong>：车规MLCC需要通过AEC-Q200认证——包括温度循环（-55°C↔+125°C，1000次）、湿热老化、机械冲击等30多项测试。整个认证周期长达6-12个月，是国产厂商进入车规和服务器规市场的最大时间壁垒。</p>
+    </div>
+
+    <div class="insight-card amber">
+      <div class="insight-label">为什么国产替代难</div>
+      <p>MLCC制造不是靠"买设备"就能解决的——它高度依赖<strong>工艺积累</strong>。村田做MLCC做了80年，每一步的参数调优、每一批次的良率提升，都是时间堆出来的。中国厂商可以用5年买到同样的设备、请到同样的人才，但80年的工艺数据库买不到。</p>
+    </div>
+  </section>
+
+  <!-- §4 -->
+  <section id="s4" class="section">
+    <h2 class="section-title">
+      <span class="section-number">4</span>
+      为什么AI需要它——纳秒级的物理定律
+    </h2>
+    <p class="section-subtitle">GPU电流在纳秒内从0跳到1000A——能跟上这个速度的，只有MLCC</p>
+
+    <p class="lead">这一节是本文的核心论述。前面我们讲了MLCC是什么、怎么造，现在要回答最关键的问题：<strong>为什么GPU越强，需要的MLCC越多？</strong>答案不在经济学里，在物理定律里。</p>
+
+    <h3 style="font-size:20px; color:var(--text); margin:28px 0 12px;">GPU的"用电脉冲"问题</h3>
+
+    <p>想象你正在用一台大功率水泵从水库里抽水。水泵启动的瞬间，水管的压力会猛跌一下——这就是"瞬态压降"。GPU面临的是同样的问题，但时间尺度要快一百万倍：</p>
+
+    <div class="data-grid">
+      <div class="data-card">
+        <div class="data-number">纳秒级</div>
+        <div class="data-label">GPU电流从0→1000A的跳变时间</div>
+      </div>
+      <div class="data-card">
+        <div class="data-number">微秒级</div>
+        <div class="data-label">VRM（电压调节模块）的响应时间</div>
+      </div>
+      <div class="data-card">
+        <div class="data-number">毫秒级</div>
+        <div class="data-label">PSU（电源供应单元）的响应时间</div>
+      </div>
+    </div>
+
+    <p>这里有一个残酷的物理事实：<strong>VRM和PSU都太慢了</strong>。当GPU在纳秒内从空闲跳到满载时，VRM需要微秒级的时间来感知电压跌落并调整输出，PSU需要毫秒级。在这段"响应真空期"里，谁来给GPU供电？</p>
+
+    <p>答案是：<strong>电容</strong>——具体来说，是紧贴在GPU旁的MLCC阵列。它们就像贴身保镖，在"大部队"（VRM和PSU）赶到之前先顶上。</p>
+
+    <p>你可以把MLCC理解为<strong>"电RAM"</strong>——它是GPU供电系统中最快响应的那一层缓存。PSU是硬盘（大容量但慢），VRM是内存（中等容量和速度），而MLCC是L1缓存——极快、极小、离GPU最近。GPU功耗越大、电流跳变越快，就需要越大的"L1缓存"来缓冲。</p>
+
+    <div class="chart-container">
+      <iframe src="charts/usage_per_device.html" loading="lazy"
+              title="单设备MLCC用量对比" style="height:480px;"></iframe>
+    </div>
+    <p class="chart-caption">图：单设备MLCC用量对比——AI服务器与电动车是增长核心。来源：村田/Murata产品规格书、TDK技术资料 | 2024-2025</p>
+
+    <h3 style="font-size:20px; color:var(--text); margin:28px 0 12px;">一个经典翻车案例：RTX 3080的POSCAP事故</h3>
+
+    <p>2020年，NVIDIA RTX 3080显卡上市后出现大规模游戏崩溃事件。玩家发现当GPU核心频率超过2.0GHz时，屏幕会突然黑屏或弹回桌面。经过社区深入排查，问题出在<strong>电容配置</strong>上：</p>
+
+    <p>RTX 3080的GPU供电回路有两种电容方案——POSCAP（全固态钽电容，容量大但响应慢）和MLCC阵列（陶瓷电容，响应快）。部分显卡制造商为了降低成本，<strong>全部使用了POSCAP而减少了MLCC的数量</strong>。结果就是：当GPU在纳秒内从低负载跳到高负载时，POSCAP来不及响应，电压瞬间跌落，GPU核心工作不稳定，导致崩溃。</p>
+
+    <p>后来的修复方案：在POSCAP旁边增加MLCC阵列——<strong>让快的（MLCC）处理高频瞬态，慢的（POSCAP）处理低频波动</strong>。这个案例完美说明了为什么MLCC在高速数字电路中不可替代——不是因为它容量大，而是因为它足够快。</p>
+
+    <div class="insight-card">
+      <div class="insight-label">核心逻辑链</div>
+      <p><strong>GPU功耗↑ → 供电电流↑ → 电流瞬变斜率↑ → VRM响应不够快 → 需要更多MLCC做"电RAM" → 单GPU外围MLCC数量↑↑</strong></p>
+      <p style="margin-top:8px;">这就是从H100的200颗到GB200的3500颗再到Rubin预估5000颗背后的物理逻辑。不是NVIDIA在设计上"选择"了更多MLCC——是物理定律要求的。</p>
+    </div>
+  </section>
+
+  <!-- §5 -->
+  <section id="s5" class="section">
+    <h2 class="section-title">
+      <span class="section-number">5</span>
+      全球竞争格局——寡头与替代
+    </h2>
+    <p class="section-subtitle">日系主导高端，台系聚焦标准品，国产替代在路上——一个三层次的竞争结构</p>
+
+    <p class="lead">MLCC的竞争格局不是一个均匀分布的市场。在整体出货量上，各家份额看起来还算分散；但在AI服务器所需的高端MLCC领域，集中度极高。</p>
+
+    <div class="chart-container">
+      <iframe src="charts/market_share.html" loading="lazy"
+              title="全球MLCC市占率" style="height:550px;"></iframe>
+    </div>
+    <p class="chart-caption">图：全球MLCC市占率——整体vs高端。来源：TrendForce集邦咨询、各公司财报 | 注：部分数据为行业共识区间</p>
+
+    <p>竞争格局可以清晰地分为三个层次：</p>
+
+    <div class="card">
+      <h3>第一梯队：日系三强（村田 + 三星电机 + 太阳诱电）</h3>
+      <p><strong>村田制作所（Murata，日本京都，成立80年）</strong>是MLCC领域的绝对王者。在AI服务器所需的高端MLCC（0402/0201尺寸、高容X7R、低ESL反转结构、高温150°C+车规级）领域，村田一家市占率估计超过<strong>70%</strong>。村田的壁垒来自三个维度：自研陶瓷粉体配方（不外购）、80年烧结工艺数据库、以及01005/008004等下一代尺寸的量产先发优势。</p>
+      <p style="margin-top:14px;"><strong>三星电机（SEMCO，韩国水原）</strong>是第二大MLCC厂商。在消费电子用MLCC领域市占率与村田接近，但在高端车规和AI服务器规领域与村田差距明显。釜山工厂是全球最大的单一MLCC生产基地之一。近年正在加速拓展车载MLCC业务。</p>
+      <p style="margin-top:14px;"><strong>太阳诱电（Taiyo Yuden，日本东京）</strong>在高容值MLCC（100μF+/0603规格）和通信基站用MLCC领域有差异化优势。镍电极技术积累深厚。</p>
+    </div>
+
+    <div class="card">
+      <h3>第二梯队：台系 + TDK</h3>
+      <p><strong>国巨（Yageo，台湾新北）</strong>通过连续并购（Kemet基美、Pulse、Te Connectivity被动元件业务）构建了全球最全的被动元件产品线。MLCC以标准品和利基品为主，在高端领域与日系差距较大。渠道覆盖全球。</p>
+      <p style="margin-top:14px;"><strong>TDK（日本东京）</strong>是综合性电子元件巨头，MLCC聚焦车规和工业市场，在C0G（温度稳定性最高）和高温MLCC领域有独特优势，但在出货规模上不及前三家。</p>
+    </div>
+
+    <div class="card">
+      <h3>第三梯队：中国厂商（合计份额约5-7%）</h3>
+      <p><strong>三环集团</strong>和<strong>风华高科</strong>是国内产能规模最大的两家MLCC厂商。在消费电子标准品上已具备规模供货能力。但在AI服务器需要的高端MLCC（0402高容X7R、低ESL型、车规级）领域，国产化率不到3%。</p>
+      <p style="margin-top:14px;">关键进展值得关注：风华高科已通过NVIDIA Gamma认证（2025年），这意味着其产品已进入NVIDIA的供应商资格体系——虽然目前可能是用在非关键回路的标准品上，但"进了门"本身就是门槛的突破。三环集团正在大幅扩产，目标月产能达到1200亿颗（含中高端）。</p>
+    </div>
+
+    <div class="chart-container">
+      <iframe src="charts/supply_chain_d3.html"
+              loading="lazy"
+              style="width:100%; height:700px; border:none;"
+              title="MLCC产业链拓扑图（交互式）"
+              sandbox="allow-scripts allow-same-origin">
+      </iframe>
+    </div>
+    <p class="chart-caption">图：MLCC产业链拓扑图——蓝色为日韩台厂商，橙色为中国厂商（可拖拽交互）。来源：各公司公开资料、行业研究报告</p>
+
+    <div class="insight-card amber">
+      <div class="insight-label">关键矛盾</div>
+      <p>AI服务器用高端MLCC的供给缺口估计在15-20%——需求爆发而产能扩张周期长（建厂+认证需要2-3年）。国产替代窗口已经打开，但技术差距客观存在。这不是"能不能替代"的问题，而是"在多长时间内、在哪些规格上替代"的问题。</p>
+    </div>
+  </section>
+
+  <!-- §6 -->
+  <section id="s6" class="section">
+    <h2 class="section-title">
+      <span class="section-number">6</span>
+      市场与周期——从白菜价到战略物资
+    </h2>
+    <p class="section-subtitle">普通MLCC是强周期品，但AI用高端MLCC正在从周期品转变为结构性增长资产</p>
+
+    <p class="lead">MLCC是一个可以通过两个完全不同的视角来观察的市场——取决于你关注的是哪一种MLCC。</p>
+
+    <div class="cycle-note">
+      <strong>重要区分：普通 MLCC ≠ AI 用高端 MLCC</strong><br>
+      普通规格（0402/0603通用型X5R/X7R）的MLCC是典型的<strong>周期品</strong>——供给扩张→价格下跌→产能退出→供给收缩→价格上涨，循环往复。2017-2018年涨价周期中部分型号涨幅达30-50%，2019-2020年跌幅亦达20-30%。<br>
+      高端规格（车规/高容/低ESL/高温型）则呈现<strong>结构性增长</strong>特征——需求端由电动车和AI服务器驱动，供给端技术壁垒高、扩产周期长（2-3年），价格中枢持续上移。
+    </div>
+
+    <div class="chart-container">
+      <iframe src="charts/market_size.html" loading="lazy"
+              title="全球MLCC市场规模" style="height:550px;"></iframe>
+    </div>
+    <p class="chart-caption">图：全球MLCC市场规模年度趋势。来源：TrendForce集邦咨询、JEITA行业统计 | 数据时间：2019-2025</p>
+
+    <div class="chart-container">
+      <iframe src="charts/price_cycle.html" loading="lazy"
+              title="MLCC价格周期" style="height:600px;"></iframe>
+    </div>
+    <p class="chart-caption">图：MLCC价格周期波动——普通规格(虚线)是强周期品，高端规格(实线)价格中枢持续上移。来源：行业公开报价数据、券商行业研究公开摘要 | 截至2025Q1</p>
+
+    <p>本轮AI驱动的MLCC需求与历史上的周期波动有一个本质区别：</p>
+
+    <div class="card-grid">
+      <div class="card">
+        <h3>历史上（2017-2018）</h3>
+        <p>需求来自手机和汽车的<strong>周期性补库</strong>——每家厂商多备了2-3个月的库存，囤货需求放大了实际需求。一旦库存消化完毕，需求回落，价格暴跌。</p>
+      </div>
+      <div class="card">
+        <h3>本轮（2024-）</h3>
+        <p>AI服务器的MLCC需求是<strong>结构性增量</strong>——GPU功耗每翻一倍，单GPU外围MLCC数量就要增加50%以上。这不是囤货行为，是物理定律驱动的硬需求。</p>
+      </div>
+    </div>
+
+    <div class="data-grid">
+      <div class="data-card">
+        <div class="data-number">~170亿美元</div>
+        <div class="data-label">2025年全球MLCC市场规模（预估）</div>
+      </div>
+      <div class="data-card">
+        <div class="data-number">1.36x</div>
+        <div class="data-label">村田BB Ratio（订单出货比）高于1表示供不应求</div>
+      </div>
+      <div class="data-card">
+        <div class="data-number">16-24周</div>
+        <div class="data-label">高端MLCC交期</div>
+      </div>
+    </div>
+
+    <p>村田的BB Ratio（Book-to-Bill，订单除以出货）目前为1.36倍，意味着每出货100颗MLCC就接到136颗的新订单。在半导体行业，BB Ratio超过1.2就被视为"供应紧张"的信号。高端MLCC的交期仍然维持在16-24周，远高于标准品（4-8周）。</p>
+
+    <div class="insight-card green">
+      <div class="insight-label">结构性判断</div>
+      <p>高端MLCC正在经历从"周期品"到"战略物资"的定价重估。驱动因素不是短期的供需失衡，而是AI算力军备竞赛带来的长期结构性需求增长。这个重估进程可能持续3-5年。</p>
+    </div>
+  </section>
+
+  <!-- §7 -->
+  <section id="s7" class="section">
+    <h2 class="section-title">
+      <span class="section-number">7</span>
+      关键公司客观档案
+    </h2>
+    <p class="section-subtitle">全球主要MLCC厂商及上游材料公司的公开信息陈列——仅陈述事实</p>
+
+    <div class="disclaimer">
+      <strong>免责声明</strong>
+      以下内容为产业知识科普，数据来源于各公司公开财报、投资者关系页面及行业研究报告。所有信息仅反映公开渠道可查的公司基本面事实，不构成任何形式的投资建议、买卖推荐或估值判断。
+    </div>
+
+    <div class="chart-container">
+      <iframe src="charts/tech_evolution.html" loading="lazy"
+              title="MLCC技术演进图" style="height:650px;"></iframe>
+    </div>
+    <p class="chart-caption">图：MLCC技术演进路径——更小尺寸、更多层数、更大容值。来源：村田产品规格书、TDK技术白皮书 | 数据时间：2024</p>
+
+    <h3 style="margin-top:36px; color:var(--primary); font-size:20px;">海外主要厂商</h3>
+
+    <table class="company-table">
+      <thead>
+        <tr><th>公司</th><th>总部</th><th>成立</th><th>产品定位</th><th>技术特点</th><th>最新公开营收</th><th>MLCC产能/扩产</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>村田制作所<br>Murata</td>
+          <td>日本京都</td>
+          <td>1944</td>
+          <td>全球MLCC龙头，产品覆盖全系列，高端为核心</td>
+          <td>高容微型化全球第一；车规MLCC市占>40%；01005/008004量产；自研陶瓷粉体不外购</td>
+          <td>FY2025(截至2025/3): 总营收约1.64万亿日元(~$110亿)；电容业务约40%</td>
+          <td>持续扩产车规和服务器规MLCC；日本/菲律宾/中国无锡为主力基地</td>
+        </tr>
+        <tr>
+          <td>三星电机<br>SEMCO</td>
+          <td>韩国水原</td>
+          <td>1973</td>
+          <td>全球第二，消费电子MLCC为主，加速车规拓展</td>
+          <td>IT/手机用超小型MLCC领先；车载MLCC扩产积极；高端产能集中于釜山</td>
+          <td>FY2024: 总营收约9.7万亿韩元(~$73亿)；MLCC业务占比约35%</td>
+          <td>釜山工厂为全球最大单一MLCC工厂之一；天津工厂服务中国</td>
+        </tr>
+        <tr>
+          <td>太阳诱电<br>Taiyo Yuden</td>
+          <td>日本东京</td>
+          <td>1950</td>
+          <td>全球第三，高容MLCC技术优势，通信和汽车为核心</td>
+          <td>高容MLCC(100μF+/0603)技术领先；通信基站和汽车市场专注</td>
+          <td>FY2025(截至2025/3): 总营收约3500亿日元(~$23亿)</td>
+          <td>马来西亚工厂为海外主要生产基地；车载高容MLCC扩产方向</td>
+        </tr>
+        <tr>
+          <td>TDK</td>
+          <td>日本东京</td>
+          <td>1935</td>
+          <td>多元化电子元件巨头，MLCC聚焦车规和工业</td>
+          <td>车规MLCC为核心优势；C0G高温特性MLCC领先；传感器+被动元件组合方案</td>
+          <td>FY2025(截至2025/3): 总营收约2.1万亿日元(~$140亿)；被动元件约25%</td>
+          <td>日本秋田/岩手为MLCC主产地；车规MLCC产能扩张中</td>
+        </tr>
+        <tr>
+          <td>国巨<br>Yageo</td>
+          <td>台湾新北</td>
+          <td>1977</td>
+          <td>全球最大片式电阻厂商+MLCC标准品全球领先(含Kemet)</td>
+          <td>通过并购扩展产品线；MLCC以标准品和利基品为主；渠道覆盖全球</td>
+          <td>FY2024: 合并营收约NT$1200亿(~$37亿)含基美等</td>
+          <td>高雄+苏州/东莞为主力产能；基美(Kemet)提供钽电容和MLCC</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 style="margin-top:40px; color:var(--accent-amber); font-size:20px;">国内主要厂商</h3>
+
+    <table class="company-table">
+      <thead>
+        <tr><th>公司</th><th>代码</th><th>总部</th><th>产品定位</th><th>技术特点</th><th>最新公开营收</th><th>MLCC产能/扩产</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>三环集团</td>
+          <td>300408</td>
+          <td>广东潮州</td>
+          <td>国内MLCC技术领先，中高端产能规划最积极</td>
+          <td>覆盖0402-0201全系列；0603高容(10-47μF)量产；车规级AEC-Q200认证中</td>
+          <td>FY2024: 营收约57亿元；电子元件及材料约30-35%</td>
+          <td>潮州+南充两大基地；目标高端MLCC月产能达数百亿只</td>
+        </tr>
+        <tr>
+          <td>风华高科</td>
+          <td>000636</td>
+          <td>广东肇庆</td>
+          <td>国内MLCC产能规模最大，产品以中低端为主</td>
+          <td>覆盖0603/0402通用型全系列；0201量产；已通过NVIDIA Gamma认证(2025)</td>
+          <td>FY2024: 营收约42亿元</td>
+          <td>肇庆为国内最大MLCC工厂之一；祥和工业园一期投产，目标月产能超300亿只</td>
+        </tr>
+        <tr>
+          <td>鸿远电子</td>
+          <td>603267</td>
+          <td>北京</td>
+          <td>特种/军工MLCC为核心，民用为辅</td>
+          <td>高可靠MLCC（军规/航天级）有长期积累；多层瓷介电容器为特色</td>
+          <td>FY2024: 营收约18亿元</td>
+          <td>北京+苏州基地；以特种订单驱动</td>
+        </tr>
+        <tr>
+          <td>火炬电子</td>
+          <td>603678</td>
+          <td>福建泉州</td>
+          <td>特种/军工+民用MLCC并行发展</td>
+          <td>特种陶瓷电容器积累深厚；拓展民用MLCC，含中高压和高温系列</td>
+          <td>FY2024: 营收约27亿元</td>
+          <td>泉州+江西基地；民用MLCC扩产初期</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 style="margin-top:40px; color:var(--accent-green); font-size:20px;">上游材料厂商</h3>
+
+    <table class="company-table">
+      <thead>
+        <tr><th>公司</th><th>代码</th><th>总部</th><th>产品定位</th><th>技术特点</th><th>最新公开营收</th><th>与MLCC产业链关系</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>国瓷材料</td>
+          <td>300285</td>
+          <td>山东东营</td>
+          <td>全球最大MLCC陶瓷粉供应商之一</td>
+          <td>钛酸钡系列电子陶瓷粉体全球领先；供应村田/三星电机等；纳米级粉体制备技术</td>
+          <td>FY2024: 营收约53亿元；电子材料约40%</td>
+          <td>MLCC产业链最上游的"卖铲人"；不直接制造MLCC，但陶瓷粉体是核心原料</td>
+        </tr>
+        <tr>
+          <td>洁美科技</td>
+          <td>002859</td>
+          <td>浙江湖州</td>
+          <td>MLCC/片式元件载带全球龙头</td>
+          <td>纸质/塑料载带用于MLCC成品编带包装；离型膜（MLCC制造用关键耗材）为新增长点</td>
+          <td>FY2024: 营收约21亿元</td>
+          <td>MLCC制造过程中的关键耗材供应商；纸质载带全球市占率约50%+</td>
+        </tr>
+        <tr>
+          <td>博迁新材</td>
+          <td>605376</td>
+          <td>浙江宁波</td>
+          <td>镍粉供应商，MLCC内电极核心原料</td>
+          <td>超细球形镍粉用于MLCC内电极印刷；国产替代日系镍粉的关键企业</td>
+          <td>FY2024: 营收约6亿元</td>
+          <td>MLCC镍内电极的关键上游材料；国内镍粉替代的先行者</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p style="font-size:13px; color:var(--text-muted);margin-top:16px;">
+      注：(1) 以上营收数据需查阅各公司最新季报/年报确认，部分为行业共识区间数据，精确数字以公司官方披露为准；(2) 日本公司营收按1 USD≈150 JPY折算为美元近似值；(3) 市场定位描述基于公开信息，不含主观评价。
+    </p>
+  </section>
+
+  <!-- §8 -->
+  <section id="s8" class="section">
+    <h2 class="section-title">
+      <span class="section-number">8</span>
+      趋势展望与催化剂
+    </h2>
+    <p class="section-subtitle">从NVIDIA认证到产能扩张——未来12-24个月值得关注的关键变量</p>
+
+    <p class="lead">MLCC产业链正处于一个关键拐点。需求端由AI和电动车两股结构性力量驱动，供给端则面临技术壁垒和扩产周期的双重约束。以下是未来12-24个月最重要的几个观察窗口：</p>
+
+    <h3 style="font-size:20px; color:var(--text); margin:28px 0 12px;">1. NVIDIA认证——国产MLCC的"进门证"</h3>
+
+    <p>NVIDIA的供应商认证体系分为三个层级：Alpha（设计验证）→ Beta（小批量验证）→ Gamma（量产资格）。2025年风华高科通过Gamma认证是一个标志性事件——它不仅意味着风华的产品质量通过了最严苛的验证，更意味着国产MLCC<strong>打开了进入AI服务器供应链的制度通道</strong>。</p>
+
+    <p>但"进了门"不等于"坐上了主桌"。目前国产MLCC在AI服务器中的角色，可能更多集中在非核心回路的标准品上——GPU核心Vcore旁路等最关键的滤波位置，仍然由村田等日系厂商供货。下一步的关键观察点：<strong>国产MLCC能否从"边缘位置"渗透到"核心位置"</strong>。</p>
+
+    <h3 style="font-size:20px; color:var(--text); margin:28px 0 12px;">2. 产能扩张——三环和风华的速度</h3>
+
+    <p>三环集团的目标是月产能达到1200亿颗（含中高端），风华高科的目标是月产能超300亿颗。但"目标产能"和"实际产出"之间隔着良率、设备调试、工艺稳定的挑战。特别是在高端规格上，良率可能是标准品的50-70%——这意味着一条理论上能产100亿颗的线，实际只能产出50-70亿颗合格的高端品。</p>
+
+    <h3 style="font-size:20px; color:var(--text); margin:28px 0 12px;">3. 国产替代路径图</h3>
+
+    <div class="card">
+      <h3>从Gamma到主力供应商——还需要经过三个阶段</h3>
+      <p><strong>第一阶段（当前）：资格突破</strong>——通过NVIDIA认证，进入供应商名录。目前风华已完成，三环在推进中。</p>
+      <p style="margin-top:10px;"><strong>第二阶段（2026-2027）：份额提升</strong>——在已有资格的基础上扩大供货品类（从标准品到高端品）和供货比例（从个位数%到10-20%）。这一步需要逐颗料号通过验证，没有捷径。</p>
+      <p style="margin-top:10px;"><strong>第三阶段（2028+）：技术追赶</strong>——在01005/008004等下一代尺寸、介质厚度<0.3μm等核心技术指标上接近日系水平。这需要持续的研发投入和工艺积累。</p>
+    </div>
+
+    <h3 style="font-size:20px; color:var(--text); margin:28px 0 12px;">4. 关键风险</h3>
+
+    <div class="card-grid">
+      <div class="card">
+        <h3>技术风险</h3>
+        <p>如果国产MLCC在高端规格上的良率提升不及预期，产能扩张的投入可能无法有效转化为有效产出。此外，日系厂商也在持续扩产，技术差距可能不缩小甚至扩大。</p>
+      </div>
+      <div class="card">
+        <h3>周期风险</h3>
+        <p>即使在高端MLCC领域，如果AI服务器出货量不及预期（例如GPU供应瓶颈、资本开支削减），需求端可能面临阶段性调整。高端≠免疫周期，只是周期性弱于标准品。</p>
+      </div>
+      <div class="card">
+        <h3>地缘风险</h3>
+        <p>MLCC供应链高度集中于东亚（日韩台）。地缘政治事件（如台海局势、中日贸易摩擦）可能影响关键材料和设备的供应。部分高端MLCC制造设备受日本出口审查。</p>
+      </div>
+    </div>
+
+    <div class="insight-card amber">
+      <div class="insight-label">关键观察窗口</div>
+      <p><strong>2026年下半年</strong>：NVIDIA Rubin平台发布——单GPU MLCC用量是否如期达到~5000颗？<strong>2027年上半年</strong>：国产MLCC厂商能否获得Rubin平台的核心回路供货资格？这两个时点将决定国产替代叙事是"进入兑现期"还是"继续等待"。</p>
+    </div>
+  </section>
+
+  <!-- 术语表 -->
+  <section id="glossary" class="section">
+    <h2 class="section-title">
+      <span class="section-number">?</span>
+      术语表——小白友好
+    </h2>
+    <p class="section-subtitle">专业术语的白话解释，帮助非电子工程背景的读者快速上手</p>
+
+    <div class="glossary">
+      <dl>
+        <dt>MLCC（多层陶瓷电容器）</dt>
+        <dd>把几百层陶瓷和金属电极像千层蛋糕一样堆叠后烧成的小方块。手机里上千颗，电动车里上万颗。电子设备最基础、用量最大的元件之一。</dd>
+
+        <dt>电容（Capacitor）</dt>
+        <dd>电子电路的"微型水库"，充放电速度极快。用来稳定电压、滤除杂波。任何一个电子设备离开电容都无法正常工作。</dd>
+
+        <dt>BaTiO₃（钛酸钡）</dt>
+        <dd>MLCC陶瓷介质的主要原料。一种能储存大量电荷的陶瓷材料，MLCC之所以体积小容值大，就是因为用了它。</dd>
+
+        <dt>X7R / C0G</dt>
+        <dd>MLCC的温度特性等级。X7R是"从-55°C到+125°C，容值变化不超过±15%"，最通用。C0G是"容值几乎不随温度变化"，精度最高也最贵。</dd>
+
+        <dt>0402 / 0201 / 01005</dt>
+        <dd>MLCC的英制尺寸代码。0402=0.04×0.02英寸≈1.0×0.5mm（芝麻大）。0201=0.6×0.3mm。01005=0.4×0.2mm（肉眼几乎看不见）。越小越难造。</dd>
+
+        <dt>去耦电容（Decoupling Capacitor）</dt>
+        <dd>紧贴在芯片旁的电容器，作用是"稳压"。当芯片瞬间需要大电流时，去耦电容先放电场救急，等着电源模块慢慢响应。</dd>
+
+        <dt>VRM（电压调节模块）</dt>
+        <dd>把电源输入（如48V或12V）转换为芯片所需低电压（~1V）的稳压电路。响应速度是微秒级。</dd>
+
+        <dt>BB Ratio（订单出货比）</dt>
+        <dd>Book-to-Bill的缩写。>1说明订单多于出货，产品供不应求。<1说明出货多于订单，需求在放缓。</dd>
+
+        <dt>AEC-Q200</dt>
+        <dd>汽车电子元件的可靠性认证标准，包含温度循环、湿热、冲击等30多项测试。车规MLCC必须通过此认证，周期6-12个月。</dd>
+
+        <dt>NVIDIA Gamma认证</dt>
+        <dd>NVIDIA对供应商的量产资格认证。通过Gamma意味着产品可以正式用于NVIDIA产品的量产。是MLCC进入AI服务器供应链的关键门槛。</dd>
+      </dl>
+    </div>
+  </section>
+
+  <!-- 数据来源 -->
+  <section id="sources" class="section">
+    <h2 class="section-title">
+      <span class="section-number">*</span>
+      数据来源与方法说明
+    </h2>
+
+    <div class="sources">
+      <h3>主要数据来源</h3>
+      <ul>
+        <li>村田制作所（Murata）投资者关系页面、产品规格书、技术白皮书</li>
+        <li>三星电机（Samsung Electro-Mechanics）公开财报及投资者简报</li>
+        <li>太阳诱电（Taiyo Yuden）及TDK公司公开资料</li>
+        <li>TrendForce集邦咨询——MLCC行业研究报告</li>
+        <li>Morgan Stanley——VR200 BOM拆解报告(2025)</li>
+        <li>JEITA（日本电子信息技术产业协会）行业统计</li>
+        <li>各国内上市公司（三环集团、风华高科、国瓷材料等）公开财报及投资者关系公告</li>
+        <li>NVIDIA公开技术文档及合作伙伴信息</li>
+      </ul>
+      <p style="margin-top:14px; font-size:13px; color:var(--text-muted);">
+        数据截止时间：2025年底至2026年Q1公开数据。部分数据标注"待核实"意为当前使用行业共识区间数据，精确值以公司官方最新披露为准。本报告所有数据可追溯至上述公开来源，不包含任何内幕信息或未公开数据。
+      </p>
+    </div>
+  </section>
+
+  <!-- 免责声明 -->
+  <section id="disclaimer" class="section">
+    <div class="disclaimer">
+      <strong>免责声明</strong>
+      <p style="margin-top:8px;">
+        1. 本页面内容为产业知识科普，所有数据来源于公开渠道（各公司财报、行业研究报告、行业协会统计），数据时间标注于各图表下方。不构成任何形式的投资建议。<br><br>
+        2. 所有公司的技术描述、产品定位和竞争格局分析仅基于公开可获取的事实陈述，不含主观投资评价、估值判断或买卖建议。本页面不推荐任何股票。<br><br>
+        3. 本页面所述产业趋势为客观梳理，不构成对其持续性、确定性或其投资价值的任何判断。普通MLCC作为周期品的属性已如实说明。<br><br>
+        4. 如需最新、最准确的财务数据和行业数据，请直接查阅各公司官方投资者关系页面及权威行业研究机构报告。<br><br>
+        5. 本页面版权归作者所有，未经授权不得转载或用于商业用途。数据引用请注明来源。
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<button id="back-to-top" class="back-to-top" aria-label="回到顶部" title="回到顶部">↑</button>
+
+<script src="js/main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MLCC产业链拓扑图</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: #FFFFFF;
+  font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+}
+#container {
+  width: 100%;
+  height: 100%;
+}
+svg { width: 100%; height: 100%; }
+
+/* 节点标签 */
+.node-label {
+  font-size: 12px;
+  fill: #1A1A1A;
+  pointer-events: none;
+  text-anchor: middle;
+}
+.node-sublabel {
+  font-size: 9px;
+  fill: #6B7280;
+  pointer-events: none;
+  text-anchor: middle;
+}
+
+/* 图例 */
+.legend {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background: rgba(255,255,255,0.92);
+  border: 1px solid #E5E7EB;
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: 12px;
+  color: #4B5563;
+}
+.legend-row { display: flex; align-items: center; margin: 4px 0; }
+.legend-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+
+/* 提示工具 */
+.tooltip {
+  position: absolute;
+  background: rgba(26,26,26,0.92);
+  color: #FFF;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s;
+  max-width: 260px;
+  line-height: 1.5;
+}
+.tooltip b { color: #FCD34D; }
+
+/* 操作提示 */
+.hint {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  color: #9CA3AF;
+  font-size: 11px;
+}
+</style>
+</head>
+<body>
+<div id="container"></div>
+<div class="legend">
+  <div class="legend-row"><span class="legend-dot" style="background:#3B82F6;"></span> 日韩台厂商 (海外主导)</div>
+  <div class="legend-row"><span class="legend-dot" style="background:#F59E0B;"></span> 中国厂商 (国产替代)</div>
+  <div class="legend-row"><span class="legend-dot" style="background:#10B981;"></span> 下游应用</div>
+  <div class="legend-row"><span class="legend-dot" style="background:#8B5CF6;"></span> 材料/设备 (上游)</div>
+</div>
+<div class="hint">拖拽节点 · 滚轮缩放 · 悬停查看详情</div>
+<div class="tooltip" id="tooltip"></div>
+
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script>
+const width = window.innerWidth;
+const height = window.innerHeight;
+
+// ============================================================
+// 数据：节点 & 连线
+// ============================================================
+
+const nodes = [
+  // ----- 上游：材料 (layer 0) -----
+  { id: "batio3",    label: "钛酸钡 BaTiO₃", sublabel: "陶瓷介质核心", group: "material", region: "mixed" },
+  { id: "ni",        label: "镍粉 (Ni)",     sublabel: "内电极材料",   group: "material", region: "jp" },
+  { id: "additive",  label: "稀土/镁/锰添加剂", sublabel: "温度特性调控", group: "material", region: "jp" },
+  { id: "cu_ag",     label: "铜/银浆料",     sublabel: "端电极材料",   group: "material", region: "mixed" },
+
+  // ----- 上游：设备 (layer 1) -----
+  { id: "casting",   label: "流延机",       sublabel: "", group: "equipment", region: "mixed" },
+  { id: "printer",   label: "丝印机",       sublabel: "电极印刷", group: "equipment", region: "mixed" },
+  { id: "stacker",   label: "叠层机",       sublabel: "关键设备·日韩主导", group: "equipment", region: "jp" },
+  { id: "press",     label: "等静压机",     sublabel: "", group: "equipment", region: "mixed" },
+  { id: "furnace",   label: "烧结炉",       sublabel: "高温隧道炉·日/德", group: "equipment", region: "jp" },
+  { id: "plater",    label: "电镀线",       sublabel: "", group: "equipment", region: "mixed" },
+
+  // ----- 中游：海外制造 (layer 2) -----
+  { id: "murata",  label: "村田 Murata",   sublabel: "全球第一 ~31% · 高容/车规领先", group: "mfg_overseas", region: "jp", size: 18 },
+  { id: "semco",   label: "三星电机 SEMCO", sublabel: "全球第二 ~22% · 消费电子为主", group: "mfg_overseas", region: "kr", size: 15 },
+  { id: "taiyo",   label: "太阳诱电",      sublabel: "全球第三 ~11% · 高容+通信",  group: "mfg_overseas", region: "jp", size: 14 },
+  { id: "tdk",     label: "TDK",           sublabel: "全球第四 ~9% · 车规优势",     group: "mfg_overseas", region: "jp", size: 13 },
+  { id: "yageo",   label: "国巨 Yageo",    sublabel: "台湾龙头 ~13% · 标准品+基美", group: "mfg_overseas", region: "tw", size: 14 },
+
+  // ----- 中游：中国制造 (layer 2) -----
+  { id: "sanhuan", label: "三环集团",       sublabel: "300408 · 国内技术领先",  group: "mfg_china", region: "cn", size: 12 },
+  { id: "fenghua", label: "风华高科",       sublabel: "000636 · 国内产能最大",  group: "mfg_china", region: "cn", size: 12 },
+  { id: "hongyuan",label: "鸿远电子",       sublabel: "603267 · 特种/军工",     group: "mfg_china", region: "cn", size: 10 },
+  { id: "huoju",   label: "火炬电子",       sublabel: "603678 · 特种/军工",     group: "mfg_china", region: "cn", size: 10 },
+
+  // ----- 上游：中国材料公司 (layer 0.5) -----
+  { id: "guoci",   label: "国瓷材料",       sublabel: "300285 · MLCC陶瓷粉",  group: "material_cn", region: "cn", size: 12 },
+  { id: "jiemei",  label: "洁美科技",       sublabel: "002859 · 离型膜/载带",  group: "material_cn", region: "cn", size: 10 },
+
+  // ----- 下游应用 (layer 3) -----
+  { id: "smartphone", label: "智能手机",     sublabel: "800-1200颗/台",  group: "app", region: "app" },
+  { id: "auto",       label: "汽车",         sublabel: "3000→18000颗/台 (电动化)", group: "app", region: "app" },
+  { id: "server",     label: "AI服务器",     sublabel: "20000-30000颗/节点 ⚡", group: "app", region: "app" },
+  { id: "industrial", label: "工业/医疗/基站", sublabel: "高可靠性需求", group: "app", region: "app" },
+  { id: "consumer",   label: "PC/家电/IoT",  sublabel: "", group: "app", region: "app" },
+];
+
+const links = [
+  // 材料→设备（上游内部）
+  { source: "batio3",   target: "casting",  value: 0.3 },
+  { source: "batio3",   target: "stacker",  value: 0.3 },
+  { source: "ni",       target: "printer",  value: 0.3 },
+  { source: "ni",       target: "stacker",  value: 0.3 },
+  { source: "cu_ag",    target: "plater",   value: 0.3 },
+
+  // 材料→制造
+  { source: "batio3", target: "murata",  value: 3 },
+  { source: "batio3", target: "semco",   value: 2 },
+  { source: "batio3", target: "taiyo",   value: 2 },
+  { source: "ni",     target: "murata",  value: 3 },
+  { source: "ni",     target: "semco",   value: 2 },
+  { source: "batio3", target: "sanhuan", value: 1 },
+  { source: "batio3", target: "fenghua", value: 1 },
+
+  // 中国材料→中国制造
+  { source: "guoci",  target: "sanhuan", value: 1.5, dash: true },
+  { source: "guoci",  target: "fenghua", value: 1.5, dash: true },
+  { source: "guoci",  target: "batio3",  value: 0.8, dash: true },
+  { source: "jiemei", target: "murata",  value: 0.8, dash: true },
+  { source: "jiemei", target: "fenghua", value: 0.8, dash: true },
+
+  // 设备→制造
+  { source: "casting", target: "murata",  value: 0.5, dotted: true },
+  { source: "printer", target: "murata",  value: 0.5, dotted: true },
+  { source: "stacker", target: "murata",  value: 0.5, dotted: true },
+  { source: "furnace", target: "murata",  value: 0.5, dotted: true },
+  { source: "stacker", target: "sanhuan", value: 0.3, dotted: true },
+  { source: "furnace", target: "fenghua", value: 0.3, dotted: true },
+
+  // 制造→应用
+  { source: "murata", target: "smartphone", value: 3 },
+  { source: "murata", target: "auto",       value: 2 },
+  { source: "murata", target: "server",     value: 2.5 },
+  { source: "semco",  target: "smartphone", value: 2.5 },
+  { source: "semco",  target: "server",     value: 1.5 },
+  { source: "taiyo",  target: "smartphone", value: 1.5 },
+  { source: "tdk",    target: "auto",       value: 2 },
+  { source: "yageo",  target: "smartphone", value: 1.5 },
+  { source: "yageo",  target: "consumer",   value: 1.5 },
+  { source: "sanhuan",target: "consumer",   value: 1 },
+  { source: "sanhuan",target: "smartphone", value: 1 },
+  { source: "fenghua",target: "consumer",   value: 1 },
+  { source: "fenghua",target: "smartphone", value: 1 },
+  { source: "hongyuan",target: "industrial",value: 1 },
+  { source: "huoju",  target: "industrial", value: 1 },
+];
+
+// ============================================================
+// 颜色映射
+// ============================================================
+function nodeColor(d) {
+  if (d.region === "cn") return "#F59E0B";
+  if (d.region === "app") return "#10B981";
+  if (d.group === "material" || d.group === "equipment" || d.group === "material_cn")
+    return "#8B5CF6";
+  return "#3B82F6"; // jp/kr/tw
+}
+
+function nodeRadius(d) {
+  if (d.size) return d.size;
+  return 7;
+}
+
+// ============================================================
+// 力导向布局
+// ============================================================
+
+// 手动设置 y 层位置（分层布局）
+const layerY = {
+  material:     height * 0.12,
+  material_cn:  height * 0.22,
+  equipment:    height * 0.22,
+  mfg_overseas: height * 0.48,
+  mfg_china:    height * 0.60,
+  app:          height * 0.82,
+};
+
+// 层内 x 分布
+function layerX(group, i, total) {
+  const padding = 120;
+  const available = width - padding * 2;
+  const step = available / (total + 1);
+  // 按组微调偏移
+  let offset = 0;
+  if (group === "mfg_china") offset = 100;
+  if (group === "material_cn") offset = width * 0.3;
+  return padding + step * (i + 1) + offset;
+}
+
+// 给每个节点分配初始位置
+const nodeMap = new Map(nodes.map(n => [n.id, n]));
+const grouped = {};
+nodes.forEach(n => {
+  if (!grouped[n.group]) grouped[n.group] = [];
+  grouped[n.group].push(n);
+});
+
+nodes.forEach(n => {
+  const arr = grouped[n.group];
+  const idx = arr.indexOf(n);
+  n.fx = layerX(n.group, idx, arr.length);
+  n.fy = layerY[n.group];
+  n.x = n.fx;
+  n.y = n.fy;
+});
+
+const simulation = d3.forceSimulation(nodes)
+  .force("link", d3.forceLink(links).id(d => d.id).distance(80).strength(0.4))
+  .force("charge", d3.forceManyBody().strength(-300))
+  .force("x", d3.forceX(d => d.fx).strength(0.3))
+  .force("y", d3.forceY(d => d.fy).strength(0.5))
+  .force("collision", d3.forceCollide().radius(d => nodeRadius(d) + 4));
+
+// ============================================================
+// SVG 构建
+// ============================================================
+const svg = d3.select("#container").append("svg");
+const g = svg.append("g");
+
+// 缩放
+const zoom = d3.zoom()
+  .scaleExtent([0.4, 3])
+  .on("zoom", (event) => {
+    g.attr("transform", event.transform);
+  });
+svg.call(zoom);
+
+// 初始居中
+svg.call(zoom.transform, d3.zoomIdentity.translate(0, 0));
+
+// 箭头 defs
+g.append("defs").selectAll("marker")
+  .data(["#94A3B8", "#3B82F6", "#F59E0B"])
+  .join("marker")
+  .attr("id", (d, i) => ["arrow-gray", "arrow-blue", "arrow-amber"][i])
+  .attr("viewBox", "0 -5 10 10")
+  .attr("refX", 22)
+  .attr("refY", 0)
+  .attr("markerWidth", 6)
+  .attr("markerHeight", 6)
+  .attr("orient", "auto")
+  .append("path")
+  .attr("fill", d => d)
+  .attr("d", "M0,-4L10,0L0,4");
+
+// 连线
+const link = g.append("g")
+  .selectAll("line")
+  .data(links)
+  .join("line")
+  .attr("stroke", d => d.dash ? "#F59E0B" : d.dotted ? "#D1D5DB" : "#94A3B8")
+  .attr("stroke-width", d => Math.max(0.8, d.value * 0.8))
+  .attr("stroke-dasharray", d => d.dash ? "6,3" : d.dotted ? "3,3" : null)
+  .attr("stroke-opacity", 0.5)
+  .attr("marker-end", d => {
+    if (d.dash) return "url(#arrow-amber)";
+    return "url(#arrow-gray)";
+  });
+
+// 节点组
+const node = g.append("g")
+  .selectAll("g")
+  .data(nodes)
+  .join("g")
+  .attr("cursor", "pointer")
+  .call(d3.drag()
+    .on("start", (event, d) => {
+      if (!event.active) simulation.alphaTarget(0.3).restart();
+      d.fx = d.x; d.fy = d.y;
+    })
+    .on("drag", (event, d) => {
+      d.fx = event.x; d.fy = event.y;
+    })
+    .on("end", (event, d) => {
+      if (!event.active) simulation.alphaTarget(0);
+      // 松手后不弹回（锁在拖拽位置）
+    }));
+
+// 节点圆
+node.append("circle")
+  .attr("r", d => nodeRadius(d))
+  .attr("fill", d => nodeColor(d))
+  .attr("fill-opacity", 0.85)
+  .attr("stroke", d => d3.color(nodeColor(d)).darker(0.3))
+  .attr("stroke-width", d => d.size && d.size >= 14 ? 2.5 : 1)
+  .attr("class", "node-circle");
+
+// 节点标签
+node.append("text")
+  .attr("dy", d => nodeRadius(d) + 13)
+  .attr("class", "node-label")
+  .text(d => d.label);
+
+node.append("text")
+  .attr("dy", d => nodeRadius(d) + 26)
+  .attr("class", "node-sublabel")
+  .text(d => d.sublabel || "");
+
+// ============================================================
+// 交互
+// ============================================================
+
+const tooltip = d3.select("#tooltip");
+
+// 悬停高亮
+const linkedMap = new Map();
+links.forEach(l => {
+  const s = typeof l.source === "object" ? l.source.id : l.source;
+  const t = typeof l.target === "object" ? l.target.id : l.target;
+  if (!linkedMap.has(s)) linkedMap.set(s, new Set());
+  if (!linkedMap.has(t)) linkedMap.set(t, new Set());
+  linkedMap.get(s).add(t);
+  linkedMap.get(t).add(s);
+});
+
+node.on("mouseenter", function(event, d) {
+  const neighbors = linkedMap.get(d.id) || new Set();
+  neighbors.add(d.id);
+
+  // 降低所有节点和连线
+  node.selectAll("circle").attr("fill-opacity", 0.2);
+  link.attr("stroke-opacity", 0.08);
+
+  // 高亮关联节点
+  node.filter(n => neighbors.has(n.id))
+    .selectAll("circle")
+    .attr("fill-opacity", 1)
+    .attr("stroke-width", 3);
+
+  // 高亮关联连线
+  link.filter(l => {
+    const sid = typeof l.source === "object" ? l.source.id : l.source;
+    const tid = typeof l.target === "object" ? l.target.id : l.target;
+    return sid === d.id || tid === d.id;
+  })
+  .attr("stroke-opacity", 0.9)
+  .attr("stroke-width", l => Math.max(1.2, l.value * 1.1));
+
+  // 提示工具
+  const regionLabel = d.region === "cn" ? "中国" :
+                      d.region === "jp" ? "日本" :
+                      d.region === "kr" ? "韩国" :
+                      d.region === "tw" ? "台湾" : "";
+  tooltip.style("opacity", 1)
+    .html(`<b>${d.label}</b><br>${d.sublabel || ""}${regionLabel ? "<br>国家/地区: " + regionLabel : ""}`);
+})
+.on("mousemove", function(event) {
+  tooltip.style("left", (event.pageX + 14) + "px")
+         .style("top", (event.pageY - 40) + "px");
+})
+.on("mouseleave", function() {
+  node.selectAll("circle").attr("fill-opacity", 0.85)
+    .attr("stroke-width", d => d.size && d.size >= 14 ? 2.5 : 1);
+  link.attr("stroke-opacity", 0.5)
+    .attr("stroke-width", d => Math.max(0.8, d.value * 0.8));
+  tooltip.style("opacity", 0);
+});
+
+// 层标签
+const layerLabels = [
+  { y: layerY.material - 30, text: "上游：材料", color: "#7C3AED" },
+  { y: layerY.equipment - 30, text: "上游：设备", color: "#7C3AED" },
+  { y: (layerY.mfg_overseas + layerY.mfg_china) / 2 - 30, text: "中游：MLCC制造", color: "#2563EB" },
+  { y: layerY.app - 30, text: "下游应用", color: "#059669" },
+];
+
+layerLabels.forEach(ll => {
+  g.append("text")
+    .attr("x", 40)
+    .attr("y", ll.y)
+    .attr("text-anchor", "start")
+    .attr("font-size", 15)
+    .attr("font-weight", 700)
+    .attr("fill", ll.color)
+    .attr("font-family", "'Microsoft YaHei','PingFang SC',sans-serif")
+    .text(ll.text);
+});
+
+// ============================================================
+// 动画 tick
+// ============================================================
+let tickCount = 0;
+simulation.on("tick", () => {
+  link
+    .attr("x1", d => d.source.x)
+    .attr("y1", d => d.source.y)
+    .attr("x2", d => d.target.x)
+    .attr("y2", d => d.target.y);
+
+  node.attr("transform", d => `translate(${d.x},${d.y})`);
+
+  tickCount++;
+  if (tickCount > 200) simulation.stop();
+});
+
+// 窗口大小变化
+window.addEventListener("resize", () => {
+  // 静态布局，resize 时不做重新计算
+});
+</script>
+</body>
+</html>

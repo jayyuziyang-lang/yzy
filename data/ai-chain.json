@@ -3,6 +3,16 @@
   "description": "AI产业链洞察 — 不定期更新的深度分析",
   "articles": [
     {
+      "id": "mlcc-series",
+      "title": "电子大米——MLCC如何成为AI服务器供电命脉",
+      "date": "2026-06-12",
+      "summary": "从村田到风华，MLCC高端化与国产替代全景——一颗米粒大小的电容如何决定千亿算力",
+      "readTime": 18,
+      "status": "published",
+      "url": "ai-chain/mlcc-series/article.html",
+      "tags": ["MLCC", "被动元件", "村田", "国产替代", "AI硬件", "电子大米"]
+    },
+    {
       "id": "ai-hardware-upstream",
       "title": "AI硬件上游 · 4大核心赛道精研",
       "date": "2026-06-09",
