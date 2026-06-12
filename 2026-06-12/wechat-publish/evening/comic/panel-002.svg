@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFF8F0"/>
+      <stop offset="100%" stop-color="#FFFBEB"/>
+    </linearGradient>
+    <linearGradient id="red" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#DC2626"/>
+      <stop offset="100%" stop-color="#EF4444"/>
+    </linearGradient>
+    <linearGradient id="copper" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#B87333"/>
+      <stop offset="100%" stop-color="#D4845A"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.1"/>
+    </filter>
+  </defs>
+  <rect width="800" height="500" fill="url(#bg)" rx="12"/>
+
+  <rect x="180" y="16" width="440" height="36" rx="18" fill="#DC2626"/>
+  <text x="400" y="40" text-anchor="middle" fill="white" font-size="16" font-weight="700">📈 沪指重返4000 · 风格切换确立</text>
+
+  <!-- 左侧：指数数据 -->
+  <g filter="url(#shadow)">
+    <rect x="20" y="70" width="370" height="200" rx="10" fill="white" stroke="#FECACA" stroke-width="2"/>
+    <rect x="20" y="70" width="370" height="36" rx="10" fill="#FEF2F2"/>
+    <text x="205" y="93" text-anchor="middle" fill="#DC2626" font-size="14" font-weight="700">📊 三大指数集体收涨</text>
+
+    <!-- 上证 -->
+    <rect x="35" y="120" width="340" height="40" rx="8" fill="#FFF5F5"/>
+    <text x="50" y="145" font-size="12" fill="#374151">上证指数</text>
+    <text x="200" y="145" text-anchor="end" font-size="18" font-weight="800" fill="#DC2626">4,031.51</text>
+    <text x="350" y="145" text-anchor="end" font-size="14" font-weight="700" fill="#DC2626">+1.12%</text>
+
+    <!-- 深证 -->
+    <rect x="35" y="168" width="340" height="40" rx="8" fill="#FFFBEB"/>
+    <text x="50" y="193" font-size="12" fill="#374151">深证成指</text>
+    <text x="200" y="193" text-anchor="end" font-size="18" font-weight="800" fill="#DC2626">14,963.41</text>
+    <text x="350" y="193" text-anchor="end" font-size="14" font-weight="700" fill="#DC2626">+0.75%</text>
+
+    <!-- 创业板 -->
+    <rect x="35" y="216" width="340" height="40" rx="8" fill="#FFF5F5"/>
+    <text x="50" y="241" font-size="12" fill="#374151">创业板指</text>
+    <text x="200" y="241" text-anchor="end" font-size="18" font-weight="800" fill="#DC2626">3,835.46</text>
+    <text x="350" y="241" text-anchor="end" font-size="14" font-weight="700" fill="#DC2626">+0.50%</text>
+  </g>
+
+  <!-- 左侧底部：成交数据 -->
+  <g filter="url(#shadow)">
+    <rect x="20" y="288" width="370" height="80" rx="10" fill="white" stroke="#FDE68A" stroke-width="1"/>
+    <rect x="20" y="288" width="370" height="32" rx="10" fill="#FFFBEB"/>
+    <text x="205" y="309" text-anchor="middle" fill="#D4A017" font-size="12" font-weight="700">💰 资金面</text>
+    <text x="50" y="340" font-size="12" fill="#374151">成交额</text>
+    <text x="170" y="340" font-size="14" font-weight="700" fill="#DC2626">3.21万亿</text>
+    <text x="200" y="340" font-size="10" fill="#16A34A">+6629亿</text>
+    <text x="270" y="340" font-size="12" fill="#374151">北向</text>
+    <text x="330" y="340" font-size="14" font-weight="700" fill="#DC2626">+89亿</text>
+  </g>
+
+  <!-- 右侧：板块对比 -->
+  <g filter="url(#shadow)">
+    <rect x="410" y="70" width="370" height="120" rx="10" fill="white" stroke="#BBF7D0" stroke-width="2"/>
+    <rect x="410" y="70" width="370" height="32" rx="10" fill="#F0FDF4"/>
+    <text x="595" y="90" text-anchor="middle" fill="#16A34A" font-size="13" font-weight="700">🔥 领涨 · 工业金属 +5.2%</text>
+
+    <text x="430" y="118" font-size="11" fill="#374151">铜陵有色</text>
+    <text x="550" y="118" text-anchor="end" font-size="12" font-weight="700" fill="#DC2626">涨停</text>
+    <text x="570" y="118" font-size="10" fill="#64748B">锡业股份 +8%</text>
+
+    <text x="430" y="140" font-size="11" fill="#374151">洛阳钼业</text>
+    <text x="550" y="140" text-anchor="end" font-size="12" font-weight="700" fill="#DC2626">涨停</text>
+    <text x="570" y="140" font-size="10" fill="#64748B">紫金矿业 +6%</text>
+
+    <text x="430" y="162" font-size="11" fill="#374151">金钼股份</text>
+    <text x="550" y="162" text-anchor="end" font-size="12" font-weight="700" fill="#DC2626">2连板</text>
+    <text x="570" y="162" font-size="10" fill="#64748B">钼替代钨概念</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="410" y="200" width="370" height="80" rx="10" fill="white" stroke="#FECACA" stroke-width="1"/>
+    <rect x="410" y="200" width="370" height="32" rx="10" fill="#FEF2F2"/>
+    <text x="595" y="220" text-anchor="middle" fill="#DC2626" font-size="13" font-weight="700">❄️ 领跌 · 科技分化</text>
+    <text x="430" y="248" font-size="11" fill="#374151">电子化学品 -4.1%</text>
+    <text x="570" y="248" font-size="11" fill="#374151">MLCC/元件 -2.8%</text>
+    <text x="430" y="266" font-size="11" fill="#374151">AI光模块 -2.3%</text>
+    <text x="570" y="266" font-size="11" fill="#374151">科创50 -0.24%</text>
+  </g>
+
+  <!-- 阿扬角色 -->
+  <g filter="url(#shadow)">
+    <rect x="410" y="295" width="370" height="75" rx="10" fill="white" stroke="#E2E8F0" stroke-width="1"/>
+    <circle cx="450" cy="342" r="22" fill="#FFE4B5"/>
+    <circle cx="450" cy="334" r="11" fill="#FFD699"/>
+    <circle cx="445" cy="331" r="2" fill="#333"/>
+    <circle cx="455" cy="331" r="2" fill="#333"/>
+    <path d="M442 338 Q450 344 458 338" stroke="#333" stroke-width="1.5" fill="none"/>
+
+    <text x="490" y="328" font-size="12" font-weight="600" fill="#1E293B">阿扬说：</text>
+    <text x="490" y="346" font-size="11" fill="#475569">"资金从AI（PE50-80倍）</text>
+    <text x="490" y="362" font-size="11" fill="#475569">向周期（PE10-20倍）切换，信号明确"</text>
+  </g>
+
+  <!-- 底部：传导链 -->
+  <g filter="url(#shadow)">
+    <rect x="20" y="385" width="760" height="95" rx="10" fill="white" stroke="#D4A017" stroke-width="1"/>
+    <rect x="20" y="385" width="760" height="28" rx="10" fill="url(#gold)"/>
+    <text x="400" y="404" text-anchor="middle" fill="white" font-size="12" font-weight="700">🧩 今日核心传导链</text>
+    <text x="400" y="438" text-anchor="middle" font-size="11" fill="#92400E">美伊和平曙光 → 油价暴跌6% → 通胀预期降温 → 工业金属成本下行+需求回暖</text>
+    <text x="400" y="458" text-anchor="middle" font-size="11" fill="#92400E">→ 资金从高估值科技向低估值周期迁移 → 工业金属暴涨5%领跑全场</text>
+    <text x="400" y="475" text-anchor="middle" font-size="10" fill="#64748B">⚠️ 风格切换持续性取决于美伊协议能否下周正式签署</text>
+  </g>
+</svg>

@@ -1,7 +1,19 @@
 {
-  "generated_at": "2026-06-12T22:48:12+08:00",
+  "generated_at": "2026-06-12T22:57:09+08:00",
   "latest_date": "2026-06-12",
   "articles": [
+    {
+      "date": "2026-06-12",
+      "session": "evening",
+      "edition_cn": "晚报",
+      "icon": "🌙",
+      "title": "沪指重返4000涨1.12%·工业金属暴涨5%·美伊和平曙光·SOX飙升7.91%·SpaceX首日飙涨26%·黄金深V反弹4200·油价暴跌6%",
+      "url": "2026-06-12/wechat-publish/evening/article.html",
+      "has_audio": true,
+      "audio_size_bytes": 4177872,
+      "has_comic": true,
+      "comic_count": 3
+    },
     {
       "date": "2026-06-12",
       "session": "morning",
@@ -452,6 +464,18 @@
   ],
   "by_date": {
     "2026-06-12": {
+      "evening": {
+        "date": "2026-06-12",
+        "session": "evening",
+        "edition_cn": "晚报",
+        "icon": "🌙",
+        "title": "沪指重返4000涨1.12%·工业金属暴涨5%·美伊和平曙光·SOX飙升7.91%·SpaceX首日飙涨26%·黄金深V反弹4200·油价暴跌6%",
+        "url": "2026-06-12/wechat-publish/evening/article.html",
+        "has_audio": true,
+        "audio_size_bytes": 4177872,
+        "has_comic": true,
+        "comic_count": 3
+      },
       "morning": {
         "date": "2026-06-12",
         "session": "morning",
