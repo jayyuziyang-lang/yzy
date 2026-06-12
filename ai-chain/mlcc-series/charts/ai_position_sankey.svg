@@ -6,7 +6,7 @@
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2026-06-12T23:07:55.098423</dc:date>
+    <dc:date>2026-06-12T23:34:36.094929</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -40,7 +40,7 @@ Q 29.952 14.471124 29.952 15.425844
 L 29.952 158.633844 
 Q 29.952 159.588564 30.9 159.588564 
 z
-" clip-path="url(#p74a5a47dfe)" style="fill: #dc2626; opacity: 0.15; stroke: #dc2626; stroke-width: 2; stroke-linejoin: miter"/>
+" clip-path="url(#pc5233c3433)" style="fill: #dc2626; opacity: 0.15; stroke: #dc2626; stroke-width: 2; stroke-linejoin: miter"/>
    </g>
    <g id="patch_3">
     <path d="M 125.7 183.456564 
@@ -53,7 +53,7 @@ Q 124.752 14.471124 124.752 15.425844
 L 124.752 182.501844 
 Q 124.752 183.456564 125.7 183.456564 
 z
-" clip-path="url(#p74a5a47dfe)" style="fill: #d97706; opacity: 0.15; stroke: #d97706; stroke-width: 2; stroke-linejoin: miter"/>
+" clip-path="url(#pc5233c3433)" style="fill: #d97706; opacity: 0.15; stroke: #d97706; stroke-width: 2; stroke-linejoin: miter"/>
    </g>
    <g id="patch_4">
     <path d="M 220.5 207.324564 
@@ -66,7 +66,7 @@ Q 219.552 14.471124 219.552 15.425844
 L 219.552 206.369844 
 Q 219.552 207.324564 220.5 207.324564 
 z
-" clip-path="url(#p74a5a47dfe)" style="fill: #2563eb; opacity: 0.15; stroke: #2563eb; stroke-width: 2; stroke-linejoin: miter"/>
+" clip-path="url(#pc5233c3433)" style="fill: #2563eb; opacity: 0.15; stroke: #2563eb; stroke-width: 2; stroke-linejoin: miter"/>
    </g>
    <g id="patch_5">
     <path d="M 315.3 183.456564 
@@ -79,7 +79,7 @@ Q 314.352 14.471124 314.352 15.425844
 L 314.352 182.501844 
 Q 314.352 183.456564 315.3 183.456564 
 z
-" clip-path="url(#p74a5a47dfe)" style="fill: #7c3aed; opacity: 0.15; stroke: #7c3aed; stroke-width: 2; stroke-linejoin: miter"/>
+" clip-path="url(#pc5233c3433)" style="fill: #7c3aed; opacity: 0.15; stroke: #7c3aed; stroke-width: 2; stroke-linejoin: miter"/>
    </g>
    <g id="text_1">
     <!-- GPU功耗↑ -->
@@ -1697,7 +1697,7 @@ z
   </g>
  </g>
  <defs>
-  <clipPath id="p74a5a47dfe">
+  <clipPath id="pc5233c3433">
    <rect x="7.2" y="39.293844" width="474" height="190.944"/>
   </clipPath>
  </defs>
