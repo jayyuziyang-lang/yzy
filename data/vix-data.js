@@ -1,5 +1,5 @@
 // VIX 恐慌指数 — 由 scripts/fetch-vix-data.py 自动生成
-// 生成时间: 2026-06-11 23:47 | 数据源: 备用数据 (CBOE/Yahoo, VIX=22.22)
+// 生成时间: 2026-06-12 16:17 | 数据源: 备用数据 (CBOE/Yahoo, VIX=22.22)
 // 备注: 6/10周三VIX从19.87飙升至22.22(+11.83%)，CPI 4.2%+中东冲突+AI抛售三杀，创4月7日以来新高
 window.__VIX_DATA = {
   current: 22.22,
@@ -10,6 +10,6 @@ window.__VIX_DATA = {
   cls: "fear",
   pct: 23.2,
   date: "2026-06-10",
-  updateTime: "2026-06-11 23:47",
+  updateTime: "2026-06-12 16:17",
   source: "备用数据 (CBOE/Yahoo, VIX=22.22)",
 };

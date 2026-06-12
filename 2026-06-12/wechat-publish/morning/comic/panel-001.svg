@@ -4,76 +4,73 @@
       <stop offset="0%" stop-color="#EFF6FF"/>
       <stop offset="100%" stop-color="#DBEAFE"/>
     </linearGradient>
-    <linearGradient id="bar1" x1="0" y1="0" x2="1" y2="0">
+    <linearGradient id="bar" x1="0" y1="0" x2="1" y2="0">
       <stop offset="0%" stop-color="#1A56DB"/>
       <stop offset="100%" stop-color="#1E40AF"/>
     </linearGradient>
-    <linearGradient id="bar2" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#EA580C"/>
-      <stop offset="100%" stop-color="#C2410C"/>
+    <linearGradient id="upGrad" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#FEF2F2"/>
+      <stop offset="100%" stop-color="#FEE2E2"/>
     </linearGradient>
   </defs>
 
-  <!-- Background -->
   <rect width="800" height="500" fill="url(#bg)" rx="12"/>
 
-  <!-- Title bar -->
-  <rect x="0" y="0" width="800" height="56" fill="url(#bar1)" rx="12"/>
-  <rect x="0" y="28" width="800" height="28" fill="url(#bar1)"/>
-  <text x="400" y="37" text-anchor="middle" fill="white" font-size="22" font-weight="700">SpaceX今日挂牌 · PPI飙至6.5%创近3年新高</text>
+  <rect x="0" y="0" width="800" height="56" fill="url(#bar)" rx="12"/>
+  <rect x="0" y="28" width="800" height="28" fill="url(#bar)"/>
+  <text x="400" y="37" text-anchor="middle" fill="white" font-size="22" font-weight="700">一夜反转！道指反弹929点 · 特朗普叫停对伊打击</text>
 
-  <!-- Panel 1: SpaceX IPO -->
+  <!-- Panel 1: Market Reversal -->
   <rect x="30" y="75" width="360" height="400" fill="white" rx="10" stroke="#BFDBFE" stroke-width="1.5"/>
-  <rect x="30" y="75" width="360" height="38" fill="#1A56DB" rx="10"/>
-  <rect x="30" y="95" width="360" height="18" fill="#1A56DB"/>
-  <text x="210" y="100" text-anchor="middle" fill="white" font-size="16" font-weight="700">🚀 SpaceX IPO</text>
-
-  <text x="50" y="140" fill="#1E293B" font-size="14" font-weight="700">发行价 $135/股</text>
-  <text x="50" y="162" fill="#475569" font-size="13">市值约 $1.75万亿 · 史上最大IPO</text>
-  <text x="50" y="184" fill="#475569" font-size="13">代码: SPCX · 纳斯达克挂牌</text>
-  <text x="50" y="206" fill="#475569" font-size="13">机构认购超4倍 · 零售订单超$700亿</text>
-
-  <!-- Valuation comparison box -->
-  <rect x="50" y="220" width="320" height="60" fill="#FEF2F2" rx="6" stroke="#FECACA" stroke-width="1"/>
-  <text x="70" y="244" fill="#DC2626" font-size="12" font-weight="600">Jim Cramer预测: $5万亿 (+180%)</text>
-  <text x="70" y="264" fill="#16A34A" font-size="12" font-weight="600">Morningstar公允价值: $7800亿 (-56%)</text>
-
-  <!-- Divider -->
-  <line x1="50" y1="298" x2="370" y2="298" stroke="#E2E8F0" stroke-width="1" stroke-dasharray="4,3"/>
-
-  <text x="50" y="322" fill="#1E293B" font-size="13" font-weight="700">📌 权重效应</text>
-  <text x="50" y="344" fill="#475569" font-size="12">MSCI宣布SPCX T+1纳入指数</text>
-  <text x="50" y="364" fill="#475569" font-size="12">指数基金被动增持 → 存量持仓腾挪</text>
-
-  <text x="50" y="394" fill="#1E293B" font-size="13" font-weight="700">📌 情绪意义</text>
-  <text x="50" y="416" fill="#475569" font-size="12">若首日大涨 → 科技情绪修复催化剂</text>
-  <text x="50" y="436" fill="#475569" font-size="12">若表现平淡 → 压制风险偏好</text>
-
-  <!-- Panel 2: PPI -->
-  <rect x="410" y="75" width="360" height="400" fill="white" rx="10" stroke="#BFDBFE" stroke-width="1.5"/>
-  <rect x="410" y="75" width="360" height="38" fill="#EA580C" rx="10"/>
-  <rect x="410" y="95" width="360" height="18" fill="#EA580C"/>
-  <text x="590" y="100" text-anchor="middle" fill="white" font-size="16" font-weight="700">📈 PPI 6.5%</text>
+  <rect x="30" y="75" width="360" height="38" fill="#DC2626" rx="10"/>
+  <rect x="30" y="95" width="360" height="18" fill="#DC2626"/>
+  <text x="210" y="100" text-anchor="middle" fill="white" font-size="16" font-weight="700">📈 美股V型反转</text>
 
   <!-- Big number -->
-  <text x="590" y="165" text-anchor="middle" fill="#EA580C" font-size="52" font-weight="800">6.5%</text>
-  <text x="590" y="188" text-anchor="middle" fill="#1E293B" font-size="14" font-weight="600">美国5月PPI同比 · 创2022年11月以来新高</text>
+  <text x="210" y="165" text-anchor="middle" fill="#DC2626" font-size="52" font-weight="800">+929</text>
+  <text x="210" y="190" text-anchor="middle" fill="#1E293B" font-size="14" font-weight="600">道指单日暴涨929点</text>
 
-  <!-- Data breakdown -->
-  <rect x="430" y="210" width="320" height="75" fill="#FFFBEB" rx="6" stroke="#FDE68A" stroke-width="1"/>
-  <text x="450" y="234" fill="#1E293B" font-size="13" font-weight="600">核心PPI同比 +4.9%</text>
-  <text x="450" y="256" fill="#EA580C" font-size="13" font-weight="600">能源价格环比 +10.7%</text>
-  <text x="450" y="276" fill="#EA580C" font-size="12">其中汽油暴涨 +23.4%</text>
+  <!-- Table -->
+  <rect x="50" y="210" width="320" height="95" fill="url(#upGrad)" rx="6" stroke="#FECACA" stroke-width="1"/>
+  <text x="70" y="234" fill="#DC2626" font-size="13" font-weight="600">道琼斯    50,848.75   +1.86%</text>
+  <text x="70" y="258" fill="#DC2626" font-size="13" font-weight="600">标普500    7,394.30    +1.75%</text>
+  <text x="70" y="282" fill="#DC2626" font-size="13" font-weight="600">纳斯达克   25,809.66   +2.54%</text>
 
-  <!-- Impact chain -->
-  <rect x="430" y="300" width="320" height="55" fill="#EFF6FF" rx="6" stroke="#BFDBFE" stroke-width="1"/>
-  <text x="450" y="324" fill="#1E40AF" font-size="12" font-weight="600">传导链已确认:</text>
-  <text x="450" y="344" fill="#1E40AF" font-size="12">油价 → 通胀 → 利率预期</text>
+  <!-- Drivers -->
+  <rect x="50" y="320" width="320" height="50" fill="#EFF6FF" rx="6" stroke="#BFDBFE" stroke-width="1"/>
+  <text x="70" y="344" fill="#1E40AF" font-size="12" font-weight="600">反转驱动力:</text>
+  <text x="70" y="364" fill="#1E40AF" font-size="12">特朗普取消打击 → 和平预期升温</text>
 
-  <!-- Invest view -->
-  <rect x="430" y="370" width="320" height="85" fill="#F0FDF4" rx="6" stroke="#BBF7D0" stroke-width="1"/>
-  <text x="450" y="394" fill="#16A34A" font-size="12" font-weight="600">📌 投资视角</text>
-  <text x="450" y="414" fill="#14532D" font-size="12">输入性通胀持续 → 所有长久期资产</text>
-  <text x="450" y="434" fill="#14532D" font-size="12">(科技/成长/新兴市场) 持续承压</text>
-  <text x="450" y="454" fill="#14532D" font-size="12">油价回落的唯一希望: 停火</text>
+  <text x="50" y="400" fill="#1E293B" font-size="13" font-weight="700">亚洲跟进大涨:</text>
+  <text x="50" y="422" fill="#475569" font-size="12">日经 +3.25%  |  KOSPI +6%</text>
+  <text x="50" y="444" fill="#475569" font-size="12">恒生 +0.92%  |  上证 +0.53%</text>
+
+  <!-- Panel 2: Trump Iran -->
+  <rect x="410" y="75" width="360" height="400" fill="white" rx="10" stroke="#FECACA" stroke-width="1.5"/>
+  <rect x="410" y="75" width="360" height="38" fill="#1A56DB" rx="10"/>
+  <rect x="410" y="95" width="360" height="18" fill="#1A56DB"/>
+  <text x="590" y="100" text-anchor="middle" fill="white" font-size="16" font-weight="700">🕊️ 特朗普叫停打击</text>
+
+  <!-- Timeline narrative -->
+  <text x="430" y="140" fill="#1E293B" font-size="13" font-weight="700">周四白天: 威胁"炸个稀巴烂"</text>
+  <text x="430" y="162" fill="#475569" font-size="12">美军发射49枚战斧 · 伊朗攻击18处目标</text>
+
+  <text x="430" y="196" fill="#1E293B" font-size="13" font-weight="700">周四晚: 180度逆转</text>
+  <rect x="430" y="206" width="320" height="55" fill="#F0FDF4" rx="6" stroke="#BBF7D0" stroke-width="1"/>
+  <text x="450" y="228" fill="#16A34A" font-size="12" font-weight="600">Truth Social宣布取消打击</text>
+  <text x="450" y="248" fill="#14532D" font-size="11">"和平协议已敲定，本周末欧洲签署"</text>
+
+  <!-- Deal terms -->
+  <rect x="430" y="275" width="320" height="65" fill="#EFF6FF" rx="6" stroke="#BFDBFE" stroke-width="1"/>
+  <text x="450" y="298" fill="#1E40AF" font-size="12" font-weight="600">协议核心条款</text>
+  <text x="450" y="318" fill="#1E40AF" font-size="11">① 伊朗永不开发核武器</text>
+  <text x="450" y="334" fill="#1E40AF" font-size="11">② 霍尔木兹海峡重新开放</text>
+
+  <!-- Iran caution -->
+  <rect x="430" y="355" width="320" height="50" fill="#FFFBEB" rx="6" stroke="#FDE68A" stroke-width="1"/>
+  <text x="450" y="378" fill="#D4A017" font-size="12" font-weight="600">⚠️ 伊朗回应"尚未最终决定"</text>
+  <text x="450" y="396" fill="#92400E" font-size="11">过去2个月特朗普38次说"即将签"</text>
+
+  <!-- Weekend watch -->
+  <text x="430" y="430" fill="#DC2626" font-size="12" font-weight="600">周末盯紧！协议签署决定下周方向</text>
 </svg>

@@ -1,80 +1,72 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" font-family="-apple-system,PingFang SC,Microsoft YaHei,sans-serif">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#FFF7ED"/>
-      <stop offset="100%" stop-color="#FFEDD5"/>
+      <stop offset="0%" stop-color="#FFFBEB"/>
+      <stop offset="100%" stop-color="#FEF3C7"/>
     </linearGradient>
-    <linearGradient id="bar" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#DC2626"/>
-      <stop offset="100%" stop-color="#B91C1C"/>
+    <linearGradient id="bluebar" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1A56DB"/>
+      <stop offset="100%" stop-color="#1E40AF"/>
+    </linearGradient>
+    <linearGradient id="orngbar" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#EA580C"/>
+      <stop offset="100%" stop-color="#C2410C"/>
     </linearGradient>
   </defs>
 
-  <!-- Background -->
   <rect width="800" height="500" fill="url(#bg)" rx="12"/>
 
-  <!-- Title bar -->
-  <rect x="0" y="0" width="800" height="56" fill="url(#bar)" rx="12"/>
-  <rect x="0" y="28" width="800" height="28" fill="url(#bar)"/>
-  <text x="400" y="37" text-anchor="middle" fill="white" font-size="22" font-weight="700">特朗普最后期限今夜到期 · 黄金跌至6月低点4070</text>
+  <rect x="0" y="0" width="800" height="56" fill="url(#bluebar)" rx="12"/>
+  <rect x="0" y="28" width="800" height="28" fill="url(#bluebar)"/>
+  <text x="400" y="37" text-anchor="middle" fill="white" font-size="22" font-weight="700">原油暴跌近6% · 黄金V反重回4200 · SpaceX今日挂牌</text>
 
-  <!-- Panel 1: Trump Iran -->
-  <rect x="30" y="75" width="360" height="400" fill="white" rx="10" stroke="#FECACA" stroke-width="1.5"/>
-  <rect x="30" y="75" width="360" height="38" fill="#DC2626" rx="10"/>
-  <rect x="30" y="95" width="360" height="18" fill="#DC2626"/>
-  <text x="210" y="100" text-anchor="middle" fill="white" font-size="16" font-weight="700">🔥 特朗普·伊朗最后期限</text>
+  <!-- Panel 1: Oil + Gold -->
+  <rect x="30" y="75" width="360" height="400" fill="white" rx="10" stroke="#FED7AA" stroke-width="1.5"/>
+  <rect x="30" y="75" width="360" height="38" fill="#16A34A" rx="10"/>
+  <rect x="30" y="95" width="360" height="18" fill="#16A34A"/>
+  <text x="210" y="100" text-anchor="middle" fill="white" font-size="16" font-weight="700">🛢️ 原油 · 🥇 黄金</text>
 
-  <!-- Timeline -->
-  <text x="50" y="140" fill="#1E293B" font-size="14" font-weight="700">⏰ 美东6月12日午夜到期</text>
-  <text x="50" y="164" fill="#475569" font-size="13">"若伊朗不签协议，将把它炸个稀巴烂"</text>
+  <!-- Oil section -->
+  <text x="50" y="140" fill="#1E293B" font-size="14" font-weight="700">📉 原油暴跌</text>
+  <text x="210" y="190" text-anchor="middle" fill="#16A34A" font-size="46" font-weight="800">-5.6%</text>
+  <text x="210" y="212" text-anchor="middle" fill="#1E293B" font-size="13">布伦特原油跌至 $88.50-89.17</text>
+  <text x="210" y="232" text-anchor="middle" fill="#475569" font-size="12">WTI 跌至 $85.86-87.17</text>
 
-  <!-- Military facts -->
-  <rect x="50" y="185" width="320" height="55" fill="#FEF2F2" rx="6" stroke="#FECACA" stroke-width="1"/>
-  <text x="70" y="208" fill="#DC2626" font-size="12" font-weight="600">美军已发射49枚战斧巡航导弹</text>
-  <text x="70" y="228" fill="#DC2626" font-size="12">伊朗声称攻击18处美军目标</text>
+  <rect x="50" y="250" width="320" height="50" fill="#FFF7ED" rx="6" stroke="#FED7AA" stroke-width="1"/>
+  <text x="70" y="272" fill="#EA580C" font-size="12" font-weight="600">$10战争溢价正在蒸发</text>
+  <text x="70" y="290" fill="#475569" font-size="11">和平协议后布油可能跌至$80-85</text>
 
-  <!-- Diplomatic -->
-  <rect x="50" y="255" width="320" height="50" fill="#EFF6FF" rx="6" stroke="#BFDBFE" stroke-width="1"/>
-  <text x="70" y="278" fill="#1E40AF" font-size="12" font-weight="600">巴基斯坦仍在斡旋间接谈判</text>
+  <!-- Gold section -->
+  <text x="50" y="330" fill="#1E293B" font-size="14" font-weight="700">📈 黄金V型反攻</text>
+  <text x="210" y="370" text-anchor="middle" fill="#D4A017" font-size="40" font-weight="800">$4,200+</text>
+  <text x="210" y="392" text-anchor="middle" fill="#1E293B" font-size="13">从低点 $4,023 → 重回 $4,200-4,222</text>
 
-  <!-- Two paths -->
-  <text x="50" y="326" fill="#1E293B" font-size="13" font-weight="700">今夜两条路径</text>
+  <rect x="50" y="410" width="320" height="40" fill="#F0FDF4" rx="6" stroke="#BBF7D0" stroke-width="1"/>
+  <text x="70" y="434" fill="#16A34A" font-size="12">美元指数跌破100至99.69 支撑金价</text>
 
-  <rect x="50" y="340" width="320" height="50" fill="#FEF2F2" rx="6" stroke="#FECACA" stroke-width="1"/>
-  <text x="70" y="360" fill="#DC2626" font-size="12" font-weight="600">🔴 路径A（升级）</text>
-  <text x="70" y="380" fill="#475569" font-size="11">大规模打击 → 霍尔木兹封锁 → 布油$100+</text>
+  <!-- Panel 2: SpaceX IPO -->
+  <rect x="410" y="75" width="360" height="400" fill="white" rx="10" stroke="#BFDBFE" stroke-width="1.5"/>
+  <rect x="410" y="75" width="360" height="38" fill="#7C3AED" rx="10"/>
+  <rect x="410" y="95" width="360" height="18" fill="#7C3AED"/>
+  <text x="590" y="100" text-anchor="middle" fill="white" font-size="16" font-weight="700">🚀 SpaceX IPO</text>
 
-  <rect x="50" y="400" width="320" height="50" fill="#F0FDF4" rx="6" stroke="#BBF7D0" stroke-width="1"/>
-  <text x="70" y="420" fill="#16A34A" font-size="12" font-weight="600">🟢 路径B（缓和）</text>
-  <text x="70" y="440" fill="#475569" font-size="11">框架协议 → 停火 → 布油回落至$85-88</text>
+  <!-- Key data -->
+  <text x="590" y="165" text-anchor="middle" fill="#1E293B" font-size="14" font-weight="700">发行价 $135/股</text>
+  <text x="590" y="190" text-anchor="middle" fill="#7C3AED" font-size="40" font-weight="800">$1.75T</text>
+  <text x="590" y="212" text-anchor="middle" fill="#1E293B" font-size="13">市值1.75万亿美元 · 史上最大IPO</text>
 
-  <!-- Panel 2: Gold + Oil -->
-  <rect x="410" y="75" width="360" height="400" fill="white" rx="10" stroke="#FED7AA" stroke-width="1.5"/>
-  <rect x="410" y="75" width="360" height="38" fill="#EA580C" rx="10"/>
-  <rect x="410" y="95" width="360" height="18" fill="#EA580C"/>
-  <text x="590" y="100" text-anchor="middle" fill="white" font-size="16" font-weight="700">🥇 黄金 · 🛢️ 原油</text>
+  <!-- Details -->
+  <rect x="430" y="230" width="320" height="70" fill="#FAF5FF" rx="6" stroke="#E9D5FF" stroke-width="1"/>
+  <text x="450" y="254" fill="#7C3AED" font-size="12" font-weight="600">零售订单超$700亿</text>
+  <text x="450" y="276" fill="#475569" font-size="12">公开发行仅3-4% · 流动性极低</text>
 
-  <!-- Gold -->
-  <text x="430" y="140" fill="#1E293B" font-size="14" font-weight="700">📉 黄金跌至6个月低点</text>
+  <!-- Price expectations -->
+  <rect x="430" y="315" width="320" height="70" fill="#FFFBEB" rx="6" stroke="#FDE68A" stroke-width="1"/>
+  <text x="450" y="338" fill="#D4A017" font-size="12" font-weight="600">衍生品隐含开盘 $176-183 (+30-36%)</text>
+  <text x="450" y="358" fill="#475569" font-size="12">Cramer喊$5万亿 · Morningstar算$7800亿</text>
 
-  <!-- Gold big number -->
-  <text x="590" y="190" text-anchor="middle" fill="#EA580C" font-size="46" font-weight="800">$4,059</text>
-  <text x="590" y="212" text-anchor="middle" fill="#475569" font-size="13">盘中最低 $4,023 · 收于 $4,059-4,069</text>
-
-  <!-- Gold details -->
-  <rect x="430" y="230" width="320" height="60" fill="#FFF7ED" rx="6" stroke="#FED7AA" stroke-width="1"/>
-  <text x="450" y="252" fill="#EA580C" font-size="12" font-weight="600">从 ATH $5,477 回撤 -28.13%</text>
-  <text x="450" y="272" fill="#475569" font-size="12">技术上已进入熊市区间</text>
-
-  <!-- Oil -->
-  <text x="430" y="320" fill="#1E293B" font-size="14" font-weight="700">🛢️ 原油高位震荡</text>
-
-  <rect x="430" y="335" width="320" height="45" fill="#EFF6FF" rx="6" stroke="#BFDBFE" stroke-width="1"/>
-  <text x="450" y="356" fill="#1E40AF" font-size="12">布伦特 $93.74-93.88/桶</text>
-  <text x="450" y="372" fill="#1E40AF" font-size="12">WTI $90.59/桶</text>
-
-  <!-- Oil breakdown -->
-  <rect x="430" y="395" width="320" height="55" fill="#FFFBEB" rx="6" stroke="#FDE68A" stroke-width="1"/>
-  <text x="450" y="416" fill="#D4A017" font-size="12" font-weight="600">布油 = $85 基本面 + $10 风险溢价</text>
-  <text x="450" y="436" fill="#475569" font-size="11">市场在赌战争爆发，停火后溢价将消失</text>
+  <!-- MSCI inclusion -->
+  <rect x="430" y="400" width="320" height="50" fill="#EFF6FF" rx="6" stroke="#BFDBFE" stroke-width="1"/>
+  <text x="450" y="422" fill="#1E40AF" font-size="12" font-weight="600">MSCI宣布 T+1 (6/13)纳入指数</text>
+  <text x="450" y="440" fill="#1E40AF" font-size="11">指数基金被动增持 → 极度稀缺筹码</text>
 </svg>
