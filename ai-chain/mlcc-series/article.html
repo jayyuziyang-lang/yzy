@@ -195,7 +195,7 @@
 
     <div class="video-container">
       <video loop muted playsinline controls preload="none"
-             poster="../assets/images/mlcc_structure_cover.png"
+             poster="assets/images/mlcc_structure_cover.jpg"
              style="width:100%; aspect-ratio:16/9; background:#F8FAFC;">
         <source src="media/mlcc_structure.mp4" type="video/mp4">
         <source src="media/mlcc_structure.webm" type="video/webm">
@@ -253,7 +253,7 @@
 
     <div class="video-container">
       <video loop muted playsinline controls preload="none"
-             poster="../assets/images/mlcc_process_cover.png"
+             poster="assets/images/mlcc_process_cover.jpg"
              style="width:100%; aspect-ratio:16/9; background:#F8FAFC;">
         <source src="media/mlcc_process.mp4" type="video/mp4">
         <source src="media/mlcc_process.webm" type="video/webm">
@@ -775,6 +775,26 @@
      JavaScript
      ============================================================ -->
 <script src="js/main.js"></script>
+
+<!-- Lazy load videos to reduce stutter -->
+<script>
+(function(){
+  'use strict';
+  if (!('IntersectionObserver' in window)) return;
+  var vids = document.querySelectorAll('video[preload="none"]');
+  if (!vids.length) return;
+  var obs = new IntersectionObserver(function(e){
+    e.forEach(function(en){
+      if (!en.isIntersecting) return;
+      var v = en.target;
+      v.preload = 'metadata';
+      v.load();
+      obs.unobserve(v);
+    });
+  }, { rootMargin: '300px 0px' });
+  [].forEach.call(vids, function(v){ obs.observe(v); });
+})();
+</script>
 
 </body>
 </html>
