@@ -136,7 +136,7 @@
       </div>
     </div>
 
-    <p>从200颗到5000颗，这不是线性增长——这是指数级的需求爆发。而驱动这个爆发的，是GPU功耗从700W（H100）到2700W（GB200）的跃升。功耗↑ → 电流↑ → 电压纹波↑ → 需要更多的电容来"稳压"。这就是本文的核心故事线。</p>
+    <p>从200颗到5000颗，<span class="highlight">这不是线性增长——这是指数级的需求爆发</span>。而驱动这个爆发的，是GPU功耗从700W（H100）到2700W（GB200）的跃升。<span class="key-point">功耗↑ → 电流↑ → 电压纹波↑ → 需要更多的电容来"稳压"</span>。这就是本文的核心故事线。</p>
 
     <p>以下Sankey图展示了从GPU功耗到MLCC供应商的完整传导链。每一条连线的粗细，对应着功率和需求的大小。</p>
 
@@ -157,8 +157,9 @@
   </section>
 
   <!-- ==========================================================
-       §2 它到底是什么——千层蛋糕的物理直觉
+       §2
        ========================================================== -->
+  <hr class="section-divider">
   <section id="s2" class="section">
     <h2 class="section-title">
       <span class="section-number">2</span>
@@ -168,7 +169,7 @@
 
     <p class="lead">在理解MLCC为什么对AI服务器如此重要之前，我们需要先回答一个更基础的问题：它到底是什么？它长什么样？它为什么叫"电子大米"？</p>
 
-    <h3 style="font-size:20px; color:var(--text); margin:28px 0 12px;">电容是什么——先理解"电的水桶"</h3>
+    <h3 class="sub-title">电容是什么——先理解"电的水桶"</h3>
 
     <p>电容是电子电路中最基础的三大被动元件之一（另外两个是电阻和电感）。它的核心功能可以类比为一个<strong>微型水库</strong>：</p>
 
@@ -185,7 +186,7 @@
 
     <p>任何一个电子设备都离不开电容——你手机里有上千颗，笔记本电脑里有几千颗。它们安静地守在每一条供电线路旁，确保电压稳定、信号干净。没有它们，你的设备开机瞬间就会因为电压波动而崩溃。</p>
 
-    <h3 style="font-size:20px; color:var(--text); margin:28px 0 12px;">MLCC为什么是"千层蛋糕"</h3>
+    <h3 class="sub-title">MLCC为什么是"千层蛋糕"</h3>
 
     <p>MLCC的全称是Multi-Layer Ceramic Capacitor——多层陶瓷电容器。名称已经揭示了它的结构：在陶瓷介质薄片（通常是钛酸钡BaTiO₃）上印刷金属电极（通常是镍Ni），然后像千层蛋糕一样<strong>交替堆叠数百层</strong>，高温烧结成一体。</p>
 
@@ -220,7 +221,7 @@
       </div>
     </div>
 
-    <h3 style="font-size:20px; color:var(--text); margin:28px 0 12px;">为什么叫"电子大米"</h3>
+    <h3 class="sub-title">为什么叫"电子大米"</h3>
 
     <p>日本产业界把MLCC称为<strong>「電子機器のコメ」</strong>（电子设备的大米）。这个比喻精准得令人印象深刻：</p>
 
@@ -241,8 +242,9 @@
   </section>
 
   <!-- ==========================================================
-       §3 怎么造出来的——9道工序的物理之旅
+       §3
        ========================================================== -->
+  <hr class="section-divider">
   <section id="s3" class="section">
     <h2 class="section-title">
       <span class="section-number">3</span>
@@ -250,7 +252,7 @@
     </h2>
     <p class="section-subtitle">不是罗列工序，而是理解每一步的物理过程——以及为什么每一步都很难</p>
 
-    <p class="lead">MLCC的制造不是组装，而是<strong>精密加工与材料科学的深度交叉</strong>。整个过程可以总结为一条物理主线：把陶瓷变成液体（浆料）→ 铺成极薄的膜 → 印上电极图案 → 交替堆叠 → 高压融合 → 切成小块 → 高温烧成陶瓷 → 磨圆棱角 → 装上导电端头 → 镀上焊接层。</p>
+    <p class="lead">MLCC的制造不是组装，而是<span class="highlight">精密加工与材料科学的深度交叉</span>。整个过程可以总结为一条物理主线：把陶瓷变成液体（浆料）→ 铺成极薄的膜 → 印上电极图案 → 交替堆叠 → 高压融合 → 切成小块 → 高温烧成陶瓷 → 磨圆棱角 → 装上导电端头 → 镀上焊接层。</p>
 
     <div class="video-container">
       <video loop muted playsinline controls preload="auto"
@@ -281,8 +283,9 @@
   </section>
 
   <!-- ==========================================================
-       §4 为什么AI需要它——纳秒级的物理定律
+       §4
        ========================================================== -->
+  <hr class="section-divider">
   <section id="s4" class="section">
     <h2 class="section-title">
       <span class="section-number">4</span>
@@ -292,7 +295,7 @@
 
     <p class="lead">这一节是本文的核心论述。前面我们讲了MLCC是什么、怎么造，现在要回答最关键的问题：<strong>为什么GPU越强，需要的MLCC越多？</strong>答案不在经济学里，在物理定律里。</p>
 
-    <h3 style="font-size:20px; color:var(--text); margin:28px 0 12px;">GPU的"用电脉冲"问题</h3>
+    <h3 class="sub-title">GPU的"用电脉冲"问题</h3>
 
     <p>想象你正在用一台大功率水泵从水库里抽水。水泵启动的瞬间，水管的压力会猛跌一下——这就是"瞬态压降"。GPU面临的是同样的问题，但时间尺度要快一百万倍：</p>
 
@@ -315,7 +318,7 @@
 
     <p>答案是：<strong>电容</strong>——具体来说，是紧贴在GPU旁的MLCC阵列。它们就像贴身保镖，在"大部队"（VRM和PSU）赶到之前先顶上。</p>
 
-    <p>你可以把MLCC理解为<strong>"电RAM"</strong>——它是GPU供电系统中最快响应的那一层缓存。PSU是硬盘（大容量但慢），VRM是内存（中等容量和速度），而MLCC是L1缓存——极快、极小、离GPU最近。GPU功耗越大、电流跳变越快，就需要越大的"L1缓存"来缓冲。</p>
+    <p>你可以把MLCC理解为<span class="highlight">"电RAM"</span>——它是GPU供电系统中最快响应的那一层缓存。<span class="key-point">PSU是硬盘（大容量但慢），VRM是内存（中等容量和速度），而MLCC是L1缓存</span>——极快、极小、离GPU最近。GPU功耗越大、电流跳变越快，就需要越大的"L1缓存"来缓冲。</p>
 
     <div class="chart-container">
       <iframe src="charts/usage_per_device.html" loading="lazy"
@@ -323,13 +326,13 @@
     </div>
     <p class="chart-caption">图：单设备MLCC用量对比——AI服务器与电动车是增长核心。来源：村田/Murata产品规格书、TDK技术资料 | 2024-2025</p>
 
-    <h3 style="font-size:20px; color:var(--text); margin:28px 0 12px;">一个经典翻车案例：RTX 3080的POSCAP事故</h3>
+    <h3 class="sub-title">一个经典翻车案例：RTX 3080的POSCAP事故</h3>
 
     <p>2020年，NVIDIA RTX 3080显卡上市后出现大规模游戏崩溃事件。玩家发现当GPU核心频率超过2.0GHz时，屏幕会突然黑屏或弹回桌面。经过社区深入排查，问题出在<strong>电容配置</strong>上：</p>
 
     <p>RTX 3080的GPU供电回路有两种电容方案——POSCAP（全固态钽电容，容量大但响应慢）和MLCC阵列（陶瓷电容，响应快）。部分显卡制造商为了降低成本，<strong>全部使用了POSCAP而减少了MLCC的数量</strong>。结果就是：当GPU在纳秒内从低负载跳到高负载时，POSCAP来不及响应，电压瞬间跌落，GPU核心工作不稳定，导致崩溃。</p>
 
-    <p>后来的修复方案：在POSCAP旁边增加MLCC阵列——<strong>让快的（MLCC）处理高频瞬态，慢的（POSCAP）处理低频波动</strong>。这个案例完美说明了为什么MLCC在高速数字电路中不可替代——不是因为它容量大，而是因为它足够快。</p>
+    <div class="pull-quote">后来的修复方案：在POSCAP旁边增加MLCC阵列——让快的（MLCC）处理高频瞬态，慢的（POSCAP）处理低频波动。这个案例完美说明了为什么MLCC在高速数字电路中不可替代——不是因为它容量大，而是因为它足够快。</div>
 
     <div class="insight-card">
       <div class="insight-label">核心逻辑链</div>
@@ -339,8 +342,9 @@
   </section>
 
   <!-- ==========================================================
-       §5 全球竞争格局——寡头与替代
+       §5
        ========================================================== -->
+  <hr class="section-divider">
   <section id="s5" class="section">
     <h2 class="section-title">
       <span class="section-number">5</span>
@@ -394,8 +398,9 @@
   </section>
 
   <!-- ==========================================================
-       §6 市场与周期——从白菜价到战略物资
+       §6
        ========================================================== -->
+  <hr class="section-divider">
   <section id="s6" class="section">
     <h2 class="section-title">
       <span class="section-number">6</span>
@@ -423,16 +428,16 @@
     </div>
     <p class="chart-caption">图：MLCC价格周期波动——普通规格(虚线)是强周期品，高端规格(实线)价格中枢持续上移。来源：行业公开报价数据、券商行业研究公开摘要 | 截至2025Q1</p>
 
-    <p>本轮AI驱动的MLCC需求与历史上的周期波动有一个本质区别：</p>
+    <p>本轮AI驱动的MLCC需求与历史上的周期波动有<span class="highlight">一个本质区别</span>：</p>
 
     <div class="card-grid">
       <div class="card">
-        <h3>历史上（2017-2018）</h3>
+        <h3><span class="tag-blue" style="margin-right:6px;">周期</span> 历史上（2017-2018）</h3>
         <p>需求来自手机和汽车的<strong>周期性补库</strong>——每家厂商多备了2-3个月的库存，囤货需求放大了实际需求。一旦库存消化完毕，需求回落，价格暴跌。</p>
       </div>
       <div class="card">
-        <h3>本轮（2024-）</h3>
-        <p>AI服务器的MLCC需求是<strong>结构性增量</strong>——GPU功耗每翻一倍，单GPU外围MLCC数量就要增加50%以上。这不是囤货行为，是物理定律驱动的硬需求。</p>
+        <h3><span class="tag-blue" style="margin-right:6px;">结构性</span> 本轮（2024-）</h3>
+        <p>AI服务器的MLCC需求是<strong>结构性增量</strong>——GPU功耗每翻一倍，单GPU外围MLCC数量就要增加50%以上。<span class="highlight">这不是囤货行为，是物理定律驱动的硬需求</span>。</p>
       </div>
     </div>
 
@@ -460,8 +465,9 @@
   </section>
 
   <!-- ==========================================================
-       §7 关键公司客观档案
+       §7
        ========================================================== -->
+  <hr class="section-divider">
   <section id="s7" class="section">
     <h2 class="section-title">
       <span class="section-number">7</span>
@@ -625,8 +631,9 @@
   </section>
 
   <!-- ==========================================================
-       §8 趋势展望与催化剂
+       §8
        ========================================================== -->
+  <hr class="section-divider">
   <section id="s8" class="section">
     <h2 class="section-title">
       <span class="section-number">8</span>
@@ -636,17 +643,17 @@
 
     <p class="lead">MLCC产业链正处于一个关键拐点。需求端由AI和电动车两股结构性力量驱动，供给端则面临技术壁垒和扩产周期的双重约束。以下是未来12-24个月最重要的几个观察窗口：</p>
 
-    <h3 style="font-size:20px; color:var(--text); margin:28px 0 12px;">1. NVIDIA认证——国产MLCC的"进门证"</h3>
+    <h3 class="sub-title">1. NVIDIA认证——国产MLCC的"进门证"</h3>
 
     <p>NVIDIA的供应商认证体系分为三个层级：Alpha（设计验证）→ Beta（小批量验证）→ Gamma（量产资格）。2025年风华高科通过Gamma认证是一个标志性事件——它不仅意味着风华的产品质量通过了最严苛的验证，更意味着国产MLCC<strong>打开了进入AI服务器供应链的制度通道</strong>。</p>
 
     <p>但"进了门"不等于"坐上了主桌"。目前国产MLCC在AI服务器中的角色，可能更多集中在非核心回路的标准品上——GPU核心Vcore旁路等最关键的滤波位置，仍然由村田等日系厂商供货。下一步的关键观察点：<strong>国产MLCC能否从"边缘位置"渗透到"核心位置"</strong>。</p>
 
-    <h3 style="font-size:20px; color:var(--text); margin:28px 0 12px;">2. 产能扩张——三环和风华的速度</h3>
+    <h3 class="sub-title">2. 产能扩张——三环和风华的速度</h3>
 
     <p>三环集团的目标是月产能达到1200亿颗（含中高端），风华高科的目标是月产能超300亿颗。但"目标产能"和"实际产出"之间隔着良率、设备调试、工艺稳定的挑战。特别是在高端规格上，良率可能是标准品的50-70%——这意味着一条理论上能产100亿颗的线，实际只能产出50-70亿颗合格的高端品。</p>
 
-    <h3 style="font-size:20px; color:var(--text); margin:28px 0 12px;">3. 国产替代路径图</h3>
+    <h3 class="sub-title">3. 国产替代路径图</h3>
 
     <div class="card">
       <h3>从Gamma到主力供应商——还需要经过三个阶段</h3>
@@ -655,7 +662,7 @@
       <p style="margin-top:10px;"><strong>第三阶段（2028+）：技术追赶</strong>——在01005/008004等下一代尺寸、介质厚度<0.3μm等核心技术指标上接近日系水平。这需要持续的研发投入和工艺积累。</p>
     </div>
 
-    <h3 style="font-size:20px; color:var(--text); margin:28px 0 12px;">4. 关键风险</h3>
+    <h3 class="sub-title">4. 关键风险</h3>
 
     <div class="card-grid">
       <div class="card">
@@ -674,7 +681,7 @@
 
     <div class="insight-card amber">
       <div class="insight-label">关键观察窗口</div>
-      <p><strong>2026年下半年</strong>：NVIDIA Rubin平台发布——单GPU MLCC用量是否如期达到~5000颗？<strong>2027年上半年</strong>：国产MLCC厂商能否获得Rubin平台的核心回路供货资格？这两个时点将决定国产替代叙事是"进入兑现期"还是"继续等待"。</p>
+      <p><span class="key-point">2026年下半年</span>：NVIDIA Rubin平台发布——单GPU MLCC用量是否如期达到~5000颗？<span class="key-point">2027年上半年</span>：国产MLCC厂商能否获得Rubin平台的核心回路供货资格？这两个时点将<span class="highlight">决定国产替代叙事是"进入兑现期"还是"继续等待"</span>。</p>
     </div>
   </section>
 
