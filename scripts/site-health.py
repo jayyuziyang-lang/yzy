@@ -79,7 +79,7 @@ def main():
                     # Check nav bar
                     with open(article_path, encoding='utf-8') as f:
                         html = f.read()
-                    has_nav = 'top-nav' in html and '返回首页' in html
+                    has_nav = ('top-nav' in html or 'site-top-bar' in html) and '返回首页' in html
                     check(has_nav, f'{date_str} {session_key} — nav bar present')
                 else:
                     check(False, f'{date_str} {session_key} — file missing: {url}')
@@ -102,7 +102,7 @@ def main():
                 if os.path.exists(ap):
                     with open(ap, encoding='utf-8') as f:
                         html = f.read()
-                    has_nav = 'top-nav' in html and '返回首页' in html
+                    has_nav = ('top-nav' in html or 'site-top-bar' in html) and '返回首页' in html
                     check(has_nav, f'AI: {aa.get("title","?")} — article.html + nav')
                 else:
                     check(False, f'AI: {aa.get("title","?")} — file MISSING: {url}')
