@@ -6,10 +6,7 @@
 <meta name="description" content="MLCC（多层陶瓷电容器）产业链深度研究——从电子大米到AI服务器供电命脉，客观呈现MLCC高端化趋势与国产替代现状。">
 <title>电子大米——MLCC如何成为AI服务器供电命脉 | 扬说·产业链 第1期</title>
 <link rel="stylesheet" href="css/style.css">
-<style>
-  /* ============================================================
-     适配扬说财经网站 — 返回首页导航栏
-     ============================================================ */
+<style>  <!-- 适配扬说财经网站 — 返回首页导航栏 -->
   .site-top-bar {
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -47,18 +44,15 @@
     border-radius: 8px;
     font-weight: 600;
   }
-
   /* 调整顶距以容纳双导航栏 */
   .top-nav { top: 44px !important; }
   .article-header { padding-top: 144px !important; }
   @media (max-width: 768px) {
     .article-header { padding-top: 124px !important; }
     .top-nav-links { display: flex !important; }
-  }
-</style>
+  }</style>
 </head>
 <body>
-
 <!-- ============================================================
      扬说财经返回导航栏
      ============================================================ -->
@@ -68,11 +62,13 @@
   <span class="nav-edition">第1期</span>
 </nav>
 
+
+
 <!-- ============================================================
-     顶部导航栏（原文章目录导航）
+     顶部导航栏
      ============================================================ -->
 <nav class="top-nav" role="navigation" aria-label="顶部导航">
-  <div class="logo">电子大米<span>| MLCC产业链深度</span></div>
+  <div class="logo">扬说·产业链<span>| 第1期</span></div>
   <div class="top-nav-links">
     <a href="#s1">引语</a>
     <a href="#s2">是什么</a>
@@ -123,7 +119,9 @@
      ============================================================ -->
 <main class="main-content">
 
-  <!-- §1 -->
+  <!-- ==========================================================
+       §1 为什么现在要谈MLCC
+       ========================================================== -->
   <section id="s1" class="section">
     <h2 class="section-title">
       <span class="section-number">1</span>
@@ -155,7 +153,12 @@
     <p>以下Sankey图展示了从GPU功耗到MLCC供应商的完整传导链。每一条连线的粗细，对应着功率和需求的大小。</p>
 
     <div class="chart-container">
-      <img src="charts/ai_position_sankey.svg" alt="AI算力传导至MLCC需求的链路图" style="width:100%; height:auto;">
+      <iframe src="charts/ai_position_sankey.html"
+              loading="lazy"
+              style="width:100%; height:700px; border:none;"
+              title="MLCC在AI硬件产业链中的位置 Sankey图"
+              sandbox="allow-scripts allow-same-origin">
+      </iframe>
     </div>
     <p class="chart-caption">数据来源：Morgan Stanley VR200 BOM拆解(2025)、村田/TDK公开技术资料、行业研究报告 | 数据时间：2024-2025</p>
 
@@ -165,7 +168,9 @@
     </div>
   </section>
 
-  <!-- §2 -->
+  <!-- ==========================================================
+       §2 它到底是什么——千层蛋糕的物理直觉
+       ========================================================== -->
   <section id="s2" class="section">
     <h2 class="section-title">
       <span class="section-number">2</span>
@@ -202,6 +207,7 @@
 
     <div class="video-container">
       <video loop muted playsinline controls
+             poster="../assets/images/mlcc_structure_cover.png"
              style="width:100%; aspect-ratio:16/9; background:#F8FAFC;">
         <source src="media/mlcc_structure.mp4" type="video/mp4">
         <source src="media/mlcc_structure.webm" type="video/webm">
@@ -245,7 +251,9 @@
     </div>
   </section>
 
-  <!-- §3 -->
+  <!-- ==========================================================
+       §3 怎么造出来的——9道工序的物理之旅
+       ========================================================== -->
   <section id="s3" class="section">
     <h2 class="section-title">
       <span class="section-number">3</span>
@@ -257,6 +265,7 @@
 
     <div class="video-container">
       <video loop muted playsinline controls
+             poster="../assets/images/mlcc_process_cover.png"
              style="width:100%; aspect-ratio:16/9; background:#F8FAFC;">
         <source src="media/mlcc_process.mp4" type="video/mp4">
         <source src="media/mlcc_process.webm" type="video/webm">
@@ -281,7 +290,9 @@
     </div>
   </section>
 
-  <!-- §4 -->
+  <!-- ==========================================================
+       §4 为什么AI需要它——纳秒级的物理定律
+       ========================================================== -->
   <section id="s4" class="section">
     <h2 class="section-title">
       <span class="section-number">4</span>
@@ -317,7 +328,8 @@
     <p>你可以把MLCC理解为<strong>"电RAM"</strong>——它是GPU供电系统中最快响应的那一层缓存。PSU是硬盘（大容量但慢），VRM是内存（中等容量和速度），而MLCC是L1缓存——极快、极小、离GPU最近。GPU功耗越大、电流跳变越快，就需要越大的"L1缓存"来缓冲。</p>
 
     <div class="chart-container">
-      <img src="charts/usage_per_device.svg" alt="单设备MLCC用量对比条形图" style="width:100%; height:auto;">
+      <iframe src="charts/usage_per_device.html" loading="lazy"
+              title="单设备MLCC用量对比" style="height:480px;"></iframe>
     </div>
     <p class="chart-caption">图：单设备MLCC用量对比——AI服务器与电动车是增长核心。来源：村田/Murata产品规格书、TDK技术资料 | 2024-2025</p>
 
@@ -336,7 +348,9 @@
     </div>
   </section>
 
-  <!-- §5 -->
+  <!-- ==========================================================
+       §5 全球竞争格局——寡头与替代
+       ========================================================== -->
   <section id="s5" class="section">
     <h2 class="section-title">
       <span class="section-number">5</span>
@@ -347,7 +361,8 @@
     <p class="lead">MLCC的竞争格局不是一个均匀分布的市场。在整体出货量上，各家份额看起来还算分散；但在AI服务器所需的高端MLCC领域，集中度极高。</p>
 
     <div class="chart-container">
-      <img src="charts/market_share.svg" alt="全球MLCC市占率饼图" style="width:100%; height:auto;">
+      <iframe src="charts/market_share.html" loading="lazy"
+              title="全球MLCC市占率" style="height:550px;"></iframe>
     </div>
     <p class="chart-caption">图：全球MLCC市占率——整体vs高端。来源：TrendForce集邦咨询、各公司财报 | 注：部分数据为行业共识区间</p>
 
@@ -373,7 +388,12 @@
     </div>
 
     <div class="chart-container">
-      <img src="charts/supply_chain.svg" alt="MLCC供应链全景图" style="width:100%; height:auto;">
+      <iframe src="charts/supply_chain_d3.html"
+              loading="lazy"
+              style="width:100%; height:700px; border:none;"
+              title="MLCC产业链拓扑图（交互式）"
+              sandbox="allow-scripts allow-same-origin">
+      </iframe>
     </div>
     <p class="chart-caption">图：MLCC产业链拓扑图——蓝色为日韩台厂商，橙色为中国厂商（可拖拽交互）。来源：各公司公开资料、行业研究报告</p>
 
@@ -383,7 +403,9 @@
     </div>
   </section>
 
-  <!-- §6 -->
+  <!-- ==========================================================
+       §6 市场与周期——从白菜价到战略物资
+       ========================================================== -->
   <section id="s6" class="section">
     <h2 class="section-title">
       <span class="section-number">6</span>
@@ -400,12 +422,14 @@
     </div>
 
     <div class="chart-container">
-      <img src="charts/market_size.svg" alt="全球MLCC市场规模趋势图" style="width:100%; height:auto;">
+      <iframe src="charts/market_size.html" loading="lazy"
+              title="全球MLCC市场规模" style="height:550px;"></iframe>
     </div>
     <p class="chart-caption">图：全球MLCC市场规模年度趋势。来源：TrendForce集邦咨询、JEITA行业统计 | 数据时间：2019-2025</p>
 
     <div class="chart-container">
-      <img src="charts/price_cycle.svg" alt="MLCC标准品与高端品价格对比图" style="width:100%; height:auto;">
+      <iframe src="charts/price_cycle.html" loading="lazy"
+              title="MLCC价格周期" style="height:600px;"></iframe>
     </div>
     <p class="chart-caption">图：MLCC价格周期波动——普通规格(虚线)是强周期品，高端规格(实线)价格中枢持续上移。来源：行业公开报价数据、券商行业研究公开摘要 | 截至2025Q1</p>
 
@@ -445,7 +469,9 @@
     </div>
   </section>
 
-  <!-- §7 -->
+  <!-- ==========================================================
+       §7 关键公司客观档案
+       ========================================================== -->
   <section id="s7" class="section">
     <h2 class="section-title">
       <span class="section-number">7</span>
@@ -453,13 +479,15 @@
     </h2>
     <p class="section-subtitle">全球主要MLCC厂商及上游材料公司的公开信息陈列——仅陈述事实</p>
 
+    <!-- 免责声明 -->
     <div class="disclaimer">
       <strong>免责声明</strong>
       以下内容为产业知识科普，数据来源于各公司公开财报、投资者关系页面及行业研究报告。所有信息仅反映公开渠道可查的公司基本面事实，不构成任何形式的投资建议、买卖推荐或估值判断。
     </div>
 
     <div class="chart-container">
-      <img src="charts/tech_evolution.svg" alt="MLCC技术演进路径图" style="width:100%; height:auto;">
+      <iframe src="charts/tech_evolution.html" loading="lazy"
+              title="MLCC技术演进图" style="height:650px;"></iframe>
     </div>
     <p class="chart-caption">图：MLCC技术演进路径——更小尺寸、更多层数、更大容值。来源：村田产品规格书、TDK技术白皮书 | 数据时间：2024</p>
 
@@ -606,7 +634,9 @@
     </p>
   </section>
 
-  <!-- §8 -->
+  <!-- ==========================================================
+       §8 趋势展望与催化剂
+       ========================================================== -->
   <section id="s8" class="section">
     <h2 class="section-title">
       <span class="section-number">8</span>
@@ -658,7 +688,9 @@
     </div>
   </section>
 
-  <!-- 术语表 -->
+  <!-- ==========================================================
+       术语表
+       ========================================================== -->
   <section id="glossary" class="section">
     <h2 class="section-title">
       <span class="section-number">?</span>
@@ -701,7 +733,9 @@
     </div>
   </section>
 
-  <!-- 数据来源 -->
+  <!-- ==========================================================
+       数据来源
+       ========================================================== -->
   <section id="sources" class="section">
     <h2 class="section-title">
       <span class="section-number">*</span>
@@ -726,7 +760,9 @@
     </div>
   </section>
 
-  <!-- 免责声明 -->
+  <!-- ==========================================================
+       免责声明
+       ========================================================== -->
   <section id="disclaimer" class="section">
     <div class="disclaimer">
       <strong>免责声明</strong>
@@ -742,8 +778,14 @@
 
 </main>
 
+<!-- ============================================================
+     回到顶部
+     ============================================================ -->
 <button id="back-to-top" class="back-to-top" aria-label="回到顶部" title="回到顶部">↑</button>
 
+<!-- ============================================================
+     JavaScript
+     ============================================================ -->
 <script src="js/main.js"></script>
 
 </body>
