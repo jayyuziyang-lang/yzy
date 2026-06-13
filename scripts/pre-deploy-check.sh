@@ -480,6 +480,7 @@ if [ -d "$AI_CHAIN_DIR" ]; then
         [ ! -d "$topic_dir" ] && continue
         topic_name=$(basename "$topic_dir")
         [[ "$topic_name" == .* ]] && continue
+        [[ "$topic_name" == "assets" ]] && continue
 
         echo -e "  📖 检查AI文章: $topic_name"
 
