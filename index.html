@@ -174,21 +174,31 @@
     .hero-vix-num { font-size: 20px; }
   }
 
-  /* ===== AI Chain Tab ===== */
-  .ai-card { display: flex; gap: 14px; padding: 16px 0; border-bottom: 1px solid #F1F5F9; text-decoration: none; color: inherit; }
-  .ai-card:last-child { border-bottom: none; }
-  .ai-card:active { opacity: 0.6; }
-  .ai-card .ai-icon { width: 44px; height: 44px; border-radius: 12px; background: linear-gradient(135deg,#7C3AED,#5B21B6); display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; color: #fff; }
-  .ai-card .ai-body { flex: 1; min-width: 0; }
-  .ai-card .ai-title { font-size: 14px; font-weight: 600; color: #1E293B; line-height: 1.4; }
-  .ai-card .ai-meta { font-size: 12px; color: #94A3B8; margin-top: 3px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-  .ai-card .ai-summary { font-size: 12.5px; color: #64748B; margin-top: 6px; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-  .ai-card .ai-tags { display: flex; gap: 4px; margin-top: 8px; flex-wrap: wrap; }
-  .ai-card .ai-tag { font-size: 10px; padding: 2px 8px; border-radius: 8px; background: #F3F0FF; color: #7C3AED; }
-  .ai-card .ai-status-draft { font-size: 11px; color: #D97706; background: #FFFBEB; padding: 2px 8px; border-radius: 8px; display: inline-block; }
-  .ai-card .ai-date-badge { font-size: 10px; font-weight: 600; color: #fff; background: #7C3AED; padding: 1px 8px; border-radius: 8px; display: inline-block; }
-  .ai-card .ai-crown { color: #D4A017; font-size: 11px; }
-  .ai-card .ai-arrow { font-size: 16px; color: #CBD5E1; flex-shrink: 0; align-self: center; }
+  /* ===== AI Chain Tab v2 (对标深度专题) ===== */
+  .ai-section-label { font-size: 13px; font-weight: 700; color: #1E293B; margin-bottom: 10px; padding-bottom: 6px; border-bottom: 2px solid #EDE9FE; display: flex; align-items: center; gap: 6px; }
+  .ai-featured-section { margin-bottom: 20px; }
+  .ai-featured-card { display: block; background: linear-gradient(135deg,#F5F3FF,#EDE9FE); border: 1.5px solid #DDD6FE; border-radius: 14px; padding: 18px; text-decoration: none; color: inherit; position: relative; transition: all 0.15s; }
+  .ai-featured-card:active { transform: scale(0.97); opacity: 0.7; }
+  .ai-featured-badge { display: inline-block; background: linear-gradient(135deg,#7C3AED,#5B21B6); color: #fff; font-size: 10px; font-weight: 700; padding: 2px 10px; border-radius: 8px; margin-bottom: 10px; }
+  .ai-featured-title { font-size: 16px; font-weight: 700; color: #1E293B; line-height: 1.4; margin-bottom: 8px; }
+  .ai-featured-meta { font-size: 12px; color: #6D28D9; display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+  .ai-featured-meta .dot { color: #8B5CF6; margin: 0 2px; }
+  .ai-featured-desc { font-size: 13px; color: #5B21B6; margin-top: 8px; line-height: 1.5; }
+  .ai-featured-action { margin-top: 10px; font-size: 13px; font-weight: 600; color: #7C3AED; }
+  .ai-featured-action .arrow { display: inline-block; transition: transform 0.15s; }
+  .ai-featured-card:active .ai-featured-action .arrow { transform: translateX(4px); }
+
+  .ai-history-card { display: flex; align-items: center; gap: 12px; padding: 14px 0; border-bottom: 1px solid #F1F5F9; text-decoration: none; color: inherit; }
+  .ai-history-card:last-child { border-bottom: none; }
+  .ai-history-card:active { opacity: 0.6; }
+  .ai-history-card .ai-num { width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(135deg,#7C3AED,#5B21B6); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; flex-shrink: 0; }
+  .ai-history-card .ai-body { flex: 1; min-width: 0; }
+  .ai-history-card .ai-title { font-size: 14px; font-weight: 600; color: #1E293B; }
+  .ai-history-card .ai-meta { font-size: 12px; color: #94A3B8; margin-top: 2px; }
+  .ai-history-card .ai-tags { display: flex; gap: 4px; margin-top: 4px; flex-wrap: wrap; }
+  .ai-history-card .ai-tag { font-size: 10px; padding: 2px 8px; border-radius: 8px; background: #F3F0FF; color: #7C3AED; }
+  .ai-history-card .ai-arrow { font-size: 18px; color: #CBD5E1; flex-shrink: 0; }
+  .ai-history-card .ai-status-draft { font-size: 11px; color: #D97706; background: #FFFBEB; padding: 2px 8px; border-radius: 8px; display: inline-block; }
 
   /* ===== Deep Dive Tab v2 ===== */
   .deep-section-label { font-size: 13px; font-weight: 700; color: #1E293B; margin-bottom: 10px; padding-bottom: 6px; border-bottom: 2px solid #FEF3C7; display: flex; align-items: center; gap: 6px; }
@@ -805,16 +815,81 @@ function renderAiChain() {
     try {
       var data = JSON.parse(xhr.responseText);
       var articles = data.articles || [];
-      // 按日期升序（最早发布的为 #1）
-      articles.sort(function(a, b) {
-        return a.date < b.date ? -1 : (a.date > b.date ? 1 : 0);
-      });
-      window.__aiArticles = articles;
       if (articles.length === 0) {
         container.innerHTML = '<div class="no-data"><span class="big">⏳</span>内容编辑中</div>';
         return;
       }
-      renderAiPage(container);
+      // 按日期升序（最早发布的为 #1）
+      articles.sort(function(a, b) {
+        return a.date < b.date ? -1 : (a.date > b.date ? 1 : 0);
+      });
+      var latest = articles[articles.length - 1];
+      var history = articles.slice(0, -1);
+
+      var html = '';
+
+      // === 最新内容：featured卡片 ===
+      html += '<div class="ai-featured-section">';
+      html += '<div class="ai-section-label">📅 本周深度</div>';
+
+      if (latest.url && latest.status !== 'draft') {
+        html +=
+          '<a class="ai-featured-card" href="' + latest.url + '">' +
+            '<div class="ai-featured-badge">最新</div>' +
+            '<div class="ai-featured-title">' + latest.title + '</div>' +
+            '<div class="ai-featured-meta">' +
+              '<span>' + latest.date + '</span>' +
+              (latest.readTime ? '<span class="dot">·</span><span>约' + latest.readTime + '分钟</span>' : '') +
+            '</div>' +
+            (latest.summary ? '<div class="ai-featured-desc">' + latest.summary + '</div>' : '') +
+            (latest.tags && latest.tags.length > 0 ? '<div style="margin-top:8px;display:flex;gap:4px;flex-wrap:wrap;">' + latest.tags.map(function(t){return '<span style="font-size:10px;padding:2px 8px;border-radius:8px;background:#F3F0FF;color:#7C3AED;">' + t + '</span>';}).join('') + '</div>' : '') +
+            '<div class="ai-featured-action">阅读全文 <span class="arrow">→</span></div>' +
+          '</a>';
+      } else {
+        html +=
+          '<div class="ai-featured-card" style="cursor:default;">' +
+            '<div class="ai-featured-badge" style="background:linear-gradient(135deg,#D97706,#B45309);">编辑中</div>' +
+            '<div class="ai-featured-title">' + (latest.title || '内容筹备中') + '</div>' +
+            '<div class="ai-featured-desc" style="color:#94A3B8;">即将发布，敬请期待</div>' +
+          '</div>';
+      }
+      html += '</div>';
+
+      // === 历史内容：编号列表 ===
+      if (history.length > 0) {
+        html += '<div class="deep-history-section">';
+        html += '<div class="ai-section-label">📖 历史内容</div>';
+
+        for (var j = 0; j < history.length; j++) {
+          var a = history[j];
+          var idx = j + 1;
+
+          if (a.url && a.status !== 'draft') {
+            html +=
+              '<a class="ai-history-card" href="' + a.url + '">' +
+                '<div class="ai-num">' + idx + '</div>' +
+                '<div class="ai-body">' +
+                  '<div class="ai-title">' + a.title + '</div>' +
+                  '<div class="ai-meta">' + a.date + ' · AI产业链深度' + (a.readTime ? ' · 约' + a.readTime + '分钟' : '') + '</div>' +
+                  (a.tags && a.tags.length > 0 ? '<div class="ai-tags">' + a.tags.slice(0, 3).map(function(t){return '<span class="ai-tag">' + t + '</span>';}).join('') + '</div>' : '') +
+                '</div>' +
+                '<div class="ai-arrow">›</div>' +
+              '</a>';
+          } else {
+            html +=
+              '<div class="ai-history-card" style="cursor:default;">' +
+                '<div class="ai-num" style="background:linear-gradient(135deg,#D1D5DB,#9CA3AF);">' + idx + '</div>' +
+                '<div class="ai-body">' +
+                  '<div class="ai-title" style="color:#94A3B8;">' + a.title + '</div>' +
+                  '<div class="ai-meta">' + a.date + '<span class="ai-status-draft" style="margin-left:6px;">编辑中</span></div>' +
+                '</div>' +
+              '</div>';
+          }
+        }
+        html += '</div>';
+      }
+
+      container.innerHTML = html;
     } catch(e) {
       container.innerHTML = '<div class="no-data"><span class="big">⚠️</span>数据解析失败</div>';
     }
@@ -823,69 +898,6 @@ function renderAiChain() {
     container.innerHTML = '<div class="no-data"><span class="big">⏳</span>内容编辑中</div>';
   };
   xhr.send();
-}
-
-function renderAiPage(container) {
-  var articles = window.__aiArticles;
-  var html = '';
-
-  if (articles.length === 0) {
-    container.innerHTML = '<div class="no-data"><span class="big">\u23f3</span>\u5185\u5bb9\u7f16\u8f91\u4e2d</div>';
-    return;
-  }
-
-  // \u6700\u65b0\u5185\u5bb9\uff1a\u663e\u793a\u6700\u65b0\u53d1\u5e03\u7684\u6587\u7ae0
-  var latestArticle = articles[articles.length - 1];
-  html += '<div class="today-section" style="margin-top:0;">\u6700\u65b0\u5185\u5bb9</div>';
-  html += '<div class="today-list">';
-
-  var la = latestArticle;
-  if (la.url && la.status !== 'draft') {
-    html += '<a class="edition edition-morning" href="' + la.url + '">';
-  } else {
-    html += '<div class="edition edition-morning">';
-  }
-  html +=
-    '<div class="edition-icon">\u{1F451}</div>' +
-    '<div class="edition-info">' +
-      '<div class="edition-title">' + la.title + '</div>' +
-    '</div>';
-  if (la.url && la.status !== 'draft') {
-    html += '</a>';
-  } else {
-    html += '</div>';
-  }
-  html += '</div>';
-
-  // \u5386\u53f2\u5185\u5bb9\uff1a\u6700\u65e9\u53d1\u5e03\u7684\u4e3a #1
-  var historyArticles = articles.slice(0, -1);
-  if (historyArticles.length > 0) {
-    html += '<div style="margin-top:20px;"><h2>\u5386\u53f2\u5185\u5bb9</h2></div>';
-
-    for (var i = 0; i < historyArticles.length; i++) {
-      var a = historyArticles[i];
-      var idx = i + 1;
-      var statusHtml = '';
-      if (a.status === 'draft' || !a.url) {
-        statusHtml = ' [\u7f16\u8f91\u4e2d]';
-      }
-      var dateStr = a.date || '';
-
-      html += '<div class="history-item">';
-      html += '<span class="h-icon">' + idx + '</span>';
-      if (a.url && a.status !== 'draft') {
-        html += '<a href="' + a.url + '">' + a.title + '</a>';
-      } else {
-        html += '<span style="flex:1;color:#94A3B8;font-size:13px;">' + a.title + statusHtml + '</span>';
-      }
-      if (dateStr) {
-        html += '<span class="h-time">' + dateStr + '</span>';
-      }
-      html += '</div>';
-    }
-  }
-
-  container.innerHTML = html;
 }
 
 

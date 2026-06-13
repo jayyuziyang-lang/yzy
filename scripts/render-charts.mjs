@@ -4,7 +4,7 @@ import { fileURLToPath } from 'url';
 import fs from 'fs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const CHARTS_DIR = path.resolve(__dirname, '../ai-chain/mlcc-series/charts');
+const CHARTS_DIR = path.resolve(__dirname, '../ai-chain/assets/charts');
 
 const CHARTS = [
   { file: 'ai_position_sankey.html', output: 'ai_position_sankey.png', width: 1200, height: 700 },
