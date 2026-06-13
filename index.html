@@ -190,17 +190,30 @@
   .ai-card .ai-crown { color: #D4A017; font-size: 11px; }
   .ai-card .ai-arrow { font-size: 16px; color: #CBD5E1; flex-shrink: 0; align-self: center; }
 
-  /* ===== Deep Dive Tab ===== */
-  .deep-card { display: flex; gap: 12px; padding: 16px 0; border-bottom: 1px solid #F1F5F9; text-decoration: none; color: inherit; }
-  .deep-card:last-child { border-bottom: none; }
-  .deep-card:active { opacity: 0.6; }
-  .deep-card .deep-num { width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg,#D4A017,#B8860B); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; flex-shrink: 0; }
-  .deep-card .deep-body { flex: 1; min-width: 0; }
-  .deep-card .deep-title { font-size: 14px; font-weight: 600; color: #1E293B; }
-  .deep-card .deep-meta { font-size: 12px; color: #94A3B8; margin-top: 2px; }
-  .deep-card .deep-desc { font-size: 13px; color: #64748B; margin-top: 4px; }
-  .deep-card .deep-tags { display: flex; gap: 4px; margin-top: 6px; flex-wrap: wrap; }
-  .deep-card .deep-tag { font-size: 10px; padding: 2px 8px; border-radius: 8px; background: #FFFBEB; color: #D4A017; }
+  /* ===== Deep Dive Tab v2 ===== */
+  .deep-section-label { font-size: 13px; font-weight: 700; color: #1E293B; margin-bottom: 10px; padding-bottom: 6px; border-bottom: 2px solid #FEF3C7; display: flex; align-items: center; gap: 6px; }
+  .deep-featured-section { margin-bottom: 20px; }
+  .deep-featured-card { display: block; background: linear-gradient(135deg,#FFFBEB,#FEF3C7); border: 1.5px solid #FDE68A; border-radius: 14px; padding: 18px; text-decoration: none; color: inherit; position: relative; transition: all 0.15s; }
+  .deep-featured-card:active { transform: scale(0.97); opacity: 0.7; }
+  .deep-featured-badge { display: inline-block; background: linear-gradient(135deg,#D4A017,#B8860B); color: #fff; font-size: 10px; font-weight: 700; padding: 2px 10px; border-radius: 8px; margin-bottom: 10px; }
+  .deep-featured-title { font-size: 16px; font-weight: 700; color: #1E293B; line-height: 1.4; margin-bottom: 8px; }
+  .deep-featured-meta { font-size: 12px; color: #92400E; display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+  .deep-featured-meta .dot { color: #D4A017; margin: 0 2px; }
+  .deep-featured-desc { font-size: 13px; color: #78350F; margin-top: 8px; line-height: 1.5; }
+  .deep-featured-action { margin-top: 10px; font-size: 13px; font-weight: 600; color: #D4A017; }
+  .deep-featured-action .arrow { display: inline-block; transition: transform 0.15s; }
+  .deep-featured-card:active .deep-featured-action .arrow { transform: translateX(4px); }
+
+  .deep-history-card { display: flex; align-items: center; gap: 12px; padding: 14px 0; border-bottom: 1px solid #F1F5F9; text-decoration: none; color: inherit; }
+  .deep-history-card:last-child { border-bottom: none; }
+  .deep-history-card:active { opacity: 0.6; }
+  .deep-history-card .deep-num { width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(135deg,#D4A017,#B8860B); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; flex-shrink: 0; }
+  .deep-history-card .deep-body { flex: 1; min-width: 0; }
+  .deep-history-card .deep-title { font-size: 14px; font-weight: 600; color: #1E293B; }
+  .deep-history-card .deep-meta { font-size: 12px; color: #94A3B8; margin-top: 2px; }
+  .deep-history-card .deep-tags { display: flex; gap: 4px; margin-top: 4px; flex-wrap: wrap; }
+  .deep-history-card .deep-tag { font-size: 10px; padding: 2px 8px; border-radius: 8px; background: #FFFBEB; color: #D4A017; }
+  .deep-history-card .deep-arrow { font-size: 18px; color: #CBD5E1; flex-shrink: 0; }
 </style>
 </head>
 <body>
@@ -697,7 +710,7 @@ function scheduleMidnightRefresh() {
 }
 
 // ============================================================
-// Render: Deep Dive Tab
+// Render: Deep Dive Tab — 最新单独展示 + 历史按时间排序
 // ============================================================
 function renderDeepTab() {
   var container = document.getElementById('deepList');
@@ -712,64 +725,67 @@ function renderDeepTab() {
     return;
   }
 
-  specials.sort(function(a, b) { return a.date < b.date ? 1 : -1; });
-  window.__deepSpecials = specials;
-  window.__deepPage = 1;
-  window.__deepPerPage = 5;
-  renderDeepPage(container);
-}
+  // 按日期升序（最先发布的为 #1）
+  specials.sort(function(a, b) { return a.date < b.date ? -1 : 1; });
 
-function renderDeepPage(container) {
-  var specials = window.__deepSpecials;
-  var page = window.__deepPage;
-  var perPage = window.__deepPerPage;
-  var totalPages = Math.ceil(specials.length / perPage);
-  var start = (page - 1) * perPage;
-  var end = Math.min(start + perPage, specials.length);
-  var slice = specials.slice(start, end);
+  // 最新一期单独展示
+  var latest = specials[specials.length - 1];
+  var history = specials.slice(0, -1);
+
   var html = '';
 
-  for (var j = 0; j < slice.length; j++) {
-    var s = slice[j];
-    var mediaParts = [];
-    if (s.has_audio) mediaParts.push('🎧 音频');
-    if (s.has_comic && s.comic_count > 0) mediaParts.push('📝 ' + s.comic_count + '张漫画');
-    var mediaLabel = mediaParts.length > 0 ? '<br>' + mediaParts.join(' ') : '';
+  // === 最新内容：featured卡片 ===
+  html += '<div class="deep-featured-section">';
+  html += '<div class="deep-section-label">📅 本周深度</div>';
 
-    html +=
-      '<a class="deep-card" href="' + s.url + '">' +
-        '<div class="deep-num">' + (start + j + 1) + '</div>' +
-        '<div class="deep-body">' +
-          '<div class="deep-title">' + s.title + '</div>' +
-          '<div class="deep-meta">' + s.date + ' · 系列深度' + '</div>' +
-          '<div class="deep-desc">' + mediaLabel + '</div>';
-    if (s.series) {
-      html += '<div class="deep-tags"><span class="deep-tag">' + s.series + '</span></div>';
+  var lm = [];
+  if (latest.has_audio) lm.push('🎧 音频');
+  if (latest.has_comic && latest.comic_count > 0) lm.push('📝 ' + latest.comic_count + '张漫画');
+  var lmLbl = lm.length > 0 ? lm.join(' · ') : '';
+
+  html +=
+    '<a class="deep-featured-card" href="' + latest.url + '">' +
+      '<div class="deep-featured-badge">最新</div>' +
+      '<div class="deep-featured-title">' + latest.title + '</div>' +
+      '<div class="deep-featured-meta">' +
+        '<span>' + latest.date + '</span>' +
+        (lmLbl ? '<span class="dot">·</span><span>' + lmLbl + '</span>' : '') +
+        (latest.readTime ? '<span class="dot">·</span><span>约' + latest.readTime + '分钟</span>' : '') +
+      '</div>' +
+      (latest.summary ? '<div class="deep-featured-desc">' + latest.summary + '</div>' : '') +
+      '<div class="deep-featured-action">阅读全文 <span class="arrow">→</span></div>' +
+    '</a>';
+  html += '</div>';
+
+  // === 历史内容：编号列表 ===
+  if (history.length > 0) {
+    html += '<div class="deep-history-section">';
+    html += '<div class="deep-section-label">📖 历史深度</div>';
+
+    for (var j = 0; j < history.length; j++) {
+      var s = history[j];
+      var hm = [];
+      if (s.has_audio) hm.push('🎧');
+      if (s.has_comic && s.comic_count > 0) hm.push('📝');
+      var hmStr = hm.length > 0 ? ' · ' + hm.join(' ') : '';
+
+      html +=
+        '<a class="deep-history-card" href="' + s.url + '">' +
+          '<div class="deep-num">' + (j + 1) + '</div>' +
+          '<div class="deep-body">' +
+            '<div class="deep-title">' + s.title + '</div>' +
+            '<div class="deep-meta">' + s.date + ' · 系列深度' + hmStr + '</div>';
+      if (s.series) {
+        html += '<div class="deep-tags"><span class="deep-tag">' + s.series + '</span></div>';
+      }
+      html += '</div>' +
+          '<div class="deep-arrow">›</div>' +
+        '</a>';
     }
-    html += '</div></a>';
+    html += '</div>';
   }
 
-  html += '<div class="pagination-bar">' +
-    '<button class="page-btn" onclick="deepPrevPage()"' + (page <= 1 ? ' disabled' : '') + '>‹ 上一页</button>' +
-    '<span class="page-info">' + page + ' / ' + totalPages + '</span>' +
-    '<button class="page-btn" onclick="deepNextPage()"' + (page >= totalPages ? ' disabled' : '') + '>下一页 ›</button>' +
-    '</div>';
-
   container.innerHTML = html;
-}
-
-function deepPrevPage() {
-  if (window.__deepPage <= 1) return;
-  window.__deepPage--;
-  renderDeepPage(document.getElementById('deepList'));
-}
-
-function deepNextPage() {
-  var specials = window.__deepSpecials;
-  var totalPages = Math.ceil(specials.length / window.__deepPerPage);
-  if (window.__deepPage >= totalPages) return;
-  window.__deepPage++;
-  renderDeepPage(document.getElementById('deepList'));
 }
 
 // ============================================================
