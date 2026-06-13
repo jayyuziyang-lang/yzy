@@ -1,117 +1,96 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" style="background:#FAFAFA;">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#FFFBEB"/>
-      <stop offset="100%" stop-color="#FFF8E0"/>
-    </linearGradient>
-    <linearGradient id="fire" x1="0" y1="1" x2="0" y2="0">
-      <stop offset="0%" stop-color="#EF4444"/>
-      <stop offset="100%" stop-color="#F97316"/>
-    </linearGradient>
-    <linearGradient id="peace" x1="0" y1="1" x2="0" y2="0">
-      <stop offset="0%" stop-color="#16A34A"/>
-      <stop offset="100%" stop-color="#22C55E"/>
-    </linearGradient>
-    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0">
+    <linearGradient id="headerGrad" x1="0" y1="0" x2="1" y2="0">
       <stop offset="0%" stop-color="#D4A017"/>
       <stop offset="100%" stop-color="#B8860B"/>
     </linearGradient>
+    <linearGradient id="cardGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFFDF5"/>
+      <stop offset="100%" stop-color="#FFFBEB"/>
+    </linearGradient>
     <filter id="shadow">
-      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.1"/>
+      <feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="#000" flood-opacity="0.06"/>
     </filter>
   </defs>
-  <!-- 背景 -->
-  <rect width="800" height="500" fill="url(#bg)" rx="12"/>
 
-  <!-- 标题 -->
-  <rect x="200" y="16" width="400" height="36" rx="18" fill="url(#gold)"/>
-  <text x="400" y="40" text-anchor="middle" fill="white" font-size="16" font-weight="700">🕊️ 和平曙光 · 一日三转</text>
+  <!-- Header -->
+  <rect x="0" y="0" width="800" height="50" fill="url(#headerGrad)"/>
+  <text x="400" y="32" text-anchor="middle" font-size="20" font-weight="700" fill="#fff" font-family="PingFang SC, Microsoft YaHei, sans-serif">🕊️ 美伊48小时 · 全球资本市场一日三转</text>
 
-  <!-- 左侧：周三恐慌 -->
-  <g filter="url(#shadow)">
-    <rect x="30" y="70" width="340" height="190" rx="10" fill="white" stroke="#FECACA" stroke-width="2"/>
-    <rect x="30" y="70" width="340" height="36" rx="10" fill="#FEF2F2"/>
-    <text x="200" y="93" text-anchor="middle" fill="#DC2626" font-size="14" font-weight="700">🔥 周三（6月10日）· 全面恐慌</text>
-    <!-- 阿扬角色 -->
-    <circle cx="80" cy="150" r="24" fill="#FFE4B5"/>
-    <circle cx="80" cy="142" r="12" fill="#FFD699"/>
-    <circle cx="74" cy="139" r="2" fill="#333"/>
-    <circle cx="86" cy="139" r="2" fill="#333"/>
-    <path d="M72 148 Q80 154 88 148" stroke="#333" stroke-width="1.5" fill="none"/>
-    <text x="80" y="186" text-anchor="middle" font-size="10" fill="#64748B">阿扬</text>
-    <!-- 恐慌元素 -->
-    <text x="130" y="138" font-size="11" fill="#DC2626">"道指跌破5万！"</text>
-    <text x="130" y="158" font-size="11" fill="#DC2626">"黄金闪崩到4070！"</text>
-    <text x="130" y="178" font-size="11" fill="#DC2626">"流动性挤兑！"</text>
-    <!-- 图标 -->
-    <text x="130" y="210" font-size="20">📉📉📉</text>
-    <text x="250" y="210" font-size="20">😱</text>
-    <!-- 箭头向下 -->
-    <path d="M310 120 L330 120 L330 145 L310 145 Z" fill="#FCA5A5" opacity="0.6"/>
-    <text x="320" y="137" text-anchor="middle" font-size="9" fill="#DC2626">↓</text>
-  </g>
+  <!-- Timeline: 3 key events -->
+  <!-- Event 1: Wednesday - Panic -->
+  <rect x="30" y="70" width="230" height="140" rx="10" fill="url(#cardGrad)" stroke="#FECACA" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="30" y="70" width="230" height="34" rx="10" fill="#FEF2F2"/>
+  <rect x="30" y="94" width="230" height="10" fill="#FEF2F2"/>
+  <circle cx="50" cy="87" r="12" fill="#DC2626"/>
+  <text x="50" y="91" text-anchor="middle" font-size="9" fill="#fff" font-weight="700">1</text>
+  <text x="68" y="91" font-size="13" font-weight="700" fill="#DC2626" font-family="PingFang SC, Microsoft YaHei, sans-serif">周三 · 全面恐慌</text>
+  <text x="42" y="120" font-size="11" fill="#991B1B" font-family="PingFang SC, Microsoft YaHei, sans-serif">🔴 伊朗打击美军基地</text>
+  <text x="42" y="140" font-size="11" fill="#991B1B" font-family="PingFang SC, Microsoft YaHei, sans-serif">🔴 特朗普威胁"炸个稀巴烂"</text>
+  <text x="42" y="160" font-size="11" fill="#991B1B" font-family="PingFang SC, Microsoft YaHei, sans-serif">🔴 霍尔木兹海峡关闭</text>
+  <text x="42" y="185" font-size="11" fill="#64748B" font-family="PingFang SC, Microsoft YaHei, sans-serif">道指跌破5万 · 黄金闪崩</text>
 
-  <!-- 中间：转折 -->
-  <g filter="url(#shadow)">
-    <rect x="30" y="280" width="340" height="190" rx="10" fill="white" stroke="#FDE68A" stroke-width="2"/>
-    <rect x="30" y="280" width="340" height="36" rx="10" fill="#FFFBEB"/>
-    <text x="200" y="303" text-anchor="middle" fill="#D4A017" font-size="14" font-weight="700">⏳ 周四（6月11日）· 惊天逆转</text>
-    <!-- 阿扬 -->
-    <circle cx="80" cy="355" r="24" fill="#FFE4B5"/>
-    <circle cx="80" cy="347" r="12" fill="#FFD699"/>
-    <circle cx="74" cy="344" r="2.5" fill="#333"/>
-    <circle cx="86" cy="344" r="2.5" fill="#333"/>
-    <path d="M72 352 Q80 358 88 352" stroke="#333" stroke-width="1.5" fill="none"/>
-    <text x="80" y="391" text-anchor="middle" font-size="10" fill="#64748B">阿扬</text>
-    <!-- 新闻元素 -->
-    <text x="130" y="340" font-size="11" fill="#D4A017">"特朗普取消空袭！"</text>
-    <text x="130" y="358" font-size="11" fill="#D4A017">"和平协议周末签署？"</text>
-    <text x="130" y="376" font-size="11" fill="#D4A017">"市场迎来转机"</text>
-    <text x="130" y="405" font-size="20">💡</text>
-    <text x="180" y="405" font-size="11" fill="#92400E">油价暴跌6%</text>
-    <!-- 电话图标 -->
-    <text x="280" y="405" font-size="24">☎️</text>
-  </g>
+  <!-- Arrow 1->2 -->
+  <text x="270" y="140" font-size="20" fill="#D4A017" font-weight="700">→</text>
 
-  <!-- 连接箭头 -->
-  <text x="205" y="268" text-anchor="middle" font-size="24">⬇️</text>
+  <!-- Event 2: Thursday - Reversal -->
+  <rect x="290" y="70" width="230" height="140" rx="10" fill="url(#cardGrad)" stroke="#FDE68A" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="290" y="70" width="230" height="34" rx="10" fill="#FFFBEB"/>
+  <rect x="290" y="94" width="230" height="10" fill="#FFFBEB"/>
+  <circle cx="310" cy="87" r="12" fill="#D4A017"/>
+  <text x="310" y="91" text-anchor="middle" font-size="9" fill="#fff" font-weight="700">2</text>
+  <text x="328" y="91" font-size="13" font-weight="700" fill="#92400E" font-family="PingFang SC, Microsoft YaHei, sans-serif">周四 · 惊天逆转</text>
+  <text x="302" y="120" font-size="11" fill="#92400E" font-family="PingFang SC, Microsoft YaHei, sans-serif">⏳ 空袭前数小时特朗普叫停</text>
+  <text x="302" y="140" font-size="11" fill="#92400E" font-family="PingFang SC, Microsoft YaHei, sans-serif">⏳ 和平协议最快周末签署</text>
+  <text x="302" y="160" font-size="11" fill="#16A34A" font-family="PingFang SC, Microsoft YaHei, sans-serif">🟢 道指暴涨929点</text>
+  <text x="302" y="185" font-size="11" fill="#64748B" font-family="PingFang SC, Microsoft YaHei, sans-serif">美解除制裁 · 撤军 · 石油解禁</text>
 
-  <!-- 右侧效果：全球狂欢 -->
-  <g filter="url(#shadow)">
-    <rect x="430" y="70" width="340" height="190" rx="10" fill="white" stroke="#BBF7D0" stroke-width="2"/>
-    <rect x="430" y="70" width="340" height="36" rx="10" fill="#F0FDF4"/>
-    <text x="600" y="93" text-anchor="middle" fill="#16A34A" font-size="14" font-weight="700">🚀 结果 · 全球狂欢</text>
-    <!-- 数据展示 -->
-    <rect x="450" y="120" width="300" height="50" rx="8" fill="#F0FDF4"/>
-    <text x="600" y="140" text-anchor="middle" fill="#16A34A" font-size="13" font-weight="700">美股三大指数创4月8日以来最大涨幅</text>
-    <text x="600" y="158" text-anchor="middle" fill="#16A34A" font-size="11">道指+1.86% · 纳指+2.54% · SOX+7.91%</text>
+  <!-- Arrow 2->3 -->
+  <text x="530" y="140" font-size="20" fill="#D4A017" font-weight="700">→</text>
 
-    <text x="460" y="194" font-size="12" fill="#374151">🌏 亚太接力</text>
-    <text x="460" y="212" font-size="11" fill="#374151">KOSPI +8% · 日经 +3.5%</text>
-    <text x="460" y="230" font-size="11" fill="#374151">A股沪指重返4000 · 成交3.21万亿</text>
+  <!-- Event 3: Friday risk -->
+  <rect x="550" y="70" width="220" height="140" rx="10" fill="url(#cardGrad)" stroke="#FDE68A" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="550" y="70" width="220" height="34" rx="10" fill="#FFF7ED"/>
+  <rect x="550" y="94" width="220" height="10" fill="#FFF7ED"/>
+  <circle cx="570" cy="87" r="12" fill="#EA580C"/>
+  <text x="570" y="91" text-anchor="middle" font-size="9" fill="#fff" font-weight="700">?</text>
+  <text x="588" y="91" font-size="13" font-weight="700" fill="#EA580C" font-family="PingFang SC, Microsoft YaHei, sans-serif">下周 · 关键变量</text>
+  <text x="562" y="120" font-size="11" fill="#9A3412" font-family="PingFang SC, Microsoft YaHei, sans-serif">⚠️ 伊朗否认协议已敲定</text>
+  <text x="562" y="140" font-size="11" fill="#9A3412" font-family="PingFang SC, Microsoft YaHei, sans-serif">⚠️ 海峡目前仍处于关闭状态</text>
+  <text x="562" y="160" font-size="11" fill="#9A3412" font-family="PingFang SC, Microsoft YaHei, sans-serif">⚠️ 协议签署前仍有变数</text>
+  <text x="562" y="185" font-size="11" fill="#64748B" font-family="PingFang SC, Microsoft YaHei, sans-serif">若无协议→油价反弹+避险回归</text>
 
-    <!-- 火箭 -->
-    <text x="700" y="200" font-size="28">🚀</text>
-  </g>
+  <!-- Market impact summary bar -->
+  <rect x="30" y="230" width="740" height="170" rx="12" fill="#FFFDF5" stroke="#E2E8F0" stroke-width="1" filter="url(#shadow)"/>
 
-  <!-- 右侧底部：不确定性 -->
-  <g filter="url(#shadow)">
-    <rect x="430" y="280" width="340" height="190" rx="10" fill="white" stroke="#FDE68A" stroke-width="2"/>
-    <rect x="430" y="280" width="340" height="36" rx="10" fill="#FFFBEB"/>
-    <text x="600" y="303" text-anchor="middle" fill="#D4A017" font-size="14" font-weight="700">⚠️ 但协议尚未签署</text>
-    <text x="600" y="336" text-anchor="middle" font-size="12" fill="#92400E">伊朗外交部：尚未达成最终结论</text>
-    <text x="600" y="358" text-anchor="middle" font-size="12" fill="#92400E">法尔斯通讯社：协议已敲定"完全是无稽之谈"</text>
-    <text x="600" y="380" text-anchor="middle" font-size="12" fill="#92400E">霍尔木兹海峡目前仍处于关闭状态</text>
-    <rect x="490" y="400" width="220" height="32" rx="16" fill="url(#gold)"/>
-    <text x="600" y="422" text-anchor="middle" fill="white" font-size="12" font-weight="600">本周末欧洲签署 · 变数仍在</text>
-  </g>
+  <text x="50" y="260" font-size="14" font-weight="700" fill="#D4A017" font-family="PingFang SC, Microsoft YaHei, sans-serif">📊 市场冲击全景</text>
 
-  <!-- 底部时间线 -->
-  <line x1="100" y1="485" x2="700" y2="485" stroke="#D4A017" stroke-width="2" stroke-dasharray="5,3"/>
-  <circle cx="150" cy="485" r="5" fill="#DC2626"/>
-  <text x="150" y="478" text-anchor="middle" font-size="8" fill="#DC2626">周三恐慌</text>
-  <circle cx="400" cy="485" r="5" fill="#D4A017"/>
-  <text x="400" y="478" text-anchor="middle" font-size="8" fill="#D4A017">周四反转</text>
-  <circle cx="650" cy="485" r="5" fill="#16A34A"/>
-  <text x="650" y="478" text-anchor="middle" font-size="8" fill="#16A34A">周末签署？</text>
+  <!-- Equities -->
+  <rect x="40" y="275" width="170" height="55" rx="8" fill="#F0FDF4" stroke="#BBF7D0" stroke-width="1"/>
+  <text x="125" y="295" text-anchor="middle" font-size="11" fill="#166534" font-weight="700" font-family="PingFang SC, Microsoft YaHei, sans-serif">美股</text>
+  <text x="125" y="318" text-anchor="middle" font-size="15" fill="#16A34A" font-weight="700" font-family="PingFang SC, Microsoft YaHei, sans-serif">道指 +929 (+1.86%)</text>
+
+  <rect x="220" y="275" width="170" height="55" rx="8" fill="#F0FDF4" stroke="#BBF7D0" stroke-width="1"/>
+  <text x="305" y="295" text-anchor="middle" font-size="11" fill="#166534" font-weight="700" font-family="PingFang SC, Microsoft YaHei, sans-serif">A股</text>
+  <text x="305" y="318" text-anchor="middle" font-size="15" fill="#16A34A" font-weight="700" font-family="PingFang SC, Microsoft YaHei, sans-serif">沪指 4,032 (+1.12%)</text>
+
+  <rect x="400" y="275" width="170" height="55" rx="8" fill="#F0FDF4" stroke="#BBF7D0" stroke-width="1"/>
+  <text x="485" y="295" text-anchor="middle" font-size="11" fill="#166534" font-weight="700" font-family="PingFang SC, Microsoft YaHei, sans-serif">韩股</text>
+  <text x="485" y="318" text-anchor="middle" font-size="15" fill="#16A34A" font-weight="700" font-family="PingFang SC, Microsoft YaHei, sans-serif">KOSPI +~8%</text>
+
+  <rect x="580" y="275" width="170" height="55" rx="8" fill="#F0FDF4" stroke="#BBF7D0" stroke-width="1"/>
+  <text x="665" y="295" text-anchor="middle" font-size="11" fill="#166534" font-weight="700" font-family="PingFang SC, Microsoft YaHei, sans-serif">日股</text>
+  <text x="665" y="318" text-anchor="middle" font-size="15" fill="#16A34A" font-weight="700" font-family="PingFang SC, Microsoft YaHei, sans-serif">日经 +3.5%</text>
+
+  <!-- Commodities -->
+  <rect x="40" y="338" width="355" height="46" rx="8" fill="#FEF2F2" stroke="#FECACA" stroke-width="1"/>
+  <text x="220" y="358" text-anchor="middle" font-size="11" fill="#991B1B" font-weight="700" font-family="PingFang SC, Microsoft YaHei, sans-serif">原油暴跌</text>
+  <text x="220" y="376" text-anchor="middle" font-size="14" fill="#DC2626" font-weight="700" font-family="PingFang SC, Microsoft YaHei, sans-serif">WTI $87.17 (-5.96%) · 布伦特 $88.54 (-5.55%)</text>
+
+  <rect x="405" y="338" width="355" height="46" rx="8" fill="#FFFBEB" stroke="#FDE68A" stroke-width="1"/>
+  <text x="582" y="358" text-anchor="middle" font-size="11" fill="#92400E" font-weight="700" font-family="PingFang SC, Microsoft YaHei, sans-serif">黄金深V</text>
+  <text x="582" y="376" text-anchor="middle" font-size="14" fill="#D4A017" font-weight="700" font-family="PingFang SC, Microsoft YaHei, sans-serif">$4,024 → $4,211 (+3.46%)</text>
+
+  <!-- Footer -->
+  <text x="400" y="412" text-anchor="middle" font-size="9" fill="#94A3B8" font-family="PingFang SC, Microsoft YaHei, sans-serif">数据截至2026年6月12日收盘</text>
 </svg>
