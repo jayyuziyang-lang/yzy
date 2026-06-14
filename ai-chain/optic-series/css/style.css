@@ -499,12 +499,14 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.2s ease;
+  transition: opacity 0.25s ease, transform 0.2s ease;
   z-index: 2;
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   line-height: 1;
   padding: 0;
+  opacity: 1;
+  pointer-events: auto;
 }
 .video-play-btn:hover {
   background: rgba(0,0,0,0.65);
@@ -513,15 +515,15 @@ body {
 .video-play-btn:active {
   transform: translate(-50%, -50%) scale(0.95);
 }
+/* 播放中 — 自动隐藏，不遮挡视频 */
 .video-play-btn.playing {
-  font-size: 22px;
-}
-.video-play-btn.hidden {
   opacity: 0;
   pointer-events: none;
 }
-.video-container:hover .video-play-btn:not(.playing) {
-  opacity: 1;
+/* 播放中 — 悬浮容器时重新显示 */
+.video-container:hover .video-play-btn.playing {
+  opacity: 0.7;
+  pointer-events: auto;
 }
 
 /* 图表引导文字 */
