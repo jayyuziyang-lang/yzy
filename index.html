@@ -22,8 +22,37 @@
 <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
 
 <style>
+  /* ===== 0. Brand Variables (2026-06-14) ===== */
+  :root {
+    --ys-bg: #FFFFFF;
+    --ys-bg-soft: #F7F9FC;
+    --ys-bg-tint: #EEF3FB;
+    --ys-ink: #111827;
+    --ys-ink-soft: #4B5563;
+    --ys-ink-faint: #9CA3AF;
+    --ys-line: #E5E7EB;
+    --ys-line-strong: #CBD5E1;
+    --ys-brand: #2563EB;
+    --ys-brand-soft: #DBEAFE;
+    --ys-daily: #2563EB;
+    --ys-depth: #D97706;
+    --ys-data: #0EA5E9;
+    --ys-chain: #16A34A;
+    --ys-daily-soft: #EFF6FF;
+    --ys-depth-soft: #FFF7ED;
+    --ys-data-soft: #ECFEFF;
+    --ys-chain-soft: #F0FDF4;
+    --ys-font-cn: "Microsoft YaHei","PingFang SC","Noto Sans CJK SC",sans-serif;
+    --ys-font-en: "Inter","Arial","Helvetica Neue",sans-serif;
+    --ys-radius: 12px;
+    --ys-radius-sm: 8px;
+    --ys-radius-lg: 16px;
+    --ys-shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+    --ys-shadow-md: 0 4px 14px rgba(0,0,0,0.08);
+    --ys-nav-height: 56px;
+  }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: -apple-system,"PingFang SC","Microsoft YaHei","Helvetica Neue",sans-serif; background: #F5F7FA; color: #1E293B; line-height: 1.6; font-size: 15px; }
+  body { font-family: -apple-system,"PingFang SC","Microsoft YaHei","Helvetica Neue",sans-serif; background: var(--ys-bg-soft, #F5F7FA); color: #1E293B; line-height: 1.6; font-size: 15px; }
   .c { max-width: 640px; margin: 0 auto; padding: 0 16px 40px; }
 
   /* ===== Hero Section ===== */
@@ -224,46 +253,240 @@
   .deep-history-card .deep-tags { display: flex; gap: 4px; margin-top: 4px; flex-wrap: wrap; }
   .deep-history-card .deep-tag { font-size: 10px; padding: 2px 8px; border-radius: 8px; background: #FFFBEB; color: #D4A017; }
   .deep-history-card .deep-arrow { font-size: 18px; color: #CBD5E1; flex-shrink: 0; }
+
+  /* ===== NEW: Brand System Components (2026-06-14) ===== */
+
+  /* ---- Sticky Nav ---- */
+  .ys-nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--ys-line); transition: box-shadow 0.3s; }
+  .ys-nav.scrolled { box-shadow: 0 4px 14px rgba(0,0,0,0.08); }
+  .ys-nav-inner { max-width: 680px; margin: 0 auto; padding: 0 16px; height: var(--ys-nav-height); display: flex; align-items: center; justify-content: space-between; }
+  .ys-logo { font-size: 20px; font-weight: 800; color: var(--ys-ink); text-decoration: none; letter-spacing: 0.06em; position: relative; }
+  .ys-logo-sub { position: absolute; top: 100%; left: 0; font-size: 10px; font-weight: 400; color: var(--ys-ink-faint); white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity 0.2s, margin-top 0.2s; margin-top: 0; }
+  .ys-logo:hover .ys-logo-sub { opacity: 1; margin-top: 4px; }
+  .ys-nav-links { display: flex; gap: 2px; }
+  .ys-nav-links a { padding: 6px 12px; border-radius: 6px; font-size: 13px; font-weight: 600; color: var(--ys-ink-soft); text-decoration: none; transition: all 0.15s; position: relative; }
+  .ys-nav-links a::after { content: ''; position: absolute; bottom: 2px; left: 12px; right: 12px; height: 2px; background: var(--ys-brand); border-radius: 1px; transform: scaleX(0); transition: transform 0.2s; }
+  .ys-nav-links a:hover { color: var(--ys-ink); background: var(--ys-daily-soft); }
+  .ys-nav-links a:hover::after { transform: scaleX(1); }
+  .ys-nav-links a.active { color: var(--ys-brand); background: var(--ys-daily-soft); }
+  .ys-nav-links a.active::after { transform: scaleX(1); }
+  .ys-nav-spacer { height: 1px; }
+
+  /* ---- Brand Hero ---- */
+  .ys-hero { text-align: center; padding: 36px 0 20px; }
+  .ys-hero-kicker { font-size: 10px; font-weight: 800; letter-spacing: 0.18em; color: var(--ys-brand); font-family: var(--ys-font-en); margin-bottom: 10px; }
+  .ys-hero-title { font-size: 28px; font-weight: 850; color: var(--ys-ink); line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 10px; }
+  .ys-hero-sub { font-size: 15px; font-weight: 500; color: var(--ys-ink-soft); margin-bottom: 8px; letter-spacing: 0.04em; }
+  .ys-hero-desc { font-size: 13px; color: var(--ys-ink-faint); line-height: 1.8; max-width: 480px; margin: 0 auto 18px; }
+  .ys-hero-badges { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+  .ys-hero-badge { display: inline-flex; align-items: center; height: 32px; padding: 0 14px; border-radius: 999px; font-size: 12px; font-weight: 700; text-decoration: none; transition: transform 0.15s, box-shadow 0.15s; }
+  .ys-hero-badge:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+  .ys-hero-badge.--daily { background: var(--ys-daily-soft); color: var(--ys-daily); }
+  .ys-hero-badge.--depth { background: var(--ys-depth-soft); color: var(--ys-depth); }
+  .ys-hero-badge.--data { background: var(--ys-data-soft); color: var(--ys-data); }
+  .ys-hero-badge.--chain { background: var(--ys-chain-soft); color: var(--ys-chain); }
+
+  /* ---- Live Data Strip ---- */
+  .ys-live-strip { display: flex; background: #fff; border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); margin-bottom: 18px; overflow: hidden; }
+  .ys-ls-item { flex: 1; text-align: center; padding: 10px 6px; border-right: 1px solid #F3F4F6; }
+  .ys-ls-item:last-child { border-right: none; }
+  .ys-ls-label { font-size: 9px; color: var(--ys-ink-faint); letter-spacing: 0.08em; text-transform: uppercase; display: block; }
+  .ys-ls-value { font-size: 17px; font-weight: 700; color: var(--ys-ink); display: block; margin-top: 3px; font-variant-numeric: tabular-nums; letter-spacing: 0.04em; }
+  .ys-ls-sub { font-size: 10px; color: var(--ys-ink-soft); display: block; margin-top: 1px; }
+
+  /* ---- Channel Matrix ---- */
+  .ys-matrix { margin-bottom: 22px; }
+  .ys-matrix-head { text-align: center; margin-bottom: 18px; }
+  .ys-matrix-kicker { font-size: 9px; font-weight: 800; letter-spacing: 0.18em; color: var(--ys-ink-faint); font-family: var(--ys-font-en); margin-bottom: 4px; }
+  .ys-matrix-title { font-size: 16px; font-weight: 800; color: var(--ys-ink); }
+  .ys-matrix-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+  .ys-mcard { background: #fff; border-radius: 14px; padding: 18px 14px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); position: relative; overflow: hidden; transition: transform 0.2s, box-shadow 0.2s; cursor: pointer; text-decoration: none; color: inherit; display: block; }
+  .ys-mcard:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+  .ys-mcard::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; }
+  .ys-mcard.--daily::before { background: var(--ys-daily); }
+  .ys-mcard.--depth::before { background: var(--ys-depth); }
+  .ys-mcard.--data::before { background: var(--ys-data); }
+  .ys-mcard.--chain::before { background: var(--ys-chain); }
+  .ys-mcard-tag { font-size: 9px; font-weight: 700; letter-spacing: 0.06em; margin-bottom: 6px; display: inline-block; }
+  .ys-mcard.--daily .ys-mcard-tag { color: var(--ys-daily); }
+  .ys-mcard.--depth .ys-mcard-tag { color: var(--ys-depth); }
+  .ys-mcard.--data .ys-mcard-tag { color: var(--ys-data); }
+  .ys-mcard.--chain .ys-mcard-tag { color: var(--ys-chain); }
+  .ys-mcard-mark { font-size: 10px; font-weight: 700; color: var(--ys-ink-faint); letter-spacing: 0.08em; margin-bottom: 4px; }
+  .ys-mcard-title { font-size: 15px; font-weight: 800; color: var(--ys-ink); margin-bottom: 4px; }
+  .ys-mcard-slogan { font-size: 11px; color: var(--ys-ink-soft); line-height: 1.5; margin-bottom: 6px; }
+  .ys-mcard-link { font-size: 12px; font-weight: 700; display: inline-block; }
+  .ys-mcard.--daily .ys-mcard-link { color: var(--ys-daily); }
+  .ys-mcard.--depth .ys-mcard-link { color: var(--ys-depth); }
+  .ys-mcard.--data .ys-mcard-link { color: var(--ys-data); }
+  .ys-mcard.--chain .ys-mcard-link { color: var(--ys-chain); }
+  .ys-mcard-link::after { content: ' →'; transition: transform 0.2s; display: inline-block; }
+  .ys-mcard:hover .ys-mcard-link::after { transform: translateX(3px); }
+
+  /* ---- Column Head ---- */
+  .ys-colhead { display: flex; align-items: flex-start; gap: 12px; padding: 14px 16px; background: #fff; border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); margin-bottom: 12px; position: relative; overflow: hidden; }
+  .ys-colhead-bar { width: 4px; min-height: 40px; border-radius: 2px; background: var(--ch-color, var(--ys-brand)); flex-shrink: 0; margin-top: 2px; }
+  .ys-colhead-body { flex: 1; }
+  .ys-colhead-eyebrow { font-size: 10px; font-weight: 800; letter-spacing: 0.16em; color: var(--ch-color, var(--ys-brand)); font-family: var(--ys-font-en); margin-bottom: 3px; }
+  .ys-colhead-title { font-size: 17px; font-weight: 800; color: var(--ys-ink); }
+  .ys-colhead-slogan { font-size: 12px; color: var(--ys-ink-soft); margin-top: 3px; }
+  .ys-colhead-freq { font-size: 11px; color: var(--ys-ink-faint); margin-top: 4px; }
+
+  /* ---- Featured Content ---- */
+  .ys-featured { margin-bottom: 22px; }
+  .ys-featured-head { text-align: center; margin-bottom: 18px; }
+  .ys-featured-kicker { font-size: 9px; font-weight: 800; letter-spacing: 0.18em; color: var(--ys-ink-faint); font-family: var(--ys-font-en); margin-bottom: 4px; }
+  .ys-featured-title { font-size: 16px; font-weight: 800; color: var(--ys-ink); }
+  .ys-featured-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .ys-fcard { background: #fff; border-radius: 14px; padding: 20px 18px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); text-decoration: none; color: inherit; transition: transform 0.2s, box-shadow 0.2s; display: block; }
+  .ys-fcard:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+  .ys-fcard-tag { font-size: 10px; font-weight: 700; letter-spacing: 0.06em; margin-bottom: 10px; display: block; }
+  .ys-fcard-title { font-size: 16px; font-weight: 800; color: var(--ys-ink); margin-bottom: 6px; line-height: 1.3; }
+  .ys-fcard-desc { font-size: 12px; color: var(--ys-ink-soft); line-height: 1.6; }
+
+  /* ---- Brand Separator ---- */
+  .ys-separator { display: flex; align-items: center; gap: 14px; padding: 24px 0; max-width: 500px; margin: 0 auto; }
+  .ys-separator::before, .ys-separator::after { content: ''; flex: 1; height: 1px; background: var(--ys-line); }
+  .ys-separator-text { font-size: 13px; font-weight: 600; color: var(--ys-ink-faint); white-space: nowrap; letter-spacing: 0.04em; }
+
+  /* ---- Footer ---- */
+  .ys-footer { padding: 28px 0 24px; text-align: center; }
+  .ys-footer-brand { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 8px; }
+  .ys-footer-logo { font-size: 22px; font-weight: 850; color: var(--ys-ink); letter-spacing: 0.08em; }
+  .ys-footer-badge { display: inline-flex; align-items: center; height: 22px; padding: 0 10px; border-radius: 999px; font-size: 9px; font-weight: 800; letter-spacing: 0.12em; color: var(--ys-brand); border: 1px solid rgba(37,99,235,0.3); font-family: var(--ys-font-en); }
+  .ys-footer-slogan { font-size: 16px; font-weight: 600; color: var(--ys-ink-soft); margin-bottom: 12px; letter-spacing: 0.04em; }
+  .ys-footer-desc { font-size: 12px; color: var(--ys-ink-faint); max-width: 400px; margin: 0 auto 14px; line-height: 1.7; }
+  .ys-footer-schedule { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-bottom: 16px; }
+  .ys-footer-sched { font-size: 11px; padding: 4px 12px; border-radius: 999px; background: #F3F4F6; color: var(--ys-ink-soft); white-space: nowrap; }
+  .ys-footer-disclaimer { font-size: 10px; color: #9CA3AF; line-height: 1.7; max-width: 480px; margin: 0 auto; }
+  .ys-footer-powered { font-size: 10px; color: #CBD5E1; margin-top: 8px; }
+
+  /* ---- Scroll Animation ---- */
+  .ys-reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .ys-reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ---- Mobile Responsive ---- */
+  @media (max-width: 768px) {
+    .ys-matrix-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 640px) {
+    .ys-nav-links { display: none; }
+    .ys-hero { padding: 24px 0 16px; }
+    .ys-hero-title { font-size: 22px; }
+    .ys-hero-badges { gap: 6px; }
+    .ys-hero-badge { height: 28px; padding: 0 12px; font-size: 11px; }
+    .ys-ls-value { font-size: 14px; }
+    .ys-mcard { padding: 14px 12px; }
+    .ys-mcard-title { font-size: 14px; }
+    .ys-featured-grid { grid-template-columns: 1fr; }
+    .ys-fcard { padding: 16px 14px; }
+    .ys-colhead { padding: 12px 14px; }
+    .ys-colhead-title { font-size: 15px; }
+  }
+  @media (max-width: 480px) {
+    .ys-matrix-grid { grid-template-columns: 1fr; }
+  }
 </style>
 </head>
 <body>
-<div class="c">
-
-  <!-- ================================================================ -->
-  <!-- Hero Section — 始终可见                                                   -->
-  <!-- ================================================================ -->
-  <div class="hero">
-    <div class="hero-brand">
-      <h1>扬说 · YANG SHUO</h1>
-      <p class="hero-subtitle">每日财经 / 深度阅读 / 独立思考</p>
-    </div>
-
-    <div class="hero-char-area">
-      <img class="hero-char-img" src="assets/character/ayang-sticker.png" alt="阿扬" loading="lazy">
-      <div class="hero-quote" id="heroQuote">📡 每日早报 + 晚报，用漫画和音频解读财经大事。</div>
-    </div>
-
-    <div class="hero-cards">
-      <div class="hero-card">
-        <div class="hero-card-icon">🕐</div>
-        <div class="hero-card-value" id="heroClockValue">--:--:--</div>
-        <div class="hero-card-label">北京时间</div>
-      </div>
-      <div class="hero-card">
-        <div class="hero-card-icon">📊 VIX</div>
-        <div class="hero-vix-num" id="heroVixNum">--</div>
-        <div class="hero-vix-track">
-          <span class="hero-vix-dot" id="heroVixDot" style="left:50%"></span>
-        </div>
-        <div class="hero-vix-level" id="heroVixLevel">加载中...</div>
-      </div>
-      <div class="hero-card">
-        <div class="hero-card-icon">📅</div>
-        <div class="hero-card-value" id="heroDateValue">--月--日</div>
-        <div class="hero-card-label" id="heroHolidayLabel">--</div>
-      </div>
+<!-- ===== Sticky Navigation ===== -->
+<nav class="ys-nav" id="ysNav">
+  <div class="ys-nav-inner">
+    <a class="ys-logo" href="#" onclick="switchTab('daily');return false;">
+      扬说
+      <span class="ys-logo-sub">把市场讲清楚，把产业看明白</span>
+    </a>
+    <div class="ys-nav-links" id="ysNavLinks">
+      <a href="#daily" data-nav="daily" onclick="switchTab('daily');return false;">日报</a>
+      <a href="#deep" data-nav="deep" onclick="switchTab('deep');return false;">深度</a>
+      <a href="#tools" data-nav="tools" onclick="switchTab('tools');return false;">数据</a>
+      <a href="#ai" data-nav="ai" onclick="switchTab('ai');return false;">产业链</a>
+      <a href="#about" data-nav="about" onclick="document.querySelector('.ys-footer').scrollIntoView({behavior:'smooth'});return false;">关于</a>
     </div>
   </div>
+</nav>
+
+<div class="c">
+
+  <!-- ===== Brand Hero ===== -->
+  <section class="ys-hero ys-reveal">
+    <div class="ys-hero-kicker">YANG SAYS</div>
+    <h1 class="ys-hero-title">把市场讲清楚，<br class="ys-hero-br">把产业看明白。</h1>
+    <p class="ys-hero-sub">每日有跟踪，每周有深研，长期有产业链。</p>
+    <p class="ys-hero-desc">一个面向市场、产业与公司的个人研究内容站。</p>
+    <div class="ys-hero-badges">
+      <a class="ys-hero-badge --daily" href="#daily" onclick="switchTab('daily');return false;">扬说日报</a>
+      <a class="ys-hero-badge --depth" href="#deep" onclick="switchTab('deep');return false;">扬说深度</a>
+      <a class="ys-hero-badge --data" href="#tools" onclick="switchTab('tools');return false;">扬说数据</a>
+      <a class="ys-hero-badge --chain" href="#ai" onclick="switchTab('ai');return false;">扬说·产业链</a>
+    </div>
+  </section>
+
+  <!-- ===== Live Data Strip ===== -->
+  <div class="ys-live-strip">
+    <div class="ys-ls-item">
+      <span class="ys-ls-label">北京时间</span>
+      <span class="ys-ls-value" id="heroClockValue">--:--:--</span>
+    </div>
+    <div class="ys-ls-item">
+      <span class="ys-ls-label">VIX 恐慌指数</span>
+      <span class="ys-ls-value" id="heroVixNum">--</span>
+      <span class="ys-ls-sub" id="heroVixLevel">加载中...</span>
+      <span id="heroVixDot" style="display:none;"></span>
+    </div>
+    <div class="ys-ls-item">
+      <span class="ys-ls-label" id="heroDateValue">--月--日</span>
+      <span class="ys-ls-sub" id="heroHolidayLabel">--</span>
+    </div>
+  </div>
+
+  <!-- ===== Hidden compat elements for site-health.py ===== -->
+  <div style="display:none;">
+    <div class="hero-char-area">
+      <img class="hero-char-img" src="assets/character/ayang-sticker.png" alt="">
+    </div>
+    <div id="heroQuote">📡 每日早报 + 晚报，用漫画和音频解读财经大事。</div>
+  </div>
+
+  <!-- ===== Channel Matrix ===== -->
+  <section class="ys-matrix ys-reveal">
+    <div class="ys-matrix-head">
+      <div class="ys-matrix-kicker">FOUR CONTENT LINES</div>
+      <div class="ys-matrix-title">四条内容线，覆盖从市场到产业的完整视角</div>
+    </div>
+    <div class="ys-matrix-grid">
+      <a class="ys-mcard --daily" href="#daily" onclick="switchTab('daily');return false;">
+        <div class="ys-mcard-tag">交易日 · 早晚两更</div>
+        <div class="ys-mcard-mark">DAILY</div>
+        <div class="ys-mcard-title">扬说日报</div>
+        <div class="ys-mcard-slogan">盘前看主线，盘后复逻辑，帮你抓住市场每天的变化。</div>
+        <div class="ys-mcard-link">进入日报</div>
+      </a>
+      <a class="ys-mcard --depth" href="#deep" onclick="switchTab('deep');return false;">
+        <div class="ys-mcard-tag">每周六更新</div>
+        <div class="ys-mcard-mark">DEPTH</div>
+        <div class="ys-mcard-title">扬说深度</div>
+        <div class="ys-mcard-slogan">不追热点表面波动，只拆背后的产业、商业和周期逻辑。</div>
+        <div class="ys-mcard-link">进入深度</div>
+      </a>
+      <a class="ys-mcard --data" href="#tools" onclick="switchTab('tools');return false;">
+        <div class="ys-mcard-tag">首页看板</div>
+        <div class="ys-mcard-mark">DATA</div>
+        <div class="ys-mcard-title">扬说数据</div>
+        <div class="ys-mcard-slogan">用少量关键指标，观察市场温度、资金状态和行业位置。</div>
+        <div class="ys-mcard-link">查看数据</div>
+      </a>
+      <a class="ys-mcard --chain" href="#ai" onclick="switchTab('ai');return false;">
+        <div class="ys-mcard-tag">专题更新</div>
+        <div class="ys-mcard-mark">CHAIN</div>
+        <div class="ys-mcard-title">扬说·产业链</div>
+        <div class="ys-mcard-slogan">从上游到下游，从技术到公司，一期看懂一条产业链。</div>
+        <div class="ys-mcard-link">进入产业链</div>
+      </a>
+    </div>
+  </section>
+
+  <div class="ys-nav-spacer"></div>
 
   <!-- ================================================================ -->
   <!-- Tab Navigation                                                  -->
@@ -280,6 +503,17 @@
   <!-- Tab: 扬说·日报                                                      -->
   <!-- ================================================================ -->
   <div class="tab-content active" id="tab-daily">
+
+    <!-- ===== Column Head: Daily ===== -->
+    <div class="ys-colhead ys-reveal" style="--ch-color: var(--ys-daily);">
+      <div class="ys-colhead-bar"></div>
+      <div class="ys-colhead-body">
+        <div class="ys-colhead-eyebrow">DAILY</div>
+        <div class="ys-colhead-title">扬说日报</div>
+        <div class="ys-colhead-slogan">早看方向，晚复盘面。每个交易日陪你读懂市场。</div>
+        <div class="ys-colhead-freq">交易日 · 早晚两更</div>
+      </div>
+    </div>
 
     <!-- Today's Content -->
     <div class="section">
@@ -481,6 +715,18 @@
   <!-- Tab: 扬说·深度                                                      -->
   <!-- ================================================================ -->
   <div class="tab-content" id="tab-deep">
+
+    <!-- ===== Column Head: Depth ===== -->
+    <div class="ys-colhead ys-reveal" style="--ch-color: var(--ys-depth);">
+      <div class="ys-colhead-bar"></div>
+      <div class="ys-colhead-body">
+        <div class="ys-colhead-eyebrow">DEPTH</div>
+        <div class="ys-colhead-title">扬说深度</div>
+        <div class="ys-colhead-slogan">不追热点表面波动，只拆背后的产业、商业和周期逻辑。</div>
+        <div class="ys-colhead-freq">每周六更新</div>
+      </div>
+    </div>
+
     <div class="section">
       <h2>📚 扬说·深度 <span style="font-size: 11px; color: #94A3B8; font-weight: 400;">— 每周六，用逻辑穿透表象</span></h2>
       <div id="deepList"></div>
@@ -491,6 +737,18 @@
   <!-- Tab: 扬说·数据                                                      -->
   <!-- ================================================================ -->
   <div class="tab-content" id="tab-tools">
+
+    <!-- ===== Column Head: Data ===== -->
+    <div class="ys-colhead ys-reveal" style="--ch-color: var(--ys-data);">
+      <div class="ys-colhead-bar"></div>
+      <div class="ys-colhead-body">
+        <div class="ys-colhead-eyebrow">DATA</div>
+        <div class="ys-colhead-title">扬说数据</div>
+        <div class="ys-colhead-slogan">用少量关键指标，观察市场温度、资金状态和行业位置。</div>
+        <div class="ys-colhead-freq">首页看板</div>
+      </div>
+    </div>
+
     <div class="vix-card">
       <div class="vix-header">
         <h3>📊 恐慌贪婪指数</h3>
@@ -524,12 +782,59 @@
   <!-- Tab: 扬说·AI产业链                                                   -->
   <!-- ================================================================ -->
   <div class="tab-content" id="tab-ai">
+
+    <!-- ===== Column Head: Chain ===== -->
+    <div class="ys-colhead ys-reveal" style="--ch-color: var(--ys-chain);">
+      <div class="ys-colhead-bar"></div>
+      <div class="ys-colhead-body">
+        <div class="ys-colhead-eyebrow">CHAIN</div>
+        <div class="ys-colhead-title">扬说·AI产业链</div>
+        <div class="ys-colhead-slogan">从上游到下游，从技术到公司，一期看懂一条产业链。</div>
+        <div class="ys-colhead-freq">专题更新</div>
+      </div>
+    </div>
+
     <div class="section">
       <h2>🤖 AI产业链洞察 <span style="font-size: 11px; color: #94A3B8; font-weight: 400;">— 不定期更新 · 深度分析</span></h2>
       <div id="aiChainList">
         <div class="no-data"><span class="big">⏳</span>内容编辑中</div>
       </div>
     </div>
+  </div>
+
+  <!-- ===== Featured Content ===== -->
+  <section class="ys-featured ys-reveal">
+    <div class="ys-featured-head">
+      <div class="ys-featured-kicker">FEATURED</div>
+      <div class="ys-featured-title">精选内容</div>
+    </div>
+    <div class="ys-featured-grid">
+      <a class="ys-fcard" href="#" onclick="switchTab('daily');return false;" style="border-top:3px solid var(--ys-daily);">
+        <span class="ys-fcard-tag" style="color:var(--ys-daily);">DAILY</span>
+        <div class="ys-fcard-title">今日日报</div>
+        <div class="ys-fcard-desc">查看今日最新早报和晚报内容</div>
+      </a>
+      <a class="ys-fcard" href="#" onclick="switchTab('deep');return false;" style="border-top:3px solid var(--ys-depth);">
+        <span class="ys-fcard-tag" style="color:var(--ys-depth);">DEPTH</span>
+        <div class="ys-fcard-title">本周深度</div>
+        <div class="ys-fcard-desc">每周一篇深度研究专题</div>
+      </a>
+      <a class="ys-fcard" href="#" onclick="switchTab('tools');return false;" style="border-top:3px solid var(--ys-data);">
+        <span class="ys-fcard-tag" style="color:var(--ys-data);">DATA</span>
+        <div class="ys-fcard-title">数据看板</div>
+        <div class="ys-fcard-desc">VIX恐慌指数等关键市场指标</div>
+      </a>
+      <a class="ys-fcard" href="#" onclick="switchTab('ai');return false;" style="border-top:3px solid var(--ys-chain);">
+        <span class="ys-fcard-tag" style="color:var(--ys-chain);">CHAIN</span>
+        <div class="ys-fcard-title">产业链专题</div>
+        <div class="ys-fcard-desc">从技术到公司，看懂产业链全貌</div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== Brand Separator ===== -->
+  <div class="ys-separator ys-reveal">
+    <span class="ys-separator-text">不只看涨跌，更要看懂背后的逻辑</span>
   </div>
 
   <!-- Share QR Modal -->
@@ -541,31 +846,35 @@
     </div>
   </div>
 
-  <!-- About -->
-  <div class="about-card">
-    <div class="about-row">
-      <img class="about-char" src="assets/character/ayang-square.jpg" alt="阿扬" loading="lazy">
-      <div class="about-text">
-        <strong>扬说财经</strong> · 每个交易日更新<br>
-        数据来源: 证券时报 · 华尔街见闻 · Investing.com
-      </div>
+  <!-- ===== Brand Footer ===== -->
+  <footer class="ys-footer ys-reveal">
+    <div class="ys-footer-brand">
+      <span class="ys-footer-logo">扬说财经</span>
+      <span class="ys-footer-badge">YANG SAYS FINANCE</span>
     </div>
-    <div class="share-bar">
+    <div class="ys-footer-slogan">把市场讲清楚，把产业看明白。</div>
+    <div class="ys-footer-desc">一个面向市场、产业与公司的个人研究内容站。交易日早报 + 晚报，每周深度专题，不定期产业链研究。</div>
+    <div class="ys-footer-schedule">
+      <span class="ys-footer-sched">🌅 早报 · 盘前</span>
+      <span class="ys-footer-sched">🌙 晚报 · 盘后</span>
+      <span class="ys-footer-sched">📚 深度 · 周六</span>
+      <span class="ys-footer-sched">🔗 产业链 · 专题</span>
+    </div>
+    <div class="share-bar" style="justify-content:center;margin-bottom:16px;">
       <button class="share-btn wechat" onclick="shareWeChat()">📱 分享到微信</button>
       <button class="share-btn" onclick="copyLink()">🔗 复制链接</button>
     </div>
-  </div>
-
-  <div class="footer">
-    <p>📡 扬说财经 · 每日更新</p>
-    <p class="powered">Powered by AI + Python + GitHub Pages</p>
-    <p class="cdn-info">国内加速: <a href="data/latest-cdn.json" target="_blank">版本信息</a></p>
-  </div>
+    <div class="ys-footer-disclaimer">
+      免责声明：本网站所有内容仅为个人研究观点，不构成任何投资建议。投资有风险，入市需谨慎。<br>
+      数据来源：证券时报 · 华尔街见闻 · Investing.com
+    </div>
+    <div class="ys-footer-powered">Powered by AI + Python + GitHub Pages</div>
+  </footer>
 
 <script>
 // CDN 来源检测
 if (location.hostname.includes('jsdmirror') || location.hostname.includes('jsdelivr')) {
-  document.querySelector('.powered').textContent += ' · CDN镜像加速';
+  document.querySelector('.ys-footer-powered').textContent += ' · CDN镜像加速';
 }
 </script>
 
@@ -1235,6 +1544,55 @@ initTab();
 initData();
 initVix();
 scheduleMidnightRefresh();
+
+  // ============================================================
+  // Brand System: Nav active sync + Scroll Reveal + Nav Shadow
+  // ============================================================
+  (function() {
+    // 1. Sync nav active state on tab switch
+    var origSwitch = window.switchTab;
+    window.switchTab = function(tabId) {
+      origSwitch(tabId);
+      // Sync sticky nav active state
+      document.querySelectorAll('.ys-nav-links a').forEach(function(a) {
+        a.classList.toggle('active', a.dataset.nav === tabId);
+      });
+    };
+
+    // 2. Scroll reveal animation
+    if ('IntersectionObserver' in window) {
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.15 });
+      document.querySelectorAll('.ys-reveal').forEach(function(el) {
+        observer.observe(el);
+      });
+    } else {
+      // Fallback: show all immediately
+      document.querySelectorAll('.ys-reveal').forEach(function(el) {
+        el.classList.add('visible');
+      });
+    }
+
+    // 3. Nav scroll shadow
+    var nav = document.getElementById('ysNav');
+    var onScroll = function() {
+      nav.classList.toggle('scrolled', window.scrollY > 8);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll(); // initial check
+
+    // 4. Init nav active from current tab
+    var hash = location.hash.slice(1) || 'daily';
+    document.querySelectorAll('.ys-nav-links a').forEach(function(a) {
+      if (a.dataset.nav === hash) a.classList.add('active');
+    });
+  })();
+
 </script>
 </body>
 </html>
