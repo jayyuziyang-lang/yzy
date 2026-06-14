@@ -279,14 +279,14 @@ body {
 .section p {
   margin-bottom: 20px;
   color: var(--text);
-  line-height: 1.9;
+  line-height: 1.9; text-indent: 2em;
   font-size: 15.5px;
 }
 
 .section p.lead {
   font-size: 18px;
   color: var(--text-secondary);
-  line-height: 1.85;
+  line-height: 1.85; text-indent: 2em;
   padding: 24px 28px;
   background: var(--bg-card);
   border-left: 3px solid var(--primary);
@@ -598,7 +598,7 @@ body {
 .company-profile p {
   font-size: 14.5px;
   color: var(--text-secondary);
-  line-height: 1.85;
+  line-height: 1.85; text-indent: 2em;
   margin-bottom: 0;
 }
 

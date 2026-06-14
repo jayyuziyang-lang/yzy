@@ -271,13 +271,13 @@ body {
 .section p {
   margin-bottom: 18px;
   color: var(--text);
-  line-height: 1.85;
+  line-height: 1.85; text-indent: 2em;
 }
 
 .section p.lead {
   font-size: 18px;
   color: var(--text-secondary);
-  line-height: 1.8;
+  line-height: 1.8; text-indent: 2em;
 }
 
 /* ============================================================

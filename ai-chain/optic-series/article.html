@@ -145,9 +145,7 @@
     <p>在理解这些组件之前，先想象一个类比：如果你要跨海传送一封信，你需要把信（数据）装进一个瓶子（光模块），用激光笔（激光器）照亮它，让它沿着海底光缆（光纤）传播，到对岸后再用一个探测器（光电探测器）读出内容，然后交给翻译（DSP）纠错还原。<strong>整个过程中任何一个环节出现噪声，最终收信的人都可能读错内容。</strong></p>
 
     <div class="video-container">
-      <video autoplay loop muted playsinline preload="metadata" poster="media/optic_teardown_cover.png">
-        <source src="media/optic_teardown.mp4" type="video/mp4">
-        <source src="media/optic_teardown.webm" type="video/webm">
+      <video class="lazy-video" loop muted playsinline preload="none" poster="media/optic_teardown_cover.png" data-mp4="media/optic_teardown.mp4">
       </video>
     </div>
     <div class="chart-caption">▲ 3D爆炸拆解动画：一枚800G光模块从外壳、PCB、DSP、Driver/TIA、TOSA、ROSA到光接口的完整解剖。电信号沿金手指→DSP→Driver→TOSA（转光）→光纤的路径清晰可见。</div>
@@ -195,9 +193,7 @@
     <p>这就是为什么数据要"出机房"的时候，必须把电变成光。光在光纤中传输的损耗仅为<strong>0.2 dB/km</strong>——这意味着一束激光跑1公里后还能保留约95.5%的能量。相比之下，同样的高频电信号在等长铜线中可能已经衰减到无法识别。而且光不受电磁干扰——你不会担心隔壁机柜的电源线干扰你的光纤。</p>
 
     <div class="video-container">
-      <video autoplay loop muted playsinline preload="metadata" poster="media/eo_conversion_cover.png">
-        <source src="media/eo_conversion.mp4" type="video/mp4">
-        <source src="media/eo_conversion.webm" type="video/webm">
+      <video class="lazy-video" loop muted playsinline preload="none" poster="media/eo_conversion_cover.png" data-mp4="media/eo_conversion.mp4">
       </video>
     </div>
     <div class="chart-caption">▲ 电→光→电全流程动画：电信号（蓝色方波）→激光调制（红色激光+青色光脉冲）→光纤传输vs铜线衰减对比→探测器接收→DSP还原为干净信号。</div>
@@ -300,9 +296,7 @@
     <p><strong>B300/GB300是关键转折点。</strong>它全面标配CX8 800G网卡，不再混用400G。这意味着每块GPU对外的每一根网络连接都必须使用800G光模块。从B200到B300，配比从"1:5（混合400/800）"变成"1:5（纯800G）"，虽然数字没变，但800G的实际需求量翻了一倍。</p>
 
     <div class="video-container">
-      <video autoplay loop muted playsinline preload="metadata" poster="media/gpu_to_optics_cover.png">
-        <source src="media/gpu_to_optics.mp4" type="video/mp4">
-        <source src="media/gpu_to_optics.webm" type="video/webm">
+      <video class="lazy-video" loop muted playsinline preload="none" poster="media/gpu_to_optics_cover.png" data-mp4="media/gpu_to_optics.mp4">
       </video>
     </div>
     <div class="chart-caption">▲ GPU→光模块需求换算动画：单GPU→多光模块互联→阵列扩大→计数器从16飙升到10000→Clos三层网络说明超线性原理。*标注"示意值，非精确订单数据"。</div>
@@ -711,6 +705,7 @@
 <!-- 回到顶部 -->
 <button class="back-to-top" aria-label="回到顶部" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
+<script src="js/lazy-video.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
