@@ -280,6 +280,8 @@
   .ys-hero-desc { font-size: 13px; color: var(--ys-ink-faint); line-height: 1.8; max-width: 480px; margin: 0 auto 18px; }
   .ys-hero-badges { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
   .ys-hero-badge { display: inline-flex; align-items: center; height: 32px; padding: 0 14px; border-radius: 999px; font-size: 12px; font-weight: 700; text-decoration: none; transition: transform 0.15s, box-shadow 0.15s; }
+  .ys-hero-avatar { text-align: center; margin-bottom: 16px; }
+  .ys-hero-avatar-img { width: 72px; height: 72px; border-radius: 50%; object-fit: cover; border: 3px solid #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); display: inline-block; }
   .ys-hero-badge:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
   .ys-hero-badge.--daily { background: var(--ys-daily-soft); color: var(--ys-daily); }
   .ys-hero-badge.--depth { background: var(--ys-depth-soft); color: var(--ys-depth); }
@@ -414,10 +416,13 @@
     <h1 class="ys-hero-title">把市场讲清楚，<br class="ys-hero-br">把产业看明白。</h1>
     <p class="ys-hero-sub">每日有跟踪，每周有深研，长期有产业链。</p>
     <p class="ys-hero-desc">一个面向市场、产业与公司的个人研究内容站。</p>
+    <div class="ys-hero-avatar">
+      <img class="ys-hero-avatar-img" src="assets/character/ayang-square.jpg" alt="阿扬" loading="lazy">
+    </div>
     <div class="ys-hero-badges">
-      <a class="ys-hero-badge --daily" href="#daily" onclick="switchTab('daily');return false;">扬说日报</a>
-      <a class="ys-hero-badge --depth" href="#deep" onclick="switchTab('deep');return false;">扬说深度</a>
-      <a class="ys-hero-badge --data" href="#tools" onclick="switchTab('tools');return false;">扬说数据</a>
+      <a class="ys-hero-badge --daily" href="#daily" onclick="switchTab('daily');return false;">扬说·日报</a>
+      <a class="ys-hero-badge --depth" href="#deep" onclick="switchTab('deep');return false;">扬说·深度</a>
+      <a class="ys-hero-badge --data" href="#tools" onclick="switchTab('tools');return false;">扬说·数据</a>
       <a class="ys-hero-badge --chain" href="#ai" onclick="switchTab('ai');return false;">扬说·产业链</a>
     </div>
   </section>
@@ -458,21 +463,21 @@
       <a class="ys-mcard --daily" href="#daily" onclick="switchTab('daily');return false;">
         <div class="ys-mcard-tag">交易日 · 早晚两更</div>
         <div class="ys-mcard-mark">DAILY</div>
-        <div class="ys-mcard-title">扬说日报</div>
+        <div class="ys-mcard-title">扬说·日报</div>
         <div class="ys-mcard-slogan">盘前看主线，盘后复逻辑，帮你抓住市场每天的变化。</div>
         <div class="ys-mcard-link">进入日报</div>
       </a>
       <a class="ys-mcard --depth" href="#deep" onclick="switchTab('deep');return false;">
         <div class="ys-mcard-tag">每周六更新</div>
         <div class="ys-mcard-mark">DEPTH</div>
-        <div class="ys-mcard-title">扬说深度</div>
+        <div class="ys-mcard-title">扬说·深度</div>
         <div class="ys-mcard-slogan">不追热点表面波动，只拆背后的产业、商业和周期逻辑。</div>
         <div class="ys-mcard-link">进入深度</div>
       </a>
       <a class="ys-mcard --data" href="#tools" onclick="switchTab('tools');return false;">
         <div class="ys-mcard-tag">首页看板</div>
         <div class="ys-mcard-mark">DATA</div>
-        <div class="ys-mcard-title">扬说数据</div>
+        <div class="ys-mcard-title">扬说·数据</div>
         <div class="ys-mcard-slogan">用少量关键指标，观察市场温度、资金状态和行业位置。</div>
         <div class="ys-mcard-link">查看数据</div>
       </a>
@@ -509,7 +514,7 @@
       <div class="ys-colhead-bar"></div>
       <div class="ys-colhead-body">
         <div class="ys-colhead-eyebrow">DAILY</div>
-        <div class="ys-colhead-title">扬说日报</div>
+        <div class="ys-colhead-title">扬说·日报</div>
         <div class="ys-colhead-slogan">早看方向，晚复盘面。每个交易日陪你读懂市场。</div>
         <div class="ys-colhead-freq">交易日 · 早晚两更</div>
       </div>
@@ -721,7 +726,7 @@
       <div class="ys-colhead-bar"></div>
       <div class="ys-colhead-body">
         <div class="ys-colhead-eyebrow">DEPTH</div>
-        <div class="ys-colhead-title">扬说深度</div>
+        <div class="ys-colhead-title">扬说·深度</div>
         <div class="ys-colhead-slogan">不追热点表面波动，只拆背后的产业、商业和周期逻辑。</div>
         <div class="ys-colhead-freq">每周六更新</div>
       </div>
@@ -743,7 +748,7 @@
       <div class="ys-colhead-bar"></div>
       <div class="ys-colhead-body">
         <div class="ys-colhead-eyebrow">DATA</div>
-        <div class="ys-colhead-title">扬说数据</div>
+        <div class="ys-colhead-title">扬说·数据</div>
         <div class="ys-colhead-slogan">用少量关键指标，观察市场温度、资金状态和行业位置。</div>
         <div class="ys-colhead-freq">首页看板</div>
       </div>
