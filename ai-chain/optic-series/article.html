@@ -98,7 +98,7 @@
     <p>要理解光模块为什么突然变得如此重要，需要先理解一个基础事实：<strong>大模型训练不是在一颗GPU上完成的，而是在成千上万颗GPU上协同完成的。</strong>GPT-4级别的模型训练需要数万张GPU同时工作数周。这些GPU分布在成百上千个机架上，彼此之间需要交换海量数据——每张GPU每秒向其他GPU发送数百GB的梯度、激活值和参数更新。而这些数据离开GPU所在的服务器的第一站，就是光模块。</p>
 
     <div class="chart-container">
-      <img src="assets/charts/01_market_size.png" alt="全球光模块市场规模 2020-2030E" loading="lazy">
+      <img src="assets/charts/01_market_size.png" alt="全球光模块市场规模 2020-2030E" >
     </div>
     <div class="chart-caption">▲ 全球光模块市场规模（2020-2030E）。2025-2026年是关键跃升期，AI数据中心需求占比从55%升至65%，成为绝对主力。</div>
 
@@ -145,7 +145,8 @@
     <p>在理解这些组件之前，先想象一个类比：如果你要跨海传送一封信，你需要把信（数据）装进一个瓶子（光模块），用激光笔（激光器）照亮它，让它沿着海底光缆（光纤）传播，到对岸后再用一个探测器（光电探测器）读出内容，然后交给翻译（DSP）纠错还原。<strong>整个过程中任何一个环节出现噪声，最终收信的人都可能读错内容。</strong></p>
 
     <div class="video-container">
-      <video class="lazy-video" loop muted playsinline preload="none" poster="media/optic_teardown_cover.png" data-mp4="media/optic_teardown.mp4">
+      <video loop muted playsinline preload="metadata" poster="media/optic_teardown_cover.png">
+        <source src="media/optic_teardown.mp4" type="video/mp4">
       </video>
     </div>
     <div class="chart-caption">▲ 3D爆炸拆解动画：一枚800G光模块从外壳、PCB、DSP、Driver/TIA、TOSA、ROSA到光接口的完整解剖。电信号沿金手指→DSP→Driver→TOSA（转光）→光纤的路径清晰可见。</div>
@@ -193,7 +194,8 @@
     <p>这就是为什么数据要"出机房"的时候，必须把电变成光。光在光纤中传输的损耗仅为<strong>0.2 dB/km</strong>——这意味着一束激光跑1公里后还能保留约95.5%的能量。相比之下，同样的高频电信号在等长铜线中可能已经衰减到无法识别。而且光不受电磁干扰——你不会担心隔壁机柜的电源线干扰你的光纤。</p>
 
     <div class="video-container">
-      <video class="lazy-video" loop muted playsinline preload="none" poster="media/eo_conversion_cover.png" data-mp4="media/eo_conversion.mp4">
+      <video loop muted playsinline preload="metadata" poster="media/eo_conversion_cover.png">
+        <source src="media/eo_conversion.mp4" type="video/mp4">
       </video>
     </div>
     <div class="chart-caption">▲ 电→光→电全流程动画：电信号（蓝色方波）→激光调制（红色激光+青色光脉冲）→光纤传输vs铜线衰减对比→探测器接收→DSP还原为干净信号。</div>
@@ -243,7 +245,7 @@
     <p>为什么网络层数会随GPU数量增长？这里涉及数据中心网络的架构原理。想象你在组织一个5000人的会议，想让每个人都能随时和任何其他人交谈。如果只有一层交换机，每个交换机能连接64个人，你需要约80台交换机和一定数量的线缆。现在扩展为5万人的大会场：你不能仅仅把交换机数量翻10倍，因为你还需要第二层交换机来连接第一层的所有交换机。扩展到50万人的体育场规模，你就需要第三层。<strong>每增加一层，就需要额外一组光模块来互联交换机——这就是"层数效应"。</strong></p>
 
     <div class="chart-container">
-      <img src="assets/charts/02_gpu_ratio.png" alt="GPU与光模块配比演变趋势" loading="lazy">
+      <img src="assets/charts/02_gpu_ratio.png" alt="GPU与光模块配比演变趋势" >
     </div>
     <div class="chart-caption">▲ GPU与光模块配比演变。从H100到GB300，每GPU对应的800G光模块从2.5个跃升至5个（纯800G）。30万卡以上集群配比可达1:8-1:10。400G逐步退出AI训练网络。</div>
 
@@ -296,7 +298,8 @@
     <p><strong>B300/GB300是关键转折点。</strong>它全面标配CX8 800G网卡，不再混用400G。这意味着每块GPU对外的每一根网络连接都必须使用800G光模块。从B200到B300，配比从"1:5（混合400/800）"变成"1:5（纯800G）"，虽然数字没变，但800G的实际需求量翻了一倍。</p>
 
     <div class="video-container">
-      <video class="lazy-video" loop muted playsinline preload="none" poster="media/gpu_to_optics_cover.png" data-mp4="media/gpu_to_optics.mp4">
+      <video loop muted playsinline preload="metadata" poster="media/gpu_to_optics_cover.png">
+        <source src="media/gpu_to_optics.mp4" type="video/mp4">
       </video>
     </div>
     <div class="chart-caption">▲ GPU→光模块需求换算动画：单GPU→多光模块互联→阵列扩大→计数器从16飙升到10000→Clos三层网络说明超线性原理。*标注"示意值，非精确订单数据"。</div>
@@ -331,7 +334,7 @@
     <p class="lead">LightCounting于2026年5月发布的最新全球光模块供应商TOP10榜单是本行业最权威的排名。榜单显示了一个清晰的结构：<strong>中国厂商占据7席，总份额达63.2%</strong>；中际旭创以53.33亿美元收入霸榜第一，新易盛以189%的惊人增速从第四跃升至第二，超越美国Coherent。</p>
 
     <div class="chart-container">
-      <img src="assets/charts/03_company_revenue.png" alt="全球光模块TOP5厂商营收对比" loading="lazy">
+      <img src="assets/charts/03_company_revenue.png" alt="全球光模块TOP5厂商营收对比" >
     </div>
     <div class="chart-caption">▲ 全球光模块TOP5厂商营收对比（2024 vs 2025）。新易盛增速最猛(+189%)，中际旭创体量最大(53.33亿美元)。Coherent虽然总营收58.1亿美元，但光模块业务不足30亿美元。</div>
 
@@ -339,7 +342,7 @@
 
     <div class="figure-grid">
       <div class="chart-container">
-        <img src="assets/charts/05_supply_chain.png" alt="光模块BOM成本结构" loading="lazy">
+        <img src="assets/charts/05_supply_chain.png" alt="光模块BOM成本结构" >
       </div>
       <div>
         <div class="card" style="margin-top:0;">
@@ -424,7 +427,7 @@
     <p class="lead">光模块行业并不是第一次经历景气周期。2017-2018年，全球数据中心从40G大规模升级到100G，光模块出货量暴增。但2019年升级完成后需求骤降，价格暴跌，行业进入调整期。那么，这一轮AI驱动的超级周期会不会也以类似的方式结束？</p>
 
     <div class="chart-container">
-      <img src="assets/charts/04_shipment_forecast.png" alt="800G/1.6T光模块出货量预测" loading="lazy">
+      <img src="assets/charts/04_shipment_forecast.png" alt="800G/1.6T光模块出货量预测" >
     </div>
     <div class="chart-caption">▲ 高速光模块出货量预测（2024-2028E）。800G在2026年达到3,350万只峰值后增长放缓，1.6T接力成为新的增长引擎。400G逐步退出AI训练网络。</div>
 
@@ -705,7 +708,6 @@
 <!-- 回到顶部 -->
 <button class="back-to-top" aria-label="回到顶部" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
-<script src="js/lazy-video.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
