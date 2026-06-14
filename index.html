@@ -254,6 +254,32 @@
   .deep-history-card .deep-tag { font-size: 10px; padding: 2px 8px; border-radius: 8px; background: #FFFBEB; color: #D4A017; }
   .deep-history-card .deep-arrow { font-size: 18px; color: #CBD5E1; flex-shrink: 0; }
 
+  /* ===== Daily Tab Upgrade (对标深度/产业链品质) ===== */
+  .daily-section-label { font-size: 13px; font-weight: 700; color: #1E293B; margin-bottom: 10px; padding-bottom: 6px; border-bottom: 2px solid #BFDBFE; display: flex; align-items: center; gap: 6px; }
+  .daily-featured-section { margin-bottom: 20px; }
+  .daily-featured-card { display: block; background: linear-gradient(135deg,#EFF6FF,#DBEAFE); border: 1.5px solid #BFDBFE; border-radius: 14px; padding: 18px; text-decoration: none; color: inherit; position: relative; transition: all 0.15s; margin-bottom: 10px; }
+  .daily-featured-card:last-child { margin-bottom: 0; }
+  .daily-featured-card:active { transform: scale(0.97); opacity: 0.7; }
+  .daily-featured-badge { display: inline-block; background: linear-gradient(135deg,#2563EB,#1D4ED8); color: #fff; font-size: 10px; font-weight: 700; padding: 2px 10px; border-radius: 8px; margin-bottom: 10px; }
+  .daily-featured-title { font-size: 16px; font-weight: 700; color: #1E293B; line-height: 1.4; margin-bottom: 8px; }
+  .daily-featured-meta { font-size: 12px; color: #1E40AF; display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+  .daily-featured-meta .dot { color: #60A5FA; margin: 0 2px; }
+  .daily-featured-action { margin-top: 10px; font-size: 13px; font-weight: 600; color: #2563EB; }
+  .daily-featured-action .arrow { display: inline-block; transition: transform 0.15s; }
+  .daily-featured-card:active .daily-featured-action .arrow { transform: translateX(4px); }
+
+  .daily-history-section { margin-bottom: 20px; }
+  .daily-history-card { display: flex; align-items: center; gap: 12px; padding: 14px 0; border-bottom: 1px solid #F1F5F9; text-decoration: none; color: inherit; }
+  .daily-history-card:last-child { border-bottom: none; }
+  .daily-history-card:active { opacity: 0.6; }
+  .daily-history-card .daily-num { width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(135deg,#60A5FA,#2563EB); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; flex-shrink: 0; }
+  .daily-history-card .daily-body { flex: 1; min-width: 0; }
+  .daily-history-card .daily-title { font-size: 14px; font-weight: 600; color: #1E293B; }
+  .daily-history-card .daily-meta { font-size: 12px; color: #94A3B8; margin-top: 2px; }
+  .daily-history-card .daily-tags { display: flex; gap: 4px; margin-top: 4px; flex-wrap: wrap; }
+  .daily-history-card .daily-tag { font-size: 10px; padding: 2px 8px; border-radius: 8px; background: #DBEAFE; color: #2563EB; }
+  .daily-history-card .daily-arrow { font-size: 18px; color: #CBD5E1; flex-shrink: 0; }
+
   /* ===== NEW: Brand System Components (2026-06-14) ===== */
 
   /* ---- Sticky Nav ---- */
@@ -527,8 +553,8 @@
     </div>
 
     <!-- Today's Content -->
-    <div class="section">
-      <h2>📅 今日内容</h2>
+    <div class="daily-featured-section">
+      <div class="daily-section-label">📅 今日内容</div>
       <div id="todayContent" data-date="2026-06-08">
 <!-- TODAY_PRERENDER_START -->
       <a class="edition edition-evening" href="special/SpaceX虹吸效应/article.html">
@@ -542,11 +568,9 @@
       </div>
     </div>
 
-
-
     <!-- History Archive -->
-    <div class="section">
-      <h2>📖 历史内容</h2>
+    <div class="daily-history-section">
+      <div class="daily-section-label">📖 历史内容</div>
       <div id="historyContent">
 <!-- HISTORY_PRERENDER_START -->
       <div class="history-group">
@@ -1156,7 +1180,7 @@ function renderAiChain() {
 
       // === 最新内容：featured卡片 ===
       html += '<div class="ai-featured-section">';
-      html += '<div class="ai-section-label">📅 本周深度</div>';
+      html += '<div class="ai-section-label">📅 最新更新</div>';
 
       if (latest.url && latest.status !== 'draft') {
         html +=
@@ -1259,33 +1283,32 @@ function renderEditionList(container, data) {
   var sessions = [
     { key: 'morning', icon: '🌅', label: '早报' },
     { key: 'evening', icon: '🌙', label: '晚报' },
-    { key: 'special', icon: '📚', label: '深度' },
   ];
 
   var hasAny = false;
   var html = '';
+  html += '<div class="daily-featured-section">';
+
   for (var i = 0; i < sessions.length; i++) {
     var s = sessions[i];
     var item = data[s.key];
     if (!item) continue;
     hasAny = true;
-    var cls = s.key === 'morning' ? 'edition-morning' : 'edition-evening';
-    var title = item.title || '财经内容';
     var mediaParts = [];
-    if (item.has_audio) mediaParts.push('音频');
-    if (item.has_comic && item.comic_count > 0) mediaParts.push('漫画');
-    var mediaLabel = mediaParts.length > 0 ? ' · ' + mediaParts.join('+') : '';
-    var editionLabel = s.label + mediaLabel;
+    if (item.has_audio) mediaParts.push('🎧 音频');
+    if (item.has_comic && item.comic_count > 0) mediaParts.push('📝 ' + item.comic_count + '张漫画');
+    var mediaLabel = mediaParts.length > 0 ? mediaParts.join(' · ') : '📄 图文';
+
     html +=
-      '<a class="edition ' + cls + '" href="' + item.url + '">' +
-        '<div class="edition-icon">' + s.icon + '</div>' +
-        '<div class="edition-info">' +
-          '<div class="edition-title">' + title + '</div>' +
-          '<div class="edition-desc">' + editionLabel + '</div>' +
-        '</div>' +
-        '<span class="edition-arrow">›</span>' +
+      '<a class="daily-featured-card" href="' + item.url + '">' +
+        '<div class="daily-featured-badge">' + s.icon + ' ' + s.label + '</div>' +
+        '<div class="daily-featured-title">' + (item.title || '财经内容') + '</div>' +
+        '<div class="daily-featured-meta">' + mediaLabel + '</div>' +
+        '<div class="daily-featured-action">阅读全文 <span class="arrow">→</span></div>' +
       '</a>';
   }
+
+  html += '</div>';
 
   if (!hasAny) {
     container.innerHTML = '<div class="no-data"><span class="big">📭</span>暂无今日内容</div>';
@@ -1325,6 +1348,9 @@ function renderHistoryPage(container) {
   var end = Math.min(start + HISTORY_PER_PAGE, historyDates.length);
   var slice = historyDates.slice(start, end);
   var html = '';
+  var globalIdx = (historyCurrentPage - 1) * HISTORY_PER_PAGE;
+
+  html += '<div class="daily-history-section">';
 
   for (var i = 0; i < slice.length; i++) {
     var date = slice[i];
@@ -1332,29 +1358,34 @@ function renderHistoryPage(container) {
     var parts = date.split('-');
     var displayDate = parts[0] + '年' + parseInt(parts[1]) + '月' + parseInt(parts[2]) + '日';
 
-    html += '<div class="history-group">';
-    html += '<div class="history-date-label">' + displayDate + '</div>';
-
     if (data.morning) {
+      globalIdx++;
       html +=
-        '<div class="history-item">' +
-          '<span class="h-icon">🌅</span>' +
-          '<a href="' + data.morning.url + '">' + (data.morning.title || '早报') + '</a>' +
-          '<span class="h-time">早报</span>' +
-        '</div>';
+        '<a class="daily-history-card" href="' + data.morning.url + '">' +
+          '<div class="daily-num">' + globalIdx + '</div>' +
+          '<div class="daily-body">' +
+            '<div class="daily-title">' + (data.morning.title || '早报') + '</div>' +
+            '<div class="daily-meta">' + displayDate + ' · 🌅 早报' + '</div>' +
+          '</div>' +
+          '<div class="daily-arrow">›</div>' +
+        '</a>';
     }
     if (data.evening) {
+      globalIdx++;
       html +=
-        '<div class="history-item">' +
-          '<span class="h-icon">🌙</span>' +
-          '<a href="' + data.evening.url + '">' + (data.evening.title || '晚报') + '</a>' +
-          '<span class="h-time">晚报</span>' +
-        '</div>';
+        '<a class="daily-history-card" href="' + data.evening.url + '">' +
+          '<div class="daily-num">' + globalIdx + '</div>' +
+          '<div class="daily-body">' +
+            '<div class="daily-title">' + (data.evening.title || '晚报') + '</div>' +
+            '<div class="daily-meta">' + displayDate + ' · 🌙 晚报' + '</div>' +
+          '</div>' +
+          '<div class="daily-arrow">›</div>' +
+        '</a>';
     }
-    html += '</div>';
   }
 
-  // 分页栏
+  html += '</div>';
+
   html += '<div class="pagination-bar">' +
     '<button class="page-btn" onclick="historyPrevPage()"' + (historyCurrentPage <= 1 ? ' disabled' : '') + '>‹ 上一页</button>' +
     '<span class="page-info">' + historyCurrentPage + ' / ' + historyTotalPages + '</span>' +
