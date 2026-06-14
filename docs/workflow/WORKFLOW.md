@@ -1,6 +1,7 @@
 # 扬说财经 · 生产工作流程 v5.0
 
-> 版本: v6.1 | 更新: 2026-06-04
+> 版本: v6.2 | 更新: 2026-06-14
+> v6.2核心变更: 事件时间线核查(禁止前瞻写成复盘) + 浅色配色规范(禁止#1E3A5F/#DC2626) + Python图表强制(数据展示类不得用手写SVG) + 术语表min-width:140px + 音频时长校准<2min + AI导航hash验证(#ai)
 > v6.1核心变更: 名词解释强制嵌入文章(9项铁律) + VIX更新扩展到早报前置 + deploy.sh自动rebase防冲突
 > v6.0核心变更: 7大质量升级体系（主轴传导链框架/黄金三层分析/市场价格定价意识/反常信号识别/地缘叙事化/投资视角标记/立场透明）— 源自对标行业顶尖日报的系统性升级
 > 核心理念: Claude为质量门，Codex为生产力 | 产品质量是我们的核心竞争力
@@ -69,6 +70,7 @@ Claude Code（质量门核心） → 定调、终审、复盘、规则更新
 → Q1: 我要改什么？→ 具体到文件名、行号、改动内容
 → Q2: 我怎么验证改对了？→ 用哪个命令/哪个URL/哪种方法
 → Q3: 参照里的正确做法是什么？→ 现场读参照文件确认
+→ Q4（专题专用）: 这个事件发生了吗？→ 已发生→过去时；未发生→条件语气，禁止具体数字预测
 
 验证:
 → python --version（脚本工具链可用）
@@ -89,6 +91,10 @@ Claude Code（质量门核心） → 定调、终审、复盘、规则更新
 → □ [字数] script.txt汉字数达标（早报≥500, 晚报≥1200）
 → □ [配图] 晚报每个story已嵌入img（grep story-img ≥ 6）
 → □ [禁止套话] grep全文确认无"值得关注""后市可期""需警惕"
+→ □ [事件核查] 专题前瞻分析使用条件语气，无具体日期+价格（"4.52→4.68%"类禁止）
+→ □ [配色合规] 专题CSS无#1E3A5F/#DC2626深色，使用#3B82F6/#EF4444浅色系
+→ □ [图表决策] 数据展示类图表用Python matplotlib生成，非手写SVG
+→ □ [术语表] .glossary-item .g-term min-width ≥ 140px，无文字重叠
 ```
 
 ### Phase 1: 新闻采集 + 事实核查（Codex/DeepSeek主力，Claude Code复核）
@@ -383,7 +389,12 @@ python scripts/audit-article.py --date YYYY-MM-DD --edition evening
 □ 无模板占位符残留（grep检查{{）
 □ 数据索引已更新
 □ 音频时长与页面标注差异≤20%
+□ 音频实际时长校准（v6.2新增）：差异<2分钟，优先修正标注
 □ 脚本字数/预计时长/实际时长一致
+□ [配色] 专题CSS无#1E3A5F/#DC2626深色，使用#3B82F6/#EF4444浅色系
+□ [图表] 数据展示类图表已用Python matplotlib生成，非手写SVG
+□ [术语表] .glossary-item .g-term min-width ≥ 140px，无文字重叠
+□ [导航] AI文章返回首页链接包含 #ai hash
 ```
 
 **任何一条不通过 → 不发布，先修复。**
@@ -535,11 +546,16 @@ python scripts/audit-article.py --date YYYY-MM-DD --edition evening
 □ 阅读时间 — 与音频时间标注一致（均标"约X分钟"）
 □ 首页数据刷新 — data/articles.js 含 has_audio/has_comic/comic_count
 □ 首页"扬说·深度"区域 — 媒体标签动态渲染而非硬编码
-□ 返回首页链接 — 正确相对路径（special/专题/article.html → ../../index.html）
+□ 返回首页链接 — 正确相对路径 + Tab hash（special/专题/article.html → ../../index.html#deep）
 □ 模板JS同步 — 包含音频8秒超时 + 漫画onerror回退
 □ 模板CSS——自定义配色/字体/渐变与专题风格匹配
 □ 引流入口——首页"今日内容"区域包含专题入口
 □ L3推理验证——所有市场分析论断通过方向性检验+历史类比+多渠道分析+反方观点检查（参见 docs/team/INFO_VERIFICATION_SYSTEM.md）
+□ [配色合规] 专题CSS无深色对撞（禁止#1E3A5F/#DC2626），使用浅色配色
+□ [图表决策] 数据展示用Python matplotlib，手写SVG仅限机制/叙事说明
+□ [术语表] min-width≥140px，无中英文混排溢出
+□ [音频校准] 音频生成后校准时长标注，误差<2分钟
+□ [导航hash] 返回首页链接含正确Tab hash（AI→#ai，深度→#deep等）
 ```
 
 ---

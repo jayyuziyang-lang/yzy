@@ -104,6 +104,10 @@ def main():
                         html = f.read()
                     has_nav = ('top-nav' in html or 'site-top-bar' in html) and '返回首页' in html
                     check(has_nav, f'AI: {aa.get("title","?")} — article.html + nav')
+                    if has_nav:
+                        # AI articles must link to index.html#ai (Tab hash targeting)
+                        has_ai_hash = 'index.html#ai' in html
+                        check(has_ai_hash, f'AI: {aa.get("title","?")} — 返回首页 href includes #ai')
                 else:
                     check(False, f'AI: {aa.get("title","?")} — file MISSING: {url}')
     else:
