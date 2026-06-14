@@ -1,7 +1,17 @@
 {
-  "generated_at": "2026-06-09",
+  "generated_at": "2026-06-14",
   "description": "AI产业链洞察 — 不定期更新的深度分析",
   "articles": [
+    {
+      "id": "optic-series",
+      "title": "AI算力的隐形血管——光模块如何决定大模型训练速度",
+      "date": "2026-06-14",
+      "summary": "从一颗激光器到260亿美元市场——光模块正在经历AI驱动下最凶猛的结构性爆发",
+      "readTime": 22,
+      "status": "published",
+      "url": "ai-chain/optic-series/article.html",
+      "tags": ["光模块", "800G", "1.6T", "AI算力", "电光转换", "CPO", "硅光"]
+    },
     {
       "id": "mlcc-series",
       "title": "电子大米——MLCC如何成为AI服务器供电命脉",
