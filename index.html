@@ -273,15 +273,16 @@
   .ys-nav-spacer { height: 1px; }
 
   /* ---- Brand Hero ---- */
-  .ys-hero { text-align: center; padding: 36px 0 20px; }
-  .ys-hero-kicker { font-size: 10px; font-weight: 800; letter-spacing: 0.18em; color: var(--ys-brand); font-family: var(--ys-font-en); margin-bottom: 10px; }
-  .ys-hero-title { font-size: 28px; font-weight: 850; color: var(--ys-ink); line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 10px; }
-  .ys-hero-sub { font-size: 15px; font-weight: 500; color: var(--ys-ink-soft); margin-bottom: 8px; letter-spacing: 0.04em; }
-  .ys-hero-desc { font-size: 13px; color: var(--ys-ink-faint); line-height: 1.8; max-width: 480px; margin: 0 auto 18px; }
+  .ys-hero { text-align: center; padding: 32px 0 20px; }
+  .ys-hero-inner { display: flex; flex-direction: column; align-items: center; gap: 16px; margin-bottom: 18px; }
+  .ys-hero-avatar { flex-shrink: 0; }
+  .ys-hero-avatar-img { width: 88px; height: 88px; border-radius: 50%; object-fit: cover; border: 3px solid #fff; box-shadow: 0 4px 20px rgba(0,0,0,0.10); display: block; }
+  .ys-hero-text { }
+  .ys-hero-title { font-size: 26px; font-weight: 850; color: var(--ys-ink); line-height: 1.2; letter-spacing: -0.02em; }
+  .ys-hero-sub { font-size: 15px; font-weight: 500; color: var(--ys-ink-soft); margin-top: 8px; letter-spacing: 0.04em; }
+  .ys-hero-desc { font-size: 13px; color: var(--ys-ink-faint); margin-top: 6px; line-height: 1.6; }
   .ys-hero-badges { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
   .ys-hero-badge { display: inline-flex; align-items: center; height: 32px; padding: 0 14px; border-radius: 999px; font-size: 12px; font-weight: 700; text-decoration: none; transition: transform 0.15s, box-shadow 0.15s; }
-  .ys-hero-avatar { text-align: center; margin-bottom: 16px; }
-  .ys-hero-avatar-img { width: 72px; height: 72px; border-radius: 50%; object-fit: cover; border: 3px solid #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); display: inline-block; }
   .ys-hero-badge:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
   .ys-hero-badge.--daily { background: var(--ys-daily-soft); color: var(--ys-daily); }
   .ys-hero-badge.--depth { background: var(--ys-depth-soft); color: var(--ys-depth); }
@@ -375,6 +376,8 @@
     .ys-nav-links { display: none; }
     .ys-hero { padding: 24px 0 16px; }
     .ys-hero-title { font-size: 22px; }
+    .ys-hero-avatar-img { width: 72px; height: 72px; }
+    .ys-hero-inner { gap: 12px; }
     .ys-hero-badges { gap: 6px; }
     .ys-hero-badge { height: 28px; padding: 0 12px; font-size: 11px; }
     .ys-ls-value { font-size: 14px; }
@@ -395,7 +398,7 @@
 <nav class="ys-nav" id="ysNav">
   <div class="ys-nav-inner">
     <a class="ys-logo" href="#" onclick="switchTab('daily');return false;">
-      扬说
+      扬说财经
       <span class="ys-logo-sub">把市场讲清楚，把产业看明白</span>
     </a>
     <div class="ys-nav-links" id="ysNavLinks">
@@ -412,12 +415,15 @@
 
   <!-- ===== Brand Hero ===== -->
   <section class="ys-hero ys-reveal">
-    <div class="ys-hero-kicker">YANG SAYS</div>
-    <h1 class="ys-hero-title">把市场讲清楚，<br class="ys-hero-br">把产业看明白。</h1>
-    <p class="ys-hero-sub">每日有跟踪，每周有深研，长期有产业链。</p>
-    <p class="ys-hero-desc">一个面向市场、产业与公司的个人研究内容站。</p>
-    <div class="ys-hero-avatar">
-      <img class="ys-hero-avatar-img" src="assets/character/ayang-square.jpg" alt="阿扬" loading="lazy">
+    <div class="ys-hero-inner">
+      <div class="ys-hero-avatar">
+        <img class="ys-hero-avatar-img" src="assets/character/ayang-ip.png" alt="阿扬" loading="lazy">
+      </div>
+      <div class="ys-hero-text">
+        <h1 class="ys-hero-title">扬说财经</h1>
+        <p class="ys-hero-sub">把市场讲清楚，把产业看明白。</p>
+        <p class="ys-hero-desc">每日有跟踪，每周有深研，长期有产业链。</p>
+      </div>
     </div>
     <div class="ys-hero-badges">
       <a class="ys-hero-badge --daily" href="#daily" onclick="switchTab('daily');return false;">扬说·日报</a>
