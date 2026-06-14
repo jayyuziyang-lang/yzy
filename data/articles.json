@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-06-14T10:35:42+08:00",
-  "latest_date": "2026-06-20",
+  "generated_at": "2026-06-14T10:52:09+08:00",
+  "latest_date": "2026-06-14",
   "articles": [
     {
-      "date": "2026-06-20",
+      "date": "2026-06-14",
       "session": "special",
       "edition_cn": "深度",
       "icon": "📚",
-      "title": "沃什首秀：没了点阵图，市场怎么找方向？",
-      "url": "special/沃什首秀/article.html",
-      "series": "宏观大变局",
+      "title": "SpaceX虹吸效应：万亿估值如何吸走全球资本？",
+      "url": "special/SpaceX虹吸效应/article.html",
+      "series": "资本市场",
       "has_audio": true,
-      "audio_size_bytes": 5134320,
+      "audio_size_bytes": 3352608,
       "has_comic": true,
       "comic_count": 4
     },
@@ -476,17 +476,17 @@
     }
   ],
   "by_date": {
-    "2026-06-20": {
+    "2026-06-14": {
       "special": {
-        "date": "2026-06-20",
+        "date": "2026-06-14",
         "session": "special",
         "edition_cn": "深度",
         "icon": "📚",
-        "title": "沃什首秀：没了点阵图，市场怎么找方向？",
-        "url": "special/沃什首秀/article.html",
-        "series": "宏观大变局",
+        "title": "SpaceX虹吸效应：万亿估值如何吸走全球资本？",
+        "url": "special/SpaceX虹吸效应/article.html",
+        "series": "资本市场",
         "has_audio": true,
-        "audio_size_bytes": 5134320,
+        "audio_size_bytes": 3352608,
         "has_comic": true,
         "comic_count": 4
       }

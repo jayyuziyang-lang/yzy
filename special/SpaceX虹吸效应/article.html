@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>SpaceX虹吸效应：万亿估值如何吸走全球资本？</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system,"PingFang SC","Microsoft YaHei","Helvetica Neue",sans-serif; background: #F5F7FA; color: #1E293B; line-height: 1.9; font-size: 16px; }
+  .c { max-width: 640px; margin: 0 auto; background: #fff; padding: 44px 0 40px; }
+
+  .top-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; max-width: 640px; margin: 0 auto; background: rgba(255,255,255,0.95); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-bottom: 1px solid #E2E8F0; display: flex; align-items: center; padding: 0 16px; height: 44px; }
+  .top-nav .back { display: flex; align-items: center; gap: 4px; color: #1A56DB; text-decoration: none; font-size: 13px; font-weight: 600; }
+  .top-nav .back:active { opacity: 0.6; }
+  .top-nav .nav-date { flex: 1; text-align: center; font-size: 12px; color: #64748B; }
+  .top-nav .nav-edition { font-size: 11px; color: #D4A017; background: #FFFBEB; padding: 2px 8px; border-radius: 8px; font-weight: 600; }
+
+  .header { background: linear-gradient(135deg,#1E3A5F,#3B82F6); padding: 20px 20px 16px; color: white; }
+  .header .series-tag { display: inline-block; font-size: 11px; background: rgba(255,255,255,0.15); padding: 2px 10px; border-radius: 10px; margin-bottom: 8px; letter-spacing: 1px; }
+  .header .series-tag .gold { color: #FCD34D; font-weight: 700; }
+  .header h1 { font-size: 22px; font-weight: 700; line-height: 1.4; margin-bottom: 8px; }
+  .header .meta { font-size: 12px; opacity: 0.8; display: flex; gap: 12px; flex-wrap: wrap; }
+  .header .meta .reading-time { background: rgba(255,255,255,0.1); padding: 1px 8px; border-radius: 8px; }
+
+  .player { display: flex; align-items: center; gap: 12px; margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.15); }
+  .player-icon { width: 40px; height: 40px; background: rgba(255,255,255,0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 18px; }
+  .player-info { flex: 1; }
+  .player-title { font-size: 13px; font-weight: 600; }
+  .player-desc { font-size: 11px; opacity: 0.7; }
+  .player audio { width: 100%; margin-top: 4px; border-radius: 20px; }
+
+  .body { padding: 20px; }
+
+  .lead { font-size: 15px; color: #475569; line-height: 1.8; margin-bottom: 20px; padding: 14px 16px; background: #EFF6FF; border-radius: 10px; border-left: 4px solid #3B82F6; }
+  .lead strong { color: #1E293B; }
+
+  .section-block { margin: 28px 0; }
+  .section-num { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; background: #1E3A5F; color: #fff; font-size: 13px; font-weight: 700; margin-right: 8px; flex-shrink: 0; }
+  .section-title { font-size: 18px; font-weight: 700; color: #1E293B; margin-bottom: 12px; display: flex; align-items: center; }
+  .section-content { font-size: 15px; color: #334155; line-height: 1.9; margin-bottom: 12px; }
+  .section-content p { margin-bottom: 12px; text-align: justify; }
+  .section-content .highlight { background: #EFF6FF; padding: 1px 4px; border-radius: 2px; font-weight: 600; color: #1E40AF; }
+  .section-content .key-point { font-weight: 700; color: #1E3A5F; }
+
+  .section-img { margin: 14px 0; border-radius: 8px; border: 1px solid #E2E8F0; overflow: hidden; background: #FAFAFA; }
+  .section-img img { width: 100%; display: block; }
+  .section-img .caption { font-size: 12px; color: #64748B; text-align: center; padding: 6px 10px; background: #F8FAFC; }
+
+  .section-divider { border: none; height: 1px; background: linear-gradient(to right, transparent, #3B82F6, transparent); margin: 8px 0; }
+
+  .pull-quote { font-size: 16px; font-weight: 700; color: #1E3A5F; text-align: center; padding: 16px 20px; margin: 16px 0; border-top: 2px solid #DBEAFE; border-bottom: 2px solid #DBEAFE; line-height: 1.6; }
+
+  .glossary { background: #EFF6FF; border-radius: 10px; padding: 14px 16px; margin: 20px 0; border: 1px solid #BFDBFE; }
+  .glossary h3 { font-size: 14px; font-weight: 700; color: #1E3A5F; margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+  .glossary-item { padding: 5px 0; border-bottom: 1px solid #BFDBFE; font-size: 13px; display: flex; gap: 6px; }
+  .glossary-item:last-child { border-bottom: none; }
+  .glossary-item .g-term { font-weight: 600; color: #1E40AF; white-space: nowrap; min-width: 80px; }
+  .glossary-item .g-def { color: #1E293B; }
+
+  .sources { background: #F0F4FF; border-radius: 10px; padding: 12px 14px; margin: 16px 0; font-size: 12px; color: #1E3A5F; line-height: 1.6; }
+  .sources h3 { font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+  .sources a { color: #1E40AF; text-decoration: none; }
+  .sources a:hover { text-decoration: underline; }
+
+  .end-box { background: linear-gradient(135deg,#1E3A5F,#3B82F6); border-radius: 12px; padding: 16px 20px; margin: 22px 0; color: white; text-align: center; }
+  .end-box .end-icon { font-size: 28px; margin-bottom: 4px; }
+  .end-box .end-title { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+  .end-box .end-desc { font-size: 12px; opacity: 0.8; }
+
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 13px; }
+  th { background: #1E3A5F; color: #fff; padding: 8px 10px; text-align: left; font-weight: 600; }
+  th:first-child { border-radius: 6px 0 0 0; }
+  th:last-child { border-radius: 0 6px 0 0; }
+  td { padding: 8px 10px; border-bottom: 1px solid #DBEAFE; }
+  tr:nth-child(even) { background: #EFF6FF; }
+
+  .warn { background: #FFF5F5; border: 1px solid #FECACA; border-radius: 10px; padding: 12px 14px; margin-top: 24px; font-size: 12px; color: #991B1B; line-height: 1.5; }
+
+  .tag-blue { display: inline-block; background: #1E3A5F; color: #fff; font-size: 10px; padding: 1px 7px; border-radius: 8px; white-space: nowrap; }
+  .tag-red { display: inline-block; background: #DC2626; color: #fff; font-size: 10px; padding: 1px 7px; border-radius: 8px; white-space: nowrap; }
+  .tag-green { display: inline-block; background: #16A34A; color: #fff; font-size: 10px; padding: 1px 7px; border-radius: 8px; white-space: nowrap; }
+
+  .data-box { background: #1E293B; border-radius: 10px; padding: 14px 16px; margin: 12px 0; color: #fff; }
+  .data-box .db-row { display: flex; justify-content: space-between; padding: 4px 0; font-size: 13px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .data-box .db-row:last-child { border-bottom: none; }
+  .data-box .db-label { color: #94A3B8; }
+  .data-box .db-value { font-weight: 700; }
+</style>
+</head>
+<body>
+<div class="c">
+
+  <div class="top-nav">
+    <a class="back" href="../../index.html">&larr; 返回首页</a>
+    <span class="nav-date">专题 · 第4期</span>
+    <span class="nav-edition">扬说·深度</span>
+  </div>
+
+  <div class="header">
+    <div class="series-tag"><span class="gold">扬说·深度</span> · 资本市场</div>
+    <h1>SpaceX虹吸效应：万亿估值如何吸走全球资本？</h1>
+    <div class="meta">
+      <span>📅 2026年6月14日</span>
+      <span>🏷️ SpaceX / IPO / 资本虹吸 / 市场结构</span>
+      <span class="reading-time">📖 阅读约 10 分钟</span>
+    </div>
+    <div class="player">
+      <div class="player-icon">🎧</div>
+      <div class="player-info">
+        <div class="player-title">音频深度解读 · 约 10 分钟</div>
+        <div class="player-desc">边听边看，体验更佳</div>
+        <audio controls preload="none"><source src="audio.mp3" type="audio/mpeg"></audio>
+      </div>
+    </div>
+  </div>
+
+  <div class="body">
+
+    <!-- Lead -->
+    <div class="lead">
+      <strong>2026年6月12日</strong>，SpaceX以<strong>$1.77万亿</strong>的估值在纳斯达克上市，筹集<strong>$750亿</strong>——这是有史以来最大的IPO，接近沙特阿美2019年记录的三倍。<br><br>
+      首日收盘上涨<strong>19%</strong>，市值突破<strong>$2.1万亿</strong>，成为全球第六大上市公司。伊隆·马斯克成为人类历史上第一位<strong>万亿富翁</strong>。<br><br>
+      但真正值得关注的，不是SpaceX自己涨了多少——而是<strong>其他地方发生了什么</strong>。<br><br>
+      同一周，维珍银河暴跌<strong>37%</strong>，Rocket Lab跌<strong>13%</strong>，韩国股市流出<strong>$5.7亿</strong>外资，散户连续三天抛售芯片股。连苹果和英伟达都感受到了资金外流的压力。<br><br>
+      这不是一个普通的IPO。这是一个正在重塑全球资本流动格局的<strong>"资本黑洞"</strong>。今天我们就来完整拆解这条传导链：<strong>虹吸如何发生、谁在输、谁在赢、接下来会怎样。</strong>
+    </div>
+
+    <!-- Section 1 -->
+    <div class="section-block">
+      <div class="section-title"><span class="section-num">1</span>发生了什么？人类史上最大IPO的完整画像</div>
+      <div class="section-content">
+        <p>先看清楚这到底有多大。</p>
+
+        <p><span class="highlight">$750亿</span>。SpaceX在6月11日以每股$135的价格发行了5.556亿股，筹集了$750亿。相比之下，沙特阿美2019年上市筹集了$256亿——SpaceX是它的<strong>近三倍</strong>。这$750亿意味着什么？它超过了2025年全球所有IPO融资额的<strong>总和</strong>的一半。</p>
+
+        <p>但更惊人的是需求端。IPO获得了<strong>约4倍超额认购</strong>——机构提交的订单总额超过$3000亿，而供给只有$750亿。散户提交了超过<strong>$1000亿</strong>的订单，SpaceX史无前例地将30%的份额分配给零售投资者（常规IPO通常只有5-10%）。</p>
+
+        <p>贝莱德提交了至少<strong>$50亿</strong>的订单。中东主权基金（沙特PIF、卡塔尔投资局、阿布扎比投资局）每家下了$10-50亿。这个IPO的参与者名单读起来像全球资本精英的名人录。</p>
+
+        <div class="data-box">
+          <div class="db-row"><span class="db-label">IPO发行价</span><span class="db-value">$135/股</span></div>
+          <div class="db-row"><span class="db-label">筹集总额</span><span class="db-value">$750亿</span></div>
+          <div class="db-row"><span class="db-label">IPO估值</span><span class="db-value">~$1.77万亿</span></div>
+          <div class="db-row"><span class="db-label">首日收盘</span><span class="db-value">$161 (+19%)</span></div>
+          <div class="db-row"><span class="db-label">首日市值</span><span class="db-value">~$2.1万亿</span></div>
+          <div class="db-row"><span class="db-label">自由流通量</span><span class="db-value">仅~4.2%</span></div>
+          <div class="db-row"><span class="db-label">超额认购</span><span class="db-value">~4倍</span></div>
+          <div class="db-row"><span class="db-label">散户订单</span><span class="db-value">>$1000亿</span></div>
+        </div>
+
+        <p>首日交易可以用"疯狂"来形容。开盘$150（+11%），随后在第一个小时内飙升至$176.52（+31%），最终收于$161附近。但这还不是故事的全部——<strong>真正的问题是：这些钱是从哪里来的？</strong></p>
+      </div>
+      <div class="section-img">
+        <img loading="lazy" src="comic/panel-001.svg" alt="史上最大IPO对比图——SpaceX vs 沙特阿美 vs 其他超级IPO">
+        <div class="caption">SpaceX $750亿的IPO规模接近沙特阿美的3倍，超过全球所有科技IPO的年度总额</div>
+      </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- Section 2 -->
+    <div class="section-block">
+      <div class="section-title"><span class="section-num">2</span>虹吸如何发生？三条渠道的资金大转移</div>
+      <div class="section-content">
+        <p>当$750亿的新证券在一夜之间出现在市场上时，它不会凭空创造新的资金——它只会<strong>重新分配</strong>已有的资金。这些新钱必须来自某个地方。让我们追踪三条主要的资金转移渠道。</p>
+
+        <p><span class="key-point">渠道一：空间概念股的"代理交易"崩溃。</span></p>
+
+        <p>在SpaceX上市之前，市场想投资太空经济但没有直接标的——于是涌入了"SpaceX替代品"。维珍银河（SPCE）在IPO前一个月飙升了近<strong>100%</strong>，Rocket Lab（RKLB）涨了<strong>40%</strong>，整个Procure Space ETF（UFO）涨了超过<strong>30%</strong>。</p>
+
+        <p>但6月12日SpaceX开始交易之后，这些"代理交易"的逻辑瞬间崩塌了——<strong>为什么还要买"山寨版"SpaceX，当正品就在那里？</strong></p>
+
+        <p>结果是惨烈的：</p>
+
+        <p><span class="tag-red">维珍银河 (SPCE)</span> 单日暴跌 <strong>-37%</strong>，回吐了过去一个月的全部涨幅。<span class="tag-red">Rocket Lab (RKLB)</span> 跌 <strong>-13%</strong>，<span class="tag-red">Intuitive Machines (LUNR)</span> 跌 <strong>-10%</strong>，<span class="tag-red">Redwire (RDW)</span> 跌 <strong>-13%</strong>。空间ETF（UFO）单日跌 <strong>-7.9%</strong>——一天之内蒸发了数月的收益。</p>
+
+        <p><span class="key-point">渠道二：机构基金的强制再平衡。</span></p>
+
+        <p>MSCI在SpaceX上市首日就宣布将其纳入MSCI World和ACWI指数（T+1纳入，极其罕见）。这意味着跟踪这些指数的基金——管理着约<strong>$15-20万亿</strong>的资产——<strong>必须</strong>买入SpaceX股票。但问题在于：SpaceX的自由流通量只有4.2%，市场上根本没有足够的卖盘来满足指数基金的买入需求。</p>
+
+        <p>解决方案是什么？基金公司只能<strong>卖出其他持仓</strong>来腾出仓位。Goldman Sachs的数据显示，在IPO前一周，共同基金的现金余额明显上升——这是机构在提前准备弹药。Bloomberg和Morningstar的报道确认，基金经理被迫减持了苹果、微软、英伟达等现有科技巨头来为SpaceX腾出空间。Vanda Research的数据显示，散户连续三天净卖出芯片股（美光、高通、博通）来筹集资金申购SpaceX。</p>
+
+        <p><span class="key-point">渠道三：国际资本的回流效应。</span></p>
+
+        <p>这个渠道最隐蔽，但影响范围最广。Business Korea在6月12日的报道揭示了一个关键数据：<strong>韩国股市在IPO前五周内流出了约$5.7亿的外资</strong>，因为全球基金在筹集现金为SpaceX做准备。</p>
+
+        <p>这不是韩国特有的现象。当美国最大的IPO发生时，全球资金都向纽约回流。新兴市场、欧洲、日本——所有地方的资金都在被"虹吸"回美国。Jefferies的Chris Wood警告说，SpaceX加上即将到来的Anthropic（保密递交，估值$9650亿）和OpenAI（已递交，估值可能超过$1万亿）的IPO，合计将代表<strong>$3.6万亿</strong>的新增市值——相当于在现有市场上"抽走"同样规模的流动性。</p>
+      </div>
+      <div class="section-img">
+        <img loading="lazy" src="comic/panel-002.svg" alt="三条虹吸渠道图解——代理交易崩溃、机构再平衡、国际资本回流">
+        <div class="caption">$750亿的IPO资金不会凭空产生——它的来源揭示了当下全球资本流动的真实路径</div>
+      </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- Section 3 -->
+    <div class="section-block">
+      <div class="section-title"><span class="section-num">3</span>意味着什么？三个层面的市场结构之变</div>
+      <div class="section-content">
+        <p>SpaceX的IPO不只是"一个大公司上市了"——它是一个<strong>市场结构的转折点</strong>。三件深层的事情正在发生。</p>
+
+        <p><span class="key-point">第一，自由流通量的"稀缺悖论"正在制造前所未有的价格扭曲。</span></p>
+
+        <p>SpaceX上市时只有<strong>4.2%</strong>的股份可供交易，而MSCI在第一天就将其纳入指数。这意味着指数基金被迫买入的份额远远超过了市场上可供交易的份额。理论上，要让所有指数基金完成配置，市场需要<strong>至少20-30%的流通量</strong>——但实际只有4.2%。</p>
+
+        <p>结果是什么？价格发现功能严重失灵。一个只交易了4.2%股份的公司，市值却超过了制造业巨头波音（不到$1000亿）和洛克希德·马丁（约$1300亿）的总和。纳斯达克为此专门修改了规则：在计算纳斯达克100指数的权重时，将使用$2250亿的调整市值（相当于流通量的3倍权重）——这进一步扭曲了指数的真实构成。</p>
+
+        <p><span class="tag-blue">Morningstar</span> 使用DCF模型对SpaceX的估值为<strong>$7800亿</strong>——仅为当前市场定价的<strong>37%</strong>。差距之大，令人震惊。</p>
+
+        <p><span class="key-point">第二，"超级IPO"正在改变市场波动的底层结构。</span></p>
+
+        <p>当一家$2万亿的公司只有4%的流通量时，它的价格波动不取决于基本面——而取决于<strong>供需失衡</strong>。任何一笔大的买入或卖出都能造成剧烈波动。更令人担忧的是<strong>锁定期</strong>：马斯克和早期投资者的锁定期为<strong>366天</strong>，但其他内部人士的锁定期在<strong>180天</strong>（约2026年12月）就会到期。届时，超过90%的股份可能涌入市场——潜在的卖压以<strong>万亿美元</strong>计。</p>
+
+        <p><span class="key-point">第三，也是最根本的——科技泡沫是否已经到了最后一站？</span></p>
+
+        <p>Jefferies全球股票策略主管Chris Wood在6月9日的研报中写道：<strong>"SpaceX的IPO可能标志着AI热潮的顶峰。"</strong></p>
+
+        <p>著名空头Michael Burry已经建立了大量空头头寸，做空Palantir和英伟达作为对冲。他的论据是：SpaceX、OpenAI、Anthropic三者的合计IPO融资规模，<strong>已经超过了2000年互联网泡沫巅峰期前300大科技IPO的总和</strong>。</p>
+
+        <p>但反过来看，也有一种完全不同的叙事：SpaceX代表的是<strong>实体经济的未来</strong>——星链有超过500万用户、每年产生约$120亿收入、已经实现盈利；发射业务有约$40亿收入和NASA的长期合同；AI部门（xAI+X+Tesla AI融合）贡献了另外约$30亿。这三条业务线各自对应一个万亿美元级别的市场。从这个角度看，$2万亿的估值不是泡沫，而是<strong>对三个确定性极高的未来市场的折现</strong>。</p>
+
+        <p>谁是对的？时间会给出答案。但有一件事是确定的：<strong>市场在SpaceX上下的赌注，规模是史无前例的。</strong></p>
+      </div>
+      <div class="section-img">
+        <img loading="lazy" src="comic/panel-003.svg" alt="三个结构性变化——流通量稀缺、锁定期风险、泡沫 vs 实体对比">
+        <div class="caption">$2.1万亿的市值里，有多少是真实的？市场给出的估值和Morningstar的DCF模型之间差了$1.3万亿</div>
+      </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- Section 4 -->
+    <div class="section-block">
+      <div class="section-title"><span class="section-num">4</span>接下来：三个时间节点决定虹吸效应的演进</div>
+      <div class="section-content">
+        <p>SpaceX IPO不是一次性事件——它的影响将在未来12-18个月内逐步展开。三个时间节点值得格外关注。</p>
+
+        <p><span class="key-point">节点一：2026年9月——纳斯达克100指数正式纳入。</span></p>
+
+        <p>虽然MSCI已经提前纳入，但纳斯达克100的正式纳入（约在IPO后15个交易日）将带来另一波被动买入潮。被动基金需要卖出指数中的现有成分股来为SpaceX腾出空间。受影响最大的将是同属高估值科技板块的公司——那些P/E倍数高、市值大的公司将面临持续的抛售压力。这可能加剧美股内部从"成长"到"价值"的轮动。</p>
+
+        <p><span class="key-point">节点二：2026下半年——OpenAI和Anthropic的IPO。</span></p>
+
+        <p>这是整个"虹吸叙事"中最重要的续集。Anthropic已在6月1日保密递交上市文件（估值$9650亿），OpenAI在6月8日递交（估值可能超过$1万亿）。如果两者都在2026年下半年上市，将合计再吸纳<strong>$2000-3000亿</strong>的资金。</p>
+
+        <p>这不仅仅是两个IPO的问题——这是一个<strong>$3.6万亿的资本重新配置事件</strong>。从全球市场被抽走的流动性规模，将接近整个韩国股市的总市值。新兴市场、中小盘科技股、甚至是比特币——所有流动性敏感型资产都将面临压力。</p>
+
+        <p><span class="key-point">节点三（最关键）：2026年12月——内部人锁定期到期。</span></p>
+
+        <p>约180天后（即2026年12月），SpaceX的内部人股份将开始解禁。目前超过<strong>90%</strong>的股份由内部人持有。即使只有10%的内部人选择套现，那也意味着<strong>$2000亿+</strong>的卖压涌入一个只有4.2%流通量的市场。</p>
+
+        <p>这意味着什么？SpaceX的股价在锁定期到期前可能持续受到"卖压预期"的压制。这也可能是2026年底市场最重要的风险事件之一。</p>
+
+        <p><span class="key-point">📌 投资视角：所以呢？</span></p>
+
+        <p>对普通投资者来说，理解虹吸效应的实际意义不是要去买或卖SpaceX的股票——而是要知道<strong>你的持仓正在被什么力量影响</strong>：</p>
+
+        <p>如果你持有科技股（尤其是高估值/远期现金流占比高的公司），你需要意识到被动资金外流的压力可能在未来几个季度持续。如果你投资了新兴市场，SpaceX+OpenAI+Anthropic的IPO组合意味着这些市场的资金外流可能刚刚开始。如果你关注A股，北向资金在超级IPO周期的压力下可能阶段性承压——但A股的核心驱动力仍在国内政策面。</p>
+
+        <p>SpaceX的IPO不是一个孤立事件——它是<strong>新一轮"超级IPO"周期的起点</strong>。这个周期的规模是2000年互联网泡沫以来从未见过的。不管你认为这是泡沫还是变革，有一件事是确定的：<strong>全球资本正在被重新排列</strong>。</p>
+      </div>
+      <div class="section-img">
+        <img loading="lazy" src="comic/panel-004.svg" alt="三个时间节点推演——纳斯达克100纳入、OpenAI/Anthropic IPO、锁定期到期">
+        <div class="caption">三个时间节点将决定虹吸效应是短期脉冲还是持续数年的结构性力量</div>
+      </div>
+    </div>
+
+    <!-- Pull Quote -->
+    <div class="pull-quote">
+      SpaceX的IPO不是"一个大公司上市了"——<br>
+      它是全球资本流动格局的一次"地震"。<br>
+      地震的中心在纽约，但震感会传到每一个市场。
+    </div>
+
+    <!-- Data Table -->
+    <div style="margin: 20px 0;">
+      <p style="font-size: 13px; font-weight: 700; color: #1E3A5F; margin-bottom: 6px;">▎超级IPO周期一览（2026年）</p>
+      <table>
+        <tr><th>公司</th><th>状态</th><th>估值</th><th>预计融资</th><th>虹吸影响</th></tr>
+        <tr><td>SpaceX</td><td>✅ 已上市</td><td>$1.77T (IPO)</td><td>$750亿</td><td>已完成</td></tr>
+        <tr><td>Anthropic</td><td>🔄 保密递交</td><td>~$9650亿</td><td>~$500-800亿</td><td>下半年</td></tr>
+        <tr><td>OpenAI</td><td>🔄 已递交</td><td>>$1万亿</td><td>~$800-1000亿</td><td>下半年</td></tr>
+        <tr><td colspan="5" style="text-align:center;font-weight:700;color:#1E3A5F;">合计新增市值：~$3.6万亿 | 预计融资：~$2000-2500亿</td></tr>
+      </table>
+    </div>
+
+    <!-- Glossary -->
+    <div class="glossary">
+      <h3>📖 术语解释</h3>
+      <div class="glossary-item"><span class="g-term">虹吸效应</span><span class="g-def">大规模IPO吸走市场流动性的现象——资金从其他资产类别流向新上市公司，造成广泛的价格压力</span></div>
+      <div class="glossary-item"><span class="g-term">自由流通量 (Free Float)</span><span class="g-def">上市公司中可供公开交易的股份比例，SpaceX仅4.2%——极低的流通量意味着价格容易被大单操控</span></div>
+      <div class="glossary-item"><span class="g-term">代理交易 (Proxy Trade)</span><span class="g-def">当无法直接投资目标公司时，买入同类公司股票作为"替代品"。SpaceX上市后，所有替代品的逻辑崩塌</span></div>
+      <div class="glossary-item"><span class="g-term">T+1纳入</span><span class="g-def">MSCI在SpaceX上市首日即将其纳入指数，而非通常的季度或半年度调整——史无前例，迫使指数基金立即买入</span></div>
+      <div class="glossary-item"><span class="g-term">锁定期 (Lockup)</span><span class="g-def">IPO后内部人员不得出售股份的期限。马斯克锁定期366天，其他内部人180天——到期后可能面临天量抛压</span></div>
+      <div class="glossary-item"><span class="g-term">DCF模型</span><span class="g-def">现金流折现法，通过预测未来现金流并折现到当前来计算公司内在价值。Morningstar用此模型将SpaceX估值为$7800亿</span></div>
+      <div class="glossary-item"><span class="g-term">被动基金再平衡</span><span class="g-def">指数基金必须按权重买入或卖出指数成分股。新公司纳入指数时，基金被迫卖出旧成分股来腾出资金</span></div>
+    </div>
+
+    <!-- Sources -->
+    <div class="sources">
+      <h3>📚 参考来源</h3>
+      <p style="margin-bottom: 4px;">1. SpaceX S-1 招股说明书 — SEC文件 — 2026-05</p>
+      <p style="margin-bottom: 4px;">2. EastMoney — "一场史无前例的资本虹吸" — 2026-06-13</p>
+      <p style="margin-bottom: 4px;">3. CNBC — "SpaceX IPO won't 'break' the bull market" — 2026-06-11</p>
+      <p style="margin-bottom: 4px;">4. Jefferies (Chris Wood) — "SpaceX IPO marks the peak of AI euphoria" — 2026-06-09</p>
+      <p style="margin-bottom: 4px;">5. Business Korea — 韩国股市$5.7亿外资流出 — 2026-06-12</p>
+      <p style="margin-bottom: 4px;">6. Vanda Research — 散户抛售芯片股数据 — 2026-06</p>
+      <p style="margin-bottom: 4px;">7. Morningstar — DCF估值$7800亿 — 2026-06</p>
+      <p style="margin-bottom: 4px;">8. Nasdaq — 指数纳入规则修改公告 — 2026-06</p>
+      <p style="margin-bottom: 4px;">9. MSCI — SPCX纳入World/ACWI指数公告 — 2026-06-12</p>
+      <p style="margin-bottom: 4px;">10. Bloomberg / Yahoo Finance — IPO首日交易数据 — 2026-06-12</p>
+    </div>
+
+    <!-- End Box -->
+    <div class="end-box">
+      <div class="end-icon">🚀</div>
+      <div class="end-title">扬说·深度</div>
+      <div class="end-desc">用逻辑穿透表象 · 每周六更新</div>
+    </div>
+
+    <div class="warn">⚠️ <strong>风险提示：</strong>本文仅为信息分享与知识科普，不构成任何投资建议。市场有风险，投资需谨慎。数据来源于公开信息，如有出入请以官方数据为准。文中提及的个股（SPCX、SPCE、RKLB等）仅作案例分析，不构成买卖建议。估值预测为第三方机构观点，不代表未来必然走势。</div>
+
+  </div>
+</div>
+
+<script>
+// ===== 音频/图片 资源完整性检查 =====
+document.addEventListener('DOMContentLoaded',function(){
+  var player=document.querySelector('.player');
+  var audioEl=player?player.querySelector('audio'):null;
+  if(audioEl&&player){
+    var timeoutId=setTimeout(function(){player.style.display='none';},8000);
+    audioEl.addEventListener('canplay',function(){clearTimeout(timeoutId);});
+    audioEl.addEventListener('error',function(){
+      clearTimeout(timeoutId);
+      player.style.display='none';
+    });
+  }
+
+  document.querySelectorAll('.section-img img').forEach(function(img){
+    if(img.getAttribute('src')&&img.getAttribute('src').indexOf('comic/')===0){
+      img.addEventListener('error',function(){
+        this.outerHTML='<div style="padding:32px 16px;text-align:center;background:#F8FAFC;border-radius:8px;color:#94A3B8;font-size:13px;line-height:1.8;">🖼️ 漫画加载失败<br><span style="font-size:11px;">'+(this.getAttribute('alt')||'')+'</span></div>';
+      });
+    }
+  });
+});
+
+// 动态返回首页
+document.addEventListener('DOMContentLoaded',function(){
+  var back=document.querySelector('.back');
+  if(back){
+    back.addEventListener('click',function(e){
+      e.preventDefault();
+      var p=location.pathname.replace(/\/$/,'').split('/');
+      location.href='../'.repeat(Math.max(0,p.length-3))||'.';
+    });
+  }
+});
+</script>
+</body>
+</html>

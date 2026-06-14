@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F0F4FF"/>
+      <stop offset="100%" stop-color="#EBF2FA"/>
+    </linearGradient>
+    <linearGradient id="channel1" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#DC2626"/>
+      <stop offset="100%" stop-color="#EF4444"/>
+    </linearGradient>
+    <linearGradient id="channel2" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#D97706"/>
+      <stop offset="100%" stop-color="#F59E0B"/>
+    </linearGradient>
+    <linearGradient id="channel3" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1E3A5F"/>
+      <stop offset="100%" stop-color="#3B82F6"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#3B82F6"/>
+    </marker>
+    <filter id="shadow" x="-2%" y="-2%" width="104%" height="104%">
+      <feDropShadow dx="1" dy="2" stdDeviation="3" flood-color="#1E3A5F" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <rect width="800" height="500" fill="url(#bg)" rx="12"/>
+
+  <!-- Title -->
+  <text x="400" y="32" text-anchor="middle" font-size="18" font-weight="700" fill="#1E3A5F">资金从哪里来？三条虹吸渠道</text>
+  <text x="400" y="52" text-anchor="middle" font-size="12" fill="#64748B">$750亿的资金大转移——追踪每一块钱的"前世今生"</text>
+
+  <!-- Center: SpaceX -->
+  <rect x="300" y="72" width="200" height="48" rx="24" fill="#1E3A5F" filter="url(#shadow)"/>
+  <text x="400" y="100" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">🚀 SpaceX IPO</text>
+
+  <!-- Incoming arrows to SpaceX (money flowing in) positioned at bottom arrows -->
+  <!-- The money flows INTO SpaceX from 3 channels -->
+
+  <!-- Channel 1: Proxy trade unwind -->
+  <rect x="24" y="148" width="340" height="98" rx="8" fill="#fff" stroke="#FECACA" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="24" y="148" width="8" height="98" rx="4" fill="#DC2626"/>
+  <text x="46" y="174" font-size="13" font-weight="700" fill="#DC2626">渠道一 · 代理交易崩溃</text>
+  <text x="46" y="196" font-size="11" fill="#475569">维珍银河 -37% · Rocket Lab -13%</text>
+  <text x="46" y="214" font-size="11" fill="#475569">Intuitive Machines -10% · Redwire -13%</text>
+  <text x="46" y="232" font-size="11" fill="#64748B">"SpaceX替代品"的逻辑一夜崩塌</text>
+
+  <!-- Arrow from Channel 1 to SpaceX -->
+  <line x1="364" y1="197" x2="400" y2="130" stroke="#DC2626" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Channel 2: Institutional rebalancing -->
+  <rect x="24" y="260" width="340" height="98" rx="8" fill="#fff" stroke="#FDE68A" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="24" y="260" width="8" height="98" rx="4" fill="#D97706"/>
+  <text x="46" y="286" font-size="13" font-weight="700" fill="#B45309">渠道二 · 机构强制再平衡</text>
+  <text x="46" y="308" font-size="11" fill="#475569">MSCI首日纳入 → 指数基金被迫买入</text>
+  <text x="46" y="326" font-size="11" fill="#475569">卖出苹果/微软/英伟达来腾空间</text>
+  <text x="46" y="344" font-size="11" fill="#64748B">散户连续3天抛售芯片股 (美光/高通/博通)</text>
+
+  <!-- Arrow from Channel 2 to SpaceX -->
+  <line x1="210" y1="260" x2="350" y2="120" stroke="#D97706" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Channel 3: International capital backflow -->
+  <rect x="436" y="148" width="340" height="98" rx="8" fill="#fff" stroke="#BFDBFE" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="436" y="148" width="8" height="98" rx="4" fill="#1E3A5F"/>
+  <text x="458" y="174" font-size="13" font-weight="700" fill="#1E3A5F">渠道三 · 国际资本回流</text>
+  <text x="458" y="196" font-size="11" fill="#475569">韩国股市5周流出$5.7亿外资</text>
+  <text x="458" y="214" font-size="11" fill="#475569">全球基金为SpaceX准备现金</text>
+  <text x="458" y="232" font-size="11" fill="#64748B">新兴市场 → 美国的资金大挪移</text>
+
+  <!-- Arrow from Channel 3 to SpaceX -->
+  <line x1="436" y1="197" x2="410" y2="130" stroke="#1E3A5F" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Coming next: OpenAI + Anthropic -->
+  <rect x="436" y="260" width="340" height="98" rx="8" fill="#fff" stroke="#C4B5FD" stroke-width="1.5" stroke-dasharray="6,3" filter="url(#shadow)"/>
+  <text x="458" y="286" font-size="13" font-weight="700" fill="#6D28D9">续集即将到来...</text>
+  <text x="458" y="308" font-size="11" fill="#475569">Anthropic：保密递交，估值~$9650亿</text>
+  <text x="458" y="326" font-size="11" fill="#475569">OpenAI：已递交，估值>$1万亿</text>
+  <text x="458" y="344" font-size="11" fill="#64748B">合计：~$3.6万亿新增市值 → 持续虹吸</text>
+
+  <!-- Warning box -->
+  <rect x="125" y="380" width="550" height="40" rx="8" fill="#FFF5F5" stroke="#FECACA" stroke-width="1"/>
+  <text x="400" y="400" text-anchor="middle" font-size="12" font-weight="600" fill="#DC2626">⚠️ 风险警示</text>
+  <text x="400" y="416" text-anchor="middle" font-size="11" fill="#991B1B">超级IPO周期可能在2026年下半年抽走$2000-2500亿流动性——新兴市场最先承压</text>
+
+  <!-- Source -->
+  <text x="24" y="480" font-size="10" fill="#94A3B8">来源: EastMoney / CNBC / Business Korea / Vanda Research / Morningstar — 2026年6月</text>
+</svg>
