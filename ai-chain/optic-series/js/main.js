@@ -96,6 +96,51 @@
     footerObserver.observe(footer);
   }
 
+  // ===== 视频播放/暂停按钮 =====
+  var videoContainers = document.querySelectorAll('.video-container');
+  videoContainers.forEach(function(container) {
+    var video = container.querySelector('video');
+    var btn = container.querySelector('.video-play-btn');
+    if (!video || !btn) return;
+
+    function togglePlay() {
+      if (video.paused) {
+        video.play().then(function() {
+          btn.textContent = '\u23f8';
+          btn.classList.add('playing');
+          btn.setAttribute('aria-label', '\u6682\u505c');
+        }).catch(function() {});
+      } else {
+        video.pause();
+        btn.textContent = '\u25b6';
+        btn.classList.remove('playing');
+        btn.setAttribute('aria-label', '\u64ad\u653e');
+      }
+    }
+
+    function onPlay() {
+      btn.textContent = '\u23f8';
+      btn.classList.add('playing');
+      btn.setAttribute('aria-label', '\u6682\u505c');
+    }
+
+    function onPause() {
+      btn.textContent = '\u25b6';
+      btn.classList.remove('playing');
+      btn.setAttribute('aria-label', '\u64ad\u653e');
+    }
+
+    btn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      togglePlay();
+    });
+
+    video.addEventListener('click', togglePlay);
+    video.addEventListener('play', onPlay);
+    video.addEventListener('pause', onPause);
+    video.addEventListener('ended', onPause);
+  });
+
   // ===== 初始激活 =====
   updateActiveLink();
 })();

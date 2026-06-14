@@ -474,11 +474,54 @@ body {
   overflow: hidden;
   background: var(--bg-card);
   box-shadow: var(--shadow);
+  position: relative;
 }
 
 .video-container video {
   width: 100%;
   display: block;
+}
+
+/* 视频播放按钮 — 覆盖层居中 */
+.video-play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 3px solid rgba(255,255,255,0.9);
+  background: rgba(0,0,0,0.45);
+  color: #fff;
+  font-size: 26px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  z-index: 2;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  line-height: 1;
+  padding: 0;
+}
+.video-play-btn:hover {
+  background: rgba(0,0,0,0.65);
+  transform: translate(-50%, -50%) scale(1.08);
+}
+.video-play-btn:active {
+  transform: translate(-50%, -50%) scale(0.95);
+}
+.video-play-btn.playing {
+  font-size: 22px;
+}
+.video-play-btn.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+.video-container:hover .video-play-btn:not(.playing) {
+  opacity: 1;
 }
 
 /* 图表引导文字 */
