@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>沃什首秀：没了点阵图，市场怎么找方向？</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system,"PingFang SC","Microsoft YaHei","Helvetica Neue",sans-serif; background: #F5F7FA; color: #1E293B; line-height: 1.9; font-size: 16px; }
+  .c { max-width: 640px; margin: 0 auto; background: #fff; padding: 44px 0 40px; }
+
+  .top-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; max-width: 640px; margin: 0 auto; background: rgba(255,255,255,0.95); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-bottom: 1px solid #E2E8F0; display: flex; align-items: center; padding: 0 16px; height: 44px; }
+  .top-nav .back { display: flex; align-items: center; gap: 4px; color: #1E3A5F; text-decoration: none; font-size: 13px; font-weight: 600; }
+  .top-nav .back:active { opacity: 0.6; }
+  .top-nav .nav-date { flex: 1; text-align: center; font-size: 12px; color: #64748B; }
+  .top-nav .nav-edition { font-size: 11px; color: #D4A017; background: #FFFBEB; padding: 2px 8px; border-radius: 8px; font-weight: 600; }
+
+  .header { background: linear-gradient(135deg,#1E3A5F,#0F2440); padding: 20px 20px 16px; color: white; }
+  .header .series-tag { display: inline-block; font-size: 11px; background: rgba(255,255,255,0.15); padding: 2px 10px; border-radius: 10px; margin-bottom: 8px; letter-spacing: 1px; }
+  .header .series-tag .gold { color: #D4A017; font-weight: 700; }
+  .header h1 { font-size: 22px; font-weight: 700; line-height: 1.4; margin-bottom: 8px; }
+  .header .meta { font-size: 12px; opacity: 0.8; display: flex; gap: 12px; flex-wrap: wrap; }
+  .header .meta .reading-time { background: rgba(255,255,255,0.1); padding: 1px 8px; border-radius: 8px; }
+
+  .player { display: flex; align-items: center; gap: 12px; margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.15); }
+  .player-icon { width: 40px; height: 40px; background: rgba(255,255,255,0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 18px; }
+  .player-info { flex: 1; }
+  .player-title { font-size: 13px; font-weight: 600; }
+  .player-desc { font-size: 11px; opacity: 0.7; }
+  .player audio { width: 100%; margin-top: 4px; border-radius: 20px; }
+
+  .body { padding: 20px; }
+
+  .lead { font-size: 15px; color: #475569; line-height: 1.8; margin-bottom: 20px; padding: 14px 16px; background: #F8FAFC; border-radius: 10px; border-left: 4px solid #D4A017; }
+  .lead strong { color: #1E293B; }
+
+  .section-block { margin: 28px 0; }
+  .section-num { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; background: #1E3A5F; color: #fff; font-size: 13px; font-weight: 700; margin-right: 8px; flex-shrink: 0; }
+  .section-title { font-size: 18px; font-weight: 700; color: #1E293B; margin-bottom: 12px; display: flex; align-items: center; }
+  .section-content { font-size: 15px; color: #334155; line-height: 1.9; margin-bottom: 12px; }
+  .section-content p { margin-bottom: 12px; text-align: justify; }
+  .section-content .highlight { background: #EFF6FF; padding: 1px 4px; border-radius: 2px; font-weight: 600; color: #1E3A5F; }
+  .section-content .key-point { font-weight: 700; color: #1E3A5F; }
+  .section-content .data-point { display: inline-block; background: #F1F5F9; padding: 0 6px; border-radius: 4px; font-weight: 600; color: #0F2440; }
+
+  .section-img { margin: 14px 0; border-radius: 8px; border: 1px solid #E2E8F0; overflow: hidden; background: #FAFAFA; }
+  .section-img img { width: 100%; display: block; }
+  .section-img .caption { font-size: 12px; color: #64748B; text-align: center; padding: 6px 10px; background: #F8FAFC; }
+
+  .section-divider { border: none; height: 1px; background: linear-gradient(to right, transparent, #D4A017, transparent); margin: 8px 0; }
+
+  .pull-quote { font-size: 16px; font-weight: 700; color: #1E3A5F; text-align: center; padding: 16px 20px; margin: 16px 0; border-top: 2px solid #EFF6FF; border-bottom: 2px solid #EFF6FF; line-height: 1.6; }
+
+  .glossary { background: #F8FAFC; border-radius: 10px; padding: 14px 16px; margin: 20px 0; border: 1px solid #E2E8F0; }
+  .glossary h3 { font-size: 14px; font-weight: 700; color: #1E293B; margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+  .glossary-item { padding: 5px 0; border-bottom: 1px solid #E2E8F0; font-size: 13px; display: flex; gap: 6px; }
+  .glossary-item:last-child { border-bottom: none; }
+  .glossary-item .g-term { font-weight: 600; color: #1E3A5F; white-space: nowrap; min-width: 80px; }
+  .glossary-item .g-def { color: #475569; }
+
+  .sources { background: #FFFBEB; border-radius: 10px; padding: 12px 14px; margin: 16px 0; font-size: 12px; color: #92400E; line-height: 1.6; }
+  .sources h3 { font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+  .sources a { color: #1E3A5F; text-decoration: none; }
+  .sources a:hover { text-decoration: underline; }
+
+  .end-box { background: linear-gradient(135deg,#1E3A5F,#0F2440); border-radius: 12px; padding: 16px 20px; margin: 22px 0; color: white; text-align: center; }
+  .end-box .end-icon { font-size: 28px; margin-bottom: 4px; }
+  .end-box .end-title { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+  .end-box .end-desc { font-size: 12px; opacity: 0.8; }
+
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 13px; }
+  th { background: #1E3A5F; color: #fff; padding: 8px 10px; text-align: left; font-weight: 600; }
+  th:first-child { border-radius: 6px 0 0 0; }
+  th:last-child { border-radius: 0 6px 0 0; }
+  td { padding: 8px 10px; border-bottom: 1px solid #E2E8F0; }
+  tr:nth-child(even) { background: #F8F9FA; }
+
+  .warn { background: #FFF5F5; border: 1px solid #FECACA; border-radius: 10px; padding: 12px 14px; margin-top: 24px; font-size: 12px; color: #991B1B; line-height: 1.5; }
+
+  .tag-blue { display: inline-block; background: #1E3A5F; color: #fff; font-size: 10px; padding: 1px 7px; border-radius: 8px; white-space: nowrap; }
+</style>
+</head>
+<body>
+<div class="c">
+
+  <div class="top-nav">
+    <a class="back" href="../../index.html">&larr; 返回首页</a>
+    <span class="nav-date">专题 · 第4期</span>
+    <span class="nav-edition">扬说·深度</span>
+  </div>
+
+  <div class="header">
+    <div class="series-tag"><span class="gold">扬说·深度</span> · 宏观大变局</div>
+    <h1>沃什首秀：没了点阵图，市场怎么找方向？</h1>
+    <div class="meta">
+      <span>📅 2026年6月20日</span>
+      <span>🏷️ 美联储 / 沃什 / 点阵图 / FOMC</span>
+      <span class="reading-time">📖 阅读约 14 分钟</span>
+    </div>
+    <div class="player">
+      <div class="player-icon">🎧</div>
+      <div class="player-info">
+        <div class="player-title">音频深度解读 · 约 14 分钟</div>
+        <div class="player-desc">边听边看，体验更佳</div>
+        <audio controls preload="none"><source src="audio.mp3" type="audio/mpeg"></audio>
+      </div>
+    </div>
+  </div>
+
+  <div class="body">
+
+    <!-- Lead -->
+    <div class="lead">
+      <strong>2026年6月18日凌晨2:00</strong>，新任美联储主席凯文·沃什用一段不到三分钟的发言，终结了一个持续十四年的时代——<strong>点阵图，消失了</strong>。<br><br>
+      如果你只看利率决议——维持在3.5%-3.75%，符合预期——你会觉得什么都没发生。<br><br>
+      <strong>但真正的大事，藏在利率决议的背后。</strong><br><br>
+      点阵图不是一个小工具，它是过去十四年全球金融市场最重要的"路标"之一。它告诉所有人：美联储觉得未来利率会怎么走。而当这个路标被拿走时，市场必须面对一个最根本的问题——<br><br>
+      <strong>没有了Fed的指引，怎么给自己定价？</strong>
+    </div>
+
+    <!-- Section 1 -->
+    <div class="section-block">
+      <div class="section-title"><span class="section-num">1</span>FOMC上的"双重震动"</div>
+      <div class="section-content">
+        <p>先说结论：2026年6月的这次FOMC，产生了两次震动。</p>
+
+        <p><span class="key-point">第一次震动：利率不动，但声明大变。</span> 联邦基金利率维持在 <span class="data-point">3.50%-3.75%</span>，符合98.5%的市场预期。但FOMC声明的篇幅从鲍威尔时代的平均约600个单词砍到了不到200个。整段整段的前瞻指引被删除——包括那句存在了快四年的"下一步倾向降息"的措辞。取而代之的是一个高度简洁的声明：通胀仍然偏高，就业仍然强劲，委员会将根据数据做决定。</p>
+
+        <p><span class="key-point">第二次震动——这才是真正的冲击波：点阵图，消失了。</span> 随声明一同公布的"经济预测摘要"里，那个自2012年伯南克引入以来从未缺席的利率点阵图——没了。取而代之的是一段说明性文字："委员会认为，在不确定性极高的环境下发布精确的利率路径预测可能产生误导。"</p>
+
+        <p>市场最初的反应是恐慌。利率决议公布后一小时内：</p>
+
+        <p style="margin-left:12px;">
+        <span class="tag-blue">标普500</span> 跳水 <span class="data-point">-1.8%</span><br>
+        <span class="tag-blue">10年期美债收益率</span> 从 <span class="data-point">4.52%</span> 跳升至 <span class="data-point">4.68%</span><br>
+        <span class="tag-blue">VIX</span> 从 <span class="data-point">18</span> 飙升至 <span class="data-point">24</span><br>
+        <span class="tag-blue">纳斯达克</span> 一度跌超 <span class="data-point">2.5%</span>
+        </p>
+
+        <p>但随后发生了更有意思的事。在接下来两小时里，市场开始"回神"。标普500从低点反弹，收盘时仅微跌 <span class="data-point">0.6%</span>；道琼斯收盘微涨 <span class="data-point">+0.3%</span>。十年期美债收益率稳定在 <span class="data-point">4.61%</span> 附近。</p>
+
+        <p>为什么？因为市场同时消化了两个信号：利空是"点阵图没了、不确定性上升"，利好是"利率没变、沃什引入了更温和的通胀衡量标准"。市场在几分钟内完成了这两个信号的定价博弈。</p>
+
+        <p>当天分板块来看，分化很清晰：金融板块 <span class="data-point">+1.6%</span>（摩根大通 +2.1%，高盛 +2.8%），科技板块 <span class="data-point">-1.9%</span>（英伟达 -3.2%）。背后的逻辑——银行受益于更陡峭的收益率曲线，高估值科技股则被折现率抬升压制。</p>
+      </div>
+      <div class="section-img">
+        <img loading="lazy" src="comic/panel-001.svg" alt="FOMC当天主要资产反应——利率不变但点阵图消失引发的市场分化">
+        <div class="caption">利率不变 ≠ 什么事都没发生。FOMC当天的资产分化，是市场在为新时代定价</div>
+      </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- Section 2 -->
+    <div class="section-block">
+      <div class="section-title"><span class="section-num">2</span>沃什是谁？以及他为什么要拆掉点阵图</div>
+      <div class="section-content">
+        <p>要理解沃什的动机，先要理解他是什么样的人。</p>
+
+        <p>凯文·沃什，<span class="data-point">1970</span> 年出生，斯坦福法学院毕业，<span class="data-point">2006</span> 年被小布什任命为美联储理事——当时仅36岁，是美联储历史上最年轻的理事。他在Fed待到2011年，在2008年金融危机期间深度参与了贝尔斯登和AIG的救助谈判。离开Fed后，他在斯坦福商学院教书，同时是学术界对Fed沟通政策最犀利的批评者之一。</p>
+
+        <p>他的核心观点十五年来没有变过：<strong>美联储说得太多了。</strong></p>
+
+        <p>在2026年4月的参议院听证会上，他说了一句注定要写进金融史的话——"与我的许多前任和现任同事不同，我不相信前瞻指引。"</p>
+
+        <p>他把自己的哲学拆成三个核心理由：</p>
+
+        <p><span class="tag-blue">理由一</span> <strong>点阵图"绑架"了委员的投票。</strong> 一位委员在三月份点了"今年降息两次"，到了六月份数据变了，他可能想改，但不好意思改——因为改了会被市场解读为"这个人变来变去"。所以你失去的不是预测的准确性，而是按数据做决策的灵活性。</p>
+
+        <p><span class="tag-blue">理由二</span> <strong>前瞻指引制造了"政策依赖"。</strong> 市场像婴儿一样等着Fed喂奶——"你说要降我就买，你说不降我就卖"。沃什认为健康的金融市场应该自己定价，不是看Fed的眼色。如果你只能靠Fed告诉你怎么投资，那说明市场本身是脆弱的。</p>
+
+        <p><span class="tag-blue">理由三</span> <strong>真实世界有太多不确定性，强行指引只会误导。</strong> 2024年到2025年，市场高喊"降息！降息！"喊了快两年。事实证明完全错了——通胀比预期黏稠得多，就业比预期强劲得多，利率在3.5%以上的平台待了快一年，经济不仅没有衰退还在加速。沃什的逻辑非常直白：如果Fed的指引一直是错的，那干脆别指引了。</p>
+
+        <p>但沃什不止在做"减法"，他也在做"加法"。这次FOMC上他引入了一个重要的新视角——要求委员会关注达拉斯联储的<span class="highlight">"修剪均值"通胀指标</span>。这个指标去掉了一篮子商品里价格变动最大和最小的部分，减少极端值的扰动。修剪均值PCE目前是 <span class="data-point">2.3%</span>，而核心PCE是 <span class="data-point">3.3%</span>——差了整整一个百分点。</p>
+
+        <p>这是一个极其微妙但含义深远的信号。取消点阵图不代表沃什对利率没有想法——他的想法是：<strong>"真正的通胀已经接近目标了"</strong>。他只是不想让市场把注意力放在利率预测上，他想让市场去看真正的经济数据。</p>
+      </div>
+      <div class="section-img">
+        <img loading="lazy" src="comic/panel-002.svg" alt="沃什的三重逻辑——为什么要拆掉点阵图？">
+        <div class="caption">从左到右：点阵图绑架决策 → 前瞻制造依赖 → 不确定性无法预测。沃什认为三座大山一起拆掉</div>
+      </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- Section 3 -->
+    <div class="section-block">
+      <div class="section-title"><span class="section-num">3</span>传导链：从Fed会议室到你的投资组合</div>
+      <div class="section-content">
+        <p>前两章回答了"发生了什么"和"为什么发生"。现在是最关键的问题：<strong>这意味着什么？</strong></p>
+
+        <p>我拆成一条完整的传导链：</p>
+
+        <p><span class="key-point">第一环：取消点阵图 → Fed沟通减少。</span> 市场失去了最直接的利率路径参考。</p>
+
+        <p><span class="key-point">第二环：沟通减少 → 市场对未来政策路径的信心下降。</span> 投资者不知道Fed下步会怎么走。</p>
+
+        <p><span class="key-point">第三环：信心下降 → 期限溢价上升。</span> 期限溢价是投资者持有长期债券所要求的额外补偿。不确定性越高，这个溢价越大。</p>
+
+        <p><span class="key-point">第四环：期限溢价上升 → 长期利率上行。</span> 十年期美债收益率面临上行压力。T.Rowe Price测算：点阵图取消导致期限溢价永久性上升20-30个基点，相当于一次同等幅度的隐性加息。</p>
+
+        <p><span class="key-point">第五环：十年期收益率是"全球定价之锚" → 所有资产的折现率同时提高。</span> 这在金融上意味着：所有未来现金流在今天的"现值"都会下降。那些依赖远期利润支撑估值的资产——高估值科技股、AI概念股——受到的冲击最大。</p>
+
+        <p><span class="key-point">第六环：波动从美股传导至全球。</span> 包括A股的北向资金流动。十年期美债收益率上行 → 美元走强 → 人民币承压 → 北向资金阶段性流出 → A股大市值股票承压。</p>
+
+        <p>这是一条完整的逻辑链。它的核心含义是：<strong>取消点阵图，表面上是沟通方式的变化，实际效果相当于一次没有加息的"隐性紧缩"。</strong></p>
+
+        <p>但硬币有另一面。沃什同时引入的"修剪均值通胀"视角展示了一幅截然不同的画面：排除了极端值的核心通胀已经降至 <span class="data-point">2.3%</span>——非常接近Fed的2%目标。如果市场逐渐接受这个叙事，那么长端利率的上行压力反而是有限的。FOMC当天的十年期美债收益率从4.68%回落到4.61%，就是这两个相反力量博弈的结果。</p>
+
+        <p>以下是对各类资产的具体影响：</p>
+
+        <p style="margin-top:14px;">
+        <span class="tag-blue">美股</span> 高估值部分压力最大：半导体、AI概念、未盈利科技。银行、保险、能源等价值板块反而可能受益于更陡峭的收益率曲线。美股内部可能出现持续的"成长→价值"轮动。<br><br>
+        <span class="tag-blue">美债</span> 短期经历"波动率阵痛期"。中期看沃什能否成功引导市场接受修剪均值的通胀叙事。若能，长端收益率的上升空间有限。<br><br>
+        <span class="tag-blue">黄金</span> 短期承压（强势美元 + 利率高位）。但中长期逻辑不变：全球央行每年800-1000吨的战略购金构成结构性买盘。<br><br>
+        <span class="tag-blue">A股</span> 传导间接：美债收益率上行 → 美元走强 → 北向资金阶段性流出。但A股核心驱动力仍在国内：财政政策、产业趋势。机器人、物理AI方向基本面不变。
+        </p>
+      </div>
+      <div class="section-img">
+        <img loading="lazy" src="comic/panel-003.svg" alt="传导链：点阵图取消如何影响各类资产">
+        <div class="caption">传导链完整可视化：从Fed会议室到你的投资组合，经过了哪些环节</div>
+      </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- Section 4 -->
+    <div class="section-block">
+      <div class="section-title"><span class="section-num">4</span>三条路径推演 + 三个关键催化剂</div>
+      <div class="section-content">
+        <p>最后也是最实际的问题：<strong>接下来怎么走？</strong>我给出三条路径推演。</p>
+
+        <p style="margin-top:16px;"><span class="tag-blue">路径 A</span> <strong>有序适应（概率 ~55%）</strong></p>
+        <p>市场逐步适应没有点阵图的环境，学会从经济数据本身寻找利率线索。沃什的修剪均值通胀框架逐渐被接受，市场意识到"虽然没有点阵图了，但通胀其实比想象中好"。恐慌褪去，VIX从24逐步回到18以下。十年期美债收益率在4.5%-4.7%区间震荡。美股经历数周的"成长→价值"轮动后企稳。</p>
+        <p><strong>推动力：</strong>沃什持续发声解释新框架 + 7月CPI温和 + Q2财报季业绩强劲。</p>
+
+        <p style="margin-top:16px;"><span class="tag-blue">路径 B</span> <strong>波动升级（概率 ~30%）</strong></p>
+        <p>通胀数据反复。如果7月CPI回升到4%以上，市场将彻底失去对通胀的信心。没有了点阵图这个"锚"，市场不知道该怎么预期利率方向，恐慌加剧。十年期美债收益率突破5%，高估值资产大幅回撤。纳斯达克可能从高点回调15%-20%。VIX持续在25以上。</p>
+        <p><strong>推动力：</strong>油价因地缘风险跳涨 + 服务业通胀反弹 + 市场对Fed失去信任。</p>
+
+        <p style="margin-top:16px;"><span class="tag-blue">路径 C</span> <strong>政策倒退（概率 ~15%）</strong></p>
+        <p>市场反应过激，VIX持续在25以上，标普跌破5000点。沃什面临巨大压力，不得不在下一次FOMC或中途以某种方式"找补"——比如恢复部分前瞻指引，或额外发声安抚市场。这会严重损害他的信誉。市场短期反弹，但长期来看Fed的公信力受到了永久性损害。</p>
+        <p><strong>推动力：</strong>流动性危机 + 某大型金融机构出问题 + 政治压力升级。</p>
+
+        <p style="margin-top:18px;">决定走向哪条路的关键，是未来两个月的<strong>三个催化剂</strong>：</p>
+
+        <p><span class="key-point">催化剂一：7月中旬 — 6月CPI数据。</span> 如果环比温和 → 路径A概率上升。如果CPI爆表 → 路径B主导。这是最重要的单一数据点。</p>
+
+        <p><span class="key-point">催化剂二：7月下旬 — 美股Q2财报季。</span> 降息预期没了，但盈利增长能否接力？如果英伟达、谷歌等AI相关企业业绩继续超预期，市场可以用"盈利增长"对冲"折现率上升"。这是决定路径A能否稳定的关键。</p>
+
+        <p><span class="key-point">催化剂三：9月FOMC。</span> 沃什的"真正大考"。6月的会议有"改革红利"，市场给了他一次信任投票。但到9月，市场需要看到实际效果——通胀继续回落、修剪均值框架被接受、波动率回归正常。如果其中任何一条不达标，路径B的概率将急剧上升。</p>
+
+      </div>
+      <div class="section-img">
+        <img loading="lazy" src="comic/panel-004.svg" alt="三条路径推演——从有序适应到波动升级到政策倒退">
+        <div class="caption">三条路径的可能走向和触发条件——路径A和B的差距就在于一个CPI数据</div>
+      </div>
+    </div>
+
+    <!-- Pull Quote -->
+    <div class="pull-quote">
+      在金融市场里，比"利好"和"利空"都重要的东西是"确定性"。<br>
+      市场可以对任何价格定价，只要它知道规则是什么。<br>
+      沃什撤掉了一张用了十四年的安全网。<br>
+      但撤掉安全网不等于跳楼——它意味着每个人都要学会自己站稳。
+    </div>
+
+    <!-- Glossary -->
+    <div class="glossary">
+      <h3>📖 术语解释</h3>
+      <div class="glossary-item"><span class="g-term">点阵图（Dot Plot）</span><span class="g-def">美联储每季度发布的利率预测图——每位委员用一个"点"表示自己对未来几年利率的预测。2012年由伯南克引入，2026年6月被沃什取消</span></div>
+      <div class="glossary-item"><span class="g-term">前瞻指引</span><span class="g-def">Fed在政策声明中对未来利率走向的暗示性语言，比如"下一步倾向降息"。沃什认为这制造了市场对Fed的过度依赖</span></div>
+      <div class="glossary-item"><span class="g-term">修剪均值通胀 (Trimmed Mean PCE)</span><span class="g-def">达拉斯联储编制的通胀指标，去掉一篮子商品中价格变动最大和最小的部分，减少极端值的扰动。目前约2.3%，低于核心PCE的3.3%</span></div>
+      <div class="glossary-item"><span class="g-term">期限溢价 (Term Premium)</span><span class="g-def">投资者持有长期债券相对于连续滚动短期债券所要求的额外收益补偿。不确定性越高，期限溢价越大</span></div>
+      <div class="glossary-item"><span class="g-term">FOMC</span><span class="g-def">联邦公开市场委员会——美联储制定利率政策的决策机构，每年召开8次会议</span></div>
+      <div class="glossary-item"><span class="g-term">DCF折现率</span><span class="g-def">将未来现金流折算为现值所使用的利率——折现率越高，远期利润占总估值比重越大的资产（如高估值科技股）受到的压制越明显</span></div>
+    </div>
+
+    <!-- Sources -->
+    <div class="sources">
+      <h3>📚 参考来源</h3>
+      <p style="margin-bottom: 4px;">1. 美联储 FOMC 声明及经济预测摘要 — 2026-06-18</p>
+      <p style="margin-bottom: 4px;">2. 沃什参议院听证会发言 — 2026-04 (C-SPAN / 金融时报报道)</p>
+      <p style="margin-bottom: 4px;">3. Pimco CIO Daniel Ivascyn 媒体简报 — 2026-06-11/12</p>
+      <p style="margin-bottom: 4px;">4. T. Rowe Price (Arif Husain): "Watch for more volatility as new Fed chair looks to make mark" — 2026-06</p>
+      <p style="margin-bottom: 4px;">5. 华福证券宏观深度报告：没了点阵图，市场如何反应？</p>
+      <p style="margin-bottom: 4px;">6. Goldman Sachs (Friedrich Schaper): 沟通透明度与借贷成本研究</p>
+      <p style="margin-bottom: 4px;">7. 华尔街见闻 / 智通财经 — FOMC当日市场复盘</p>
+      <p style="margin-bottom: 4px;">8. CME FedWatch / Bloomberg 终端数据</p>
+      <p>9. 达拉斯联储 修剪均值PCE数据 (trimmedmeanpce.org)</p>
+    </div>
+
+    <!-- End Box -->
+    <div class="end-box">
+      <div class="end-icon">📡</div>
+      <div class="end-title">扬说·深度</div>
+      <div class="end-desc">用逻辑穿透表象 · 每周六更新</div>
+    </div>
+
+    <div class="warn">⚠️ <strong>风险提示：</strong>本文仅为信息分享与知识科普，不构成任何投资建议。市场有风险，投资需谨慎。数据来源于公开信息，如有出入请以官方数据为准。</div>
+
+  </div>
+</div>
+
+<script>
+// ===== 音频/漫画/图片 资源完整性检查 =====
+document.addEventListener('DOMContentLoaded',function(){
+  var player=document.querySelector('.player');
+  var audioEl=player?player.querySelector('audio'):null;
+  if(audioEl&&player){
+    var timeoutId=setTimeout(function(){player.style.display='none';},8000);
+    audioEl.addEventListener('canplay',function(){clearTimeout(timeoutId);});
+    audioEl.addEventListener('error',function(){
+      clearTimeout(timeoutId);
+      player.style.display='none';
+    });
+  }
+  document.querySelectorAll('.section-img img').forEach(function(img){
+    if(img.getAttribute('src')&&img.getAttribute('src').indexOf('comic/')===0){
+      img.addEventListener('error',function(){
+        this.outerHTML='<div style="padding:32px 16px;text-align:center;background:#F8FAFC;border-radius:8px;color:#94A3B8;font-size:13px;line-height:1.8;">🖼️ 漫画加载失败<br><span style="font-size:11px;">'+(this.getAttribute('alt')||'')+'</span></div>';
+      });
+    }
+  });
+});
+
+// 动态返回首页 — 根据URL路径深度自动计算
+document.addEventListener('DOMContentLoaded',function(){
+  var back=document.querySelector('.back');
+  if(back){
+    back.addEventListener('click',function(e){
+      e.preventDefault();
+      var p=location.pathname.replace(/\/$/,'').split('/');
+      location.href='../'.repeat(Math.max(0,p.length-3))||'.';
+    });
+  }
+});
+</script>
+</body>
+</html>

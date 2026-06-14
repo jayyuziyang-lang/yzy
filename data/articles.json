@@ -1,7 +1,20 @@
 {
-  "generated_at": "2026-06-13T12:33:07+08:00",
-  "latest_date": "2026-06-12",
+  "generated_at": "2026-06-14T10:35:42+08:00",
+  "latest_date": "2026-06-20",
   "articles": [
+    {
+      "date": "2026-06-20",
+      "session": "special",
+      "edition_cn": "深度",
+      "icon": "📚",
+      "title": "沃什首秀：没了点阵图，市场怎么找方向？",
+      "url": "special/沃什首秀/article.html",
+      "series": "宏观大变局",
+      "has_audio": true,
+      "audio_size_bytes": 5134320,
+      "has_comic": true,
+      "comic_count": 4
+    },
     {
       "date": "2026-06-12",
       "session": "evening",
@@ -463,6 +476,21 @@
     }
   ],
   "by_date": {
+    "2026-06-20": {
+      "special": {
+        "date": "2026-06-20",
+        "session": "special",
+        "edition_cn": "深度",
+        "icon": "📚",
+        "title": "沃什首秀：没了点阵图，市场怎么找方向？",
+        "url": "special/沃什首秀/article.html",
+        "series": "宏观大变局",
+        "has_audio": true,
+        "audio_size_bytes": 5134320,
+        "has_comic": true,
+        "comic_count": 4
+      }
+    },
     "2026-06-12": {
       "evening": {
         "date": "2026-06-12",

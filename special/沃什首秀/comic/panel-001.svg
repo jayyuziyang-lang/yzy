@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F0F4FF"/>
+      <stop offset="100%" stop-color="#EBF2FA"/>
+    </linearGradient>
+    <linearGradient id="redBar" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#DC2626"/>
+      <stop offset="100%" stop-color="#EF4444"/>
+    </linearGradient>
+    <linearGradient id="greenBar" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#16A34A"/>
+      <stop offset="100%" stop-color="#22C55E"/>
+    </linearGradient>
+    <linearGradient id="blueBar" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1E3A5F"/>
+      <stop offset="100%" stop-color="#3B82F6"/>
+    </linearGradient>
+    <filter id="shadow" x="-2%" y="-2%" width="104%" height="104%">
+      <feDropShadow dx="1" dy="2" stdDeviation="3" flood-color="#1E3A5F" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <rect width="800" height="500" fill="url(#bg)" rx="12"/>
+
+  <!-- Title -->
+  <text x="400" y="32" text-anchor="middle" font-size="18" font-weight="700" fill="#1E3A5F">2026.6.18 FOMC 落幕：双重震动</text>
+  <text x="400" y="52" text-anchor="middle" font-size="12" fill="#64748B">利率不变 vs 信息框架崩塌 — 资产的分化就是答案</text>
+
+  <!-- Left Panel: Market Reaction -->
+  <rect x="24" y="68" width="368" height="420" rx="10" fill="#fff" stroke="#E2E8F0" stroke-width="1" filter="url(#shadow)"/>
+  <text x="208" y="96" text-anchor="middle" font-size="14" font-weight="700" fill="#1E3A5F">📊 FOMC后一小时 · 市场反应</text>
+
+  <!-- SP500 bar -->
+  <text x="40" y="130" font-size="12" font-weight="600" fill="#475569">标普500</text>
+  <rect x="120" y="117" width="120" height="22" rx="4" fill="url(#redBar)" opacity="0.85"/>
+  <text x="246" y="133" font-size="12" font-weight="700" fill="#DC2626">-1.8%</text>
+
+  <!-- Nasdaq bar -->
+  <text x="40" y="168" font-size="12" font-weight="600" fill="#475569">纳斯达克</text>
+  <rect x="120" y="155" width="168" height="22" rx="4" fill="url(#redBar)" opacity="0.85"/>
+  <text x="294" y="171" font-size="12" font-weight="700" fill="#DC2626">-2.5%</text>
+
+  <!-- VIX bar -->
+  <text x="40" y="206" font-size="12" font-weight="600" fill="#475569">VIX</text>
+  <rect x="120" y="193" width="200" height="22" rx="4" fill="url(#redBar)" opacity="0.85"/>
+  <text x="326" y="209" font-size="12" font-weight="700" fill="#DC2626">18→24 ⬆ 33%</text>
+
+  <!-- 10Y Yield bar -->
+  <text x="40" y="244" font-size="12" font-weight="600" fill="#475569">10Y美债</text>
+  <rect x="120" y="231" width="156" height="22" rx="4" fill="url(#redBar)" opacity="0.85"/>
+  <text x="282" y="247" font-size="12" font-weight="700" fill="#DC2626">4.52→4.68%</text>
+
+  <!-- Divider -->
+  <line x1="40" y1="270" x2="370" y2="270" stroke="#E2E8F0" stroke-width="1" stroke-dasharray="4,4"/>
+
+  <!-- Recovery text -->
+  <text x="208" y="296" text-anchor="middle" font-size="13" font-weight="700" fill="#16A34A">✅ 两小时后 · 市场"回神"</text>
+
+  <text x="40" y="324" font-size="12" fill="#475569">标普收 -0.6% · 道指收 +0.3%</text>
+  <text x="40" y="344" font-size="12" fill="#475569">10Y回落至 4.61% · VIX回落至21</text>
+
+  <text x="40" y="378" font-size="11" fill="#64748B" font-weight="600">板块分化：</text>
+  <rect x="40" y="388" width="80" height="24" rx="4" fill="#F0FDF4"/>
+  <text x="58" y="404" font-size="11" font-weight="700" fill="#16A34A">金融 +1.6%</text>
+  <rect x="130" y="388" width="80" height="24" rx="4" fill="#FEF2F2"/>
+  <text x="145" y="404" font-size="11" font-weight="700" fill="#DC2626">科技 -1.9%</text>
+
+  <text x="40" y="442" font-size="10" fill="#94A3B8">来源: Bloomberg 终端 · FOMC当天实际数据</text>
+
+  <!-- Right Panel: Key Changes -->
+  <rect x="408" y="68" width="368" height="420" rx="10" fill="#fff" stroke="#E2E8F0" stroke-width="1" filter="url(#shadow)"/>
+  <text x="592" y="96" text-anchor="middle" font-size="14" font-weight="700" fill="#1E3A5F">🔍 真正发生了什么？</text>
+
+  <!-- Change 1 -->
+  <rect x="424" y="110" width="336" height="80" rx="8" fill="#F1F5F9"/>
+  <text x="436" y="134" font-size="13" font-weight="700" fill="#1E3A5F">① 声明砍到200词</text>
+  <text x="436" y="154" font-size="11" fill="#475569">从鲍威尔时代平均600词 → 不到200词</text>
+  <text x="436" y="172" font-size="11" fill="#475569">删除"下一步倾向降息"措辞</text>
+
+  <!-- Change 2 -->
+  <rect x="424" y="200" width="336" height="80" rx="8" fill="#EFF6FF"/>
+  <text x="436" y="224" font-size="13" font-weight="700" fill="#1E3A5F">② 点阵图取消！</text>
+  <text x="436" y="244" font-size="11" fill="#475569">2012年伯南克引入 → 2026年沃什取消</text>
+  <text x="436" y="262" font-size="11" fill="#475569">理由："不确定性极高，精确路径可能误导"</text>
+
+  <!-- Change 3 -->
+  <rect x="424" y="290" width="336" height="80" rx="8" fill="#F0FDF4"/>
+  <text x="436" y="314" font-size="13" font-weight="700" fill="#16A34A">③ 引入修剪均值通胀</text>
+  <text x="436" y="334" font-size="11" fill="#475569">达拉斯联储Trimmed Mean PCE: 2.3%</text>
+  <text x="436" y="352" font-size="11" fill="#475569">而核心PCE: 3.3% — 差了整整1个百分点</text>
+
+  <!-- Bottom key insight -->
+  <rect x="424" y="388" width="336" height="48" rx="8" fill="#FFFBEB"/>
+  <text x="592" y="412" text-anchor="middle" font-size="12" font-weight="700" fill="#92400E">🔑 核心信号：没有加息，但市场在经历</text>
+  <text x="592" y="428" text-anchor="middle" font-size="12" font-weight="700" fill="#92400E">一次"信息框架的加息"</text>
+
+  <!-- Source -->
+  <text x="408" y="476" font-size="10" fill="#94A3B8">来源: 美联储FOMC声明 2026-06-18 / Bloomberg / FT</text>
+</svg>
