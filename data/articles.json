@@ -1,7 +1,19 @@
 {
-  "generated_at": "2026-06-14T17:15:56+08:00",
-  "latest_date": "2026-06-14",
+  "generated_at": "2026-06-15T10:49:52+08:00",
+  "latest_date": "2026-06-15",
   "articles": [
+    {
+      "date": "2026-06-15",
+      "session": "morning",
+      "edition_cn": "早报",
+      "icon": "🌅",
+      "title": "美伊和平协议签署·油价暴跌黄金突破4300·沪指高开重返4050·SpaceX首周涨19%·FOMC本周登场",
+      "url": "2026-06-15/wechat-publish/morning/article.html",
+      "has_audio": true,
+      "audio_size_bytes": 1971648,
+      "has_comic": true,
+      "comic_count": 1
+    },
     {
       "date": "2026-06-14",
       "session": "special",
@@ -476,6 +488,20 @@
     }
   ],
   "by_date": {
+    "2026-06-15": {
+      "morning": {
+        "date": "2026-06-15",
+        "session": "morning",
+        "edition_cn": "早报",
+        "icon": "🌅",
+        "title": "美伊和平协议签署·油价暴跌黄金突破4300·沪指高开重返4050·SpaceX首周涨19%·FOMC本周登场",
+        "url": "2026-06-15/wechat-publish/morning/article.html",
+        "has_audio": true,
+        "audio_size_bytes": 1971648,
+        "has_comic": true,
+        "comic_count": 1
+      }
+    },
     "2026-06-14": {
       "special": {
         "date": "2026-06-14",

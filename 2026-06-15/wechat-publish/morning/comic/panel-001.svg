@@ -1,0 +1,303 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" width="900" height="500">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#EBF4FF"/>
+      <stop offset="100%" stop-color="#DBEAFE"/>
+    </linearGradient>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1A56DB"/>
+      <stop offset="100%" stop-color="#3B82F6"/>
+    </linearGradient>
+    <linearGradient id="tableGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F0F4FF"/>
+      <stop offset="100%" stop-color="#DBEAFE"/>
+    </linearGradient>
+    <linearGradient id="oilDrop" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1E293B"/>
+      <stop offset="100%" stop-color="#334155"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FCD34D"/>
+      <stop offset="100%" stop-color="#D4A017"/>
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="115%" height="115%">
+      <feDropShadow dx="1" dy="2" stdDeviation="3" flood-color="#1E40AF" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="500" rx="12" fill="url(#bgGrad)"/>
+
+  <!-- ===== Panel 1: Peace Deal Signing (Left) ===== -->
+  <g transform="translate(15,10)">
+    <!-- Panel border -->
+    <rect x="0" y="0" width="285" height="480" rx="8" fill="white" stroke="#1A56DB" stroke-width="1.5" filter="url(#shadow)"/>
+
+    <!-- Sky -->
+    <rect x="0" y="0" width="285" height="140" rx="8" fill="url(#sky)"/>
+    <rect x="0" y="130" width="285" height="10" fill="url(#sky)"/>
+
+    <!-- Sun -->
+    <circle cx="230" cy="40" r="22" fill="#FCD34D" opacity="0.9"/>
+    <circle cx="230" cy="40" r="28" fill="#FCD34D" opacity="0.2"/>
+
+    <!-- Clouds -->
+    <g fill="white" opacity="0.6">
+      <ellipse cx="60" cy="45" rx="30" ry="12"/>
+      <ellipse cx="85" cy="40" rx="25" ry="10"/>
+      <ellipse cx="180" cy="55" rx="20" ry="8"/>
+    </g>
+
+    <!-- Table -->
+    <rect x="30" y="280" width="225" height="8" rx="3" fill="#8B4513"/>
+    <rect x="30" y="288" width="225" height="5" fill="#6B3410"/>
+    <!-- Table legs -->
+    <rect x="40" y="288" width="5" height="50" fill="#6B3410"/>
+    <rect x="242" y="288" width="5" height="50" fill="#6B3410"/>
+
+    <!-- Flag - US -->
+    <rect x="55" y="180" width="3" height="100" fill="#999"/>
+    <rect x="55" y="180" width="35" height="22" fill="#DC2626" rx="1"/>
+    <rect x="55" y="180" width="14" height="10" fill="#1A56DB"/>
+    <g fill="white" font-size="4">
+      <text x="57" y="186">★</text>
+      <text x="61" y="186">★</text>
+      <text x="57" y="189">★</text>
+      <text x="61" y="189">★</text>
+    </g>
+    <rect x="55" y="190" width="35" height="2" fill="white"/>
+    <rect x="55" y="194" width="35" height="2" fill="white"/>
+
+    <!-- Flag - Iran -->
+    <rect x="197" y="180" width="3" height="100" fill="#999"/>
+    <rect x="197" y="180" width="35" height="22" fill="#239F40" rx="1"/>
+    <rect x="197" y="194" width="35" height="2" fill="white"/>
+    <text x="208" y="193" fill="#DC2626" font-size="8" text-anchor="middle">🇮🇷</text>
+
+    <!-- Person: Trump (left) -->
+    <g transform="translate(75,220)">
+      <circle cx="0" cy="0" r="14" fill="#F5D0A9"/>
+      <!-- Hair -->
+      <path d="M-12,-3 Q-14,-14 0,-14 Q12,-14 14,-3 Q12,-6 0,-6 Q-12,-6 -12,-3" fill="#E8C88A"/>
+      <ellipse cx="-5" cy="-1" rx="2.5" ry="2" fill="white"/>
+      <ellipse cx="5" cy="-1" rx="2.5" ry="2" fill="white"/>
+      <circle cx="-4" cy="-1" r="1.2" fill="#333"/>
+      <circle cx="6" cy="-1" r="1.2" fill="#333"/>
+      <!-- Smile -->
+      <path d="M-4,4 Q0,9 4,4" fill="none" stroke="#C0392B" stroke-width="1.2"/>
+    </g>
+    <!-- Trump label -->
+    <rect x="60" y="252" width="35" height="14" rx="5" fill="#1A56DB"/>
+    <text x="77" y="262" fill="white" font-size="8" font-weight="700" text-anchor="middle">川普</text>
+
+    <!-- Person: Pezeshkian (right) -->
+    <g transform="translate(210,220)">
+      <circle cx="0" cy="0" r="14" fill="#D4A574"/>
+      <ellipse cx="-5" cy="-1" rx="2.5" ry="2" fill="white"/>
+      <ellipse cx="5" cy="-1" rx="2.5" ry="2" fill="white"/>
+      <circle cx="-4" cy="-1" r="1.2" fill="#333"/>
+      <circle cx="6" cy="-1" r="1.2" fill="#333"/>
+      <path d="M-3,4 Q0,8 3,4" fill="none" stroke="#8B4513" stroke-width="1.2"/>
+      <!-- Beard -->
+      <path d="M-8,3 Q-10,12 0,14 Q10,12 8,3" fill="#8B6914" opacity="0.5"/>
+    </g>
+    <!-- Pezeshkian label -->
+    <rect x="188" y="252" width="40" height="14" rx="5" fill="#239F40"/>
+    <text x="208" y="262" fill="white" font-size="7" font-weight="700" text-anchor="middle">佩泽什基安</text>
+
+    <!-- Document on table -->
+    <rect x="115" y="268" width="55" height="16" rx="2" fill="white" stroke="#1A56DB" stroke-width="1"/>
+    <text x="142" y="280" fill="#1A56DB" font-size="6" font-weight="700" text-anchor="middle">和平协议</text>
+
+    <!-- Handshake between Trump and Pezeshkian -->
+    <g transform="translate(142,235)">
+      <rect x="-4" y="-2" width="8" height="5" rx="2" fill="#F5D0A9"/>
+      <rect x="-2" y="-1" width="4" height="3" rx="1" fill="#D4A574"/>
+    </g>
+
+    <!-- Panel 1 title -->
+    <rect x="20" y="298" width="245" height="24" rx="5" fill="#1A56DB"/>
+    <text x="142" y="315" fill="white" font-size="11" font-weight="700" text-anchor="middle">🤝 美伊握手 · 历史性和解</text>
+
+    <!-- Panel 1 description -->
+    <text x="142" y="345" fill="#475569" font-size="9" text-anchor="middle">6月14日特朗普&佩泽什基安</text>
+    <text x="142" y="360" fill="#475569" font-size="9" text-anchor="middle">在巴基斯坦斡旋下</text>
+    <text x="142" y="375" fill="#475569" font-size="9" text-anchor="middle">签署全面和平协议</text>
+    <text x="142" y="395" fill="#1E40AF" font-size="9" font-weight="700" text-anchor="middle">伊朗承诺不开发核武器</text>
+
+    <!-- Medal icon -->
+    <text x="142" y="420" font-size="28" text-anchor="middle">🕊️</text>
+  </g>
+
+  <!-- ===== Panel 2: Strait of Hormuz Opens (Center) ===== -->
+  <g transform="translate(307,10)">
+    <rect x="0" y="0" width="285" height="480" rx="8" fill="white" stroke="#1A56DB" stroke-width="1.5" filter="url(#shadow)"/>
+
+    <!-- Sky -->
+    <rect x="0" y="0" width="285" height="120" rx="8" fill="#93C5FD"/>
+
+    <!-- Sun -->
+    <circle cx="200" cy="50" r="25" fill="#FCD34D" opacity="0.8"/>
+    <line x1="200" y1="15" x2="200" y2="8" stroke="#FCD34D" stroke-width="2"/>
+    <line x1="235" y1="35" x2="242" y2="30" stroke="#FCD34D" stroke-width="2"/>
+    <line x1="235" y1="65" x2="242" y2="70" stroke="#FCD34D" stroke-width="2"/>
+
+    <!-- Sea -->
+    <rect x="0" y="120" width="285" height="120" fill="#3B82F6"/>
+    <!-- Waves -->
+    <path d="M0,130 Q20,125 40,130 Q60,135 80,130 Q100,125 120,130 Q140,135 160,130 Q180,125 200,130 Q220,135 240,130 Q260,125 285,130" fill="none" stroke="#60A5FA" stroke-width="2"/>
+    <path d="M0,145 Q20,140 40,145 Q60,150 80,145 Q100,140 120,145 Q140,150 160,145 Q180,140 200,145 Q220,150 240,145 Q260,140 285,145" fill="none" stroke="#60A5FA" stroke-width="1.5"/>
+
+    <!-- Ships passing through -->
+    <!-- Ship 1 -->
+    <g transform="translate(50,115)">
+      <rect x="0" y="0" width="40" height="12" rx="2" fill="#475569"/>
+      <rect x="15" y="-15" width="8" height="15" rx="1" fill="#64748B"/>
+      <rect x="5" y="12" width="30" height="4" rx="1" fill="#1E293B" opacity="0.5"/>
+      <text x="10" y="8" fill="white" font-size="5">🚢</text>
+    </g>
+    <!-- Ship 2 -->
+    <g transform="translate(150,110)">
+      <rect x="0" y="0" width="50" height="14" rx="2" fill="#DC2626"/>
+      <rect x="18" y="-18" width="10" height="18" rx="1" fill="#94A3B8"/>
+      <rect x="5" y="14" width="38" height="5" rx="1" fill="#1E293B" opacity="0.3"/>
+      <text x="12" y="10" fill="white" font-size="6">🛢️</text>
+    </g>
+    <!-- Ship 3 (LNG tanker) -->
+    <g transform="translate(190,118)">
+      <rect x="0" y="0" width="45" height="13" rx="2" fill="#3B82F6"/>
+      <circle cx="22" cy="-8" r="8" fill="#93C5FD" stroke="#60A5FA" stroke-width="1"/>
+      <text x="10" y="9" fill="white" font-size="5">⛽</text>
+    </g>
+
+    <!-- "Open" sign -->
+    <rect x="100" y="70" width="80" height="28" rx="14" fill="#16A34A"/>
+    <text x="140" y="89" fill="white" font-size="12" font-weight="700" text-anchor="middle">✅ 开放通行</text>
+
+    <!-- Bridge / Strait of Hormuz visual -->
+    <path d="M0,165 Q142,140 285,165" fill="none" stroke="#D4A017" stroke-width="3" stroke-dasharray="6,3"/>
+    <text x="142" y="158" fill="#D4A017" font-size="7" font-weight="700" text-anchor="middle">霍尔木兹海峡</text>
+
+    <!-- Arrows showing flow -->
+    <path d="M20,180 Q40,195 60,180" fill="none" stroke="#16A34A" stroke-width="1.5" marker-end="url(#arrowGreen)"/>
+
+    <!-- Bottom section - data -->
+    <rect x="10" y="200" width="265" height="100" rx="6" fill="#F0F4FF"/>
+
+    <!-- Key stats -->
+    <text x="142" y="218" fill="#1A56DB" font-size="10" font-weight="700" text-anchor="middle">全球能源大动脉重启</text>
+
+    <rect x="20" y="228" width="110" height="30" rx="5" fill="white" stroke="#BFDBFE" stroke-width="1"/>
+    <text x="75" y="242" fill="#475569" font-size="8" text-anchor="middle">全球石油运输量</text>
+    <text x="75" y="253" fill="#DC2626" font-size="11" font-weight="700" text-anchor="middle">20%途经此地</text>
+
+    <rect x="150" y="228" width="110" height="30" rx="5" fill="white" stroke="#BFDBFE" stroke-width="1"/>
+    <text x="205" y="242" fill="#475569" font-size="8" text-anchor="middle">伊朗石油回归</text>
+    <text x="205" y="253" fill="#16A34A" font-size="11" font-weight="700" text-anchor="middle">日增200万桶</text>
+
+    <text x="142" y="278" fill="#1E40AF" font-size="9" font-weight="700" text-anchor="middle">原油供应压力骤降 → 全球通胀见顶预期升温</text>
+
+    <!-- Panel 2 title -->
+    <rect x="20" y="308" width="245" height="24" rx="5" fill="#1A56DB"/>
+    <text x="142" y="325" fill="white" font-size="11" font-weight="700" text-anchor="middle">🚢 霍尔木兹海峡 · 正式重开</text>
+
+    <text x="142" y="350" fill="#475569" font-size="9" text-anchor="middle">封锁4个月后恢复通航</text>
+    <text x="142" y="365" fill="#475569" font-size="9" text-anchor="middle">石油和LNG运输船已进港</text>
+    <text x="142" y="385" fill="#16A34A" font-size="9" font-weight="700" text-anchor="middle">战争溢价 $30-40/桶 正在蒸发</text>
+
+    <!-- Oil ship emoji -->
+    <text x="142" y="415" font-size="28" text-anchor="middle">⛵</text>
+  </g>
+
+  <!-- ===== Panel 3: Market Impact (Right) ===== -->
+  <g transform="translate(599,10)">
+    <rect x="0" y="0" width="285" height="480" rx="8" fill="white" stroke="#1A56DB" stroke-width="1.5" filter="url(#shadow)"/>
+
+    <!-- Top section - market reaction -->
+    <rect x="0" y="0" width="285" height="50" rx="8" fill="#1E40AF"/>
+    <rect x="0" y="45" width="285" height="5" fill="#1E40AF"/>
+    <text x="142" y="22" fill="white" font-size="12" font-weight="700" text-anchor="middle">📊 周一亚盘市场反应</text>
+    <text x="142" y="40" fill="#93C5FD" font-size="9" text-anchor="middle">和平协议后的第一轮定价</text>
+
+    <!-- Oil price crash -->
+    <g transform="translate(10,60)">
+      <rect x="0" y="0" width="125" height="55" rx="6" fill="#FEF2F2" stroke="#DC2626" stroke-width="1"/>
+      <!-- Oil drop icon -->
+      <rect x="10" y="8" width="16" height="20" rx="4" fill="url(#oilDrop)"/>
+      <rect x="10" y="4" width="16" height="8" rx="4" fill="url(#oilDrop)"/>
+      <text x="40" y="22" fill="#DC2626" font-size="15" font-weight="800">WTI ↓</text>
+      <text x="40" y="38" fill="#DC2626" font-size="12" font-weight="700">$80.80</text>
+      <text x="90" y="38" fill="#DC2626" font-size="10">-4.8%</text>
+    </g>
+
+    <!-- Gold price surge -->
+    <g transform="translate(145,60)">
+      <rect x="0" y="0" width="130" height="55" rx="6" fill="#FEFCE8" stroke="#D4A017" stroke-width="1"/>
+      <!-- Gold bar icon -->
+      <rect x="10" y="10" width="18" height="14" rx="2" fill="url(#goldGrad)"/>
+      <rect x="11" y="12" width="6" height="3" rx="1" fill="#FDE68A"/>
+      <text x="40" y="22" fill="#D4A017" font-size="15" font-weight="800">黄金 ↑</text>
+      <text x="40" y="38" fill="#D4A017" font-size="12" font-weight="700">$4,307</text>
+      <text x="90" y="38" fill="#DC2626" font-size="10">+2.0%</text>
+    </g>
+
+    <!-- Stock futures -->
+    <g transform="translate(10,122)">
+      <rect x="0" y="0" width="125" height="55" rx="6" fill="#F0FDF4" stroke="#16A34A" stroke-width="1"/>
+      <text x="25" y="22" fill="#16A34A" font-size="13" font-weight="800">纳指期货 ↑</text>
+      <text x="63" y="38" fill="#16A34A" font-size="14" font-weight="700">+1.26%</text>
+    </g>
+
+    <!-- Dollar weaken -->
+    <g transform="translate(145,122)">
+      <rect x="0" y="0" width="130" height="55" rx="6" fill="#FEF2F2" stroke="#DC2626" stroke-width="1"/>
+      <text x="25" y="22" fill="#DC2626" font-size="13" font-weight="800">美元指数 ↓</text>
+      <text x="63" y="38" fill="#DC2626" font-size="14" font-weight="700">~99.60</text>
+    </g>
+
+    <!-- Silver -->
+    <g transform="translate(10,184)">
+      <rect x="0" y="0" width="130" height="40" rx="6" fill="#F0FDF4" stroke="#16A34A" stroke-width="1"/>
+      <text x="18" y="25" fill="#16A34A" font-size="13" font-weight="700">白银 $70.38</text>
+      <text x="108" y="25" fill="#16A34A" font-size="10">+3.6%</text>
+    </g>
+
+    <!-- BTC -->
+    <g transform="translate(145,184)">
+      <rect x="0" y="0" width="130" height="40" rx="6" fill="#F0FDF4" stroke="#16A34A" stroke-width="1"/>
+      <text x="18" y="25" fill="#16A34A" font-size="13" font-weight="700">BTC $65,400</text>
+      <text x="108" y="25" fill="#16A34A" font-size="10">+2%</text>
+    </g>
+
+    <!-- Key narrative box -->
+    <g transform="translate(10,232)">
+      <rect x="0" y="0" width="265" height="55" rx="6" fill="#EFF6FF" stroke="#1A56DB" stroke-width="1"/>
+      <text x="132" y="18" fill="#1A56DB" font-size="9" font-weight="700" text-anchor="middle">💡 黄金为何与油价反向？</text>
+      <text x="132" y="33" fill="#475569" font-size="8" text-anchor="middle">油价跌 → 通胀预期降 → Fed加息概率降</text>
+      <text x="132" y="47" fill="#475569" font-size="8" text-anchor="middle">→ 实际利率预期下行 → 持有黄金成本降低</text>
+    </g>
+
+    <!-- "This changes everything" badge -->
+    <g transform="translate(10,295)">
+      <rect x="0" y="0" width="265" height="30" rx="15" fill="#1A56DB"/>
+      <text x="132" y="20" fill="white" font-size="12" font-weight="700" text-anchor="middle">🔥 本周焦点：6/16-17 FOMC · Warsh首秀</text>
+    </g>
+
+    <!-- FOMC preview -->
+    <g transform="translate(10,332)">
+      <rect x="0" y="0" width="265" height="55" rx="6" fill="#F8F9FA" stroke="#CBD5E1" stroke-width="1"/>
+      <text x="132" y="18" fill="#1E293B" font-size="9" font-weight="700" text-anchor="middle">🏛️ FOMC 6月会议（6/16-17）</text>
+      <text x="132" y="33" fill="#475569" font-size="8" text-anchor="middle">利率维持 3.50%-3.75% 概率 98.5%</text>
+      <text x="132" y="47" fill="#D4A017" font-size="8" text-anchor="middle">关键看点：点阵图修订 + Warsh首秀风格</text>
+    </g>
+
+    <!-- Panel 3 title -->
+    <rect x="20" y="395" width="245" height="24" rx="5" fill="#1A56DB"/>
+    <text x="142" y="412" fill="white" font-size="11" font-weight="700" text-anchor="middle">💰 市场冲击 · 全球资产重定价</text>
+
+    <text x="142" y="438" fill="#475569" font-size="9" text-anchor="middle">原油暴跌 + 黄金暴涨 + 股市期货齐升</text>
+    <text x="142" y="453" fill="#1E40AF" font-size="9" font-weight="700" text-anchor="middle">"和平红利"正在改写全球资产定价</text>
+
+    <text x="142" y="475" font-size="10" text-anchor="middle">📈</text>
+  </g>
+</svg>
