@@ -54,10 +54,6 @@
     --ys-logo-ink: #14233F;
     --ys-logo-sub: #5B6470;
     --ys-logo-line: #CBD5E1;
-    --ys-seal-red: #C0392B;
-    --ys-seal-red-2: #A8281C;
-    --ys-seal-edge: #9B2418;
-    --ys-seal-paper: #FBF7F2;
     --ys-radius: 12px;
     --ys-radius-sm: 8px;
     --ys-radius-lg: 16px;
@@ -454,7 +450,7 @@
     display:inline-flex;
     align-items:center;
     justify-content:center;
-    filter: drop-shadow(0 2px 5px rgba(160,40,28,.28));
+    filter: drop-shadow(0 2px 5px rgba(122,79,22,.28));
   }
   .ys-seal__svg{
     position:absolute;
@@ -463,18 +459,6 @@
     height:100%;
     display:block;
   }
-  .ys-seal__char{
-    position:relative;
-    z-index:1;
-    font-family:var(--ys-font-logo);
-    font-weight:900;
-    font-size:.95em;
-    color:var(--ys-seal-paper);
-    line-height:1;
-    transform:translateY(.02em);
-    letter-spacing:0;
-  }
-
   /* 「说·财经」描述词 */
   .ys-brand__type{
     display:inline-flex;
@@ -541,7 +525,6 @@
   }
 
   /* 字体回退 */
-  .ys-seal__char,
   .ys-brand__main{ font-synthesis: weight; }
 
   /* 延展：头像角标 — 已移除 */
@@ -579,23 +562,30 @@
   <div class="ys-nav-inner">
     <a class="ys-brand ys-brand--nav" href="#" onclick="switchTab('daily');return false;" aria-label="扬说·财经 首页">
 
-      <!-- 「扬」朱砂钤印 -->
+      <!-- 「扬」金箔钤印 -->
       <span class="ys-seal" aria-hidden="true">
         <svg viewBox="0 0 48 48" class="ys-seal__svg">
           <defs>
-            <linearGradient id="ysSeal-nav" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%"  stop-color="#C0392B"/>
-              <stop offset="100%" stop-color="#A8281C"/>
+            <linearGradient id="ysSeal-nav" x1="0" y1="0" x2="1.3" y2="1.2">
+              <stop offset="0%" stop-color="#3a2008"/><stop offset="18%" stop-color="#8b5e24"/>
+              <stop offset="35%" stop-color="#d4a54a"/><stop offset="50%" stop-color="#fef9ed"/>
+              <stop offset="65%" stop-color="#e8c97a"/><stop offset="82%" stop-color="#9b621c"/>
+              <stop offset="100%" stop-color="#3a2008"/>
             </linearGradient>
+            <filter id="ysSeal-nav-f" x="-20%" y="-20%" width="140%" height="140%">
+              <feDropShadow dx="0.08" dy="0.15" stdDeviation="0.14" flood-color="#140a02" flood-opacity="0.35"/>
+            </filter>
           </defs>
-          <rect x="2" y="2" width="44" height="44" rx="12" fill="url(#ysSeal-nav)"/>
-          <rect x="5.5" y="5.5" width="37" height="37" rx="9"
-                fill="none" stroke="rgba(251,247,242,.55)" stroke-width="1.3"/>
-          <path d="M33 8 L40 8 L40 15" fill="none"
-                stroke="rgba(251,247,242,.9)" stroke-width="1.6"
-                stroke-linecap="round" stroke-linejoin="round"/>
+          <g text-anchor="middle" font-family="'Liu Jian Mao Cao','Ma Shan Zheng',cursive" font-size="36" font-weight="400">
+            <text x="24" y="38" fill="#1a0a02" opacity="0.5" transform="rotate(-6,24,24) skewX(-8) translate(0.5,0.7)">扬</text>
+            <text x="24" y="38" fill="#3a1e08" opacity="0.42" transform="rotate(-6,24,24) skewX(-8) translate(0.35,0.48)">扬</text>
+            <text x="24" y="38" fill="#5c3614" opacity="0.38" transform="rotate(-6,24,24) skewX(-8) translate(0.22,0.3)">扬</text>
+            <text x="24" y="38" fill="#7a4f1e" opacity="0.4" transform="rotate(-6,24,24) skewX(-8) translate(0.12,0.16)">扬</text>
+            <text x="24" y="38" fill="#9b6b28" opacity="0.48" transform="rotate(-6,24,24) skewX(-8) translate(0.05,0.07)">扬</text>
+            <text x="24" y="38" fill="url(#ysSeal-nav)" filter="url(#ysSeal-nav-f)">扬</text>
+            <text x="23.9" y="37.88" fill="white" opacity="0.12">扬</text>
+          </g>
         </svg>
-        <span class="ys-seal__char">扬</span>
       </span>
 
       <!-- 「说·财经」描述词 -->
@@ -631,19 +621,26 @@
             <span class="ys-seal" aria-hidden="true">
               <svg viewBox="0 0 48 48" class="ys-seal__svg">
                 <defs>
-                  <linearGradient id="ysSeal-hero" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0%"  stop-color="#C0392B"/>
-                    <stop offset="100%" stop-color="#A8281C"/>
+                  <linearGradient id="ysSeal-hero" x1="0" y1="0" x2="1.3" y2="1.2">
+                    <stop offset="0%" stop-color="#3a2008"/><stop offset="18%" stop-color="#8b5e24"/>
+                    <stop offset="35%" stop-color="#d4a54a"/><stop offset="50%" stop-color="#fef9ed"/>
+                    <stop offset="65%" stop-color="#e8c97a"/><stop offset="82%" stop-color="#9b621c"/>
+                    <stop offset="100%" stop-color="#3a2008"/>
                   </linearGradient>
+                  <filter id="ysSeal-hero-f" x="-20%" y="-20%" width="140%" height="140%">
+                    <feDropShadow dx="0.08" dy="0.15" stdDeviation="0.14" flood-color="#140a02" flood-opacity="0.35"/>
+                  </filter>
                 </defs>
-                <rect x="2" y="2" width="44" height="44" rx="12" fill="url(#ysSeal-hero)"/>
-                <rect x="5.5" y="5.5" width="37" height="37" rx="9"
-                      fill="none" stroke="rgba(251,247,242,.55)" stroke-width="1.3"/>
-                <path d="M33 8 L40 8 L40 15" fill="none"
-                      stroke="rgba(251,247,242,.9)" stroke-width="1.6"
-                      stroke-linecap="round" stroke-linejoin="round"/>
+                <g text-anchor="middle" font-family="'Liu Jian Mao Cao','Ma Shan Zheng',cursive" font-size="36" font-weight="400">
+                  <text x="24" y="38" fill="#1a0a02" opacity="0.5" transform="rotate(-6,24,24) skewX(-8) translate(0.5,0.7)">扬</text>
+                  <text x="24" y="38" fill="#3a1e08" opacity="0.42" transform="rotate(-6,24,24) skewX(-8) translate(0.35,0.48)">扬</text>
+                  <text x="24" y="38" fill="#5c3614" opacity="0.38" transform="rotate(-6,24,24) skewX(-8) translate(0.22,0.3)">扬</text>
+                  <text x="24" y="38" fill="#7a4f1e" opacity="0.4" transform="rotate(-6,24,24) skewX(-8) translate(0.12,0.16)">扬</text>
+                  <text x="24" y="38" fill="#9b6b28" opacity="0.48" transform="rotate(-6,24,24) skewX(-8) translate(0.05,0.07)">扬</text>
+                  <text x="24" y="38" fill="url(#ysSeal-hero)" filter="url(#ysSeal-hero-f)">扬</text>
+                  <text x="23.9" y="37.88" fill="white" opacity="0.12">扬</text>
+                </g>
               </svg>
-              <span class="ys-seal__char">扬</span>
             </span>
 
             <span class="ys-brand__type">
@@ -1096,15 +1093,26 @@
       <span class="ys-seal ys-seal--footer" aria-hidden="true">
         <svg viewBox="0 0 48 48" class="ys-seal__svg">
           <defs>
-            <linearGradient id="ysSeal-footer" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#C0392B"/><stop offset="100%" stop-color="#A8281C"/>
+            <linearGradient id="ysSeal-footer" x1="0" y1="0" x2="1.3" y2="1.2">
+              <stop offset="0%" stop-color="#3a2008"/><stop offset="18%" stop-color="#8b5e24"/>
+              <stop offset="35%" stop-color="#d4a54a"/><stop offset="50%" stop-color="#fef9ed"/>
+              <stop offset="65%" stop-color="#e8c97a"/><stop offset="82%" stop-color="#9b621c"/>
+              <stop offset="100%" stop-color="#3a2008"/>
             </linearGradient>
+            <filter id="ysSeal-footer-f" x="-20%" y="-20%" width="140%" height="140%">
+              <feDropShadow dx="0.08" dy="0.15" stdDeviation="0.14" flood-color="#140a02" flood-opacity="0.35"/>
+            </filter>
           </defs>
-          <rect x="2" y="2" width="44" height="44" rx="12" fill="url(#ysSeal-footer)"/>
-          <rect x="5.5" y="5.5" width="37" height="37" rx="9" fill="none"
-                stroke="rgba(251,247,242,.55)" stroke-width="1.3"/>
+          <g text-anchor="middle" font-family="'Liu Jian Mao Cao','Ma Shan Zheng',cursive" font-size="36" font-weight="400">
+            <text x="24" y="38" fill="#1a0a02" opacity="0.5" transform="rotate(-6,24,24) skewX(-8) translate(0.5,0.7)">扬</text>
+            <text x="24" y="38" fill="#3a1e08" opacity="0.42" transform="rotate(-6,24,24) skewX(-8) translate(0.35,0.48)">扬</text>
+            <text x="24" y="38" fill="#5c3614" opacity="0.38" transform="rotate(-6,24,24) skewX(-8) translate(0.22,0.3)">扬</text>
+            <text x="24" y="38" fill="#7a4f1e" opacity="0.4" transform="rotate(-6,24,24) skewX(-8) translate(0.12,0.16)">扬</text>
+            <text x="24" y="38" fill="#9b6b28" opacity="0.48" transform="rotate(-6,24,24) skewX(-8) translate(0.05,0.07)">扬</text>
+            <text x="24" y="38" fill="url(#ysSeal-footer)" filter="url(#ysSeal-footer-f)">扬</text>
+            <text x="23.9" y="37.88" fill="white" opacity="0.12">扬</text>
+          </g>
         </svg>
-        <span class="ys-seal__char">扬</span>
       </span>
     </div>
     <div class="ys-footer-slogan">把市场讲清楚，把产业看明白。</div>
