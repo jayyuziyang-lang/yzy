@@ -1,0 +1,266 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" width="900" height="500" font-family="-apple-system,PingFang SC,Microsoft YaHei,sans-serif">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFF8E7"/>
+      <stop offset="100%" stop-color="#FFF3D6"/>
+    </linearGradient>
+    <linearGradient id="headerGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#D4A017"/>
+      <stop offset="100%" stop-color="#B8860B"/>
+    </linearGradient>
+    <linearGradient id="chipGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1E293B"/>
+      <stop offset="100%" stop-color="#334155"/>
+    </linearGradient>
+    <linearGradient id="goldBar" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FCD34D"/>
+      <stop offset="100%" stop-color="#D4A017"/>
+    </linearGradient>
+    <linearGradient id="oilDrop" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1E293B"/>
+      <stop offset="100%" stop-color="#334155"/>
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="115%" height="115%">
+      <feDropShadow dx="1" dy="2" stdDeviation="3" flood-color="#92400E" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="500" rx="12" fill="url(#bgGrad)"/>
+
+  <!-- ===== Panel 1: Tech Surge (Left) ===== -->
+  <g transform="translate(12,10)">
+    <rect x="0" y="0" width="288" height="480" rx="8" fill="white" stroke="#D4A017" stroke-width="1.5" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="288" height="130" rx="8" fill="url(#headerGrad)"/>
+    <rect x="0" y="125" width="288" height="5" fill="url(#headerGrad)"/>
+
+    <!-- Chip icon -->
+    <g transform="translate(20,15)">
+      <rect x="0" y="0" width="24" height="24" rx="3" fill="url(#chipGrad)"/>
+      <rect x="3" y="3" width="18" height="18" rx="1" fill="#475569"/>
+      <rect x="6" y="8" width="12" height="8" rx="1" fill="#94A3B8"/>
+      <line x1="6" y1="0" x2="6" y2="-3" stroke="#B8860B" stroke-width="1.5"/>
+      <line x1="12" y1="0" x2="12" y2="-3" stroke="#B8860B" stroke-width="1.5"/>
+      <line x1="18" y1="0" x2="18" y2="-3" stroke="#B8860B" stroke-width="1.5"/>
+      <line x1="6" y1="24" x2="6" y2="27" stroke="#B8860B" stroke-width="1.5"/>
+      <line x1="12" y1="24" x2="12" y2="27" stroke="#B8860B" stroke-width="1.5"/>
+      <line x1="18" y1="24" x2="18" y2="27" stroke="#B8860B" stroke-width="1.5"/>
+    </g>
+
+    <text x="58" y="30" fill="white" font-size="14" font-weight="700">A股 · 科技涨停潮</text>
+    <text x="58" y="48" fill="#FDE68A" font-size="10">6月15日 · 全面爆发</text>
+
+    <!-- Stock data cards -->
+    <g transform="translate(12,60)">
+      <!-- 创业板 +5.30% -->
+      <rect x="0" y="0" width="128" height="32" rx="5" fill="#FEF2F2" stroke="#DC2626" stroke-width="1"/>
+      <text x="8" y="14" fill="#1E293B" font-size="9" font-weight="700">创业板指</text>
+      <text x="8" y="27" fill="#DC2626" font-size="13" font-weight="800">+5.30%</text>
+
+      <!-- 科创50 +5.12% -->
+      <rect x="135" y="0" width="128" height="32" rx="5" fill="#FEF2F2" stroke="#DC2626" stroke-width="1"/>
+      <text x="143" y="14" fill="#1E293B" font-size="9" font-weight="700">科创50</text>
+      <text x="143" y="27" fill="#DC2626" font-size="13" font-weight="800">+5.12%</text>
+    </g>
+
+    <!-- Sector gainers list -->
+    <g transform="translate(12,100)">
+      <rect x="0" y="0" width="264" height="22" rx="4" fill="#FEF2F2" stroke="#DC2626" stroke-width="0.5"/>
+      <text x="10" y="15" fill="#DC2626" font-size="11" font-weight="700">CPO +8%</text>
+      <text x="90" y="15" fill="#DC2626" font-size="11" font-weight="700">半导体 +7%</text>
+      <text x="190" y="15" fill="#DC2626" font-size="11" font-weight="700">PCB涨停潮</text>
+    </g>
+
+    <!-- Bull market character -->
+    <g transform="translate(12,132)">
+      <!-- Upward arrow -->
+      <text x="132" y="50" fill="#DC2626" font-size="48" font-weight="900" text-anchor="middle" opacity="0.15">↑</text>
+      <text x="132" y="30" fill="#DC2626" font-size="16" font-weight="700" text-anchor="middle">160只涨停</text>
+      <text x="132" y="50" fill="#475569" font-size="10" text-anchor="middle">半导体 · CPO · PCB · MLCC</text>
+      <text x="132" y="68" fill="#475569" font-size="10" text-anchor="middle">全线涨停潮</text>
+    </g>
+
+    <!-- Sell-off list -->
+    <g transform="translate(12,215)">
+      <text x="132" y="12" fill="#94A3B8" font-size="10" text-anchor="middle">— — — 一边是火焰 — — —</text>
+      <rect x="0" y="22" width="264" height="18" rx="4" fill="#F0FDF4" stroke="#16A34A" stroke-width="0.5"/>
+      <text x="10" y="35" fill="#16A34A" font-size="10" font-weight="600">煤炭 -2.1%</text>
+      <text x="100" y="35" fill="#16A34A" font-size="10" font-weight="600">银行 -1.2%</text>
+      <text x="190" y="35" fill="#16A34A" font-size="10" font-weight="600">油气 -3.5%</text>
+    </g>
+
+    <!-- Key drivers -->
+    <g transform="translate(12,255)">
+      <rect x="0" y="0" width="264" height="80" rx="6" fill="#FFF8E7" stroke="#FDE68A" stroke-width="1"/>
+      <text x="132" y="16" fill="#B8860B" font-size="9" font-weight="700" text-anchor="middle">🔑 三大驱动力</text>
+      <text x="132" y="33" fill="#475569" font-size="8.5" text-anchor="middle">1. 立昂微功率芯片涨价10-15%</text>
+      <text x="132" y="47" fill="#475569" font-size="8.5" text-anchor="middle">2. 长鑫科技295亿IPO获批</text>
+      <text x="132" y="61" fill="#475569" font-size="8.5" text-anchor="middle">3. 大摩预测PCB CAGR 83%</text>
+    </g>
+
+    <!-- Fund flow -->
+    <g transform="translate(12,345)">
+      <rect x="0" y="0" width="264" height="50" rx="6" fill="#F8F9FA" stroke="#CBD5E1" stroke-width="1"/>
+      <text x="132" y="16" fill="#1E293B" font-size="9" font-weight="700" text-anchor="middle">💰 主力资金净流入</text>
+      <text x="132" y="32" fill="#DC2626" font-size="12" font-weight="700" text-anchor="middle">电子 +186亿</text>
+      <text x="132" y="46" fill="#16A34A" font-size="9" text-anchor="middle">通信 +129亿 · 电力设备 +29亿</text>
+    </g>
+
+    <!-- Panel 1 bottom label -->
+    <rect x="20" y="405" width="248" height="24" rx="5" fill="#D4A017"/>
+    <text x="144" y="421" fill="white" font-size="10" font-weight="700" text-anchor="middle">🔥 科技股 · 和平红利全面兑现</text>
+
+    <text x="144" y="448" fill="#475569" font-size="9" text-anchor="middle">沪指收4096 · 北向净流入60亿</text>
+    <text x="144" y="462" fill="#B8860B" font-size="9" font-weight="700" text-anchor="middle">成交3.03万亿  ·  两市3900只上涨</text>
+  </g>
+
+  <!-- ===== Panel 2: Gold and Oil Divergence (Middle) ===== -->
+  <g transform="translate(306,10)">
+    <rect x="0" y="0" width="288" height="480" rx="8" fill="white" stroke="#D4A017" stroke-width="1.5" filter="url(#shadow)"/>
+
+    <rect x="0" y="0" width="288" height="130" rx="8" fill="url(#headerGrad)"/>
+    <rect x="0" y="125" width="288" height="5" fill="url(#headerGrad)"/>
+
+    <text x="144" y="30" fill="white" font-size="14" font-weight="700" text-anchor="middle">大宗商品 · 极致分化</text>
+    <text x="144" y="48" fill="#FDE68A" font-size="10" text-anchor="middle">黄金暴涨 vs 原油暴跌</text>
+
+    <!-- Gold up -->
+    <g transform="translate(12,65)">
+      <rect x="0" y="0" width="127" height="52" rx="6" fill="#FEF2F2" stroke="#DC2626" stroke-width="1"/>
+      <rect x="8" y="8" width="18" height="14" rx="2" fill="url(#goldBar)"/>
+      <text x="32" y="20" fill="#DC2626" font-size="15" font-weight="800">黄金 ↑</text>
+      <text x="32" y="38" fill="#DC2626" font-size="12" font-weight="700">$4,343</text>
+      <text x="90" y="38" fill="#DC2626" font-size="10">+3.0%</text>
+    </g>
+
+    <!-- Oil down -->
+    <g transform="translate(148,65)">
+      <rect x="0" y="0" width="128" height="52" rx="6" fill="#F0FDF4" stroke="#16A34A" stroke-width="1"/>
+      <rect x="8" y="8" width="16" height="20" rx="4" fill="url(#oilDrop)"/>
+      <rect x="8" y="4" width="16" height="8" rx="4" fill="url(#oilDrop)"/>
+      <text x="32" y="20" fill="#16A34A" font-size="15" font-weight="800">WTI ↓</text>
+      <text x="32" y="38" fill="#16A34A" font-size="12" font-weight="700">$80.97</text>
+      <text x="90" y="38" fill="#16A34A" font-size="10">-4.6%</text>
+    </g>
+
+    <!-- Silver + BTC -->
+    <g transform="translate(12,125)">
+      <rect x="0" y="0" width="127" height="40" rx="6" fill="#FEF2F2" stroke="#DC2626" stroke-width="1"/>
+      <text x="8" y="17" fill="#DC2626" font-size="12" font-weight="700">白银 ↑</text>
+      <text x="8" y="33" fill="#DC2626" font-size="11" font-weight="700">$70.61</text>
+      <text x="90" y="33" fill="#DC2626" font-size="10">+3.9%</text>
+    </g>
+    <g transform="translate(148,125)">
+      <rect x="0" y="0" width="128" height="40" rx="6" fill="#FEF2F2" stroke="#DC2626" stroke-width="1"/>
+      <text x="8" y="17" fill="#DC2626" font-size="12" font-weight="700">BTC ↑</text>
+      <text x="8" y="33" fill="#DC2626" font-size="11" font-weight="700">$65,400</text>
+      <text x="90" y="33" fill="#DC2626" font-size="10">+2%</text>
+    </g>
+
+    <!-- Oil price timeline -->
+    <g transform="translate(12,175)">
+      <rect x="0" y="0" width="264" height="95" rx="6" fill="#FFF8E7" stroke="#FDE68A" stroke-width="1"/>
+      <text x="132" y="15" fill="#B8860B" font-size="9" font-weight="700" text-anchor="middle">📉 WTI油价 · 战争溢价蒸发之路</text>
+      <text x="132" y="32" fill="#DC2626" font-size="10" font-weight="700" text-anchor="middle">$126（2月冲突爆发）</text>
+      <rect x="40" y="38" width="184" height="3" rx="2" fill="#FCA5A5"/>
+      <rect x="40" y="38" width="150" height="3" rx="2" fill="#F87171"/>
+      <rect x="40" y="38" width="100" height="3" rx="2" fill="#EF4444"/>
+      <rect x="40" y="38" width="60" height="3" rx="2" fill="#DC2626"/>
+      <text x="132" y="55" fill="#16A34A" font-size="10" font-weight="700" text-anchor="middle">$80（6/15和平协议后）</text>
+      <text x="132" y="72" fill="#475569" font-size="8.5" text-anchor="middle">累计跌幅 36.5% | 溢价回吐加速中</text>
+      <text x="132" y="86" fill="#D4A017" font-size="8" text-anchor="middle">⚠️ 反向风险：霍尔木兹若受阻，反弹至$88-90</text>
+    </g>
+
+    <!-- Gold logic -->
+    <g transform="translate(12,280)">
+      <rect x="0" y="0" width="264" height="72" rx="6" fill="#F0FDF4" stroke="#16A34A" stroke-width="1"/>
+      <text x="132" y="15" fill="#14532D" font-size="9" font-weight="700" text-anchor="middle">💡 黄金为何在"和平"时暴涨？</text>
+      <text x="132" y="32" fill="#475569" font-size="8.5" text-anchor="middle">油价跌 → 通胀预期回落 →</text>
+      <text x="132" y="46" fill="#475569" font-size="8.5" text-anchor="middle">Fed加息概率降 → 实际利率预期下行</text>
+      <text x="132" y="60" fill="#DC2626" font-size="9" font-weight="700" text-anchor="middle">→ 持有黄金的机会成本下降</text>
+    </g>
+
+    <!-- Gold key level -->
+    <g transform="translate(12,362)">
+      <rect x="0" y="0" width="264" height="32" rx="15" fill="#D4A017"/>
+      <text x="132" y="21" fill="white" font-size="11" font-weight="700" text-anchor="middle">🏆 黄金$4,343 · 牛市确认信号</text>
+    </g>
+
+    <!-- Key message -->
+    <g transform="translate(12,402)">
+      <text x="144" y="12" fill="#B8860B" font-size="9" font-weight="700" text-anchor="middle">商品不再是"避险vs风险"的二元游戏</text>
+      <text x="144" y="28" fill="#475569" font-size="9" text-anchor="middle">黄金是利率预期资产，不是避险资产</text>
+      <text x="144" y="44" fill="#475569" font-size="9" text-anchor="middle">WTI $80是技术面关键支撑</text>
+    </g>
+  </g>
+
+  <!-- ===== Panel 3: FOMC Preview (Right) ===== -->
+  <g transform="translate(600,10)">
+    <rect x="0" y="0" width="288" height="480" rx="8" fill="white" stroke="#D4A017" stroke-width="1.5" filter="url(#shadow)"/>
+
+    <rect x="0" y="0" width="288" height="130" rx="8" fill="url(#headerGrad)"/>
+    <rect x="0" y="125" width="288" height="5" fill="url(#headerGrad)"/>
+
+    <text x="144" y="30" fill="white" font-size="14" font-weight="700" text-anchor="middle">🏛️ FOMC前瞻 · 沃什首秀</text>
+    <text x="144" y="48" fill="#FDE68A" font-size="10" text-anchor="middle">6/16-17  ·  全球聚焦</text>
+
+    <!-- Rate decision -->
+    <g transform="translate(12,65)">
+      <rect x="0" y="0" width="264" height="52" rx="6" fill="#FFF8E7" stroke="#FDE68A" stroke-width="1"/>
+      <text x="132" y="18" fill="#1E293B" font-size="11" font-weight="700" text-anchor="middle">利率决议：维持3.50%-3.75%</text>
+      <text x="132" y="35" fill="#D4A017" font-size="10" font-weight="600" text-anchor="middle">概率 98.5% · 连续第四次按兵不动</text>
+    </g>
+
+    <!-- Watch data -->
+    <g transform="translate(12,125)">
+      <rect x="0" y="0" width="264" height="70" rx="6" fill="#F8F9FA" stroke="#CBD5E1" stroke-width="1"/>
+      <text x="132" y="16" fill="#1E293B" font-size="9" font-weight="700" text-anchor="middle">FedWatch加息概率骤降</text>
+      <text x="60" y="36" fill="#DC2626" font-size="13" font-weight="800">~80%</text>
+      <text x="85" y="50" fill="#94A3B8" font-size="8" text-anchor="middle">上周五</text>
+      <text x="150" y="50" fill="#94A3B8" font-size="8" text-anchor="middle">→</text>
+      <text x="175" y="36" fill="#16A34A" font-size="13" font-weight="800">~47%</text>
+      <text x="195" y="50" fill="#94A3B8" font-size="8" text-anchor="middle">今日</text>
+      <text x="132" y="63" fill="#16A34A" font-size="8" text-anchor="middle">和平协议让加息预期腰斩</text>
+    </g>
+
+    <!-- Bond yields -->
+    <g transform="translate(12,203)">
+      <rect x="0" y="0" width="264" height="50" rx="6" fill="#F0FDF4" stroke="#16A34A" stroke-width="1"/>
+      <text x="132" y="16" fill="#14532D" font-size="9" font-weight="700" text-anchor="middle">美债收益率下行</text>
+      <text x="80" y="35" fill="#14532D" font-size="10" font-weight="700">10Y 4.42%</text>
+      <text x="160" y="35" fill="#16A34A" font-size="10">-5bp</text>
+      <text x="200" y="35" fill="#14532D" font-size="9">2Y 3.98%</text>
+    </g>
+
+    <!-- Warsh statements -->
+    <g transform="translate(12,261)">
+      <rect x="0" y="0" width="264" height="80" rx="6" fill="#FFF8E7" stroke="#FDE68A" stroke-width="1"/>
+      <text x="132" y="15" fill="#B8860B" font-size="9" font-weight="700" text-anchor="middle">🔍 沃什记者会三大看点</text>
+      <text x="132" y="33" fill="#475569" font-size="8.5" text-anchor="middle">① 如何看待油价暴跌对通胀的影响？</text>
+      <text x="132" y="47" fill="#475569" font-size="8.5" text-anchor="middle">② 点阵图是否弱化指引意义？</text>
+      <text x="132" y="61" fill="#475569" font-size="8.5" text-anchor="middle">③ 是否暗示加息周期已结束？</text>
+    </g>
+
+    <!-- Scenario arrows -->
+    <g transform="translate(12,350)">
+      <rect x="0" y="0" width="127" height="65" rx="6" fill="#F0FDF4" stroke="#16A34A" stroke-width="1"/>
+      <text x="8" y="16" fill="#16A34A" font-size="9" font-weight="700">🌱 路径A · 鸽派</text>
+      <text x="8" y="32" fill="#475569" font-size="8">沃什淡化点阵图</text>
+      <text x="8" y="46" fill="#475569" font-size="8">强调油价下行 ↓CPI</text>
+      <text x="8" y="58" fill="#DC2626" font-size="9" font-weight="700">→ risk-on 狂欢</text>
+    </g>
+    <g transform="translate(148,350)">
+      <rect x="0" y="0" width="128" height="65" rx="6" fill="#FEF2F2" stroke="#DC2626" stroke-width="1"/>
+      <text x="8" y="16" fill="#DC2626" font-size="9" font-weight="700">⚡ 路径B · 鹰派</text>
+      <text x="8" y="32" fill="#475569" font-size="8">强调CPI 4.2%太高</text>
+      <text x="8" y="46" fill="#475569" font-size="8">保留加息选项</text>
+      <text x="8" y="58" fill="#16A34A" font-size="9" font-weight="700">→ 获利回吐</text>
+    </g>
+
+    <!-- Bottom badge -->
+    <rect x="20" y="425" width="248" height="24" rx="5" fill="#D4A017"/>
+    <text x="144" y="441" fill="white" font-size="10" font-weight="700" text-anchor="middle">⏰ 倒计时：周三FOMC决定一切</text>
+
+    <text x="144" y="465" fill="#475569" font-size="9" text-anchor="middle">别在结果出来前重仓方向性押注</text>
+  </g>
+</svg>

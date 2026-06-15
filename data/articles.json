@@ -1,7 +1,19 @@
 {
-  "generated_at": "2026-06-15T14:30:57+08:00",
+  "generated_at": "2026-06-15T18:52:21+08:00",
   "latest_date": "2026-06-15",
   "articles": [
+    {
+      "date": "2026-06-15",
+      "session": "evening",
+      "edition_cn": "晚报",
+      "icon": "🌙",
+      "title": "沪指收4096涨1.61%·创业板飙5.3%·科技涨停潮·黄金破4343·WTI跌破80跌6%·FOMC明日登场·日经首破69000",
+      "url": "2026-06-15/wechat-publish/evening/article.html",
+      "has_audio": true,
+      "audio_size_bytes": 1378080,
+      "has_comic": true,
+      "comic_count": 1
+    },
     {
       "date": "2026-06-15",
       "session": "morning",
@@ -489,6 +501,18 @@
   ],
   "by_date": {
     "2026-06-15": {
+      "evening": {
+        "date": "2026-06-15",
+        "session": "evening",
+        "edition_cn": "晚报",
+        "icon": "🌙",
+        "title": "沪指收4096涨1.61%·创业板飙5.3%·科技涨停潮·黄金破4343·WTI跌破80跌6%·FOMC明日登场·日经首破69000",
+        "url": "2026-06-15/wechat-publish/evening/article.html",
+        "has_audio": true,
+        "audio_size_bytes": 1378080,
+        "has_comic": true,
+        "comic_count": 1
+      },
       "morning": {
         "date": "2026-06-15",
         "session": "morning",

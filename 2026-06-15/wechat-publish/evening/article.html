@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>沪指收4096涨1.61%·创业板飙5.3%·科技涨停潮·黄金破4343·WTI跌破80跌6%·FOMC明日登场·日经首破69000</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system,"PingFang SC","Microsoft YaHei","Helvetica Neue",sans-serif; background: #F5F7FA; color: #1E293B; line-height: 1.8; font-size: 16px; }
+  .c { max-width: 640px; margin: 0 auto; background: #fff; padding: 44px 0 40px; }
+  .top-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; max-width: 640px; margin: 0 auto; background: rgba(255,255,255,0.95); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-bottom: 1px solid #E2E8F0; display: flex; align-items: center; padding: 0 16px; height: 44px; }
+  .top-nav .back { display: flex; align-items: center; gap: 4px; color: #1A56DB; text-decoration: none; font-size: 13px; font-weight: 600; }
+  .top-nav .back:active { opacity: 0.6; }
+  .top-nav .nav-date { flex: 1; text-align: center; font-size: 12px; color: #64748B; }
+  .top-nav .nav-edition { font-size: 11px; color: #D4A017; background: #FFFBEB; padding: 2px 8px; border-radius: 8px; font-weight: 600; }
+  .header { background: linear-gradient(135deg,#D4A017,#B8860B); padding: 20px 20px 16px; color: white; }
+  .header h1 { font-size: 22px; font-weight: 700; line-height: 1.4; margin-bottom: 6px; }
+  .header .meta { font-size: 12px; opacity: 0.8; display: flex; gap: 12px; flex-wrap: wrap; }
+  .player { display: flex; align-items: center; gap: 12px; margin-top: 14px; }
+  .player-icon { width: 40px; height: 40px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 18px; }
+  .player-info { flex: 1; }
+  .player-title { font-size: 13px; font-weight: 600; }
+  .player-desc { font-size: 11px; opacity: 0.7; }
+  .player audio { width: 100%; margin-top: 4px; border-radius: 20px; }
+  .body { padding: 20px 20px 0; }
+  .layer1 { margin-bottom: 28px; }
+  .l1-title { font-size: 16px; font-weight: 700; color: #D4A017; margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
+  .l1-comic { margin: 8px 0 0; }
+  .l1-comic img { width: 100%; border-radius: 10px; border: 1px solid #E2E8F0; }
+  .l1-divider { border: none; border-top: 2px dashed #D4A017; margin: 16px 0; }
+  .layer2 { margin-bottom: 24px; }
+  .l2-title { font-size: 16px; font-weight: 700; color: #D4A017; margin-bottom: 14px; display: flex; align-items: center; gap: 6px; }
+  .quote { background: #FFFBEB; border-left: 4px solid #D4A017; padding: 12px 14px; margin: 14px 0; border-radius: 0 8px 8px 0; font-size: 14px; color: #92400E; line-height: 1.7; }
+  p { margin-bottom: 12px; text-align: justify; font-size: 15px; text-indent: 2em; }
+  .story { margin: 22px 0; }
+  .story-head { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .story-num { width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; color: #fff; flex-shrink: 0; }
+  .story-num.s01 { background: #DC2626; } .story-num.s02 { background: #16A34A; } .story-num.s03 { background: #7C3AED; }
+  .story-num.s04 { background: #1A56DB; } .story-num.s05 { background: #D4A017; } .story-num.s06 { background: #EA580C; }
+  .story-tag { font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 3px; }
+  .story-tag.s01 { background: #FEF2F2; color: #DC2626; } .story-tag.s02 { background: #F0FDF4; color: #16A34A; }
+  .story-tag.s03 { background: #FAF5FF; color: #7C3AED; } .story-tag.s04 { background: #EFF6FF; color: #1A56DB; }
+  .story-tag.s05 { background: #FFFBEB; color: #D4A017; } .story-tag.s06 { background: #FFF7ED; color: #EA580C; }
+  .story-title { font-size: 16px; font-weight: 700; color: #1E293B; line-height: 1.4; }
+  .story-content { font-size: 14px; color: #334155; line-height: 1.8; margin-bottom: 8px; }
+  .story-content p { margin-bottom: 8px; font-size: 14px; text-indent: 2em; }
+  .story-img { margin: 10px 0 0; border-radius: 8px; border: 1px solid #E2E8F0; overflow: hidden; background: #FAFAFA; }
+  .story-img img { width: 100%; display: block; }
+  .story-divider { border: none; height: 1px; background: linear-gradient(to right, transparent, #E2E8F0, transparent); margin: 6px 0; }
+  .gold-box { background: linear-gradient(135deg,#FFF8E7,#FFF3D6); border: 1px solid #D4A017; border-radius: 12px; padding: 18px 20px; margin: 22px 0; text-align: center; font-size: 16px; font-weight: 700; color: #B8860B; line-height: 1.5; }
+  .layer3 { margin-bottom: 24px; }
+  .l3-title { font-size: 16px; font-weight: 700; color: #D4A017; margin-bottom: 10px; }
+  .l3-highlight-box { background: #FFFBEB; border-radius: 10px; padding: 12px 14px; margin: 12px 0; font-size: 13px; color: #92400E; line-height: 1.6; border: 1px solid #FDE68A; }
+  table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 13px; }
+  th { background: #D4A017; color: #fff; padding: 8px 10px; text-align: left; font-weight: 600; }
+  th:first-child { border-radius: 6px 0 0 0; }
+  th:last-child { border-radius: 0 6px 0 0; }
+  td { padding: 8px 10px; border-bottom: 1px solid #E2E8F0; }
+  tr:nth-child(even) { background: #F8F9FA; }
+  .up { color: #DC2626; font-weight: 600; }
+  .down { color: #16A34A; font-weight: 600; }
+  .warn { background: #FFF5F5; border: 1px solid #FECACA; border-radius: 10px; padding: 12px 14px; margin-top: 24px; font-size: 12px; color: #991B1B; line-height: 1.5; }
+  .highlight { background: #FFFBEB; padding: 1px 4px; border-radius: 2px; font-weight: 600; color: #92400E; }
+  .key-num { font-weight: 700; color: #D4A017; }
+  .sources { background: #FFFBEB; border-radius: 10px; padding: 12px 14px; margin: 16px 0; font-size: 12px; color: #92400E; line-height: 1.6; }
+  .sources h3 { font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+  .sources a { color: #1A56DB; text-decoration: none; }
+  .foot { background: linear-gradient(135deg,#D4A017,#B8860B); border-radius: 12px; padding: 18px 20px; margin: 22px 0; color: white; text-align: center; }
+  .foot .icon { font-size: 28px; margin-bottom: 4px; }
+  .foot .t { font-size: 16px; font-weight: 700; margin-bottom: 2px; }
+  .foot .d { font-size: 11px; opacity: 0.85; }
+  .glossary { background: #FFFBEB; border: 1px solid #FDE68A; border-radius: 10px; padding: 12px 14px; margin: 16px 0; font-size: 12px; line-height: 1.6; }
+  .glossary h4 { font-size: 13px; font-weight: 700; color: #92400E; margin-bottom: 8px; }
+  .glossary table { width: 100%; font-size: 12px; margin: 0; }
+  .glossary th { background: #D4A017; color: #fff; padding: 5px 8px; font-size: 11px; text-align: left; }
+  .glossary td { padding: 5px 8px; font-size: 11px; }
+  .logic-chain { background: #F0F4FF; border-left: 4px solid #1A56DB; border-radius: 0 8px 8px 0; padding: 10px 14px; margin: 10px 0 14px; font-size: 13.5px; color: #1E3A7A; line-height: 1.7; }
+  .logic-chain .lc-label { font-weight: 700; font-size: 12px; color: #1A56DB; margin-bottom: 2px; }
+  .invest-view { background: #F0FDF4; border-left: 4px solid #16A34A; border-radius: 0 8px 8px 0; padding: 10px 14px; margin: 10px 0 14px; font-size: 13.5px; color: #14532D; line-height: 1.7; }
+  .invest-view .iv-label { font-weight: 700; font-size: 12px; color: #16A34A; margin-bottom: 2px; }
+  .tag-b { display: inline-block; background: #D4A017; color: #fff; font-size: 10px; padding: 1px 7px; border-radius: 8px; white-space: nowrap; }
+  .list { background: #F8F9FA; border-radius: 8px; padding: 10px 14px; margin: 10px 0; }
+  .list-item { padding: 5px 0; border-bottom: 1px solid #E2E8F0; font-size: 13px; display: flex; gap: 6px; }
+  .list-item:last-child { border-bottom: none; }
+</style>
+</head>
+<body>
+<div class="c">
+
+  <div class="top-nav">
+    <a class="back" href="../../../index.html">&larr; 返回首页</a>
+    <span class="nav-date">2026.06.15 · 周一</span>
+    <span class="nav-edition">扬说·晚报</span>
+  </div>
+
+  <div class="header">
+    <h1>沪指收4096涨1.61%·创业板飙5.3%·科技涨停潮·黄金破4343·WTI跌破80跌6%·FOMC明日登场·日经首破69000</h1>
+    <div class="meta">
+      <span>📅 2026年6月15日 · 星期一</span>
+      <span>🏷️ 科技涨停潮 / 创业板+5.3% / 半导体暴涨 / CPO+PCB / 黄金4343 / WTI跌破80 / FOMC明日 / 日经69000 / 美伊协议后半场</span>
+    </div>
+    <div class="player">
+      <div class="player-icon">🎧</div>
+      <div class="player-info">
+        <div class="player-title">听全文 · 扬说财经</div>
+        <div class="player-desc">约4分钟 · 深度复盘</div>
+        <audio controls><source src="audio.mp3" type="audio/mpeg"></audio>
+      </div>
+    </div>
+  </div>
+
+  <div class="body">
+
+    <!-- ===== 本周主轴 ===== -->
+    <div class="logic-chain" style="margin-bottom:20px;">
+      <div class="lc-label">今日主轴传导链</div>
+      美伊6/14和平协议 <span style="color:#1A56DB;font-weight:700;">→</span> 霍尔木兹复航在即 <span style="color:#1A56DB;font-weight:700;">→</span> WTI跌破$80创月新低 <span style="color:#1A56DB;font-weight:700;">→</span> 加息概率暴跌至47% <span style="color:#1A56DB;font-weight:700;">→</span> 科技成长估值修复 <span style="color:#1A56DB;font-weight:700;">→</span> A股科技涨停潮创业板+5.3% <span style="color:#1A56DB;font-weight:700;">→</span> 黄金$4,343 · 白银$70.61 <span style="color:#1A56DB;font-weight:700;">→</span> 明日FOMC沃什首秀定方向
+    </div>
+
+    <!-- ===== Layer 1 ===== -->
+    <div class="layer1">
+      <div class="l1-title">🌇 和平红利全面兑现 · 科技股打爆空头</div>
+      <p><strong>今天，A股用一场涨停潮回应了周末的和平协议。</strong> 6月15日，美伊和平协议签署后的第一个完整交易日，A股四大指数集体大涨。沪指高开4053后一路震荡走高，收盘<span class="highlight">报4,096.47（+1.61%），深成指+3.79%，创业板指飙涨5.30%站上4,033点</span>，科创50涨5.12%。</p>
+      <p><strong>这不是普通的上涨——这是一场"科技股的空头回补行情"。</strong> 半导体、CPO光模块、PCB覆铜板、MLCC四大板块全线涨停潮，超160只个股涨停，两市成交3.03万亿。北向资金早盘一度净流入超428亿，午后虽回落至净流入约60亿，但方向非常明确：外资在大举抄底科技成长。煤炭、银行两大前期避险板块逆势重挫，大有能源连续2日跌停，建设银行领跌银行板块——"从防御到进攻"的风格切换，在一个交易日内完成。</p>
+
+      <div class="l1-comic">
+        <img src="comic/panel-001.svg" alt="科技涨停潮·和平红利全面兑现">
+      </div>
+    </div>
+    <hr class="l1-divider">
+
+    <!-- ===== Layer 2 ===== -->
+    <div class="layer2">
+      <div class="l2-title">🔍 6.15 · 六件大事深度复盘</div>
+
+      <!-- 01 A股 -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s01">01</div>
+          <span class="story-tag s01">A股</span>
+          <div class="story-title">沪指收4096创业板飙5.3%·科技涨停潮百股涨停·北向净流入60亿</div>
+        </div>
+        <div class="story-content">
+          <p>周一A股三大指数高开高走，<span class="highlight">上证指数收4,096.47（+1.61%），深证成指15,531.11（+3.79%），创业板指4,033.53（+5.30%）。</span> 两市成交3.03万亿元，超3,900只个股上涨，160只涨停。</p>
+          <p><strong>风格切换在一天内完成。</strong> 科技板块全线暴涨，半导体指数涨幅超7%，CPO概念涨超8%，PCB板块涨停潮。而在另一端，煤炭板块逆势大跌，大有能源连续2日跌停；银行ETF持续净赎回，建设银行领跌。资金以罕见的速度从防御板块撤出，涌向科技成长。</p>
+          <p><strong>驱动因子：</strong> 立昂微宣布功率芯片全系列涨价10%-15%，点燃了半导体涨价逻辑；长鑫科技科创板IPO获批（募资295亿元），国产替代情绪空前高涨；大摩发布研报预测全球AI光模块PCB市场2025-2028年CAGR达83%，PCB板块迎来涨停潮——建滔积层板、木林森密集提价，生益科技反包涨停续创历史新高。</p>
+          <p><strong>指数调仓效应持续发酵。</strong> 上周五沪深300/科创50/创业板指年内最大规模调仓生效，AI/半导体/机器人新标的获指数级资金加码，今天科创50涨5.12%、创业板涨5.30%，被动资金正在持续买入新调入的硬科技权重。</p>
+
+          <table>
+            <tr><th>指数</th><th>收盘</th><th>涨跌幅</th></tr>
+            <tr><td>上证指数</td><td>4,096.47</td><td class="up">+1.61%</td></tr>
+            <tr><td>深证成指</td><td>15,531.11</td><td class="up">+3.79%</td></tr>
+            <tr><td>创业板指</td><td>4,033.53</td><td class="up">+5.30%</td></tr>
+            <tr><td>科创50</td><td>1,748.33</td><td class="up">+5.12%</td></tr>
+            <tr><td>两市成交额</td><td>3.03万亿</td><td>缩量约1854亿</td></tr>
+            <tr><td>北向资金</td><td>净流入~60亿</td><td>早盘一度428亿</td></tr>
+          </table>
+
+          <div class="invest-view">
+            <div class="iv-label">📌 投资视角</div>
+            <p>今天市场的本质是"估值修复+风格切换"的双重共振。和平协议打开了成长股的估值天花板——油价跌→通胀回落→加息概率降→科技股重新被定价。但成交从3.24万亿缩至3.03万亿，说明情绪虽好但并非增量资金入场，而是存量资金"从煤银行到科技"的大迁徙。短期关注：科技板块的持续性需要增量资金配合，若成交不能回到3.2万亿以上，分化可能在明后天出现。</p>
+          </div>
+        </div>
+      </div>
+      <hr class="story-divider">
+
+      <!-- 02 美股/亚太 -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s02">02</div>
+          <span class="story-tag s02">亚太</span>
+          <div class="story-title">日经首破69000涨5%创历史新高·KOSPI涨5.2%触发熔断·美股期货纳指涨近2%</div>
+        </div>
+        <div class="story-content">
+          <p>亚太市场周一创下历史性涨幅。<span class="highlight">日经225指数暴涨4.99%收69,317点，首次站上69,000点创历史新高；韩国KOSPI涨5.20%收8,546点</span>，盘中涨幅触发侧车机制暂停程序化交易。亚太全线暴涨的直接催化剂就是美伊和平协议——这些高度依赖能源进口的经济体，是全球油价暴跌的最大受益者。</p>
+          <p><strong>美股期货方面：</strong> 纳指100期货涨近2%（+1.91%），标普500期货+1.22%，道指期货+0.82%。10年期美债收益率下行5bp至4.42%，美元指数跌0.32%至99.48。VIX从17.68进一步回落——APAC现货市场的疯狂拉升已将risk-on情绪推向极端水平。</p>
+          <p><strong>一个结构性信号：</strong> 日经今年累计涨幅已达37.7%，KOSPI年内涨幅更达102.8%。日韩股市的暴涨不仅是"和平红利"，更反映出全球资金对AI产业链的重新定价——韩国半导体（SK海力士等）、日本精密制造（东京电子等）是全球AI硬件供应链的核心节点。和平协议降低了系统性风险，资金正在"加倍押注"AI叙事。</p>
+
+          <div class="invest-view">
+            <div class="iv-label">📌 投资视角</div>
+            <p>亚太暴涨的持续性取决于两个变量：① 美联储是否真的转向鸽派（明天FOMC见分晓）；② 霍尔木兹海峡首批过境油轮能否顺利通行。日经首破69000是一个重要的心理阈值——如果回踩站稳，下一个目标区在72000-75000区间。对A股而言，日经和KOSPI的强势为半导体/出口链提供了积极的参照坐标。</p>
+          </div>
+        </div>
+      </div>
+      <hr class="story-divider">
+
+      <!-- 03 科技/AI -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s03">03</div>
+          <span class="story-tag s03">科技/AI</span>
+          <div class="story-title">半导体涨价潮全面扩散·PCB大摩看83% CAGR·长鑫295亿IPO获批·CPO多股20cm涨停</div>
+        </div>
+        <div class="story-content">
+          <p>今天A股最强的板块不是黄金，不是券商，而是——<span class="highlight">以半导体和AI硬件为核心的科技产业链全线涨停潮。</span></p>
+          <p><strong>半导体/芯片：</strong> 立昂微宣布功率芯片全系列涨价10%-15%，点燃了全产业链的涨价预期。中船特气、雅克科技等设备/材料分支集体涨停。长鑫科技科创板IPO获批（募资295亿元），国产替代逻辑进一步强化——中国最大的DRAM制造商的上市，意味着国家资本对半导体产业的持续投入。</p>
+          <p><strong>PCB/覆铜板：</strong> 大摩研报预测全球AI光模块PCB市场2025-2028年CAGR达83%，直接引爆了整个板块。建滔积层板、木林森密集提价（上游覆铜板紧缺），生益科技反包涨停续创历史新高，华正新材、逸豪新材（20cm二连板）、宏昌电子（5天3板）——PCB的涨停梯队非常完整。</p>
+          <p><strong>CPO/光模块：</strong> AI算力需求持续爆发，高速光模块需求逻辑不断被验证。太辰光（20cm涨停）、炬光科技（3天2板）、光迅科技、可川科技等多股涨停。</p>
+          <p><strong>MLCC/被动元件：</strong> 高端MLCC陶瓷粉体有望量价齐升，风华高科等十余股涨停。这和我们之前分析的AI产业链逻辑一脉相承——AI服务器对MLCC的需求量是传统服务器的3-5倍。</p>
+
+          <div class="invest-view">
+            <div class="iv-label">📌 投资视角</div>
+            <p>今天科技股的核心逻辑是"涨价+国产替代+AI资本开支"三线共振。但必须清醒：立昂微涨价是"个别企业行为"，还是"行业趋势"？如果只是个别企业趁情绪好提价，持续性存疑。关注催化剂优先级：① 明天FOMC若鸽派→科技继续涨；② 长鑫IPO定价若超预期→半导体情绪再燃；③ 生益科技能否持续新高→PCB行情风向标。</p>
+          </div>
+        </div>
+      </div>
+      <hr class="story-divider">
+
+      <!-- 04 国际 -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s04">04</div>
+          <span class="story-tag s04">国际</span>
+          <div class="story-title">美伊协议6/19日内瓦签署·霍尔木兹复航倒计时·CBS质疑条款分歧</div>
+        </div>
+        <div class="story-content">
+          <p>周末以来美伊和平协议的市场冲击波仍在继续，但消息层面出现了新的交火——不是地面交火，而是华盛顿的法律攻防。</p>
+          <p><strong>协议时间线确认：</strong> 正式签署仪式定于6月19日（周三）在日内瓦举行，副总统JD Vance代表美国签署，巴基斯坦、卡塔尔、土耳其、沙特等多国斡旋方见证。霍尔木兹海峡首批过境油轮预计在签署后72小时内通行——这是市场最关注的"协议可信度测试"。</p>
+          <p><strong>但分歧在加深。</strong> CBS援引美国官员称，"伊朗获得120亿美元解冻资金"的说法并不准确——官方机制实为条件兑现制。参议员格雷厄姆警告"伊朗对这项协议的理解似乎与美国不同"，坚持任何核协议须提交国会审议。<span class="highlight">签了不等于落地。60天谈判期的执行细节是最大变数。</span></p>
+          <p><strong>东欧方面：</strong> 佩切尔斯克修道院被击中、约14万户家庭断电——俄乌冲突仍在激化。中东减压但东欧加压，"地缘此消彼长"格局不变。</p>
+
+          <div class="invest-view">
+            <div class="iv-label">📌 投资视角</div>
+            <p>和平协议已经"price in"到油价和风险资产中，但协议本身的执行风险尚未被充分定价。周三日内瓦签字仪式和FOMC同日举行，这意味着市场将在同一天面对"地缘+货币政策"双重信号。如果签字仪式中出现任何延期迹象，加上FOMC意外鹰派，今天的暴涨可能被部分回吐。</p>
+          </div>
+        </div>
+      </div>
+      <hr class="story-divider">
+
+      <!-- 05 宏观 -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s05">05</div>
+          <span class="story-tag s05">宏观</span>
+          <div class="story-title">FOMC明日登场·沃什首秀万众瞩目·加息概率从80%暴跌至47%</div>
+        </div>
+        <div class="story-content">
+          <p>如果说周一的科技涨停潮是"和平协议的礼物"，那周三FOMC会议就是"检验成色的试金石"。</p>
+          <p><strong>时间线：</strong> 美联储6月议息会议将于6月16-17日（周二至周三）召开，北京时间周四凌晨2:00公布利率决议。市场普遍预期利率维持3.50%-3.75%不变（概率98.5%），但<span class="highlight">真正看点不是加不加息，而是沃什的首次FOMC记者会风格。</span></p>
+          <p><strong>加息预期骤降：</strong> 美伊协议签署后，CME FedWatch显示的年底加息概率已从此前的约80%骤降至约47%。10年期美债收益率从上周五的4.487%下行至4.42%，2年期美债收益率从4.03%下行至3.98%。市场正在定价"和平协议→油价下跌→通胀回落→Fed无需再加息"的逻辑。</p>
+          <p><strong>但沃什面临的核心矛盾依然尖锐：</strong> 美国5月CPI同比4.2%（连续三个月加速）、4月PCE 3.77%、PPI环比+1.1%，通胀数据仍然偏高。沃什在听证会上承诺了"独立性"，而特朗普曾公开说沃什加息将"是错误的"。他如何在"通胀仍高但油价在跌"的夹缝中给出方向指引，将决定下半年的资产定价锚。<span class="highlight">高盛观点：10年期美债收益率需触及5%才可能系统性冲击股市——当前4.42%距离这个阈值还有相当空间。</span></p>
+
+          <div class="logic-chain">
+            <div class="lc-label">宏观传导链更新</div>
+            和平协议 → WTI跌破$80 → PPI预计8-9月回落 → 核心通胀滞后2-3个月下行 → Fed加息概率降至47%<br>
+            <span style="color:#D4A017;">反方向风险：</span> 若过境受阻或协议执行遇阻 → 油价快速回补$88-90 → 通胀预期二次抬升 → 加息概率反弹。明日FOMC的措辞是方向锚。
+          </div>
+
+          <div class="invest-view">
+            <div class="iv-label">📌 投资视角</div>
+            <p>FOMC前夜的策略：① 科技股仓位可持有但不宜追高——如果沃什鹰派，今天的涨停板可能是明天的跌停板；② 黄金在FOMC前后有波动机会——若鸽派则黄金继续冲高，若鹰派则回调是买点；③ 原油空头可部分获利了结——WTI已从$126跌至$80，FOMC前后油价可能因为协议执行风险而反弹。周三前降低杠杆。</p>
+          </div>
+        </div>
+      </div>
+      <hr class="story-divider">
+
+      <!-- 06 商品/黄金 -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s06">06</div>
+          <span class="story-tag s06">商品</span>
+          <div class="story-title">黄金突破4343涨3%白银站上70·WTI跌破80暴跌6%·加息预期坍塌驱动贵金属飙升</div>
+        </div>
+        <div class="story-content">
+          <p>商品市场的分化在今天达到了极致。<span class="highlight">WTI原油暴跌至$79.70-80.97/桶（跌幅4.6%-6.1%），布伦特跌至$82.67-83.79（跌幅4%-5.3%）。</span> 美伊和平协议后的"战争溢价回吐"进入加速阶段——从冲突爆发时的$126/桶到现在的$80，累计跌幅已达36.5%。如果霍尔木兹首批过境成功，布伦特可能下探$75-78区间。</p>
+          <p>但反向风险已经出现信号：<span class="highlight">WTI在$79.70附近获得买盘支撑，尾盘反弹至$80.97。</span> 这个位置是技术面关键支撑——一旦失守，下一个支撑在$75。中东重建本身也会拉动原油需求，油价不会直线下跌。</p>
+          <p><strong>黄金和白银走出了独立行情：</strong> 现货黄金收报<span class="highlight">$4,343.37（+3.00%），白银$70.61（+3.90%）。</span> 沪金T+D涨3.29%报938.30元/克，沪银T+D涨6.41%报16,870元/千克。金价从最高点$5,980暴跌至$4,023（-33%）后的反弹修复正在加速——而核心驱动力已经从"避险"切换为"利率预期下行+滞胀对冲"双引擎。</p>
+          <p><strong>期货结构信号：</strong> 布伦特近月贴水相对远月进一步收窄，裂解价差同步走弱。这说明"供给回流"定价已从情绪渗透至期货结构层面。美元指数跌至99.48，为以美元计价的黄金提供了额外支撑。</p>
+          <p>加密货币方面，BTC在$64,000-65,400区间整理，ETH约$1,675-1,685，整体涨幅温和。Crypto Fear &amp; Greed Index仍报18（极度恐惧），说明主流资金尚未大规模回流加密市场。</p>
+
+          <table>
+            <tr><th>品种</th><th>价格</th><th>涨跌幅</th></tr>
+            <tr><td>现货黄金</td><td>$4,343.37</td><td class="up">+3.00%</td></tr>
+            <tr><td>现货白银</td><td>$70.61</td><td class="up">+3.90%</td></tr>
+            <tr><td>WTI原油</td><td>$80.97</td><td class="down">-4.6%</td></tr>
+            <tr><td>布伦特原油</td><td>$83.79</td><td class="down">-4.0%</td></tr>
+            <tr><td>沪金T+D</td><td>938.30元/克</td><td class="up">+3.29%</td></tr>
+            <tr><td>沪银T+D</td><td>16,870元/千克</td><td class="up">+6.41%</td></tr>
+            <tr><td>BTC</td><td>$64,000-65,400</td><td class="up">+2%</td></tr>
+            <tr><td>美元指数</td><td>~99.48</td><td class="down">-0.32%</td></tr>
+          </table>
+
+          <div class="invest-view">
+            <div class="iv-label">📌 投资视角</div>
+            <p>黄金的逻辑已经发生了根本性转变。此前许多人把黄金视为"避险资产"，但今天黄金在"和平协议→风险偏好上升"的环境下暴涨，说明它当前的核心定价因子是"利率预期"而非"避险情绪"。如果明晚FOMC确认加息周期结束，黄金的下一个目标区间是$4,500-4,800。白银弹性更高——在贵金属牛市中，白银的涨幅通常是黄金的2-3倍。核心风险：如果周三签字仪式出意外，黄金短期可能有回调，但中期逻辑不变。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== Layer 3 ===== -->
+    <div class="layer3">
+      <div class="l3-title">📋 数据速览 · 2026.06.15</div>
+
+      <p style="font-size:13px;font-weight:700;color:#D4A017;margin-bottom:4px;">A股收盘（6月15日）</p>
+      <table>
+        <tr><th>指数</th><th>收盘</th><th>涨跌幅</th></tr>
+        <tr><td>上证指数</td><td>4,096.47</td><td class="up">+1.61%</td></tr>
+        <tr><td>深证成指</td><td>15,531.11</td><td class="up">+3.79%</td></tr>
+        <tr><td>创业板指</td><td>4,033.53</td><td class="up">+5.30%</td></tr>
+        <tr><td>科创50</td><td>1,748.33</td><td class="up">+5.12%</td></tr>
+        <tr><td>两市成交</td><td>3.03万亿</td><td>—</td></tr>
+        <tr><td>北向资金</td><td>净流入~60亿</td><td>—</td></tr>
+      </table>
+
+      <p style="font-size:13px;font-weight:700;color:#D4A017;margin-bottom:4px;margin-top:10px;">亚太市场（6月15日收盘）</p>
+      <table>
+        <tr><th>指数</th><th>收盘</th><th>涨跌幅</th></tr>
+        <tr><td>日经225</td><td>69,317.50</td><td class="up">+4.99%</td></tr>
+        <tr><td>韩国KOSPI</td><td>8,545.98</td><td class="up">+5.20%</td></tr>
+        <tr><td>美股纳指期货</td><td>—</td><td class="up">+1.91%</td></tr>
+        <tr><td>美股标普期货</td><td>—</td><td class="up">+1.22%</td></tr>
+        <tr><td>VIX</td><td>~17</td><td class="down">持续回落</td></tr>
+        <tr><td>10年期美债收益率</td><td>4.42%</td><td class="down">-5bp</td></tr>
+      </table>
+
+      <p style="font-size:13px;font-weight:700;color:#D4A017;margin-bottom:4px;margin-top:10px;">商品/外汇</p>
+      <table>
+        <tr><th>品种</th><th>价格</th><th>涨跌幅</th></tr>
+        <tr><td>现货黄金</td><td>$4,343.37</td><td class="up">+3.00%</td></tr>
+        <tr><td>现货白银</td><td>$70.61</td><td class="up">+3.90%</td></tr>
+        <tr><td>WTI原油</td><td>$80.97</td><td class="down">-4.6%</td></tr>
+        <tr><td>布伦特原油</td><td>$83.79</td><td class="down">-4.0%</td></tr>
+        <tr><td>沪金T+D</td><td>938.30元/克</td><td class="up">+3.29%</td></tr>
+        <tr><td>美元指数</td><td>99.48</td><td class="down">-0.32%</td></tr>
+        <tr><td>BTC</td><td>$64,000-65,400</td><td class="up">+2%</td></tr>
+      </table>
+
+      <p style="font-size:13px;font-weight:700;color:#D4A017;margin-bottom:4px;margin-top:10px;">🔑 催化剂优先级排序</p>
+      <table>
+        <tr><th style="width:30px">#</th><th>事件</th><th>时间</th><th>影响</th></tr>
+        <tr><td style="color:#DC2626;font-weight:700;">①</td><td>FOMC决议+沃什记者会</td><td>6/17（周三）</td><td style="color:#DC2626;font-weight:700;">加息预期方向锚</td></tr>
+        <tr><td style="color:#DC2626;font-weight:700;">②</td><td>美伊协议日内瓦签字仪式</td><td>6/19（周三）</td><td style="color:#DC2626;font-weight:700;">协议可信度测试</td></tr>
+        <tr><td style="color:#D4A017;font-weight:700;">③</td><td>霍尔木兹首批过境油轮</td><td>签字后72h</td><td>油价方向关键验证</td></tr>
+        <tr><td style="color:#D4A017;font-weight:700;">④</td><td>立昂微涨价传导效应</td><td>本周</td><td>半导体涨价潮持续性</td></tr>
+        <tr><td style="color:#60A5FA;font-weight:700;">⑤</td><td>长鑫科技IPO定价</td><td>待定</td><td>半导体情绪再燃</td></tr>
+      </table>
+
+      <div class="logic-chain" style="margin:14px 0;">
+        <div class="lc-label">双情景路径推演</div>
+        <p style="font-size:12.5px;margin-bottom:4px;"><strong style="color:#16A34A;">路径A · 鸽派FOMC + 协议顺利落地</strong><br>
+        FOMC淡化加息指引 + 6/19日内瓦顺利签字 + 首批油轮过境霍尔木兹 → WTI下探$75 → 10年期美债收益率降至4.2% → 科技股继续估值修复 → 黄金冲击$4,500<br>
+        <span style="color:#16A34A;">关键检验：沃什是否在记者会上明确提到"油价下行改善通胀前景"</span></p>
+        <p style="font-size:12.5px;margin-bottom:0;"><strong style="color:#DC2626;">路径B · 鹰派FOMC + 协议执行风险</strong><br>
+        FOMC强调通胀仍高、不排除再加息 + 日内瓦签字延迟或签约前出现新分歧 → 油价反弹至$88-90 → 科技股获利回吐 → 黄金承压回落至$4,100<br>
+        <span style="color:#DC2626;">风险信号：沃什记者会回避"油价"话题、CBS/Graham的质疑升级为正式法律动议</span></p>
+      </div>
+
+      <div class="l3-highlight-box">
+        <strong>本周剧情前瞻：</strong> 周二（6/16）亚盘+欧盘将继续消化今天的科技涨停潮，但方向将在周三凌晨的FOMC决定中最终确认。沃什首秀将成为2026年最重要的货币政策时刻之一——如果他向市场传递"和平协议改变了通胀前景"的信号，今夏将是risk-on的狂欢；如果他坚持"通胀4.2%仍是核心问题"，那么今天的暴涨将被定性为"一次性的和平反弹"。<br><br>
+        <strong>核心判断：</strong> 和平协议已改变宏观叙事。但科技涨停潮后，仓位管理比方向判断更重要——不要在今天开盘追高的基础上明天再去加仓。FOMC落地前的仓位应留有应对两种情景的余量。黄金$4,343是牛市的确认信号——如果FOMC后守住$4,300，中期目标$4,800。
+      </div>
+
+      <!-- 名词解释 -->
+      <div class="glossary">
+        <h4>📖 名词解释 · 小白友好版</h4>
+        <table>
+          <tr><th>术语</th><th>大白话</th><th>为什么重要</th></tr>
+          <tr><td>涨停潮</td><td>一天内有160只股票涨到当日上限（A股涨停板10%，创业板20%）</td><td>说明资金极度集中地涌入某一板块，往往是风格切换的明确信号</td></tr>
+          <tr><td>北向资金</td><td>从香港股市流入A股的外资</td><td>今天早盘428亿净流入是近一年记录级的规模，说明外资正在大举抄底</td></tr>
+          <tr><td>CPO（共封装光学）</td><td>一种将光模块和芯片封装在一起的技术，减少功耗和延迟</td><td>AI数据中心的核心技术——没有CPO，大模型的训练速度就上不去</td></tr>
+          <tr><td>PCB（印制电路板）</td><td>所有电子元器件的"底座"，相当于电子产品的骨架</td><td>AI服务器对PCB的需求量是普通服务器的5-10倍，是AI硬件产业链最确定的方向之一</td></tr>
+          <tr><td>沃什首秀</td><td>Kevin Warsh接替鲍威尔后的第一次FOMC记者会</td><td>市场不仅关注利率，更关注他的沟通风格——他是鹰派还是鸽派？他如何看待点阵图？</td></tr>
+        </table>
+      </div>
+
+      <!-- 数据来源 -->
+      <div class="sources">
+        <h3>📎 数据来源</h3>
+        <a href="https://finance.eastmoney.com/a/202606153771603095.html" target="_blank">东方财富 · A股收盘综述</a> ·
+        <a href="https://finance.sina.com.cn/jjxw/2026-06-15/doc-inicnpyv5031604.shtml" target="_blank">新浪财经 · A股收盘</a> ·
+        <a href="https://finance.eastmoney.com/a/202606153771493733.html" target="_blank">东方财富 · 日经首破69000</a> ·
+        <a href="https://www.cls.cn/detail/2399927" target="_blank">财联社 · 日韩股市暴涨</a> ·
+        <a href="https://finance.eastmoney.com/a/202606153770790189.html" target="_blank">东方财富 · 现货黄金</a> ·
+        <a href="https://www.sohu.com/a/1036627419_114986" target="_blank">搜狐 · 国际油价暴跌</a> ·
+        <a href="https://www.mitrade.com/zh/insights/news/live-news/article-2-1811853-20260615" target="_blank">Mitrade · WTI跌破80</a> ·
+        <a href="https://news.qq.com/rain/a/20260615A05XGL00" target="_blank">腾讯新闻 · 美股期货大涨</a> ·
+        <a href="https://finance.ifeng.com/c/8tyre173gRO" target="_blank">凤凰网 · 数据复盘</a> ·
+        <a href="https://www.9fzt.com/common/6590e6622d4258e83c7211a4afe68efb.html" target="_blank">九方智投 · AI硬件全线走强</a>
+      </div>
+
+      <!-- Foot -->
+      <div class="foot">
+        <div class="icon">🌇</div>
+        <div class="t">今天多头全面获胜</div>
+        <div class="d">
+          但真正的考验在周三——<br>
+          FOMC + 日内瓦签字，双重重磅同日降临。<br>
+          科技涨停潮之后，方向由沃什定义。<br>
+          黄金$4,343是牛市的确认——但耐心比勇气更重要。<br><br>
+          以上是扬说财经晚报，祝您投资顺利。
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+</body>
+</html>

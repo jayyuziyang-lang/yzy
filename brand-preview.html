@@ -142,9 +142,8 @@ body{
 
     <!-- 「扬」3D Gold Foil SVG -->
     <span class="yang-svg" aria-hidden="true">
-      <svg viewBox="0 0 320 360" xmlns="http://www.w3.org/2000/svg">
+      <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
         <defs>
-          <!-- Gold foil gradient -->
           <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
             <stop offset="0%" stop-color="#7a4f16"/>
             <stop offset="22%" stop-color="#b07a2e"/>
@@ -154,86 +153,73 @@ body{
             <stop offset="88%" stop-color="#9b621c"/>
             <stop offset="100%" stop-color="#6f4515"/>
           </linearGradient>
-          <!-- Dark shadow gradient (underlayer) -->
-          <linearGradient id="shadow-grad" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stop-color="#4a2e0e"/>
-            <stop offset="100%" stop-color="#2a1806"/>
-          </linearGradient>
-          <!-- Filters -->
-          <filter id="emboss" x="-12%" y="-12%" width="124%" height="124%">
-            <feDropShadow dx="0.3" dy="0.5" stdDeviation="0.6" flood-color="#05162E" flood-opacity="0.42"/>
+          <filter id="emboss" x="-25%" y="-25%" width="150%" height="150%">
+            <feDropShadow dx="0.08" dy="0.15" stdDeviation="0.2" flood-color="#05162E" flood-opacity="0.38"/>
           </filter>
           <filter id="glow" x="-80%" y="-80%" width="260%" height="260%">
-            <feGaussianBlur stdDeviation="3.5" result="blur"/>
+            <feGaussianBlur stdDeviation="0.8" result="blur"/>
             <feComposite in="SourceGraphic" in2="blur" operator="over"/>
           </filter>
         </defs>
 
         <g filter="url(#emboss)">
-          <!-- Layer 1: Shadow (offset right-down) -->
+          <!-- Layer 1: Shadow offset -->
           <g fill="none" stroke-linecap="round" stroke-linejoin="round"
-             stroke="#2a1806" opacity="0.28" transform="translate(3.5,4)">
-            <path d="M52 78 Q82 64 128 78" stroke-width="18"/>
-            <path d="M88 74 Q92 160 82 228 Q78 244 58 238" stroke-width="20"/>
-            <path d="M54 176 Q82 142 128 118" stroke-width="16"/>
-            <path d="M134 76 L134 118 Q134 134 172 124 L226 118 Q238 116 232 146 Q216 188 186 222 Q164 242 142 226" stroke-width="17"/>
-            <path d="M170 96 Q144 138 136 196" stroke-width="14"/>
-            <path d="M214 96 Q190 142 176 186" stroke-width="12"/>
+             stroke="#2a1806" opacity="0.30" transform="translate(0.3,0.4)">
+            <path d="M8.5 12.5 Q13.5 10.5 21 12.5" stroke-width="3.4"/>
+            <path d="M14.5 12 Q15 27 13.5 37.5 Q13 39.5 9.5 38.5" stroke-width="3.8"/>
+            <path d="M9 28.5 Q14 22 21 18" stroke-width="3"/>
+            <path d="M22.5 12.5 L22.5 19.5 Q22.5 21.5 28.5 20 L37 19 Q39 18.5 38 23.5 Q35.5 30.5 30.5 36 Q27 39 23 36.5" stroke-width="3.2"/>
+            <path d="M28.5 15 Q24 22 22.5 31.5" stroke-width="2.6"/>
+            <path d="M35.5 15 Q31.5 23 29 30" stroke-width="2.2"/>
           </g>
 
-          <!-- Layer 2: Main strokes (gold) -->
+          <!-- Layer 2: Main gold strokes -->
           <g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke="url(#gold)">
-            <!-- 扌 horizontal -->
-            <path d="M52 78 Q82 64 128 78" stroke-width="18"/>
-            <!-- 扌 vertical + hook -->
-            <path d="M88 74 Q92 160 82 228 Q78 244 58 238" stroke-width="20"/>
-            <!-- 扌 rising -->
-            <path d="M54 176 Q82 142 128 118" stroke-width="16"/>
-            <!-- Right compound -->
-            <path d="M134 76 L134 118 Q134 134 172 124 L226 118 Q238 116 232 146 Q216 188 186 222 Q164 242 142 226" stroke-width="17"/>
-            <!-- Right sweep 1 -->
-            <path d="M170 96 Q144 138 136 196" stroke-width="14"/>
-            <!-- Right sweep 2 -->
-            <path d="M214 96 Q190 142 176 186" stroke-width="12"/>
+            <path d="M8.5 12.5 Q13.5 10.5 21 12.5" stroke-width="3.4"/>
+            <path d="M14.5 12 Q15 27 13.5 37.5 Q13 39.5 9.5 38.5" stroke-width="3.8"/>
+            <path d="M9 28.5 Q14 22 21 18" stroke-width="3"/>
+            <path d="M22.5 12.5 L22.5 19.5 Q22.5 21.5 28.5 20 L37 19 Q39 18.5 38 23.5 Q35.5 30.5 30.5 36 Q27 39 23 36.5" stroke-width="3.2"/>
+            <path d="M28.5 15 Q24 22 22.5 31.5" stroke-width="2.6"/>
+            <path d="M35.5 15 Q31.5 23 29 30" stroke-width="2.2"/>
           </g>
 
-          <!-- Layer 3: Highlight (offset left-up, warm white) -->
+          <!-- Layer 3: Warm white highlight -->
           <g fill="none" stroke-linecap="round" stroke-linejoin="round"
-             stroke="#FEF9ED" opacity="0.16" transform="translate(-1.8,-2)">
-            <path d="M52 78 Q82 64 128 78" stroke-width="10"/>
-            <path d="M88 74 Q92 120 88 170" stroke-width="8"/>
-            <path d="M134 76 L134 110 Q134 120 160 114" stroke-width="8"/>
+             stroke="#FEF9ED" opacity="0.14" transform="translate(-0.1,-0.1)">
+            <path d="M8.5 12.5 Q13.5 10.5 21 12.5" stroke-width="1.2"/>
+            <path d="M14.5 12 Q15 20 14.5 25" stroke-width="1"/>
           </g>
         </g>
 
-        <!-- Accent: Ink splatter / texture flecks (飞白感) -->
+        <!-- Ink texture flecks -->
         <g fill="#3a1f08" opacity="0.14">
-          <circle cx="98" cy="100" r="2.5"/>
-          <circle cx="120" cy="88" r="1.8"/>
-          <circle cx="72" cy="150" r="1.5"/>
-          <circle cx="156" cy="104" r="2.2"/>
-          <circle cx="200" cy="92" r="1.6"/>
-          <circle cx="186" cy="170" r="2"/>
-          <circle cx="220" cy="140" r="1.8"/>
-          <circle cx="160" cy="200" r="1.5"/>
-          <circle cx="140" cy="110" r="1.3"/>
+          <circle cx="12" cy="22" r="0.5"/>
+          <circle cx="18" cy="16" r="0.4"/>
+          <circle cx="9" cy="32" r="0.35"/>
+          <circle cx="26" cy="18" r="0.45"/>
+          <circle cx="34" cy="17" r="0.4"/>
+          <circle cx="32" cy="28" r="0.45"/>
+          <circle cx="28" cy="34" r="0.4"/>
+          <circle cx="24" cy="19" r="0.3"/>
+          <circle cx="37" cy="21" r="0.35"/>
         </g>
 
-        <!-- Gold accent pearl -->
-        <circle cx="242" cy="84" r="9" fill="#C8963E" filter="url(#glow)" opacity=".9"/>
-        <circle cx="242" cy="84" r="13" fill="#C8963E" opacity=".16"/>
-        <circle cx="240" cy="82" r="3" fill="#F5E6C8" opacity=".7"/>
+        <!-- Gold pearl accent -->
+        <circle cx="39.5" cy="13" r="2" fill="#C8963E" filter="url(#glow)" opacity=".9"/>
+        <circle cx="39.5" cy="13" r="3.5" fill="#C8963E" opacity=".16"/>
+        <circle cx="39" cy="12.5" r="0.8" fill="#F5E6C8" opacity=".7"/>
 
-        <!-- Horizontal sweep stroke extending right (connecting to 说·财经) -->
+        <!-- Connecting sweep -->
         <g filter="url(#emboss)">
-          <path d="M228 240 Q272 226 306 232" fill="none"
-                stroke="#2a1806" stroke-width="7" stroke-linecap="round"
-                opacity="0.22" transform="translate(1.5,2)"/>
-          <path d="M228 240 Q272 226 306 232" fill="none"
-                stroke="url(#gold)" stroke-width="7" stroke-linecap="round" opacity=".72"/>
-          <path d="M228 240 Q272 226 306 232" fill="none"
-                stroke="#FEF9ED" stroke-width="3" stroke-linecap="round"
-                opacity=".20" transform="translate(-1,-1)"/>
+          <path d="M30 37 Q37 35 44 37" fill="none"
+                stroke="#2a1806" stroke-width="1.5" stroke-linecap="round"
+                opacity="0.22" transform="translate(0.3,0.4)"/>
+          <path d="M30 37 Q37 35 44 37" fill="none"
+                stroke="url(#gold)" stroke-width="1.5" stroke-linecap="round" opacity=".72"/>
+          <path d="M30 37 Q37 35 44 37" fill="none"
+                stroke="#FEF9ED" stroke-width="0.7" stroke-linecap="round"
+                opacity=".20" transform="translate(-0.2,-0.2)"/>
         </g>
       </svg>
     </span>
