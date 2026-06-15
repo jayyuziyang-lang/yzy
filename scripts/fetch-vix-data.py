@@ -35,17 +35,17 @@ os.makedirs(os.path.join(ROOT, 'docs', 'charts'), exist_ok=True)
 # ===== 备用数据：当所有 API 均失败时使用 =====
 # 数据来源：WebSearch 交叉验证 (Yahoo Finance / Schwab / TexMetals)
 FALLBACK_DATA = {
-    'current': 19.44,
-    'prev': 22.22,
-    'change': -2.78,
-    'changePct': -12.51,
-    'level': '焦虑',
-    'cls': 'neutral',
-    'pct': 27.8,
-    'date': '2026-06-11',
-    'updateTime': '2026-06-12 08:00',
-    'source': '备用数据 (CBOE/Yahoo, VIX=19.44)',
-    'note': '6/11周四VIX从22.22暴跌至19.44(-12.51%)，特朗普取消对伊打击后市场情绪大幅修复，道指暴涨929点'
+    'current': 16.79,
+    'prev': 17.68,
+    'change': -0.89,
+    'changePct': -5.03,
+    'level': '冷静',
+    'cls': 'greed',
+    'pct': 16.0,
+    'date': '2026-06-15',
+    'updateTime': '2026-06-15 20:00',
+    'source': '备用数据 (CBOE/Yahoo, VIX=16.79)',
+    'note': '6/15周一VIX从17.68跌至16.79(-5.03%)创逾一周新低，美伊和平协议落地后市场恐慌情绪持续释放，科技涨停潮推动risk-on行情'
 }
 
 # ===== 备用历史数据（用于生成趋势图） =====
