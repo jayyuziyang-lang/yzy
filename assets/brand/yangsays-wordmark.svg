@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 160" role="img" aria-labelledby="wmTitle">
+  <title id="wmTitle">扬说·财经</title>
+  <defs>
+    <linearGradient id="yangGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#334155"/>
+      <stop offset="100%" stop-color="#1E293B"/>
+    </linearGradient>
+    <linearGradient id="riseLine" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0%" stop-color="#64748B" stop-opacity="0"/>
+      <stop offset="40%" stop-color="#3B82B6" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#0EA5E9" stop-opacity="0.9"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 扬 — 主角，大而有力但不压迫 -->
+  <text x="20" y="120"
+    font-family="'Noto Serif SC','Source Han Serif SC','Songti SC',serif"
+    font-size="104"
+    font-weight="900"
+    fill="url(#yangGrad)"
+    letter-spacing="-4">扬</text>
+
+  <!-- 上扬细线 — 从扬的末笔延伸出去，像一句还没说完的话 -->
+  <path d="M108 98 C132 82 152 72 178 68"
+    fill="none" stroke="url(#riseLine)" stroke-width="1.5"
+    stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- 线尾小圆点 — 像思考的落点 -->
+  <circle cx="180" cy="67" r="3" fill="#0EA5E9" opacity="0.7"/>
+
+  <!-- 说 — 轻一点，像在对话 -->
+  <text x="200" y="114"
+    font-family="'Noto Serif SC','Source Han Serif SC','Songti SC',serif"
+    font-size="62"
+    font-weight="700"
+    fill="#64748B"
+    letter-spacing="0">说</text>
+
+  <!-- · — 呼吸点，温暖的停顿 -->
+  <circle cx="286" cy="82" r="5" fill="#D4A017" opacity="0.85"/>
+  <circle cx="286" cy="82" r="10" fill="none" stroke="#D4A017" stroke-opacity="0.15" stroke-width="1"/>
+
+  <!-- 财经 — 稳定收束，有分量的落款 -->
+  <text x="316" y="112"
+    font-family="'Noto Serif SC','Source Han Serif SC','Songti SC',serif"
+    font-size="58"
+    font-weight="900"
+    fill="#475569"
+    letter-spacing="2">财经</text>
+</svg>
