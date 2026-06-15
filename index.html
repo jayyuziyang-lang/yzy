@@ -433,7 +433,9 @@
   /* 基座（内部全用 em，靠 font-size 缩放） */
   .ys-brand{
     display:inline-flex;
+    flex-wrap:wrap;
     align-items:center;
+    justify-content:center;
     gap:0;
     text-decoration:none;
     line-height:1;
@@ -466,13 +468,7 @@
     height:1.7em;
     margin-left:-.3em;
   }
-  /* 「说·财经」描述词 */
-  .ys-brand__type{
-    display:inline-flex;
-    flex-direction:column;
-    align-items:flex-start;
-    gap:.08em;
-  }
+  /* 「说·财经」描述词 — 已简化，财经和副标题直接在 brand 内 */
   .ys-brand__main{
     font-family:"MiSans Bold","Noto Sans SC","Microsoft YaHei",sans-serif;
     font-size:.72em;
@@ -491,6 +487,8 @@
     letter-spacing:.2em;
     color:var(--ys-logo-sub);
     white-space:nowrap;
+    width:100%;
+    text-align:center;
   }
 
   /* 尺寸修饰 */
@@ -652,11 +650,8 @@
       </span>
 
       <!-- 「财经」MiSans Bold -->
-      <span class="ys-brand__type">
-        <span class="ys-brand__main">财经</span>
-        <span class="ys-brand__divider" aria-hidden="true"></span>
-        <span class="ys-brand__sub">YANG&nbsp;SAYS&nbsp;·&nbsp;FINANCE</span>
-      </span>
+      <span class="ys-brand__main">财经</span>
+      <span class="ys-brand__sub">YANG&nbsp;SAYS&nbsp;·&nbsp;FINANCE</span>
 
     </a>
     <div class="ys-nav-links" id="ysNavLinks">
@@ -762,9 +757,7 @@
               </svg>
             </span>
 
-            <span class="ys-brand__type">
-              <span class="ys-brand__main">财经</span>
-              <span class="ys-brand__divider" aria-hidden="true"></span>
+            <span class="ys-brand__main">财经</span>
               <span class="ys-brand__sub">YANG&nbsp;SAYS&nbsp;·&nbsp;FINANCE</span>
             </span>
 
@@ -1288,10 +1281,8 @@
           </g>
         </svg>
       </span>
-      <span class="ys-brand__type" style="display:inline-flex;flex-direction:column;align-items:flex-start;gap:.08em;">
-        <span class="ys-brand__main" style="font-size:1em;">财经</span>
-        <span class="ys-brand__sub" style="font-family:var(--ys-font-en);font-size:.38em;font-weight:700;letter-spacing:.2em;color:var(--ys-logo-sub);white-space:nowrap;">YANG&nbsp;SAYS&nbsp;·&nbsp;FINANCE</span>
-      </span>
+      <span class="ys-brand__main" style="font-size:.72em;">财经</span>
+      <span class="ys-brand__sub" style="font-family:var(--ys-font-en);font-size:.38em;font-weight:700;letter-spacing:.2em;color:var(--ys-logo-sub);white-space:nowrap;width:100%;text-align:center;">YANG&nbsp;SAYS&nbsp;·&nbsp;FINANCE</span>
     </div>
     <div class="ys-footer-slogan">把市场讲清楚，把产业看明白。</div>
     <div class="ys-footer-desc">一个面向市场、产业与公司的个人研究内容站。交易日早报 + 晚报，每周深度专题，不定期产业链研究。</div>
