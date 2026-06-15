@@ -469,8 +469,9 @@
   /* 「说·财经」描述词 */
   .ys-brand__type{
     display:inline-flex;
-    align-items:center;
-    gap:.42em;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:.08em;
   }
   .ys-brand__main{
     font-family:"MiSans Bold","Noto Sans SC","Microsoft YaHei",sans-serif;
@@ -481,10 +482,7 @@
     text-shadow:0 1px 0 rgba(255,255,255,.5),0 2px 6px rgba(7,17,28,.08);
   }
   .ys-brand__divider{
-    width:1px;
-    height:.9em;
-    background:var(--ys-logo-line);
-    flex:none;
+    display:none;
   }
   .ys-brand__sub{
     font-family:var(--ys-font-en);
@@ -585,7 +583,7 @@
             </filter>
           </defs>
           <!-- K线集群 + 上升趋势线 -->
-          <g opacity="0.3">
+          <g opacity="0.5">
             <line x1="5" y1="42.5" x2="5" y2="44.8" stroke="#6f4515" stroke-width="0.35" stroke-linecap="round"/>
             <rect x="4.2" y="42" width="1.6" height="2.5" rx="0.25" fill="#c0392b" opacity="0.5"/>
             <line x1="10" y1="40.5" x2="10" y2="44.8" stroke="#8b5e24" stroke-width="0.35" stroke-linecap="round"/>
@@ -1225,7 +1223,7 @@
             </filter>
           </defs>
           <!-- K线集群 + 上升趋势线 -->
-          <g opacity="0.3">
+          <g opacity="0.5">
             <line x1="5" y1="42.5" x2="5" y2="44.8" stroke="#6f4515" stroke-width="0.35" stroke-linecap="round"/>
             <rect x="4.2" y="42" width="1.6" height="2.5" rx="0.25" fill="#c0392b" opacity="0.5"/>
             <line x1="10" y1="40.5" x2="10" y2="44.8" stroke="#8b5e24" stroke-width="0.35" stroke-linecap="round"/>
@@ -1290,9 +1288,8 @@
           </g>
         </svg>
       </span>
-      <span class="ys-brand__type" style="display:inline-flex;align-items:center;gap:.42em;">
+      <span class="ys-brand__type" style="display:inline-flex;flex-direction:column;align-items:flex-start;gap:.08em;">
         <span class="ys-brand__main" style="font-size:1em;">财经</span>
-        <span class="ys-brand__divider" aria-hidden="true" style="width:1px;height:.9em;background:var(--ys-logo-line);flex:none;"></span>
         <span class="ys-brand__sub" style="font-family:var(--ys-font-en);font-size:.38em;font-weight:700;letter-spacing:.2em;color:var(--ys-logo-sub);white-space:nowrap;">YANG&nbsp;SAYS&nbsp;·&nbsp;FINANCE</span>
       </span>
     </div>
