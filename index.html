@@ -473,9 +473,23 @@
     font-family:"MiSans Bold","Noto Sans SC","Microsoft YaHei",sans-serif;
     font-size:.72em;
     font-weight:700;
-    letter-spacing:.06em;
-    color:#0f1d2a;
-    text-shadow:0 1px 0 rgba(255,255,255,.5),0 2px 6px rgba(7,17,28,.08);
+    letter-spacing:.1em;
+    background: linear-gradient(160deg, #151b3d 0%, #1E40AF 35%, #3B82F6 65%, #60A5FA 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position:relative;
+  }
+  /* 财经下方的渐变装饰线 */
+  .ys-brand__main::after{
+    content:'';
+    position:absolute;
+    bottom:-.15em;
+    left:10%;
+    width:80%;
+    height:2px;
+    background:linear-gradient(90deg, transparent, #3B82F6, #60A5FA, #3B82F6, transparent);
+    border-radius:1px;
   }
   .ys-brand__divider{
     display:none;
