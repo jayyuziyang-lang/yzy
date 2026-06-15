@@ -24,7 +24,8 @@
 <!-- ===== 扬说·财经 品牌字体 ===== -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@700;900&family=Inter:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Liu+Jian+Mao+Cao&family=Ma+Shan+Zheng&family=Zhi+Mang+Xing&family=Noto+Serif+SC:wght@700;900&family=Inter:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/misans-webfont/misans/misans-bold/result.min.css">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 
 <style>
@@ -459,6 +460,12 @@
     height:100%;
     display:block;
   }
+  /* 「说」声波SVG */
+  .ys-seal--say{
+    width:1.1em;
+    height:1.7em;
+    margin-left:-.15em;
+  }
   /* 「说·财经」描述词 */
   .ys-brand__type{
     display:inline-flex;
@@ -466,11 +473,12 @@
     gap:.42em;
   }
   .ys-brand__main{
-    font-family:var(--ys-font-logo);
+    font-family:"MiSans Bold","Noto Sans SC","Microsoft YaHei",sans-serif;
     font-size:.92em;
-    font-weight:900;
-    letter-spacing:.03em;
-    color:var(--ys-logo-ink);
+    font-weight:700;
+    letter-spacing:.06em;
+    color:#0f1d2a;
+    text-shadow:0 1px 0 rgba(255,255,255,.5),0 2px 6px rgba(7,17,28,.08);
   }
   .ys-brand__divider{
     width:1px;
@@ -562,7 +570,7 @@
   <div class="ys-nav-inner">
     <a class="ys-brand ys-brand--nav" href="#" onclick="switchTab('daily');return false;" aria-label="扬说·财经 首页">
 
-      <!-- 「扬」金箔钤印 -->
+      <!-- 「扬」金箔 -->
       <span class="ys-seal" aria-hidden="true">
         <svg viewBox="0 0 48 48" class="ys-seal__svg">
           <defs>
@@ -588,11 +596,38 @@
         </svg>
       </span>
 
-      <!-- 「说·财经」描述词 -->
+      <!-- 「说」声波 -->
+      <span class="ys-seal ys-seal--say" aria-hidden="true">
+        <svg viewBox="0 0 36 48" class="ys-seal__svg">
+          <defs>
+            <linearGradient id="ysSay-nav-g" x1="0" y1="0" x2="1" y2="1.2">
+              <stop offset="0%" stop-color="#2a1a08"/><stop offset="40%" stop-color="#6b4a1e"/>
+              <stop offset="70%" stop-color="#9b6b28"/><stop offset="100%" stop-color="#2a1a08"/>
+            </linearGradient>
+            <filter id="ysSay-nav-f"><feDropShadow dx="0.05" dy="0.1" stdDeviation="0.1" flood-color="#140a02" flood-opacity="0.25"/></filter>
+          </defs>
+          <g opacity="0.22">
+            <ellipse cx="26" cy="28" rx="6" ry="4.5" fill="none" stroke="#c89a3c" stroke-width="0.55" opacity=".7"/>
+            <ellipse cx="26" cy="28" rx="9" ry="6.5" fill="none" stroke="#c89a3c" stroke-width="0.45" opacity=".5"/>
+            <ellipse cx="26" cy="28" rx="12.5" ry="9" fill="none" stroke="#c89a3c" stroke-width="0.35" opacity=".34"/>
+            <path d="M24 21 Q29 14 35 18" fill="none" stroke="#d4a54a" stroke-width="0.5" opacity=".5"/>
+            <path d="M22 18 Q29 10 37 15" fill="none" stroke="#d4a54a" stroke-width="0.35" opacity=".35"/>
+          </g>
+          <g text-anchor="middle" font-family="'Zhi Mang Xing','Ma Shan Zheng',cursive" font-size="27" font-weight="400">
+            <text x="18" y="35" fill="#1a0a02" opacity="0.4" transform="translate(0.35,0.45)">说</text>
+            <text x="18" y="35" fill="#3a1e08" opacity="0.35" transform="translate(0.2,0.28)">说</text>
+            <text x="18" y="35" fill="#6b4518" opacity="0.38" transform="translate(0.08,0.12)">说</text>
+            <text x="18" y="35" fill="url(#ysSay-nav-g)" filter="url(#ysSay-nav-f)">说</text>
+            <text x="17.94" y="34.9" fill="white" opacity="0.1">说</text>
+          </g>
+        </svg>
+      </span>
+
+      <!-- 「财经」MiSans Bold -->
       <span class="ys-brand__type">
-        <span class="ys-brand__main">说·财经</span>
+        <span class="ys-brand__main">财经</span>
         <span class="ys-brand__divider" aria-hidden="true"></span>
-        <span class="ys-brand__sub">YANG&nbsp;SAYS</span>
+        <span class="ys-brand__sub">YANG&nbsp;SAYS&nbsp;·&nbsp;FINANCE</span>
       </span>
 
     </a>
@@ -643,10 +678,36 @@
               </svg>
             </span>
 
+            <span class="ys-seal ys-seal--say" aria-hidden="true">
+              <svg viewBox="0 0 36 48" class="ys-seal__svg">
+                <defs>
+                  <linearGradient id="ysSay-hero-g" x1="0" y1="0" x2="1" y2="1.2">
+                    <stop offset="0%" stop-color="#2a1a08"/><stop offset="40%" stop-color="#6b4a1e"/>
+                    <stop offset="70%" stop-color="#9b6b28"/><stop offset="100%" stop-color="#2a1a08"/>
+                  </linearGradient>
+                  <filter id="ysSay-hero-f"><feDropShadow dx="0.05" dy="0.1" stdDeviation="0.1" flood-color="#140a02" flood-opacity="0.25"/></filter>
+                </defs>
+                <g opacity="0.22">
+                  <ellipse cx="26" cy="28" rx="6" ry="4.5" fill="none" stroke="#c89a3c" stroke-width="0.55" opacity=".7"/>
+                  <ellipse cx="26" cy="28" rx="9" ry="6.5" fill="none" stroke="#c89a3c" stroke-width="0.45" opacity=".5"/>
+                  <ellipse cx="26" cy="28" rx="12.5" ry="9" fill="none" stroke="#c89a3c" stroke-width="0.35" opacity=".34"/>
+                  <path d="M24 21 Q29 14 35 18" fill="none" stroke="#d4a54a" stroke-width="0.5" opacity=".5"/>
+                  <path d="M22 18 Q29 10 37 15" fill="none" stroke="#d4a54a" stroke-width="0.35" opacity=".35"/>
+                </g>
+                <g text-anchor="middle" font-family="'Zhi Mang Xing','Ma Shan Zheng',cursive" font-size="27" font-weight="400">
+                  <text x="18" y="35" fill="#1a0a02" opacity="0.4" transform="translate(0.35,0.45)">说</text>
+                  <text x="18" y="35" fill="#3a1e08" opacity="0.35" transform="translate(0.2,0.28)">说</text>
+                  <text x="18" y="35" fill="#6b4518" opacity="0.38" transform="translate(0.08,0.12)">说</text>
+                  <text x="18" y="35" fill="url(#ysSay-hero-g)" filter="url(#ysSay-hero-f)">说</text>
+                  <text x="17.94" y="34.9" fill="white" opacity="0.1">说</text>
+                </g>
+              </svg>
+            </span>
+
             <span class="ys-brand__type">
-              <span class="ys-brand__main">说·财经</span>
+              <span class="ys-brand__main">财经</span>
               <span class="ys-brand__divider" aria-hidden="true"></span>
-              <span class="ys-brand__sub">YANG&nbsp;SAYS</span>
+              <span class="ys-brand__sub">YANG&nbsp;SAYS&nbsp;·&nbsp;FINANCE</span>
             </span>
 
           </a>
@@ -1111,6 +1172,31 @@
             <text x="24" y="38" fill="#9b6b28" opacity="0.48" transform="rotate(-6,24,24) skewX(-8) translate(0.05,0.07)">扬</text>
             <text x="24" y="38" fill="url(#ysSeal-footer)" filter="url(#ysSeal-footer-f)">扬</text>
             <text x="23.9" y="37.88" fill="white" opacity="0.12">扬</text>
+          </g>
+        </svg>
+      </span>
+      <span class="ys-seal ys-seal--say" aria-hidden="true">
+        <svg viewBox="0 0 36 48" class="ys-seal__svg">
+          <defs>
+            <linearGradient id="ysSay-footer-g" x1="0" y1="0" x2="1" y2="1.2">
+              <stop offset="0%" stop-color="#2a1a08"/><stop offset="40%" stop-color="#6b4a1e"/>
+              <stop offset="70%" stop-color="#9b6b28"/><stop offset="100%" stop-color="#2a1a08"/>
+            </linearGradient>
+            <filter id="ysSay-footer-f"><feDropShadow dx="0.05" dy="0.1" stdDeviation="0.1" flood-color="#140a02" flood-opacity="0.25"/></filter>
+          </defs>
+          <g opacity="0.22">
+            <ellipse cx="26" cy="28" rx="6" ry="4.5" fill="none" stroke="#c89a3c" stroke-width="0.55" opacity=".7"/>
+            <ellipse cx="26" cy="28" rx="9" ry="6.5" fill="none" stroke="#c89a3c" stroke-width="0.45" opacity=".5"/>
+            <ellipse cx="26" cy="28" rx="12.5" ry="9" fill="none" stroke="#c89a3c" stroke-width="0.35" opacity=".34"/>
+            <path d="M24 21 Q29 14 35 18" fill="none" stroke="#d4a54a" stroke-width="0.5" opacity=".5"/>
+            <path d="M22 18 Q29 10 37 15" fill="none" stroke="#d4a54a" stroke-width="0.35" opacity=".35"/>
+          </g>
+          <g text-anchor="middle" font-family="'Zhi Mang Xing','Ma Shan Zheng',cursive" font-size="27" font-weight="400">
+            <text x="18" y="35" fill="#1a0a02" opacity="0.4" transform="translate(0.35,0.45)">说</text>
+            <text x="18" y="35" fill="#3a1e08" opacity="0.35" transform="translate(0.2,0.28)">说</text>
+            <text x="18" y="35" fill="#6b4518" opacity="0.38" transform="translate(0.08,0.12)">说</text>
+            <text x="18" y="35" fill="url(#ysSay-footer-g)" filter="url(#ysSay-footer-f)">说</text>
+            <text x="17.94" y="34.9" fill="white" opacity="0.1">说</text>
           </g>
         </svg>
       </span>
