@@ -24,7 +24,7 @@
 <!-- ===== 扬说·财经 品牌字体 ===== -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800;900&family=Noto+Serif+SC:wght@700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@700;900&family=Inter:wght@600;700&display=swap" rel="stylesheet">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 
 <style>
@@ -50,35 +50,14 @@
     --ys-chain-soft: #F0FDF4;
     --ys-font-cn: "Microsoft YaHei","PingFang SC","Noto Sans CJK SC",sans-serif;
     --ys-font-en: "Inter","Arial","Helvetica Neue",sans-serif;
-
-    /* —— 品牌艺术字 —— */
-    --ys-font-logo-cn: "Noto Serif SC","Source Han Serif SC","Songti SC","STSong",serif;
-    --ys-font-ui: "Inter","PingFang SC","Microsoft YaHei",sans-serif;
-    --ys-brand-blue: #2563EB;
-    --ys-brand-blue-deep: #1E3A8A;
-    --ys-brand-blue-soft: #DBEAFE;
-    --ys-finance-gold: #C6922E;
-    --ys-finance-gold-soft: #F8E7B8;
-
-    /* —— 艺术字 V2 色彩系统 —— */
-    --ys-paper: #FFFFFF;
-    --ys-paper-soft: #F7FAFF;
-    --ys-ice: #F4FBFF;
-    --ys-ice-blue: #BFE8FF;
-    --ys-clear-blue: #4DA3FF;
-    --ys-art-blue: #2F7DFF;
-    --ys-cyan: #34D5D8;
-    --ys-champagne: #D9B15F;
-    --ys-champagne-light: #FFE7A8;
-    --ys-outline: rgba(47,125,255,.34);
-    --ys-outline-soft: rgba(30,90,170,.16);
-    --ys-readable: #24415F;
-    --ys-readable-soft: #6B829A;
-    --ys-shadow-blue: rgba(47,125,255,.18);
-    --ys-shadow-cyan: rgba(52,213,216,.14);
-    --ys-font-logo-serif: "Noto Serif SC","Source Han Serif SC","Songti SC","STSong",serif;
-    --ys-font-logo-sans: "Inter","PingFang SC","Microsoft YaHei",sans-serif;
-
+    --ys-font-logo: "Noto Serif SC","Source Han Serif SC","Songti SC","STSong",serif;
+    --ys-logo-ink: #14233F;
+    --ys-logo-sub: #5B6470;
+    --ys-logo-line: #CBD5E1;
+    --ys-seal-red: #C0392B;
+    --ys-seal-red-2: #A8281C;
+    --ys-seal-edge: #9B2418;
+    --ys-seal-paper: #FBF7F2;
     --ys-radius: 12px;
     --ys-radius-sm: 8px;
     --ys-radius-lg: 16px;
@@ -321,7 +300,9 @@
   .ys-nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--ys-line); transition: box-shadow 0.3s; }
   .ys-nav.scrolled { box-shadow: 0 4px 14px rgba(0,0,0,0.08); }
   .ys-nav-inner { max-width: 680px; margin: 0 auto; padding: 0 16px; height: var(--ys-nav-height); display: flex; align-items: center; justify-content: space-between; }
-
+  .ys-logo { font-size: 20px; font-weight: 800; color: var(--ys-ink); text-decoration: none; letter-spacing: 0.06em; position: relative; }
+  .ys-logo-sub { position: absolute; top: 100%; left: 0; font-size: 10px; font-weight: 400; color: var(--ys-ink-faint); white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity 0.2s, margin-top 0.2s; margin-top: 0; }
+  .ys-logo:hover .ys-logo-sub { opacity: 1; margin-top: 4px; }
   .ys-nav-links { display: flex; gap: 2px; }
   .ys-nav-links a { padding: 6px 12px; border-radius: 6px; font-size: 13px; font-weight: 600; color: var(--ys-ink-soft); text-decoration: none; transition: all 0.15s; position: relative; }
   .ys-nav-links a::after { content: ''; position: absolute; bottom: 2px; left: 12px; right: 12px; height: 2px; background: var(--ys-brand); border-radius: 1px; transform: scaleX(0); transition: transform 0.2s; }
@@ -451,107 +432,152 @@
     .ys-matrix-grid { grid-template-columns: 1fr; }
   }
 
-  /* ================================
-     扬说财经 Editorial Wordmark
-     编辑型字标 — 灵动的智慧
-     ================================ */
-
-  /* 导航：纯文字排版，干净克制 */
-  .ys-logo{
-    display: inline-flex;
-    align-items: baseline;
-    gap: 0;
-    text-decoration: none;
-    color: inherit;
-    line-height: 1;
-    white-space: nowrap;
-    user-select: none;
-    font-family: var(--ys-font-logo-cn);
-    transition: opacity .2s;
-  }
-  .ys-logo:hover{opacity:.78;}
-
-  .ys-logo__yang{
-    font-size: 19px;
-    font-weight: 900;
-    color: #334155;
-    letter-spacing: -.02em;
-  }
-  .ys-logo__say{
-    font-size: 14px;
-    font-weight: 400;
-    color: #64748B;
-    margin-left: 1px;
-  }
-  .ys-logo__dot{
-    font-size: 14px;
-    font-weight: 700;
-    color: #D4A017;
-    margin: 0 3px;
-  }
-  .ys-logo__finance{
-    font-size: 14px;
-    font-weight: 900;
-    color: #475569;
-    letter-spacing: .03em;
+  /* ============ 扬说·财经 品牌锁版 ============ */
+  /* 基座（内部全用 em，靠 font-size 缩放） */
+  .ys-brand{
+    display:inline-flex;
+    align-items:center;
+    gap:.5em;
+    text-decoration:none;
+    line-height:1;
+    user-select:none;
+    white-space:nowrap;
+    font-size:22px;
   }
 
-  /* Hero 字标：SVG 图片，居中展示 */
-  .ys-hero-wordmark{
-    display: block;
-    width: min(420px, 80vw);
-    height: auto;
-    margin: 0 auto;
+  /* 「扬」朱砂钤印 */
+  .ys-seal{
+    position:relative;
+    flex:none;
+    width:1.7em;
+    height:1.7em;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    filter: drop-shadow(0 2px 5px rgba(160,40,28,.28));
+  }
+  .ys-seal__svg{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    display:block;
+  }
+  .ys-seal__char{
+    position:relative;
+    z-index:1;
+    font-family:var(--ys-font-logo);
+    font-weight:900;
+    font-size:.95em;
+    color:var(--ys-seal-paper);
+    line-height:1;
+    transform:translateY(.02em);
+    letter-spacing:0;
   }
 
-  /* Hero 标题容器 */
-  .ys-hero-logo-title{
-    margin: 0;
-    text-align: center;
-    line-height: 1;
+  /* 「说·财经」描述词 */
+  .ys-brand__type{
+    display:inline-flex;
+    align-items:center;
+    gap:.42em;
+  }
+  .ys-brand__main{
+    font-family:var(--ys-font-logo);
+    font-size:.92em;
+    font-weight:900;
+    letter-spacing:.03em;
+    color:var(--ys-logo-ink);
+  }
+  .ys-brand__divider{
+    width:1px;
+    height:.9em;
+    background:var(--ys-logo-line);
+    flex:none;
+  }
+  .ys-brand__sub{
+    font-family:var(--ys-font-en);
+    font-size:.34em;
+    font-weight:700;
+    letter-spacing:.2em;
+    color:var(--ys-logo-sub);
+    white-space:nowrap;
   }
 
-  /* 页脚字标 */
-  .ys-footer-wordmark{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 6px;
+  /* 尺寸修饰 */
+  .ys-brand--nav{ font-size:22px; }
+  .ys-brand--hero{
+    font-size:clamp(40px,6.4vw,58px);
+    justify-content:center;
   }
-  .ys-footer-wordmark__img{
-    display: block;
-    width: 180px;
-    height: auto;
+  .ys-hero__brand{ text-align:center; }
+
+  /* 动效：印章下盖 */
+  .ys-seal{
+    animation: ysStamp .55s cubic-bezier(.34,1.56,.64,1) .1s both;
+    transform-origin:center;
   }
-  .ys-footer-wordmark__name{
-    font-size: 12px;
-    color: #94A3B8;
-    letter-spacing: .06em;
+  @keyframes ysStamp{
+    0%  { opacity:0; transform:scale(1.35) rotate(-6deg); }
+    60% { opacity:1; transform:scale(.94)  rotate(0deg); }
+    100%{ opacity:1; transform:scale(1)    rotate(0deg); }
+  }
+  .ys-brand__type{
+    animation: ysType .5s ease .45s both;
+  }
+  @keyframes ysType{
+    from{ opacity:0; transform:translateX(-6px); }
+    to  { opacity:1; transform:none; }
   }
 
-  /* 入场：温暖浮现 */
-  .ys-hero-wordmark{
-    animation: ysFadeUp .8s cubic-bezier(.2,.8,.2,1) both;
-  }
-  @keyframes ysFadeUp{
-    from{opacity:0;transform:translateY(10px);}
-    to{opacity:1;transform:translateY(0);}
-  }
+  /* Hover 微动 */
+  .ys-brand--nav .ys-seal{ transition: transform .25s ease; }
+  .ys-brand--nav:hover .ys-seal{ transform: translateY(-1px) rotate(-2deg); }
 
+  /* 无障碍 */
   @media (prefers-reduced-motion: reduce){
-    .ys-hero-wordmark{animation:none;}
+    .ys-seal,
+    .ys-brand__type{ animation:none; opacity:1; transform:none; }
+    .ys-brand--nav:hover .ys-seal{ transform:none; }
   }
 
-  /* 移动端 */
-  @media (max-width: 640px){
-    .ys-logo__yang{font-size:17px;}
-    .ys-logo__say,.ys-logo__dot,.ys-logo__finance{font-size:13px;}
-    .ys-hero-wordmark{width:min(320px,78vw);}
+  /* 字体回退 */
+  .ys-seal__char,
+  .ys-brand__main{ font-synthesis: weight; }
+
+  /* 延展：头像角标 */
+  .ys-avatar-wrap{ position:relative; display:inline-block; }
+  .ys-seal--badge{
+    position:absolute;
+    right:-6px; bottom:-6px;
+    font-size:20px;
+    box-shadow:0 0 0 3px #fff;
+    border-radius:8px;
   }
 
-  @media (max-width: 420px){
-    .ys-logo__yang{font-size:15px;}
-    .ys-logo__say,.ys-logo__dot,.ys-logo__finance{font-size:11px;}
+  /* 延展：页脚落款 */
+  .ys-footer-seal{
+    display:inline-flex; align-items:center; gap:.6em;
+    font-size:18px;
+  }
+  .ys-footer-seal__text{
+    font-family:var(--ys-font-logo);
+    font-weight:700; font-size:.8em;
+    color:var(--ys-logo-sub); letter-spacing:.08em;
+  }
+
+  /* 延展：文章末尾签名 */
+  .ys-article-sign{
+    display:flex; justify-content:center;
+    margin:48px 0 8px;
+    opacity:.92;
+  }
+  .ys-seal--sign{ font-size:30px; }
+
+  /* 响应式 */
+  @media (max-width:640px){
+    .ys-brand--nav{ font-size:19px; }
+    .ys-brand--hero{ font-size:clamp(32px,9vw,42px); }
+    .ys-brand__sub{ letter-spacing:.14em; }
   }
 </style>
 </head>
@@ -559,9 +585,35 @@
 <!-- ===== Sticky Navigation ===== -->
 <nav class="ys-nav" id="ysNav">
   <div class="ys-nav-inner">
-        <a class="ys-logo" href="#" onclick="switchTab('daily');return false;" aria-label="扬说财经首页">
-        <span class="ys-logo__yang">扬</span><span class="ys-logo__say">说</span><span class="ys-logo__dot">·</span><span class="ys-logo__finance">财经</span>
-      </a>
+    <a class="ys-brand ys-brand--nav" href="#" onclick="switchTab('daily');return false;" aria-label="扬说·财经 首页">
+
+      <!-- 「扬」朱砂钤印 -->
+      <span class="ys-seal" aria-hidden="true">
+        <svg viewBox="0 0 48 48" class="ys-seal__svg">
+          <defs>
+            <linearGradient id="ysSeal-nav" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%"  stop-color="#C0392B"/>
+              <stop offset="100%" stop-color="#A8281C"/>
+            </linearGradient>
+          </defs>
+          <rect x="2" y="2" width="44" height="44" rx="12" fill="url(#ysSeal-nav)"/>
+          <rect x="5.5" y="5.5" width="37" height="37" rx="9"
+                fill="none" stroke="rgba(251,247,242,.55)" stroke-width="1.3"/>
+          <path d="M33 8 L40 8 L40 15" fill="none"
+                stroke="rgba(251,247,242,.9)" stroke-width="1.6"
+                stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="ys-seal__char">扬</span>
+      </span>
+
+      <!-- 「说·财经」描述词 -->
+      <span class="ys-brand__type">
+        <span class="ys-brand__main">说·财经</span>
+        <span class="ys-brand__divider" aria-hidden="true"></span>
+        <span class="ys-brand__sub">YANG&nbsp;SAYS</span>
+      </span>
+
+    </a>
     <div class="ys-nav-links" id="ysNavLinks">
       <a href="#daily" data-nav="daily" onclick="switchTab('daily');return false;">日报</a>
       <a href="#deep" data-nav="deep" onclick="switchTab('deep');return false;">深度</a>
@@ -578,35 +630,51 @@
   <section class="ys-hero ys-reveal">
     <div class="ys-hero-inner">
       <div class="ys-hero-avatar">
-        <img class="ys-hero-avatar-img" src="assets/character/ayang-ip.png" alt="阿扬" loading="lazy">
+        <div class="ys-avatar-wrap">
+          <img class="ys-hero-avatar-img" src="assets/character/ayang-ip.png" alt="阿扬" loading="lazy">
+          <span class="ys-seal ys-seal--badge" aria-hidden="true">
+            <svg viewBox="0 0 48 48" class="ys-seal__svg">
+              <defs>
+                <linearGradient id="ysSeal-badge" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#C0392B"/><stop offset="100%" stop-color="#A8281C"/>
+                </linearGradient>
+              </defs>
+              <rect x="2" y="2" width="44" height="44" rx="12" fill="url(#ysSeal-badge)"/>
+              <rect x="5.5" y="5.5" width="37" height="37" rx="9" fill="none"
+                    stroke="rgba(251,247,242,.55)" stroke-width="1.3"/>
+            </svg>
+            <span class="ys-seal__char">扬</span>
+          </span>
+        </div>
       </div>
       <div class="ys-hero-text">
-                <h1 class="ys-hero-logo-title">
-          <a class="ys-product-logo ys-product-logo--hero" href="#" onclick="switchTab('daily');return false;" aria-label="扬说财经首页">
-            <span class="ys-logo-yang" aria-hidden="true">
-              <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <pattern id="grid-hero" width="10" height="10" patternUnits="userSpaceOnUse">
-                  <path d="M10 0L0 0 0 10" fill="none" stroke="#E2E8F0" stroke-width="0.3" opacity="0.5"/>
-                </pattern>
-                <rect x="0" y="0" width="100" height="100" fill="url(#grid-hero)" rx="4"/>
-                <rect x="5" y="10" width="18" height="80" rx="3" fill="#2563EB"/>
-                <rect x="2" y="10" width="24" height="8" rx="2" fill="#2563EB"/>
-                <polygon points="23,72 23,80 45,58 45,50" fill="#60A5FA"/>
-                <rect x="36" y="8" width="58" height="42" rx="4" fill="none" stroke="#2563EB" stroke-width="5"/>
-                <line x1="40" y1="29" x2="88" y2="29" stroke="#60A5FA" stroke-width="3" stroke-linecap="round"/>
-                <polygon points="36,58 68,58 78,92 30,92" fill="#DBEAFE" stroke="#3B82F6" stroke-width="3"/>
-                <line x1="44" y1="62" x2="44" y2="88" stroke="#93C5FD" stroke-width="2" stroke-linecap="round"/>
-                <line x1="52" y1="58" x2="52" y2="90" stroke="#60A5FA" stroke-width="2.5" stroke-linecap="round"/>
-                <line x1="60" y1="55" x2="60" y2="91" stroke="#3B82F6" stroke-width="2" stroke-linecap="round"/>
-                <line x1="68" y1="58" x2="68" y2="86" stroke="#93C5FD" stroke-width="1.5" stroke-linecap="round"/>
-                <circle cx="93" cy="14" r="3.5" fill="#C6922E"/>
-                <circle cx="93" cy="14" r="7" fill="none" stroke="#C6922E" stroke-width="0.8" opacity="0.4"/>
+        <h1 class="ys-hero__brand" style="margin:0;">
+          <a class="ys-brand ys-brand--hero" href="#" onclick="switchTab('daily');return false;" aria-label="扬说·财经 首页">
+
+            <span class="ys-seal" aria-hidden="true">
+              <svg viewBox="0 0 48 48" class="ys-seal__svg">
+                <defs>
+                  <linearGradient id="ysSeal-hero" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%"  stop-color="#C0392B"/>
+                    <stop offset="100%" stop-color="#A8281C"/>
+                  </linearGradient>
+                </defs>
+                <rect x="2" y="2" width="44" height="44" rx="12" fill="url(#ysSeal-hero)"/>
+                <rect x="5.5" y="5.5" width="37" height="37" rx="9"
+                      fill="none" stroke="rgba(251,247,242,.55)" stroke-width="1.3"/>
+                <path d="M33 8 L40 8 L40 15" fill="none"
+                      stroke="rgba(251,247,242,.9)" stroke-width="1.6"
+                      stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
+              <span class="ys-seal__char">扬</span>
             </span>
-            <span class="ys-logo-text">
-              <span class="ys-logo-text__main"><span class="ys-logo-text__say">说</span><span class="ys-logo-text__dot">·</span><span class="ys-logo-text__finance">财经</span></span>
-              <span class="ys-logo-text__sub">YANG SAYS FINANCE</span>
+
+            <span class="ys-brand__type">
+              <span class="ys-brand__main">说·财经</span>
+              <span class="ys-brand__divider" aria-hidden="true"></span>
+              <span class="ys-brand__sub">YANG&nbsp;SAYS</span>
             </span>
+
           </a>
         </h1>
         <p class="ys-hero-sub">把市场讲清楚，把产业看明白。</p>
@@ -1040,1217 +1108,19 @@
 
   <!-- ===== Brand Footer ===== -->
   <footer class="ys-footer ys-reveal">
-        <div class="ys-footer-wordmark">
-        <img class="ys-footer-wordmark__img" src="assets/brand/yangsays-wordmark.svg" alt="扬说·财经">
-        <span class="ys-footer-wordmark__name">主理人 · 俞孜扬</span>
-      </div>
-    <div class="ys-footer-desc">一个面向市场、产业与公司的个人研究内容站。交易日早报 + 晚报，每周深度专题，不定期产业链研究。</div>
-    <div class="ys-footer-schedule">
-      <span class="ys-footer-sched">🌅 早报 · 盘前</span>
-      <span class="ys-footer-sched">🌙 晚报 · 盘后</span>
-      <span class="ys-footer-sched">📚 深度 · 周六</span>
-      <span class="ys-footer-sched">🔗 产业链 · 专题</span>
-    </div>
-    <div class="share-bar" style="justify-content:center;margin-bottom:16px;">
-      <button class="share-btn wechat" onclick="shareWeChat()">📱 分享到微信</button>
-      <button class="share-btn" onclick="copyLink()">🔗 复制链接</button>
-    </div>
-    <div class="ys-footer-disclaimer">
-      免责声明：本网站所有内容仅为个人研究观点，不构成任何投资建议。投资有风险，入市需谨慎。<br>
-      数据来源：证券时报 · 华尔街见闻 · Investing.com
-    </div>
-    <div class="ys-footer-powered">Powered by AI + Python + GitHub Pages</div>
-  </footer>
-
-<script>
-// CDN 来源检测
-if (location.hostname.includes('jsdmirror') || location.hostname.includes('jsdelivr')) {
-  document.querySelector('.ys-footer-powered').textContent += ' · CDN镜像加速';
-}
-</script>
-
-</div><!-- /.c -->
-
-<script src="data/vix-data.js"></script>
-<script src="data/articles.js"></script>
-<script>
-// ============================================================
-// Data — loaded from data/articles.js as globals:
-//   ARTICLES_DATA, ARTICLES_BY_DATE, ARTICLES_LATEST, HOLIDAYS_DATA
-// ============================================================
-
-// ============================================================
-// Tab Switching
-// ============================================================
-function switchTab(tabId) {
-  document.querySelectorAll('.tab-btn').forEach(function(btn) {
-    btn.classList.toggle('active', btn.dataset.tab === tabId);
-  });
-  document.querySelectorAll('.tab-content').forEach(function(tc) {
-    tc.classList.toggle('active', tc.id === 'tab-' + tabId);
-  });
-  history.replaceState(null, '', '#' + tabId);
-  closeMobileMenu();
-  try { localStorage.setItem('yzyTab', tabId); } catch(e) {}
-  if (tabId === 'tools') {
-    renderVixBody('vixBodyTools', 'vixUpdateTools');
-  }
-}
-
-function initTab() {
-  var tab = 'daily';
-  var hash = location.hash.slice(1);
-  if (hash && document.querySelector('.tab-btn[data-tab="' + hash + '"]')) {
-    tab = hash;
-  } else {
-    try {
-      var saved = localStorage.getItem('yzyTab');
-      if (saved && document.querySelector('.tab-btn[data-tab="' + saved + '"]')) {
-        tab = saved;
-      }
-    } catch(e) {}
-  }
-  switchTab(tab);
-}
-
-window.addEventListener('hashchange', function() {
-  var hash = location.hash.slice(1) || 'daily';
-  if (document.querySelector('.tab-btn[data-tab="' + hash + '"]')) {
-    switchTab(hash);
-  }
-});
-
-// ============================================================
-// Mobile Menu
-// ============================================================
-function toggleMobileMenu() {
-  var nav = document.getElementById('tabNav');
-  var btn = document.getElementById('menuToggle');
-  nav.classList.toggle('menu-open');
-  document.querySelectorAll('.tab-btn').forEach(function(b) {
-    b.classList.toggle('mobile-show');
-  });
-  btn.textContent = nav.classList.contains('menu-open') ? '✕' : '☰';
-}
-
-function closeMobileMenu() {
-  var nav = document.getElementById('tabNav');
-  nav.classList.remove('menu-open');
-  document.querySelectorAll('.tab-btn').forEach(function(b) {
-    b.classList.remove('mobile-show');
-  });
-  document.getElementById('menuToggle').textContent = '☰';
-}
-
-// ============================================================
-// Beijing Time Clock (UTC+8)
-// ============================================================
-const WEEKDAYS = ['星期日','星期一','星期二','星期三','星期四','星期五','星期六'];
-
-function getBeijingNow() {
-  const now = new Date();
-  const utcMs = now.getTime() + now.getTimezoneOffset() * 60000;
-  return new Date(utcMs + 8 * 3600000);
-}
-
-function pad2(n) { return n.toString().padStart(2, '0'); }
-
-function formatDate(bj) {
-  const y = bj.getFullYear();
-  const m = bj.getMonth() + 1;
-  const d = bj.getDate();
-  const wd = WEEKDAYS[bj.getDay()];
-  return y + '年' + m + '月' + d + '日 ' + wd;
-}
-
-function formatDateISO(bj) {
-  const y = bj.getFullYear();
-  const m = pad2(bj.getMonth() + 1);
-  const d = pad2(bj.getDate());
-  return y + '-' + m + '-' + d;
-}
-
-function updateClock() {
-  const bj = getBeijingNow();
-  // Hero clock
-  document.getElementById('heroClockValue').textContent =
-    pad2(bj.getHours()) + ':' + pad2(bj.getMinutes()) + ':' + pad2(bj.getSeconds());
-  // Hero date
-  document.getElementById('heroDateValue').textContent =
-    (bj.getMonth() + 1) + '月' + bj.getDate() + '日';
-}
-
-// ============================================================
-// Holiday Check (Hero card)
-// ============================================================
-function updateHoliday() {
-  const today = formatDateISO(getBeijingNow());
-  const todayHolidays = HOLIDAYS_DATA.filter(function(h) { return h.date === today; });
-  var label = document.getElementById('heroHolidayLabel');
-
-  if (todayHolidays.length === 0) {
-    label.textContent = '今日无假期';
-    return;
-  }
-
-  var publicH = null, marketH = null, intlH = null;
-  for (var i = 0; i < todayHolidays.length; i++) {
-    var h = todayHolidays[i];
-    if (h.type === 'public') publicH = h;
-    else if (h.type === 'market') marketH = h;
-    else if (h.type === 'international') intlH = h;
-  }
-
-  if (publicH) {
-    label.textContent = publicH.name + (marketH ? ' · ' + marketH.name : '');
-  } else if (intlH) {
-    label.textContent = intlH.name;
-  } else {
-    label.textContent = '今日无假期';
-  }
-}
-
-// ============================================================
-// Midnight Auto-Refresh
-// ============================================================
-function scheduleMidnightRefresh() {
-  const now = getBeijingNow();
-  const msToMidnight =
-    (24 - now.getHours()) * 3600000 -
-    now.getMinutes() * 60000 -
-    now.getSeconds() * 1000 -
-    now.getMilliseconds() + 1000;
-  setTimeout(function() {
-    window.location.reload();
-  }, msToMidnight);
-}
-
-// ============================================================
-// Render: Deep Dive Tab — 最新单独展示 + 历史按时间排序
-// ============================================================
-function renderDeepTab() {
-  var container = document.getElementById('deepList');
-  if (!container) return;
-  var specials = [];
-  for (var i = 0; i < ARTICLES_DATA.length; i++) {
-    if (ARTICLES_DATA[i].session === 'special') specials.push(ARTICLES_DATA[i]);
-  }
-
-  if (specials.length === 0) {
-    container.innerHTML = '<div class="no-data"><span class="big">📚</span>暂无深度内容</div>';
-    return;
-  }
-
-  // 按日期升序（最先发布的为 #1）
-  specials.sort(function(a, b) { return a.date < b.date ? -1 : 1; });
-
-  // 最新一期单独展示
-  var latest = specials[specials.length - 1];
-  var history = specials.slice(0, -1);
-
-  var html = '';
-
-  // === 最新内容：featured卡片 ===
-  html += '<div class="deep-featured-section">';
-  html += '<div class="deep-section-label">📅 本周深度</div>';
-
-  var lm = [];
-  if (latest.has_audio) lm.push('🎧 音频');
-  if (latest.has_comic && latest.comic_count > 0) lm.push('📝 ' + latest.comic_count + '张漫画');
-  var lmLbl = lm.length > 0 ? lm.join(' · ') : '';
-
-  html +=
-    '<a class="deep-featured-card" href="' + latest.url + '">' +
-      '<div class="deep-featured-badge">最新</div>' +
-      '<div class="deep-featured-title">' + latest.title + '</div>' +
-      '<div class="deep-featured-meta">' +
-        '<span>' + latest.date + '</span>' +
-        (lmLbl ? '<span class="dot">·</span><span>' + lmLbl + '</span>' : '') +
-        (latest.readTime ? '<span class="dot">·</span><span>约' + latest.readTime + '分钟</span>' : '') +
-      '</div>' +
-      (latest.summary ? '<div class="deep-featured-desc">' + latest.summary + '</div>' : '') +
-      '<div class="deep-featured-action">阅读全文 <span class="arrow">→</span></div>' +
-    '</a>';
-  html += '</div>';
-
-  // === 历史内容：编号列表 ===
-  if (history.length > 0) {
-    html += '<div class="deep-history-section">';
-    html += '<div class="deep-section-label">📖 历史深度</div>';
-
-    for (var j = 0; j < history.length; j++) {
-      var s = history[j];
-      var hm = [];
-      if (s.has_audio) hm.push('🎧');
-      if (s.has_comic && s.comic_count > 0) hm.push('📝');
-      var hmStr = hm.length > 0 ? ' · ' + hm.join(' ') : '';
-
-      html +=
-        '<a class="deep-history-card" href="' + s.url + '">' +
-          '<div class="deep-num">' + (j + 1) + '</div>' +
-          '<div class="deep-body">' +
-            '<div class="deep-title">' + s.title + '</div>' +
-            '<div class="deep-meta">' + s.date + ' · 系列深度' + hmStr + '</div>';
-      if (s.series) {
-        html += '<div class="deep-tags"><span class="deep-tag">' + s.series + '</span></div>';
-      }
-      html += '</div>' +
-          '<div class="deep-arrow">›</div>' +
-        '</a>';
-    }
-    html += '</div>';
-  }
-
-  container.innerHTML = html;
-}
-
-// ============================================================
-// Render: AI Chain Tab — 分页
-// ============================================================
-function renderAiChain() {
-  var container = document.getElementById('aiChainList');
-  if (!container) return;
-
-  var xhr = new XMLHttpRequest();
-  xhr.open('GET', 'data/ai-chain.json?t=' + Date.now(), true);
-  xhr.onload = function() {
-    if (xhr.status !== 200) {
-      container.innerHTML = '<div class="no-data"><span class="big">⚠️</span>加载失败</div>';
-      return;
-    }
-    try {
-      var data = JSON.parse(xhr.responseText);
-      var articles = data.articles || [];
-      if (articles.length === 0) {
-        container.innerHTML = '<div class="no-data"><span class="big">⏳</span>内容编辑中</div>';
-        return;
-      }
-      // 按日期升序（最早发布的为 #1）
-      articles.sort(function(a, b) {
-        return a.date < b.date ? -1 : (a.date > b.date ? 1 : 0);
-      });
-      var latest = articles[articles.length - 1];
-      var history = articles.slice(0, -1);
-
-      var html = '';
-
-      // === 最新内容：featured卡片 ===
-      html += '<div class="ai-featured-section">';
-      html += '<div class="ai-section-label">📅 最新更新</div>';
-
-      if (latest.url && latest.status !== 'draft') {
-        html +=
-          '<a class="ai-featured-card" href="' + latest.url + '">' +
-            '<div class="ai-featured-badge">最新</div>' +
-            '<div class="ai-featured-title">' + latest.title + '</div>' +
-            '<div class="ai-featured-meta">' +
-              '<span>' + latest.date + '</span>' +
-              (latest.readTime ? '<span class="dot">·</span><span>约' + latest.readTime + '分钟</span>' : '') +
-            '</div>' +
-            (latest.summary ? '<div class="ai-featured-desc">' + latest.summary + '</div>' : '') +
-            (latest.tags && latest.tags.length > 0 ? '<div style="margin-top:8px;display:flex;gap:4px;flex-wrap:wrap;">' + latest.tags.map(function(t){return '<span style="font-size:10px;padding:2px 8px;border-radius:8px;background:#F0FDF4;color:#16A34A;">' + t + '</span>';}).join('') + '</div>' : '') +
-            '<div class="ai-featured-action">阅读全文 <span class="arrow">→</span></div>' +
-          '</a>';
-      } else {
-        html +=
-          '<div class="ai-featured-card" style="cursor:default;">' +
-            '<div class="ai-featured-badge" style="background:linear-gradient(135deg,#D97706,#B45309);">编辑中</div>' +
-            '<div class="ai-featured-title">' + (latest.title || '内容筹备中') + '</div>' +
-            '<div class="ai-featured-desc" style="color:#94A3B8;">即将发布，敬请期待</div>' +
-          '</div>';
-      }
-      html += '</div>';
-
-      // === 历史内容：编号列表 ===
-      if (history.length > 0) {
-        html += '<div class="deep-history-section">';
-        html += '<div class="ai-section-label">📖 历史内容</div>';
-
-        for (var j = 0; j < history.length; j++) {
-          var a = history[j];
-          var idx = j + 1;
-
-          if (a.url && a.status !== 'draft') {
-            html +=
-              '<a class="ai-history-card" href="' + a.url + '">' +
-                '<div class="ai-num">' + idx + '</div>' +
-                '<div class="ai-body">' +
-                  '<div class="ai-title">' + a.title + '</div>' +
-                  '<div class="ai-meta">' + a.date + ' · AI产业链深度' + (a.readTime ? ' · 约' + a.readTime + '分钟' : '') + '</div>' +
-                  (a.tags && a.tags.length > 0 ? '<div class="ai-tags">' + a.tags.slice(0, 3).map(function(t){return '<span class="ai-tag">' + t + '</span>';}).join('') + '</div>' : '') +
-                '</div>' +
-                '<div class="ai-arrow">›</div>' +
-              '</a>';
-          } else {
-            html +=
-              '<div class="ai-history-card" style="cursor:default;">' +
-                '<div class="ai-num" style="background:linear-gradient(135deg,#D1D5DB,#9CA3AF);">' + idx + '</div>' +
-                '<div class="ai-body">' +
-                  '<div class="ai-title" style="color:#94A3B8;">' + a.title + '</div>' +
-                  '<div class="ai-meta">' + a.date + '<span class="ai-status-draft" style="margin-left:6px;">编辑中</span></div>' +
-                '</div>' +
-              '</div>';
-          }
-        }
-        html += '</div>';
-      }
-
-      container.innerHTML = html;
-    } catch(e) {
-      container.innerHTML = '<div class="no-data"><span class="big">⚠️</span>数据解析失败</div>';
-    }
-  };
-  xhr.onerror = function() {
-    container.innerHTML = '<div class="no-data"><span class="big">⏳</span>内容编辑中</div>';
-  };
-  xhr.send();
-}
-
-
-
-// ============================================================
-// Render: Today's Content
-// ============================================================
-function updateCharMsg() {
-  const todayStr = formatDateISO(getBeijingNow());
-  var el = document.getElementById('heroQuote');
-  if (!el) return;
-  if (ARTICLES_BY_DATE[todayStr]) {
-    el.textContent = '📡 每日早报 + 晚报，用漫画和音频解读财经大事。';
-  } else {
-    if (ARTICLES_LATEST) {
-      el.textContent = '📡 暂无今日内容，显示最近更新（' + ARTICLES_LATEST + '）';
-    }
-  }
-}
-
-function renderToday() {
-  var container = document.getElementById('todayContent');
-  if (!container) return;
-  const todayStr = formatDateISO(getBeijingNow());
-  const data = ARTICLES_BY_DATE[todayStr];
-  if (data) {
-    renderEditionList(container, data, todayStr);
-    container.dataset.date = todayStr;
-  }
-}
-
-function renderEditionList(container, data) {
-  var sessions = [
-    { key: 'morning', icon: '🌅', label: '早报' },
-    { key: 'evening', icon: '🌙', label: '晚报' },
-  ];
-
-  var hasAny = false;
-  var html = '';
-  html += '<div class="daily-featured-section">';
-
-  for (var i = 0; i < sessions.length; i++) {
-    var s = sessions[i];
-    var item = data[s.key];
-    if (!item) continue;
-    hasAny = true;
-    var mediaParts = [];
-    if (item.has_audio) mediaParts.push('🎧 音频');
-    if (item.has_comic && item.comic_count > 0) mediaParts.push('📝 ' + item.comic_count + '张漫画');
-    var mediaLabel = mediaParts.length > 0 ? mediaParts.join(' · ') : '📄 图文';
-
-    html +=
-      '<a class="daily-featured-card" href="' + item.url + '">' +
-        '<div class="daily-featured-badge">' + s.icon + ' ' + s.label + '</div>' +
-        '<div class="daily-featured-title">' + (item.title || '财经内容') + '</div>' +
-        '<div class="daily-featured-meta">' + mediaLabel + '</div>' +
-        '<div class="daily-featured-action">阅读全文 <span class="arrow">→</span></div>' +
-      '</a>';
-  }
-
-  html += '</div>';
-
-  if (!hasAny) {
-    container.innerHTML = '<div class="no-data"><span class="big">📭</span>暂无今日内容</div>';
-  } else {
-    container.innerHTML = html;
-  }
-}
-
-// ============================================================
-// Render: History Archive — 分页（每页5天）
-// ============================================================
-const HISTORY_PER_PAGE = 5;
-var historyCurrentPage = 1;
-var historyTotalPages = 1;
-var historyDates = [];
-
-function renderHistory() {
-  var container = document.getElementById('historyContent');
-  if (!container) return;
-
-  const todayStr = formatDateISO(getBeijingNow());
-  historyDates = Object.keys(ARTICLES_BY_DATE).filter(function(d) { return d !== todayStr; });
-
-  if (historyDates.length === 0) {
-    container.innerHTML = '<div class="no-data" style="padding:16px 0;">暂无历史内容</div>';
-    return;
-  }
-
-  historyDates.sort().reverse();
-  historyTotalPages = Math.ceil(historyDates.length / HISTORY_PER_PAGE);
-  historyCurrentPage = 1;
-  renderHistoryPage(container);
-}
-
-function renderHistoryPage(container) {
-  var start = (historyCurrentPage - 1) * HISTORY_PER_PAGE;
-  var end = Math.min(start + HISTORY_PER_PAGE, historyDates.length);
-  var slice = historyDates.slice(start, end);
-  var html = '';
-  var globalIdx = (historyCurrentPage - 1) * HISTORY_PER_PAGE;
-
-  html += '<div class="daily-history-section">';
-
-  for (var i = 0; i < slice.length; i++) {
-    var date = slice[i];
-    var data = ARTICLES_BY_DATE[date];
-    var parts = date.split('-');
-    var displayDate = parts[0] + '年' + parseInt(parts[1]) + '月' + parseInt(parts[2]) + '日';
-
-    if (data.morning) {
-      globalIdx++;
-      html +=
-        '<a class="daily-history-card" href="' + data.morning.url + '">' +
-          '<div class="daily-num">' + globalIdx + '</div>' +
-          '<div class="daily-body">' +
-            '<div class="daily-title">' + (data.morning.title || '早报') + '</div>' +
-            '<div class="daily-meta">' + displayDate + ' · 🌅 早报' + '</div>' +
-          '</div>' +
-          '<div class="daily-arrow">›</div>' +
-        '</a>';
-    }
-    if (data.evening) {
-      globalIdx++;
-      html +=
-        '<a class="daily-history-card" href="' + data.evening.url + '">' +
-          '<div class="daily-num">' + globalIdx + '</div>' +
-          '<div class="daily-body">' +
-            '<div class="daily-title">' + (data.evening.title || '晚报') + '</div>' +
-            '<div class="daily-meta">' + displayDate + ' · 🌙 晚报' + '</div>' +
-          '</div>' +
-          '<div class="daily-arrow">›</div>' +
-        '</a>';
-    }
-  }
-
-  html += '</div>';
-
-  html += '<div class="pagination-bar">' +
-    '<button class="page-btn" onclick="historyPrevPage()"' + (historyCurrentPage <= 1 ? ' disabled' : '') + '>‹ 上一页</button>' +
-    '<span class="page-info">' + historyCurrentPage + ' / ' + historyTotalPages + '</span>' +
-    '<button class="page-btn" onclick="historyNextPage()"' + (historyCurrentPage >= historyTotalPages ? ' disabled' : '') + '>下一页 ›</button>' +
-    '</div>';
-
-  container.innerHTML = html;
-}
-
-function historyPrevPage() {
-  if (historyCurrentPage <= 1) return;
-  historyCurrentPage--;
-  renderHistoryPage(document.getElementById('historyContent'));
-}
-
-function historyNextPage() {
-  if (historyCurrentPage >= historyTotalPages) return;
-  historyCurrentPage++;
-  renderHistoryPage(document.getElementById('historyContent'));
-}
-
-// ============================================================
-// Hero VIX — 首页卡片(数值+温度计, 无趋势图)
-// ============================================================
-function renderHeroVix() {
-  var d = window.__VIX_DATA;
-  if (!d || d.current == null) {
-    document.getElementById('heroVixNum').textContent = '--';
-    document.getElementById('heroVixLevel').textContent = '暂无数据';
-    return;
-  }
-
-  document.getElementById('heroVixNum').textContent = d.current.toFixed(1);
-  document.getElementById('heroVixLevel').textContent = d.level;
-
-  // Position the thermometer dot
-  var dot = document.getElementById('heroVixDot');
-  if (dot) {
-    dot.style.left = d.pct + '%';
-  }
-
-  // Color the VIX number based on level
-  var numEl = document.getElementById('heroVixNum');
-  numEl.style.color = d.cls === 'fear' ? '#DC2626' : d.cls === 'neutral' ? '#D97706' : '#059669';
-  var levelEl = document.getElementById('heroVixLevel');
-  levelEl.style.color = numEl.style.color;
-}
-
-// ============================================================
-// VIX Full Card (in tools tab) — 完整模式含趋势图
-// ============================================================
-function renderVixBody(bodyId, updateId) {
-  var d = window.__VIX_DATA;
-  var body = document.getElementById(bodyId);
-  var update = document.getElementById(updateId);
-  if (!d || !body) return;
-
-  if (d.current == null) {
-    body.innerHTML = '<div class="vix-loading">暂无数据</div>';
-    return;
-  }
-
-  if (update) update.textContent = d.date;
-
-  var arrow = d.change >= 0 ? '↑' : '↓';
-  var cls = d.change >= 0 ? 'vix-change-up' : 'vix-change-down';
-  var absChg = Math.abs(d.change).toFixed(1);
-  var pctStr = (d.changePct >= 0 ? '+' : '') + d.changePct.toFixed(1) + '%';
-
-  body.innerHTML =
-    '<div class="vix-gauge ' + d.cls + '">' +
-      '<span class="vix-value">' + d.current.toFixed(1) + '</span>' +
-      '<span class="vix-label">' + d.level + '</span>' +
-    '</div>' +
-    '<div class="vix-details">' +
-      '<div class="vix-bar">' +
-        '<div class="vix-bar-indicator" style="left: ' + d.pct + '%;"></div>' +
-      '</div>' +
-      '<div class="vix-stats">' +
-        '<span class="vix-stat">前一交易日: ' + d.prev + '</span>' +
-        '<span class="vix-stat ' + cls + '">' + arrow + ' ' + absChg + ' (' + pctStr + ')</span>' +
-      '</div>' +
-      '<div style="margin-top:6px;font-size:9px;color:#94A3B8;text-align:center">VIX < 15 市场平静 · 15-20 焦虑 · 20+ 恐慌</div>' +
-    '</div>';
-}
-
-// ============================================================
-// VIX 趋势图切换
-// ============================================================
-function switchVixPeriod(period, imgId) {
-  var img = document.getElementById(imgId);
-  if (!img) return;
-  var parent = img.closest('.vix-trend');
-  if (parent) {
-    var btns = parent.querySelectorAll('.vix-toggle-btn');
-    btns.forEach(function(b) {
-      b.classList.toggle('active', b.dataset.period === period);
-    });
-  }
-  img.src = period === '1w'
-    ? 'docs/charts/vix_trend_1w.svg'
-    : 'docs/charts/vix_trend_1m.svg';
-}
-
-// ============================================================
-// QR Share / WeChat Share
-// ============================================================
-function shareWeChat() {
-  var url = window.location.href;
-  var qrUrl = 'https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=' + encodeURIComponent(url);
-  document.getElementById('qrImage').src = qrUrl;
-  document.getElementById('qrModal').classList.add('show');
-}
-
-function closeQR() {
-  document.getElementById('qrModal').classList.remove('show');
-}
-
-function copyLink() {
-  var url = window.location.href;
-  if (navigator.clipboard && navigator.clipboard.writeText) {
-    navigator.clipboard.writeText(url).then(function() {
-      alert('✅ 链接已复制，可粘贴发送给朋友');
-    }).catch(function() {
-      fallbackCopy(url);
-    });
-  } else {
-    fallbackCopy(url);
-  }
-}
-
-function fallbackCopy(text) {
-  var ta = document.createElement('textarea');
-  ta.value = text;
-  ta.style.position = 'fixed';
-  ta.style.opacity = '0';
-  document.body.appendChild(ta);
-  ta.select();
-  document.execCommand('copy');
-  document.body.removeChild(ta);
-  alert('✅ 链接已复制');
-}
-
-// ============================================================
-// Character message rotation (in hero)
-// ============================================================
-var CHAR_MSGS = [
-  '📡 每日早报 + 晚报，用漫画和音频解读财经大事。',
-  '💡 每个交易日更新，陪你读懂财经世界。',
-  '🎧 边听边看，通勤路上也能学财经。',
-  '📊 数据来自权威来源，Python 生成图表确保严谨。',
-];
-var msgIdx = 0;
-function rotateCharMsg() {
-  var el = document.getElementById('heroQuote');
-  if (!el) return;
-  if (el.textContent.indexOf('📡 每日') === 0) {
-    msgIdx = (msgIdx + 1) % CHAR_MSGS.length;
-    el.textContent = CHAR_MSGS[msgIdx];
-  }
-}
-
-// ============================================================
-// Init
-// ============================================================
-function initData() {
-  updateHoliday();
-  renderToday();
-  renderHistory();
-  renderDeepTab();
-  renderAiChain();
-  updateCharMsg();
-}
-
-// VIX init: wait for vix-data.js to load
-function initVix() {
-  if (window.__VIX_DATA) {
-    renderHeroVix();
-    renderVixBody('vixBodyTools', 'vixUpdateTools');
-  } else {
-    var checkVix = setInterval(function() {
-      if (window.__VIX_DATA) {
-        renderHeroVix();
-        renderVixBody('vixBodyTools', 'vixUpdateTools');
-        clearInterval(checkVix);
-      }
-    }, 100);
-    setTimeout(function() { clearInterval(checkVix); }, 5000);
-  }
-}
-
-// DOM ready
-updateClock();
-setInterval(updateClock, 1000);
-setInterval(rotateCharMsg, 6000);
-
-initTab();
-initData();
-initVix();
-scheduleMidnightRefresh();
-
-  // ============================================================
-  // Brand System: Nav active sync + Scroll Reveal + Nav Shadow
-  // ============================================================
-  (function() {
-    // 1. Sync nav active state on tab switch
-    var origSwitch = window.switchTab;
-    window.switchTab = function(tabId) {
-      origSwitch(tabId);
-      // Sync sticky nav active state
-      document.querySelectorAll('.ys-nav-links a').forEach(function(a) {
-        a.classList.toggle('active', a.dataset.nav === tabId);
-      });
-    };
-
-    // 2. Scroll reveal animation
-    if ('IntersectionObserver' in window) {
-      var observer = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
-      }, { threshold: 0.15 });
-      document.querySelectorAll('.ys-reveal').forEach(function(el) {
-        observer.observe(el);
-      });
-    } else {
-      // Fallback: show all immediately
-      document.querySelectorAll('.ys-reveal').forEach(function(el) {
-        el.classList.add('visible');
-      });
-    }
-
-    // 3. Nav scroll shadow
-    var nav = document.getElementById('ysNav');
-    var onScroll = function() {
-      nav.classList.toggle('scrolled', window.scrollY > 8);
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll(); // initial check
-
-    // 4. Init nav active from current tab
-    var hash = location.hash.slice(1) || 'daily';
-    document.querySelectorAll('.ys-nav-links a').forEach(function(a) {
-      if (a.dataset.nav === hash) a.classList.add('active');
-    });
-  })();
-
-</script>
-</body>
-</html><h1 class="ys-hero-logo-title">
-          <img class="ys-hero-wordmark" src="assets/brand/yangsays-wordmark.svg" alt="扬说·财经">
-        </h1>
-        <p class="ys-hero-sub">把市场讲清楚，把产业看明白。</p>
-        <p class="ys-hero-desc">每日有跟踪，每周有深研，长期有产业链。</p>
-      </div>
-    </div>
-    <div class="ys-hero-badges">
-      <a class="ys-hero-badge --daily" href="#daily" onclick="switchTab('daily');return false;">扬说·日报</a>
-      <a class="ys-hero-badge --depth" href="#deep" onclick="switchTab('deep');return false;">扬说·深度</a>
-      <a class="ys-hero-badge --data" href="#tools" onclick="switchTab('tools');return false;">扬说·数据</a>
-      <a class="ys-hero-badge --chain" href="#ai" onclick="switchTab('ai');return false;">扬说·产业链</a>
-    </div>
-  </section>
-
-  <!-- ===== Live Data Strip ===== -->
-  <div class="ys-live-strip">
-    <div class="ys-ls-item">
-      <span class="ys-ls-label">北京时间</span>
-      <span class="ys-ls-value" id="heroClockValue">--:--:--</span>
-    </div>
-    <div class="ys-ls-item">
-      <span class="ys-ls-label">VIX 恐慌指数</span>
-      <span class="ys-ls-value" id="heroVixNum">--</span>
-      <span class="ys-ls-sub" id="heroVixLevel">加载中...</span>
-      <span id="heroVixDot" style="display:none;"></span>
-    </div>
-    <div class="ys-ls-item">
-      <span class="ys-ls-label" id="heroDateValue">--月--日</span>
-      <span class="ys-ls-sub" id="heroHolidayLabel">--</span>
-    </div>
-  </div>
-
-  <!-- ===== Hidden compat elements for site-health.py ===== -->
-  <div style="display:none;">
-    <div class="hero-char-area">
-      <img class="hero-char-img" src="assets/character/ayang-sticker.png" alt="">
-    </div>
-    <div id="heroQuote">📡 每日早报 + 晚报，用漫画和音频解读财经大事。</div>
-  </div>
-
-  <!-- ===== Channel Matrix ===== -->
-  <section class="ys-matrix ys-reveal">
-    <div class="ys-matrix-head">
-      <div class="ys-matrix-kicker">FOUR CONTENT LINES</div>
-      <div class="ys-matrix-title">四条内容线，覆盖从市场到产业的完整视角</div>
-    </div>
-    <div class="ys-matrix-grid">
-      <a class="ys-mcard --daily" href="#daily" onclick="switchTab('daily');return false;">
-        <div class="ys-mcard-tag">交易日 · 早晚两更</div>
-        <div class="ys-mcard-mark">DAILY</div>
-        <div class="ys-mcard-title">扬说·日报</div>
-        <div class="ys-mcard-slogan">盘前看主线，盘后复逻辑，帮你抓住市场每天的变化。</div>
-        <div class="ys-mcard-link">进入日报</div>
-      </a>
-      <a class="ys-mcard --depth" href="#deep" onclick="switchTab('deep');return false;">
-        <div class="ys-mcard-tag">每周六更新</div>
-        <div class="ys-mcard-mark">DEPTH</div>
-        <div class="ys-mcard-title">扬说·深度</div>
-        <div class="ys-mcard-slogan">不追热点表面波动，只拆背后的产业、商业和周期逻辑。</div>
-        <div class="ys-mcard-link">进入深度</div>
-      </a>
-      <a class="ys-mcard --data" href="#tools" onclick="switchTab('tools');return false;">
-        <div class="ys-mcard-tag">首页看板</div>
-        <div class="ys-mcard-mark">DATA</div>
-        <div class="ys-mcard-title">扬说·数据</div>
-        <div class="ys-mcard-slogan">用少量关键指标，观察市场温度、资金状态和行业位置。</div>
-        <div class="ys-mcard-link">查看数据</div>
-      </a>
-      <a class="ys-mcard --chain" href="#ai" onclick="switchTab('ai');return false;">
-        <div class="ys-mcard-tag">专题更新</div>
-        <div class="ys-mcard-mark">CHAIN</div>
-        <div class="ys-mcard-title">扬说·产业链</div>
-        <div class="ys-mcard-slogan">从上游到下游，从技术到公司，一期看懂一条产业链。</div>
-        <div class="ys-mcard-link">进入产业链</div>
-      </a>
-    </div>
-  </section>
-
-  <div class="ys-nav-spacer"></div>
-
-  <!-- ================================================================ -->
-  <!-- Tab Navigation                                                  -->
-  <!-- ================================================================ -->
-  <nav class="tab-nav" id="tabNav">
-    <button class="tab-btn active" data-tab="daily" onclick="switchTab('daily')">扬说·日报</button>
-    <button class="tab-btn" data-tab="deep" onclick="switchTab('deep')">扬说·深度</button>
-    <button class="tab-btn" data-tab="tools" onclick="switchTab('tools')">扬说·数据</button>
-    <button class="tab-btn" data-tab="ai" onclick="switchTab('ai')">扬说·AI产业链</button>
-    <button class="hamburger" id="menuToggle" onclick="toggleMobileMenu()" aria-label="菜单">☰</button>
-  </nav>
-
-  <!-- ================================================================ -->
-  <!-- Tab: 扬说·日报                                                      -->
-  <!-- ================================================================ -->
-  <div class="tab-content active" id="tab-daily">
-
-    <!-- ===== Column Head: Daily ===== -->
-    <div class="ys-colhead ys-reveal" style="--ch-color: var(--ys-daily);">
-      <div class="ys-colhead-bar"></div>
-      <div class="ys-colhead-body">
-        <div class="ys-colhead-eyebrow">DAILY</div>
-        <div class="ys-colhead-title">扬说·日报</div>
-        <div class="ys-colhead-slogan">早看方向，晚复盘面。每个交易日陪你读懂市场。</div>
-        <div class="ys-colhead-freq">交易日 · 早晚两更</div>
-      </div>
-    </div>
-
-    <!-- Today's Content -->
-    <div class="daily-featured-section">
-      <div class="daily-section-label">📅 今日内容</div>
-      <div id="todayContent" data-date="2026-06-08">
-<!-- TODAY_PRERENDER_START -->
-      <a class="edition edition-morning" href="2026-06-15/wechat-publish/morning/article.html">
-        <div class="edition-icon">🌅</div>
-        <div class="edition-info">
-          <div class="edition-title">美伊和平协议签署·油价暴跌黄金突破4300·沪指高开重返4050·SpaceX首周涨19%·FOMC本周登场</div>
-        </div>
-        <span class="edition-arrow">›</span>
-      </a>
-<!-- TODAY_PRERENDER_END -->
-      </div>
-    </div>
-
-    <!-- History Archive -->
-    <div class="daily-history-section">
-      <div class="daily-section-label">📖 历史内容</div>
-      <div id="historyContent">
-<!-- HISTORY_PRERENDER_START -->
-      <div class="history-group">
-        <div class="history-date-label">2026年6月14日</div>
-        <div class="history-item">
-          <span class="h-icon">📚</span>
-          <a href="special/SpaceX虹吸效应/article.html">SpaceX虹吸效应：万亿估值如何吸走全球资本？</a>
-          <span class="h-time">深度</span>
-        </div>
-      </div>
-      <div class="history-group">
-        <div class="history-date-label">2026年6月12日</div>
-        <div class="history-item">
-          <span class="h-icon">🌅</span>
-          <a href="2026-06-12/wechat-publish/morning/article.html">道指反弹929点·特朗普叫停对伊打击·SpaceX今日挂牌·黄金V反重回4200</a>
-          <span class="h-time">早报</span>
-        </div>
-        <div class="history-item">
-          <span class="h-icon">🌙</span>
-          <a href="2026-06-12/wechat-publish/evening/article.html">沪指重返4000涨1.12%·工业金属暴涨5%·美伊和平曙光·SOX飙升7.91%·SpaceX首日飙涨26%·黄金深V反弹4200·油价暴跌6%</a>
-          <span class="h-time">晚报</span>
-        </div>
-      </div>
-      <div class="history-group">
-        <div class="history-date-label">2026年6月11日</div>
-        <div class="history-item">
-          <span class="h-icon">🌙</span>
-          <a href="2026-06-11/wechat-publish/evening/article.html">道指跌破5万·SOX再跌3.6%·黄金闪崩至4070·ECB加息25bp·SpaceX定价135·美伊冲突升级</a>
-          <span class="h-time">晚报</span>
-        </div>
-      </div>
-      <div class="history-group">
-        <div class="history-date-label">2026年6月10日</div>
-        <div class="history-item">
-          <span class="h-icon">🌅</span>
-          <a href="2026-06-10/wechat-publish/morning/article.html">A股低开4300跌·美股SOX假反弹VIX飙升·CPI今晚定加息·黄金跌破4200·中东直升机被击落</a>
-          <span class="h-time">早报</span>
-        </div>
-        <div class="history-item">
-          <span class="h-icon">🌙</span>
-          <a href="2026-06-10/wechat-publish/evening/article.html">CPI 4.2%创三年新高·核心通胀意外降温·A股失守4000·黄金跌破4200·美股科技承压·美伊冲突升级</a>
-          <span class="h-time">晚报</span>
-        </div>
-      </div>
-      <div class="history-group">
-        <div class="history-date-label">2026年6月9日</div>
-        <div class="history-item">
-          <span class="h-icon">🌅</span>
-          <a href="2026-06-09/wechat-publish/morning/article.html">科技强势反弹·Intel暴涨12%·Google下300万颗TPU订单·A股集体高开·黄金跌破4300</a>
-          <span class="h-time">早报</span>
-        </div>
-        <div class="history-item">
-          <span class="h-icon">🌙</span>
-          <a href="2026-06-09/wechat-publish/evening/article.html">沪指收复4000点·半导体暴涨·沪硅产业20cm涨停·科创50涨4.17%·Google向Intel下TPU大单·黄金4327弱势</a>
-          <span class="h-time">晚报</span>
-        </div>
-      </div>
-      <div class="history-group">
-        <div class="history-date-label">2026年6月8日</div>
-        <div class="history-item">
-          <span class="h-icon">🌅</span>
-          <a href="2026-06-08/wechat-publish/morning/article.html">非农17.2万远超预期引爆加息恐慌·纳指暴跌4.18%费半重挫10%·A股4000点保卫战·黄金暴跌3.6%·本周CPI+ECB+SpaceX</a>
-          <span class="h-time">早报</span>
-        </div>
-        <div class="history-item">
-          <span class="h-icon">🌙</span>
-          <a href="2026-06-08/wechat-publish/evening/article.html">沪指失守4000点·科创50暴跌4.3%·4600股下跌·中东局势骤升油价暴涨4%·黄金跌破4300</a>
-          <span class="h-time">晚报</span>
-        </div>
-      </div>
-      <div class="history-group">
-        <div class="history-date-label">2026年6月6日</div>
-        <div class="history-item">
-          <span class="h-icon">📚</span>
-          <a href="special/非农三路径推演/article.html">非农17.2万之后——市场三路径推演：CPI·FOMC·SpaceX三大催化剂</a>
-          <span class="h-time">深度</span>
-        </div>
-      </div>
-      <div class="history-group">
-        <div class="history-date-label">2026年6月5日</div>
-        <div class="history-item">
-          <span class="h-icon">🌅</span>
-          <a href="2026-06-05/wechat-publish/morning/article.html">道指暴涨874点创新高·博通暴跌12%·长线资金入市5000亿·黄金反弹4500·成品油大幅下调</a>
-          <span class="h-time">早报</span>
-        </div>
-        <div class="history-item">
-          <span class="h-icon">🌙</span>
-          <a href="2026-06-05/wechat-publish/evening/article.html">A股指数跌个股涨·北证50暴涨5.59%·非农大超预期17.2万·机器人涨停潮·黄金跌破4400</a>
-          <span class="h-time">晚报</span>
-        </div>
-      </div>
-      <div class="history-group">
-        <div class="history-date-label">2026年6月4日</div>
-        <div class="history-item">
-          <span class="h-icon">🌅</span>
-          <a href="2026-06-04/wechat-publish/morning/article.html">美股九连涨终结·ISM超预期·褐皮书预警通胀·创业板突破4200·黄金跌至4433</a>
-          <span class="h-time">早报</span>
-        </div>
-        <div class="history-item">
-          <span class="h-icon">🌙</span>
-          <a href="2026-06-04/wechat-publish/evening/article.html">沪指跌0.64%·4100股下跌·存储芯片涨停潮·台积电AI数年内供不应求·美以黎停火·黄金破4500·原油跳水4%</a>
-          <span class="h-time">晚报</span>
-        </div>
-      </div>
-      <div class="history-group">
-        <div class="history-date-label">2026年6月3日</div>
-        <div class="history-item">
-          <span class="h-icon">🌅</span>
-          <a href="2026-06-03/wechat-publish/morning/article.html">三件大事：JOLTS炸裂超预期40万、Marvell暴拉22%、美股五连创纪录</a>
-          <span class="h-time">早报</span>
-        </div>
-        <div class="history-item">
-          <span class="h-icon">🌙</span>
-          <a href="2026-06-03/wechat-publish/evening/article.html">A股冲高回落·创业板+1.65%·CPO千亿成交·ADP低于预期·黄金跌至4442</a>
-          <span class="h-time">晚报</span>
-        </div>
-      </div>
-      <div class="history-group">
-        <div class="history-date-label">2026年6月2日</div>
-        <div class="history-item">
-          <span class="h-icon">🌅</span>
-          <a href="2026-06-02/wechat-publish/morning/article.html">隔夜两枚炸弹：英伟达PC芯片宣战 + 伊朗封锁海峡，全球市场剧烈分岔</a>
-          <span class="h-time">早报</span>
-        </div>
-        <div class="history-item">
-          <span class="h-icon">🌙</span>
-          <a href="2026-06-02/wechat-publish/evening/article.html">深V反转之谜·3800股下跌·CPO涨停潮·英伟达Vera Rubin投产·WTI破92·恒指重返26000</a>
-          <span class="h-time">晚报</span>
-        </div>
-      </div>
-      <div class="history-group">
-        <div class="history-date-label">2026年6月1日</div>
-        <div class="history-item">
-          <span class="h-icon">🌅</span>
-          <a href="2026-06-01/wechat-publish/morning/article.html">六月第一天，三股力量正在同时碰撞：AI叙事、PMI临界点、中东拉锯</a>
-          <span class="h-time">早报</span>
-        </div>
-        <div class="history-item">
-          <span class="h-icon">🌙</span>
-          <a href="2026-06-01/wechat-publish/evening/article.html">三大指数齐跌背后的真相·3700股上涨·煤炭6%暴涨·科创50再跌5%·AI PC涨停潮·PMI临界点·美伊再拉锯</a>
-          <span class="h-time">晚报</span>
-        </div>
-      </div>
-      <div class="history-group">
-        <div class="history-date-label">2026年5月31日</div>
-        <div class="history-item">
-          <span class="h-icon">📚</span>
-          <a href="special/全球央行囤金/article.html">全球央行囤金：黄金超越美债意味着什么？</a>
-          <span class="h-time">深度</span>
-        </div>
-      </div>
-      <div class="history-group">
-        <div class="history-date-label">2026年5月29日</div>
-        <div class="history-item">
-          <span class="h-icon">🌅</span>
-          <a href="2026-05-29/wechat-publish/morning/article.html">PCE创近三年新高·Dell盘后暴涨39%·Anthropic估值9650亿超越OpenAI·创业板创历史新高</a>
-          <span class="h-time">早报</span>
-        </div>
-        <div class="history-item">
-          <span class="h-icon">🌙</span>
-          <a href="2026-05-29/wechat-publish/evening/article.html">A股放量下跌沪指失守4100·创业板跌超2%·电力涨停潮·半导体重挫5%·PCE 3.8%创近三年新高</a>
-          <span class="h-time">晚报</span>
-        </div>
-      </div>
-<!-- HISTORY_PRERENDER_END -->
-      </div>
-    </div>
-
-  </div><!-- /tab-daily -->
-
-  <!-- ================================================================ -->
-  <!-- Tab: 扬说·深度                                                      -->
-  <!-- ================================================================ -->
-  <div class="tab-content" id="tab-deep">
-
-    <!-- ===== Column Head: Depth ===== -->
-    <div class="ys-colhead ys-reveal" style="--ch-color: var(--ys-depth);">
-      <div class="ys-colhead-bar"></div>
-      <div class="ys-colhead-body">
-        <div class="ys-colhead-eyebrow">DEPTH</div>
-        <div class="ys-colhead-title">扬说·深度</div>
-        <div class="ys-colhead-slogan">不追热点表面波动，只拆背后的产业、商业和周期逻辑。</div>
-        <div class="ys-colhead-freq">每周六更新</div>
-      </div>
-    </div>
-
-    <div class="section">
-      <h2>📚 扬说·深度 <span style="font-size: 11px; color: #94A3B8; font-weight: 400;">— 每周六，用逻辑穿透表象</span></h2>
-      <div id="deepList"></div>
-    </div>
-  </div>
-
-  <!-- ================================================================ -->
-  <!-- Tab: 扬说·数据                                                      -->
-  <!-- ================================================================ -->
-  <div class="tab-content" id="tab-tools">
-
-    <!-- ===== Column Head: Data ===== -->
-    <div class="ys-colhead ys-reveal" style="--ch-color: var(--ys-data);">
-      <div class="ys-colhead-bar"></div>
-      <div class="ys-colhead-body">
-        <div class="ys-colhead-eyebrow">DATA</div>
-        <div class="ys-colhead-title">扬说·数据</div>
-        <div class="ys-colhead-slogan">用少量关键指标，观察市场温度、资金状态和行业位置。</div>
-        <div class="ys-colhead-freq">首页看板</div>
-      </div>
-    </div>
-
-    <div class="vix-card">
-      <div class="vix-header">
-        <h3>📊 恐慌贪婪指数</h3>
-        <span class="vix-update" id="vixUpdateTools">--</span>
-      </div>
-      <div class="vix-body" id="vixBodyTools">
-        <div class="vix-loading">暂无数据</div>
-      </div>
-      <div class="vix-trend">
-        <div class="vix-trend-header">
-          <span class="vix-trend-label">趋势</span>
-          <div class="vix-toggle-group">
-            <button class="vix-toggle-btn active" data-period="1w" onclick="switchVixPeriod('1w','vixTrendImgTools')">1周</button>
-            <button class="vix-toggle-btn" data-period="1m" onclick="switchVixPeriod('1m','vixTrendImgTools')">1月</button>
-          </div>
-        </div>
-        <img id="vixTrendImgTools" loading="lazy" src="docs/charts/vix_trend_1w.svg" alt="VIX趋势图" onerror="this.style.display='none'">
-        <div class="vix-trend-note">盘中数据更新以实际走势为准</div>
-      </div>
-    </div>
-
-    <!-- Future tools placeholder -->
-    <div class="section" style="text-align:center; padding: 20px; color: #94A3B8; font-size: 13px;">
-      <div class="big" style="font-size: 28px; margin-bottom: 8px;">📈</div>
-      <p>更多数据工具正在开发中...</p>
-      <p style="font-size: 11px; margin-top: 4px;">黄金/原油比价 · 美债收益率 · FedWatch利率概率</p>
-    </div>
-  </div>
-
-  <!-- ================================================================ -->
-  <!-- Tab: 扬说·AI产业链                                                   -->
-  <!-- ================================================================ -->
-  <div class="tab-content" id="tab-ai">
-
-    <!-- ===== Column Head: Chain ===== -->
-    <div class="ys-colhead ys-reveal" style="--ch-color: var(--ys-chain);">
-      <div class="ys-colhead-bar"></div>
-      <div class="ys-colhead-body">
-        <div class="ys-colhead-eyebrow">CHAIN</div>
-        <div class="ys-colhead-title">扬说·AI产业链</div>
-        <div class="ys-colhead-slogan">从上游到下游，从技术到公司，一期看懂一条产业链。</div>
-        <div class="ys-colhead-freq">专题更新</div>
-      </div>
-    </div>
-
-    <div class="section">
-      <h2>🤖 AI产业链洞察 <span style="font-size: 11px; color: #94A3B8; font-weight: 400;">— 不定期更新 · 深度分析</span></h2>
-      <div id="aiChainList">
-        <div class="no-data"><span class="big">⏳</span>内容编辑中</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ===== Featured Content ===== -->
-  <section class="ys-featured ys-reveal">
-    <div class="ys-featured-head">
-      <div class="ys-featured-kicker">FEATURED</div>
-      <div class="ys-featured-title">精选内容</div>
-    </div>
-    <div class="ys-featured-grid">
-      <a class="ys-fcard" href="#" onclick="switchTab('daily');return false;" style="border-top:3px solid var(--ys-daily);">
-        <span class="ys-fcard-tag" style="color:var(--ys-daily);">DAILY</span>
-        <div class="ys-fcard-title">今日日报</div>
-        <div class="ys-fcard-desc">查看今日最新早报和晚报内容</div>
-      </a>
-      <a class="ys-fcard" href="#" onclick="switchTab('deep');return false;" style="border-top:3px solid var(--ys-depth);">
-        <span class="ys-fcard-tag" style="color:var(--ys-depth);">DEPTH</span>
-        <div class="ys-fcard-title">本周深度</div>
-        <div class="ys-fcard-desc">每周一篇深度研究专题</div>
-      </a>
-      <a class="ys-fcard" href="#" onclick="switchTab('tools');return false;" style="border-top:3px solid var(--ys-data);">
-        <span class="ys-fcard-tag" style="color:var(--ys-data);">DATA</span>
-        <div class="ys-fcard-title">数据看板</div>
-        <div class="ys-fcard-desc">VIX恐慌指数等关键市场指标</div>
-      </a>
-      <a class="ys-fcard" href="#" onclick="switchTab('ai');return false;" style="border-top:3px solid var(--ys-chain);">
-        <span class="ys-fcard-tag" style="color:var(--ys-chain);">CHAIN</span>
-        <div class="ys-fcard-title">产业链专题</div>
-        <div class="ys-fcard-desc">从技术到公司，看懂产业链全貌</div>
-      </a>
-    </div>
-  </section>
-
-  <!-- ===== Brand Separator ===== -->
-  <div class="ys-separator ys-reveal">
-    <span class="ys-separator-text">不只看涨跌，更要看懂背后的逻辑</span>
-  </div>
-
-  <!-- Share QR Modal -->
-  <div class="share-qr-modal" id="qrModal" onclick="if(event.target==this)closeQR()">
-    <div class="share-qr-box">
-      <img id="qrImage" src="" alt="分享二维码">
-      <div class="qr-hint">📱 长按或截图分享给朋友</div>
-      <button class="qr-close" onclick="closeQR()">关闭</button>
-    </div>
-  </div>
-
-  <!-- ===== Brand Footer ===== -->
-  <footer class="ys-footer ys-reveal">
-        <div class="ys-footer-wordmark">
-      <span class="ys-footer-wordmark__yang">
-        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          <pattern id="grid-footer" width="10" height="10" patternUnits="userSpaceOnUse">
-            <path d="M10 0L0 0 0 10" fill="none" stroke="#E2E8F0" stroke-width="0.3" opacity="0.5"/>
-          </pattern>
-          <rect x="0" y="0" width="100" height="100" fill="url(#grid-footer)" rx="4"/>
-          <rect x="5" y="10" width="18" height="80" rx="3" fill="#2563EB"/>
-          <rect x="2" y="10" width="24" height="8" rx="2" fill="#2563EB"/>
-          <polygon points="23,72 23,80 45,58 45,50" fill="#60A5FA"/>
-          <rect x="36" y="8" width="58" height="42" rx="4" fill="none" stroke="#2563EB" stroke-width="5"/>
-          <line x1="40" y1="29" x2="88" y2="29" stroke="#60A5FA" stroke-width="3" stroke-linecap="round"/>
-          <polygon points="36,58 68,58 78,92 30,92" fill="#DBEAFE" stroke="#3B82F6" stroke-width="3"/>
-          <line x1="44" y1="62" x2="44" y2="88" stroke="#93C5FD" stroke-width="2" stroke-linecap="round"/>
-          <line x1="52" y1="58" x2="52" y2="90" stroke="#60A5FA" stroke-width="2.5" stroke-linecap="round"/>
-          <line x1="60" y1="55" x2="60" y2="91" stroke="#3B82F6" stroke-width="2" stroke-linecap="round"/>
-          <line x1="68" y1="58" x2="68" y2="86" stroke="#93C5FD" stroke-width="1.5" stroke-linecap="round"/>
-          <circle cx="93" cy="14" r="3.5" fill="#C6922E"/>
-          <circle cx="93" cy="14" r="7" fill="none" stroke="#C6922E" stroke-width="0.8" opacity="0.4"/>
+    <div class="ys-footer-seal">
+      <span class="ys-seal ys-seal--footer" aria-hidden="true">
+        <svg viewBox="0 0 48 48" class="ys-seal__svg">
+          <defs>
+            <linearGradient id="ysSeal-footer" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#C0392B"/><stop offset="100%" stop-color="#A8281C"/>
+            </linearGradient>
+          </defs>
+          <rect x="2" y="2" width="44" height="44" rx="12" fill="url(#ysSeal-footer)"/>
+          <rect x="5.5" y="5.5" width="37" height="37" rx="9" fill="none"
+                stroke="rgba(251,247,242,.55)" stroke-width="1.3"/>
         </svg>
-      </span>
-      <span class="ys-footer-wordmark__text">
-        <strong>扬说财经</strong>
-        <em>主理人 · 俞孜扬</em>
+        <span class="ys-seal__char">扬</span>
       </span>
     </div>
     <div class="ys-footer-slogan">把市场讲清楚，把产业看明白。</div>
