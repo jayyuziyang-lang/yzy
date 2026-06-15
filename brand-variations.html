@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>扬 — 字体样式对比</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{
+  min-height:100vh;
+  background:#0d1a26;
+  font-family:"Noto Serif SC","SimSun",serif;
+  padding:40px 20px;
+}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+  gap:24px;
+  max-width:1200px;
+  margin:0 auto;
+}
+.card{
+  position:relative;
+  border-radius:16px;
+  background:linear-gradient(148deg,#f9f6ef 0%,#efe8db 42%,#f5f1e7 100%);
+  padding:36px 28px 28px;
+  text-align:center;
+  box-shadow:0 8px 32px rgba(7,17,28,.15);
+  transition:transform .2s,box-shadow .2s;
+}
+.card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 16px 48px rgba(7,17,28,.22);
+}
+.card-label{
+  font-size:13px;
+  font-weight:600;
+  color:#8b7355;
+  letter-spacing:.08em;
+  margin-bottom:20px;
+  text-transform:uppercase;
+}
+.yang-display{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  height:120px;
+  margin-bottom:8px;
+}
+.yang-display svg{
+  width:clamp(100px,16vw,160px);
+  height:auto;
+}
+.desc{
+  font-size:11px;
+  color:#9a8b7a;
+  margin-top:12px;
+  line-height:1.5;
+}
+
+/* Shared gold gradient */
+</style>
+</head>
+<body>
+
+<div class="grid">
+
+<!-- 1. 行楷 · 意气飞扬 -->
+<div class="card">
+  <div class="card-label">01 · 行楷意气</div>
+  <div class="yang-display">
+    <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#5c3a10"/><stop offset="35%" stop-color="#e8c97a"/>
+          <stop offset="55%" stop-color="#f5deb3"/><stop offset="78%" stop-color="#c89a3c"/>
+          <stop offset="100%" stop-color="#5c3a10"/>
+        </linearGradient>
+        <filter id="f1" x="-20%" y="-20%" width="140%" height="140%">
+          <feDropShadow dx="0.1" dy="0.2" stdDeviation="0.15" flood-color="#1a0e04" flood-opacity="0.35"/>
+        </filter>
+      </defs>
+      <text x="24" y="38" text-anchor="middle"
+        font-family="'STXingkai','KaiTi','Noto Serif SC',serif"
+        font-size="36" font-weight="bold" fill="url(#g1)" filter="url(#f1)"
+        transform="skewX(-6) translate(1,0)" font-style="italic">扬</text>
+      <text x="23.8" y="37.7" text-anchor="middle"
+        font-family="'STXingkai','KaiTi','Noto Serif SC',serif"
+        font-size="36" font-weight="bold" fill="#FEF9ED" opacity="0.08"
+        transform="skewX(-6) translate(1,0)" font-style="italic">扬</text>
+    </svg>
+  </div>
+  <div class="desc">行楷字体 · 微斜6° · 笔意流动感<br>潇洒有骨，意气风发</div>
+</div>
+
+<!-- 2. 草势 · 奔放不羁 -->
+<div class="card">
+  <div class="card-label">02 · 草势奔放</div>
+  <div class="yang-display">
+    <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="g2" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#4a2a08"/><stop offset="30%" stop-color="#d4a54a"/>
+          <stop offset="50%" stop-color="#f5deb3"/><stop offset="70%" stop-color="#b8862c"/>
+          <stop offset="100%" stop-color="#4a2a08"/>
+        </linearGradient>
+        <filter id="f2" x="-25%" y="-25%" width="150%" height="150%">
+          <feDropShadow dx="0.15" dy="0.25" stdDeviation="0.2" flood-color="#1a0e04" flood-opacity="0.4"/>
+        </filter>
+      </defs>
+      <text x="23" y="39" text-anchor="middle"
+        font-family="'STXingkai','KaiTi','FangSong','SimSun',serif"
+        font-size="38" font-weight="900" fill="url(#g2)" filter="url(#f2)"
+        transform="rotate(-4,24,24) skewX(-10)">扬</text>
+      <text x="22.8" y="38.7" text-anchor="middle"
+        font-family="'STXingkai','KaiTi','FangSong','SimSun',serif"
+        font-size="38" font-weight="900" fill="#FEF9ED" opacity="0.07"
+        transform="rotate(-4,24,24) skewX(-10)">扬</text>
+    </svg>
+  </div>
+  <div class="desc">仿草书体感 · 旋转-4°+歪斜10°<br>奔放有力，笔走龙蛇</div>
+</div>
+
+<!-- 3. 瘦金 · 风骨凌厉 -->
+<div class="card">
+  <div class="card-label">03 · 瘦金风骨</div>
+  <div class="yang-display">
+    <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="g3" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#6b4a1a"/><stop offset="40%" stop-color="#d4a54a"/>
+          <stop offset="60%" stop-color="#f0d89c"/><stop offset="100%" stop-color="#6b4a1a"/>
+        </linearGradient>
+        <filter id="f3" x="-20%" y="-20%" width="140%" height="140%">
+          <feDropShadow dx="0.08" dy="0.15" stdDeviation="0.1" flood-color="#1a0e04" flood-opacity="0.3"/>
+        </filter>
+      </defs>
+      <text x="24" y="36" text-anchor="middle"
+        font-family="'FangSong','KaiTi','Noto Serif SC',serif"
+        font-size="34" font-weight="lighter" fill="url(#g3)" filter="url(#f3)"
+        letter-spacing="-2">扬</text>
+      <text x="23.9" y="35.8" text-anchor="middle"
+        font-family="'FangSong','KaiTi','Noto Serif SC',serif"
+        font-size="34" font-weight="lighter" fill="#FEF9ED" opacity="0.06"
+        letter-spacing="-2">扬</text>
+    </svg>
+  </div>
+  <div class="desc">仿宋/楷体细字 · 轻盈挺拔<br>风骨凌厉，优雅克制</div>
+</div>
+
+<!-- 4. 碑刻 · 刀削斧劈 -->
+<div class="card">
+  <div class="card-label">04 · 碑刻斧劈</div>
+  <div class="yang-display">
+    <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="g4" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#8b6914"/><stop offset="35%" stop-color="#e8c97a"/>
+          <stop offset="65%" stop-color="#c89a3c"/><stop offset="100%" stop-color="#3a2008"/>
+        </linearGradient>
+        <filter id="f4" x="-20%" y="-20%" width="140%" height="140%">
+          <feDropShadow dx="0.1" dy="0.3" stdDeviation="0.25" flood-color="#1a0e04" flood-opacity="0.45"/>
+          <feDropShadow dx="-0.05" dy="-0.05" stdDeviation="0.1" flood-color="#f5deb3" flood-opacity="0.12"/>
+        </filter>
+      </defs>
+      <text x="24" y="38" text-anchor="middle"
+        font-family="'SimHei','STHeiti','Microsoft YaHei',sans-serif"
+        font-size="38" font-weight="900" fill="url(#g4)" filter="url(#f4)"
+        stroke="#2a1806" stroke-width="0.3">扬</text>
+      <text x="23.85" y="37.8" text-anchor="middle"
+        font-family="'SimHei','STHeiti','Microsoft YaHei',sans-serif"
+        font-size="38" font-weight="900" fill="#FEF9ED" opacity="0.06">扬</text>
+    </svg>
+  </div>
+  <div class="desc">黑体粗字+描边 · 上下渐变<br>气势磅礴，如碑如刻</div>
+</div>
+
+<!-- 5. 飞白 · 墨韵留痕 -->
+<div class="card">
+  <div class="card-label">05 · 飞白墨韵</div>
+  <div class="yang-display">
+    <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="g5" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#4a2a08"/><stop offset="30%" stop-color="#c89a3c"/>
+          <stop offset="55%" stop-color="#f5deb3"/><stop offset="100%" stop-color="#4a2a08"/>
+        </linearGradient>
+        <filter id="f5" x="-20%" y="-20%" width="140%" height="140%">
+          <feDropShadow dx="0.1" dy="0.2" stdDeviation="0.18" flood-color="#1a0e04" flood-opacity="0.35"/>
+        </filter>
+        <!-- Texture: simulate brush stroke dryness -->
+        <pattern id="texture" x="0" y="0" width="3" height="3" patternUnits="userSpaceOnUse">
+          <circle cx="1.5" cy="1.5" r="0.35" fill="#1a0e04" opacity="0.08"/>
+          <circle cx="2.8" cy="0.3" r="0.2" fill="#1a0e04" opacity="0.04"/>
+        </pattern>
+        <mask id="brushMask">
+          <text x="24" y="38" text-anchor="middle"
+            font-family="'STXingkai','KaiTi','SimSun',serif"
+            font-size="36" font-weight="bold" fill="white"
+            transform="skewX(-4)">扬</text>
+          <!-- Simulate worn edges -->
+          <circle cx="10" cy="28" r="3" fill="black" opacity="0.25"/>
+          <circle cx="35" cy="14" r="2.5" fill="black" opacity="0.18"/>
+          <circle cx="28" cy="36" r="2" fill="black" opacity="0.2"/>
+          <circle cx="16" cy="12" r="1.8" fill="black" opacity="0.15"/>
+        </mask>
+      </defs>
+      <!-- Under-layer: rich dark -->
+      <text x="24.3" y="38.3" text-anchor="middle"
+        font-family="'STXingkai','KaiTi','SimSun',serif"
+        font-size="36" font-weight="bold" fill="#2a1806" opacity="0.3"
+        transform="skewX(-4)">扬</text>
+      <!-- Main: gold with mask -->
+      <text x="24" y="38" text-anchor="middle"
+        font-family="'STXingkai','KaiTi','SimSun',serif"
+        font-size="36" font-weight="bold" fill="url(#g5)" filter="url(#f5)"
+        transform="skewX(-4)" mask="url(#brushMask)">扬</text>
+      <!-- Highlight -->
+      <text x="23.85" y="37.8" text-anchor="middle"
+        font-family="'STXingkai','KaiTi','SimSun',serif"
+        font-size="36" font-weight="bold" fill="#FEF9ED" opacity="0.07"
+        transform="skewX(-4)">扬</text>
+    </svg>
+  </div>
+  <div class="desc">仿飞白枯笔 · 边缘缺损纹理<br>墨韵斑驳，笔力千钧</div>
+</div>
+
+<!-- 6. 舒展 · 一气呵成 -->
+<div class="card">
+  <div class="card-label">06 · 一气舒展</div>
+  <div class="yang-display">
+    <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="g6" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#7a4f16"/><stop offset="25%" stop-color="#e8c97a"/>
+          <stop offset="50%" stop-color="#fdf3d0"/><stop offset="75%" stop-color="#c89a3c"/>
+          <stop offset="100%" stop-color="#5c3a10"/>
+        </linearGradient>
+        <filter id="f6" x="-25%" y="-25%" width="150%" height="150%">
+          <feDropShadow dx="0.12" dy="0.2" stdDeviation="0.16" flood-color="#1a0e04" flood-opacity="0.38"/>
+        </filter>
+      </defs>
+      <text x="24" y="37" text-anchor="middle"
+        font-family="'KaiTi','STKaiti','FangSong',serif"
+        font-size="38" font-weight="600" fill="url(#g6)" filter="url(#f6)"
+        transform="rotate(-3,24,24)" letter-spacing="4">扬</text>
+      <text x="23.85" y="36.8" text-anchor="middle"
+        font-family="'KaiTi','STKaiti','FangSong',serif"
+        font-size="38" font-weight="600" fill="#FEF9ED" opacity="0.06"
+        transform="rotate(-3,24,24)" letter-spacing="4">扬</text>
+    </svg>
+  </div>
+  <div class="desc">楷体舒展 · 字间距+4 · 微旋-3°<br>宽绰从容，一气呵成</div>
+</div>
+
+</div>
+
+</body>
+</html>

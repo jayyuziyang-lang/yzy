@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>扬说·财经 — 完整品牌 · 选一款</title>
+<link href="https://fonts.googleapis.com/css2?family=Liu+Jian+Mao+Cao&family=Ma+Shan+Zheng&family=Zhi+Mang+Xing&family=Noto+Serif+SC:wght@400;700;900&family=Noto+Sans+SC:wght@400;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/misans-webfont/misans/misans-bold/result.min.css">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{min-height:100vh;background:#0d1a26;font-family:"Noto Serif SC",serif;padding:32px 20px 80px;}
+h2{text-align:center;color:#d4a54a;font-size:20px;font-weight:400;letter-spacing:.12em;margin-bottom:6px;}
+.sub{text-align:center;color:rgba(212,165,74,.45);font-size:11px;margin-bottom:36px;letter-spacing:.08em;}
+
+.grid{display:flex;flex-direction:column;gap:32px;max-width:960px;margin:0 auto;}
+
+.brand{
+  position:relative;isolation:isolate;overflow:hidden;
+  border-radius:24px;
+  padding:clamp(36px,6vw,56px) clamp(28px,6vw,64px);
+  box-shadow:0 12px 48px rgba(7,17,28,.18);
+  transition:transform .2s,box-shadow .2s;
+}
+.brand:hover{transform:translateY(-3px);box-shadow:0 20px 60px rgba(7,17,28,.28);}
+.brand::before{
+  content:"";position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.07;
+  background:repeating-linear-gradient(0deg,transparent 0 48px,rgba(16,38,59,.06) 49px 50px),repeating-linear-gradient(90deg,transparent 0 56px,rgba(16,38,59,.04) 57px 58px),linear-gradient(154deg,transparent 49%,rgba(200,164,93,.1) 50%,rgba(200,164,93,.1) 51%,transparent 52%);
+}
+
+.bg1{background:radial-gradient(circle at 14% 28%,rgba(243,213,134,.16),transparent 35%),radial-gradient(circle at 80% 62%,rgba(185,199,211,.09),transparent 36%),linear-gradient(140deg,#f9f6ef 0%,#efe8db 42%,#f5f1e7 100%);}
+.bg2{background:radial-gradient(circle at 22% 24%,rgba(243,213,134,.14),transparent 37%),radial-gradient(circle at 74% 66%,rgba(200,154,60,.06),transparent 34%),linear-gradient(143deg,#faf7f0 0%,#f2ece0 38%,#f6f2e8 100%);}
+.bg3{background:radial-gradient(circle at 16% 30%,rgba(243,213,134,.13),transparent 36%),radial-gradient(circle at 78% 60%,rgba(185,199,211,.07),transparent 35%),linear-gradient(142deg,#f9f5ee 0%,#efe7d9 40%,#f5f0e6 100%);}
+.bg4{background:radial-gradient(circle at 50% 28%,rgba(243,213,134,.11),transparent 40%),radial-gradient(circle at 30% 64%,rgba(185,199,211,.06),transparent 33%),linear-gradient(146deg,#fcfaf5 0%,#f4efe4 35%,#f8f4ec 100%);}
+
+.wordmark{position:relative;z-index:1;display:flex;align-items:flex-end;gap:0;}
+
+/* 扬 */
+.yang-svg{
+  flex:none;
+  width:clamp(120px,16vw,200px);
+  height:auto;
+  filter:drop-shadow(0 10px 20px rgba(122,79,22,.2)) drop-shadow(0 2px 3px rgba(243,213,134,.28));
+  margin-right:clamp(-18px,-2.2vw,-10px);
+}
+.yang-svg svg{display:block;width:100%;height:auto;}
+
+/* 说 — bigger */
+.say-svg{
+  flex:none;
+  width:clamp(80px,11vw,140px);
+  height:auto;
+  margin-right:clamp(4px,0.6vw,10px);
+}
+.say-svg svg{display:block;width:100%;height:auto;}
+
+/* 财经 */
+.text-group{
+  display:flex;flex-direction:column;
+  justify-content:flex-end;
+  padding-bottom:clamp(10px,1.6vw,20px);
+}
+.text-main{
+  font-size:clamp(40px,5.8vw,88px);
+  line-height:1.05;
+}
+.text-sub{
+  font-size:clamp(9px,0.9vw,12px);
+  font-weight:600;letter-spacing:.28em;text-transform:uppercase;
+  margin-top:2px;
+}
+
+/* ── Badge ── */
+.badge{display:inline-block;margin-bottom:14px;padding:4px 14px;border-radius:14px;font-size:11px;font-weight:700;letter-spacing:.1em;background:rgba(200,154,60,.14);color:#8b5e24;}
+.desc-line{margin-top:12px;font-size:10.5px;line-height:1.6;}
+
+/* ═══ Theme 1: MiSans Bold — 小米几何黑体 ═══ */
+.t1 .text-main{
+  font-family:"MiSans Bold","Noto Sans SC","Microsoft YaHei",sans-serif;
+  font-weight:700;
+  color:#0f1d2a;
+  letter-spacing:.06em;
+  text-shadow:0 1px 0 rgba(255,255,255,.5),0 4px 12px rgba(7,17,28,.1);
+}
+.t1 .text-sub{color:rgba(13,26,38,.34);}
+
+/* ═══ Theme 2: Noto Sans SC Black 900 — 极粗无衬线 ═══ */
+.t2 .text-main{
+  font-family:'Noto Sans SC','Microsoft YaHei','PingFang SC',sans-serif;
+  font-weight:900;
+  color:#0d1b2d;
+  letter-spacing:.04em;
+  text-shadow:0 1px 0 rgba(255,255,255,.48),0 4px 14px rgba(7,17,28,.12);
+}
+.t2 .text-sub{color:rgba(13,26,38,.32);}
+
+/* ═══ Theme 3: 大字距极简 — 留白美学 ═══ */
+.t3 .text-main{
+  font-family:'Noto Sans SC','Microsoft YaHei',sans-serif;
+  font-weight:900;
+  font-size:clamp(42px,6.2vw,92px);
+  color:#14100a;
+  letter-spacing:.16em;
+  text-shadow:0 1px 0 rgba(255,255,255,.4),0 2px 6px rgba(20,16,10,.06);
+}
+.t3 .text-sub{color:rgba(20,16,10,.26);}
+
+/* ═══ Theme 4: MiSans + 金色微光 ═══ */
+.t4 .text-main{
+  font-family:"MiSans Bold","Noto Sans SC",sans-serif;
+  font-weight:700;
+  font-size:clamp(42px,6.2vw,90px);
+  color:#8b6914;
+  letter-spacing:.06em;
+  text-shadow:0 1px 0 rgba(243,213,134,.4),0 3px 10px rgba(139,105,20,.22);
+}
+.t4 .text-sub{color:rgba(139,105,20,.4);}
+
+@media(max-width:640px){
+  .wordmark{flex-direction:column;align-items:flex-start;}
+  .yang-svg{width:clamp(90px,28vw,140px);margin-right:0;}
+  .say-svg{width:clamp(64px,20vw,110px);}
+  .text-group{padding-bottom:0;}
+}
+</style>
+</head>
+<body>
+
+<h2>扬说·财经 — 完整品牌方案</h2>
+<div class="sub">扬：醉笔斜阳+K线 / 说：声波扩散·放大 / 财经：四种全新字体</div>
+
+<div class="grid">
+
+<!-- ═══════════ 方案一: MiSans Bold 几何黑体 ═══════════ -->
+<div class="brand bg1 t1">
+  <div class="badge">方案一 · MiSans 几何财经</div>
+  <div class="wordmark">
+
+    <!-- 扬 + K线 -->
+    <span class="yang-svg">
+      <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="g1y" x1="0" y1="0" x2="1.3" y2="1.2">
+            <stop offset="0%" stop-color="#3a2008"/><stop offset="18%" stop-color="#8b5e24"/><stop offset="35%" stop-color="#d4a54a"/><stop offset="50%" stop-color="#fef9ed"/><stop offset="65%" stop-color="#e8c97a"/><stop offset="82%" stop-color="#9b621c"/><stop offset="100%" stop-color="#3a2008"/>
+          </linearGradient>
+          <filter id="f1y" x="-20%" y="-20%" width="140%" height="140%">
+            <feDropShadow dx="0.08" dy="0.15" stdDeviation="0.14" flood-color="#140a02" flood-opacity="0.38"/>
+          </filter>
+        </defs>
+        <!-- K-line cluster bottom -->
+        <g opacity="0.18">
+          <line x1="6" y1="42" x2="6" y2="44.5" stroke="#6f4515" stroke-width="0.35" stroke-linecap="round"/>
+          <rect x="5.2" y="41.5" width="1.6" height="2.5" rx="0.25" fill="#c0392b" opacity="0.55"/>
+          <line x1="11" y1="40" x2="11" y2="44.5" stroke="#8b5e24" stroke-width="0.35" stroke-linecap="round"/>
+          <rect x="10.2" y="39" width="1.6" height="4" rx="0.25" fill="#c0392b" opacity="0.6"/>
+          <line x1="16" y1="39.5" x2="16" y2="44.5" stroke="#8b5e24" stroke-width="0.35" stroke-linecap="round"/>
+          <rect x="15.2" y="38.5" width="1.6" height="3.8" rx="0.25" fill="#c0392b" opacity="0.65"/>
+          <line x1="21" y1="38" x2="21" y2="44" stroke="#6f4515" stroke-width="0.35" stroke-linecap="round"/>
+          <rect x="20.2" y="37" width="1.6" height="5" rx="0.25" fill="#16A34A" opacity="0.5"/>
+          <line x1="26" y1="38.5" x2="26" y2="44" stroke="#8b5e24" stroke-width="0.35" stroke-linecap="round"/>
+          <rect x="25.2" y="39" width="1.6" height="4.2" rx="0.25" fill="#c0392b" opacity="0.6"/>
+          <line x1="31" y1="37" x2="31" y2="44" stroke="#6f4515" stroke-width="0.35" stroke-linecap="round"/>
+          <rect x="30.2" y="36.5" width="1.6" height="5.5" rx="0.25" fill="#c0392b" opacity="0.7"/>
+          <!-- ascending trend line -->
+          <path d="M4 43 L32 37.5" fill="none" stroke="#c89a3c" stroke-width="0.45" stroke-linecap="round" stroke-dasharray="1.2,0.6" opacity="0.55"/>
+        </g>
+        <!-- 扬 3D -->
+        <g text-anchor="middle" font-family="'Liu Jian Mao Cao','Ma Shan Zheng',cursive" font-size="36" font-weight="400">
+          <text x="24" y="38" fill="#1a0a02" opacity="0.5" transform="rotate(-8,24,24) skewX(-10) translate(0.6,0.8)">扬</text>
+          <text x="24" y="38" fill="#3a1e08" opacity="0.42" transform="rotate(-8,24,24) skewX(-10) translate(0.42,0.55)">扬</text>
+          <text x="24" y="38" fill="#5c3614" opacity="0.38" transform="rotate(-8,24,24) skewX(-10) translate(0.28,0.36)">扬</text>
+          <text x="24" y="38" fill="#7a4f1e" opacity="0.4" transform="rotate(-8,24,24) skewX(-10) translate(0.16,0.22)">扬</text>
+          <text x="24" y="38" fill="#9b6b28" opacity="0.48" transform="rotate(-8,24,24) skewX(-10) translate(0.08,0.1)">扬</text>
+          <text x="24" y="38" fill="#b8862c" opacity="0.55" transform="rotate(-8,24,24) skewX(-10) translate(0.03,0.05)">扬</text>
+          <text x="24" y="38" fill="url(#g1y)" filter="url(#f1y)" transform="rotate(-8,24,24) skewX(-10)">扬</text>
+          <text x="23.88" y="37.85" fill="white" opacity="0.15" transform="rotate(-8,24,24) skewX(-10)">扬</text>
+        </g>
+        <!-- Gold pearl -->
+        <circle cx="7" cy="5" r="2" fill="#D4A54A" opacity=".88"/><circle cx="7" cy="5" r="3.8" fill="#C8963E" opacity=".12"/><circle cx="6.5" cy="4.5" r="0.8" fill="#FEF9ED" opacity=".65"/>
+      </svg>
+    </span>
+
+    <!-- 说 + 声波增强 -->
+    <span class="say-svg">
+      <svg viewBox="0 0 36 48" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="g1s" x1="0" y1="0" x2="1" y2="1.2">
+            <stop offset="0%" stop-color="#2a1a08"/><stop offset="40%" stop-color="#6b4a1e"/><stop offset="70%" stop-color="#9b6b28"/><stop offset="100%" stop-color="#2a1a08"/>
+          </linearGradient>
+          <filter id="f1s"><feDropShadow dx="0.05" dy="0.1" stdDeviation="0.1" flood-color="#140a02" flood-opacity="0.25"/></filter>
+        </defs>
+        <!-- Sound ripples from 口 center (~x=26 y=28) -->
+        <g opacity="0.24">
+          <!-- Full ripples -->
+          <ellipse cx="26" cy="28" rx="6" ry="4.5" fill="none" stroke="#c89a3c" stroke-width="0.55" opacity=".75"/>
+          <ellipse cx="26" cy="28" rx="9" ry="6.5" fill="none" stroke="#c89a3c" stroke-width="0.45" opacity=".55"/>
+          <ellipse cx="26" cy="28" rx="12.5" ry="9" fill="none" stroke="#c89a3c" stroke-width="0.35" opacity=".38"/>
+          <ellipse cx="26" cy="28" rx="16" ry="11.5" fill="none" stroke="#c89a3c" stroke-width="0.22" opacity=".2"/>
+          <!-- Directional arcs (toward upper-right, the "speaking" direction) -->
+          <path d="M24 21 Q29 14 35 18" fill="none" stroke="#d4a54a" stroke-width="0.5" opacity=".55"/>
+          <path d="M22 18 Q29 10 37 15" fill="none" stroke="#d4a54a" stroke-width="0.35" opacity=".4"/>
+          <!-- Quotation-mark inspired arcs near 言 radical -->
+          <path d="M4 16 Q1 14 3 10" fill="none" stroke="#c89a3c" stroke-width="0.6" opacity=".4" stroke-linecap="round"/>
+          <path d="M8 14 Q5 12 7 8" fill="none" stroke="#c89a3c" stroke-width="0.5" opacity=".3" stroke-linecap="round"/>
+        </g>
+        <!-- 说 3D -->
+        <g text-anchor="middle" font-family="'Zhi Mang Xing','Ma Shan Zheng',cursive" font-size="27" font-weight="400">
+          <text x="18" y="35" fill="#1a0a02" opacity="0.4" transform="translate(0.35,0.45)">说</text>
+          <text x="18" y="35" fill="#3a1e08" opacity="0.35" transform="translate(0.2,0.28)">说</text>
+          <text x="18" y="35" fill="#6b4518" opacity="0.38" transform="translate(0.08,0.12)">说</text>
+          <text x="18" y="35" fill="url(#g1s)" filter="url(#f1s)">说</text>
+          <text x="17.94" y="34.9" fill="white" opacity="0.1">说</text>
+        </g>
+        <!-- 口 sound source glow -->
+        <circle cx="26" cy="28" r="2" fill="#d4a54a" opacity=".28"/>
+        <circle cx="26" cy="28" r="3.5" fill="#d4a54a" opacity=".1"/>
+      </svg>
+    </span>
+
+    <span class="text-group">
+      <span class="text-main">财经</span>
+      <span class="text-sub">YANG SAYS · FINANCE</span>
+    </span>
+  </div>
+  <div class="desc-line" style="color:rgba(107,90,62,.55)">小米 MiSans Bold · 几何现代黑体<br>字形方正、笔画干脆，财经科技感强烈</div>
+</div>
+
+<!-- ═══════════ 方案二: Noto Sans SC Black 900 ═══════════ -->
+<div class="brand bg2 t2">
+  <div class="badge">方案二 · 极粗黑体财经</div>
+  <div class="wordmark">
+
+    <span class="yang-svg">
+      <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="g2y" x1="0" y1="0" x2="1.3" y2="1.2">
+            <stop offset="0%" stop-color="#3a2008"/><stop offset="18%" stop-color="#8b5e24"/><stop offset="35%" stop-color="#d4a54a"/><stop offset="50%" stop-color="#fef9ed"/><stop offset="65%" stop-color="#e8c97a"/><stop offset="82%" stop-color="#9b621c"/><stop offset="100%" stop-color="#3a2008"/>
+          </linearGradient>
+          <filter id="f2y" x="-20%" y="-20%" width="140%" height="140%">
+            <feDropShadow dx="0.08" dy="0.15" stdDeviation="0.14" flood-color="#140a02" flood-opacity="0.38"/>
+          </filter>
+        </defs>
+        <g opacity="0.18">
+          <line x1="6" y1="42" x2="6" y2="44.5" stroke="#6f4515" stroke-width="0.35" stroke-linecap="round"/>
+          <rect x="5.2" y="41.5" width="1.6" height="2.5" rx="0.25" fill="#c0392b" opacity="0.55"/>
+          <line x1="11" y1="40" x2="11" y2="44.5" stroke="#8b5e24" stroke-width="0.35" stroke-linecap="round"/>
+          <rect x="10.2" y="39" width="1.6" height="4" rx="0.25" fill="#c0392b" opacity="0.6"/>
+          <line x1="16" y1="39.5" x2="16" y2="44.5" stroke="#8b5e24" stroke-width="0.35" stroke-linecap="round"/>
+          <rect x="15.2" y="38.5" width="1.6" height="3.8" rx="0.25" fill="#c0392b" opacity="0.65"/>
+          <line x1="21" y1="38" x2="21" y2="44" stroke="#6f4515" stroke-width="0.35" stroke-linecap="round"/>
+          <rect x="20.2" y="37" width="1.6" height="5" rx="0.25" fill="#16A34A" opacity="0.5"/>
+          <line x1="26" y1="38.5" x2="26" y2="44" stroke="#8b5e24" stroke-width="0.35" stroke-linecap="round"/>
+          <rect x="25.2" y="39" width="1.6" height="4.2" rx="0.25" fill="#c0392b" opacity="0.6"/>
+          <line x1="31" y1="37" x2="31" y2="44" stroke="#6f4515" stroke-width="0.35" stroke-linecap="round"/>
+          <rect x="30.2" y="36.5" width="1.6" height="5.5" rx="0.25" fill="#c0392b" opacity="0.7"/>
+          <path d="M4 43 L32 37.5" fill="none" stroke="#c89a3c" stroke-width="0.45" stroke-linecap="round" stroke-dasharray="1.2,0.6" opacity="0.55"/>
+        </g>
+        <g text-anchor="middle" font-family="'Liu Jian Mao Cao','Ma Shan Zheng',cursive" font-size="36" font-weight="400">
+          <text x="24" y="38" fill="#1a0a02" opacity="0.5" transform="rotate(-8,24,24) skewX(-10) translate(0.6,0.8)">扬</text>
+          <text x="24" y="38" fill="#3a1e08" opacity="0.42" transform="rotate(-8,24,24) skewX(-10) translate(0.42,0.55)">扬</text>
+          <text x="24" y="38" fill="#5c3614" opacity="0.38" transform="rotate(-8,24,24) skewX(-10) translate(0.28,0.36)">扬</text>
+          <text x="24" y="38" fill="#7a4f1e" opacity="0.4" transform="rotate(-8,24,24) skewX(-10) translate(0.16,0.22)">扬</text>
+          <text x="24" y="38" fill="#9b6b28" opacity="0.48" transform="rotate(-8,24,24) skewX(-10) translate(0.08,0.1)">扬</text>
+          <text x="24" y="38" fill="#b8862c" opacity="0.55" transform="rotate(-8,24,24) skewX(-10) translate(0.03,0.05)">扬</text>
+          <text x="24" y="38" fill="url(#g2y)" filter="url(#f2y)" transform="rotate(-8,24,24) skewX(-10)">扬</text>
+          <text x="23.88" y="37.85" fill="white" opacity="0.15" transform="rotate(-8,24,24) skewX(-10)">扬</text>
+        </g>
+        <circle cx="7" cy="5" r="2" fill="#D4A54A" opacity=".88"/><circle cx="7" cy="5" r="3.8" fill="#C8963E" opacity=".12"/><circle cx="6.5" cy="4.5" r="0.8" fill="#FEF9ED" opacity=".65"/>
+      </svg>
+    </span>
+
+    <span class="say-svg">
+      <svg viewBox="0 0 36 48" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="g2s" x1="0" y1="0" x2="1" y2="1.2">
+            <stop offset="0%" stop-color="#2a1a08"/><stop offset="40%" stop-color="#6b4a1e"/><stop offset="70%" stop-color="#9b6b28"/><stop offset="100%" stop-color="#2a1a08"/>
+          </linearGradient>
+          <filter id="f2s"><feDropShadow dx="0.05" dy="0.1" stdDeviation="0.1" flood-color="#140a02" flood-opacity="0.25"/></filter>
+        </defs>
+        <g opacity="0.24">
+          <ellipse cx="26" cy="28" rx="6" ry="4.5" fill="none" stroke="#c89a3c" stroke-width="0.55" opacity=".75"/>
+          <ellipse cx="26" cy="28" rx="9" ry="6.5" fill="none" stroke="#c89a3c" stroke-width="0.45" opacity=".55"/>
+          <ellipse cx="26" cy="28" rx="12.5" ry="9" fill="none" stroke="#c89a3c" stroke-width="0.35" opacity=".38"/>
+          <ellipse cx="26" cy="28" rx="16" ry="11.5" fill="none" stroke="#c89a3c" stroke-width="0.22" opacity=".2"/>
+          <path d="M24 21 Q29 14 35 18" fill="none" stroke="#d4a54a" stroke-width="0.5" opacity=".55"/>
+          <path d="M22 18 Q29 10 37 15" fill="none" stroke="#d4a54a" stroke-width="0.35" opacity=".4"/>
+          <path d="M4 16 Q1 14 3 10" fill="none" stroke="#c89a3c" stroke-width="0.6" opacity=".4" stroke-linecap="round"/>
+          <path d="M8 14 Q5 12 7 8" fill="none" stroke="#c89a3c" stroke-width="0.5" opacity=".3" stroke-linecap="round"/>
+        </g>
+        <g text-anchor="middle" font-family="'Zhi Mang Xing','Ma Shan Zheng',cursive" font-size="27" font-weight="400">
+          <text x="18" y="35" fill="#1a0a02" opacity="0.4" transform="translate(0.35,0.45)">说</text>
+          <text x="18" y="35" fill="#3a1e08" opacity="0.35" transform="translate(0.2,0.28)">说</text>
+          <text x="18" y="35" fill="#6b4518" opacity="0.38" transform="translate(0.08,0.12)">说</text>
+          <text x="18" y="35" fill="url(#g2s)" filter="url(#f2s)">说</text>
+          <text x="17.94" y="34.9" fill="white" opacity="0.1">说</text>
+        </g>
+        <circle cx="26" cy="28" r="2" fill="#d4a54a" opacity=".28"/>
+        <circle cx="26" cy="28" r="3.5" fill="#d4a54a" opacity=".1"/>
+      </svg>
+    </span>
+
+    <span class="text-group">
+      <span class="text-main">财经</span>
+      <span class="text-sub">YANG SAYS · FINANCE</span>
+    </span>
+  </div>
+  <div class="desc-line" style="color:rgba(107,90,62,.55)">Noto Sans SC Black 900 · 思源黑体极粗<br>最权威的免费中文粗体，笔画极致饱满</div>
+</div>
+
+<!-- ═══════════ 方案三: 大字距极简 ═══════════ -->
+<div class="brand bg3 t3">
+  <div class="badge">方案三 · 大字距极简</div>
+  <div class="wordmark">
+
+    <span class="yang-svg">
+      <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="g3y" x1="0" y1="0" x2="1.3" y2="1.2">
+            <stop offset="0%" stop-color="#3a2008"/><stop offset="18%" stop-color="#8b5e24"/><stop offset="35%" stop-color="#d4a54a"/><stop offset="50%" stop-color="#fef9ed"/><stop offset="65%" stop-color="#e8c97a"/><stop offset="82%" stop-color="#9b621c"/><stop offset="100%" stop-color="#3a2008"/>
+          </linearGradient>
+          <filter id="f3y" x="-20%" y="-20%" width="140%" height="140%">
+            <feDropShadow dx="0.08" dy="0.15" stdDeviation="0.14" flood-color="#140a02" flood-opacity="0.38"/>
+          </filter>
+        </defs>
+        <g opacity="0.18">
+          <line x1="6" y1="42" x2="6" y2="44.5" stroke="#6f4515" stroke-width="0.35" stroke-linecap="round"/>
+          <rect x="5.2" y="41.5" width="1.6" height="2.5" rx="0.25" fill="#c0392b" opacity="0.55"/>
+          <line x1="11" y1="40" x2="11" y2="44.5" stroke="#8b5e24" stroke-width="0.35" stroke-linecap="round"/>
+          <rect x="10.2" y="39" width="1.6" height="4" rx="0.25" fill="#c0392b" opacity="0.6"/>
+          <line x1="16" y1="39.5" x2="16" y2="44.5" stroke="#8b5e24" stroke-width="0.35" stroke-linecap="round"/>
+          <rect x="15.2" y="38.5" width="1.6" height="3.8" rx="0.25" fill="#c0392b" opacity="0.65"/>
+          <line x1="21" y1="38" x2="21" y2="44" stroke="#6f4515" stroke-width="0.35" stroke-linecap="round"/>
+          <rect x="20.2" y="37" width="1.6" height="5" rx="0.25" fill="#16A34A" opacity="0.5"/>
+          <line x1="26" y1="38.5" x2="26" y2="44" stroke="#8b5e24" stroke-width="0.35" stroke-linecap="round"/>
+          <rect x="25.2" y="39" width="1.6" height="4.2" rx="0.25" fill="#c0392b" opacity="0.6"/>
+          <line x1="31" y1="37" x2="31" y2="44" stroke="#6f4515" stroke-width="0.35" stroke-linecap="round"/>
+          <rect x="30.2" y="36.5" width="1.6" height="5.5" rx="0.25" fill="#c0392b" opacity="0.7"/>
+          <path d="M4 43 L32 37.5" fill="none" stroke="#c89a3c" stroke-width="0.45" stroke-linecap="round" stroke-dasharray="1.2,0.6" opacity="0.55"/>
+        </g>
+        <g text-anchor="middle" font-family="'Liu Jian Mao Cao','Ma Shan Zheng',cursive" font-size="36" font-weight="400">
+          <text x="24" y="38" fill="#1a0a02" opacity="0.5" transform="rotate(-8,24,24) skewX(-10) translate(0.6,0.8)">扬</text>
+          <text x="24" y="38" fill="#3a1e08" opacity="0.42" transform="rotate(-8,24,24) skewX(-10) translate(0.42,0.55)">扬</text>
+          <text x="24" y="38" fill="#5c3614" opacity="0.38" transform="rotate(-8,24,24) skewX(-10) translate(0.28,0.36)">扬</text>
+          <text x="24" y="38" fill="#7a4f1e" opacity="0.4" transform="rotate(-8,24,24) skewX(-10) translate(0.16,0.22)">扬</text>
+          <text x="24" y="38" fill="#9b6b28" opacity="0.48" transform="rotate(-8,24,24) skewX(-10) translate(0.08,0.1)">扬</text>
+          <text x="24" y="38" fill="#b8862c" opacity="0.55" transform="rotate(-8,24,24) skewX(-10) translate(0.03,0.05)">扬</text>
+          <text x="24" y="38" fill="url(#g3y)" filter="url(#f3y)" transform="rotate(-8,24,24) skewX(-10)">扬</text>
+          <text x="23.88" y="37.85" fill="white" opacity="0.15" transform="rotate(-8,24,24) skewX(-10)">扬</text>
+        </g>
+        <circle cx="7" cy="5" r="2" fill="#D4A54A" opacity=".88"/><circle cx="7" cy="5" r="3.8" fill="#C8963E" opacity=".12"/><circle cx="6.5" cy="4.5" r="0.8" fill="#FEF9ED" opacity=".65"/>
+      </svg>
+    </span>
+
+    <span class="say-svg">
+      <svg viewBox="0 0 36 48" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="g3s" x1="0" y1="0" x2="1" y2="1.2">
+            <stop offset="0%" stop-color="#2a1a08"/><stop offset="40%" stop-color="#6b4a1e"/><stop offset="70%" stop-color="#9b6b28"/><stop offset="100%" stop-color="#2a1a08"/>
+          </linearGradient>
+          <filter id="f3s"><feDropShadow dx="0.05" dy="0.1" stdDeviation="0.1" flood-color="#140a02" flood-opacity="0.25"/></filter>
+        </defs>
+        <g opacity="0.24">
+          <ellipse cx="26" cy="28" rx="6" ry="4.5" fill="none" stroke="#c89a3c" stroke-width="0.55" opacity=".75"/>
+          <ellipse cx="26" cy="28" rx="9" ry="6.5" fill="none" stroke="#c89a3c" stroke-width="0.45" opacity=".55"/>
+          <ellipse cx="26" cy="28" rx="12.5" ry="9" fill="none" stroke="#c89a3c" stroke-width="0.35" opacity=".38"/>
+          <ellipse cx="26" cy="28" rx="16" ry="11.5" fill="none" stroke="#c89a3c" stroke-width="0.22" opacity=".2"/>
+          <path d="M24 21 Q29 14 35 18" fill="none" stroke="#d4a54a" stroke-width="0.5" opacity=".55"/>
+          <path d="M22 18 Q29 10 37 15" fill="none" stroke="#d4a54a" stroke-width="0.35" opacity=".4"/>
+          <path d="M4 16 Q1 14 3 10" fill="none" stroke="#c89a3c" stroke-width="0.6" opacity=".4" stroke-linecap="round"/>
+          <path d="M8 14 Q5 12 7 8" fill="none" stroke="#c89a3c" stroke-width="0.5" opacity=".3" stroke-linecap="round"/>
+        </g>
+        <g text-anchor="middle" font-family="'Zhi Mang Xing','Ma Shan Zheng',cursive" font-size="27" font-weight="400">
+          <text x="18" y="35" fill="#1a0a02" opacity="0.4" transform="translate(0.35,0.45)">说</text>
+          <text x="18" y="35" fill="#3a1e08" opacity="0.35" transform="translate(0.2,0.28)">说</text>
+          <text x="18" y="35" fill="#6b4518" opacity="0.38" transform="translate(0.08,0.12)">说</text>
+          <text x="18" y="35" fill="url(#g3s)" filter="url(#f3s)">说</text>
+          <text x="17.94" y="34.9" fill="white" opacity="0.1">说</text>
+        </g>
+        <circle cx="26" cy="28" r="2" fill="#d4a54a" opacity=".28"/>
+        <circle cx="26" cy="28" r="3.5" fill="#d4a54a" opacity=".1"/>
+      </svg>
+    </span>
+
+    <span class="text-group">
+      <span class="text-main">财 经</span>
+      <span class="text-sub">YANG SAYS · FINANCE</span>
+    </span>
+  </div>
+  <div class="desc-line" style="color:rgba(122,107,80,.55)">Noto Sans SC 900 · 字距0.16em极宽<br>两字间大量留白，极致简约，每个字独立撑场</div>
+</div>
+
+<!-- ═══════════ 方案四: MiSans + 金棕 ═══════════ -->
+<div class="brand bg4 t4">
+  <div class="badge">方案四 · 金棕财经</div>
+  <div class="wordmark">
+
+    <span class="yang-svg">
+      <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="g4y" x1="0" y1="0" x2="1.3" y2="1.2">
+            <stop offset="0%" stop-color="#3a2008"/><stop offset="18%" stop-color="#8b5e24"/><stop offset="35%" stop-color="#d4a54a"/><stop offset="50%" stop-color="#fef9ed"/><stop offset="65%" stop-color="#e8c97a"/><stop offset="82%" stop-color="#9b621c"/><stop offset="100%" stop-color="#3a2008"/>
+          </linearGradient>
+          <filter id="f4y" x="-20%" y="-20%" width="140%" height="140%">
+            <feDropShadow dx="0.08" dy="0.15" stdDeviation="0.14" flood-color="#140a02" flood-opacity="0.38"/>
+          </filter>
+        </defs>
+        <g opacity="0.18">
+          <line x1="6" y1="42" x2="6" y2="44.5" stroke="#6f4515" stroke-width="0.35" stroke-linecap="round"/>
+          <rect x="5.2" y="41.5" width="1.6" height="2.5" rx="0.25" fill="#c0392b" opacity="0.55"/>
+          <line x1="11" y1="40" x2="11" y2="44.5" stroke="#8b5e24" stroke-width="0.35" stroke-linecap="round"/>
+          <rect x="10.2" y="39" width="1.6" height="4" rx="0.25" fill="#c0392b" opacity="0.6"/>
+          <line x1="16" y1="39.5" x2="16" y2="44.5" stroke="#8b5e24" stroke-width="0.35" stroke-linecap="round"/>
+          <rect x="15.2" y="38.5" width="1.6" height="3.8" rx="0.25" fill="#c0392b" opacity="0.65"/>
+          <line x1="21" y1="38" x2="21" y2="44" stroke="#6f4515" stroke-width="0.35" stroke-linecap="round"/>
+          <rect x="20.2" y="37" width="1.6" height="5" rx="0.25" fill="#16A34A" opacity="0.5"/>
+          <line x1="26" y1="38.5" x2="26" y2="44" stroke="#8b5e24" stroke-width="0.35" stroke-linecap="round"/>
+          <rect x="25.2" y="39" width="1.6" height="4.2" rx="0.25" fill="#c0392b" opacity="0.6"/>
+          <line x1="31" y1="37" x2="31" y2="44" stroke="#6f4515" stroke-width="0.35" stroke-linecap="round"/>
+          <rect x="30.2" y="36.5" width="1.6" height="5.5" rx="0.25" fill="#c0392b" opacity="0.7"/>
+          <path d="M4 43 L32 37.5" fill="none" stroke="#c89a3c" stroke-width="0.45" stroke-linecap="round" stroke-dasharray="1.2,0.6" opacity="0.55"/>
+        </g>
+        <g text-anchor="middle" font-family="'Liu Jian Mao Cao','Ma Shan Zheng',cursive" font-size="36" font-weight="400">
+          <text x="24" y="38" fill="#1a0a02" opacity="0.5" transform="rotate(-8,24,24) skewX(-10) translate(0.6,0.8)">扬</text>
+          <text x="24" y="38" fill="#3a1e08" opacity="0.42" transform="rotate(-8,24,24) skewX(-10) translate(0.42,0.55)">扬</text>
+          <text x="24" y="38" fill="#5c3614" opacity="0.38" transform="rotate(-8,24,24) skewX(-10) translate(0.28,0.36)">扬</text>
+          <text x="24" y="38" fill="#7a4f1e" opacity="0.4" transform="rotate(-8,24,24) skewX(-10) translate(0.16,0.22)">扬</text>
+          <text x="24" y="38" fill="#9b6b28" opacity="0.48" transform="rotate(-8,24,24) skewX(-10) translate(0.08,0.1)">扬</text>
+          <text x="24" y="38" fill="#b8862c" opacity="0.55" transform="rotate(-8,24,24) skewX(-10) translate(0.03,0.05)">扬</text>
+          <text x="24" y="38" fill="url(#g4y)" filter="url(#f4y)" transform="rotate(-8,24,24) skewX(-10)">扬</text>
+          <text x="23.88" y="37.85" fill="white" opacity="0.15" transform="rotate(-8,24,24) skewX(-10)">扬</text>
+        </g>
+        <circle cx="7" cy="5" r="2" fill="#D4A54A" opacity=".88"/><circle cx="7" cy="5" r="3.8" fill="#C8963E" opacity=".12"/><circle cx="6.5" cy="4.5" r="0.8" fill="#FEF9ED" opacity=".65"/>
+      </svg>
+    </span>
+
+    <span class="say-svg">
+      <svg viewBox="0 0 36 48" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="g4s" x1="0" y1="0" x2="1" y2="1.2">
+            <stop offset="0%" stop-color="#2a1a08"/><stop offset="40%" stop-color="#6b4a1e"/><stop offset="70%" stop-color="#9b6b28"/><stop offset="100%" stop-color="#2a1a08"/>
+          </linearGradient>
+          <filter id="f4s"><feDropShadow dx="0.05" dy="0.1" stdDeviation="0.1" flood-color="#140a02" flood-opacity="0.25"/></filter>
+        </defs>
+        <g opacity="0.24">
+          <ellipse cx="26" cy="28" rx="6" ry="4.5" fill="none" stroke="#c89a3c" stroke-width="0.55" opacity=".75"/>
+          <ellipse cx="26" cy="28" rx="9" ry="6.5" fill="none" stroke="#c89a3c" stroke-width="0.45" opacity=".55"/>
+          <ellipse cx="26" cy="28" rx="12.5" ry="9" fill="none" stroke="#c89a3c" stroke-width="0.35" opacity=".38"/>
+          <ellipse cx="26" cy="28" rx="16" ry="11.5" fill="none" stroke="#c89a3c" stroke-width="0.22" opacity=".2"/>
+          <path d="M24 21 Q29 14 35 18" fill="none" stroke="#d4a54a" stroke-width="0.5" opacity=".55"/>
+          <path d="M22 18 Q29 10 37 15" fill="none" stroke="#d4a54a" stroke-width="0.35" opacity=".4"/>
+          <path d="M4 16 Q1 14 3 10" fill="none" stroke="#c89a3c" stroke-width="0.6" opacity=".4" stroke-linecap="round"/>
+          <path d="M8 14 Q5 12 7 8" fill="none" stroke="#c89a3c" stroke-width="0.5" opacity=".3" stroke-linecap="round"/>
+        </g>
+        <g text-anchor="middle" font-family="'Zhi Mang Xing','Ma Shan Zheng',cursive" font-size="27" font-weight="400">
+          <text x="18" y="35" fill="#1a0a02" opacity="0.4" transform="translate(0.35,0.45)">说</text>
+          <text x="18" y="35" fill="#3a1e08" opacity="0.35" transform="translate(0.2,0.28)">说</text>
+          <text x="18" y="35" fill="#6b4518" opacity="0.38" transform="translate(0.08,0.12)">说</text>
+          <text x="18" y="35" fill="url(#g4s)" filter="url(#f4s)">说</text>
+          <text x="17.94" y="34.9" fill="white" opacity="0.1">说</text>
+        </g>
+        <circle cx="26" cy="28" r="2" fill="#d4a54a" opacity=".28"/>
+        <circle cx="26" cy="28" r="3.5" fill="#d4a54a" opacity=".1"/>
+      </svg>
+    </span>
+
+    <span class="text-group">
+      <span class="text-main">财经</span>
+      <span class="text-sub">YANG SAYS · FINANCE</span>
+    </span>
+  </div>
+  <div class="desc-line" style="color:rgba(139,105,20,.52)">小米 MiSans Bold · 古铜金棕<br>与扬的金色同温层，三字色调统一，品牌感最强</div>
+</div>
+
+</div>
+
+</body>
+</html>
