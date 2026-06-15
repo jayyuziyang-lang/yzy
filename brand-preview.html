@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>扬说·财经 · 品牌视觉预览</title>
+<style>
+/* ===== Reset & Base ===== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#0d1a26; /* deep navy surround */
+  font-family:"Noto Serif SC","Source Han Serif SC","Songti SC","SimSun",serif;
+}
+/* ===== Brand Card ===== */
+.card{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  width:min(860px,94vw);
+  padding:clamp(40px,8vw,88px) clamp(28px,6vw,72px) clamp(36px,6vw,64px);
+  border-radius:28px;
+  background:
+    /* gold glow top-left */
+    radial-gradient(circle at 16% 24%, rgba(243,213,134,.26), transparent 32%),
+    /* ink-blue mist bottom-right */
+    radial-gradient(circle at 78% 68%, rgba(185,199,211,.14), transparent 38%),
+    /* warm paper base */
+    linear-gradient(142deg, #f9f6ef 0%, #efe8db 42%, #f5f1e7 100%);
+  box-shadow:
+    0 32px 96px rgba(7,17,28,.22),
+    0 8px 24px rgba(7,17,28,.10),
+    inset 0 1px 0 rgba(255,255,255,.68);
+}
+
+/* ===== Background Decor: K-line / trend lines ===== */
+.card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  opacity:.12;
+  background:
+    /* horizontal grid lines */
+    repeating-linear-gradient(0deg, transparent 0 44px, rgba(16,38,59,.08) 45px 46px),
+    /* vertical grid lines */
+    repeating-linear-gradient(90deg, transparent 0 52px, rgba(16,38,59,.06) 53px 54px),
+    /* ascending trend line (上扬) */
+    linear-gradient(152deg, transparent 48%, rgba(200,164,93,.16) 49%, rgba(200,164,93,.16) 51%, transparent 52%),
+    /* ink wash mountain silhouette */
+    radial-gradient(ellipse 380px 180px at 14% 92%, rgba(7,17,28,.06) 0%, transparent 70%),
+    radial-gradient(ellipse 260px 120px at 68% 94%, rgba(7,17,28,.04) 0%, transparent 65%);
+  pointer-events:none;
+}
+
+/* ===== Wordmark Container ===== */
+.wordmark{
+  position:relative;
+  display:flex;
+  align-items:flex-end;
+  gap:clamp(10px,1.6vw,22px);
+  z-index:1;
+}
+
+/* ===== 「扬」SVG — Gold Foil 3D Embossed ===== */
+.yang-svg{
+  flex:none;
+  width:clamp(140px,22vw,260px);
+  height:auto;
+  filter:
+    drop-shadow(0 14px 24px rgba(122,79,22,.24))
+    drop-shadow(0 2px 3px rgba(243,213,134,.32));
+  margin-bottom:clamp(-6px,-0.4vw,-2px);
+}
+.yang-svg svg{
+  display:block;
+  width:100%;
+  height:auto;
+}
+
+/* ===== 「说·财经」Metallic Text ===== */
+.text-group{
+  display:flex;
+  flex-direction:column;
+  gap:clamp(4px,0.6vw,10px);
+  padding-bottom:clamp(12px,2vw,28px);
+}
+.text-main{
+  display:flex;
+  align-items:center;
+  gap:clamp(4px,0.8vw,12px);
+  font-size:clamp(38px,5.8vw,86px);
+  font-weight:800;
+  line-height:1.05;
+  letter-spacing:.06em;
+  color:#10263b;
+  text-shadow:
+    0 1px 0 rgba(232,235,237,.9),
+    0 2px 1px rgba(174,182,188,.5),
+    0 10px 22px rgba(7,17,28,.14);
+}
+.text-dot{
+  color:#c89a3c;
+  font-weight:900;
+  text-shadow:
+    0 1px 0 #f3d586,
+    0 6px 14px rgba(200,154,60,.28);
+}
+.text-sub{
+  font-size:clamp(10px,1.1vw,14px);
+  font-weight:600;
+  letter-spacing:.32em;
+  color:rgba(13,26,38,.48);
+  text-transform:uppercase;
+}
+
+/* ===== Responsive ===== */
+@media (max-width:640px){
+  .wordmark{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+  .yang-svg{
+    width:clamp(110px,34vw,180px);
+  }
+  .text-group{
+    padding-bottom:0;
+  }
+  .text-main{
+    font-size:clamp(34px,10vw,56px);
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="wordmark" aria-label="扬说·财经">
+
+    <!-- 「扬」3D Gold Foil SVG -->
+    <span class="yang-svg" aria-hidden="true">
+      <svg viewBox="0 0 320 360" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <!-- Gold foil gradient -->
+          <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#7a4f16"/>
+            <stop offset="22%" stop-color="#b07a2e"/>
+            <stop offset="42%" stop-color="#f3d586"/>
+            <stop offset="56%" stop-color="#c89a3c"/>
+            <stop offset="72%" stop-color="#f3d586"/>
+            <stop offset="88%" stop-color="#9b621c"/>
+            <stop offset="100%" stop-color="#6f4515"/>
+          </linearGradient>
+          <!-- Dark shadow gradient (underlayer) -->
+          <linearGradient id="shadow-grad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#4a2e0e"/>
+            <stop offset="100%" stop-color="#2a1806"/>
+          </linearGradient>
+          <!-- Filters -->
+          <filter id="emboss" x="-12%" y="-12%" width="124%" height="124%">
+            <feDropShadow dx="0.3" dy="0.5" stdDeviation="0.6" flood-color="#05162E" flood-opacity="0.42"/>
+          </filter>
+          <filter id="glow" x="-80%" y="-80%" width="260%" height="260%">
+            <feGaussianBlur stdDeviation="3.5" result="blur"/>
+            <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+          </filter>
+        </defs>
+
+        <g filter="url(#emboss)">
+          <!-- Layer 1: Shadow (offset right-down) -->
+          <g fill="none" stroke-linecap="round" stroke-linejoin="round"
+             stroke="#2a1806" opacity="0.28" transform="translate(3.5,4)">
+            <path d="M52 78 Q82 64 128 78" stroke-width="18"/>
+            <path d="M88 74 Q92 160 82 228 Q78 244 58 238" stroke-width="20"/>
+            <path d="M54 176 Q82 142 128 118" stroke-width="16"/>
+            <path d="M134 76 L134 118 Q134 134 172 124 L226 118 Q238 116 232 146 Q216 188 186 222 Q164 242 142 226" stroke-width="17"/>
+            <path d="M170 96 Q144 138 136 196" stroke-width="14"/>
+            <path d="M214 96 Q190 142 176 186" stroke-width="12"/>
+          </g>
+
+          <!-- Layer 2: Main strokes (gold) -->
+          <g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke="url(#gold)">
+            <!-- 扌 horizontal -->
+            <path d="M52 78 Q82 64 128 78" stroke-width="18"/>
+            <!-- 扌 vertical + hook -->
+            <path d="M88 74 Q92 160 82 228 Q78 244 58 238" stroke-width="20"/>
+            <!-- 扌 rising -->
+            <path d="M54 176 Q82 142 128 118" stroke-width="16"/>
+            <!-- Right compound -->
+            <path d="M134 76 L134 118 Q134 134 172 124 L226 118 Q238 116 232 146 Q216 188 186 222 Q164 242 142 226" stroke-width="17"/>
+            <!-- Right sweep 1 -->
+            <path d="M170 96 Q144 138 136 196" stroke-width="14"/>
+            <!-- Right sweep 2 -->
+            <path d="M214 96 Q190 142 176 186" stroke-width="12"/>
+          </g>
+
+          <!-- Layer 3: Highlight (offset left-up, warm white) -->
+          <g fill="none" stroke-linecap="round" stroke-linejoin="round"
+             stroke="#FEF9ED" opacity="0.16" transform="translate(-1.8,-2)">
+            <path d="M52 78 Q82 64 128 78" stroke-width="10"/>
+            <path d="M88 74 Q92 120 88 170" stroke-width="8"/>
+            <path d="M134 76 L134 110 Q134 120 160 114" stroke-width="8"/>
+          </g>
+        </g>
+
+        <!-- Accent: Ink splatter / texture flecks (飞白感) -->
+        <g fill="#3a1f08" opacity="0.14">
+          <circle cx="98" cy="100" r="2.5"/>
+          <circle cx="120" cy="88" r="1.8"/>
+          <circle cx="72" cy="150" r="1.5"/>
+          <circle cx="156" cy="104" r="2.2"/>
+          <circle cx="200" cy="92" r="1.6"/>
+          <circle cx="186" cy="170" r="2"/>
+          <circle cx="220" cy="140" r="1.8"/>
+          <circle cx="160" cy="200" r="1.5"/>
+          <circle cx="140" cy="110" r="1.3"/>
+        </g>
+
+        <!-- Gold accent pearl -->
+        <circle cx="242" cy="84" r="9" fill="#C8963E" filter="url(#glow)" opacity=".9"/>
+        <circle cx="242" cy="84" r="13" fill="#C8963E" opacity=".16"/>
+        <circle cx="240" cy="82" r="3" fill="#F5E6C8" opacity=".7"/>
+
+        <!-- Horizontal sweep stroke extending right (connecting to 说·财经) -->
+        <g filter="url(#emboss)">
+          <path d="M228 240 Q272 226 306 232" fill="none"
+                stroke="#2a1806" stroke-width="7" stroke-linecap="round"
+                opacity="0.22" transform="translate(1.5,2)"/>
+          <path d="M228 240 Q272 226 306 232" fill="none"
+                stroke="url(#gold)" stroke-width="7" stroke-linecap="round" opacity=".72"/>
+          <path d="M228 240 Q272 226 306 232" fill="none"
+                stroke="#FEF9ED" stroke-width="3" stroke-linecap="round"
+                opacity=".20" transform="translate(-1,-1)"/>
+        </g>
+      </svg>
+    </span>
+
+    <!-- 「说·财经」Metallic Text -->
+    <span class="text-group">
+      <span class="text-main" aria-hidden="true">
+        说<span class="text-dot">·</span>财经
+      </span>
+      <span class="text-sub">YANG SAYS &middot; FINANCE</span>
+    </span>
+
+  </div>
+</div>
+
+</body>
+</html>

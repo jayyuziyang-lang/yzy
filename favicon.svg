@@ -1,22 +1,31 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
   <defs>
-    <linearGradient id="f" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#C0392B"/>
-      <stop offset="100%" stop-color="#A8281C"/>
-    </linearGradient>
+    <filter id="sd" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0.3" dy="0.6" stdDeviation="0.8" flood-color="#05162E" flood-opacity="0.35"/>
+    </filter>
   </defs>
-  <rect x="2" y="2" width="44" height="44" rx="12" fill="url(#f)"/>
-  <rect x="5.5" y="5.5" width="37" height="37" rx="9" fill="none"
-        stroke="rgba(251,247,242,.55)" stroke-width="1.3"/>
-  <g fill="none" stroke="#FBF7F2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M7 11.5 Q13 9.5 20 11.5" stroke-width="3.2"/>
-    <path d="M13.5 11 Q14 25 13 37 Q12.5 39 9 38" stroke-width="3.4"/>
-    <path d="M7.5 29 Q13 22.5 20 17" stroke-width="2.6"/>
-    <path d="M22 12 L22 18.5 Q22 20 28 19.5 L36 18 Q38 17.5 37 22.5 Q35 29 30 35 Q26 38.5 22 35" stroke-width="2.8"/>
-    <path d="M28 14 Q22.5 23 20.5 33" stroke-width="2.3"/>
-    <path d="M35 14 Q30 24 27 33" stroke-width="1.8"/>
-    <path d="M36.5 18 Q40 15 42 11" stroke-width="1.6" opacity="0.7"/>
-    <circle cx="42" cy="10" r="1.8" fill="#FBF7F2" opacity="0.85"/>
-    <path d="M39 7 Q40.5 5.5 43 8.5" stroke-width="1.1" opacity="0.6"/>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round" filter="url(#sd)">
+    <g stroke="#05162E" opacity="0.30" transform="translate(1.2,1.5)">
+      <path d="M8.5 12.5 Q13.5 10.5 21 12.5" stroke-width="3.4"/>
+      <path d="M14.5 12 Q15 27 13.5 37.5 Q13 39.5 9.5 38.5" stroke-width="3.8"/>
+      <path d="M9 28.5 Q14 22 21 18" stroke-width="3"/>
+      <path d="M22.5 12.5 L22.5 19.5 Q22.5 21.5 28.5 20 L37 19 Q39 18.5 38 23.5 Q35.5 30.5 30.5 36 Q27 39 23 36.5" stroke-width="3.2"/>
+      <path d="M28.5 15 Q24 22 22.5 31.5" stroke-width="2.6"/>
+      <path d="M35.5 15 Q31.5 23 29 30" stroke-width="2.2"/>
+    </g>
+    <g stroke="#0A2342">
+      <path d="M8.5 12.5 Q13.5 10.5 21 12.5" stroke-width="3.4"/>
+      <path d="M14.5 12 Q15 27 13.5 37.5 Q13 39.5 9.5 38.5" stroke-width="3.8"/>
+      <path d="M9 28.5 Q14 22 21 18" stroke-width="3"/>
+      <path d="M22.5 12.5 L22.5 19.5 Q22.5 21.5 28.5 20 L37 19 Q39 18.5 38 23.5 Q35.5 30.5 30.5 36 Q27 39 23 36.5" stroke-width="3.2"/>
+      <path d="M28.5 15 Q24 22 22.5 31.5" stroke-width="2.6"/>
+      <path d="M35.5 15 Q31.5 23 29 30" stroke-width="2.2"/>
+    </g>
+    <g stroke="#F5F0E8" opacity="0.12" transform="translate(-0.3,-0.3)">
+      <path d="M8.5 12.5 Q13.5 10.5 21 12.5" stroke-width="1.2"/>
+      <path d="M14.5 12 Q15 20 14.5 25" stroke-width="1"/>
+    </g>
   </g>
+  <circle cx="39.5" cy="13" r="2" fill="#C8963E" opacity="0.9"/>
+  <circle cx="39.5" cy="13" r="3.5" fill="#C8963E" opacity="0.2"/>
 </svg>
