@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>扬说财经 · 品牌预览</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    background:#F5F7FB;
+    font-family:"Inter","PingFang SC","Microsoft YaHei",sans-serif;
+    color:#1E293B;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding:60px 20px;
+    gap:60px;
+  }
+
+  /* ===== 预览区卡片 ===== */
+  .preview-card{
+    background:#fff;
+    border-radius:20px;
+    padding:48px;
+    box-shadow:0 1px 3px rgba(0,0,0,.06),0 8px 30px rgba(0,0,0,.04);
+    width:100%;
+    max-width:800px;
+  }
+  .preview-card h3{
+    font-size:11px;
+    letter-spacing:.16em;
+    color:#94A3B8;
+    margin-bottom:32px;
+    font-weight:600;
+  }
+
+  /* ===== 品牌系统 ===== */
+  :root{
+    --bk-ink:#1E293B;
+    --bk-steel:#475569;
+    --bk-slate:#94A3B8;
+    --bk-blue:#2563EB;
+    --bk-blue-deep:#1E3A8A;
+    --bk-gold:#C6922E;
+    --bk-line:#E2E8F0;
+    --bk-bg:#F5F7FB;
+    --font-logo:"Noto Serif SC","Source Han Serif SC","Songti SC","STSong",serif;
+    --font-ui:"Inter","PingFang SC","Microsoft YaHei",sans-serif;
+  }
+
+  /* ===== 品牌容器 ===== */
+  .bk-brand{
+    display:inline-flex;
+    align-items:center;
+    gap:0;
+    text-decoration:none;
+    color:inherit;
+    line-height:1;
+    user-select:none;
+    white-space:nowrap;
+  }
+
+  /* ===== 「扬」几何建筑 SVG ===== */
+  .bk-yang-mark{
+    flex:none;
+    display:block;
+  }
+
+  /* ===== 「说·财经」文字组 ===== */
+  .bk-text-group{
+    display:flex;
+    flex-direction:column;
+    gap:2px;
+    margin-left:2px;
+  }
+  .bk-text-main{
+    display:flex;
+    align-items:baseline;
+    gap:0;
+    line-height:1;
+  }
+  .bk-text-say{
+    font-family:var(--font-logo);
+    font-weight:400;
+    color:var(--bk-steel);
+  }
+  .bk-text-dot{
+    font-family:var(--font-logo);
+    font-weight:700;
+    color:var(--bk-gold);
+  }
+  .bk-text-finance{
+    font-family:var(--font-logo);
+    font-weight:900;
+    color:var(--bk-blue-deep);
+    letter-spacing:.02em;
+  }
+  .bk-text-sub{
+    font-family:var(--font-ui);
+    font-weight:600;
+    color:var(--bk-slate);
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    line-height:1;
+  }
+
+  /* ===== 尺寸档 ===== */
+  /* Nav */
+  .bk-brand--nav .bk-yang-mark{width:34px;height:34px;}
+  .bk-brand--nav .bk-text-say{font-size:15px;}
+  .bk-brand--nav .bk-text-dot{font-size:15px;}
+  .bk-brand--nav .bk-text-finance{font-size:15px;}
+  .bk-brand--nav .bk-text-sub{font-size:9.5px;margin-top:1px;}
+
+  /* Hero */
+  .bk-brand--hero .bk-yang-mark{width:72px;height:72px;}
+  .bk-brand--hero .bk-text-say{font-size:28px;}
+  .bk-brand--hero .bk-text-dot{font-size:28px;}
+  .bk-brand--hero .bk-text-finance{font-size:28px;}
+  .bk-brand--hero .bk-text-sub{font-size:13px;margin-top:2px;}
+
+  /* ===== 分隔线 ===== */
+  .bk-rule{
+    width:100%;
+    height:1px;
+    background:var(--bk-line);
+    margin:32px 0;
+    border:none;
+  }
+
+  /* ===== 设计说明 ===== */
+  .note{
+    font-size:13px;
+    color:#64748B;
+    line-height:1.8;
+    margin-top:20px;
+  }
+  .note strong{color:#1E293B;}
+  .note .tag{
+    display:inline-block;
+    font-size:10px;
+    padding:2px 8px;
+    border-radius:6px;
+    background:#EFF6FF;
+    color:#2563EB;
+    margin-right:6px;
+    font-weight:600;
+    letter-spacing:.04em;
+  }
+</style>
+</head>
+<body>
+
+<!-- ========== 1. Hero 版本 ========== -->
+<div class="preview-card">
+  <h3>HERO · 首页主标题</h3>
+  <div style="display:flex;align-items:center;justify-content:center;padding:20px 0;">
+
+    <a class="bk-brand bk-brand--hero" href="#">
+
+      <!-- 「扬」几何建筑符号 -->
+      <svg class="bk-yang-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <!-- 背景网格：极浅，参考交易图表 -->
+        <pattern id="grid-hero" width="10" height="10" patternUnits="userSpaceOnUse">
+          <path d="M10 0L0 0 0 10" fill="none" stroke="#E2E8F0" stroke-width="0.3" opacity="0.5"/>
+        </pattern>
+        <rect x="0" y="0" width="100" height="100" fill="url(#grid-hero)" rx="4"/>
+
+        <!-- 扌 左部：垂直主块 + 短横 + 提笔走势 -->
+        <rect x="5" y="10" width="18" height="80" rx="3" fill="#1E3A8A"/>
+        <!-- 短横 -->
+        <rect x="2" y="10" width="24" height="8" rx="2" fill="#1E3A8A"/>
+        <!-- 提笔走势：从竖块向右上挑出 -->
+        <polygon points="23,72 23,80 45,58 45,50" fill="#3B82F6"/>
+
+        <!-- 右部上方：日字框 — 开放几何框架 -->
+        <rect x="36" y="8" width="58" height="42" rx="4" fill="none" stroke="#1E3A8A" stroke-width="5"/>
+        <!-- 日字中横 — 故意不完全贯穿，产生空间感 -->
+        <line x1="40" y1="29" x2="88" y2="29" stroke="#3B82F6" stroke-width="3" stroke-linecap="round"/>
+
+        <!-- 右部下方：展开形态 — 上升台阶 -->
+        <polygon points="36,58 68,58 78,92 30,92" fill="#DBEAFE" stroke="#2563EB" stroke-width="3"/>
+        <!-- 内部结构线：暗示多根K线/柱状图 -->
+        <line x1="44" y1="62" x2="44" y2="88" stroke="#93C5FD" stroke-width="2" stroke-linecap="round"/>
+        <line x1="52" y1="58" x2="52" y2="90" stroke="#60A5FA" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="60" y1="55" x2="60" y2="91" stroke="#3B82F6" stroke-width="2" stroke-linecap="round"/>
+        <line x1="68" y1="58" x2="68" y2="86" stroke="#93C5FD" stroke-width="1.5" stroke-linecap="round"/>
+
+        <!-- 金点：品牌签名 -->
+        <circle cx="93" cy="14" r="3.5" fill="#C6922E"/>
+        <circle cx="93" cy="14" r="7" fill="none" stroke="#C6922E" stroke-width="0.8" opacity="0.4"/>
+      </svg>
+
+      <!-- 「说·财经」文字组 -->
+      <span class="bk-text-group">
+        <span class="bk-text-main">
+          <span class="bk-text-say">说</span>
+          <span class="bk-text-dot">·</span>
+          <span class="bk-text-finance">财经</span>
+        </span>
+        <span class="bk-text-sub">YANG SAYS FINANCE</span>
+      </span>
+
+    </a>
+
+  </div>
+</div>
+
+<!-- ========== 2. 导航版本 ========== -->
+<div class="preview-card">
+  <h3>NAV · 顶部导航栏</h3>
+  <div style="display:flex;align-items:center;padding:12px 0;background:#fff;border-bottom:1px solid #E2E8F0;">
+
+    <a class="bk-brand bk-brand--nav" href="#">
+
+      <svg class="bk-yang-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <pattern id="grid-nav" width="10" height="10" patternUnits="userSpaceOnUse">
+          <path d="M10 0L0 0 0 10" fill="none" stroke="#E2E8F0" stroke-width="0.3" opacity="0.5"/>
+        </pattern>
+        <rect x="0" y="0" width="100" height="100" fill="url(#grid-nav)" rx="4"/>
+        <rect x="5" y="10" width="18" height="80" rx="3" fill="#1E3A8A"/>
+        <rect x="2" y="10" width="24" height="8" rx="2" fill="#1E3A8A"/>
+        <polygon points="23,72 23,80 45,58 45,50" fill="#3B82F6"/>
+        <rect x="36" y="8" width="58" height="42" rx="4" fill="none" stroke="#1E3A8A" stroke-width="5"/>
+        <line x1="40" y1="29" x2="88" y2="29" stroke="#3B82F6" stroke-width="3" stroke-linecap="round"/>
+        <polygon points="36,58 68,58 78,92 30,92" fill="#DBEAFE" stroke="#2563EB" stroke-width="3"/>
+        <line x1="44" y1="62" x2="44" y2="88" stroke="#93C5FD" stroke-width="2" stroke-linecap="round"/>
+        <line x1="52" y1="58" x2="52" y2="90" stroke="#60A5FA" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="60" y1="55" x2="60" y2="91" stroke="#3B82F6" stroke-width="2" stroke-linecap="round"/>
+        <line x1="68" y1="58" x2="68" y2="86" stroke="#93C5FD" stroke-width="1.5" stroke-linecap="round"/>
+        <circle cx="93" cy="14" r="3.5" fill="#C6922E"/>
+        <circle cx="93" cy="14" r="7" fill="none" stroke="#C6922E" stroke-width="0.8" opacity="0.4"/>
+      </svg>
+
+      <span class="bk-text-group">
+        <span class="bk-text-main">
+          <span class="bk-text-say">说</span>
+          <span class="bk-text-dot">·</span>
+          <span class="bk-text-finance">财经</span>
+        </span>
+        <span class="bk-text-sub">YANG SAYS FINANCE</span>
+      </span>
+
+    </a>
+
+  </div>
+</div>
+
+<!-- ========== 3. 设计概念说明 ========== -->
+<div class="preview-card">
+  <h3>设计概念 —「扬」不是一个字，是一座正在上升的几何建筑</h3>
+
+  <p class="note">
+    <span class="tag">左部</span> <strong>扌 → 垂直主块 + 提笔走势</strong><br>
+    深蓝实块代表"立足之本"，向右上挑出的亮蓝三角代表"向上发力"——这是手部的抽象几何化，也是"力"的方向。
+  </p>
+
+  <p class="note">
+    <span class="tag">右部上</span> <strong>日字框 → 开放几何框架</strong><br>
+    用轮廓线而非实心块表达"日"——开放的框架意味着视野和可能性。中横不完全贯穿，留出呼吸空间。
+  </p>
+
+  <p class="note">
+    <span class="tag">右部下</span> <strong>展开形态 → 上升台阶 + K线柱</strong><br>
+    梯形底板代表稳步上升的台阶，内部竖线群呼应K线图/柱状图，把"财经"的基因植入字符结构。
+  </p>
+
+  <p class="note">
+    <span class="tag">金点</span> <strong>右上角唯一暖色</strong><br>
+    全蓝体系中唯一的一点金——像一个签名、一个坐标原点、一个"我在看"的标记。
+  </p>
+
+  <p class="note">
+    <span class="tag">背景网格</span> <strong>交易图表的潜意识引用</strong><br>
+    极淡的网格线让人联想到K线图/建筑设计图纸——它不是装饰，是品牌基因的隐性锚点。
+  </p>
+
+  <p class="note">
+    <span class="tag">字体层次</span> <strong>说</strong>（细灰，视觉呼吸）<strong>·</strong>（金，点睛连接）<strong>财经</strong>（粗蓝，机构感）
+  </p>
+</div>
+
+</body>
+</html>
