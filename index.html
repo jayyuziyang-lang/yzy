@@ -581,22 +581,44 @@
               <stop offset="100%" stop-color="#3a2008"/>
             </linearGradient>
             <filter id="ysSeal-nav-f" x="-20%" y="-20%" width="140%" height="140%">
-              <feDropShadow dx="0.08" dy="0.15" stdDeviation="0.14" flood-color="#140a02" flood-opacity="0.35"/>
+              <feDropShadow dx="0.08" dy="0.15" stdDeviation="0.14" flood-color="#140a02" flood-opacity="0.38"/>
             </filter>
           </defs>
-          <g text-anchor="middle" font-family="'Liu Jian Mao Cao','Ma Shan Zheng',cursive" font-size="36" font-weight="400">
-            <text x="24" y="38" fill="#1a0a02" opacity="0.5" transform="rotate(-6,24,24) skewX(-8) translate(0.5,0.7)">扬</text>
-            <text x="24" y="38" fill="#3a1e08" opacity="0.42" transform="rotate(-6,24,24) skewX(-8) translate(0.35,0.48)">扬</text>
-            <text x="24" y="38" fill="#5c3614" opacity="0.38" transform="rotate(-6,24,24) skewX(-8) translate(0.22,0.3)">扬</text>
-            <text x="24" y="38" fill="#7a4f1e" opacity="0.4" transform="rotate(-6,24,24) skewX(-8) translate(0.12,0.16)">扬</text>
-            <text x="24" y="38" fill="#9b6b28" opacity="0.48" transform="rotate(-6,24,24) skewX(-8) translate(0.05,0.07)">扬</text>
-            <text x="24" y="38" fill="url(#ysSeal-nav)" filter="url(#ysSeal-nav-f)">扬</text>
-            <text x="23.9" y="37.88" fill="white" opacity="0.12">扬</text>
+          <!-- K线集群 + 上升趋势线 -->
+          <g opacity="0.16">
+            <line x1="5" y1="42.5" x2="5" y2="44.8" stroke="#6f4515" stroke-width="0.35" stroke-linecap="round"/>
+            <rect x="4.2" y="42" width="1.6" height="2.5" rx="0.25" fill="#c0392b" opacity="0.5"/>
+            <line x1="10" y1="40.5" x2="10" y2="44.8" stroke="#8b5e24" stroke-width="0.35" stroke-linecap="round"/>
+            <rect x="9.2" y="39.5" width="1.6" height="4" rx="0.25" fill="#c0392b" opacity="0.55"/>
+            <line x1="15" y1="39.5" x2="15" y2="44.8" stroke="#8b5e24" stroke-width="0.35" stroke-linecap="round"/>
+            <rect x="14.2" y="38.5" width="1.6" height="4.2" rx="0.25" fill="#c0392b" opacity="0.6"/>
+            <line x1="20" y1="38" x2="20" y2="44.5" stroke="#6f4515" stroke-width="0.35" stroke-linecap="round"/>
+            <rect x="19.2" y="37" width="1.6" height="5.5" rx="0.25" fill="#16A34A" opacity="0.45"/>
+            <line x1="25" y1="38.5" x2="25" y2="44.5" stroke="#8b5e24" stroke-width="0.35" stroke-linecap="round"/>
+            <rect x="24.2" y="39" width="1.6" height="4.5" rx="0.25" fill="#c0392b" opacity="0.55"/>
+            <line x1="30" y1="37" x2="30" y2="44.5" stroke="#6f4515" stroke-width="0.35" stroke-linecap="round"/>
+            <rect x="29.2" y="36.5" width="1.6" height="6" rx="0.25" fill="#c0392b" opacity="0.65"/>
+            <path d="M3 43.5 L31 37" fill="none" stroke="#c89a3c" stroke-width="0.45" stroke-linecap="round" stroke-dasharray="1.2,0.6" opacity="0.5"/>
           </g>
+          <!-- 扬 3D 挤出 -->
+          <g text-anchor="middle" font-family="'Liu Jian Mao Cao','Ma Shan Zheng',cursive" font-size="36" font-weight="400">
+            <text x="24" y="38" fill="#1a0a02" opacity="0.5" transform="rotate(-8,24,24) skewX(-10) translate(0.6,0.8)">扬</text>
+            <text x="24" y="38" fill="#3a1e08" opacity="0.42" transform="rotate(-8,24,24) skewX(-10) translate(0.42,0.55)">扬</text>
+            <text x="24" y="38" fill="#5c3614" opacity="0.38" transform="rotate(-8,24,24) skewX(-10) translate(0.28,0.36)">扬</text>
+            <text x="24" y="38" fill="#7a4f1e" opacity="0.4" transform="rotate(-8,24,24) skewX(-10) translate(0.16,0.22)">扬</text>
+            <text x="24" y="38" fill="#9b6b28" opacity="0.48" transform="rotate(-8,24,24) skewX(-10) translate(0.08,0.1)">扬</text>
+            <text x="24" y="38" fill="#b8862c" opacity="0.55" transform="rotate(-8,24,24) skewX(-10) translate(0.03,0.05)">扬</text>
+            <text x="24" y="38" fill="url(#ysSeal-nav)" filter="url(#ysSeal-nav-f)" transform="rotate(-8,24,24) skewX(-10)">扬</text>
+            <text x="23.88" y="37.85" fill="white" opacity="0.15" transform="rotate(-8,24,24) skewX(-10)">扬</text>
+          </g>
+          <!-- 金色珍珠 -->
+          <circle cx="7" cy="5" r="2" fill="#D4A54A" opacity=".88"/>
+          <circle cx="7" cy="5" r="3.8" fill="#C8963E" opacity=".12"/>
+          <circle cx="6.5" cy="4.5" r="0.8" fill="#FEF9ED" opacity=".65"/>
         </svg>
       </span>
 
-      <!-- 「说」声波 -->
+      <!-- 「说」声波+喇叭 -->
       <span class="ys-seal ys-seal--say" aria-hidden="true">
         <svg viewBox="0 0 36 48" class="ys-seal__svg">
           <defs>
@@ -606,6 +628,14 @@
             </linearGradient>
             <filter id="ysSay-nav-f"><feDropShadow dx="0.05" dy="0.1" stdDeviation="0.1" flood-color="#140a02" flood-opacity="0.25"/></filter>
           </defs>
+          <!-- 喇叭图标 -->
+          <g opacity="0.3">
+            <rect x="3" y="23" width="3.5" height="7" rx="0.8" fill="none" stroke="#c89a3c" stroke-width="0.7"/>
+            <polygon points="6.5,23 11,20 11,33 6.5,30" fill="#c89a3c" opacity="0.35"/>
+            <path d="M13 24 Q15 26.5 13 29" fill="none" stroke="#c89a3c" stroke-width="0.5" opacity=".6"/>
+            <path d="M15 22 Q18 26.5 15 31" fill="none" stroke="#c89a3c" stroke-width="0.4" opacity=".4"/>
+          </g>
+          <!-- 声波涟漪 -->
           <g opacity="0.22">
             <ellipse cx="26" cy="28" rx="6" ry="4.5" fill="none" stroke="#c89a3c" stroke-width="0.55" opacity=".7"/>
             <ellipse cx="26" cy="28" rx="9" ry="6.5" fill="none" stroke="#c89a3c" stroke-width="0.45" opacity=".5"/>
@@ -663,18 +693,40 @@
                     <stop offset="100%" stop-color="#3a2008"/>
                   </linearGradient>
                   <filter id="ysSeal-hero-f" x="-20%" y="-20%" width="140%" height="140%">
-                    <feDropShadow dx="0.08" dy="0.15" stdDeviation="0.14" flood-color="#140a02" flood-opacity="0.35"/>
+                    <feDropShadow dx="0.08" dy="0.15" stdDeviation="0.14" flood-color="#140a02" flood-opacity="0.38"/>
                   </filter>
                 </defs>
-                <g text-anchor="middle" font-family="'Liu Jian Mao Cao','Ma Shan Zheng',cursive" font-size="36" font-weight="400">
-                  <text x="24" y="38" fill="#1a0a02" opacity="0.5" transform="rotate(-6,24,24) skewX(-8) translate(0.5,0.7)">扬</text>
-                  <text x="24" y="38" fill="#3a1e08" opacity="0.42" transform="rotate(-6,24,24) skewX(-8) translate(0.35,0.48)">扬</text>
-                  <text x="24" y="38" fill="#5c3614" opacity="0.38" transform="rotate(-6,24,24) skewX(-8) translate(0.22,0.3)">扬</text>
-                  <text x="24" y="38" fill="#7a4f1e" opacity="0.4" transform="rotate(-6,24,24) skewX(-8) translate(0.12,0.16)">扬</text>
-                  <text x="24" y="38" fill="#9b6b28" opacity="0.48" transform="rotate(-6,24,24) skewX(-8) translate(0.05,0.07)">扬</text>
-                  <text x="24" y="38" fill="url(#ysSeal-hero)" filter="url(#ysSeal-hero-f)">扬</text>
-                  <text x="23.9" y="37.88" fill="white" opacity="0.12">扬</text>
+                <!-- K线集群 + 上升趋势线 -->
+                <g opacity="0.16">
+                  <line x1="5" y1="42.5" x2="5" y2="44.8" stroke="#6f4515" stroke-width="0.35" stroke-linecap="round"/>
+                  <rect x="4.2" y="42" width="1.6" height="2.5" rx="0.25" fill="#c0392b" opacity="0.5"/>
+                  <line x1="10" y1="40.5" x2="10" y2="44.8" stroke="#8b5e24" stroke-width="0.35" stroke-linecap="round"/>
+                  <rect x="9.2" y="39.5" width="1.6" height="4" rx="0.25" fill="#c0392b" opacity="0.55"/>
+                  <line x1="15" y1="39.5" x2="15" y2="44.8" stroke="#8b5e24" stroke-width="0.35" stroke-linecap="round"/>
+                  <rect x="14.2" y="38.5" width="1.6" height="4.2" rx="0.25" fill="#c0392b" opacity="0.6"/>
+                  <line x1="20" y1="38" x2="20" y2="44.5" stroke="#6f4515" stroke-width="0.35" stroke-linecap="round"/>
+                  <rect x="19.2" y="37" width="1.6" height="5.5" rx="0.25" fill="#16A34A" opacity="0.45"/>
+                  <line x1="25" y1="38.5" x2="25" y2="44.5" stroke="#8b5e24" stroke-width="0.35" stroke-linecap="round"/>
+                  <rect x="24.2" y="39" width="1.6" height="4.5" rx="0.25" fill="#c0392b" opacity="0.55"/>
+                  <line x1="30" y1="37" x2="30" y2="44.5" stroke="#6f4515" stroke-width="0.35" stroke-linecap="round"/>
+                  <rect x="29.2" y="36.5" width="1.6" height="6" rx="0.25" fill="#c0392b" opacity="0.65"/>
+                  <path d="M3 43.5 L31 37" fill="none" stroke="#c89a3c" stroke-width="0.45" stroke-linecap="round" stroke-dasharray="1.2,0.6" opacity="0.5"/>
                 </g>
+                <!-- 扬 3D 挤出 -->
+                <g text-anchor="middle" font-family="'Liu Jian Mao Cao','Ma Shan Zheng',cursive" font-size="36" font-weight="400">
+                  <text x="24" y="38" fill="#1a0a02" opacity="0.5" transform="rotate(-8,24,24) skewX(-10) translate(0.6,0.8)">扬</text>
+                  <text x="24" y="38" fill="#3a1e08" opacity="0.42" transform="rotate(-8,24,24) skewX(-10) translate(0.42,0.55)">扬</text>
+                  <text x="24" y="38" fill="#5c3614" opacity="0.38" transform="rotate(-8,24,24) skewX(-10) translate(0.28,0.36)">扬</text>
+                  <text x="24" y="38" fill="#7a4f1e" opacity="0.4" transform="rotate(-8,24,24) skewX(-10) translate(0.16,0.22)">扬</text>
+                  <text x="24" y="38" fill="#9b6b28" opacity="0.48" transform="rotate(-8,24,24) skewX(-10) translate(0.08,0.1)">扬</text>
+                  <text x="24" y="38" fill="#b8862c" opacity="0.55" transform="rotate(-8,24,24) skewX(-10) translate(0.03,0.05)">扬</text>
+                  <text x="24" y="38" fill="url(#ysSeal-hero)" filter="url(#ysSeal-hero-f)" transform="rotate(-8,24,24) skewX(-10)">扬</text>
+                  <text x="23.88" y="37.85" fill="white" opacity="0.15" transform="rotate(-8,24,24) skewX(-10)">扬</text>
+                </g>
+                <!-- 金色珍珠 -->
+                <circle cx="7" cy="5" r="2" fill="#D4A54A" opacity=".88"/>
+                <circle cx="7" cy="5" r="3.8" fill="#C8963E" opacity=".12"/>
+                <circle cx="6.5" cy="4.5" r="0.8" fill="#FEF9ED" opacity=".65"/>
               </svg>
             </span>
 
@@ -687,6 +739,14 @@
                   </linearGradient>
                   <filter id="ysSay-hero-f"><feDropShadow dx="0.05" dy="0.1" stdDeviation="0.1" flood-color="#140a02" flood-opacity="0.25"/></filter>
                 </defs>
+                <!-- 喇叭图标 -->
+                <g opacity="0.3">
+                  <rect x="3" y="23" width="3.5" height="7" rx="0.8" fill="none" stroke="#c89a3c" stroke-width="0.7"/>
+                  <polygon points="6.5,23 11,20 11,33 6.5,30" fill="#c89a3c" opacity="0.35"/>
+                  <path d="M13 24 Q15 26.5 13 29" fill="none" stroke="#c89a3c" stroke-width="0.5" opacity=".6"/>
+                  <path d="M15 22 Q18 26.5 15 31" fill="none" stroke="#c89a3c" stroke-width="0.4" opacity=".4"/>
+                </g>
+                <!-- 声波涟漪 -->
                 <g opacity="0.22">
                   <ellipse cx="26" cy="28" rx="6" ry="4.5" fill="none" stroke="#c89a3c" stroke-width="0.55" opacity=".7"/>
                   <ellipse cx="26" cy="28" rx="9" ry="6.5" fill="none" stroke="#c89a3c" stroke-width="0.45" opacity=".5"/>
@@ -1161,18 +1221,40 @@
               <stop offset="100%" stop-color="#3a2008"/>
             </linearGradient>
             <filter id="ysSeal-footer-f" x="-20%" y="-20%" width="140%" height="140%">
-              <feDropShadow dx="0.08" dy="0.15" stdDeviation="0.14" flood-color="#140a02" flood-opacity="0.35"/>
+              <feDropShadow dx="0.08" dy="0.15" stdDeviation="0.14" flood-color="#140a02" flood-opacity="0.38"/>
             </filter>
           </defs>
-          <g text-anchor="middle" font-family="'Liu Jian Mao Cao','Ma Shan Zheng',cursive" font-size="36" font-weight="400">
-            <text x="24" y="38" fill="#1a0a02" opacity="0.5" transform="rotate(-6,24,24) skewX(-8) translate(0.5,0.7)">扬</text>
-            <text x="24" y="38" fill="#3a1e08" opacity="0.42" transform="rotate(-6,24,24) skewX(-8) translate(0.35,0.48)">扬</text>
-            <text x="24" y="38" fill="#5c3614" opacity="0.38" transform="rotate(-6,24,24) skewX(-8) translate(0.22,0.3)">扬</text>
-            <text x="24" y="38" fill="#7a4f1e" opacity="0.4" transform="rotate(-6,24,24) skewX(-8) translate(0.12,0.16)">扬</text>
-            <text x="24" y="38" fill="#9b6b28" opacity="0.48" transform="rotate(-6,24,24) skewX(-8) translate(0.05,0.07)">扬</text>
-            <text x="24" y="38" fill="url(#ysSeal-footer)" filter="url(#ysSeal-footer-f)">扬</text>
-            <text x="23.9" y="37.88" fill="white" opacity="0.12">扬</text>
+          <!-- K线集群 + 上升趋势线 -->
+          <g opacity="0.16">
+            <line x1="5" y1="42.5" x2="5" y2="44.8" stroke="#6f4515" stroke-width="0.35" stroke-linecap="round"/>
+            <rect x="4.2" y="42" width="1.6" height="2.5" rx="0.25" fill="#c0392b" opacity="0.5"/>
+            <line x1="10" y1="40.5" x2="10" y2="44.8" stroke="#8b5e24" stroke-width="0.35" stroke-linecap="round"/>
+            <rect x="9.2" y="39.5" width="1.6" height="4" rx="0.25" fill="#c0392b" opacity="0.55"/>
+            <line x1="15" y1="39.5" x2="15" y2="44.8" stroke="#8b5e24" stroke-width="0.35" stroke-linecap="round"/>
+            <rect x="14.2" y="38.5" width="1.6" height="4.2" rx="0.25" fill="#c0392b" opacity="0.6"/>
+            <line x1="20" y1="38" x2="20" y2="44.5" stroke="#6f4515" stroke-width="0.35" stroke-linecap="round"/>
+            <rect x="19.2" y="37" width="1.6" height="5.5" rx="0.25" fill="#16A34A" opacity="0.45"/>
+            <line x1="25" y1="38.5" x2="25" y2="44.5" stroke="#8b5e24" stroke-width="0.35" stroke-linecap="round"/>
+            <rect x="24.2" y="39" width="1.6" height="4.5" rx="0.25" fill="#c0392b" opacity="0.55"/>
+            <line x1="30" y1="37" x2="30" y2="44.5" stroke="#6f4515" stroke-width="0.35" stroke-linecap="round"/>
+            <rect x="29.2" y="36.5" width="1.6" height="6" rx="0.25" fill="#c0392b" opacity="0.65"/>
+            <path d="M3 43.5 L31 37" fill="none" stroke="#c89a3c" stroke-width="0.45" stroke-linecap="round" stroke-dasharray="1.2,0.6" opacity="0.5"/>
           </g>
+          <!-- 扬 3D 挤出 -->
+          <g text-anchor="middle" font-family="'Liu Jian Mao Cao','Ma Shan Zheng',cursive" font-size="36" font-weight="400">
+            <text x="24" y="38" fill="#1a0a02" opacity="0.5" transform="rotate(-8,24,24) skewX(-10) translate(0.6,0.8)">扬</text>
+            <text x="24" y="38" fill="#3a1e08" opacity="0.42" transform="rotate(-8,24,24) skewX(-10) translate(0.42,0.55)">扬</text>
+            <text x="24" y="38" fill="#5c3614" opacity="0.38" transform="rotate(-8,24,24) skewX(-10) translate(0.28,0.36)">扬</text>
+            <text x="24" y="38" fill="#7a4f1e" opacity="0.4" transform="rotate(-8,24,24) skewX(-10) translate(0.16,0.22)">扬</text>
+            <text x="24" y="38" fill="#9b6b28" opacity="0.48" transform="rotate(-8,24,24) skewX(-10) translate(0.08,0.1)">扬</text>
+            <text x="24" y="38" fill="#b8862c" opacity="0.55" transform="rotate(-8,24,24) skewX(-10) translate(0.03,0.05)">扬</text>
+            <text x="24" y="38" fill="url(#ysSeal-footer)" filter="url(#ysSeal-footer-f)" transform="rotate(-8,24,24) skewX(-10)">扬</text>
+            <text x="23.88" y="37.85" fill="white" opacity="0.15" transform="rotate(-8,24,24) skewX(-10)">扬</text>
+          </g>
+          <!-- 金色珍珠 -->
+          <circle cx="7" cy="5" r="2" fill="#D4A54A" opacity=".88"/>
+          <circle cx="7" cy="5" r="3.8" fill="#C8963E" opacity=".12"/>
+          <circle cx="6.5" cy="4.5" r="0.8" fill="#FEF9ED" opacity=".65"/>
         </svg>
       </span>
       <span class="ys-seal ys-seal--say" aria-hidden="true">
@@ -1184,6 +1266,14 @@
             </linearGradient>
             <filter id="ysSay-footer-f"><feDropShadow dx="0.05" dy="0.1" stdDeviation="0.1" flood-color="#140a02" flood-opacity="0.25"/></filter>
           </defs>
+          <!-- 喇叭图标 -->
+          <g opacity="0.3">
+            <rect x="3" y="23" width="3.5" height="7" rx="0.8" fill="none" stroke="#c89a3c" stroke-width="0.7"/>
+            <polygon points="6.5,23 11,20 11,33 6.5,30" fill="#c89a3c" opacity="0.35"/>
+            <path d="M13 24 Q15 26.5 13 29" fill="none" stroke="#c89a3c" stroke-width="0.5" opacity=".6"/>
+            <path d="M15 22 Q18 26.5 15 31" fill="none" stroke="#c89a3c" stroke-width="0.4" opacity=".4"/>
+          </g>
+          <!-- 声波涟漪 -->
           <g opacity="0.22">
             <ellipse cx="26" cy="28" rx="6" ry="4.5" fill="none" stroke="#c89a3c" stroke-width="0.55" opacity=".7"/>
             <ellipse cx="26" cy="28" rx="9" ry="6.5" fill="none" stroke="#c89a3c" stroke-width="0.45" opacity=".5"/>
