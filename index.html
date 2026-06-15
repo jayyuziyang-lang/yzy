@@ -26,6 +26,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Liu+Jian+Mao+Cao&family=Ma+Shan+Zheng&family=Zhi+Mang+Xing&family=Noto+Serif+SC:wght@700;900&family=Inter:wght@600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/misans-webfont/misans/misans-bold/result.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cn-fontsource-honglei-sim-regular/font.css">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 
 <style>
@@ -468,6 +469,13 @@
     height:1.7em;
     margin-left:-.3em;
   }
+  /* 「财经」红墨手写 */
+  .ys-seal--cj{
+    width:3.2em;
+    height:1.4em;
+    margin-left:.04em;
+    filter:none;
+  }
   /* 「说·财经」描述词 — 已简化，财经和副标题直接在 brand 内 */
   .ys-brand__main{
     font-family:"MiSans Bold","Noto Sans SC","Microsoft YaHei",sans-serif;
@@ -663,8 +671,33 @@
         </svg>
       </span>
 
-      <!-- 「财经」MiSans Bold -->
-      <span class="ys-brand__main">财经</span>
+      <!-- 「财经」红墨手写 -->
+      <span class="ys-seal ys-seal--cj" aria-hidden="true">
+        <svg viewBox="0 0 140 62" class="ys-seal__svg">
+          <defs>
+            <linearGradient id="ysCj-nav-g" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#450a0a"/><stop offset="35%" stop-color="#991b1b"/>
+              <stop offset="60%" stop-color="#dc2626"/><stop offset="100%" stop-color="#450a0a"/>
+            </linearGradient>
+            <filter id="ysCj-nav-f"><feDropShadow dx=".06" dy=".1" stdDeviation=".12" flood-color="#450a0a" flood-opacity=".3"/></filter>
+          </defs>
+          <g text-anchor="middle" font-family="'honglei sim','Ma Shan Zheng',cursive" font-size="38">
+            <text x="70.4" y="44.4" fill="#1a0404" opacity=".5">财经</text>
+            <text x="70.2" y="44.2" fill="#2d0808" opacity=".48">财经</text>
+            <text x="70.08" y="44.08" fill="#4a1010" opacity=".5">财经</text>
+            <text x="70" y="44" fill="url(#ysCj-nav-g)" filter="url(#ysCj-nav-f)">财经</text>
+            <text x="69.95" y="43.93" fill="white" opacity=".12">财经</text>
+          </g>
+          <g opacity=".5">
+            <rect x="6" y="43" width="3" height="5" rx=".35" fill="#dc2626"/>
+            <rect x="14" y="41" width="3" height="7" rx=".35" fill="#dc2626"/>
+            <rect x="22" y="38" width="3" height="10" rx=".35" fill="#dc2626"/>
+            <rect x="30" y="40" width="3" height="8" rx=".35" fill="#dc2626"/>
+          </g>
+          <path d="M4,53 Q34,49 70,42 Q106,35 136,28" fill="none" stroke="#dc2626" stroke-width=".8" stroke-linecap="round" opacity=".4"/>
+          <polygon points="136,28 131,33 133,26" fill="#dc2626" opacity=".45"/>
+        </svg>
+      </span>
       <span class="ys-brand__sub">YANG&nbsp;SAYS&nbsp;·&nbsp;FINANCE</span>
 
     </a>
@@ -771,8 +804,33 @@
               </svg>
             </span>
 
-            <span class="ys-brand__main">财经</span>
-              <span class="ys-brand__sub">YANG&nbsp;SAYS&nbsp;·&nbsp;FINANCE</span>
+            <span class="ys-seal ys-seal--cj" aria-hidden="true">
+              <svg viewBox="0 0 140 62" class="ys-seal__svg">
+                <defs>
+                  <linearGradient id="ysCj-hero-g" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#450a0a"/><stop offset="35%" stop-color="#991b1b"/>
+                    <stop offset="60%" stop-color="#dc2626"/><stop offset="100%" stop-color="#450a0a"/>
+                  </linearGradient>
+                  <filter id="ysCj-hero-f"><feDropShadow dx=".06" dy=".1" stdDeviation=".12" flood-color="#450a0a" flood-opacity=".3"/></filter>
+                </defs>
+                <g text-anchor="middle" font-family="'honglei sim','Ma Shan Zheng',cursive" font-size="38">
+                  <text x="70.4" y="44.4" fill="#1a0404" opacity=".5">财经</text>
+                  <text x="70.2" y="44.2" fill="#2d0808" opacity=".48">财经</text>
+                  <text x="70.08" y="44.08" fill="#4a1010" opacity=".5">财经</text>
+                  <text x="70" y="44" fill="url(#ysCj-hero-g)" filter="url(#ysCj-hero-f)">财经</text>
+                  <text x="69.95" y="43.93" fill="white" opacity=".12">财经</text>
+                </g>
+                <g opacity=".5">
+                  <rect x="6" y="43" width="3" height="5" rx=".35" fill="#dc2626"/>
+                  <rect x="14" y="41" width="3" height="7" rx=".35" fill="#dc2626"/>
+                  <rect x="22" y="38" width="3" height="10" rx=".35" fill="#dc2626"/>
+                  <rect x="30" y="40" width="3" height="8" rx=".35" fill="#dc2626"/>
+                </g>
+                <path d="M4,53 Q34,49 70,42 Q106,35 136,28" fill="none" stroke="#dc2626" stroke-width=".8" stroke-linecap="round" opacity=".4"/>
+                <polygon points="136,28 131,33 133,26" fill="#dc2626" opacity=".45"/>
+              </svg>
+            </span>
+            <span class="ys-brand__sub">YANG&nbsp;SAYS&nbsp;·&nbsp;FINANCE</span>
             </span>
 
           </a>
@@ -1295,7 +1353,32 @@
           </g>
         </svg>
       </span>
-      <span class="ys-brand__main" style="font-size:.72em;">财经</span>
+      <span class="ys-seal ys-seal--cj" aria-hidden="true" style="font-size:.72em;">
+        <svg viewBox="0 0 140 62" class="ys-seal__svg">
+          <defs>
+            <linearGradient id="ysCj-footer-g" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#450a0a"/><stop offset="35%" stop-color="#991b1b"/>
+              <stop offset="60%" stop-color="#dc2626"/><stop offset="100%" stop-color="#450a0a"/>
+            </linearGradient>
+            <filter id="ysCj-footer-f"><feDropShadow dx=".06" dy=".1" stdDeviation=".12" flood-color="#450a0a" flood-opacity=".3"/></filter>
+          </defs>
+          <g text-anchor="middle" font-family="'honglei sim','Ma Shan Zheng',cursive" font-size="38">
+            <text x="70.4" y="44.4" fill="#1a0404" opacity=".5">财经</text>
+            <text x="70.2" y="44.2" fill="#2d0808" opacity=".48">财经</text>
+            <text x="70.08" y="44.08" fill="#4a1010" opacity=".5">财经</text>
+            <text x="70" y="44" fill="url(#ysCj-footer-g)" filter="url(#ysCj-footer-f)">财经</text>
+            <text x="69.95" y="43.93" fill="white" opacity=".12">财经</text>
+          </g>
+          <g opacity=".5">
+            <rect x="6" y="43" width="3" height="5" rx=".35" fill="#dc2626"/>
+            <rect x="14" y="41" width="3" height="7" rx=".35" fill="#dc2626"/>
+            <rect x="22" y="38" width="3" height="10" rx=".35" fill="#dc2626"/>
+            <rect x="30" y="40" width="3" height="8" rx=".35" fill="#dc2626"/>
+          </g>
+          <path d="M4,53 Q34,49 70,42 Q106,35 136,28" fill="none" stroke="#dc2626" stroke-width=".8" stroke-linecap="round" opacity=".4"/>
+          <polygon points="136,28 131,33 133,26" fill="#dc2626" opacity=".45"/>
+        </svg>
+      </span>
       <span class="ys-brand__sub" style="font-family:var(--ys-font-en);font-size:.38em;font-weight:700;letter-spacing:.2em;color:var(--ys-logo-sub);white-space:nowrap;width:100%;text-align:center;">YANG&nbsp;SAYS&nbsp;·&nbsp;FINANCE</span>
     </div>
     <div class="ys-footer-slogan">把市场讲清楚，把产业看明白。</div>
