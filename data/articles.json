@@ -1,7 +1,19 @@
 {
-  "generated_at": "2026-06-15T23:46:06+08:00",
-  "latest_date": "2026-06-15",
+  "generated_at": "2026-06-16T14:15:07+08:00",
+  "latest_date": "2026-06-16",
   "articles": [
+    {
+      "date": "2026-06-16",
+      "session": "morning",
+      "edition_cn": "早报",
+      "icon": "🌅",
+      "title": "FOMC首日登场·美股纳指暴涨3%道指创新高·日经突破70000后回落·BOJ加息至1%·黄金坚守4300·WTI跌破81·A股震荡等待方向",
+      "url": "2026-06-16/wechat-publish/morning/article.html",
+      "has_audio": true,
+      "audio_size_bytes": 1744272,
+      "has_comic": true,
+      "comic_count": 1
+    },
     {
       "date": "2026-06-15",
       "session": "evening",
@@ -500,6 +512,20 @@
     }
   ],
   "by_date": {
+    "2026-06-16": {
+      "morning": {
+        "date": "2026-06-16",
+        "session": "morning",
+        "edition_cn": "早报",
+        "icon": "🌅",
+        "title": "FOMC首日登场·美股纳指暴涨3%道指创新高·日经突破70000后回落·BOJ加息至1%·黄金坚守4300·WTI跌破81·A股震荡等待方向",
+        "url": "2026-06-16/wechat-publish/morning/article.html",
+        "has_audio": true,
+        "audio_size_bytes": 1744272,
+        "has_comic": true,
+        "comic_count": 1
+      }
+    },
     "2026-06-15": {
       "evening": {
         "date": "2026-06-15",
