@@ -1,0 +1,195 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" width="900" height="520" font-family="-apple-system,PingFang SC,Microsoft YaHei,sans-serif">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFF8E7"/>
+      <stop offset="50%" stop-color="#FFF3D6"/>
+      <stop offset="100%" stop-color="#FEF3C7"/>
+    </linearGradient>
+    <linearGradient id="headerGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#D4A017"/>
+      <stop offset="100%" stop-color="#B8860B"/>
+    </linearGradient>
+    <linearGradient id="cardGrad1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#FFFBEB"/>
+    </linearGradient>
+    <linearGradient id="cardGrad2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#F0FDF4"/>
+    </linearGradient>
+    <linearGradient id="cardGrad3" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#FFF5F5"/>
+    </linearGradient>
+    <linearGradient id="goldBar" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FCD34D"/>
+      <stop offset="100%" stop-color="#D4A017"/>
+    </linearGradient>
+    <linearGradient id="oilDrop" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#475569"/>
+      <stop offset="100%" stop-color="#1E293B"/>
+    </linearGradient>
+    <linearGradient id="fedGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1E3A5F"/>
+      <stop offset="100%" stop-color="#0F172A"/>
+    </linearGradient>
+    <filter id="shadow" x="-3%" y="-3%" width="110%" height="115%">
+      <feDropShadow dx="1" dy="2" stdDeviation="4" flood-color="#92400E" flood-opacity="0.10"/>
+    </filter>
+    <filter id="shadowLg" x="-3%" y="-3%" width="110%" height="115%">
+      <feDropShadow dx="1" dy="3" stdDeviation="6" flood-color="#92400E" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="520" rx="14" fill="url(#bgGrad)"/>
+
+  <!-- Top banner -->
+  <rect x="0" y="0" width="900" height="52" rx="14" fill="url(#headerGrad)"/>
+  <rect x="0" y="26" width="900" height="26" fill="url(#headerGrad)"/>
+  <text x="450" y="34" text-anchor="middle" fill="#fff" font-size="19" font-weight="800" letter-spacing="2">FOMC前夜 · 全球资产高位整理</text>
+
+  <!-- ===== LEFT COLUMN: FOMC + 美股 ===== -->
+
+  <!-- FOMC Card -->
+  <rect x="20" y="66" width="210" height="170" rx="8" fill="#fff" filter="url(#shadow)" stroke="#D4A017" stroke-width="1"/>
+  <rect x="20" y="66" width="210" height="36" rx="8" fill="url(#fedGrad)"/>
+  <rect x="20" y="90" width="210" height="12" fill="url(#fedGrad)"/>
+  <text x="125" y="90" text-anchor="middle" fill="#FCD34D" font-size="13" font-weight="700">🏛️ FOMC 6/16-17</text>
+
+  <text x="125" y="118" text-anchor="middle" fill="#0F172A" font-size="15" font-weight="800">沃什首秀</text>
+  <text x="125" y="138" text-anchor="middle" fill="#64748B" font-size="10">Kevin Warsh · 第17任主席</text>
+
+  <rect x="38" y="148" width="174" height="1" fill="#E2E8F0"/>
+
+  <text x="38" y="164" fill="#334155" font-size="10" font-weight="600">🔴 三大看点：</text>
+  <text x="38" y="180" fill="#475569" font-size="9.5">· 声明是否删除"宽松倾向"</text>
+  <text x="38" y="195" fill="#475569" font-size="9.5">· 点阵图是否出现"加息点"</text>
+  <text x="38" y="210" fill="#475569" font-size="9.5">· 沃什记者会鸽/鹰定性</text>
+
+  <text x="125" y="230" text-anchor="middle" fill="#DC2626" font-size="10" font-weight="700">上次3名委员投反对票</text>
+
+  <!-- 美股 Card -->
+  <rect x="20" y="246" width="210" height="130" rx="8" fill="url(#cardGrad2)" filter="url(#shadow)" stroke="#16A34A" stroke-width="1"/>
+  <text x="125" y="268" text-anchor="middle" fill="#16A34A" font-size="12" font-weight="700">🇺🇸 美股周一狂欢</text>
+  <text x="125" y="292" text-anchor="middle" fill="#DC2626" font-size="22" font-weight="800">纳指 +3.07%</text>
+  <text x="125" y="312" text-anchor="middle" fill="#334155" font-size="10">道指 51,671 创历史新高</text>
+  <text x="125" y="332" text-anchor="middle" fill="#16A34A" font-size="10" font-weight="600">费城半导体 +5.45% 新高</text>
+  <text x="125" y="352" text-anchor="middle" fill="#7C3AED" font-size="10" font-weight="700">SpaceX +19.6% 市值$2.5万亿</text>
+  <text x="125" y="368" text-anchor="middle" fill="#64748B" font-size="9">4.25%流通盘 · 12只杠杆ETF围猎</text>
+
+  <!-- ===== CENTER: A股 + 亚太 ===== -->
+
+  <!-- A股 Card -->
+  <rect x="245" y="66" width="230" height="150" rx="8" fill="#fff" filter="url(#shadow)" stroke="#DC2626" stroke-width="1.5"/>
+  <text x="360" y="88" text-anchor="middle" fill="#DC2626" font-size="12" font-weight="700">🇨🇳 A股分化</text>
+
+  <!-- 沪指跌 -->
+  <rect x="258" y="100" width="100" height="48" rx="6" fill="#FEF2F2"/>
+  <text x="308" y="118" text-anchor="middle" fill="#991B1B" font-size="12" font-weight="600">沪指</text>
+  <text x="308" y="138" text-anchor="middle" fill="#DC2626" font-size="16" font-weight="800">4,091.89</text>
+
+  <!-- 创业板涨 -->
+  <rect x="365" y="100" width="98" height="48" rx="6" fill="#F0FDF4"/>
+  <text x="414" y="118" text-anchor="middle" fill="#14532D" font-size="12" font-weight="600">创业板</text>
+  <text x="414" y="138" text-anchor="middle" fill="#16A34A" font-size="16" font-weight="800">+1.72%</text>
+
+  <text x="360" y="168" text-anchor="middle" fill="#334155" font-size="10" font-weight="600">成交 3.06万亿 · 连续3日破3万亿</text>
+  <text x="360" y="186" text-anchor="middle" fill="#64748B" font-size="9">138涨停 · 2730涨/2677跌</text>
+  <text x="360" y="206" text-anchor="middle" fill="#DC2626" font-size="9.5" font-weight="600">PCB/锂电池/超级电容 领涨</text>
+
+  <!-- 日经 Card -->
+  <rect x="245" y="226" width="230" height="92" rx="8" fill="#fff" filter="url(#shadow)" stroke="#D4A017" stroke-width="1"/>
+  <text x="360" y="250" text-anchor="middle" fill="#D4A017" font-size="12" font-weight="700">🇯🇵 日经225 · 历史首破70000</text>
+  <text x="360" y="275" text-anchor="middle" fill="#DC2626" font-size="20" font-weight="800">70,020</text>
+  <text x="360" y="296" text-anchor="middle" fill="#64748B" font-size="10">盘中突破 → 收盘回落69,404 (+0.13%)</text>
+  <text x="360" y="312" text-anchor="middle" fill="#16A34A" font-size="9.5">韩国KOSPI +2.11% 连续4日新高</text>
+
+  <!-- ===== RIGHT COLUMN: BOJ + 商品 ===== -->
+
+  <!-- BOJ Card -->
+  <rect x="490" y="66" width="200" height="112" rx="8" fill="#fff" filter="url(#shadow)" stroke="#EA580C" stroke-width="1"/>
+  <text x="590" y="88" text-anchor="middle" fill="#EA580C" font-size="12" font-weight="700">🏯 日本央行 BOJ</text>
+  <text x="590" y="114" text-anchor="middle" fill="#EA580C" font-size="26" font-weight="900">利率 1.0%</text>
+  <text x="590" y="136" text-anchor="middle" fill="#64748B" font-size="10">+25bp · 1995年来最高（31年）</text>
+  <text x="590" y="156" text-anchor="middle" fill="#475569" font-size="9">7票赞成:1票反对 · 植田缺席内田代班</text>
+  <text x="590" y="172" text-anchor="middle" fill="#EA580C" font-size="9.5" font-weight="600">⚠️ 日元未升值 美元/日元仍守160</text>
+
+  <!-- Gold Card -->
+  <rect x="490" y="188" width="200" height="80" rx="8" fill="url(#cardGrad1)" filter="url(#shadow)" stroke="#D4A017" stroke-width="1.5"/>
+  <text x="520" y="212" fill="#D4A017" font-size="11" font-weight="700">🥇 黄金</text>
+  <text x="520" y="238" fill="#B8860B" font-size="22" font-weight="800">$4,344</text>
+  <text x="520" y="258" fill="#DC2626" font-size="10" font-weight="600">+0.81% 稳守4300</text>
+  <text x="660" y="225" fill="#475569" font-size="10">逻辑：WTI跌→通胀</text>
+  <text x="660" y="242" fill="#475569" font-size="10">回落→加息概率降</text>
+  <text x="660" y="259" fill="#475569" font-size="10">→持有黄金成本降低</text>
+
+  <!-- WTI Card -->
+  <rect x="490" y="278" width="200" height="70" rx="8" fill="url(#cardGrad3)" filter="url(#shadow)" stroke="#16A34A" stroke-width="1"/>
+  <text x="520" y="302" fill="#16A34A" font-size="11" font-weight="700">🛢️ WTI原油</text>
+  <text x="520" y="330" fill="#16A34A" font-size="22" font-weight="800">$79.13</text>
+  <text x="645" y="315" fill="#475569" font-size="9">从$126跌至$79</text>
+  <text x="645" y="332" fill="#16A34A" font-size="9" font-weight="600">累计 -37.2%</text>
+
+  <!-- ===== ARROW CONNECTIONS (transmission chain) ===== -->
+
+  <!-- Arrow: 和平协议 → WTI跌 -->
+  <line x1="700" y1="320" x2="700" y2="280" stroke="#D4A017" stroke-width="2" marker-end="url(#arrowGold)"/>
+
+  <!-- Arrow: WTI跌 → 加息概率降 -->
+  <line x1="700" y1="270" x2="700" y2="248" stroke="#D4A017" stroke-width="2"/>
+
+  <!-- Arrow: 加息概率降 → 纳指涨 -->
+  <line x1="240" y1="230" x2="240" y2="280" stroke="#1A56DB" stroke-width="2"/>
+
+  <!-- ===== BOTTOM: Summary strip ===== -->
+  <rect x="20" y="390" width="860" height="50" rx="8" fill="#fff" filter="url(#shadowLg)" stroke="#D4A017" stroke-width="1.5"/>
+  <text x="40" y="412" fill="#D4A017" font-size="12" font-weight="700">⏰ 超级星期三倒计时</text>
+  <text x="40" y="432" fill="#475569" font-size="10">6/18 凌晨2:00 FOMC决议</text>
+  <text x="230" y="432" fill="#DC2626" font-size="10" font-weight="700">→</text>
+  <text x="260" y="432" fill="#475569" font-size="10">2:30 沃什记者会首秀</text>
+  <text x="420" y="432" fill="#DC2626" font-size="10" font-weight="700">→</text>
+  <text x="450" y="432" fill="#475569" font-size="10">白天 美伊日内瓦签字</text>
+  <text x="620" y="432" fill="#DC2626" font-size="10" font-weight="700">→</text>
+  <text x="650" y="432" fill="#475569" font-size="10">首批油轮过境霍尔木兹</text>
+
+  <!-- Bottom row: small data cards -->
+  <!-- BTC -->
+  <rect x="20" y="450" width="130" height="58" rx="6" fill="#fff" filter="url(#shadow)" stroke="#F7931A" stroke-width="1"/>
+  <text x="85" y="470" text-anchor="middle" fill="#F7931A" font-size="10" font-weight="700">₿ BTC</text>
+  <text x="85" y="492" text-anchor="middle" fill="#334155" font-size="13" font-weight="800">$66,184-66,269</text>
+  <text x="85" y="505" text-anchor="middle" fill="#DC2626" font-size="9">+1.4%</text>
+
+  <!-- ETH -->
+  <rect x="160" y="450" width="130" height="58" rx="6" fill="#fff" filter="url(#shadow)" stroke="#627EEA" stroke-width="1"/>
+  <text x="225" y="470" text-anchor="middle" fill="#627EEA" font-size="10" font-weight="700">Ξ ETH</text>
+  <text x="225" y="492" text-anchor="middle" fill="#334155" font-size="13" font-weight="800">$1,788-1,823</text>
+  <text x="225" y="505" text-anchor="middle" fill="#DC2626" font-size="9">+4.68%</text>
+
+  <!-- 白银 -->
+  <rect x="300" y="450" width="130" height="58" rx="6" fill="#fff" filter="url(#shadow)" stroke="#94A3B8" stroke-width="1"/>
+  <text x="365" y="470" text-anchor="middle" fill="#64748B" font-size="10" font-weight="700">🥈 白银</text>
+  <text x="365" y="492" text-anchor="middle" fill="#334155" font-size="13" font-weight="800">$70.53</text>
+  <text x="365" y="505" text-anchor="middle" fill="#DC2626" font-size="9">+0.78%</text>
+
+  <!-- VIX -->
+  <rect x="440" y="450" width="130" height="58" rx="6" fill="#fff" filter="url(#shadow)" stroke="#16A34A" stroke-width="1"/>
+  <text x="505" y="470" text-anchor="middle" fill="#16A34A" font-size="10" font-weight="700">📉 恐慌指数</text>
+  <text x="505" y="492" text-anchor="middle" fill="#334155" font-size="13" font-weight="800">持续走低</text>
+  <text x="505" y="505" text-anchor="middle" fill="#64748B" font-size="9">risk-on情绪高涨</text>
+
+  <!-- 美元指数 -->
+  <rect x="580" y="450" width="130" height="58" rx="6" fill="#fff" filter="url(#shadow)" stroke="#EF4444" stroke-width="1"/>
+  <text x="645" y="470" text-anchor="middle" fill="#EF4444" font-size="10" font-weight="700">💵 美元指数</text>
+  <text x="645" y="492" text-anchor="middle" fill="#334155" font-size="13" font-weight="800">~99.20</text>
+  <text x="645" y="505" text-anchor="middle" fill="#16A34A" font-size="9">-0.28%</text>
+
+  <!-- 布伦特 -->
+  <rect x="720" y="450" width="160" height="58" rx="6" fill="#fff" filter="url(#shadow)" stroke="#1E293B" stroke-width="1"/>
+  <text x="800" y="470" text-anchor="middle" fill="#1E293B" font-size="10" font-weight="700">🛢️ 布伦特</text>
+  <text x="800" y="492" text-anchor="middle" fill="#334155" font-size="13" font-weight="800">$81.73</text>
+  <text x="800" y="505" text-anchor="middle" fill="#16A34A" font-size="9">-1.73%</text>
+
+  <!-- Data source footnote -->
+  <text x="450" y="517" text-anchor="middle" fill="#94A3B8" font-size="8">数据截止 2026-06-16 收盘 · 扬说财经晚报</text>
+</svg>
