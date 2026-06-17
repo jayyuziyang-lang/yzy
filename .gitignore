@@ -35,3 +35,6 @@ Desktop.ini
 
 # RSS 缓存（避免提交）
 data/.rss-cache.json
+
+# AI模型文件（体积巨大，不提交到Pages）
+tools/models/

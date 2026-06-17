@@ -1,7 +1,19 @@
 {
-  "generated_at": "2026-06-16T21:20:20+08:00",
-  "latest_date": "2026-06-16",
+  "generated_at": "2026-06-17T12:09:35+08:00",
+  "latest_date": "2026-06-17",
   "articles": [
+    {
+      "date": "2026-06-17",
+      "session": "morning",
+      "edition_cn": "早报",
+      "icon": "🌅",
+      "title": "FOMC Day2等待沃什首秀·道指突破52000再创新高·费半暴跌5.7%科技轮出·WTI跌破76三月底部·黄金坚守4340·A股低开芯片承压",
+      "url": "2026-06-17/wechat-publish/morning/article.html",
+      "has_audio": true,
+      "audio_size_bytes": 1785168,
+      "has_comic": true,
+      "comic_count": 1
+    },
     {
       "date": "2026-06-16",
       "session": "evening",
@@ -24,7 +36,7 @@
       "has_audio": true,
       "audio_size_bytes": 1744272,
       "has_comic": true,
-      "comic_count": 1
+      "comic_count": 7
     },
     {
       "date": "2026-06-15",
@@ -524,6 +536,20 @@
     }
   ],
   "by_date": {
+    "2026-06-17": {
+      "morning": {
+        "date": "2026-06-17",
+        "session": "morning",
+        "edition_cn": "早报",
+        "icon": "🌅",
+        "title": "FOMC Day2等待沃什首秀·道指突破52000再创新高·费半暴跌5.7%科技轮出·WTI跌破76三月底部·黄金坚守4340·A股低开芯片承压",
+        "url": "2026-06-17/wechat-publish/morning/article.html",
+        "has_audio": true,
+        "audio_size_bytes": 1785168,
+        "has_comic": true,
+        "comic_count": 1
+      }
+    },
     "2026-06-16": {
       "evening": {
         "date": "2026-06-16",
@@ -547,7 +573,7 @@
         "has_audio": true,
         "audio_size_bytes": 1744272,
         "has_comic": true,
-        "comic_count": 1
+        "comic_count": 7
       }
     },
     "2026-06-15": {
