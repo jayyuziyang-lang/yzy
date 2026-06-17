@@ -392,7 +392,7 @@ python scripts/audit-article.py --date YYYY-MM-DD --edition evening
 | 场景 | TTS语音 | 语速 | 预期时长 | 材料来源 |
 |------|---------|------|---------|---------|
 | 深度专题 | zh-CN-YunyangNeural | -5% | ~8-12分钟 | script.txt |
-| 晚报（日常） | zh-CN-XiaoxiaoNeural | -20% | ~6分钟 | evening/script.txt |
+| 晚报（日常） | zh-CN-YunyangNeural | -5% | ~6分钟 | evening/script.txt |
 | 晚报（周五/重大事件） | zh-CN-YunyangNeural | -30% | ~9-12分钟 | evening/script.txt |
 | 早报 | zh-CN-YunyangNeural | -5% | ~2-3分钟 | morning/script.txt |
 

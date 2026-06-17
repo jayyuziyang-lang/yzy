@@ -577,7 +577,7 @@ python scripts/audit-article.py --date YYYY-MM-DD --edition evening
 | 质量门禁 | `python scripts/gate-check.py`（阻塞项 → 不可发布） |
 | 音频合成（深度专题） | `python -m edge_tts --voice zh-CN-YunyangNeural --rate=-5% -f script.txt --write-media audio.mp3` |
 | 音频合成（早报） | `python -m edge_tts --voice zh-CN-YunyangNeural --rate=-5% -f script.txt --write-media audio.mp3` |
-| 音频合成（晚报） | `python -m edge_tts --voice zh-CN-XiaoxiaoNeural --rate=-20% -f script.txt --write-media audio.mp3` |
+| 音频合成（晚报） | `python -m edge_tts --voice zh-CN-YunyangNeural --rate=-5% -f script.txt --write-media audio.mp3` |
 
 ---
 
