@@ -1,7 +1,19 @@
 {
-  "generated_at": "2026-06-17T13:03:31+08:00",
+  "generated_at": "2026-06-17T20:41:18+08:00",
   "latest_date": "2026-06-17",
   "articles": [
+    {
+      "date": "2026-06-17",
+      "session": "evening",
+      "edition_cn": "晚报",
+      "icon": "🌙",
+      "title": "沪指收复4100科创50暴涨4.69%·陆家嘴论坛硬科技政策引爆半导体·3700股下跌指数虚涨·全球屏息等FOMC沃什首秀·WTI跌破75·黄金4320横盘",
+      "url": "2026-06-17/wechat-publish/evening/article.html",
+      "has_audio": true,
+      "audio_size_bytes": 2385792,
+      "has_comic": true,
+      "comic_count": 6
+    },
     {
       "date": "2026-06-17",
       "session": "morning",
@@ -537,6 +549,18 @@
   ],
   "by_date": {
     "2026-06-17": {
+      "evening": {
+        "date": "2026-06-17",
+        "session": "evening",
+        "edition_cn": "晚报",
+        "icon": "🌙",
+        "title": "沪指收复4100科创50暴涨4.69%·陆家嘴论坛硬科技政策引爆半导体·3700股下跌指数虚涨·全球屏息等FOMC沃什首秀·WTI跌破75·黄金4320横盘",
+        "url": "2026-06-17/wechat-publish/evening/article.html",
+        "has_audio": true,
+        "audio_size_bytes": 2385792,
+        "has_comic": true,
+        "comic_count": 6
+      },
       "morning": {
         "date": "2026-06-17",
         "session": "morning",
