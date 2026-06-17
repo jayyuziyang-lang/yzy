@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>扬说财经 · SD 1.5 vs SDXL 漫画质量对比</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #F0F4FF;
+    font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+    padding: 40px 20px;
+    color: #1E293B;
+  }
+  h1 { text-align: center; font-size: 24px; color: #1A56DB; margin-bottom: 4px; }
+  .subtitle { text-align: center; color: #64748B; margin-bottom: 32px; font-size: 13px; }
+
+  .comparison {
+    max-width: 1500px;
+    margin: 0 auto 32px;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    border: 1px solid #E2E8F0;
+  }
+  .comp-header {
+    padding: 18px 24px;
+    border-bottom: 1px solid #F1F5F9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .comp-title { font-size: 18px; font-weight: 600; color: #1A56DB; }
+  .comp-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+  .comp-col {
+    padding: 16px;
+    text-align: center;
+  }
+  .comp-col:first-child {
+    border-right: 1px solid #F1F5F9;
+  }
+  .col-label {
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .col-label.sd15 { color: #64748B; }
+  .col-label.sdxl { color: #1A56DB; }
+  .col-meta {
+    font-size: 11px;
+    color: #94A3B8;
+    margin-bottom: 10px;
+  }
+  .comp-col img {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    border: 1px solid #E2E8F0;
+  }
+
+  .metrics {
+    max-width: 1500px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    border: 1px solid #E2E8F0;
+  }
+  .metrics h2 { font-size: 16px; color: #1A56DB; margin-bottom: 14px; }
+  .metrics table { width: 100%; border-collapse: collapse; }
+  .metrics th, .metrics td {
+    padding: 10px 16px; text-align: left; border-bottom: 1px solid #F1F5F9; font-size: 13px;
+  }
+  .metrics th { background: #F8FAFC; color: #64748B; font-weight: 500; }
+  .better { color: #16A34A; font-weight: 600; }
+</style>
+</head>
+<body>
+
+<h1>SD 1.5 vs SDXL 漫画质量对比</h1>
+<p class="subtitle">相同提示词 / 相同风格 / RTX 5070 Ti 12GB · 中国日报工笔插画风</p>
+
+<div class="comparison">
+  <div class="comp-header">
+    <span class="comp-title">FOMC · 灯塔航行</span>
+  </div>
+  <div class="comp-grid">
+    <div class="comp-col">
+      <div class="col-label sd15">SD 1.5</div>
+      <div class="col-meta">768×512 · 25步 · ~3秒 · 671KB</div>
+      <img src="comic-fomc-sd15.png" alt="FOMC SD 1.5">
+    </div>
+    <div class="comp-col">
+      <div class="col-label sdxl">SDXL</div>
+      <div class="col-meta">1024×768 · 30步 · ~9秒 · 745KB</div>
+      <img src="comic-fomc-sdxl.png" alt="FOMC SDXL">
+    </div>
+  </div>
+</div>
+
+<div class="comparison">
+  <div class="comp-header">
+    <span class="comp-title">黄金 · 金山与沙丘</span>
+  </div>
+  <div class="comp-grid">
+    <div class="comp-col">
+      <div class="col-label sd15">SD 1.5</div>
+      <div class="col-meta">768×512 · 25步 · ~3秒 · 702KB</div>
+      <img src="comic-gold-sd15.png" alt="Gold SD 1.5">
+    </div>
+    <div class="comp-col">
+      <div class="col-label sdxl">SDXL</div>
+      <div class="col-meta">1024×768 · 30步 · ~9秒 · 765KB</div>
+      <img src="comic-gold-sdxl.png" alt="Gold SDXL">
+    </div>
+  </div>
+</div>
+
+<div class="comparison">
+  <div class="comp-header">
+    <span class="comp-title">市场反弹 · 春笋破土</span>
+  </div>
+  <div class="comp-grid">
+    <div class="comp-col">
+      <div class="col-label sd15">SD 1.5</div>
+      <div class="col-meta">768×512 · 25步 · ~3秒 · 781KB</div>
+      <img src="comic-market_rally-sd15.png" alt="Bamboo SD 1.5">
+    </div>
+    <div class="comp-col">
+      <div class="col-label sdxl">SDXL</div>
+      <div class="col-meta">1024×768 · 30步 · ~9秒 · 766KB</div>
+      <img src="comic-market_rally-sdxl.png" alt="Bamboo SDXL">
+    </div>
+  </div>
+</div>
+
+<div class="metrics">
+  <h2>性能基准</h2>
+  <table>
+    <tr><th>指标</th><th>SD 1.5</th><th>SDXL</th><th>说明</th></tr>
+    <tr>
+      <td>分辨率</td><td>768×512</td><td class="better">1024×768</td>
+      <td>SDXL 像素量 2.6x</td>
+    </tr>
+    <tr>
+      <td>单张耗时</td><td class="better">~3 秒</td><td>~9 秒</td>
+      <td>SD 1.5 适合快速迭代</td>
+    </tr>
+    <tr>
+      <td>显存占用</td><td class="better">2.6 GB</td><td>6.7 GB</td>
+      <td>12GB VRAM 两者均可行</td>
+    </tr>
+    <tr>
+      <td>构图质量</td><td>中</td><td class="better">高</td>
+      <td>SDXL 理解力更强，视觉隐喻更准确</td>
+    </tr>
+    <tr>
+      <td>风格一致性</td><td>中</td><td class="better">较高</td>
+      <td>SDXL 对"工笔插画风"理解更好</td>
+    </tr>
+    <tr>
+      <td>推荐场景</td><td>快速预览 / 迭代</td><td class="better">正式发布</td>
+      <td>日常生产：SD 1.5 初筛 → SDXL 定稿</td>
+    </tr>
+  </table>
+</div>
+
+</body>
+</html>

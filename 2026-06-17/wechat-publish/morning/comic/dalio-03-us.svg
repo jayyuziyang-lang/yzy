@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 768 512" width="768" height="512" font-family="Microsoft YaHei, SimHei, PingFang SC, sans-serif">
+  <rect width="768" height="512" fill="#FAFBFC"/>
+  <defs>
+    <marker id="ab" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#1A56DB"/></marker>
+    <marker id="ar" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#DC2626"/></marker>
+    <marker id="ag" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#16A34A"/></marker>
+    <marker id="ao" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#D4A017"/></marker>
+  </defs>
+<rect x="0" y="0" width="768" height="44" fill="#1A56DB" opacity="0.08"/>
+  <text x="384.0" y="30" font-size="18" fill="#1A56DB" text-anchor="middle" font-weight="bold">美股：跷跷板的两端——道指新高vs费半暴跌</text><polygon points="384,265 364,295 404,295" fill="#F1F5F9" stroke="#475569" stroke-width="2"/><line x1="139.46309981654858" y1="321.97792270443983" x2="628.5369001834514" y2="218.02207729556017" stroke="#475569" stroke-width="4" stroke-linecap="round"/><rect x="49.46309981654858" y="216.97792270443983" width="180" height="90" rx="8" fill="#FEF2F2" stroke="#DC2626" stroke-width="2.5"/><text x="139.46309981654858" y="239.97792270443983" font-size="13" fill="#DC2626" text-anchor="middle" font-weight="bold">纳斯达克</text><text x="139.46309981654858" y="263.97792270443983" font-size="28" fill="#DC2626" text-anchor="middle" font-weight="bold">−1.15%</text><text x="139.46309981654858" y="286.97792270443983" font-size="12" fill="#DC2626" text-anchor="middle" font-weight="normal">费半 −5.7%</text><circle cx="89.46309981654858" cy="281.3779227044398" r="10" fill="#E2E8F0" stroke="#DC2626" stroke-width="2"/>
+  <polygon points="73.46309981654858,291.3779227044398 105.46309981654858,291.3779227044398 109.46309981654858,303.97792270443983 69.46309981654858,303.97792270443983" fill="#EFF6FF" stroke="#DC2626" stroke-width="2" stroke-linejoin="round"/>
+  <line x1="82.46309981654858" y1="303.97792270443983" x2="80.46309981654858" y2="313.77792270443985" stroke="#DC2626" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="96.46309981654858" y1="303.97792270443983" x2="98.46309981654858" y2="313.77792270443985" stroke="#DC2626" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="73.46309981654858" y1="294.5279227044398" x2="63.46309981654858" y2="302.5279227044398" stroke="#DC2626" stroke-width="2" stroke-linecap="round"/>
+  <line x1="105.46309981654858" y1="294.5279227044398" x2="115.46309981654858" y2="302.5279227044398" stroke="#DC2626" stroke-width="2" stroke-linecap="round"/><circle cx="189.46309981654858" cy="286.3779227044398" r="10" fill="#E2E8F0" stroke="#DC2626" stroke-width="2"/>
+  <polygon points="173.46309981654858,296.3779227044398 205.46309981654858,296.3779227044398 209.46309981654858,308.97792270443983 169.46309981654858,308.97792270443983" fill="#EFF6FF" stroke="#DC2626" stroke-width="2" stroke-linejoin="round"/>
+  <line x1="182.46309981654858" y1="308.97792270443983" x2="180.46309981654858" y2="318.77792270443985" stroke="#DC2626" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="196.46309981654858" y1="308.97792270443983" x2="198.46309981654858" y2="318.77792270443985" stroke="#DC2626" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="173.46309981654858" y1="299.5279227044398" x2="163.46309981654858" y2="307.5279227044398" stroke="#DC2626" stroke-width="2" stroke-linecap="round"/>
+  <line x1="205.46309981654858" y1="299.5279227044398" x2="215.46309981654858" y2="307.5279227044398" stroke="#DC2626" stroke-width="2" stroke-linecap="round"/><rect x="538.5369001834514" y="113.02207729556017" width="180" height="90" rx="8" fill="#F0FDF4" stroke="#16A34A" stroke-width="2.5"/><text x="628.5369001834514" y="136.02207729556017" font-size="13" fill="#16A34A" text-anchor="middle" font-weight="bold">道琼斯</text><text x="628.5369001834514" y="160.02207729556017" font-size="28" fill="#16A34A" text-anchor="middle" font-weight="bold">52,000</text><text x="628.5369001834514" y="183.02207729556017" font-size="12" fill="#16A34A" text-anchor="middle" font-weight="normal">史上首次+0.64%</text><circle cx="578.5369001834514" cy="67.42207729556017" r="10" fill="#E2E8F0" stroke="#16A34A" stroke-width="2"/>
+  <polygon points="562.5369001834514,77.42207729556017 594.5369001834514,77.42207729556017 598.5369001834514,90.02207729556017 558.5369001834514,90.02207729556017" fill="#EFF6FF" stroke="#16A34A" stroke-width="2" stroke-linejoin="round"/>
+  <line x1="571.5369001834514" y1="90.02207729556017" x2="569.5369001834514" y2="99.82207729556016" stroke="#16A34A" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="585.5369001834514" y1="90.02207729556017" x2="587.5369001834514" y2="99.82207729556016" stroke="#16A34A" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="562.5369001834514" y1="80.57207729556018" x2="546.5369001834514" y2="58.57207729556018" stroke="#16A34A" stroke-width="2" stroke-linecap="round"/>
+  <line x1="594.5369001834514" y1="80.57207729556018" x2="610.5369001834514" y2="58.57207729556018" stroke="#16A34A" stroke-width="2" stroke-linecap="round"/><circle cx="678.5369001834514" cy="72.42207729556017" r="10" fill="#E2E8F0" stroke="#16A34A" stroke-width="2"/>
+  <polygon points="662.5369001834514,82.42207729556017 694.5369001834514,82.42207729556017 698.5369001834514,95.02207729556017 658.5369001834514,95.02207729556017" fill="#EFF6FF" stroke="#16A34A" stroke-width="2" stroke-linejoin="round"/>
+  <line x1="671.5369001834514" y1="95.02207729556017" x2="669.5369001834514" y2="104.82207729556016" stroke="#16A34A" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="685.5369001834514" y1="95.02207729556017" x2="687.5369001834514" y2="104.82207729556016" stroke="#16A34A" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="662.5369001834514" y1="85.57207729556018" x2="646.5369001834514" y2="63.57207729556018" stroke="#16A34A" stroke-width="2" stroke-linecap="round"/>
+  <line x1="694.5369001834514" y1="85.57207729556018" x2="710.5369001834514" y2="63.57207729556018" stroke="#16A34A" stroke-width="2" stroke-linecap="round"/><text x="139.46309981654858" y="322" font-size="12" fill="#DC2626" text-anchor="middle" font-weight="bold">科技/AI</text><text x="628.5369001834514" y="322" font-size="12" fill="#16A34A" text-anchor="middle" font-weight="bold">银行/工业</text><circle cx="200" cy="58" r="14" fill="none" stroke="#EA580C" stroke-width="3"/>
+  <circle cx="200" cy="58" r="7.700000000000001" fill="none" stroke="#EA580C" stroke-width="1.5"/>
+  <circle cx="200" cy="58" r="2.8000000000000003" fill="#EA580C"/>
+  <rect x="211.0" y="55.0" width="6" height="6" rx="1" fill="#EA580C" transform="rotate(0.0,214.0,58.0)"/>
+  <rect x="204.0" y="67.12435565298215" width="6" height="6" rx="1" fill="#EA580C" transform="rotate(59.99999999999999,207.0,70.12435565298215)"/>
+  <rect x="190.0" y="67.12435565298215" width="6" height="6" rx="1" fill="#EA580C" transform="rotate(119.99999999999999,193.0,70.12435565298215)"/>
+  <rect x="183.0" y="55.0" width="6" height="6" rx="1" fill="#EA580C" transform="rotate(180.0,186.0,58.0)"/>
+  <rect x="190.0" y="42.87564434701786" width="6" height="6" rx="1" fill="#EA580C" transform="rotate(239.99999999999997,193.0,45.87564434701786)"/>
+  <rect x="204.0" y="42.87564434701786" width="6" height="6" rx="1" fill="#EA580C" transform="rotate(300.00000000000006,207.0,45.87564434701786)"/><circle cx="280" cy="58" r="14" fill="none" stroke="#D4A017" stroke-width="3"/>
+  <circle cx="280" cy="58" r="7.700000000000001" fill="none" stroke="#D4A017" stroke-width="1.5"/>
+  <circle cx="280" cy="58" r="2.8000000000000003" fill="#D4A017"/>
+  <rect x="291.0" y="55.0" width="6" height="6" rx="1" fill="#D4A017" transform="rotate(0.0,294.0,58.0)"/>
+  <rect x="284.0" y="67.12435565298215" width="6" height="6" rx="1" fill="#D4A017" transform="rotate(59.99999999999999,287.0,70.12435565298215)"/>
+  <rect x="270.0" y="67.12435565298215" width="6" height="6" rx="1" fill="#D4A017" transform="rotate(119.99999999999999,273.0,70.12435565298215)"/>
+  <rect x="263.0" y="55.0" width="6" height="6" rx="1" fill="#D4A017" transform="rotate(180.0,266.0,58.0)"/>
+  <rect x="270.0" y="42.87564434701786" width="6" height="6" rx="1" fill="#D4A017" transform="rotate(239.99999999999997,273.0,45.87564434701786)"/>
+  <rect x="284.0" y="42.87564434701786" width="6" height="6" rx="1" fill="#D4A017" transform="rotate(300.00000000000006,287.0,45.87564434701786)"/><circle cx="360" cy="58" r="14" fill="none" stroke="#D4A017" stroke-width="3"/>
+  <circle cx="360" cy="58" r="7.700000000000001" fill="none" stroke="#D4A017" stroke-width="1.5"/>
+  <circle cx="360" cy="58" r="2.8000000000000003" fill="#D4A017"/>
+  <rect x="371.0" y="55.0" width="6" height="6" rx="1" fill="#D4A017" transform="rotate(0.0,374.0,58.0)"/>
+  <rect x="364.0" y="67.12435565298215" width="6" height="6" rx="1" fill="#D4A017" transform="rotate(59.99999999999999,367.0,70.12435565298215)"/>
+  <rect x="350.0" y="67.12435565298215" width="6" height="6" rx="1" fill="#D4A017" transform="rotate(119.99999999999999,353.0,70.12435565298215)"/>
+  <rect x="343.0" y="55.0" width="6" height="6" rx="1" fill="#D4A017" transform="rotate(180.0,346.0,58.0)"/>
+  <rect x="350.0" y="42.87564434701786" width="6" height="6" rx="1" fill="#D4A017" transform="rotate(239.99999999999997,353.0,45.87564434701786)"/>
+  <rect x="364.0" y="42.87564434701786" width="6" height="6" rx="1" fill="#D4A017" transform="rotate(300.00000000000006,367.0,45.87564434701786)"/><circle cx="440" cy="58" r="14" fill="none" stroke="#1A56DB" stroke-width="3"/>
+  <circle cx="440" cy="58" r="7.700000000000001" fill="none" stroke="#1A56DB" stroke-width="1.5"/>
+  <circle cx="440" cy="58" r="2.8000000000000003" fill="#1A56DB"/>
+  <rect x="451.0" y="55.0" width="6" height="6" rx="1" fill="#1A56DB" transform="rotate(0.0,454.0,58.0)"/>
+  <rect x="444.0" y="67.12435565298215" width="6" height="6" rx="1" fill="#1A56DB" transform="rotate(59.99999999999999,447.0,70.12435565298215)"/>
+  <rect x="430.0" y="67.12435565298215" width="6" height="6" rx="1" fill="#1A56DB" transform="rotate(119.99999999999999,433.0,70.12435565298215)"/>
+  <rect x="423.0" y="55.0" width="6" height="6" rx="1" fill="#1A56DB" transform="rotate(180.0,426.0,58.0)"/>
+  <rect x="430.0" y="42.87564434701786" width="6" height="6" rx="1" fill="#1A56DB" transform="rotate(239.99999999999997,433.0,45.87564434701786)"/>
+  <rect x="444.0" y="42.87564434701786" width="6" height="6" rx="1" fill="#1A56DB" transform="rotate(300.00000000000006,447.0,45.87564434701786)"/><circle cx="520" cy="58" r="14" fill="none" stroke="#16A34A" stroke-width="3"/>
+  <circle cx="520" cy="58" r="7.700000000000001" fill="none" stroke="#16A34A" stroke-width="1.5"/>
+  <circle cx="520" cy="58" r="2.8000000000000003" fill="#16A34A"/>
+  <rect x="531.0" y="55.0" width="6" height="6" rx="1" fill="#16A34A" transform="rotate(0.0,534.0,58.0)"/>
+  <rect x="524.0" y="67.12435565298215" width="6" height="6" rx="1" fill="#16A34A" transform="rotate(59.99999999999999,527.0,70.12435565298215)"/>
+  <rect x="510.0" y="67.12435565298215" width="6" height="6" rx="1" fill="#16A34A" transform="rotate(119.99999999999999,513.0,70.12435565298215)"/>
+  <rect x="503.0" y="55.0" width="6" height="6" rx="1" fill="#16A34A" transform="rotate(180.0,506.0,58.0)"/>
+  <rect x="510.0" y="42.87564434701786" width="6" height="6" rx="1" fill="#16A34A" transform="rotate(239.99999999999997,513.0,45.87564434701786)"/>
+  <rect x="524.0" y="42.87564434701786" width="6" height="6" rx="1" fill="#16A34A" transform="rotate(300.00000000000006,527.0,45.87564434701786)"/><text x="384" y="40" font-size="11" fill="#475569" text-anchor="middle" font-weight="normal">美伊协议 → 油价暴跌 → 通胀降温 → 利率见顶 → 资金大迁徙</text><text x="384.0" y="500" font-size="11" fill="#94A3B8" text-anchor="middle">跷跷板的支点是「通胀预期」——油价跌，跷跷板往周期倾斜</text></svg>

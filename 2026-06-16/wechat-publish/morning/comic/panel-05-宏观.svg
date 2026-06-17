@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 768 512" width="768" height="512" font-family="Microsoft YaHei, SimHei, sans-serif">
+  <rect width="768" height="512" fill="#FAFBFC"/>
+<text x="384" y="36" font-size="20" fill="#1A56DB" text-anchor="middle" font-weight="bold">宏观：骰子还没落地，所有人都在等</text>
+<ellipse cx="384" cy="320" rx="250" ry="40" fill="#F1F5F9" stroke="#64748B" stroke-width="2.5"/>
+<path d="M134,320 L134,260 L634,260 L634,320" fill="#F8FAFC" stroke="#64748B" stroke-width="2" stroke-dasharray="4,2"/>
+<circle cx="190" cy="268" r="10" fill="#CBD5E1" stroke="#94A3B8" stroke-width="2"/>
+<line x1="190" y1="278" x2="190" y2="298" stroke="#94A3B8" stroke-width="2.5"/>
+<circle cx="240" cy="245" r="10" fill="#CBD5E1" stroke="#94A3B8" stroke-width="2"/>
+<line x1="240" y1="255" x2="240" y2="275" stroke="#94A3B8" stroke-width="2.5"/>
+<circle cx="320" cy="230" r="10" fill="#CBD5E1" stroke="#94A3B8" stroke-width="2"/>
+<line x1="320" y1="240" x2="320" y2="260" stroke="#94A3B8" stroke-width="2.5"/>
+<circle cx="384" cy="225" r="10" fill="#CBD5E1" stroke="#94A3B8" stroke-width="2"/>
+<line x1="384" y1="235" x2="384" y2="255" stroke="#94A3B8" stroke-width="2.5"/>
+<circle cx="448" cy="230" r="10" fill="#CBD5E1" stroke="#94A3B8" stroke-width="2"/>
+<line x1="448" y1="240" x2="448" y2="260" stroke="#94A3B8" stroke-width="2.5"/>
+<circle cx="528" cy="245" r="10" fill="#CBD5E1" stroke="#94A3B8" stroke-width="2"/>
+<line x1="528" y1="255" x2="528" y2="275" stroke="#94A3B8" stroke-width="2.5"/>
+<circle cx="578" cy="268" r="10" fill="#CBD5E1" stroke="#94A3B8" stroke-width="2"/>
+<line x1="578" y1="278" x2="578" y2="298" stroke="#94A3B8" stroke-width="2.5"/>
+<circle cx="240" cy="223" r="9" fill="white" stroke="#475569" stroke-width="2"/>
+<line x1="240" y1="232" x2="240" y2="255" stroke="#475569" stroke-width="2.5"/>
+<line x1="240" y1="240" x2="228" y2="247" stroke="#475569" stroke-width="2"/>
+<line x1="240" y1="240" x2="252" y2="247" stroke="#475569" stroke-width="2"/>
+<circle cx="384" cy="203" r="9" fill="white" stroke="#475569" stroke-width="2"/>
+<line x1="384" y1="212" x2="384" y2="235" stroke="#475569" stroke-width="2.5"/>
+<line x1="384" y1="220" x2="372" y2="227" stroke="#475569" stroke-width="2"/>
+<line x1="384" y1="220" x2="396" y2="227" stroke="#475569" stroke-width="2"/>
+<circle cx="528" cy="223" r="9" fill="white" stroke="#475569" stroke-width="2"/>
+<line x1="528" y1="232" x2="528" y2="255" stroke="#475569" stroke-width="2.5"/>
+<line x1="528" y1="240" x2="516" y2="247" stroke="#475569" stroke-width="2"/>
+<line x1="528" y1="240" x2="540" y2="247" stroke="#475569" stroke-width="2"/>
+<polygon points="384,100 424,85 384,70 344,85" fill="#FEF3C7" stroke="#D97706" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="384,100 424,85 424,125 384,140" fill="#FDE68A" stroke="#D97706" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="384,100 344,85 344,125 384,140" fill="#FEF3C7" stroke="#D97706" stroke-width="2.5" stroke-linejoin="round"/>
+<text x="394" y="105" font-size="18" fill="#D97706" text-anchor="middle" font-weight="bold">?</text>
+<text x="369" y="110" font-size="14" fill="#D97706" text-anchor="middle">%</text>
+<text x="404" y="115" font-size="13" fill="#D97706" text-anchor="middle">%</text>
+<line x1="354" y1="155" x2="414" y2="155" stroke="#CBD5E1" stroke-width="1.5" stroke-dasharray="3,5"/>
+<text x="384" y="465" font-size="13" fill="#475569" text-anchor="middle" font-weight="normal">FOMC = 美联储公开市场委员会 · 6月16-17日开会 · 点阵图结果将影响一切</text></svg>

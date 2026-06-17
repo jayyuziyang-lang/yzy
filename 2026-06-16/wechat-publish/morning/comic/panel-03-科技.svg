@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 768 512" width="768" height="512" font-family="Microsoft YaHei, SimHei, sans-serif">
+  <rect width="768" height="512" fill="#FAFBFC"/>
+<text x="384" y="36" font-size="20" fill="#1A56DB" text-anchor="middle" font-weight="bold">科技：火箭飞上天，基本面还在地上</text>
+<line x1="40" y1="390" x2="250" y2="390" stroke="#64748B" stroke-width="2"/>
+<polygon points="130,390 150,390 145,370 135,370" fill="#F1F5F9" stroke="#475569" stroke-width="2.5"/>
+<text x="140" y="415" font-size="14" fill="#475569" text-anchor="middle" font-weight="bold">基本面</text>
+<path d="M140,370 C140,300 300,280 370,160" fill="none" stroke="#F59E0B" stroke-width="3" stroke-dasharray="8,3" stroke-linecap="round"/>
+<path d="M140,370 C180,320 320,250 370,160" fill="none" stroke="#F59E0B" stroke-width="2.5" stroke-dasharray="6,4" stroke-linecap="round"/>
+<ellipse cx="370" cy="140" rx="22" ry="55" fill="#EFF6FF" stroke="#1A56DB" stroke-width="3"/>
+<polygon points="370,72 348,95 392,95" fill="#DBEAFE" stroke="#1A56DB" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="370" cy="120" r="8" fill="#93C5FD" stroke="#1A56DB" stroke-width="2"/>
+<polygon points="348,185 330,205 348,195" fill="#DBEAFE" stroke="#1A56DB" stroke-width="2"/>
+<polygon points="392,185 410,205 392,195" fill="#DBEAFE" stroke="#1A56DB" stroke-width="2"/>
+<polygon points="360,192 370,230 380,192" fill="#FEF2F2" stroke="#EF4444" stroke-width="2"/>
+<polygon points="364,192 370,215 376,192" fill="#FEE2E2" stroke="#EF4444" stroke-width="1.5"/>
+<text x="420" y="110" font-size="13" fill="#DC2626" font-weight="bold">市值$2.5万亿</text>
+<text x="420" y="130" font-size="12" fill="#DC2626">5天涨42% ↑</text>
+<text x="240" y="260" font-size="12" fill="#F59E0B" text-anchor="middle">皮筋快断了!</text>
+<text x="384" y="465" font-size="14" fill="#475569" text-anchor="middle" font-weight="normal">估值能领先基本面多远？当皮筋拉得太长，一定会弹回来</text></svg>

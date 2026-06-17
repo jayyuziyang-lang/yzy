@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 768 512" width="768" height="512" font-family="Microsoft YaHei, SimHei, PingFang SC, sans-serif">
+  <rect width="768" height="512" fill="#FAFBFC"/>
+  <defs>
+    <marker id="ab" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#1A56DB"/></marker>
+    <marker id="ar" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#DC2626"/></marker>
+    <marker id="ag" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#16A34A"/></marker>
+    <marker id="ao" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#D4A017"/></marker>
+  </defs>
+<rect x="0" y="0" width="768" height="44" fill="#1A56DB" opacity="0.08"/>
+  <text x="384.0" y="30" font-size="18" fill="#1A56DB" text-anchor="middle" font-weight="bold">大轮动：资金如何从科技奔涌向周期？</text><circle cx="90" cy="78" r="14" fill="none" stroke="#D4A017" stroke-width="3"/>
+  <circle cx="90" cy="78" r="7.700000000000001" fill="none" stroke="#D4A017" stroke-width="1.5"/>
+  <circle cx="90" cy="78" r="2.8000000000000003" fill="#D4A017"/>
+  <rect x="101.0" y="75.0" width="6" height="6" rx="1" fill="#D4A017" transform="rotate(0.0,104.0,78.0)"/>
+  <rect x="96.89949493661166" y="84.89949493661166" width="6" height="6" rx="1" fill="#D4A017" transform="rotate(45.0,99.89949493661166,87.89949493661166)"/>
+  <rect x="87.0" y="89.0" width="6" height="6" rx="1" fill="#D4A017" transform="rotate(90.0,90.0,92.0)"/>
+  <rect x="77.10050506338834" y="84.89949493661166" width="6" height="6" rx="1" fill="#D4A017" transform="rotate(135.0,80.10050506338834,87.89949493661166)"/>
+  <rect x="73.0" y="75.0" width="6" height="6" rx="1" fill="#D4A017" transform="rotate(180.0,76.0,78.0)"/>
+  <rect x="77.10050506338834" y="65.10050506338834" width="6" height="6" rx="1" fill="#D4A017" transform="rotate(225.0,80.10050506338834,68.10050506338834)"/>
+  <rect x="87.0" y="61.0" width="6" height="6" rx="1" fill="#D4A017" transform="rotate(270.0,90.0,64.0)"/>
+  <rect x="96.89949493661166" y="65.10050506338834" width="6" height="6" rx="1" fill="#D4A017" transform="rotate(315.0,99.89949493661166,68.10050506338834)"/><text x="90" y="106" font-size="10" fill="#D4A017" text-anchor="middle" font-weight="normal">美伊协议</text><line x1="108" y1="78" x2="136" y2="78" stroke="#D4A017" stroke-width="2" stroke-linecap="round" marker-end="url(#ao)"/><circle cx="155" cy="78" r="14" fill="none" stroke="#EA580C" stroke-width="3"/>
+  <circle cx="155" cy="78" r="7.700000000000001" fill="none" stroke="#EA580C" stroke-width="1.5"/>
+  <circle cx="155" cy="78" r="2.8000000000000003" fill="#EA580C"/>
+  <rect x="166.0" y="75.0" width="6" height="6" rx="1" fill="#EA580C" transform="rotate(0.0,169.0,78.0)"/>
+  <rect x="161.89949493661166" y="84.89949493661166" width="6" height="6" rx="1" fill="#EA580C" transform="rotate(45.0,164.89949493661166,87.89949493661166)"/>
+  <rect x="152.0" y="89.0" width="6" height="6" rx="1" fill="#EA580C" transform="rotate(90.0,155.0,92.0)"/>
+  <rect x="142.10050506338834" y="84.89949493661166" width="6" height="6" rx="1" fill="#EA580C" transform="rotate(135.0,145.10050506338834,87.89949493661166)"/>
+  <rect x="138.0" y="75.0" width="6" height="6" rx="1" fill="#EA580C" transform="rotate(180.0,141.0,78.0)"/>
+  <rect x="142.10050506338834" y="65.10050506338834" width="6" height="6" rx="1" fill="#EA580C" transform="rotate(225.0,145.10050506338834,68.10050506338834)"/>
+  <rect x="152.0" y="61.0" width="6" height="6" rx="1" fill="#EA580C" transform="rotate(270.0,155.0,64.0)"/>
+  <rect x="161.89949493661166" y="65.10050506338834" width="6" height="6" rx="1" fill="#EA580C" transform="rotate(315.0,164.89949493661166,68.10050506338834)"/><text x="155" y="106" font-size="10" fill="#EA580C" text-anchor="middle" font-weight="normal">油价暴跌</text><line x1="173" y1="78" x2="201" y2="78" stroke="#EA580C" stroke-width="2" stroke-linecap="round" marker-end="url(#ao)"/><circle cx="218" cy="78" r="12" fill="none" stroke="#D4A017" stroke-width="3"/>
+  <circle cx="218" cy="78" r="6.6000000000000005" fill="none" stroke="#D4A017" stroke-width="1.5"/>
+  <circle cx="218" cy="78" r="2.4000000000000004" fill="#D4A017"/>
+  <rect x="227.0" y="75.0" width="6" height="6" rx="1" fill="#D4A017" transform="rotate(0.0,230.0,78.0)"/>
+  <rect x="223.48528137423858" y="83.48528137423857" width="6" height="6" rx="1" fill="#D4A017" transform="rotate(45.0,226.48528137423858,86.48528137423857)"/>
+  <rect x="215.0" y="87.0" width="6" height="6" rx="1" fill="#D4A017" transform="rotate(90.0,218.0,90.0)"/>
+  <rect x="206.51471862576142" y="83.48528137423857" width="6" height="6" rx="1" fill="#D4A017" transform="rotate(135.0,209.51471862576142,86.48528137423857)"/>
+  <rect x="203.0" y="75.0" width="6" height="6" rx="1" fill="#D4A017" transform="rotate(180.0,206.0,78.0)"/>
+  <rect x="206.51471862576142" y="66.51471862576143" width="6" height="6" rx="1" fill="#D4A017" transform="rotate(225.0,209.51471862576142,69.51471862576143)"/>
+  <rect x="215.0" y="63.0" width="6" height="6" rx="1" fill="#D4A017" transform="rotate(270.0,218.0,66.0)"/>
+  <rect x="223.48528137423858" y="66.51471862576143" width="6" height="6" rx="1" fill="#D4A017" transform="rotate(315.0,226.48528137423858,69.51471862576143)"/><text x="218" y="106" font-size="10" fill="#D4A017" text-anchor="middle" font-weight="normal">通胀预期降</text><line x1="235" y1="78" x2="500" y2="78" stroke="#D4A017" stroke-width="2" stroke-linecap="round" marker-end="url(#ao)"/><rect x="50" y="140" width="200" height="180" rx="6" fill="white" stroke="#7C3AED" stroke-width="2.5"/>
+  <rect x="53" y="203.0" width="194" height="117.0" rx="3" fill="#7C3AED" opacity="0.2"/>
+  <path d="M53,207.0 Q150.0,195.0 247,207.0" fill="none" stroke="#7C3AED" stroke-width="1.5" opacity="0.6"/>
+  <text x="150.0" y="128" font-size="13" fill="#7C3AED" text-anchor="middle" font-weight="bold">科技/AI 资金池</text>
+  <text x="150.0" y="235.0" font-size="22" fill="#7C3AED" text-anchor="middle" font-weight="800">费半-5.7%</text><text x="85" y="295" font-size="9" fill="#7C3AED" text-anchor="middle">Marvell</text><text x="125" y="309" font-size="9" fill="#7C3AED" text-anchor="middle">Intel</text><text x="165" y="323" font-size="9" fill="#7C3AED" text-anchor="middle">AMD</text><text x="205" y="337" font-size="9" fill="#7C3AED" text-anchor="middle">NVDA</text><rect x="518" y="140" width="200" height="180" rx="6" fill="white" stroke="#16A34A" stroke-width="2.5"/>
+  <rect x="521" y="185.0" width="194" height="135.0" rx="3" fill="#16A34A" opacity="0.2"/>
+  <path d="M521,189.0 Q618.0,177.0 715,189.0" fill="none" stroke="#16A34A" stroke-width="1.5" opacity="0.6"/>
+  <text x="618.0" y="128" font-size="13" fill="#16A34A" text-anchor="middle" font-weight="bold">银行/工业 资金池</text>
+  <text x="618.0" y="235.0" font-size="22" fill="#16A34A" text-anchor="middle" font-weight="800">道指+0.64%</text><text x="553" y="295" font-size="9" fill="#16A34A" text-anchor="middle">JPM</text><text x="593" y="309" font-size="9" fill="#16A34A" text-anchor="middle">Visa</text><text x="633" y="323" font-size="9" fill="#16A34A" text-anchor="middle">高盛</text><text x="673" y="337" font-size="9" fill="#16A34A" text-anchor="middle">CAT</text><rect x="294.0" y="224.0" width="180" height="12.0" rx="4" fill="#E2E8F0" stroke="#1A56DB" stroke-width="2"/>
+  <rect x="379" y="200.0" width="10" height="28" rx="3" fill="#F1F5F9" stroke="#1A56DB" stroke-width="2.5"/>
+  <circle cx="384" cy="200.0" r="9" fill="white" stroke="#16A34A" stroke-width="2.5"/>
+  <line x1="384" y1="194.0" x2="384" y2="206.0" stroke="#16A34A" stroke-width="2"/><line x1="290" y1="222.0" x2="310" y2="222.0" stroke="#1A56DB" stroke-width="2" stroke-linecap="round" marker-end="url(#ab)"/><line x1="458" y1="222.0" x2="478" y2="222.0" stroke="#1A56DB" stroke-width="2" stroke-linecap="round" marker-end="url(#ab)"/><text x="384" y="200.0" font-size="11" fill="#1A56DB" text-anchor="middle" font-weight="bold">资金迁徙通道</text><text x="384" y="214.0" font-size="10" fill="#DC2626" text-anchor="middle" font-weight="bold">2026年最大单日轮动</text><text x="220" y="350" font-size="10" fill="#7C3AED" text-anchor="middle">水位↓</text><text x="548" y="350" font-size="10" fill="#16A34A" text-anchor="middle">水位↑</text><circle cx="384" cy="435" r="28" fill="white" stroke="#475569" stroke-width="2.5"/>
+  <circle cx="384" cy="435" r="3" fill="#475569"/>
+  <line x1="384.0" y1="413.0" x2="384.0" y2="409.0" stroke="#475569" stroke-width="1.5"/>
+  <line x1="395.0" y1="415.94744111674237" x2="397.0" y2="412.4833395016046" stroke="#475569" stroke-width="1.5"/>
+  <line x1="403.05255888325763" y1="424.0" x2="406.5166604983954" y2="422.0" stroke="#475569" stroke-width="1.5"/>
+  <line x1="406.0" y1="435.0" x2="410.0" y2="435.0" stroke="#475569" stroke-width="1.5"/>
+  <line x1="403.05255888325763" y1="446.0" x2="406.5166604983954" y2="448.0" stroke="#475569" stroke-width="1.5"/>
+  <line x1="395.0" y1="454.05255888325763" x2="397.0" y2="457.5166604983954" stroke="#475569" stroke-width="1.5"/>
+  <line x1="384.0" y1="457.0" x2="384.0" y2="461.0" stroke="#475569" stroke-width="1.5"/>
+  <line x1="373.0" y1="454.05255888325763" x2="371.0" y2="457.5166604983954" stroke="#475569" stroke-width="1.5"/>
+  <line x1="364.94744111674237" y1="446.0" x2="361.4833395016046" y2="448.0" stroke="#475569" stroke-width="1.5"/>
+  <line x1="362.0" y1="435.0" x2="358.0" y2="435.0" stroke="#475569" stroke-width="1.5"/>
+  <line x1="364.94744111674237" y1="424.0" x2="361.4833395016046" y2="422.0" stroke="#475569" stroke-width="1.5"/>
+  <line x1="373.0" y1="415.94744111674237" x2="371.0" y2="412.4833395016046" stroke="#475569" stroke-width="1.5"/>
+  <line x1="384" y1="435" x2="373.1105555697272" y2="424.1105555697272" stroke="#1A56DB" stroke-width="2.5" stroke-linecap="round"/><text x="440" y="435" font-size="13" fill="#1A56DB" text-anchor="start" font-weight="bold">FOMC Day2</text><text x="440" y="453" font-size="11" fill="#64748B" text-anchor="start" font-weight="normal">沃什首秀倒计时...</text><text x="384.0" y="500" font-size="11" fill="#94A3B8" text-anchor="middle">轮动的本质：宏观条件变了，钱换了地方</text></svg>

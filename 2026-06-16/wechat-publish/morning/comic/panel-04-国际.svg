@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 768 512" width="768" height="512" font-family="Microsoft YaHei, SimHei, sans-serif">
+  <rect width="768" height="512" fill="#FAFBFC"/>
+<text x="384" y="36" font-size="20" fill="#1A56DB" text-anchor="middle" font-weight="bold">国际：两个温度计，一热一冷</text>
+<rect x="202" y="190" width="36" height="190" rx="18" fill="white" stroke="#64748B" stroke-width="2.5"/>
+<circle cx="220" cy="370" r="24" fill="#FEF2F2" stroke="#DC2626" stroke-width="2.5"/>
+<rect x="212" y="235" width="16" height="140" rx="8" fill="#DC2626"/>
+<circle cx="220" cy="235" r="8" fill="#DC2626"/>
+<line x1="208" y1="210" x2="215" y2="210" stroke="#64748B" stroke-width="1.5"/>
+<line x1="208" y1="238" x2="215" y2="238" stroke="#64748B" stroke-width="1.5"/>
+<line x1="208" y1="266" x2="215" y2="266" stroke="#64748B" stroke-width="1.5"/>
+<line x1="208" y1="294" x2="215" y2="294" stroke="#64748B" stroke-width="1.5"/>
+<line x1="208" y1="322" x2="215" y2="322" stroke="#64748B" stroke-width="1.5"/>
+<text x="220" y="410" font-size="15" fill="#DC2626" text-anchor="middle" font-weight="bold">日本</text><text x="270" y="205" font-size="12" fill="#DC2626" text-anchor="middle" font-weight="normal">日经破7万</text><text x="270" y="225" font-size="12" fill="#DC2626" text-anchor="middle" font-weight="normal">BOJ加息至1%</text><text x="270" y="245" font-size="12" fill="#DC2626" text-anchor="middle" font-weight="normal">经济过热↑</text><rect x="530" y="190" width="36" height="190" rx="18" fill="white" stroke="#64748B" stroke-width="2.5"/>
+<circle cx="548" cy="370" r="24" fill="#EFF6FF" stroke="#1A56DB" stroke-width="2.5"/>
+<rect x="540" y="310" width="16" height="65" rx="8" fill="#1A56DB"/>
+<circle cx="548" cy="310" r="8" fill="#1A56DB"/>
+<line x1="536" y1="210" x2="543" y2="210" stroke="#64748B" stroke-width="1.5"/>
+<line x1="536" y1="238" x2="543" y2="238" stroke="#64748B" stroke-width="1.5"/>
+<line x1="536" y1="266" x2="543" y2="266" stroke="#64748B" stroke-width="1.5"/>
+<line x1="536" y1="294" x2="543" y2="294" stroke="#64748B" stroke-width="1.5"/>
+<line x1="536" y1="322" x2="543" y2="322" stroke="#64748B" stroke-width="1.5"/>
+<text x="548" y="410" font-size="15" fill="#1A56DB" text-anchor="middle" font-weight="bold">中国</text><text x="598" y="315" font-size="12" fill="#1A56DB" text-anchor="middle" font-weight="normal">通缩压力</text><text x="598" y="335" font-size="12" fill="#1A56DB" text-anchor="middle" font-weight="normal">等政策落地</text><text x="598" y="355" font-size="12" fill="#1A56DB" text-anchor="middle" font-weight="normal">经济偏冷↓</text><line x1="384" y1="180" x2="384" y2="420" stroke="#E2E8F0" stroke-width="2" stroke-dasharray="4,8"/>
+<text x="384" y="465" font-size="14" fill="#475569" text-anchor="middle" font-weight="normal">亚洲经济温差：一个发烫，一个发冷</text></svg>

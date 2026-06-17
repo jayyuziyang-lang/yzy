@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-17T12:09:35+08:00",
+  "generated_at": "2026-06-17T13:03:31+08:00",
   "latest_date": "2026-06-17",
   "articles": [
     {
@@ -12,7 +12,7 @@
       "has_audio": true,
       "audio_size_bytes": 1785168,
       "has_comic": true,
-      "comic_count": 1
+      "comic_count": 8
     },
     {
       "date": "2026-06-16",
@@ -547,7 +547,7 @@
         "has_audio": true,
         "audio_size_bytes": 1785168,
         "has_comic": true,
-        "comic_count": 1
+        "comic_count": 8
       }
     },
     "2026-06-16": {

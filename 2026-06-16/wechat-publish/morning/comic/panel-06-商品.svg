@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 768 512" width="768" height="512" font-family="Microsoft YaHei, SimHei, sans-serif">
+  <rect width="768" height="512" fill="#FAFBFC"/>
+<text x="384" y="36" font-size="20" fill="#1A56DB" text-anchor="middle" font-weight="bold">商品：黄金天平，为什么往这边倒？</text>
+<rect x="324" y="405" width="120" height="20" rx="3" fill="#F1F5F9" stroke="#475569" stroke-width="2.5"/>
+<line x1="384" y1="405" x2="384" y2="300" stroke="#475569" stroke-width="3"/>
+<line x1="214" y1="287" x2="534" y2="307" stroke="#475569" stroke-width="4" stroke-linecap="round"/>
+<polygon points="384,295 376,305 392,305" fill="#F1F5F9" stroke="#475569" stroke-width="2"/>
+<line x1="214" y1="287" x2="214" y2="317" stroke="#475569" stroke-width="2"/>
+<path d="M164,317 Q214,342 264,317" fill="#FEF2F2" stroke="#DC2626" stroke-width="2.5"/>
+<text x="189" y="307" font-size="16" fill="#DC2626" text-anchor="middle" font-weight="bold">$</text>
+<text x="224" y="302" font-size="16" fill="#DC2626" text-anchor="middle" font-weight="bold">$</text>
+<text x="206" y="295" font-size="16" fill="#DC2626" text-anchor="middle" font-weight="bold">$</text>
+<text x="234" y="315" font-size="16" fill="#DC2626" text-anchor="middle" font-weight="bold">$</text>
+<text x="182" y="297" font-size="16" fill="#DC2626" text-anchor="middle" font-weight="bold">$</text>
+<text x="214" y="285" font-size="16" fill="#DC2626" text-anchor="middle" font-weight="bold">$</text>
+<text x="214" y="112" font-size="15" fill="#DC2626" text-anchor="middle" font-weight="bold">利率预期</text><text x="214" y="128" font-size="13" fill="#DC2626" text-anchor="middle" font-weight="normal">（真正的驱动力）</text><line x1="534" y1="307" x2="534" y2="357" stroke="#475569" stroke-width="2"/>
+<path d="M484,357 Q534,382 584,357" fill="#FFF7ED" stroke="#F59E0B" stroke-width="2.5"/>
+<path d="M534,342 Q524,327 534,317 Q544,327 534,342" fill="#FCD34D" stroke="#F59E0B" stroke-width="1.5"/>
+<text x="534" y="112" font-size="15" fill="#F59E0B" text-anchor="middle" font-weight="bold">避险情绪</text><text x="534" y="128" font-size="13" fill="#F59E0B" text-anchor="middle" font-weight="normal">（只是个假象）</text><text x="144" y="60" font-size="13" fill="#DC2626" text-anchor="middle" font-weight="normal">重! 往下沉</text><rect x="300" y="450" width="168" height="34" rx="6" fill="#1A56DB"/>
+<text x="384" y="473" font-size="17" fill="#FFFFFF" text-anchor="middle" font-weight="bold">黄金坚守 $4300</text></svg>
