@@ -1,73 +1,150 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 768 512" width="768" height="512" font-family="Microsoft YaHei, SimHei, PingFang SC, sans-serif">
-  <rect width="768" height="512" fill="#FAFBFC"/>
   <defs>
-    <marker id="agold" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#D4A017"/></marker>
-    <marker id="ar" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#DC2626"/></marker>
-    <marker id="ag" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#16A34A"/></marker>
-    <marker id="apurple" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#7C3AED"/></marker>
+    <filter id="soft"><feDropShadow dx="0" dy="2" stdDeviation="2.5" flood-color="#3D3222" flood-opacity="0.12"/></filter>
+    <filter id="med"><feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#3D3222" flood-opacity="0.16"/></filter>
+    <filter id="deep"><feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#3D3222" flood-opacity="0.20"/></filter>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FBF9F4"/><stop offset="100%" stop-color="#F4EFE6"/></linearGradient>
+    <linearGradient id="bldg-warm" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FDF6EE"/><stop offset="100%" stop-color="#F5E6D3"/></linearGradient>
+    <linearGradient id="bldg-cool" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#F0F4F8"/><stop offset="100%" stop-color="#DCE4EE"/></linearGradient>
+    <linearGradient id="roof-gold" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#D4A017"/><stop offset="100%" stop-color="#B8860B"/></linearGradient>
+    <linearGradient id="roof-slate" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#475569"/><stop offset="100%" stop-color="#334155"/></linearGradient>
+    <linearGradient id="roof-red" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#DC2626"/><stop offset="100%" stop-color="#991B1B"/></linearGradient>
+    <linearGradient id="gold-bar" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#FDE68A"/><stop offset="50%" stop-color="#FEF3C7"/><stop offset="100%" stop-color="#FDE68A"/></linearGradient>
+    <linearGradient id="rocket-body" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#FEF2F2"/><stop offset="40%" stop-color="#FEE2E2"/><stop offset="100%" stop-color="#FECACA"/></linearGradient>
+    <linearGradient id="flame" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FEE2E2"/><stop offset="35%" stop-color="#FCA5A5"/><stop offset="70%" stop-color="#EF4444"/><stop offset="100%" stop-color="#DC2626"/></linearGradient>
+    <linearGradient id="oil-well" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#475569"/><stop offset="100%" stop-color="#1E293B"/></linearGradient>
+    <linearGradient id="gold-vault" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FEF3C7"/><stop offset="100%" stop-color="#FDE68A"/></linearGradient>
+    <marker id="ar" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#DC2626"/></marker>
+    <marker id="ag" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#16A34A"/></marker>
+    <marker id="agold" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#D4A017"/></marker>
+    <marker id="ablue" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#1A56DB"/></marker>
   </defs>
-<rect x="0" y="0" width="768" height="44" fill="#D4A017" opacity="0.08"/>
-  <text x="384.0" y="30" font-size="18" fill="#D4A017" text-anchor="middle" font-weight="bold">6.17 晚报速览：科创50暴涨·一九分化·全球等FOMC</text><ellipse cx="160" cy="230" rx="28" ry="85" fill="#FFF8E7" stroke="#DC2626" stroke-width="3"/><polygon points="132,140 160,95 188,140" fill="#FEF2F2" stroke="#DC2626" stroke-width="2.5" stroke-linejoin="round"/><polygon points="144,310 160,345 176,310" fill="#FEE2E2" stroke="#DC2626" stroke-width="1.5"/><polygon points="150,325 160,350 170,325" fill="#DC2626" opacity="0.6"/><text x="160" y="365" font-size="14" fill="#DC2626" text-anchor="middle" font-weight="bold">科创50 +4.69%</text><text x="160" y="383" font-size="10" fill="#991B1B" text-anchor="middle" font-weight="normal">半导体净流入154亿</text><path d="M546,280 Q554,270 560,270 Q566,270 574,280 Z" fill="#F1F5F9" stroke="#16A34A" stroke-width="1.5"/><path d="M596,295 Q604,285 610,285 Q616,285 624,295 Z" fill="#F1F5F9" stroke="#16A34A" stroke-width="1.5"/><path d="M506,305 Q514,295 520,295 Q526,295 534,305 Z" fill="#F1F5F9" stroke="#16A34A" stroke-width="1.5"/><path d="M576,320 Q584,310 590,310 Q596,310 604,320 Z" fill="#F1F5F9" stroke="#16A34A" stroke-width="1.5"/><path d="M536,340 Q544,330 550,330 Q556,330 564,340 Z" fill="#F1F5F9" stroke="#16A34A" stroke-width="1.5"/><path d="M616,315 Q624,305 630,305 Q636,305 644,315 Z" fill="#F1F5F9" stroke="#16A34A" stroke-width="1.5"/><text x="570" y="370" font-size="13" fill="#16A34A" text-anchor="middle" font-weight="bold">3734只个股下跌</text><text x="570" y="388" font-size="11" fill="#64748B" text-anchor="middle" font-weight="normal">中位数 -1.19%</text><rect x="372" y="450" width="24" height="30" rx="3" fill="#F1F5F9" stroke="#475569" stroke-width="2"/>
-  <rect x="354" y="472" width="60" height="8" rx="3" fill="#E2E8F0" stroke="#475569" stroke-width="1.5"/>
-  <line x1="384" y1="450" x2="384" y2="380" stroke="#475569" stroke-width="2.5"/>
-  <line x1="284.97319312584295" y1="393.91731009600653" x2="483.02680687415705" y2="366.08268990399347" stroke="#475569" stroke-width="3" stroke-linecap="round"/>
-  <ellipse cx="284.97319312584295" cy="411.91731009600653" rx="45" ry="12" fill="#DC2626" opacity="0.15" stroke="#DC2626" stroke-width="1.5"/>
-  <ellipse cx="483.02680687415705" cy="384.08268990399347" rx="45" ry="12" fill="#16A34A" opacity="0.15" stroke="#16A34A" stroke-width="1.5"/>
-  <line x1="284.97319312584295" y1="393.91731009600653" x2="284.97319312584295" y2="405.91731009600653" stroke="#475569" stroke-width="1.5"/>
-  <line x1="483.02680687415705" y1="366.08268990399347" x2="483.02680687415705" y2="378.08268990399347" stroke="#475569" stroke-width="1.5"/>
-  <text x="284.97319312584295" y="431.91731009600653" font-size="10" fill="#DC2626" text-anchor="middle" font-weight="bold">指数↑</text>
-  <text x="483.02680687415705" y="404.08268990399347" font-size="10" fill="#16A34A" text-anchor="middle" font-weight="bold">个股↓</text><text x="384" y="350" font-size="14" fill="#DC2626" text-anchor="middle" font-weight="bold">一九分化</text><circle cx="384" cy="120" r="26" fill="white" stroke="#475569" stroke-width="2.5"/>
-  <circle cx="384" cy="120" r="3" fill="#475569"/>
-  <line x1="384.0" y1="100.0" x2="384.0" y2="96.0" stroke="#475569" stroke-width="1.5"/>
-  <line x1="394.0" y1="102.67949192431122" x2="396.0" y2="99.21539030917347" stroke="#475569" stroke-width="1.5"/>
-  <line x1="401.3205080756888" y1="110.0" x2="404.7846096908265" y2="108.0" stroke="#475569" stroke-width="1.5"/>
-  <line x1="404.0" y1="120.0" x2="408.0" y2="120.0" stroke="#475569" stroke-width="1.5"/>
-  <line x1="401.3205080756888" y1="130.0" x2="404.7846096908265" y2="132.0" stroke="#475569" stroke-width="1.5"/>
-  <line x1="394.0" y1="137.32050807568876" x2="396.0" y2="140.78460969082653" stroke="#475569" stroke-width="1.5"/>
-  <line x1="384.0" y1="140.0" x2="384.0" y2="144.0" stroke="#475569" stroke-width="1.5"/>
-  <line x1="374.0" y1="137.32050807568876" x2="372.0" y2="140.78460969082653" stroke="#475569" stroke-width="1.5"/>
-  <line x1="366.6794919243112" y1="130.0" x2="363.2153903091735" y2="132.0" stroke="#475569" stroke-width="1.5"/>
-  <line x1="364.0" y1="120.0" x2="360.0" y2="120.0" stroke="#475569" stroke-width="1.5"/>
-  <line x1="366.6794919243112" y1="110.0" x2="363.2153903091735" y2="108.0" stroke="#475569" stroke-width="1.5"/>
-  <line x1="374.0" y1="102.67949192431124" x2="372.0" y2="99.21539030917347" stroke="#475569" stroke-width="1.5"/>
-  <line x1="384" y1="120" x2="373.8883730290324" y2="109.88837302903237" stroke="#D4A017" stroke-width="2.5" stroke-linecap="round"/><text x="430" y="118" font-size="13" fill="#D4A017" text-anchor="start" font-weight="bold">FOMC倒计时</text><text x="430" y="138" font-size="10" fill="#64748B" text-anchor="start" font-weight="normal">凌晨2:00 沃什首秀</text><circle cx="60" cy="460" r="11" fill="none" stroke="#D4A017" stroke-width="3"/>
-  <circle cx="60" cy="460" r="6.050000000000001" fill="none" stroke="#D4A017" stroke-width="1.5"/>
-  <circle cx="60" cy="460" r="2.2" fill="#D4A017"/>
-  <rect x="68.0" y="457.0" width="6" height="6" rx="1" fill="#D4A017" transform="rotate(0.0,71.0,460.0)"/>
-  <rect x="62.5" y="466.52627944162884" width="6" height="6" rx="1" fill="#D4A017" transform="rotate(59.99999999999999,65.5,469.52627944162884)"/>
-  <rect x="51.5" y="466.52627944162884" width="6" height="6" rx="1" fill="#D4A017" transform="rotate(119.99999999999999,54.5,469.52627944162884)"/>
-  <rect x="46.0" y="457.0" width="6" height="6" rx="1" fill="#D4A017" transform="rotate(180.0,49.0,460.0)"/>
-  <rect x="51.49999999999999" y="447.47372055837116" width="6" height="6" rx="1" fill="#D4A017" transform="rotate(239.99999999999997,54.49999999999999,450.47372055837116)"/>
-  <rect x="62.5" y="447.47372055837116" width="6" height="6" rx="1" fill="#D4A017" transform="rotate(300.00000000000006,65.5,450.47372055837116)"/><text x="60" y="482" font-size="9" fill="#D4A017" text-anchor="middle" font-weight="normal">陆家嘴论坛</text><circle cx="190" cy="460" r="11" fill="none" stroke="#D4A017" stroke-width="3"/>
-  <circle cx="190" cy="460" r="6.050000000000001" fill="none" stroke="#D4A017" stroke-width="1.5"/>
-  <circle cx="190" cy="460" r="2.2" fill="#D4A017"/>
-  <rect x="198.0" y="457.0" width="6" height="6" rx="1" fill="#D4A017" transform="rotate(0.0,201.0,460.0)"/>
-  <rect x="192.5" y="466.52627944162884" width="6" height="6" rx="1" fill="#D4A017" transform="rotate(59.99999999999999,195.5,469.52627944162884)"/>
-  <rect x="181.5" y="466.52627944162884" width="6" height="6" rx="1" fill="#D4A017" transform="rotate(119.99999999999999,184.5,469.52627944162884)"/>
-  <rect x="176.0" y="457.0" width="6" height="6" rx="1" fill="#D4A017" transform="rotate(180.0,179.0,460.0)"/>
-  <rect x="181.5" y="447.47372055837116" width="6" height="6" rx="1" fill="#D4A017" transform="rotate(239.99999999999997,184.5,450.47372055837116)"/>
-  <rect x="192.5" y="447.47372055837116" width="6" height="6" rx="1" fill="#D4A017" transform="rotate(300.00000000000006,195.5,450.47372055837116)"/><text x="190" y="482" font-size="9" fill="#D4A017" text-anchor="middle" font-weight="normal">硬科技政策</text><circle cx="330" cy="460" r="11" fill="none" stroke="#DC2626" stroke-width="3"/>
-  <circle cx="330" cy="460" r="6.050000000000001" fill="none" stroke="#DC2626" stroke-width="1.5"/>
-  <circle cx="330" cy="460" r="2.2" fill="#DC2626"/>
-  <rect x="338.0" y="457.0" width="6" height="6" rx="1" fill="#DC2626" transform="rotate(0.0,341.0,460.0)"/>
-  <rect x="332.5" y="466.52627944162884" width="6" height="6" rx="1" fill="#DC2626" transform="rotate(59.99999999999999,335.5,469.52627944162884)"/>
-  <rect x="321.5" y="466.52627944162884" width="6" height="6" rx="1" fill="#DC2626" transform="rotate(119.99999999999999,324.5,469.52627944162884)"/>
-  <rect x="316.0" y="457.0" width="6" height="6" rx="1" fill="#DC2626" transform="rotate(180.0,319.0,460.0)"/>
-  <rect x="321.5" y="447.47372055837116" width="6" height="6" rx="1" fill="#DC2626" transform="rotate(239.99999999999997,324.5,450.47372055837116)"/>
-  <rect x="332.5" y="447.47372055837116" width="6" height="6" rx="1" fill="#DC2626" transform="rotate(300.00000000000006,335.5,450.47372055837116)"/><text x="330" y="482" font-size="9" fill="#DC2626" text-anchor="middle" font-weight="normal">半导体涨停</text><circle cx="470" cy="460" r="11" fill="none" stroke="#16A34A" stroke-width="3"/>
-  <circle cx="470" cy="460" r="6.050000000000001" fill="none" stroke="#16A34A" stroke-width="1.5"/>
-  <circle cx="470" cy="460" r="2.2" fill="#16A34A"/>
-  <rect x="478.0" y="457.0" width="6" height="6" rx="1" fill="#16A34A" transform="rotate(0.0,481.0,460.0)"/>
-  <rect x="472.5" y="466.52627944162884" width="6" height="6" rx="1" fill="#16A34A" transform="rotate(59.99999999999999,475.5,469.52627944162884)"/>
-  <rect x="461.5" y="466.52627944162884" width="6" height="6" rx="1" fill="#16A34A" transform="rotate(119.99999999999999,464.5,469.52627944162884)"/>
-  <rect x="456.0" y="457.0" width="6" height="6" rx="1" fill="#16A34A" transform="rotate(180.0,459.0,460.0)"/>
-  <rect x="461.5" y="447.47372055837116" width="6" height="6" rx="1" fill="#16A34A" transform="rotate(239.99999999999997,464.5,450.47372055837116)"/>
-  <rect x="472.5" y="447.47372055837116" width="6" height="6" rx="1" fill="#16A34A" transform="rotate(300.00000000000006,475.5,450.47372055837116)"/><text x="470" y="482" font-size="9" fill="#16A34A" text-anchor="middle" font-weight="normal">3700股下跌</text><circle cx="610" cy="460" r="11" fill="none" stroke="#D4A017" stroke-width="3"/>
-  <circle cx="610" cy="460" r="6.050000000000001" fill="none" stroke="#D4A017" stroke-width="1.5"/>
-  <circle cx="610" cy="460" r="2.2" fill="#D4A017"/>
-  <rect x="618.0" y="457.0" width="6" height="6" rx="1" fill="#D4A017" transform="rotate(0.0,621.0,460.0)"/>
-  <rect x="612.5" y="466.52627944162884" width="6" height="6" rx="1" fill="#D4A017" transform="rotate(59.99999999999999,615.5,469.52627944162884)"/>
-  <rect x="601.5" y="466.52627944162884" width="6" height="6" rx="1" fill="#D4A017" transform="rotate(119.99999999999999,604.5,469.52627944162884)"/>
-  <rect x="596.0" y="457.0" width="6" height="6" rx="1" fill="#D4A017" transform="rotate(180.0,599.0,460.0)"/>
-  <rect x="601.5" y="447.47372055837116" width="6" height="6" rx="1" fill="#D4A017" transform="rotate(239.99999999999997,604.5,450.47372055837116)"/>
-  <rect x="612.5" y="447.47372055837116" width="6" height="6" rx="1" fill="#D4A017" transform="rotate(300.00000000000006,615.5,450.47372055837116)"/><text x="610" y="482" font-size="9" fill="#D4A017" text-anchor="middle" font-weight="normal">FOMC</text><text x="384.0" y="498" font-size="11" fill="#94A3B8" text-anchor="middle">指数上涨但亏钱效应显著——这不是全面牛市，是极致抱团</text></svg>
+<rect width="768" height="512" fill="url(#sky)"/>
+  <rect x="0" y="0" width="768" height="42" fill="#D4A017" opacity="0.06"/>
+  <line x1="0" y1="42" x2="768" y2="42" stroke="#D4A017" stroke-width="0.5" opacity="0.2"/>
+  <text x="384" y="28" font-size="16" fill="#8B6914" text-anchor="middle" font-weight="bold" letter-spacing="0.5">2026年6月17日 · 晚报速览</text>
+  <g filter="url(#med)">
+  <rect x="-35.0" y="385" width="170" height="8" rx="2" fill="#E2DDD0" stroke="#C4A97D" stroke-width="0.8" opacity="0.6"/>
+  <rect x="-28.0" y="393" width="156" height="8" rx="2" fill="#EDE9E0" stroke="#C4A97D" stroke-width="0.8" opacity="0.6"/>
+  <rect x="-22.0" y="401" width="144" height="8" rx="2" fill="#F5F2EC" stroke="#C4A97D" stroke-width="0.8" opacity="0.6"/>
+  <rect x="50.0" y="134" width="140" height="135" rx="3" fill="url(#bldg-warm)" stroke="#C4A97D" stroke-width="2"/>
+  <polygon points="50.0,134 120,69 190.0,134" fill="url(#roof-gold)" stroke="#C4A97D" stroke-width="2" stroke-linejoin="round"/>
+  <line x1="50.0" y1="134" x2="190.0" y2="134" stroke="#C4A97D" stroke-width="2"/>
+  <circle cx="120" cy="106.5" r="10" fill="#FFFDF7" stroke="#C4A97D" stroke-width="1.5"/>
+  <line x1="120" y1="98.5" x2="120" y2="114.5" stroke="#C4A97D" stroke-width="0.8" opacity="0.3"/>
+  <line x1="112" y1="106.5" x2="128" y2="106.5" stroke="#C4A97D" stroke-width="0.8" opacity="0.3"/>
+  <rect x="64.0" y="164" width="7" height="241" fill="#FDF8F0" stroke="#C4A97D" stroke-width="1.5" opacity="0.9"/>
+  <rect x="61.0" y="160" width="13" height="5" rx="1" fill="#E8D5B7" stroke="#C4A97D" stroke-width="1" opacity="0.8"/>
+  <rect x="85.0" y="164" width="7" height="241" fill="#FDF8F0" stroke="#C4A97D" stroke-width="1.5" opacity="0.9"/>
+  <rect x="82.0" y="160" width="13" height="5" rx="1" fill="#E8D5B7" stroke="#C4A97D" stroke-width="1" opacity="0.8"/>
+  <rect x="106.0" y="164" width="7" height="241" fill="#FDF8F0" stroke="#C4A97D" stroke-width="1.5" opacity="0.9"/>
+  <rect x="103.0" y="160" width="13" height="5" rx="1" fill="#E8D5B7" stroke="#C4A97D" stroke-width="1" opacity="0.8"/>
+  <rect x="127.0" y="164" width="7" height="241" fill="#FDF8F0" stroke="#C4A97D" stroke-width="1.5" opacity="0.9"/>
+  <rect x="124.0" y="160" width="13" height="5" rx="1" fill="#E8D5B7" stroke="#C4A97D" stroke-width="1" opacity="0.8"/>
+  <rect x="148.0" y="164" width="7" height="241" fill="#FDF8F0" stroke="#C4A97D" stroke-width="1.5" opacity="0.9"/>
+  <rect x="145.0" y="160" width="13" height="5" rx="1" fill="#E8D5B7" stroke="#C4A97D" stroke-width="1" opacity="0.8"/>
+  <rect x="169.0" y="164" width="7" height="241" fill="#FDF8F0" stroke="#C4A97D" stroke-width="1.5" opacity="0.9"/>
+  <rect x="166.0" y="160" width="13" height="5" rx="1" fill="#E8D5B7" stroke="#C4A97D" stroke-width="1" opacity="0.8"/>
+  <rect x="100.0" y="357.7" width="40" height="51.3" rx="3" fill="#C4A97D" stroke="#C4A97D" stroke-width="1.5" opacity="0.7"/>
+  <rect x="106.0" y="363.7" width="28" height="20.52" rx="1" fill="#FDF8F0" stroke="#C4A97D" stroke-width="1"/>
+  <rect x="106.0" y="382.22" width="28" height="15.389999999999999" rx="1" fill="#FDF8F0" stroke="#C4A97D" stroke-width="1"/>
+  <rect x="67.19999999999999" y="174" width="16" height="20" rx="2" fill="#FFFDF7" stroke="#C4A97D" stroke-width="1" opacity="0.8"/>
+  <line x1="75.19999999999999" y1="174" x2="75.19999999999999" y2="194" stroke="#C4A97D" stroke-width="0.5" opacity="0.3"/>
+  <rect x="156.8" y="174" width="16" height="20" rx="2" fill="#FFFDF7" stroke="#C4A97D" stroke-width="1" opacity="0.8"/>
+  <line x1="164.8" y1="174" x2="164.8" y2="194" stroke="#C4A97D" stroke-width="0.5" opacity="0.3"/>
+  </g>
+<rect x="65.0" y="390" width="110" height="24" rx="6" fill="white" stroke="#D4A017" stroke-width="1.5" filter="url(#soft)"/>
+  <text x="120" y="406.0" font-size="10" fill="#8B6914" text-anchor="middle" font-weight="bold">上交所 · 科创50</text>  <rect x="33" y="100" width="174" height="44" rx="8" fill="white" stroke="#FCA5A5" stroke-width="1.5" filter="url(#soft)"/>
+  <text x="120" y="118" font-size="11" fill="#991B1B" text-anchor="middle" font-weight="bold">科创50 收盘</text>
+  <text x="120" y="137" font-size="17" fill="#DC2626" text-anchor="middle" font-weight="bold">1,840.82 +4.69%</text>
+<polygon points="112,74 120,62 128,74" fill="#DC2626"/>
+<line x1="120" y1="72" x2="120" y2="92" stroke="#DC2626" stroke-width="2.5" marker-end="url(#ar)"/>
+<rect x="45.0" y="440" width="150" height="22" rx="6" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="1.5" filter="url(#soft)"/>
+  <text x="120" y="455.0" font-size="10" fill="#DC2626" text-anchor="middle" font-weight="bold">半导体净流入 154亿</text>  <g filter="url(#med)">
+  <rect x="505.0" y="355" width="158" height="8" rx="2" fill="#E2DDD0" stroke="#94A3B8" stroke-width="0.8" opacity="0.6"/>
+  <rect x="512.0" y="363" width="144" height="8" rx="2" fill="#EDE9E0" stroke="#94A3B8" stroke-width="0.8" opacity="0.6"/>
+  <rect x="518.0" y="371" width="132" height="8" rx="2" fill="#F5F2EC" stroke="#94A3B8" stroke-width="0.8" opacity="0.6"/>
+  <rect x="584.0" y="136" width="128" height="115" rx="3" fill="url(#bldg-cool)" stroke="#94A3B8" stroke-width="2"/>
+  <polygon points="584.0,136 648,71 712.0,136" fill="url(#roof-slate)" stroke="#94A3B8" stroke-width="2" stroke-linejoin="round"/>
+  <line x1="584.0" y1="136" x2="712.0" y2="136" stroke="#94A3B8" stroke-width="2"/>
+  <circle cx="648" cy="108.5" r="14" fill="white" stroke="#475569" stroke-width="2"/>
+  <circle cx="648" cy="108.5" r="2" fill="#475569"/>
+  <line x1="648" y1="108.5" x2="648" y2="98.5" stroke="#475569" stroke-width="2" stroke-linecap="round"/>
+  <line x1="648" y1="108.5" x2="654" y2="112.5" stroke="#475569" stroke-width="1.5" stroke-linecap="round"/>
+  <rect x="611.0" y="166" width="8" height="209" fill="#FDF8F0" stroke="#94A3B8" stroke-width="1.5" opacity="0.9"/>
+  <rect x="608.0" y="162" width="14" height="5" rx="1" fill="#E8D5B7" stroke="#94A3B8" stroke-width="1" opacity="0.8"/>
+  <rect x="633.0" y="166" width="8" height="209" fill="#FDF8F0" stroke="#94A3B8" stroke-width="1.5" opacity="0.9"/>
+  <rect x="630.0" y="162" width="14" height="5" rx="1" fill="#E8D5B7" stroke="#94A3B8" stroke-width="1" opacity="0.8"/>
+  <rect x="655.0" y="166" width="8" height="209" fill="#FDF8F0" stroke="#94A3B8" stroke-width="1.5" opacity="0.9"/>
+  <rect x="652.0" y="162" width="14" height="5" rx="1" fill="#E8D5B7" stroke="#94A3B8" stroke-width="1" opacity="0.8"/>
+  <rect x="677.0" y="166" width="8" height="209" fill="#FDF8F0" stroke="#94A3B8" stroke-width="1.5" opacity="0.9"/>
+  <rect x="674.0" y="162" width="14" height="5" rx="1" fill="#E8D5B7" stroke="#94A3B8" stroke-width="1" opacity="0.8"/>
+  <rect x="628.8" y="335.3" width="38.4" height="43.7" rx="3" fill="#94A3B8" stroke="#94A3B8" stroke-width="1.5" opacity="0.7"/>
+  <rect x="634.8" y="341.3" width="26.4" height="17.48" rx="1" fill="#FDF8F0" stroke="#94A3B8" stroke-width="1"/>
+  <rect x="634.8" y="356.78" width="26.4" height="13.110000000000001" rx="1" fill="#FDF8F0" stroke="#94A3B8" stroke-width="1"/>
+  <rect x="599.04" y="176" width="16" height="20" rx="2" fill="#FFFDF7" stroke="#94A3B8" stroke-width="1" opacity="0.8"/>
+  <line x1="607.04" y1="176" x2="607.04" y2="196" stroke="#94A3B8" stroke-width="0.5" opacity="0.3"/>
+  <rect x="680.96" y="176" width="16" height="20" rx="2" fill="#FFFDF7" stroke="#94A3B8" stroke-width="1" opacity="0.8"/>
+  <line x1="688.96" y1="176" x2="688.96" y2="196" stroke="#94A3B8" stroke-width="0.5" opacity="0.3"/>
+  </g>
+<rect x="590.0" y="360" width="116" height="24" rx="6" fill="white" stroke="#64748B" stroke-width="1.5" filter="url(#soft)"/>
+  <text x="648" y="376.0" font-size="10" fill="#334155" text-anchor="middle" font-weight="bold">美联储 · FOMC</text>  <rect x="590" y="108" width="116" height="42" rx="8" fill="white" stroke="#FDE68A" stroke-width="1.5" filter="url(#soft)"/>
+  <text x="648" y="125" font-size="11" fill="#8B6914" text-anchor="middle" font-weight="bold">北京时间 凌晨 2:00</text>
+  <text x="648" y="142" font-size="13" fill="#DC2626" text-anchor="middle" font-weight="bold">沃什首秀</text>
+  <g filter="url(#deep)">
+    <rect x="349" y="370" width="70" height="12" rx="3" fill="#E2DDD0" stroke="#A8A49A" stroke-width="1.5"/>
+    <rect x="369" y="382" width="30" height="20" rx="3" fill="#EDE9E0" stroke="#A8A49A" stroke-width="1.5"/>
+    <rect x="380" y="240" width="8" height="142" rx="3" fill="#D4CFC2" stroke="#A8A49A" stroke-width="1.5"/>
+    <line x1="220" y1="260" x2="548" y2="250" stroke="#5D5A52" stroke-width="4" stroke-linecap="round"/>
+    <ellipse cx="234" cy="272" rx="48" ry="14" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="2.5"/>
+    <text x="234" y="294" font-size="11" fill="#DC2626" text-anchor="middle" font-weight="bold">科创50 +4.69%</text>
+    <ellipse cx="534" cy="262" rx="44" ry="12" fill="#F0FDF4" stroke="#86EFAC" stroke-width="2"/>
+    <text x="534" y="280" font-size="11" fill="#16A34A" text-anchor="middle" font-weight="bold">3734只股跌</text>
+  </g>
+  <rect x="328" y="218" width="112" height="30" rx="6" fill="white" stroke="#FCA5A5" stroke-width="1.5" filter="url(#soft)"/>
+  <text x="384" y="235" font-size="13" fill="#DC2626" text-anchor="middle" font-weight="bold">一九分化</text>
+  <text x="384" y="246" font-size="8" fill="#64748B" text-anchor="middle">涨跌比 1 : 2.2</text>
+  <line x1="60" y1="472" x2="708" y2="472" stroke="#D4A017" stroke-width="1" opacity="0.25" stroke-dasharray="4,4"/>
+  <g filter="url(#soft)">
+    <circle cx="60.0" cy="472" r="16" fill="#FEF3C7" stroke="#D4A017" stroke-width="2.5"/>
+    <circle cx="60.0" cy="472" r="7.2" fill="none" stroke="#D4A017" stroke-width="1.2"/>
+    <circle cx="60.0" cy="472" r="3" fill="#D4A017"/>
+  </g>
+  <text x="60.0" y="500" font-size="9" fill="#D4A017" text-anchor="middle" font-weight="bold">陆家嘴论坛</text>
+  <line x1="80.0" y1="472" x2="168.0" y2="472" stroke="#D4A017" stroke-width="2" marker-end="url(#agold)"/>
+  <g filter="url(#soft)">
+    <circle cx="188.0" cy="472" r="16" fill="#FEF3C7" stroke="#D4A017" stroke-width="2.5"/>
+    <circle cx="188.0" cy="472" r="7.2" fill="none" stroke="#D4A017" stroke-width="1.2"/>
+    <circle cx="188.0" cy="472" r="3" fill="#D4A017"/>
+  </g>
+  <text x="188.0" y="500" font-size="9" fill="#D4A017" text-anchor="middle" font-weight="bold">硬科技政策</text>
+  <line x1="208.0" y1="472" x2="296.0" y2="472" stroke="#D4A017" stroke-width="2" marker-end="url(#agold)"/>
+  <g filter="url(#soft)">
+    <circle cx="316.0" cy="472" r="16" fill="#FEE2E2" stroke="#DC2626" stroke-width="2.5"/>
+    <circle cx="316.0" cy="472" r="7.2" fill="none" stroke="#DC2626" stroke-width="1.2"/>
+    <circle cx="316.0" cy="472" r="3" fill="#DC2626"/>
+  </g>
+  <text x="316.0" y="500" font-size="9" fill="#DC2626" text-anchor="middle" font-weight="bold">半导体涨停</text>
+  <line x1="336.0" y1="472" x2="424.0" y2="472" stroke="#DC2626" stroke-width="2" marker-end="url(#agold)"/>
+  <g filter="url(#soft)">
+    <circle cx="444.0" cy="472" r="16" fill="#DCFCE7" stroke="#16A34A" stroke-width="2.5"/>
+    <circle cx="444.0" cy="472" r="7.2" fill="none" stroke="#16A34A" stroke-width="1.2"/>
+    <circle cx="444.0" cy="472" r="3" fill="#16A34A"/>
+  </g>
+  <text x="444.0" y="500" font-size="9" fill="#16A34A" text-anchor="middle" font-weight="bold">3700股下跌</text>
+  <line x1="464.0" y1="472" x2="552.0" y2="472" stroke="#16A34A" stroke-width="2" marker-end="url(#agold)"/>
+  <g filter="url(#soft)">
+    <circle cx="572.0" cy="472" r="16" fill="#DBEAFE" stroke="#1A56DB" stroke-width="2.5"/>
+    <circle cx="572.0" cy="472" r="7.2" fill="none" stroke="#1A56DB" stroke-width="1.2"/>
+    <circle cx="572.0" cy="472" r="3" fill="#1A56DB"/>
+  </g>
+  <text x="572.0" y="500" font-size="9" fill="#1A56DB" text-anchor="middle" font-weight="bold">FOMC</text>
+  <line x1="592.0" y1="472" x2="680.0" y2="472" stroke="#1A56DB" stroke-width="2" marker-end="url(#agold)"/>
+  <g filter="url(#soft)">
+    <circle cx="700.0" cy="472" r="16" fill="#FEF3C7" stroke="#D4A017" stroke-width="2.5"/>
+    <circle cx="700.0" cy="472" r="7.2" fill="none" stroke="#D4A017" stroke-width="1.2"/>
+    <circle cx="700.0" cy="472" r="3" fill="#D4A017"/>
+  </g>
+  <text x="700.0" y="500" font-size="9" fill="#D4A017" text-anchor="middle" font-weight="bold">明天方向?</text>
+  <text x="384" y="506" font-size="9" fill="#A8A49A" text-anchor="middle">不是全面牛市，是极致抱团 · FOMC凌晨2:00揭晓</text>
+</svg>

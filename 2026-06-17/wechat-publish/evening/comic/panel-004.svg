@@ -1,29 +1,86 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 768 512" width="768" height="512" font-family="Microsoft YaHei, SimHei, PingFang SC, sans-serif">
-  <rect width="768" height="512" fill="#FAFBFC"/>
   <defs>
-    <marker id="agold" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#D4A017"/></marker>
-    <marker id="ar" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#DC2626"/></marker>
-    <marker id="ag" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#16A34A"/></marker>
-    <marker id="apurple" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#7C3AED"/></marker>
+    <filter id="soft"><feDropShadow dx="0" dy="2" stdDeviation="2.5" flood-color="#3D3222" flood-opacity="0.12"/></filter>
+    <filter id="med"><feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#3D3222" flood-opacity="0.16"/></filter>
+    <filter id="deep"><feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#3D3222" flood-opacity="0.20"/></filter>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FBF9F4"/><stop offset="100%" stop-color="#F4EFE6"/></linearGradient>
+    <linearGradient id="bldg-warm" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FDF6EE"/><stop offset="100%" stop-color="#F5E6D3"/></linearGradient>
+    <linearGradient id="bldg-cool" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#F0F4F8"/><stop offset="100%" stop-color="#DCE4EE"/></linearGradient>
+    <linearGradient id="roof-gold" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#D4A017"/><stop offset="100%" stop-color="#B8860B"/></linearGradient>
+    <linearGradient id="roof-slate" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#475569"/><stop offset="100%" stop-color="#334155"/></linearGradient>
+    <linearGradient id="roof-red" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#DC2626"/><stop offset="100%" stop-color="#991B1B"/></linearGradient>
+    <linearGradient id="gold-bar" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#FDE68A"/><stop offset="50%" stop-color="#FEF3C7"/><stop offset="100%" stop-color="#FDE68A"/></linearGradient>
+    <linearGradient id="rocket-body" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#FEF2F2"/><stop offset="40%" stop-color="#FEE2E2"/><stop offset="100%" stop-color="#FECACA"/></linearGradient>
+    <linearGradient id="flame" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FEE2E2"/><stop offset="35%" stop-color="#FCA5A5"/><stop offset="70%" stop-color="#EF4444"/><stop offset="100%" stop-color="#DC2626"/></linearGradient>
+    <linearGradient id="oil-well" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#475569"/><stop offset="100%" stop-color="#1E293B"/></linearGradient>
+    <linearGradient id="gold-vault" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FEF3C7"/><stop offset="100%" stop-color="#FDE68A"/></linearGradient>
+    <marker id="ar" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#DC2626"/></marker>
+    <marker id="ag" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#16A34A"/></marker>
+    <marker id="agold" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#D4A017"/></marker>
+    <marker id="ablue" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#1A56DB"/></marker>
   </defs>
-<rect x="0" y="0" width="768" height="44" fill="#D4A017" opacity="0.08"/>
-  <text x="384.0" y="30" font-size="18" fill="#D4A017" text-anchor="middle" font-weight="bold">FOMC：沃什首秀·三岔路口·全球屏息等待</text><rect x="334" y="100" width="100" height="110" rx="4" fill="#FFF8E7" stroke="#D4A017" stroke-width="2.5"/><rect x="354" y="120" width="60" height="20" rx="2" fill="#FEF3C7" stroke="#D4A017" stroke-width="1"/><text x="384" y="134" font-size="12" fill="#B8860B" text-anchor="middle" font-weight="bold">FOMC</text><rect x="354" y="148" width="25" height="18" rx="1" fill="#FFF8E7" stroke="#D4A017" stroke-width="1"/><rect x="384" y="148" width="25" height="18" rx="1" fill="#FFF8E7" stroke="#D4A017" stroke-width="1"/><rect x="354" y="172" width="25" height="18" rx="1" fill="#FFF8E7" stroke="#D4A017" stroke-width="1"/><rect x="384" y="172" width="25" height="18" rx="1" fill="#FFF8E7" stroke="#D4A017" stroke-width="1"/><rect x="369" y="190" width="30" height="20" rx="3" fill="#F1F5F9" stroke="#D4A017" stroke-width="1.5"/><circle cx="480" cy="130" r="30" fill="white" stroke="#475569" stroke-width="2.5"/>
-  <circle cx="480" cy="130" r="3" fill="#475569"/>
-  <line x1="480.0" y1="106.0" x2="480.0" y2="102.0" stroke="#475569" stroke-width="1.5"/>
-  <line x1="492.0" y1="109.21539030917347" x2="494.0" y2="105.75128869403571" stroke="#475569" stroke-width="1.5"/>
-  <line x1="500.7846096908265" y1="118.0" x2="504.24871130596426" y2="116.0" stroke="#475569" stroke-width="1.5"/>
-  <line x1="504.0" y1="130.0" x2="508.0" y2="130.0" stroke="#475569" stroke-width="1.5"/>
-  <line x1="500.7846096908265" y1="142.0" x2="504.24871130596426" y2="144.0" stroke="#475569" stroke-width="1.5"/>
-  <line x1="492.0" y1="150.78460969082653" x2="494.0" y2="154.2487113059643" stroke="#475569" stroke-width="1.5"/>
-  <line x1="480.0" y1="154.0" x2="480.0" y2="158.0" stroke="#475569" stroke-width="1.5"/>
-  <line x1="468.0" y1="150.78460969082653" x2="466.0" y2="154.2487113059643" stroke="#475569" stroke-width="1.5"/>
-  <line x1="459.2153903091735" y1="142.0" x2="455.75128869403574" y2="144.0" stroke="#475569" stroke-width="1.5"/>
-  <line x1="456.0" y1="130.0" x2="452.0" y2="130.0" stroke="#475569" stroke-width="1.5"/>
-  <line x1="459.2153903091735" y1="118.0" x2="455.75128869403574" y2="116.0" stroke="#475569" stroke-width="1.5"/>
-  <line x1="468.0" y1="109.21539030917347" x2="466.0" y2="105.75128869403572" stroke="#475569" stroke-width="1.5"/>
-  <line x1="480" y1="130" x2="468.332738110422" y2="118.33273811042197" stroke="#D4A017" stroke-width="2.5" stroke-linecap="round"/><text x="530" y="128" font-size="11" fill="#475569" text-anchor="start" font-weight="bold">北京时间</text><text x="530" y="146" font-size="11" fill="#DC2626" text-anchor="start" font-weight="bold">凌晨2:00</text><circle cx="384" cy="230" r="6" fill="#D4A017"/><line x1="384" y1="230" x2="170" y2="310" stroke="#16A34A" stroke-width="3" stroke-linecap="round" marker-end="url(#ag)"/><rect x="80" y="290" width="180" height="75" rx="10" fill="#F0FDF4" stroke="#16A34A" stroke-width="2"/><text x="170" y="318" font-size="15" fill="#16A34A" text-anchor="middle" font-weight="bold">🕊️ 鸽派</text><text x="170" y="338" font-size="11" fill="#166534" text-anchor="middle" font-weight="normal">沃什留白+宽松保留</text><text x="170" y="355" font-size="11" fill="#166534" text-anchor="middle" font-weight="normal">→ 美元弱·A股高开</text><line x1="384" y1="230" x2="384" y2="440" stroke="#DC2626" stroke-width="3" stroke-linecap="round" marker-end="url(#ar)"/><rect x="294" y="430" width="180" height="65" rx="10" fill="#FEF2F2" stroke="#DC2626" stroke-width="2"/><text x="384" y="458" font-size="15" fill="#DC2626" text-anchor="middle" font-weight="bold">🦅 鹰派</text><text x="384" y="478" font-size="11" fill="#991B1B" text-anchor="middle" font-weight="normal">删除宽松倾向·暗示加息</text><text x="384" y="493" font-size="10" fill="#991B1B" text-anchor="middle" font-weight="normal">→ A股低开·半导体回吐</text><line x1="384" y1="230" x2="610" y2="310" stroke="#D4A017" stroke-width="3" stroke-linecap="round" marker-end="url(#agold)"/><rect x="520" y="290" width="180" height="75" rx="10" fill="#FFF8E7" stroke="#D4A017" stroke-width="2"/><text x="610" y="318" font-size="15" fill="#B8860B" text-anchor="middle" font-weight="bold">⚖️ 中性</text><text x="610" y="338" font-size="11" fill="#92400E" text-anchor="middle" font-weight="normal">措辞微调方向不明</text><text x="610" y="355" font-size="11" fill="#92400E" text-anchor="middle" font-weight="normal">→ 窄幅震荡·等催化剂</text><circle cx="384" cy="205.8" r="10" fill="#E2E8F0" stroke="#D4A017" stroke-width="2"/>
-  <polygon points="368.0,215.8 400.0,215.8 404.0,232.0 364.0,232.0" fill="#FFF8E7" stroke="#D4A017" stroke-width="2" stroke-linejoin="round"/>
-  <line x1="377" y1="232.0" x2="375" y2="244.6" stroke="#D4A017" stroke-width="2.5" stroke-linecap="round"/>
-  <line x1="391" y1="232.0" x2="393" y2="244.6" stroke="#D4A017" stroke-width="2.5" stroke-linecap="round"/>
-  <line x1="368.0" y1="219.85000000000002" x2="358.0" y2="225.85000000000002" stroke="#D4A017" stroke-width="2" stroke-linecap="round"/>
-  <line x1="400.0" y1="219.85000000000002" x2="422.0" y2="209.85000000000002" stroke="#D4A017" stroke-width="2" stroke-linecap="round"/><rect x="75" y="140" width="155" height="60" rx="6" fill="#F8FAFC" stroke="#94A3B8" stroke-width="1.5"/><text x="152" y="160" font-size="12" fill="#475569" text-anchor="middle" font-weight="bold">三大悬念</text><text x="152" y="178" font-size="10" fill="#64748B" text-anchor="middle" font-weight="normal">点阵图·留白·声明措辞</text><text x="384.0" y="502" font-size="11" fill="#94A3B8" text-anchor="middle">今晚最佳策略不是预测结果——而是准备好应对三种结果</text></svg>
+<rect width="768" height="512" fill="url(#sky)"/>
+  <rect x="0" y="0" width="768" height="42" fill="#D4A017" opacity="0.06"/>
+  <line x1="0" y1="42" x2="768" y2="42" stroke="#D4A017" stroke-width="0.5" opacity="0.2"/>
+  <text x="384" y="28" font-size="16" fill="#8B6914" text-anchor="middle" font-weight="bold" letter-spacing="0.5">FOMC倒计时：沃什首秀 · 三岔路口 · 全球屏息</text>
+  <g filter="url(#deep)">
+  <rect x="259.0" y="280" width="140" height="8" rx="2" fill="#E2DDD0" stroke="#64748B" stroke-width="0.8" opacity="0.6"/>
+  <rect x="266.0" y="288" width="126" height="8" rx="2" fill="#EDE9E0" stroke="#64748B" stroke-width="0.8" opacity="0.6"/>
+  <rect x="272.0" y="296" width="114" height="8" rx="2" fill="#F5F2EC" stroke="#64748B" stroke-width="0.8" opacity="0.6"/>
+  <rect x="329.0" y="94" width="110" height="100" rx="3" fill="url(#bldg-cool)" stroke="#64748B" stroke-width="2"/>
+  <polygon points="329.0,94 384,29 439.0,94" fill="url(#roof-slate)" stroke="#64748B" stroke-width="2" stroke-linejoin="round"/>
+  <line x1="329.0" y1="94" x2="439.0" y2="94" stroke="#64748B" stroke-width="2"/>
+  <circle cx="384" cy="66.5" r="14" fill="white" stroke="#475569" stroke-width="2"/>
+  <circle cx="384" cy="66.5" r="2" fill="#475569"/>
+  <line x1="384" y1="66.5" x2="384" y2="56.5" stroke="#475569" stroke-width="2" stroke-linecap="round"/>
+  <line x1="384" y1="66.5" x2="390" y2="70.5" stroke="#475569" stroke-width="1.5" stroke-linecap="round"/>
+  <rect x="347.0" y="124" width="8" height="176" fill="#FDF8F0" stroke="#64748B" stroke-width="1.5" opacity="0.9"/>
+  <rect x="344.0" y="120" width="14" height="5" rx="1" fill="#E8D5B7" stroke="#64748B" stroke-width="1" opacity="0.8"/>
+  <rect x="369.0" y="124" width="8" height="176" fill="#FDF8F0" stroke="#64748B" stroke-width="1.5" opacity="0.9"/>
+  <rect x="366.0" y="120" width="14" height="5" rx="1" fill="#E8D5B7" stroke="#64748B" stroke-width="1" opacity="0.8"/>
+  <rect x="391.0" y="124" width="8" height="176" fill="#FDF8F0" stroke="#64748B" stroke-width="1.5" opacity="0.9"/>
+  <rect x="388.0" y="120" width="14" height="5" rx="1" fill="#E8D5B7" stroke="#64748B" stroke-width="1" opacity="0.8"/>
+  <rect x="413.0" y="124" width="8" height="176" fill="#FDF8F0" stroke="#64748B" stroke-width="1.5" opacity="0.9"/>
+  <rect x="410.0" y="120" width="14" height="5" rx="1" fill="#E8D5B7" stroke="#64748B" stroke-width="1" opacity="0.8"/>
+  <rect x="367.5" y="266.0" width="33.0" height="38.0" rx="3" fill="#64748B" stroke="#64748B" stroke-width="1.5" opacity="0.7"/>
+  <rect x="373.5" y="272.0" width="21.0" height="15.200000000000001" rx="1" fill="#FDF8F0" stroke="#64748B" stroke-width="1"/>
+  <rect x="373.5" y="285.2" width="21.0" height="11.4" rx="1" fill="#FDF8F0" stroke="#64748B" stroke-width="1"/>
+  <rect x="340.8" y="134" width="16" height="20" rx="2" fill="#FFFDF7" stroke="#64748B" stroke-width="1" opacity="0.8"/>
+  <line x1="348.8" y1="134" x2="348.8" y2="154" stroke="#64748B" stroke-width="0.5" opacity="0.3"/>
+  <rect x="411.2" y="134" width="16" height="20" rx="2" fill="#FFFDF7" stroke="#64748B" stroke-width="1" opacity="0.8"/>
+  <line x1="419.2" y1="134" x2="419.2" y2="154" stroke="#64748B" stroke-width="0.5" opacity="0.3"/>
+  </g>
+<rect x="334.0" y="288" width="100" height="22" rx="6" fill="white" stroke="#64748B" stroke-width="1.5" filter="url(#soft)"/>
+  <text x="384" y="303.0" font-size="10" fill="#334155" text-anchor="middle" font-weight="bold">FOMC · 美联储</text>  <rect x="660" y="56" width="90" height="44" rx="8" fill="white" stroke="#FDE68A" stroke-width="1.5" filter="url(#soft)"/>
+  <text x="705" y="74" font-size="10" fill="#8B6914" text-anchor="middle" font-weight="bold">北京时间</text>
+  <text x="705" y="93" font-size="14" fill="#DC2626" text-anchor="middle" font-weight="bold">凌晨 2:00</text>
+  <circle cx="384" cy="265" r="9" fill="#E2E8F0" stroke="#475569" stroke-width="2"/>
+  <polygon points="374,276 394,276 398,292 370,292" fill="#EFF6FF" stroke="#475569" stroke-width="2" stroke-linejoin="round"/>
+  <line x1="374" y1="280" x2="360" y2="272" stroke="#475569" stroke-width="2" stroke-linecap="round"/>
+  <line x1="394" y1="280" x2="408" y2="275" stroke="#475569" stroke-width="2" stroke-linecap="round"/>
+  <line x1="378" y1="292" x2="375" y2="304" stroke="#475569" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="390" y1="292" x2="393" y2="304" stroke="#475569" stroke-width="2.5" stroke-linecap="round"/>
+  <text x="384" y="316" font-size="9" fill="#475569" text-anchor="middle" font-weight="bold">沃什</text>
+  <circle cx="384" cy="350" r="5" fill="#D4A017"/>
+<line x1="381" y1="353" x2="180" y2="420" stroke="#16A34A" stroke-width="3" stroke-linecap="round" marker-end="url(#ag)"/>
+  <rect x="70" y="400" width="180" height="72" rx="10" fill="#F0FDF4" stroke="#86EFAC" stroke-width="2" filter="url(#soft)"/>
+  <text x="160" y="422" font-size="13" fill="#16A34A" text-anchor="middle" font-weight="bold">鸽派情景</text>
+  <text x="160" y="440" font-size="10" fill="#166534" text-anchor="middle">沃什留白 + 宽松保留</text>
+  <text x="160" y="456" font-size="10" fill="#166534" text-anchor="middle">→ A股高开 · 半导体继续涨</text>
+  <text x="160" y="470" font-size="9" fill="#16A34A" text-anchor="middle">科创50 → 1900?</text>
+<line x1="387" y1="353" x2="600" y2="420" stroke="#DC2626" stroke-width="3" stroke-linecap="round" marker-end="url(#ar)"/>
+  <rect x="520" y="400" width="180" height="72" rx="10" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="2" filter="url(#soft)"/>
+  <text x="610" y="422" font-size="13" fill="#DC2626" text-anchor="middle" font-weight="bold">鹰派情景</text>
+  <text x="610" y="440" font-size="10" fill="#991B1B" text-anchor="middle">删除宽松 + 暗示加息</text>
+  <text x="610" y="456" font-size="10" fill="#991B1B" text-anchor="middle">→ A股低开 · 半导体回吐</text>
+  <text x="610" y="470" font-size="9" fill="#DC2626" text-anchor="middle">沪指 → 4050?</text>
+<line x1="384" y1="355" x2="384" y2="490" stroke="#D4A017" stroke-width="3" stroke-linecap="round" marker-end="url(#agold)"/>
+  <rect x="294" y="474" width="180" height="32" rx="8" fill="#FFF8E7" stroke="#FDE68A" stroke-width="1.5" filter="url(#soft)"/>
+  <text x="384" y="494" font-size="11" fill="#92400E" text-anchor="middle" font-weight="bold">中性 · 窄幅震荡等催化剂</text>
+  <rect x="28" y="70" width="160" height="72" rx="8" fill="white" stroke="#CBD5E1" stroke-width="1.5" filter="url(#soft)"/>
+  <text x="108" y="90" font-size="11" fill="#475569" text-anchor="middle" font-weight="bold">三大悬念</text>
+  <text x="108" y="106" font-size="9" fill="#64748B" text-anchor="middle">1. 点阵图加息?</text>
+  <text x="108" y="120" font-size="9" fill="#64748B" text-anchor="middle">2. 沃什"留白"?</text>
+  <text x="108" y="134" font-size="9" fill="#64748B" text-anchor="middle">3. 宽松措辞删除?</text>
+  <text x="384" y="506" font-size="9" fill="#A8A49A" text-anchor="middle">最佳策略不是预测结果——而是准备好应对三种结果</text>
+</svg>

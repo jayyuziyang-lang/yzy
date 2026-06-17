@@ -1,25 +1,68 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 768 512" width="768" height="512" font-family="Microsoft YaHei, SimHei, PingFang SC, sans-serif">
-  <rect width="768" height="512" fill="#FAFBFC"/>
   <defs>
-    <marker id="agold" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#D4A017"/></marker>
-    <marker id="ar" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#DC2626"/></marker>
-    <marker id="ag" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#16A34A"/></marker>
-    <marker id="apurple" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#7C3AED"/></marker>
+    <filter id="soft"><feDropShadow dx="0" dy="2" stdDeviation="2.5" flood-color="#3D3222" flood-opacity="0.12"/></filter>
+    <filter id="med"><feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#3D3222" flood-opacity="0.16"/></filter>
+    <filter id="deep"><feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#3D3222" flood-opacity="0.20"/></filter>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FBF9F4"/><stop offset="100%" stop-color="#F4EFE6"/></linearGradient>
+    <linearGradient id="bldg-warm" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FDF6EE"/><stop offset="100%" stop-color="#F5E6D3"/></linearGradient>
+    <linearGradient id="bldg-cool" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#F0F4F8"/><stop offset="100%" stop-color="#DCE4EE"/></linearGradient>
+    <linearGradient id="roof-gold" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#D4A017"/><stop offset="100%" stop-color="#B8860B"/></linearGradient>
+    <linearGradient id="roof-slate" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#475569"/><stop offset="100%" stop-color="#334155"/></linearGradient>
+    <linearGradient id="roof-red" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#DC2626"/><stop offset="100%" stop-color="#991B1B"/></linearGradient>
+    <linearGradient id="gold-bar" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#FDE68A"/><stop offset="50%" stop-color="#FEF3C7"/><stop offset="100%" stop-color="#FDE68A"/></linearGradient>
+    <linearGradient id="rocket-body" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#FEF2F2"/><stop offset="40%" stop-color="#FEE2E2"/><stop offset="100%" stop-color="#FECACA"/></linearGradient>
+    <linearGradient id="flame" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FEE2E2"/><stop offset="35%" stop-color="#FCA5A5"/><stop offset="70%" stop-color="#EF4444"/><stop offset="100%" stop-color="#DC2626"/></linearGradient>
+    <linearGradient id="oil-well" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#475569"/><stop offset="100%" stop-color="#1E293B"/></linearGradient>
+    <linearGradient id="gold-vault" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FEF3C7"/><stop offset="100%" stop-color="#FDE68A"/></linearGradient>
+    <marker id="ar" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#DC2626"/></marker>
+    <marker id="ag" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#16A34A"/></marker>
+    <marker id="agold" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#D4A017"/></marker>
+    <marker id="ablue" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#1A56DB"/></marker>
   </defs>
-<rect x="0" y="0" width="768" height="44" fill="#D4A017" opacity="0.08"/>
-  <text x="384.0" y="30" font-size="18" fill="#D4A017" text-anchor="middle" font-weight="bold">国际：BOJ加息至1%·日元为何不涨反疲？</text><circle cx="180" cy="180" r="55" fill="white" stroke="#1A56DB" stroke-width="2.5"/>
-  <line x1="164.2401332868777" y1="131.49611766894716" x2="162.07701432625305" y2="124.83872205488109" stroke="#1A56DB" stroke-width="1"/>
-  <line x1="191.34856763177203" y1="130.278676478727" x2="192.90621416946624" y2="123.45418109345422" stroke="#1A56DB" stroke-width="1"/>
-  <line x1="215.2441950983301" y1="143.13746194480302" x2="220.08163364123814" y2="138.0778978980113" stroke="#1A56DB" stroke-width="1"/>
-  <line x1="229.1621058954885" y1="166.43212087609956" x2="235.9098459203595" y2="164.56986295713284" stroke="#1A56DB" stroke-width="1"/>
-  <line x1="229.1621058954885" y1="193.56787912390044" x2="235.9098459203595" y2="195.43013704286716" stroke="#1A56DB" stroke-width="1"/>
-  <line x1="215.2441950983301" y1="216.86253805519698" x2="220.08163364123814" y2="221.9221021019887" stroke="#1A56DB" stroke-width="1"/>
-  <line x1="191.34856763177203" y1="229.721323521273" x2="192.90621416946624" y2="236.54581890654578" stroke="#1A56DB" stroke-width="1"/>
-  <line x1="164.2401332868777" y1="228.50388233105284" x2="162.07701432625305" y2="235.1612779451189" stroke="#1A56DB" stroke-width="1"/>
-  <line x1="180" y1="180" x2="214.26152548880634" y2="212.17371397864835" stroke="#DC2626" stroke-width="2.5" stroke-linecap="round"/>
-  <circle cx="180" cy="180" r="3" fill="#DC2626"/><text x="180" y="115" font-size="14" fill="#1A56DB" text-anchor="middle" font-weight="bold">BOJ 利率旋钮</text><text x="180" y="135" font-size="10" fill="#1E40AF" text-anchor="middle" font-weight="normal">上调至1% (31年最高)</text><text x="180" y="265" font-size="11" fill="#475569" text-anchor="middle" font-weight="normal">加息=利多日元? → 理论上</text><line x1="245" y1="170" x2="310" y2="140" stroke="#1A56DB" stroke-width="2.5" stroke-linecap="round" marker-end="url(#agold)"/><text x="290" y="128" font-size="10" fill="#1A56DB" text-anchor="middle" font-weight="normal">预期</text><rect x="320" y="200" width="180" height="80" rx="8" fill="#FEF2F2" stroke="#DC2626" stroke-width="2"/><text x="410" y="228" font-size="12" fill="#DC2626" text-anchor="middle" font-weight="bold">实际: 美元/日元</text><text x="410" y="252" font-size="18" fill="#DC2626" text-anchor="middle" font-weight="bold">160.40 仍在疲软</text><text x="410" y="272" font-size="11" fill="#991B1B" text-anchor="middle" font-weight="normal">日元没涨!</text><line x1="410" y1="198" x2="410" y2="160" stroke="#DC2626" stroke-width="2" stroke-linecap="round" marker-end="url(#ar)"/><rect x="80" y="310" width="610" height="90" rx="10" fill="#F8FAFC" stroke="#94A3B8" stroke-width="2"/><text x="384" y="340" font-size="14" fill="#475569" text-anchor="middle" font-weight="bold">为什么加息了日元还不涨？</text><text x="200" y="370" font-size="12" fill="#475569" text-anchor="middle" font-weight="bold">日本实际利率</text><text x="200" y="390" font-size="14" fill="#DC2626" text-anchor="middle" font-weight="bold">1% – 2%通胀 = -1%</text><text x="500" y="370" font-size="12" fill="#475569" text-anchor="middle" font-weight="bold">日美利差</text><text x="500" y="390" font-size="14" fill="#DC2626" text-anchor="middle" font-weight="bold">约250bp+ 仍巨大</text><text x="384" y="420" font-size="11" fill="#64748B" text-anchor="middle" font-weight="normal">“借日元买全球”套利成本从0.75%→1%——结构完全没变</text><circle cx="570" cy="272.6" r="10" fill="#E2E8F0" stroke="#DC2626" stroke-width="2"/>
-  <polygon points="554.0,282.6 586.0,282.6 590.0,297.0 550.0,297.0" fill="#FFF8E7" stroke="#DC2626" stroke-width="2" stroke-linejoin="round"/>
-  <line x1="563" y1="297.0" x2="561" y2="308.2" stroke="#DC2626" stroke-width="2.5" stroke-linecap="round"/>
-  <line x1="577" y1="297.0" x2="579" y2="308.2" stroke="#DC2626" stroke-width="2.5" stroke-linecap="round"/>
-  <line x1="554.0" y1="286.20000000000005" x2="544.0" y2="294.20000000000005" stroke="#DC2626" stroke-width="2" stroke-linecap="round"/>
-  <line x1="586.0" y1="286.20000000000005" x2="596.0" y2="294.20000000000005" stroke="#DC2626" stroke-width="2" stroke-linecap="round"/><text x="570" y="330" font-size="11" fill="#DC2626" text-anchor="middle" font-weight="normal">日元</text><rect x="50" y="240" width="50" height="60" rx="3" fill="#EFF6FF" stroke="#1A56DB" stroke-width="1.5"/><text x="75" y="275" font-size="11" fill="#1A56DB" text-anchor="middle" font-weight="bold">BOJ</text><text x="384.0" y="500" font-size="11" fill="#94A3B8" text-anchor="middle">加息≠货币走强——实际利率和利差才是真正的驱动力</text></svg>
+<rect width="768" height="512" fill="url(#sky)"/>
+  <rect x="0" y="0" width="768" height="42" fill="#D4A017" opacity="0.06"/>
+  <line x1="0" y1="42" x2="768" y2="42" stroke="#D4A017" stroke-width="0.5" opacity="0.2"/>
+  <text x="384" y="28" font-size="16" fill="#8B6914" text-anchor="middle" font-weight="bold" letter-spacing="0.5">国际：BOJ加息至1% · 日元为何不涨反疲？</text>
+  <g filter="url(#med)">
+    <rect x="60" y="240" width="110" height="110" rx="3" fill="url(#bldg-warm)" stroke="#C4A97D" stroke-width="2"/>
+    <polygon points="60,240 115,190 170,240" fill="url(#roof-gold)" stroke="#B8860B" stroke-width="2" stroke-linejoin="round"/>
+    <circle cx="115" cy="218" r="8" fill="#FFFDF7" stroke="#B8860B" stroke-width="1.5"/>
+    <rect x="72" y="260" width="6" height="90" fill="#FDF8F0" stroke="#D4B896" stroke-width="1.2"/>
+    <rect x="92" y="260" width="6" height="90" fill="#FDF8F0" stroke="#D4B896" stroke-width="1.2"/>
+    <rect x="112" y="260" width="6" height="90" fill="#FDF8F0" stroke="#D4B896" stroke-width="1.2"/>
+    <rect x="132" y="260" width="6" height="90" fill="#FDF8F0" stroke="#D4B896" stroke-width="1.2"/>
+    <rect x="152" y="260" width="6" height="90" fill="#FDF8F0" stroke="#D4B896" stroke-width="1.2"/>
+    <rect x="96" y="310" width="38" height="40" rx="3" fill="#8B6914" stroke="#6B4F10" stroke-width="1.5" opacity="0.7"/>
+    <rect x="103" y="316" width="24" height="16" rx="1" fill="#FDF8F0" stroke="#6B4F10" stroke-width="1"/>
+    <rect x="103" y="336" width="24" height="10" rx="1" fill="#FDF8F0" stroke="#6B4F10" stroke-width="1"/>
+  </g>
+<rect x="70.0" y="358" width="90" height="22" rx="6" fill="white" stroke="#D4A017" stroke-width="1.5" filter="url(#soft)"/>
+  <text x="115" y="373.0" font-size="10" fill="#8B6914" text-anchor="middle" font-weight="bold">日本央行</text>  <g filter="url(#soft)">
+    <circle cx="115" cy="140" r="38" fill="white" stroke="#1A56DB" stroke-width="3"/>
+    <line x1="97.34496648233963" y1="115.7451078854123" x2="94.4024608960629" y2="111.70262586631435" stroke="#93C5FD" stroke-width="1.5"/>
+    <line x1="106.93848929717548" y1="111.10342502668793" x2="105.59490418003806" y2="106.28732919780258" stroke="#93C5FD" stroke-width="1.5"/>
+    <line x1="117.54938282206653" y1="110.10851881845679" x2="117.97427995907762" y2="105.12660528819958" stroke="#93C5FD" stroke-width="1.5"/>
+    <line x1="127.8385416861105" y1="112.88594741883827" x2="129.9782986337956" y2="108.36693865531132" stroke="#93C5FD" stroke-width="1.5"/>
+    <line x1="136.5074637542528" y1="119.08519656177707" x2="140.09204104662828" y2="115.5993959887399" stroke="#93C5FD" stroke-width="1.5"/>
+    <line x1="142.46212239488588" y1="127.92391480783998" x2="147.03914279403355" y2="125.91123394247997" stroke="#93C5FD" stroke-width="1.5"/>
+    <line x1="144.9510337344928" y1="138.28664707801505" x2="149.9428726902416" y2="138.00108825768422" stroke="#93C5FD" stroke-width="1.5"/>
+    <line x1="143.66009467376819" y1="148.8656061998402" x2="148.4367771193962" y2="150.34320723314687" stroke="#93C5FD" stroke-width="1.5"/>
+    <line x1="115" y1="140" x2="141.53422033961485" y2="131.05935399600398" stroke="#DC2626" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="115" cy="140" r="4" fill="#DC2626"/>
+  </g>
+  <text x="115" y="195" font-size="12" fill="#1A56DB" text-anchor="middle" font-weight="bold">利率↑ 至 1%</text>
+  <text x="115" y="210" font-size="9" fill="#64748B" text-anchor="middle">31年最高利率</text>
+<line x1="155" y1="140" x2="220" y2="115" stroke="#1A56DB" stroke-width="2.5" stroke-linecap="round" marker-end="url(#ablue)"/>
+  <text x="200" y="108" font-size="9" fill="#1A56DB" text-anchor="middle">理论: 日元应升值</text>
+  <rect x="240" y="130" width="160" height="80" rx="8" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="2" filter="url(#soft)"/>
+  <text x="320" y="154" font-size="11" fill="#DC2626" text-anchor="middle" font-weight="bold">实际: 美元/日元</text>
+  <text x="320" y="176" font-size="18" fill="#DC2626" text-anchor="middle" font-weight="bold">160.40</text>
+  <text x="320" y="196" font-size="10" fill="#991B1B" text-anchor="middle">日元没涨,反而疲软!</text>
+<line x1="280" y1="128" x2="320" y2="122" stroke="#DC2626" stroke-width="2" stroke-linecap="round" marker-end="url(#ar)"/>
+  <rect x="60" y="400" width="650" height="68" rx="8" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5" filter="url(#soft)"/>
+  <text x="384" y="420" font-size="12" fill="#475569" text-anchor="middle" font-weight="bold">为什么加息了日元还不涨？</text>
+  <text x="200" y="444" font-size="11" fill="#DC2626" text-anchor="middle" font-weight="bold">实际利率 = 1% − 2%通胀 = −1%</text>
+  <text x="500" y="444" font-size="11" fill="#DC2626" text-anchor="middle" font-weight="bold">日美利差 ≈ 250bp+ 仍巨大</text>
+  <text x="384" y="462" font-size="9" fill="#64748B" text-anchor="middle">"借日元买全球" 套利成本从0.75%→1% —— 结构完全没变</text>
+  <text x="384" y="506" font-size="9" fill="#A8A49A" text-anchor="middle">加息≠货币走强 — 实际利率和利差才是真正的驱动力</text>
+</svg>

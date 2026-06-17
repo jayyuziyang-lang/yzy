@@ -1,20 +1,54 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 768 512" width="768" height="512" font-family="Microsoft YaHei, SimHei, PingFang SC, sans-serif">
-  <rect width="768" height="512" fill="#FAFBFC"/>
   <defs>
-    <marker id="agold" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#D4A017"/></marker>
-    <marker id="ar" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#DC2626"/></marker>
-    <marker id="ag" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#16A34A"/></marker>
-    <marker id="apurple" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#7C3AED"/></marker>
+    <filter id="soft"><feDropShadow dx="0" dy="2" stdDeviation="2.5" flood-color="#3D3222" flood-opacity="0.12"/></filter>
+    <filter id="med"><feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#3D3222" flood-opacity="0.16"/></filter>
+    <filter id="deep"><feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#3D3222" flood-opacity="0.20"/></filter>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FBF9F4"/><stop offset="100%" stop-color="#F4EFE6"/></linearGradient>
+    <linearGradient id="bldg-warm" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FDF6EE"/><stop offset="100%" stop-color="#F5E6D3"/></linearGradient>
+    <linearGradient id="bldg-cool" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#F0F4F8"/><stop offset="100%" stop-color="#DCE4EE"/></linearGradient>
+    <linearGradient id="roof-gold" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#D4A017"/><stop offset="100%" stop-color="#B8860B"/></linearGradient>
+    <linearGradient id="roof-slate" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#475569"/><stop offset="100%" stop-color="#334155"/></linearGradient>
+    <linearGradient id="roof-red" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#DC2626"/><stop offset="100%" stop-color="#991B1B"/></linearGradient>
+    <linearGradient id="gold-bar" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#FDE68A"/><stop offset="50%" stop-color="#FEF3C7"/><stop offset="100%" stop-color="#FDE68A"/></linearGradient>
+    <linearGradient id="rocket-body" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#FEF2F2"/><stop offset="40%" stop-color="#FEE2E2"/><stop offset="100%" stop-color="#FECACA"/></linearGradient>
+    <linearGradient id="flame" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FEE2E2"/><stop offset="35%" stop-color="#FCA5A5"/><stop offset="70%" stop-color="#EF4444"/><stop offset="100%" stop-color="#DC2626"/></linearGradient>
+    <linearGradient id="oil-well" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#475569"/><stop offset="100%" stop-color="#1E293B"/></linearGradient>
+    <linearGradient id="gold-vault" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FEF3C7"/><stop offset="100%" stop-color="#FDE68A"/></linearGradient>
+    <marker id="ar" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#DC2626"/></marker>
+    <marker id="ag" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#16A34A"/></marker>
+    <marker id="agold" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#D4A017"/></marker>
+    <marker id="ablue" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#1A56DB"/></marker>
   </defs>
-<rect x="0" y="0" width="768" height="44" fill="#D4A017" opacity="0.08"/>
-  <text x="384.0" y="30" font-size="18" fill="#D4A017" text-anchor="middle" font-weight="bold">科技：SpaceX火箭一枝独秀·A股硬科技制度红利</text><line x1="30" y1="380" x2="738" y2="380" stroke="#CBD5E1" stroke-width="2"/><ellipse cx="384" cy="230" rx="35" ry="95" fill="#FFF8E7" stroke="#DC2626" stroke-width="3"/><polygon points="349,145 384,85 419,145" fill="#FEF2F2" stroke="#DC2626" stroke-width="2.5" stroke-linejoin="round"/><polygon points="358,320 384,370 410,320" fill="#FEE2E2" stroke="#DC2626" stroke-width="2"/><polygon points="364,340 384,380 404,340" fill="#DC2626" opacity="0.5"/><text x="384" y="395" font-size="13" fill="#DC2626" text-anchor="middle" font-weight="bold">SpaceX $2.66万亿</text><text x="384" y="413" font-size="10" fill="#991B1B" text-anchor="middle" font-weight="normal">四日累涨+50%·超越亚马逊</text><path d="M384,85 Q200,40 150,200" fill="none" stroke="#F59E0B" stroke-width="2" stroke-dasharray="8,4"/><text x="220" y="60" font-size="10" fill="#F59E0B" text-anchor="middle" font-weight="normal">估值皮筋：暴涨后与基本面距离</text><text x="220" y="76" font-size="10" fill="#D4A017" text-anchor="middle" font-weight="normal">合理区间 vs 当前市值</text><ellipse cx="120" cy="375" rx="42" ry="14" fill="#FEF2F2" stroke="#DC2626" stroke-width="1.5"/><text x="120" y="377" font-size="10" fill="#DC2626" text-anchor="middle" font-weight="normal">费半-5.7%</text><ellipse cx="230" cy="375" rx="42" ry="14" fill="#FEF2F2" stroke="#DC2626" stroke-width="1.5"/><text x="230" y="377" font-size="10" fill="#DC2626" text-anchor="middle" font-weight="normal">英伟达-2%</text><ellipse cx="540" cy="375" rx="42" ry="14" fill="#FEF2F2" stroke="#DC2626" stroke-width="1.5"/><text x="540" y="377" font-size="10" fill="#DC2626" text-anchor="middle" font-weight="normal">Meta-2.8%</text><ellipse cx="650" cy="375" rx="42" ry="14" fill="#FEF2F2" stroke="#DC2626" stroke-width="1.5"/><text x="650" y="377" font-size="10" fill="#DC2626" text-anchor="middle" font-weight="normal">AMD-7.3%</text><rect x="80" y="430" width="610" height="65" rx="8" fill="#FFF8E7" stroke="#D4A017" stroke-width="2" stroke-dasharray="6,3"/><text x="384" y="455" font-size="13" fill="#B8860B" text-anchor="middle" font-weight="bold">科创板第五套标准扩至AI大模型</text><text x="250" y="480" font-size="12" fill="#B8860B" text-anchor="middle" font-weight="bold">"卖铲子给淘金者"</text><text x="500" y="480" font-size="12" fill="#B8860B" text-anchor="middle" font-weight="bold">硬科技=制度红利+政策意志</text><circle cx="100" cy="327.4" r="10" fill="#E2E8F0" stroke="#7C3AED" stroke-width="2"/>
-  <polygon points="84.0,337.4 116.0,337.4 120.0,350.0 80.0,350.0" fill="#FFF8E7" stroke="#7C3AED" stroke-width="2" stroke-linejoin="round"/>
-  <line x1="93" y1="350.0" x2="91" y2="359.8" stroke="#7C3AED" stroke-width="2.5" stroke-linecap="round"/>
-  <line x1="107" y1="350.0" x2="109" y2="359.8" stroke="#7C3AED" stroke-width="2.5" stroke-linecap="round"/>
-  <line x1="84.0" y1="340.54999999999995" x2="74.0" y2="348.54999999999995" stroke="#7C3AED" stroke-width="2" stroke-linecap="round"/>
-  <line x1="116.0" y1="340.54999999999995" x2="126.0" y2="348.54999999999995" stroke="#7C3AED" stroke-width="2" stroke-linecap="round"/><circle cx="660" cy="327.4" r="10" fill="#E2E8F0" stroke="#7C3AED" stroke-width="2"/>
-  <polygon points="644.0,337.4 676.0,337.4 680.0,350.0 640.0,350.0" fill="#FFF8E7" stroke="#7C3AED" stroke-width="2" stroke-linejoin="round"/>
-  <line x1="653" y1="350.0" x2="651" y2="359.8" stroke="#7C3AED" stroke-width="2.5" stroke-linecap="round"/>
-  <line x1="667" y1="350.0" x2="669" y2="359.8" stroke="#7C3AED" stroke-width="2.5" stroke-linecap="round"/>
-  <line x1="644.0" y1="340.54999999999995" x2="634.0" y2="348.54999999999995" stroke="#7C3AED" stroke-width="2" stroke-linecap="round"/>
-  <line x1="676.0" y1="340.54999999999995" x2="686.0" y2="348.54999999999995" stroke="#7C3AED" stroke-width="2" stroke-linecap="round"/><text x="384.0" y="502" font-size="11" fill="#94A3B8" text-anchor="middle">一边是SpaceX估值皮筋越拉越紧，一边是A股硬科技制度红利刚刚开始</text></svg>
+<rect width="768" height="512" fill="url(#sky)"/>
+  <rect x="0" y="0" width="768" height="42" fill="#D4A017" opacity="0.06"/>
+  <line x1="0" y1="42" x2="768" y2="42" stroke="#D4A017" stroke-width="0.5" opacity="0.2"/>
+  <text x="384" y="28" font-size="16" fill="#8B6914" text-anchor="middle" font-weight="bold" letter-spacing="0.5">科技：SpaceX一枝独秀 vs 科技板块集体下沉</text>
+  <line x1="30" y1="380" x2="738" y2="380" stroke="#CBD5E1" stroke-width="1.5"/>
+  <g filter="url(#med)">
+    <ellipse cx="384" cy="230" rx="32" ry="90" fill="url(#rocket-body)" stroke="#DC2626" stroke-width="2.5"/>
+    <path d="M352,145 Q352,105 384,95 Q416,105 416,145" fill="#FEF2F2" stroke="#DC2626" stroke-width="2.5" stroke-linejoin="round"/>
+    <circle cx="384" cy="200" r="11" fill="#DBEAFE" stroke="#1A56DB" stroke-width="2"/>
+    <circle cx="384" cy="200" r="5" fill="#93C5FD" opacity="0.8"/>
+    <path d="M352,260 L330,290 L330,278 L352,272 Z" fill="#FECACA" stroke="#DC2626" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M416,260 L438,290 L438,278 L416,272 Z" fill="#FECACA" stroke="#DC2626" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M360,316 Q358,355 384,382 Q410,355 408,316" fill="url(#flame)" opacity="0.85"/>
+    <path d="M368,316 Q370,345 384,362 Q398,345 400,316" fill="#FEF2F2" opacity="0.5"/>
+  </g>
+  <rect x="319" y="68" width="130" height="42" rx="8" fill="white" stroke="#FCA5A5" stroke-width="1.5" filter="url(#soft)"/>
+  <text x="384" y="85" font-size="11" fill="#991B1B" text-anchor="middle" font-weight="bold">SpaceX $2.66万亿</text>
+  <text x="384" y="102" font-size="13" fill="#DC2626" text-anchor="middle" font-weight="bold">超越亚马逊 +50%</text>
+  <path d="M384,95 Q250,40 180,160" fill="none" stroke="#F59E0B" stroke-width="2.5" stroke-dasharray="8,5"/>
+  <text x="250" y="65" font-size="9" fill="#F59E0B" text-anchor="middle" font-weight="bold">估值皮筋拉伸中</text>
+  <ellipse cx="140" cy="390" rx="42" ry="14" fill="#FEF2F2" stroke="#DC2626" stroke-width="1.5"/>
+  <text x="140" y="394" font-size="9" fill="#DC2626" text-anchor="middle" font-weight="bold">费半 -5.7%</text>
+  <ellipse cx="250" cy="395" rx="42" ry="14" fill="#FEF2F2" stroke="#DC2626" stroke-width="1.5"/>
+  <text x="250" y="399" font-size="9" fill="#DC2626" text-anchor="middle" font-weight="bold">英伟达 -2%</text>
+  <ellipse cx="520" cy="395" rx="42" ry="14" fill="#FEF2F2" stroke="#DC2626" stroke-width="1.5"/>
+  <text x="520" y="399" font-size="9" fill="#DC2626" text-anchor="middle" font-weight="bold">Meta -2.8%</text>
+  <ellipse cx="630" cy="390" rx="42" ry="14" fill="#FEF2F2" stroke="#DC2626" stroke-width="1.5"/>
+  <text x="630" y="394" font-size="9" fill="#DC2626" text-anchor="middle" font-weight="bold">AMD -7.3%</text>
+  <rect x="140" y="420" width="490" height="42" rx="8" fill="#FFF8E7" stroke="#D4A017" stroke-width="2" filter="url(#soft)"/>
+  <text x="384" y="440" font-size="11" fill="#92400E" text-anchor="middle" font-weight="bold">科创板第五套标准扩至AI大模型 — 不盈利也能上市融资</text>
+  <text x="384" y="456" font-size="9" fill="#B8860B" text-anchor="middle">"卖铲子给淘金者" — 已上市半导体公司 = AI公司的供应链核心</text>
+  <text x="384" y="506" font-size="9" fill="#A8A49A" text-anchor="middle">一边是SpaceX估值皮筋越拉越紧，一边是A股硬科技制度红利刚刚开始</text>
+</svg>

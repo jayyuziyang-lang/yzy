@@ -1,29 +1,59 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 768 512" width="768" height="512" font-family="Microsoft YaHei, SimHei, PingFang SC, sans-serif">
-  <rect width="768" height="512" fill="#FAFBFC"/>
   <defs>
-    <marker id="agold" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#D4A017"/></marker>
-    <marker id="ar" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#DC2626"/></marker>
-    <marker id="ag" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#16A34A"/></marker>
-    <marker id="apurple" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#7C3AED"/></marker>
+    <filter id="soft"><feDropShadow dx="0" dy="2" stdDeviation="2.5" flood-color="#3D3222" flood-opacity="0.12"/></filter>
+    <filter id="med"><feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#3D3222" flood-opacity="0.16"/></filter>
+    <filter id="deep"><feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#3D3222" flood-opacity="0.20"/></filter>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FBF9F4"/><stop offset="100%" stop-color="#F4EFE6"/></linearGradient>
+    <linearGradient id="bldg-warm" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FDF6EE"/><stop offset="100%" stop-color="#F5E6D3"/></linearGradient>
+    <linearGradient id="bldg-cool" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#F0F4F8"/><stop offset="100%" stop-color="#DCE4EE"/></linearGradient>
+    <linearGradient id="roof-gold" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#D4A017"/><stop offset="100%" stop-color="#B8860B"/></linearGradient>
+    <linearGradient id="roof-slate" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#475569"/><stop offset="100%" stop-color="#334155"/></linearGradient>
+    <linearGradient id="roof-red" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#DC2626"/><stop offset="100%" stop-color="#991B1B"/></linearGradient>
+    <linearGradient id="gold-bar" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#FDE68A"/><stop offset="50%" stop-color="#FEF3C7"/><stop offset="100%" stop-color="#FDE68A"/></linearGradient>
+    <linearGradient id="rocket-body" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#FEF2F2"/><stop offset="40%" stop-color="#FEE2E2"/><stop offset="100%" stop-color="#FECACA"/></linearGradient>
+    <linearGradient id="flame" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FEE2E2"/><stop offset="35%" stop-color="#FCA5A5"/><stop offset="70%" stop-color="#EF4444"/><stop offset="100%" stop-color="#DC2626"/></linearGradient>
+    <linearGradient id="oil-well" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#475569"/><stop offset="100%" stop-color="#1E293B"/></linearGradient>
+    <linearGradient id="gold-vault" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FEF3C7"/><stop offset="100%" stop-color="#FDE68A"/></linearGradient>
+    <marker id="ar" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#DC2626"/></marker>
+    <marker id="ag" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#16A34A"/></marker>
+    <marker id="agold" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#D4A017"/></marker>
+    <marker id="ablue" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#1A56DB"/></marker>
   </defs>
-<rect x="0" y="0" width="768" height="44" fill="#D4A017" opacity="0.08"/>
-  <text x="384.0" y="30" font-size="18" fill="#D4A017" text-anchor="middle" font-weight="bold">商品：油价三日暴跌·黄金横盘等FOMC选方向</text><rect x="30" y="70" width="340" height="220" rx="10" fill="#FFF7ED" stroke="#EA580C" stroke-width="2"/><text x="200" y="98" font-size="14" fill="#EA580C" text-anchor="middle" font-weight="bold">WTI原油 三日暴跌</text><circle cx="200" cy="130" r="8" fill="white" stroke="#EA580C" stroke-width="2.5"/><text x="200" y="154" font-size="12" fill="#EA580C" text-anchor="middle" font-weight="bold">$81+</text><circle cx="200" cy="170" r="8" fill="white" stroke="#EA580C" stroke-width="2.5"/><text x="200" y="194" font-size="12" fill="#EA580C" text-anchor="middle" font-weight="bold">$77</text><circle cx="200" cy="210" r="8" fill="white" stroke="#DC2626" stroke-width="2.5"/><text x="200" y="234" font-size="12" fill="#DC2626" text-anchor="middle" font-weight="bold">$74.80</text><line x1="170" y1="145" x2="170" y2="160" stroke="#EA580C" stroke-width="2" stroke-linecap="round" marker-end="url(#ar)"/><line x1="180" y1="183" x2="180" y2="198" stroke="#EA580C" stroke-width="2" stroke-linecap="round" marker-end="url(#ar)"/><line x1="190" y1="221" x2="190" y2="236" stroke="#EA580C" stroke-width="2" stroke-linecap="round" marker-end="url(#ar)"/><text x="200" y="255" font-size="12" fill="#DC2626" text-anchor="middle" font-weight="bold">从$95跌超20%·技术性熊市</text><text x="200" y="275" font-size="10" fill="#991B1B" text-anchor="middle" font-weight="normal">美伊协议挤出战争溢价</text><ellipse cx="130" cy="265" rx="22" ry="14" fill="#FFF7ED" stroke="#EA580C" stroke-width="2"/><rect x="108" y="242" width="44" height="23" rx="3" fill="#FFF7ED" stroke="#EA580C" stroke-width="2"/><text x="130" y="255" font-size="14" fill="#EA580C" text-anchor="middle" font-weight="bold">油</text><rect x="400" y="70" width="340" height="180" rx="10" fill="#FFFBEB" stroke="#D4A017" stroke-width="2"/><text x="570" y="98" font-size="14" fill="#D4A017" text-anchor="middle" font-weight="bold">现货黄金 横盘等待</text><line x1="420" y1="160" x2="720" y2="160" stroke="#D4A017" stroke-width="3" stroke-dasharray="2,0"/><text x="440" y="148" font-size="16" fill="#B8860B" text-anchor="start" font-weight="bold">$4,320</text><text x="440" y="195" font-size="10" fill="#EA580C" text-anchor="middle" font-weight="normal">油价暴跌↓</text><text x="530" y="195" font-size="10" fill="#16A34A" text-anchor="middle" font-weight="normal">DXY&lt;100↑</text><text x="620" y="195" font-size="10" fill="#D4A017" text-anchor="middle" font-weight="normal">FOMC?</text><circle cx="570" cy="163.5" r="10" fill="#E2E8F0" stroke="#D4A017" stroke-width="2"/>
-  <polygon points="554.0,173.5 586.0,173.5 590.0,187.0 550.0,187.0" fill="#FFF8E7" stroke="#D4A017" stroke-width="2" stroke-linejoin="round"/>
-  <line x1="563" y1="187.0" x2="561" y2="197.5" stroke="#D4A017" stroke-width="2.5" stroke-linecap="round"/>
-  <line x1="577" y1="187.0" x2="579" y2="197.5" stroke="#D4A017" stroke-width="2.5" stroke-linecap="round"/>
-  <line x1="554.0" y1="176.875" x2="544.0" y2="188.875" stroke="#D4A017" stroke-width="2" stroke-linecap="round"/>
-  <line x1="586.0" y1="176.875" x2="596.0" y2="188.875" stroke="#D4A017" stroke-width="2" stroke-linecap="round"/><text x="570" y="220" font-size="10" fill="#B8860B" text-anchor="middle" font-weight="normal">三重均衡</text><rect x="120" y="330" width="530" height="70" rx="10" fill="#FFF8E7" stroke="#D4A017" stroke-width="2"/><circle cx="180" cy="365" r="24" fill="white" stroke="#475569" stroke-width="2.5"/>
-  <circle cx="180" cy="365" r="3" fill="#475569"/>
-  <line x1="180.0" y1="347.0" x2="180.0" y2="343.0" stroke="#475569" stroke-width="1.5"/>
-  <line x1="189.0" y1="349.4115427318801" x2="191.0" y2="345.94744111674237" stroke="#475569" stroke-width="1.5"/>
-  <line x1="195.5884572681199" y1="356.0" x2="199.05255888325766" y2="354.0" stroke="#475569" stroke-width="1.5"/>
-  <line x1="198.0" y1="365.0" x2="202.0" y2="365.0" stroke="#475569" stroke-width="1.5"/>
-  <line x1="195.5884572681199" y1="374.0" x2="199.05255888325766" y2="376.0" stroke="#475569" stroke-width="1.5"/>
-  <line x1="189.0" y1="380.5884572681199" x2="191.0" y2="384.05255888325763" stroke="#475569" stroke-width="1.5"/>
-  <line x1="180.0" y1="383.0" x2="180.0" y2="387.0" stroke="#475569" stroke-width="1.5"/>
-  <line x1="171.0" y1="380.5884572681199" x2="169.0" y2="384.05255888325763" stroke="#475569" stroke-width="1.5"/>
-  <line x1="164.4115427318801" y1="374.0" x2="160.94744111674237" y2="376.0" stroke="#475569" stroke-width="1.5"/>
-  <line x1="162.0" y1="365.0" x2="158.0" y2="365.0" stroke="#475569" stroke-width="1.5"/>
-  <line x1="164.4115427318801" y1="356.0" x2="160.94744111674234" y2="354.0" stroke="#475569" stroke-width="1.5"/>
-  <line x1="171.0" y1="349.4115427318801" x2="169.0" y2="345.94744111674237" stroke="#475569" stroke-width="1.5"/>
-  <line x1="180" y1="365" x2="170.66619048833758" y2="355.6661904883376" stroke="#D4A017" stroke-width="2.5" stroke-linecap="round"/><text x="260" y="360" font-size="15" fill="#B8860B" text-anchor="start" font-weight="bold">FOMC后方向选择</text><line x1="430" y1="350" x2="430" y2="330" stroke="#16A34A" stroke-width="2" stroke-linecap="round" marker-end="url(#ag)"/><text x="430" y="325" font-size="10" fill="#16A34A" text-anchor="middle" font-weight="normal">鸽派→黄金$4,400</text><line x1="550" y1="380" x2="550" y2="400" stroke="#DC2626" stroke-width="2" stroke-linecap="round" marker-end="url(#ar)"/><text x="550" y="410" font-size="10" fill="#DC2626" text-anchor="middle" font-weight="normal">鹰派→黄金$4,200</text><text x="384.0" y="498" font-size="11" fill="#94A3B8" text-anchor="middle">横盘越久，突破后的趋势越强。FOMC打破三重均衡</text></svg>
+<rect width="768" height="512" fill="url(#sky)"/>
+  <rect x="0" y="0" width="768" height="42" fill="#D4A017" opacity="0.06"/>
+  <line x1="0" y1="42" x2="768" y2="42" stroke="#D4A017" stroke-width="0.5" opacity="0.2"/>
+  <text x="384" y="28" font-size="16" fill="#8B6914" text-anchor="middle" font-weight="bold" letter-spacing="0.5">商品：油价三日暴跌 · 黄金横盘等FOMC选方向</text>
+  <g filter="url(#med)">
+    <line x1="110.0" y1="340" x2="144" y2="100" stroke="#64748B" stroke-width="3" stroke-linecap="round"/>
+    <line x1="190.0" y1="340" x2="156" y2="100" stroke="#64748B" stroke-width="3" stroke-linecap="round"/>
+    <line x1="135.5" y1="280" x2="164.5" y2="280" stroke="#94A3B8" stroke-width="2"/>
+    <line x1="127.0" y1="220" x2="173.0" y2="220" stroke="#94A3B8" stroke-width="2"/>
+    <line x1="118.5" y1="160" x2="181.5" y2="160" stroke="#94A3B8" stroke-width="2"/>
+    <line x1="144" y1="100" x2="156" y2="100" stroke="#475569" stroke-width="3"/>
+    <circle cx="150" cy="100" r="4" fill="#475569"/>
+    <line x1="150" y1="104" x2="150" y2="260" stroke="#64748B" stroke-width="1.5"/>
+    <rect x="134" y="260" width="32" height="24" rx="5" fill="#FEF3C7" stroke="#EA580C" stroke-width="2"/>
+    <text x="150" y="276" font-size="10" fill="#EA580C" text-anchor="middle" font-weight="bold">油</text>
+  </g>
+  <rect x="38" y="348" width="224" height="76" rx="8" fill="white" stroke="#FED7AA" stroke-width="1.5" filter="url(#soft)"/>
+  <text x="150" y="368" font-size="11" fill="#EA580C" text-anchor="middle" font-weight="bold">WTI 三日暴跌</text>
+  <text x="150" y="388" font-size="14" fill="#DC2626" text-anchor="middle" font-weight="bold">$95 → $81 → $74.80</text>
+  <text x="150" y="406" font-size="10" fill="#991B1B" text-anchor="middle">三日累计跌超$6 · 入技术性熊市</text>
+  <text x="150" y="420" font-size="9" fill="#64748B" text-anchor="middle">美伊和平协议挤出"战争溢价"</text>
+  <g filter="url(#med)">
+    <rect x="510" y="240" width="120" height="90" rx="5" fill="url(#bldg-cool)" stroke="#94A3B8" stroke-width="2.5"/>
+    <path d="M510,240 Q570,185 630,240" fill="url(#gold-vault)" stroke="#D4A017" stroke-width="2.5"/>
+    <rect x="545" y="255" width="22" height="14" rx="2" fill="#FDE68A" stroke="#D4A017" stroke-width="1.5"/>
+    <rect x="545" y="245" width="22" height="12" rx="2" fill="#FEF3C7" stroke="#D4A017" stroke-width="1.5"/>
+    <rect x="573" y="250" width="22" height="19" rx="2" fill="#FDE68A" stroke="#D4A017" stroke-width="1.5"/>
+    <text x="570" y="300" font-size="10" fill="#D4A017" text-anchor="middle" font-weight="bold">$ 金库</text>
+  </g>
+  <rect x="460" y="340" width="220" height="76" rx="8" fill="white" stroke="#FDE68A" stroke-width="1.5" filter="url(#soft)"/>
+  <text x="570" y="360" font-size="11" fill="#D4A017" text-anchor="middle" font-weight="bold">现货黄金 横盘</text>
+  <text x="570" y="380" font-size="14" fill="#B8860B" text-anchor="middle" font-weight="bold">$4,310 - $4,340</text>
+  <text x="570" y="398" font-size="10" fill="#64748B" text-anchor="middle">三重均衡：油价↓通胀↓ / DXY弱 / FOMC?</text>
+  <text x="570" y="414" font-size="9" fill="#B8860B" text-anchor="middle">横盘越久，突破后趋势越强</text>
+  <rect x="120" y="440" width="530" height="36" rx="8" fill="#FFF8E7" stroke="#D4A017" stroke-width="1.5" filter="url(#soft)"/>
+  <text x="384" y="462" font-size="11" fill="#92400E" text-anchor="middle" font-weight="bold">FOMC后：鸽派 → 黄金 $4,400 ↑ ｜ 鹰派 → 黄金 $4,200 ↓</text>
+  <text x="384" y="506" font-size="9" fill="#A8A49A" text-anchor="middle">FOMC打破三重均衡 — 黄金横盘时的方向选择往往是趋势性的</text>
+</svg>
