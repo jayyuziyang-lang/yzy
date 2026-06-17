@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 360" width="700" height="360" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F0F4FF"/>
+      <stop offset="100%" stop-color="#E8F0FE"/>
+    </linearGradient>
+    <linearGradient id="dowBar" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#1A56DB"/>
+      <stop offset="100%" stop-color="#3B82F6"/>
+    </linearGradient>
+    <linearGradient id="soxBar" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#EF4444"/>
+      <stop offset="100%" stop-color="#F87171"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="700" height="360" fill="url(#bg)" rx="12"/>
+
+  <!-- Title bar -->
+  <rect x="0" y="0" width="700" height="42" fill="#1A56DB" rx="12"/>
+  <rect x="0" y="20" width="700" height="22" fill="#1A56DB"/>
+  <text x="350" y="28" text-anchor="middle" fill="white" font-size="16" font-weight="700">🔄 6.17 大轮动日 · FOMC前夜资金迁徙图</text>
+
+  <!-- === LEFT PANEL: 道指 === -->
+  <rect x="20" y="55" width="210" height="125" fill="white" rx="8" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="125" y="78" text-anchor="middle" fill="#1E3A7A" font-size="13" font-weight="700">道琼斯工业指数</text>
+
+  <!-- Big number -->
+  <text x="125" y="108" text-anchor="middle" fill="#1A56DB" font-size="28" font-weight="800">52,000</text>
+  <text x="125" y="128" text-anchor="middle" fill="#1A56DB" font-size="11" font-weight="600">史上首次突破！</text>
+
+  <!-- Up arrow -->
+  <polygon points="125,140 113,155 137,155" fill="#DC2626"/>
+  <text x="125" y="168" text-anchor="middle" fill="#DC2626" font-size="13" font-weight="700">+0.64%</text>
+  <text x="125" y="178" text-anchor="middle" fill="#64748B" font-size="9">连续第2日创收盘新高</text>
+
+  <!-- === CENTER: 大轮动箭头 === -->
+  <rect x="240" y="55" width="60" height="125" fill="none"/>
+
+  <!-- Curved rotation arrows -->
+  <path d="M255,85 Q255,70 270,70 L285,70" fill="none" stroke="#1A56DB" stroke-width="2.5" marker-end="url(#arrowBlue)"/>
+  <defs>
+    <marker id="arrowBlue" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#1A56DB"/>
+    </marker>
+  </defs>
+  <text x="270" y="65" text-anchor="middle" fill="#1A56DB" font-size="9" font-weight="700">科技→</text>
+  <text x="270" y="78" text-anchor="middle" fill="#1A56DB" font-size="9" font-weight="700">周期</text>
+
+  <path d="M285,110 Q300,110 300,125 L300,140" fill="none" stroke="#EF4444" stroke-width="2.5" marker-end="url(#arrowRed)"/>
+  <defs>
+    <marker id="arrowRed" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#EF4444"/>
+    </marker>
+  </defs>
+  <text x="308" y="118" fill="#EF4444" font-size="8" font-weight="700">资金流出</text>
+  <text x="308" y="130" fill="#EF4444" font-size="8" font-weight="700">半导体/AI</text>
+
+  <text x="270" y="170" text-anchor="middle" fill="#64748B" font-size="10" font-weight="600">2026年</text>
+  <text x="270" y="182" text-anchor="middle" fill="#64748B" font-size="10" font-weight="600">最大单日</text>
+  <text x="270" y="194" text-anchor="middle" fill="#64748B" font-size="10" font-weight="600">板块轮动</text>
+
+  <!-- === RIGHT PANEL: 费半 === -->
+  <rect x="330" y="55" width="210" height="125" fill="white" rx="8" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="435" y="78" text-anchor="middle" fill="#7C3AED" font-size="13" font-weight="700">费城半导体 SOX</text>
+
+  <text x="435" y="108" text-anchor="middle" fill="#EF4444" font-size="28" font-weight="800">−5.7%</text>
+  <text x="435" y="128" text-anchor="middle" fill="#EF4444" font-size="11" font-weight="600">年内最大单日跌幅！</text>
+
+  <!-- Down arrow -->
+  <polygon points="435,140 423,147 447,147" fill="#16A34A"/>
+  <text x="435" y="162" text-anchor="middle" fill="#64748B" font-size="9">Marvell −9.8% Intel −8.5%</text>
+  <text x="435" y="175" text-anchor="middle" fill="#64748B" font-size="9">AMD −7.3% 英伟达 −2%+</text>
+
+  <!-- === DIVIDER === -->
+  <line x1="20" y1="192" x2="680" y2="192" stroke="#BFDBFE" stroke-width="1" stroke-dasharray="4,3"/>
+
+  <!-- === BOTTOM ROW: 3 mini cards === -->
+
+  <!-- Mini card 1: Oil -->
+  <rect x="20" y="202" width="153" height="68" fill="white" rx="6" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="96" y="222" text-anchor="middle" fill="#EA580C" font-size="11" font-weight="700">🛢️ WTI原油</text>
+  <text x="96" y="244" text-anchor="middle" fill="#EA580C" font-size="20" font-weight="800">$76.05</text>
+  <text x="96" y="262" text-anchor="middle" fill="#16A34A" font-size="11" font-weight="700">−5.8% 三月底部</text>
+
+  <!-- Mini card 2: Gold -->
+  <rect x="183" y="202" width="153" height="68" fill="white" rx="6" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="259" y="222" text-anchor="middle" fill="#D4A017" font-size="11" font-weight="700">🥇 现货黄金</text>
+  <text x="259" y="244" text-anchor="middle" fill="#D4A017" font-size="20" font-weight="800">$4,340</text>
+  <text x="259" y="262" text-anchor="middle" fill="#64748B" font-size="11" font-weight="600">横盘等待FOMC</text>
+
+  <!-- Mini card 3: FOMC countdown -->
+  <rect x="346" y="202" width="194" height="68" fill="#1A56DB" rx="6"/>
+  <text x="443" y="222" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="10" font-weight="600">🏛️ FOMC Day 2 · 沃什首秀</text>
+  <text x="443" y="248" text-anchor="middle" fill="white" font-size="16" font-weight="800">北京时间周四凌晨</text>
+  <text x="443" y="266" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="9">三大悬念：点阵图 · 宽松倾向 · 沃什语气</text>
+
+  <!-- === Bottom: Key movers strip === -->
+  <rect x="20" y="280" width="660" height="35" fill="white" rx="6" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="40" y="302" fill="#64748B" font-size="10" font-weight="600">关键个股:</text>
+  <text x="118" y="302" fill="#DC2626" font-size="10" font-weight="600">JPM +3.7%</text>
+  <text x="208" y="302" fill="#DC2626" font-size="10" font-weight="600">Visa +2.9%</text>
+  <text x="292" y="302" fill="#16A34A" font-size="10" font-weight="600">Marvell −9.8%</text>
+  <text x="400" y="302" fill="#16A34A" font-size="10" font-weight="600">Intel −8.5%</text>
+  <text x="490" y="302" fill="#DC2626" font-size="10" font-weight="600">SpaceX +4.8%</text>
+  <text x="590" y="302" fill="#64748B" font-size="10" font-weight="600">三日+50%</text>
+
+  <!-- === Bottom bar === -->
+  <rect x="20" y="325" width="660" height="28" fill="#F0F4FF" rx="6" stroke="#BFDBFE" stroke-width="0.5"/>
+  <text x="350" y="344" text-anchor="middle" fill="#1A56DB" font-size="11" font-weight="700">
+    美伊和平协议 → 油价暴跌 → 通胀预期降温 → 资金大轮动（科技→周期）→ FOMC倒计时
+  </text>
+</svg>
