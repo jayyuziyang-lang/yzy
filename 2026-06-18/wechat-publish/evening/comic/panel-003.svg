@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 768 512" width="768" height="512" font-family="Microsoft YaHei, SimHei, sans-serif">
+  <rect width="768" height="512" fill="#FAFBFC" />
+  <rect x="0" y="0" width="768" height="44" fill="#D4A017" opacity="0.08" />
+  <text x="384" y="30" font-size="18" fill="#D4A017" text-anchor="middle" font-weight="bold">亚洲内部分裂：日韩创新高 vs 恒生暴跌</text>
+  <rect x="20" y="70" width="220" height="150" rx="8" fill="#F0FDF4" stroke="#16A34A" stroke-width="2" />
+  <circle cx="130" cy="115" r="24" fill="#DC2626" opacity="0.15" />
+  <circle cx="130" cy="115" r="14" fill="#DC2626" opacity="0.3" />
+  <text x="130" y="100" font-size="14" fill="#16A34A" text-anchor="middle" font-weight="bold">日经225</text>
+  <text x="130" y="155" font-size="22" fill="#16A34A" text-anchor="middle" font-weight="bold">+1.65%</text>
+  <text x="130" y="175" font-size="10" fill="#475569" text-anchor="middle">71,053 连续两日历史新高</text>
+  <text x="130" y="195" font-size="9" fill="#64748B" text-anchor="middle">半导体+弱日元</text>
+  <line x1="130" y1="230" x2="130" y2="200" stroke="#16A34A" stroke-width="3" />
+  <polygon points="130,192 123,202 137,202" fill="#16A34A" />
+  <rect x="254" y="70" width="220" height="150" rx="8" fill="#F0FDF4" stroke="#16A34A" stroke-width="2" />
+  <text x="364" y="100" font-size="14" fill="#16A34A" text-anchor="middle" font-weight="bold">韩国KOSPI</text>
+  <text x="364" y="155" font-size="22" fill="#16A34A" text-anchor="middle" font-weight="bold">+2.61%</text>
+  <text x="364" y="175" font-size="10" fill="#475569" text-anchor="middle">9,063 逼近9100</text>
+  <text x="364" y="195" font-size="9" fill="#64748B" text-anchor="middle">三星+4.6% SK海力士+6.5%</text>
+  <line x1="364" y1="230" x2="364" y2="200" stroke="#16A34A" stroke-width="3" />
+  <polygon points="364,192 357,202 371,202" fill="#16A34A" />
+  <rect x="488" y="70" width="260" height="150" rx="8" fill="#FFF5F5" stroke="#DC2626" stroke-width="2" />
+  <text x="618" y="100" font-size="14" fill="#DC2626" text-anchor="middle" font-weight="bold">恒生指数</text>
+  <ellipse cx="618" cy="118" rx="35" ry="12" fill="#DC2626" opacity="0.15" />
+  <ellipse cx="600" cy="114" rx="20" ry="9" fill="#DC2626" opacity="0.12" />
+  <ellipse cx="636" cy="116" rx="18" ry="8" fill="#DC2626" opacity="0.12" />
+  <line x1="598" y1="128" x2="600" y2="140" stroke="#DC2626" stroke-width="1.5" opacity="0.4" />
+  <line x1="613" y1="128" x2="615" y2="140" stroke="#DC2626" stroke-width="1.5" opacity="0.4" />
+  <line x1="628" y1="128" x2="630" y2="140" stroke="#DC2626" stroke-width="1.5" opacity="0.4" />
+  <line x1="643" y1="128" x2="645" y2="140" stroke="#DC2626" stroke-width="1.5" opacity="0.4" />
+  <text x="618" y="155" font-size="22" fill="#DC2626" text-anchor="middle" font-weight="bold">-2.04%</text>
+  <text x="618" y="175" font-size="10" fill="#475569" text-anchor="middle">23,924 金融地产承压</text>
+  <text x="618" y="195" font-size="9" fill="#64748B" text-anchor="middle">FOMC鹰派→高杠杆板块失血</text>
+  <line x1="618" y1="230" x2="618" y2="260" stroke="#DC2626" stroke-width="3" />
+  <polygon points="618,268 611,258 625,258" fill="#DC2626" />
+  <rect x="20" y="290" width="728" height="100" rx="6" fill="#D4A017" opacity="0.06" />
+  <text x="384" y="312" font-size="12" fill="#475569" text-anchor="middle" font-weight="bold">同一亚洲，三条路径——为什么方向完全相反？</text>
+  <text x="384" y="338" font-size="10" fill="#475569" text-anchor="middle">日韩：半导体出口超级周期 + 弱势货币利好出口企业 = 独立于Fed紧缩</text>
+  <text x="384" y="355" font-size="10" fill="#475569" text-anchor="middle">港股：FOMC鹰派 → 美元走强 → 资金流出 → 金融/地产等高杠杆板块承压</text>
+  <text x="384" y="372" font-size="10" fill="#475569" text-anchor="middle">A股：内部分化 — 科技板块跟日韩（产业周期），金融板块跟港股（利率敏感）</text>
+  <circle cx="130" cy="452.0" r="4.0" fill="none" stroke="#16A34A" stroke-width="2" />
+  <line x1="130" y1="456.0" x2="130" y2="468.0" stroke="#16A34A" stroke-width="2" stroke-linecap="round" />
+  <line x1="124.0" y1="460" x2="136.0" y2="460" stroke="#16A34A" stroke-width="1.5" stroke-linecap="round" />
+  <line x1="130" y1="468.0" x2="125.0" y2="474.0" stroke="#16A34A" stroke-width="1.5" stroke-linecap="round" />
+  <line x1="130" y1="468.0" x2="135.0" y2="474.0" stroke="#16A34A" stroke-width="1.5" stroke-linecap="round" />
+  <text x="130" y="490" font-size="9" fill="#16A34A" text-anchor="middle">东京</text>
+  <circle cx="364" cy="452.0" r="4.0" fill="none" stroke="#16A34A" stroke-width="2" />
+  <line x1="364" y1="456.0" x2="364" y2="468.0" stroke="#16A34A" stroke-width="2" stroke-linecap="round" />
+  <line x1="358.0" y1="460" x2="370.0" y2="460" stroke="#16A34A" stroke-width="1.5" stroke-linecap="round" />
+  <line x1="364" y1="468.0" x2="359.0" y2="474.0" stroke="#16A34A" stroke-width="1.5" stroke-linecap="round" />
+  <line x1="364" y1="468.0" x2="369.0" y2="474.0" stroke="#16A34A" stroke-width="1.5" stroke-linecap="round" />
+  <text x="364" y="490" font-size="9" fill="#16A34A" text-anchor="middle">首尔</text>
+  <circle cx="618" cy="452.0" r="4.0" fill="none" stroke="#DC2626" stroke-width="2" />
+  <line x1="618" y1="456.0" x2="618" y2="468.0" stroke="#DC2626" stroke-width="2" stroke-linecap="round" />
+  <line x1="612.0" y1="460" x2="624.0" y2="460" stroke="#DC2626" stroke-width="1.5" stroke-linecap="round" />
+  <line x1="618" y1="468.0" x2="613.0" y2="474.0" stroke="#DC2626" stroke-width="1.5" stroke-linecap="round" />
+  <line x1="618" y1="468.0" x2="623.0" y2="474.0" stroke="#DC2626" stroke-width="1.5" stroke-linecap="round" />
+  <text x="618" y="490" font-size="9" fill="#DC2626" text-anchor="middle">香港</text>
+  <text x="384" y="510" font-size="10" fill="#94A3B8" text-anchor="middle">"东升西降"是真的——但"东"是日韩台半导体链，不一定是港股</text>
+</svg>

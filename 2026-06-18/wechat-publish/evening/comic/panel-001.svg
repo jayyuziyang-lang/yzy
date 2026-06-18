@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 768 512" width="768" height="512" font-family="Microsoft YaHei, SimHei, sans-serif">
+  <rect width="768" height="512" fill="#FAFBFC" />
+  <rect x="0" y="0" width="768" height="44" fill="#D4A017" opacity="0.08" />
+  <text x="384" y="30" font-size="18" fill="#D4A017" text-anchor="middle" font-weight="bold">A股极致分化：指数繁荣 vs 个股普跌</text>
+  <polygon points="384,340 370,358 398,358" fill="#475569" />
+  <line x1="80" y1="280" x2="688" y2="380" stroke="#475569" stroke-width="5" stroke-linecap="round" />
+  <rect x="40" y="140" width="220" height="130" rx="8" fill="#FFFFFF" stroke="#DC2626" stroke-width="2.5" />
+  <text x="150" y="168" font-size="15" fill="#DC2626" text-anchor="middle" font-weight="bold">上证 -0.43%</text>
+  <circle cx="65" cy="190" r="3" fill="#DC2626" />
+  <text x="75" y="194" font-size="10" fill="#475569">失守4100点</text>
+  <circle cx="65" cy="208" r="3" fill="#DC2626" />
+  <text x="75" y="212" font-size="10" fill="#475569">3325只个股下跌</text>
+  <circle cx="65" cy="226" r="3" fill="#DC2626" />
+  <text x="75" y="230" font-size="10" fill="#475569">大金融/电力杀跌</text>
+  <circle cx="65" cy="244" r="3" fill="#DC2626" />
+  <text x="75" y="248" font-size="10" fill="#475569">保险券商领跌</text>
+  <line x1="150" y1="290" x2="150" y2="320" stroke="#DC2626" stroke-width="3" />
+  <polygon points="150,328 143,318 157,318" fill="#DC2626" />
+  <rect x="508" y="160" width="220" height="130" rx="8" fill="#FFFFFF" stroke="#16A34A" stroke-width="2.5" />
+  <text x="618" y="188" font-size="15" fill="#16A34A" text-anchor="middle" font-weight="bold">科创50 +3.84%</text>
+  <circle cx="533" cy="210" r="3" fill="#16A34A" />
+  <text x="543" y="214" font-size="10" fill="#475569">创业板 +2.05% 历史新高</text>
+  <circle cx="533" cy="228" r="3" fill="#16A34A" />
+  <text x="543" y="232" font-size="10" fill="#475569">2018只个股上涨</text>
+  <circle cx="533" cy="246" r="3" fill="#16A34A" />
+  <text x="543" y="250" font-size="10" fill="#475569">芯片/AI/创新药领涨</text>
+  <circle cx="533" cy="264" r="3" fill="#16A34A" />
+  <text x="543" y="268" font-size="10" fill="#475569">中际旭创超茅台</text>
+  <line x1="618" y1="300" x2="618" y2="270" stroke="#16A34A" stroke-width="3" />
+  <polygon points="618,262 611,272 625,272" fill="#16A34A" />
+  <rect x="284" y="396" width="200" height="36" rx="6" fill="#D4A017" opacity="0.12" />
+  <text x="384" y="419" font-size="12" fill="#D4A017" text-anchor="middle" font-weight="bold">3.31万亿成交：不是离场，是迁徙</text>
+  <circle cx="170" cy="462.0" r="4.0" fill="none" stroke="#DC2626" stroke-width="2" />
+  <line x1="170" y1="466.0" x2="170" y2="478.0" stroke="#DC2626" stroke-width="2" stroke-linecap="round" />
+  <line x1="164.0" y1="470" x2="176.0" y2="470" stroke="#DC2626" stroke-width="1.5" stroke-linecap="round" />
+  <line x1="170" y1="478.0" x2="165.0" y2="484.0" stroke="#DC2626" stroke-width="1.5" stroke-linecap="round" />
+  <line x1="170" y1="478.0" x2="175.0" y2="484.0" stroke="#DC2626" stroke-width="1.5" stroke-linecap="round" />
+  <text x="170" y="500" font-size="9" fill="#DC2626" text-anchor="middle">传统蓝筹持有者</text>
+  <circle cx="598" cy="462.0" r="4.0" fill="none" stroke="#16A34A" stroke-width="2" />
+  <line x1="598" y1="466.0" x2="598" y2="478.0" stroke="#16A34A" stroke-width="2" stroke-linecap="round" />
+  <line x1="592.0" y1="470" x2="604.0" y2="470" stroke="#16A34A" stroke-width="1.5" stroke-linecap="round" />
+  <line x1="598" y1="478.0" x2="593.0" y2="484.0" stroke="#16A34A" stroke-width="1.5" stroke-linecap="round" />
+  <line x1="598" y1="478.0" x2="603.0" y2="484.0" stroke="#16A34A" stroke-width="1.5" stroke-linecap="round" />
+  <text x="598" y="500" font-size="9" fill="#16A34A" text-anchor="middle">科技成长持有者</text>
+</svg>

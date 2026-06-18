@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 768 512" width="768" height="512" font-family="Microsoft YaHei, SimHei, sans-serif">
+  <rect width="768" height="512" fill="#FAFBFC" />
+  <rect x="0" y="0" width="768" height="44" fill="#D4A017" opacity="0.08" />
+  <text x="384" y="30" font-size="18" fill="#D4A017" text-anchor="middle" font-weight="bold">黄金V型反转：$4,218 → $4,322 — 亚洲买盘托盘</text>
+  <line x1="100" y1="160" x2="100" y2="380" stroke="#EA580C" stroke-width="3" />
+  <text x="90" y="150" font-size="12" fill="#EA580C" font-weight="bold" text-anchor="end">$4,381</text>
+  <text x="90" y="168" font-size="9" fill="#64748B" text-anchor="end">FOMC前</text>
+  <polyline points="100,180 250,370 400,180" fill="none" stroke="#EA580C" stroke-width="3.5" stroke-linejoin="round" />
+  <text x="250" y="392" font-size="12" fill="#DC2626" text-anchor="middle" font-weight="bold">$4,218</text>
+  <text x="250" y="408" font-size="9" fill="#64748B" text-anchor="middle">隔夜低点</text>
+  <line x1="400" y1="180" x2="620" y2="180" stroke="#EA580C" stroke-width="3" />
+  <text x="630" y="175" font-size="12" fill="#16A34A" font-weight="bold">$4,322+</text>
+  <text x="630" y="192" font-size="9" fill="#64748B">日内反弹</text>
+  <text x="355" y="250" font-size="16" fill="#16A34A" text-anchor="middle" font-weight="bold">V</text>
+  <line x1="330" y1="235" x2="355" y2="240" stroke="#16A34A" stroke-width="1.5" stroke-linecap="round" />
+  <polygon points="355,240 348.3,242.7 349.9,234.9" fill="#16A34A" />
+  <rect x="20" y="420" width="200" height="55" rx="6" fill="#FFF5F5" stroke="#DC2626" stroke-width="1.5" />
+  <text x="120" y="438" font-size="10" fill="#DC2626" text-anchor="middle" font-weight="bold">FOMC鹰派冲击</text>
+  <text x="120" y="455" font-size="9" fill="#475569" text-anchor="middle">9人支持加息 → 实际利率↑</text>
+  <text x="120" y="470" font-size="9" fill="#475569" text-anchor="middle">美元DXY +0.86% → 黄金失血</text>
+  <rect x="240" y="420" width="248" height="55" rx="6" fill="#F0FDF4" stroke="#16A34A" stroke-width="1.5" />
+  <text x="364" y="438" font-size="10" fill="#16A34A" text-anchor="middle" font-weight="bold">V反三理由</text>
+  <text x="364" y="454" font-size="8" fill="#475569" text-anchor="middle">① FOMC冲击被消化 — 加息不是明天</text>
+  <text x="364" y="464" font-size="8" fill="#475569" text-anchor="middle">② 美伊协议 → 通胀预期↓ → 利空出尽</text>
+  <text x="364" y="474" font-size="8" fill="#475569" text-anchor="middle">③ 亚洲实金买盘 $4,200附近大量入场</text>
+  <rect x="508" y="420" width="240" height="55" rx="6" fill="#FFF7ED" stroke="#EA580C" stroke-width="1.5" />
+  <text x="628" y="438" font-size="10" fill="#EA580C" text-anchor="middle" font-weight="bold">关键判断</text>
+  <text x="628" y="455" font-size="9" fill="#475569" text-anchor="middle">$4,200 = 亚洲实金地板价</text>
+  <text x="628" y="470" font-size="9" fill="#475569" text-anchor="middle">短期 $4,200-4,400 区间震荡</text>
+</svg>

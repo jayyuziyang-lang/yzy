@@ -1,7 +1,19 @@
 {
-  "generated_at": "2026-06-18T13:01:39+08:00",
+  "generated_at": "2026-06-18T19:59:00+08:00",
   "latest_date": "2026-06-18",
   "articles": [
+    {
+      "date": "2026-06-18",
+      "session": "evening",
+      "edition_cn": "晚报",
+      "icon": "🌙",
+      "title": "沪指失守4100但创业板创历史新高·科创50暴涨3.84%·中际旭创市值超越茅台·3300股下跌指数虚涨·日韩再破纪录·黄金V反收复4300",
+      "url": "2026-06-18/wechat-publish/evening/article.html",
+      "has_audio": true,
+      "audio_size_bytes": 1413504,
+      "has_comic": true,
+      "comic_count": 4
+    },
     {
       "date": "2026-06-18",
       "session": "morning",
@@ -561,6 +573,18 @@
   ],
   "by_date": {
     "2026-06-18": {
+      "evening": {
+        "date": "2026-06-18",
+        "session": "evening",
+        "edition_cn": "晚报",
+        "icon": "🌙",
+        "title": "沪指失守4100但创业板创历史新高·科创50暴涨3.84%·中际旭创市值超越茅台·3300股下跌指数虚涨·日韩再破纪录·黄金V反收复4300",
+        "url": "2026-06-18/wechat-publish/evening/article.html",
+        "has_audio": true,
+        "audio_size_bytes": 1413504,
+        "has_comic": true,
+        "comic_count": 4
+      },
       "morning": {
         "date": "2026-06-18",
         "session": "morning",
