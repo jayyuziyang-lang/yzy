@@ -1,7 +1,19 @@
 {
-  "generated_at": "2026-06-17T20:41:18+08:00",
-  "latest_date": "2026-06-17",
+  "generated_at": "2026-06-18T11:12:21+08:00",
+  "latest_date": "2026-06-18",
   "articles": [
+    {
+      "date": "2026-06-18",
+      "session": "morning",
+      "edition_cn": "早报",
+      "icon": "🌅",
+      "title": "FOMC鹰派按兵不动·点阵图9人挺加息·道指跌507点·美伊签署伊斯兰堡备忘录·日经首破71000·黄金失守4300·DeepSeek估值破500亿美元",
+      "url": "2026-06-18/wechat-publish/morning/article.html",
+      "has_audio": true,
+      "audio_size_bytes": 2005920,
+      "has_comic": true,
+      "comic_count": 4
+    },
     {
       "date": "2026-06-17",
       "session": "evening",
@@ -548,6 +560,20 @@
     }
   ],
   "by_date": {
+    "2026-06-18": {
+      "morning": {
+        "date": "2026-06-18",
+        "session": "morning",
+        "edition_cn": "早报",
+        "icon": "🌅",
+        "title": "FOMC鹰派按兵不动·点阵图9人挺加息·道指跌507点·美伊签署伊斯兰堡备忘录·日经首破71000·黄金失守4300·DeepSeek估值破500亿美元",
+        "url": "2026-06-18/wechat-publish/morning/article.html",
+        "has_audio": true,
+        "audio_size_bytes": 2005920,
+        "has_comic": true,
+        "comic_count": 4
+      }
+    },
     "2026-06-17": {
       "evening": {
         "date": "2026-06-17",
