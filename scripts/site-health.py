@@ -113,6 +113,44 @@ def main():
     else:
         check(False, 'ai-chain.json not found')
 
+    # 3c. Audio duration calibration (Issue #8 fix — 2026-06-18)
+    print('\n[3c/6] Audio duration calibration')
+    import subprocess
+    for root, dirs, files in os.walk(ROOT):
+        if 'wechat-publish' not in root or '.git' in root:
+            continue
+        article_path = os.path.join(root, 'article.html')
+        audio_path = os.path.join(root, 'audio.mp3')
+        if not (os.path.exists(article_path) and os.path.exists(audio_path)):
+            continue
+        with open(article_path, encoding='utf-8') as f:
+            html = f.read()
+        # Extract declared reading time: "约X分钟"
+        m = re.search(r'约(\d+)分钟', html)
+        if not m:
+            continue
+        declared_min = int(m.group(1))
+        # Get actual audio duration via ffprobe
+        try:
+            result = subprocess.run(
+                ['ffprobe', '-i', audio_path, '-show_entries', 'format=duration',
+                 '-v', 'quiet', '-of', 'csv=p=0'],
+                capture_output=True, text=True, timeout=10
+            )
+            actual_sec = float(result.stdout.strip())
+            actual_min = actual_sec / 60
+            diff = abs(declared_min - actual_min)
+            rel_path = os.path.relpath(article_path, ROOT)
+            if diff > 2:
+                print(f'  ⚠️  {rel_path}: 标注约{declared_min}分钟，实际{actual_min:.1f}分钟，差{diff:.1f}分钟')
+            elif diff > 1:
+                print(f'  △ {rel_path}: 标注约{declared_min}分钟，实际{actual_min:.1f}分钟，差{diff:.1f}分钟（临界）')
+            else:
+                print(f'  ✅ {rel_path}: 标注约{declared_min}分钟，实际{actual_min:.1f}分钟，误差{diff:.1f}分钟')
+        except Exception as e:
+            print(f'  ⚠️  Cannot check audio for {rel_path}: {e}')
+    print()
+
     # 4. Check character assets
     print('\n[4/6] Character assets')
     char_dir = os.path.join(ROOT, 'assets', 'character')
