@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<title>一缕拉魂腔，沂蒙柳琴魂</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+<link rel="stylesheet" href="css/style.css?v=6">
+</head>
+<body>
+
+<!-- 背景装饰 -->
+<div class="bg-texture"></div>
+
+<!-- 全局进度条 -->
+<div class="global-progress" id="globalProgress">
+  <div class="global-progress-fill" id="globalProgressFill"></div>
+</div>
+
+<!-- 音频开关 -->
+<button class="bgm-toggle" id="bgmToggle" title="音频控制">
+  <svg class="bgm-icon-play" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+    <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+    <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+  </svg>
+  <svg class="bgm-icon-pause" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none">
+    <rect x="6" y="4" width="4" height="16" rx="1"/>
+    <rect x="14" y="4" width="4" height="16" rx="1"/>
+    <line x1="2" y1="2" x2="22" y2="22" stroke="currentColor" stroke-width="2.5" opacity="0.5"/>
+  </svg>
+</button>
+
+<!-- 开头柳琴戏音频链（按需加载） -->
+<audio id="audio1" src="images/opening.mp3" preload="none"></audio>
+<audio id="audio2" src="images/intro2.mp3" preload="none"></audio>
+<audio id="audio3" src="images/sing.mp3" preload="none"></audio>
+
+<!-- QR 码预渲染（隐藏） -->
+<canvas id="qrCache" width="100" height="100" style="display:none"></canvas>
+
+<!-- Swiper 主容器 -->
+<div class="swiper main-swiper">
+  <div class="swiper-wrapper">
+
+    <!-- ==================== P1：封面 ==================== -->
+    <section class="swiper-slide slide-cover">
+      <div class="cover-ink"></div>
+      <div class="cover-content">
+        <div class="cover-badge">国家级非遗 · 临沂柳琴戏</div>
+        <h1 class="cover-title">一缕拉魂腔<br>沂蒙柳琴魂</h1>
+        <p class="cover-subtitle">2006年列入首批国家级非物质文化遗产</p>
+        <div class="cover-visual-hint">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><ellipse cx="24" cy="22" rx="8" ry="12" stroke="currentColor" stroke-width="1.5" opacity="0.4"/><path d="M14 36c2-4 6-6 10-6s8 2 10 6" stroke="currentColor" stroke-width="1.5" opacity="0.3"/></svg>
+        </div>
+        <!-- 预热题 -->
+        <div class="cover-quiz" id="coverQuiz">
+          <p class="cover-quiz-q">柳琴戏俗称什么名字？</p>
+          <div class="cover-quiz-opts">
+            <button class="cover-opt" data-q="cover" data-i="0">梆子腔</button>
+            <button class="cover-opt" data-q="cover" data-i="1">拉魂腔</button>
+            <button class="cover-opt" data-q="cover" data-i="2">茂腔</button>
+            <button class="cover-opt" data-q="cover" data-i="3">吕剧</button>
+          </div>
+        </div>
+        <p class="cover-intro">一把柳叶琴，三百年沂蒙乡音，本次H5将带你解锁柳琴戏的完整知识。</p>
+      </div>
+      <button class="btn-nav" id="btnCoverNext" disabled>
+        点击开启寻戏之旅
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </button>
+      <div class="page-footer">下拉翻页 · 开启寻戏之旅</div>
+    </section>
+
+    <!-- ==================== P2：溯源篇 ==================== -->
+    <section class="swiper-slide slide-page" data-page="2">
+      <div class="page-inner">
+        <div class="page-header">
+          <span class="page-num">溯源篇</span>
+          <h2 class="page-title">寻根溯源｜从田间小调到国家级非遗</h2>
+        </div>
+        <div class="page-visual visual-timeline">
+          <img src="images/p2_timeline.jpg" alt="柳琴戏溯源" class="visual-img" loading="lazy" onerror="this.style.display='none'">
+          <div class="visual-overlay">
+            <span class="vo-label">三百年沂蒙乡音传承路</span>
+            <div class="vo-row">
+              <span class="vo-tag">清乾隆</span>
+              <span class="vo-arrow">→</span>
+              <span class="vo-tag">晚清民国</span>
+              <span class="vo-arrow">→</span>
+              <span class="vo-tag">1953 定名</span>
+              <span class="vo-arrow">→</span>
+              <span class="vo-tag accent">2006 非遗</span>
+            </div>
+          </div>
+        </div>
+<button class="btn-audio" data-bvid="BV1cw411y7qR" data-title="《柳琴戏牌子曲》· 王惠然改编 崔军淼独奏">《姐儿妞》片段 · 柳琴戏母体曲调</button>
+        <!-- 问答 -->
+        <div class="quiz-block">
+          <p class="quiz-q">柳琴戏起源于哪个朝代、何地？</p>
+          <div class="quiz-opts" data-page="2">
+            <button class="quiz-opt" data-i="0"><span class="q-letter">A</span>明代·枣庄</button>
+            <button class="quiz-opt" data-i="1"><span class="q-letter">B</span>清乾隆·临沂郯城</button>
+            <button class="quiz-opt" data-i="2"><span class="q-letter">C</span>清代光绪·徐州</button>
+            <button class="quiz-opt" data-i="3"><span class="q-letter">D</span>民国·济宁</button>
+          </div>
+        </div>
+        <!-- 科普常驻 -->
+        <div class="knowledge">
+          <div class="k-item"><span class="k-label">萌芽期（清乾隆）</span>郯城民间艺人单人弹柳叶琴说唱，称"肘鼓子"，乡间流动演出；</div>
+          <div class="k-item"><span class="k-label">发展期（晚清民国）</span>双人、多人搭班，加入简单身段，得名"拉魂腔"，流传苏鲁豫皖；</div>
+          <div class="k-item"><span class="k-label">定名期（1953年）</span>统一正式定名"柳琴戏"，因主伴奏乐器柳叶琴得名；</div>
+          <div class="k-item"><span class="k-label">高光期（2006年）</span>列入第一批国家级非物质文化遗产代表性项目，临沂为北派柳琴戏核心传承地。</div>
+        </div>
+      </div>
+      <button class="btn-nav" id="btnNav2" disabled>
+        下一页·解锁柳琴戏独有艺术瑰宝
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </button>
+    </section>
+
+    <!-- ==================== P3：瑰宝篇 ==================== -->
+    <section class="swiper-slide slide-page" data-page="3">
+      <div class="page-inner">
+        <div class="page-header">
+          <span class="page-num">瑰宝篇</span>
+          <h2 class="page-title">戏韵瑰宝｜沂蒙独有的戏曲艺术基因</h2>
+        </div>
+        <div class="page-visual visual-instruments">
+          <img src="images/p3_liuqin.jpg" alt="柳叶琴（柳琴）" class="visual-img" loading="lazy" onerror="this.style.display='none'">
+          <div class="visual-overlay">
+            <span class="vo-label">柳叶琴（柳琴）</span>
+            <span class="vo-sub">形如柳叶，音色清亮 · 柳琴戏核心伴奏乐器</span>
+          </div>
+        </div>
+<button class="btn-audio" data-bvid="BV1Wq4y1m7e6" data-title="《三击掌》选段 · 张金兰 邵瑞武 男女对唱">男女对唱选段 · 唱腔特色</button>
+        <div class="quiz-block">
+          <p class="quiz-q">柳琴戏核心伴奏乐器是？</p>
+          <div class="quiz-opts" data-page="3">
+            <button class="quiz-opt" data-i="0"><span class="q-letter">A</span>板胡</button>
+            <button class="quiz-opt" data-i="1"><span class="q-letter">B</span>柳叶琴（柳琴）</button>
+            <button class="quiz-opt" data-i="2"><span class="q-letter">C</span>京胡</button>
+            <button class="quiz-opt" data-i="3"><span class="q-letter">D</span>坠琴</button>
+          </div>
+        </div>
+        <div class="knowledge">
+          <div class="k-item"><span class="k-label">唱腔特色</span>分男女腔，男声粗犷嘹亮、乡土厚重；女声婉转拖腔，"叶里藏花"，真假声转换自然，自带沂蒙方言韵味；</div>
+          <div class="k-item"><span class="k-label">表演特色</span>脱胎民间歌舞，步法、身段质朴接地气，无繁复程式，贴近百姓生活；</div>
+          <div class="k-item"><span class="k-label">剧目特色</span>现存传统折子戏、本戏超180部，分传统伦理戏、红色现代沂蒙题材戏两大类。</div>
+        </div>
+      </div>
+      <button class="btn-nav" id="btnNav3" disabled>
+        经典剧目小测试
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </button>
+    </section>
+
+    <!-- ==================== P4：剧目篇 ==================== -->
+    <section class="swiper-slide slide-page" data-page="4">
+      <div class="page-inner">
+        <div class="page-header">
+          <span class="page-num">剧目篇</span>
+          <h2 class="page-title">戏台留声｜代代传唱的柳琴名剧</h2>
+        </div>
+        <div class="page-visual visual-stage">
+          <img src="images/p4_stage.jpg" alt="柳琴戏舞台" class="visual-img" loading="lazy" onerror="this.style.display='none'">
+          <div class="visual-overlay">
+            <span class="vo-label">《喝面叶》《沂蒙情》</span>
+            <span class="vo-sub">传统折子戏 · 现代文华奖剧目</span>
+          </div>
+        </div>
+<button class="btn-audio" data-bvid="BV1bT4m1S7f6" data-title="经典折子戏《喝面叶》核心唱段">《喝面叶》经典折子戏选段</button>
+        <div class="quiz-block">
+          <p class="quiz-q">下列哪一部是柳琴戏经典传统折子戏？</p>
+          <div class="quiz-opts" data-page="4">
+            <button class="quiz-opt" data-i="0"><span class="q-letter">A</span>《锁麟囊》</button>
+            <button class="quiz-opt" data-i="1"><span class="q-letter">B</span>《喝面叶》</button>
+            <button class="quiz-opt" data-i="2"><span class="q-letter">C</span>《天仙配》</button>
+            <button class="quiz-opt" data-i="3"><span class="q-letter">D</span>《霸王别姬》</button>
+          </div>
+        </div>
+        <div class="knowledge">
+          <div class="k-item">传统剧目多聚焦家庭伦理、民间传说；新时代临沂柳琴剧团深耕红色沂蒙题材，将老区故事搬上戏台。</div>
+        </div>
+      </div>
+      <button class="btn-nav" id="btnNav4" disabled>
+        走进临沂守戏人·传承篇章
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </button>
+    </section>
+
+    <!-- ==================== P5：传承篇（人）==================== -->
+    <section class="swiper-slide slide-page" data-page="5">
+      <div class="page-inner">
+        <div class="page-header">
+          <span class="page-num">传承篇</span>
+          <h2 class="page-title">匠心守腔｜北派柳琴戏掌门人张金兰</h2>
+        </div>
+        <div class="page-visual visual-master">
+          <img src="images/p5_master.jpg" alt="张金兰·柳琴戏传承人" class="visual-img" loading="lazy" onerror="this.style.display='none'">
+          <div class="visual-overlay">
+            <span class="vo-label">张金兰</span>
+            <span class="vo-sub">国家级非遗传承人 · 北派柳琴戏奠基人</span>
+            <span class="vo-quote">"一生一台戏，一世拉魂腔"</span>
+          </div>
+        </div>
+<button class="btn-audio" data-bvid="BV1LnexzeEEi" data-title="《丝鸾记·打扮篇》· 张金兰 1982年经典原声">张金兰经典原声唱段</button>
+        <div class="quiz-block">
+          <p class="quiz-q">临沂哪位老艺人是国家级柳琴戏代表性传承人、北派柳琴戏领军人物？</p>
+          <div class="quiz-opts" data-page="5">
+            <button class="quiz-opt" data-i="0"><span class="q-letter">A</span>常香玉</button>
+            <button class="quiz-opt" data-i="1"><span class="q-letter">B</span>张金兰</button>
+            <button class="quiz-opt" data-i="2"><span class="q-letter">C</span>梅兰芳</button>
+            <button class="quiz-opt" data-i="3"><span class="q-letter">D</span>郎咸芬</button>
+          </div>
+        </div>
+        <div class="knowledge">
+          <div class="k-item">张金兰一生扎根鲁南乡村，几十年走遍临沂各县乡村戏台；晚年无偿授课，整理百余段失传柳琴戏曲谱，留存珍贵非遗音频资料，是临沂柳琴戏传承奠基人。</div>
+        </div>
+      </div>
+      <button class="btn-nav" id="btnNav5" disabled>
+        当代传承·活态保护新路径
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </button>
+    </section>
+
+    <!-- ==================== P6：传承延伸篇 ==================== -->
+    <section class="swiper-slide slide-page" data-page="6">
+      <div class="page-inner">
+        <div class="page-header">
+          <span class="page-num">传承篇</span>
+          <h2 class="page-title">薪火新生｜临沂柳琴戏活态传承之路</h2>
+        </div>
+        <div class="page-visual visual-protection">
+          <img src="images/p6_protection.jpg" alt="柳琴戏传承保护" class="visual-img" loading="lazy" onerror="this.style.display='none'">
+          <div class="visual-overlay">
+            <span class="vo-label">活态传承体系</span>
+            <span class="vo-sub">剧院惠民演出 · 戏曲进校园 · 整理古曲谱</span>
+            <span class="vo-desc">专业院团 + 校园美育 + 民间剧团 · 多层次活态传承</span>
+          </div>
+        </div>
+<button class="btn-audio" data-bvid="BV1Qh411M7Ro" data-title="现代柳琴戏《沂蒙情》选段">《沂蒙情》现代柳琴戏选段</button>
+        <div class="quiz-block">
+          <p class="quiz-q">临沂专门负责柳琴戏保护、排演、公益演出的官方机构是？</p>
+          <div class="quiz-opts" data-page="6">
+            <button class="quiz-opt" data-i="0"><span class="q-letter">A</span>市文化馆</button>
+            <button class="quiz-opt" data-i="1"><span class="q-letter">B</span>临沂市柳琴戏传承保护中心</button>
+            <button class="quiz-opt" data-i="2"><span class="q-letter">C</span>市博物馆</button>
+            <button class="quiz-opt" data-i="3"><span class="q-letter">D</span>美术馆</button>
+          </div>
+        </div>
+        <div class="knowledge">
+          <div class="k-item">临沂形成多层次传承体系：专业院团守精品、中小学美育普及、临沂大学开设柳琴戏传承基地、乡村民间业余剧团同步发展；同时创新沉浸式体验、文创开发，吸引年轻群体。</div>
+        </div>
+      </div>
+      <button class="btn-nav" id="btnNav6" disabled>
+        综合闯关
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </button>
+    </section>
+
+    <!-- ==================== P7：综合闯关 ==================== -->
+    <section class="swiper-slide slide-page" data-page="7">
+      <div class="page-inner">
+        <div class="page-header">
+          <span class="page-num">闯关篇</span>
+          <h2 class="page-title">非遗小考场｜知识点闯关</h2>
+        </div>
+        <div class="page-visual visual-challenge">
+          <img src="images/p7_challenge.jpg" alt="柳琴戏知识闯关" class="visual-img" loading="lazy" onerror="this.style.display='none'">
+          <div class="visual-overlay">
+            <span class="vo-label">非遗知识小考场</span>
+            <span class="vo-sub">2道综合题 · 检验学习成果 · 全答对方可通关</span>
+          </div>
+        </div>
+<button class="btn-audio" data-bvid="BV1cw411y7qR" data-title="《柳琴戏牌子曲》· 轻快过门背景音乐">轻快柳琴音</button>
+        <!-- 题1 -->
+        <div class="quiz-block">
+          <p class="quiz-q">柳琴戏在哪一年被列入首批国家级非物质文化遗产名录？</p>
+          <div class="quiz-opts" data-page="7" data-sub="1">
+            <button class="quiz-opt" data-i="0"><span class="q-letter">A</span>1953</button>
+            <button class="quiz-opt" data-i="1"><span class="q-letter">B</span>2000</button>
+            <button class="quiz-opt" data-i="2"><span class="q-letter">C</span>2006</button>
+            <button class="quiz-opt" data-i="3"><span class="q-letter">D</span>2020</button>
+          </div>
+        </div>
+        <!-- 题2 -->
+        <div class="quiz-block">
+          <p class="quiz-q">下列关于临沂柳琴戏说法错误的一项是？</p>
+          <div class="quiz-opts" data-page="7" data-sub="2">
+            <button class="quiz-opt" data-i="0"><span class="q-letter">A</span>俗称拉魂腔</button>
+            <button class="quiz-opt" data-i="1"><span class="q-letter">B</span>主乐器柳叶琴</button>
+            <button class="quiz-opt" data-i="2"><span class="q-letter">C</span>发源地江苏徐州</button>
+            <button class="quiz-opt" data-i="3"><span class="q-letter">D</span>代表传承人张金兰</button>
+          </div>
+        </div>
+        <div class="knowledge">
+          <div class="k-item">南北柳琴区分：临沂为北派，唱腔厚重乡土；徐州、苏北为南派，曲调柔和，根源均来自临沂郯城民间小调。</div>
+        </div>
+      </div>
+      <button class="btn-nav" id="btnNav7" disabled>
+        查看我的非遗成绩
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </button>
+    </section>
+
+    <!-- ==================== P8：得分揭晓 ==================== -->
+    <section class="swiper-slide slide-result">
+      <div class="result-decor"></div>
+      <div class="result-content">
+        <div class="result-badge">非遗知识闯关</div>
+        <div class="score-ring">
+          <svg viewBox="0 0 160 160">
+            <circle class="score-ring-bg" cx="80" cy="80" r="68"/>
+            <circle class="score-ring-fill" cx="80" cy="80" r="68" id="scoreCircle"/>
+          </svg>
+          <div class="score-text">
+            <span class="score-number" id="scoreNumber">0</span>
+            <span class="score-unit">/9</span>
+          </div>
+        </div>
+        <p class="result-message" id="resultMessage"></p>
+        <p class="result-detail" id="resultDetail"></p>
+      </div>
+      <button class="btn-nav active" id="btnContinue">
+        收官·总结
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </button>
+    </section>
+
+    <!-- ==================== P9：尾页（首尾呼应）==================== -->
+    <section class="swiper-slide slide-page" data-page="8">
+      <div class="page-inner">
+        <div class="page-header page-header-final">
+          <span class="page-num">收官</span>
+          <h2 class="page-title">一曲拉魂腔，代代沂蒙情</h2>
+        </div>
+        <div class="page-visual visual-final">
+          <img src="images/p9_final.jpg" alt="柳琴戏·沂蒙乡音" class="visual-img" loading="lazy" onerror="this.style.display='none'">
+          <div class="visual-overlay">
+            <span class="vo-label">国家级非遗 · 临沂柳琴戏</span>
+            <span class="vo-sub">一曲乡音三百载，代代传唱沂蒙情</span>
+          </div>
+        </div>
+<button class="btn-audio" data-bvid="BV1bT4m1S7f6" data-title="《喝面叶》收尾慢板经典唱段">《喝面叶》收尾慢板</button>
+        <div class="quiz-block">
+          <p class="quiz-q">重温开篇考题：柳琴戏的故乡是哪里？</p>
+          <div class="quiz-opts" data-page="8">
+            <button class="quiz-opt" data-i="0"><span class="q-letter">A</span>枣庄</button>
+            <button class="quiz-opt" data-i="1"><span class="q-letter">B</span>临沂郯城</button>
+            <button class="quiz-opt" data-i="2"><span class="q-letter">C</span>徐州</button>
+            <button class="quiz-opt" data-i="3"><span class="q-letter">D</span>安徽宿州</button>
+          </div>
+        </div>
+        <div class="knowledge knowledge-closing">
+          <p>开篇我们初识"拉魂腔"之名，走完溯源、艺术瑰宝、匠人传承、青年创新全旅程。从清乾隆田间小调，到如今国风新戏曲，一把柳叶琴承载沂蒙百年烟火。非遗从不是尘封旧物，代代传唱、人人参与，才能让拉魂腔永远留存在沂蒙大地。</p>
+        </div>
+      </div>
+      <button class="btn-nav active" id="btnNav8" style="opacity:1; pointer-events:auto;">
+        查看成绩海报
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </button>
+    </section>
+
+    <!-- ==================== P10：分享页 ==================== -->
+    <section class="swiper-slide slide-share">
+      <div class="share-content">
+        <h2 class="share-title">分享你的非遗成绩</h2>
+        <div class="poster-wrapper">
+          <div class="poster" id="poster" style="background: url('images/poster_bg.jpg') center/cover no-repeat;">
+            <div class="poster-inner">
+              <div class="poster-header">
+                <span class="poster-badge">国家级非遗 · 临沂柳琴戏</span>
+              </div>
+              <div class="poster-score-area">
+                <span class="poster-score" id="posterScore">0</span>
+                <span class="poster-unit">/9</span>
+              </div>
+              <p class="poster-label" id="posterLabel"></p>
+              <div class="poster-stars" id="posterStars"></div>
+              <p class="poster-tagline">一缕拉魂腔，沂蒙柳琴魂</p>
+              <div class="poster-footer">
+                <span>扫码参与柳琴戏知识挑战</span>
+                <div class="poster-qr"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="share-actions">
+          <button class="btn-share btn-share-poster" id="btnSavePoster">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            保存成绩海报
+          </button>
+          <button class="btn-share btn-share-qr" id="btnShareQR">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><line x1="14" y1="14" x2="14" y2="14" stroke-width="3"/></svg>
+            二维码分享
+          </button>
+          <button class="btn-share btn-share-link" id="btnCopyLink">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+            复制分享链接
+          </button>
+          <button class="btn-share btn-share-retry" id="btnRetry">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+            重新探索柳琴戏
+          </button>
+        </div>
+        <p class="share-hint">长按海报图片可保存到相册</p>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<!-- ==================== Bilibili 播放器 ==================== -->
+<div class="bili-player" id="biliPlayer">
+  <div class="bili-player-header">
+    <span class="bili-player-title" id="biliTitle">柳琴戏曲段</span>
+    <button class="bili-player-close" id="biliPlayerClose">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <iframe id="biliFrame" class="bili-player-frame" src="" allow="autoplay" allowfullscreen></iframe>
+</div>
+
+<!-- ==================== 答题弹窗 ==================== -->
+<div class="quiz-dialog-overlay" id="quizDialog">
+  <div class="quiz-dialog">
+    <div class="qd-icon" id="qdIcon"></div>
+    <p class="qd-text" id="qdText"></p>
+    <button class="qd-btn" id="qdBtn">知道了</button>
+    <button class="qd-retry" id="qdRetry" style="display:none;">再选一次</button>
+  </div>
+</div>
+
+<!-- ==================== 分享弹窗（二维码 + 链接） ==================== -->
+<div class="share-modal-overlay" id="shareModal">
+  <div class="share-modal">
+    <div class="share-modal-close" id="shareModalClose">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </div>
+    <h3 class="share-modal-title">扫码分享给朋友</h3>
+    <div class="share-qr-wrapper" id="shareQrWrapper"></div>
+    <p class="share-url-text" id="shareUrlText"></p>
+    <button class="btn-share-copy" id="btnShareCopy">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+      复制链接
+    </button>
+    <span class="share-copy-toast" id="shareCopyToast">链接已复制</span>
+  </div>
+</div>
+
+<!-- ==================== 海报弹窗 ==================== -->
+<div class="poster-modal" id="posterModal">
+  <div class="poster-modal-inner">
+    <div class="poster-modal-close" id="posterModalClose">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </div>
+    <img id="posterImage" src="" alt="非遗成绩海报" />
+    <p class="poster-save-hint">长按图片即可保存到相册</p>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+<script src="js/quiz-data.js?v=3"></script>
+<script src="js/app.js?v=6"></script>
+</body>
+</html>
