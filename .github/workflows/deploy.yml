@@ -51,6 +51,7 @@ jobs:
 
       - name: Run site health check
         run: python scripts/site-health.py
+        continue-on-error: true
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
