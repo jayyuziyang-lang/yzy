@@ -1,7 +1,19 @@
 {
-  "generated_at": "2026-06-22T17:08:46+08:00",
+  "generated_at": "2026-06-22T17:19:03+08:00",
   "latest_date": "2026-06-22",
   "articles": [
+    {
+      "date": "2026-06-22",
+      "session": "evening",
+      "edition_cn": "晚报",
+      "icon": "🌙",
+      "title": "大金融涨停潮·成交3.74万亿历史次高·半导体遭获利了结·美伊达成5项协议·日经六连阳破72300·黄金反弹4220",
+      "url": "2026-06-22/wechat-publish/evening/article.html",
+      "has_audio": true,
+      "audio_size_bytes": 2375712,
+      "has_comic": true,
+      "comic_count": 3
+    },
     {
       "date": "2026-06-22",
       "session": "morning",
@@ -585,6 +597,18 @@
   ],
   "by_date": {
     "2026-06-22": {
+      "evening": {
+        "date": "2026-06-22",
+        "session": "evening",
+        "edition_cn": "晚报",
+        "icon": "🌙",
+        "title": "大金融涨停潮·成交3.74万亿历史次高·半导体遭获利了结·美伊达成5项协议·日经六连阳破72300·黄金反弹4220",
+        "url": "2026-06-22/wechat-publish/evening/article.html",
+        "has_audio": true,
+        "audio_size_bytes": 2375712,
+        "has_comic": true,
+        "comic_count": 3
+      },
       "morning": {
         "date": "2026-06-22",
         "session": "morning",

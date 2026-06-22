@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 768 512" width="768" height="512" font-family="Microsoft YaHei, SimHei, sans-serif">
+  <rect width="768" height="512" fill="#FAFBFC"/>
+
+  <!-- Title -->
+  <text x="384" y="36" text-anchor="middle" fill="#1E293B" font-size="18" font-weight="700">A股节后首日 · 高低切换</text>
+  <line x1="220" y1="48" x2="548" y2="48" stroke="#D4A017" stroke-width="2"/>
+
+  <!-- Left panel: 节前 (科技独牛) -->
+  <rect x="20" y="64" width="350" height="160" rx="10" fill="#FAF5FF" stroke="#7C3AED" stroke-width="1.5"/>
+  <text x="195" y="92" text-anchor="middle" fill="#7C3AED" font-size="14" font-weight="700">节前（6/18）：科技独牛</text>
+  <text x="195" y="118" text-anchor="middle" fill="#6B21A8" font-size="12">科创50 +3.84% | 3300只个股下跌</text>
+  <text x="195" y="142" text-anchor="middle" fill="#6B21A8" font-size="12">中际旭创超越茅台</text>
+  <text x="195" y="166" text-anchor="middle" fill="#9333EA" font-size="11" font-weight="600">PCB年内+116% · CPO暴涨</text>
+  <text x="195" y="190" text-anchor="middle" fill="#64748B" font-size="11">核心词：集中火力·极致分化</text>
+
+  <!-- Big Arrow -->
+  <polygon points="384,144 370,118 370,132 340,132 340,156 370,156 370,170" fill="#D4A017"/>
+  <text x="384" y="215" text-anchor="middle" fill="#B8860B" font-size="12" font-weight="700">主角换人</text>
+
+  <!-- Right panel: 节后 (大金融+周期) -->
+  <rect x="398" y="64" width="350" height="160" rx="10" fill="#FEF2F2" stroke="#DC2626" stroke-width="1.5"/>
+  <text x="573" y="92" text-anchor="middle" fill="#DC2626" font-size="14" font-weight="700">节后（6/22）：大金融+周期</text>
+  <text x="573" y="118" text-anchor="middle" fill="#991B1B" font-size="12">广发/中信建投/新华保险涨停</text>
+  <text x="573" y="142" text-anchor="middle" fill="#991B1B" font-size="12">东方财富+12% · 中信证券+8%</text>
+  <text x="573" y="166" text-anchor="middle" fill="#DC2626" font-size="11" font-weight="600">证券+105亿 · 小金属+121亿</text>
+  <text x="573" y="190" text-anchor="middle" fill="#64748B" font-size="11">核心词：高低切换·天量成交</text>
+
+  <!-- Center bottom: 成交额 -->
+  <rect x="160" y="242" width="448" height="60" rx="10" fill="#FFFBEB" stroke="#D4A017" stroke-width="2"/>
+  <text x="384" y="268" text-anchor="middle" fill="#B8860B" font-size="16" font-weight="700">成交额 3.74 万亿 · A股历史第二大</text>
+  <text x="384" y="290" text-anchor="middle" fill="#92400E" font-size="11">钱没走，只是在板块间重新分配</text>
+
+  <!-- Bottom insights -->
+  <rect x="20" y="316" width="350" height="80" rx="8" fill="#F0FDF4" stroke="#16A34A" stroke-width="1"/>
+  <text x="195" y="342" text-anchor="middle" fill="#16A34A" font-size="12" font-weight="700">科技：健康的获利了结</text>
+  <text x="195" y="364" text-anchor="middle" fill="#14532D" font-size="11">电子-316亿但科创50仍涨+1.96%</text>
+  <text x="195" y="384" text-anchor="middle" fill="#14532D" font-size="11">日经六连阳 · 全球半导体周期未变</text>
+
+  <rect x="398" y="316" width="350" height="80" rx="8" fill="#FFF7ED" stroke="#EA580C" stroke-width="1"/>
+  <text x="573" y="342" text-anchor="middle" fill="#EA580C" font-size="12" font-weight="700">美伊：18小时马拉松谈判</text>
+  <text x="573" y="364" text-anchor="middle" fill="#9A3412" font-size="11">达成5项协议 · 油价跳水</text>
+  <text x="573" y="384" text-anchor="middle" fill="#9A3412" font-size="11">黄金反弹至,220+</text>
+
+  <!-- Tomorrow question -->
+  <rect x="160" y="410" width="448" height="48" rx="8" fill="#EFF6FF" stroke="#1A56DB" stroke-width="1.5"/>
+  <text x="384" y="440" text-anchor="middle" fill="#1E40AF" font-size="13" font-weight="700">明天核心问题：大金融是"一日游"还是"新主线"？</text>
+
+  <text x="384" y="504" text-anchor="middle" fill="#94A3B8" font-size="10">扬说财经 · 晚报 · 2026.06.22</text>
+</svg>

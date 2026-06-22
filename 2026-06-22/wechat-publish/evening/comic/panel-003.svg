@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 768 512" width="768" height="512" font-family="Microsoft YaHei, SimHei, sans-serif">
+  <rect width="768" height="512" fill="#FAFBFC"/>
+
+  <text x="384" y="36" text-anchor="middle" fill="#1E293B" font-size="18" font-weight="700">美伊5项协议 · 油跌金涨的跷跷板效应</text>
+  <line x1="180" y1="48" x2="588" y2="48" stroke="#D4A017" stroke-width="2"/>
+
+  <!-- Center: US-Iran deal box -->
+  <rect x="234" y="65" width="300" height="120" rx="10" fill="#EFF6FF" stroke="#1A56DB" stroke-width="2"/>
+  <text x="384" y="92" text-anchor="middle" fill="#1E40AF" font-size="14" font-weight="700">美伊 18小时 马拉松谈判</text>
+  <text x="384" y="116" text-anchor="middle" fill="#1E40AF" font-size="12">达成 5 项协议要点</text>
+  <text x="384" y="140" text-anchor="middle" fill="#475569" font-size="11">① 黎巴嫩停火监督 ② 霍尔木兹联络热线</text>
+  <text x="384" y="158" text-anchor="middle" fill="#475569" font-size="11">③ 伊朗石油60天制裁豁免 ④ 解冻资产 ⑤ 重建计划</text>
+  <text x="384" y="178" text-anchor="middle" fill="#DC2626" font-size="10">⚠ 特朗普：如执行不力→恢复更猛烈打击</text>
+
+  <!-- Left arrow: Oil down -->
+  <rect x="30" y="215" width="300" height="120" rx="8" fill="#FFF5F5" stroke="#DC2626" stroke-width="1.5"/>
+  <text x="180" y="245" text-anchor="middle" fill="#DC2626" font-size="15" font-weight="700">原油 ↓</text>
+  <polygon points="180,258 160,240 200,240" fill="#16A34A"/>
+  <text x="180" y="278" text-anchor="middle" fill="#16A34A" font-size="12" font-weight="600">WTI 5.51（-1.35%）</text>
+  <text x="180" y="298" text-anchor="middle" fill="#16A34A" font-size="12" font-weight="600">布伦特 8.78（-2%）</text>
+  <text x="180" y="322" text-anchor="middle" fill="#64748B" font-size="10">伊朗供给恢复·制裁豁免·海峡通航</text>
+
+  <!-- Right arrow: Gold up -->
+  <rect x="438" y="215" width="300" height="120" rx="8" fill="#F0FDF4" stroke="#16A34A" stroke-width="1.5"/>
+  <text x="588" y="245" text-anchor="middle" fill="#16A34A" font-size="15" font-weight="700">黄金 ↑</text>
+  <polygon points="588,240 568,258 608,258" fill="#DC2626"/>
+  <text x="588" y="278" text-anchor="middle" fill="#DC2626" font-size="12" font-weight="600">,220+/盎司（+1.3%）</text>
+  <text x="588" y="298" text-anchor="middle" fill="#DC2626" font-size="12" font-weight="600">白银 7（+2.6%）</text>
+  <text x="588" y="322" text-anchor="middle" fill="#64748B" font-size="10">通胀预期回落·美元微降·利空出尽</text>
+
+  <!-- Bottom: Mechanism explanation -->
+  <rect x="80" y="360" width="608" height="75" rx="8" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="384" y="386" text-anchor="middle" fill="#1E293B" font-size="12" font-weight="700">传导逻辑</text>
+  <text x="384" y="410" text-anchor="middle" fill="#475569" font-size="11">美伊协议 → 供给恢复 → 油价↓ → 通胀预期↓ → "利空出尽" → 黄金↓后反弹</text>
+  <text x="384" y="428" text-anchor="middle" fill="#64748B" font-size="10">注意：协议脆弱性极高·60天窗口期·任何变数都可能逆转方向</text>
+
+  <text x="384" y="504" text-anchor="middle" fill="#94A3B8" font-size="10">扬说财经 · 晚报 · 2026.06.22</text>
+</svg>
