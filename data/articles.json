@@ -1,7 +1,19 @@
 {
-  "generated_at": "2026-06-18T20:31:17+08:00",
-  "latest_date": "2026-06-18",
+  "generated_at": "2026-06-22T17:08:46+08:00",
+  "latest_date": "2026-06-22",
   "articles": [
+    {
+      "date": "2026-06-22",
+      "session": "morning",
+      "edition_cn": "早报",
+      "icon": "🌅",
+      "title": "费半暴涨6.42%创新高·英特尔涨超10%·美伊和谈一波三折·黄金三周连跌失守4200·A股端午后开盘",
+      "url": "2026-06-22/wechat-publish/morning/article.html",
+      "has_audio": true,
+      "audio_size_bytes": 798624,
+      "has_comic": true,
+      "comic_count": 2
+    },
     {
       "date": "2026-06-18",
       "session": "evening",
@@ -572,6 +584,20 @@
     }
   ],
   "by_date": {
+    "2026-06-22": {
+      "morning": {
+        "date": "2026-06-22",
+        "session": "morning",
+        "edition_cn": "早报",
+        "icon": "🌅",
+        "title": "费半暴涨6.42%创新高·英特尔涨超10%·美伊和谈一波三折·黄金三周连跌失守4200·A股端午后开盘",
+        "url": "2026-06-22/wechat-publish/morning/article.html",
+        "has_audio": true,
+        "audio_size_bytes": 798624,
+        "has_comic": true,
+        "comic_count": 2
+      }
+    },
     "2026-06-18": {
       "evening": {
         "date": "2026-06-18",

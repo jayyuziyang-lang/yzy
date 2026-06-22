@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 768 512" width="768" height="512" font-family="Microsoft YaHei, SimHei, sans-serif">
+  <rect width="768" height="512" fill="#FAFBFC"/>
+
+  <!-- Title bar -->
+  <rect x="0" y="0" width="768" height="48" fill="#1A56DB"/>
+  <text x="384" y="31" text-anchor="middle" fill="white" font-size="18" font-weight="700">三天假期 · 全球市场浓缩三重叙事</text>
+
+  <!-- Left: 费半暴涨 (Green zone) -->
+  <rect x="20" y="64" width="228" height="200" rx="10" fill="#F0FDF4" stroke="#16A34A" stroke-width="1.5"/>
+  <text x="134" y="90" text-anchor="middle" fill="#16A34A" font-size="14" font-weight="700">费半 +6.42%</text>
+  <text x="134" y="114" text-anchor="middle" fill="#166534" font-size="12">创收盘历史新高</text>
+  <!-- Arrow up -->
+  <polygon points="134,160 114,140 154,140" fill="#DC2626"/>
+  <text x="134" y="178" text-anchor="middle" fill="#DC2626" font-size="11" font-weight="600">英特尔+10.6%</text>
+  <text x="134" y="196" text-anchor="middle" fill="#DC2626" font-size="11" font-weight="600">美光+8.7%</text>
+  <text x="134" y="214" text-anchor="middle" fill="#DC2626" font-size="11" font-weight="600">闪迪+11%</text>
+  <!-- Chip icon -->
+  <rect x="122" y="230" width="24" height="16" rx="3" fill="none" stroke="#16A34A" stroke-width="1.5"/>
+  <line x1="122" y1="242" x2="112" y2="242" stroke="#16A34A" stroke-width="1.5"/>
+  <line x1="122" y1="250" x2="112" y2="250" stroke="#16A34A" stroke-width="1.5"/>
+  <line x1="146" y1="238" x2="156" y2="238" stroke="#16A34A" stroke-width="1.5"/>
+
+  <!-- Center: 美伊波折 (Orange/Caution zone) -->
+  <rect x="270" y="64" width="228" height="200" rx="10" fill="#FFF7ED" stroke="#EA580C" stroke-width="1.5"/>
+  <text x="384" y="90" text-anchor="middle" fill="#EA580C" font-size="14" font-weight="700">美伊和谈 · 48小时过山车</text>
+  <!-- Timeline -->
+  <text x="384" y="118" text-anchor="middle" fill="#9A3412" font-size="11">6/19 取消 → 6/21 重启</text>
+  <!-- Wave line -->
+  <path d="M 290,145 Q 320,120 350,145 Q 380,170 410,145 Q 440,120 478,145" fill="none" stroke="#EA580C" stroke-width="2"/>
+  <!-- Labels on wave -->
+  <text x="300" y="168" text-anchor="middle" fill="#DC2626" font-size="10" font-weight="600">取消</text>
+  <text x="468" y="168" text-anchor="middle" fill="#16A34A" font-size="10" font-weight="600">重启</text>
+  <!-- Israel mention -->
+  <text x="384" y="198" text-anchor="middle" fill="#64748B" font-size="11">关键变量：以黎冲突</text>
+  <!-- Small stick figure -->
+  <circle cx="384" cy="235" r="6" fill="none" stroke="#64748B" stroke-width="1.5"/>
+  <line x1="384" y1="241" x2="384" y2="252" stroke="#64748B" stroke-width="1.5"/>
+  <line x1="376" y1="248" x2="392" y2="248" stroke="#64748B" stroke-width="1.5"/>
+
+  <!-- Right: 黄金下跌 (Red zone) -->
+  <rect x="520" y="64" width="228" height="200" rx="10" fill="#FFF5F5" stroke="#DC2626" stroke-width="1.5"/>
+  <text x="634" y="90" text-anchor="middle" fill="#DC2626" font-size="14" font-weight="700">黄金三周连跌</text>
+  <text x="634" y="114" text-anchor="middle" fill="#991B1B" font-size="12">,300 → ,150</text>
+  <!-- Arrow down -->
+  <polygon points="634,140 614,120 654,120" fill="#16A34A"/>
+  <text x="634" y="158" text-anchor="middle" fill="#16A34A" font-size="10">↓</text>
+  <text x="634" y="178" text-anchor="middle" fill="#475569" font-size="11">高盛目标调整</text>
+  <text x="634" y="196" text-anchor="middle" fill="#DC2626" font-size="11" font-weight="600">,400 → ,900</text>
+  <text x="634" y="220" text-anchor="middle" fill="#475569" font-size="11">美元 100.81 ↑</text>
+  <!-- Dollar sign -->
+  <text x="634" y="250" text-anchor="middle" fill="#1A56DB" font-size="16" font-weight="700">$</text>
+
+  <!-- Bottom: A股节后 -->
+  <rect x="20" y="278" width="728" height="80" rx="8" fill="#EFF6FF" stroke="#1A56DB" stroke-width="1.5"/>
+  <text x="384" y="305" text-anchor="middle" fill="#1A56DB" font-size="15" font-weight="700">今日核心焦点：A股端午后首日开盘</text>
+  <text x="384" y="332" text-anchor="middle" fill="#1E3A7A" font-size="12">三大看点：科创50守1900？ | 中际旭创稳超茅台？ | 成交额维持3万亿+？</text>
+
+  <!-- Bottom: Summary card -->
+  <rect x="20" y="372" width="728" height="120" rx="10" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="384" y="398" text-anchor="middle" fill="#1E293B" font-size="13" font-weight="700">核心矛盾</text>
+  <text x="384" y="422" text-anchor="middle" fill="#334155" font-size="12">加息恐慌 vs 半导体超级周期 → 谁赢？</text>
+  <text x="384" y="446" text-anchor="middle" fill="#334155" font-size="12">黄金=利率预期资产 → 不是避险天堂 → 美元↑=金价↓</text>
+  <text x="384" y="470" text-anchor="middle" fill="#334155" font-size="12">中东和谈反复 → 地缘溢价 = 波动率放大器，不是方向选择器</text>
+
+  <!-- Bottom branding -->
+  <text x="384" y="504" text-anchor="middle" fill="#94A3B8" font-size="10">扬说财经 · 早报 · 2026.06.22 · 蓝色系</text>
+</svg>

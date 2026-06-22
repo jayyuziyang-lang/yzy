@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>正弦与余弦的几何关系 — 交互式可视化课件</title>
+<style>
+  :root {
+    --bg: #060918;
+    --surface: #0d1025;
+    --border: #1a1f3a;
+    --text: #c8ccde;
+    --text-dim: #6b7094;
+    --cyan: #00d4ff;
+    --magenta: #ff6bd6;
+    --gold: #ffd700;
+    --grid: #111633;
+    --red: #ff4757;
+    --green: #2ed573;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  /* 网格背景 */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(17,22,51,0.6) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(17,22,51,0.6) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* 顶部标题栏 */
+  .header {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 24px;
+    border-bottom: 1px solid var(--border);
+    background: rgba(13,16,37,0.8);
+    backdrop-filter: blur(10px);
+    flex-shrink: 0;
+  }
+  .header h1 {
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    background: linear-gradient(90deg, var(--cyan), var(--magenta));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .header .badge {
+    font-size: 11px;
+    color: var(--text-dim);
+    padding: 3px 10px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    letter-spacing: 1px;
+  }
+
+  /* 主画布区 */
+  .canvas-wrap {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    min-height: 0;
+  }
+  canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* 底部控制栏 */
+  .controls {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 10px 24px;
+    border-top: 1px solid var(--border);
+    background: rgba(13,16,37,0.9);
+    backdrop-filter: blur(10px);
+    flex-shrink: 0;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .btn {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+  .btn:hover { border-color: var(--cyan); color: var(--cyan); box-shadow: 0 0 12px rgba(0,212,255,0.15); }
+  .btn:active { transform: scale(0.95); }
+  .btn.active { border-color: var(--cyan); background: rgba(0,212,255,0.1); }
+
+  .ctrl-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: var(--text-dim);
+  }
+  .ctrl-group label { white-space: nowrap; }
+
+  input[type="range"] {
+    -webkit-appearance: none;
+    width: 100px;
+    height: 4px;
+    border-radius: 2px;
+    background: var(--border);
+    outline: none;
+  }
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--cyan);
+    cursor: pointer;
+    box-shadow: 0 0 8px rgba(0,212,255,0.4);
+  }
+
+  .value-display {
+    display: flex;
+    gap: 16px;
+    font-size: 12px;
+  }
+  .value-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    border-radius: 6px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+  }
+  .value-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .value-dot.sin { background: var(--cyan); box-shadow: 0 0 6px var(--cyan); }
+  .value-dot.cos { background: var(--magenta); box-shadow: 0 0 6px var(--magenta); }
+  .value-dot.angle { background: var(--gold); box-shadow: 0 0 6px var(--gold); }
+  .value-num { font-weight: 600; color: #fff; font-variant-numeric: tabular-nums; font-family: 'SF Mono', 'Consolas', monospace; }
+
+  /* 响应式 */
+  @media (max-width: 768px) {
+    .controls { gap: 8px; padding: 8px 12px; }
+    .ctrl-group { gap: 4px; }
+    input[type="range"] { width: 60px; }
+    .value-display { gap: 6px; }
+    .value-item { padding: 3px 8px; font-size: 11px; }
+    .header { padding: 8px 16px; }
+    .header h1 { font-size: 15px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>正弦 sin(θ) → 余弦 cos(θ)：几何变换可视化</h1>
+  <span class="badge">互动课件 v1.0</span>
+</div>
+
+<div class="canvas-wrap">
+  <canvas id="main"></canvas>
+</div>
+
+<div class="controls">
+  <button class="btn active" id="btnPlay" title="播放/暂停">▶</button>
+
+  <div class="ctrl-group">
+    <label>速度</label>
+    <input type="range" id="speedSlider" min="0.5" max="3" step="0.1" value="1">
+    <span id="speedLabel">1×</span>
+  </div>
+
+  <div class="ctrl-group">
+    <label>角度</label>
+    <input type="range" id="angleSlider" min="0" max="360" step="0.5" value="0">
+    <span id="angleDegLabel" style="min-width:36px;text-align:right;">0°</span>
+  </div>
+
+  <div class="value-display">
+    <div class="value-item">
+      <span class="value-dot sin"></span>
+      <span>sin(θ) =</span>
+      <span class="value-num" id="sinVal">0.000</span>
+    </div>
+    <div class="value-item">
+      <span class="value-dot cos"></span>
+      <span>cos(θ) =</span>
+      <span class="value-num" id="cosVal">1.000</span>
+    </div>
+    <div class="value-item">
+      <span class="value-dot angle"></span>
+      <span>θ =</span>
+      <span class="value-num" id="angleRad">0.00 rad</span>
+    </div>
+  </div>
+
+  <button class="btn" id="btnGhost" title="显示/隐藏 cos(θ)=sin(θ+90°) 叠加验证">◎</button>
+  <button class="btn" id="btnReset" title="重置">↺</button>
+</div>
+
+<script>
+(function() {
+  const canvas = document.getElementById('main');
+  const ctx = canvas.getContext('2d');
+
+  // DOM elements
+  const btnPlay = document.getElementById('btnPlay');
+  const speedSlider = document.getElementById('speedSlider');
+  const speedLabel = document.getElementById('speedLabel');
+  const angleSlider = document.getElementById('angleSlider');
+  const angleDegLabel = document.getElementById('angleDegLabel');
+  const sinVal = document.getElementById('sinVal');
+  const cosVal = document.getElementById('cosVal');
+  const angleRad = document.getElementById('angleRad');
+  const btnGhost = document.getElementById('btnGhost');
+  const btnReset = document.getElementById('btnReset');
+
+  // State
+  let angle = 0;            // current angle in radians
+  let speed = 1;
+  let isPlaying = true;
+  let showGhost = true;     // show shifted sine overlay
+  let trail = [];           // waveform trail {angle, sin, cos}
+  let particles = [];       // particle system
+  let lastTime = 0;
+  let dragAngle = null;     // dragging angle value
+
+  // Layout (recalculated on resize)
+  let W, H;
+  let circleCX, circleCY, circleR;
+  let waveLeft, waveRight, waveCY, waveAmp;
+  let waveW;
+
+  function resize() {
+    const rect = canvas.parentElement.getBoundingClientRect();
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    W = rect.width;
+    H = rect.height;
+    canvas.width = W * dpr;
+    canvas.height = H * dpr;
+    canvas.style.width = W + 'px';
+    canvas.style.height = H + 'px';
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.scale(dpr, dpr);
+
+    // Circle area: left ~38%
+    circleCX = W * 0.22;
+    circleCY = H * 0.48;
+    circleR = Math.min(H * 0.38, W * 0.16, 180);
+
+    // Waveform area: right ~58%
+    waveLeft = W * 0.405;
+    waveRight = W * 0.96;
+    waveW = waveRight - waveLeft;
+    waveCY = circleCY;
+    waveAmp = circleR;
+
+    // Reset trail when resized
+    trail = [];
+  }
+
+  // --- Drawing helpers ---
+
+  function glow(ctx, color, blur) {
+    ctx.shadowColor = color;
+    ctx.shadowBlur = blur || 12;
+  }
+  function noGlow(ctx) {
+    ctx.shadowColor = 'transparent';
+    ctx.shadowBlur = 0;
+  }
+
+  function drawGrid(ctx, x, y, w, h, step) {
+    ctx.strokeStyle = 'rgba(17,22,51,0.5)';
+    ctx.lineWidth = 0.5;
+    ctx.beginPath();
+    for (let gx = x; gx <= x + w; gx += step) {
+      ctx.moveTo(gx, y);
+      ctx.lineTo(gx, y + h);
+    }
+    for (let gy = y; gy <= y + h; gy += step) {
+      ctx.moveTo(x, gy);
+      ctx.lineTo(x + w, gy);
+    }
+    ctx.stroke();
+  }
+
+  // --- Particle system ---
+
+  function spawnParticles(x, y, color, count) {
+    for (let i = 0; i < count; i++) {
+      particles.push({
+        x, y,
+        vx: (Math.random() - 0.5) * 1.5,
+        vy: (Math.random() - 0.5) * 1.5,
+        life: 1,
+        decay: 0.015 + Math.random() * 0.035,
+        color,
+        size: 1 + Math.random() * 2
+      });
+    }
+    // Cap particles
+    if (particles.length > 400) particles.splice(0, particles.length - 400);
+  }
+
+  function updateParticles(dt) {
+    for (let i = particles.length - 1; i >= 0; i--) {
+      const p = particles[i];
+      p.x += p.vx * dt;
+      p.y += p.vy * dt;
+      p.life -= p.decay * dt;
+      if (p.life <= 0) particles.splice(i, 1);
+    }
+  }
+
+  function drawParticles(ctx) {
+    for (const p of particles) {
+      ctx.globalAlpha = p.life * 0.7;
+      ctx.fillStyle = p.color;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+      ctx.fill();
+    }
+    ctx.globalAlpha = 1;
+  }
+
+  // --- Unit Circle Panel ---
+
+  function drawCirclePanel(ctx) {
+    const cx = circleCX, cy = circleCY, R = circleR;
+
+    // Grid
+    drawGrid(ctx, cx - R - 40, cy - R - 40, R * 2 + 80, R * 2 + 80, 30);
+
+    // Axes
+    ctx.strokeStyle = 'rgba(200,205,220,0.2)';
+    ctx.lineWidth = 1;
+    ctx.setLineDash([4, 8]);
+    ctx.beginPath();
+    ctx.moveTo(cx - R - 30, cy); ctx.lineTo(cx + R + 30, cy); // X-axis
+    ctx.moveTo(cx, cy - R - 30); ctx.lineTo(cx, cy + R + 30); // Y-axis
+    ctx.stroke();
+    ctx.setLineDash([]);
+
+    // Axis labels
+    ctx.fillStyle = 'rgba(200,205,220,0.4)';
+    ctx.font = '11px "PingFang SC","Microsoft YaHei",sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('x (cos)', cx + R + 35, cy + 4);
+    ctx.fillText('y (sin)', cx, cy - R - 15);
+    ctx.fillText('(0,0)', cx - 18, cy + 16);
+    ctx.fillText('-1', cx - R - 18, cy + 4);
+    ctx.fillText('1', cx + R + 18, cy + 4);
+    ctx.fillText('1', cx + 7, cy - R - 6);
+    ctx.fillText('-1', cx + 7, cy + R + 14);
+
+    // Unit circle
+    ctx.strokeStyle = 'rgba(180,185,210,0.35)';
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.arc(cx, cy, R, 0, Math.PI * 2);
+    ctx.stroke();
+
+    // Circle tick marks every 30°
+    for (let i = 0; i < 12; i++) {
+      const a = i * Math.PI / 6;
+      const inner = R - 6;
+      const outer = R + 3;
+      ctx.strokeStyle = 'rgba(180,185,210,0.25)';
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(cx + inner * Math.cos(a), cy - inner * Math.sin(a));
+      ctx.lineTo(cx + outer * Math.cos(a), cy - outer * Math.sin(a));
+      ctx.stroke();
+    }
+
+    const cosA = Math.cos(angle);
+    const sinA = Math.sin(angle);
+    const px = cx + R * cosA;
+    const py = cy - R * sinA;
+
+    // Angle arc (from positive x-axis)
+    ctx.strokeStyle = 'rgba(255,215,0,0.5)';
+    ctx.lineWidth = 2;
+    ctx.setLineDash([6, 4]);
+    ctx.beginPath();
+    ctx.arc(cx, cy, R * 0.25, 0, -angle, angle > 0);
+    ctx.stroke();
+    ctx.setLineDash([]);
+
+    // Angle label on arc
+    const labelA = -angle / 2;
+    const labelR = R * 0.35;
+    ctx.fillStyle = 'rgba(255,215,0,0.8)';
+    ctx.font = '12px "PingFang SC","Microsoft YaHei",sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('θ', cx + labelR * Math.cos(labelA), cy + labelR * Math.sin(labelA));
+
+    // Cosine projection (horizontal, from y-axis to point)
+    // Only draw if not degenerate
+    if (Math.abs(cosA) > 0.005) {
+      ctx.strokeStyle = 'rgba(255,107,214,0.5)';
+      ctx.lineWidth = 2;
+      ctx.setLineDash([3, 5]);
+      ctx.beginPath();
+      ctx.moveTo(cx, py);
+      ctx.lineTo(px, py);
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      // Glow on cos projection
+      glow(ctx, 'rgba(255,107,214,0.3)', 6);
+      ctx.strokeStyle = 'rgba(255,107,214,0.7)';
+      ctx.lineWidth = 1.5;
+      ctx.setLineDash([]);
+      ctx.beginPath();
+      ctx.moveTo(cx, py);
+      ctx.lineTo(px, py);
+      ctx.stroke();
+      noGlow(ctx);
+    }
+
+    // Sine projection (vertical, from x-axis to point)
+    if (Math.abs(sinA) > 0.005) {
+      ctx.strokeStyle = 'rgba(0,212,255,0.5)';
+      ctx.lineWidth = 2;
+      ctx.setLineDash([3, 5]);
+      ctx.beginPath();
+      ctx.moveTo(px, cy);
+      ctx.lineTo(px, py);
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      // Glow
+      glow(ctx, 'rgba(0,212,255,0.3)', 6);
+      ctx.strokeStyle = 'rgba(0,212,255,0.7)';
+      ctx.lineWidth = 1.5;
+      ctx.setLineDash([]);
+      ctx.beginPath();
+      ctx.moveTo(px, cy);
+      ctx.lineTo(px, py);
+      ctx.stroke();
+      noGlow(ctx);
+    }
+
+    // Small indicator dots on axes
+    // Cosine dot on x-axis
+    ctx.fillStyle = '#ff6bd6';
+    glow(ctx, 'rgba(255,107,214,0.7)', 8);
+    ctx.beginPath();
+    ctx.arc(px, cy, 4, 0, Math.PI * 2);
+    ctx.fill();
+    noGlow(ctx);
+
+    // Sine dot on y-axis
+    ctx.fillStyle = '#00d4ff';
+    glow(ctx, 'rgba(0,212,255,0.7)', 8);
+    ctx.beginPath();
+    ctx.arc(cx, py, 4, 0, Math.PI * 2);
+    ctx.fill();
+    noGlow(ctx);
+
+    // Label cos/sin on axes
+    ctx.fillStyle = '#ff6bd6';
+    ctx.font = 'bold 13px "PingFang SC","Microsoft YaHei",sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('cos θ', px + (cosA > 0 ? 14 : -14), cy + 18);
+
+    ctx.fillStyle = '#00d4ff';
+    ctx.fillText('sin θ', cx + 20, py + (sinA < 0 ? 18 : -6));
+
+    // Radius vector (gold)
+    glow(ctx, 'rgba(255,215,0,0.6)', 10);
+    ctx.strokeStyle = '#ffd700';
+    ctx.lineWidth = 2.5;
+    ctx.beginPath();
+    ctx.moveTo(cx, cy);
+    ctx.lineTo(px, py);
+    ctx.stroke();
+    noGlow(ctx);
+
+    // Arrowhead at the end of radius
+    const arrowAngle = -angle + Math.PI;
+    const arrowLen = 10;
+    ctx.fillStyle = '#ffd700';
+    ctx.beginPath();
+    ctx.moveTo(px, py);
+    ctx.lineTo(
+      px + arrowLen * Math.cos(arrowAngle + 0.5),
+      py + arrowLen * Math.sin(arrowAngle + 0.5)
+    );
+    ctx.lineTo(
+      px + arrowLen * Math.cos(arrowAngle - 0.5),
+      py + arrowLen * Math.sin(arrowAngle - 0.5)
+    );
+    ctx.closePath();
+    ctx.fill();
+
+    // Rotating point
+    glow(ctx, 'rgba(255,215,0,0.9)', 16);
+    ctx.fillStyle = '#ffd700';
+    ctx.beginPath();
+    ctx.arc(px, py, 5.5, 0, Math.PI * 2);
+    ctx.fill();
+    // Inner white core
+    noGlow(ctx);
+    ctx.fillStyle = '#fff';
+    ctx.beginPath();
+    ctx.arc(px, py, 2.5, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Spawn particles at the rotating point
+    spawnParticles(px, py, '#ffd700', 2);
+    if (Math.abs(sinA) > 0.1) {
+      spawnParticles(cx, py, '#00d4ff', 1);
+    }
+    if (Math.abs(cosA) > 0.1) {
+      spawnParticles(px, cy, '#ff6bd6', 1);
+    }
+
+    // Return key values
+    return { cosA, sinA, px, py };
+  }
+
+  // --- Waveform Panel ---
+
+  function drawWaveformPanel(ctx, cosA, sinA) {
+    const left = waveLeft, right = waveRight, cy = waveCY, amp = waveAmp;
+    const w = waveW;
+
+    // Background area
+    ctx.fillStyle = 'rgba(13,16,37,0.3)';
+    ctx.strokeStyle = 'rgba(26,31,58,0.6)';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.roundRect(left - 10, cy - amp - 30, w + 20, amp * 2 + 60, 8);
+    ctx.fill();
+    ctx.stroke();
+
+    // Grid
+    drawGrid(ctx, left - 10, cy - amp - 30, w + 20, amp * 2 + 60, 30);
+
+    // Horizontal axis (θ)
+    ctx.strokeStyle = 'rgba(200,205,220,0.3)';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(left, cy);
+    ctx.lineTo(right, cy);
+    ctx.stroke();
+
+    // Vertical guide lines at key angles
+    const keyAngles = [
+      { rad: Math.PI/2, label: 'π/2', deg: '90°' },
+      { rad: Math.PI, label: 'π', deg: '180°' },
+      { rad: 3*Math.PI/2, label: '3π/2', deg: '270°' },
+      { rad: 2*Math.PI, label: '2π', deg: '360°' },
+    ];
+
+    for (const ka of keyAngles) {
+      const kx = left + (ka.rad / (2 * Math.PI)) * w;
+      ctx.strokeStyle = 'rgba(200,205,220,0.08)';
+      ctx.lineWidth = 1;
+      ctx.setLineDash([2, 6]);
+      ctx.beginPath();
+      ctx.moveTo(kx, cy - amp - 10);
+      ctx.lineTo(kx, cy + amp + 10);
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      ctx.fillStyle = 'rgba(200,205,220,0.35)';
+      ctx.font = '10px "PingFang SC","Microsoft YaHei",sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText(ka.label, kx, cy + amp + 22);
+      ctx.fillText(ka.deg, kx, cy + amp + 35);
+    }
+
+    // Y-axis tick marks
+    for (let v = -1; v <= 1; v += 0.5) {
+      const vy = cy - v * amp;
+      ctx.strokeStyle = 'rgba(200,205,220,0.1)';
+      ctx.lineWidth = 0.5;
+      ctx.setLineDash([2, 4]);
+      ctx.beginPath();
+      ctx.moveTo(left, vy);
+      ctx.lineTo(right, vy);
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      if (v !== 0) {
+        ctx.fillStyle = 'rgba(200,205,220,0.3)';
+        ctx.font = '10px "PingFang SC","Microsoft YaHei",sans-serif';
+        ctx.textAlign = 'right';
+        ctx.fillText(v.toString(), left - 8, vy + 3);
+      }
+    }
+
+    // Wave labels
+    ctx.fillStyle = 'rgba(200,205,220,0.4)';
+    ctx.font = '11px "PingFang SC","Microsoft YaHei",sans-serif';
+    ctx.textAlign = 'left';
+    ctx.fillText('θ (角度)', right - 55, cy + amp + 35);
+
+    // --- Draw sine wave ---
+    drawWaveCurve(ctx, left, right, cy, amp, (t) => Math.sin(t), '#00d4ff', sinA);
+
+    // --- Draw cosine wave ---
+    drawWaveCurve(ctx, left, right, cy, amp, (t) => Math.cos(t), '#ff6bd6', cosA);
+
+    // --- Draw ghost: sin(θ + π/2) overlaid to show it equals cos ---
+    if (showGhost) {
+      drawWaveCurveGhost(ctx, left, right, cy, amp, (t) => Math.sin(t + Math.PI/2), 'rgba(0,212,255,0.25)', [6, 10]);
+    }
+
+    // --- Current angle marker ---
+    const aNorm = ((angle % (2 * Math.PI)) + 2 * Math.PI) % (2 * Math.PI);
+    const markerX = left + (aNorm / (2 * Math.PI)) * w;
+
+    // Vertical marker line
+    glow(ctx, 'rgba(255,255,255,0.15)', 8);
+    ctx.strokeStyle = 'rgba(255,255,255,0.2)';
+    ctx.lineWidth = 1;
+    ctx.setLineDash([2, 4]);
+    ctx.beginPath();
+    ctx.moveTo(markerX, cy - amp - 10);
+    ctx.lineTo(markerX, cy + amp + 10);
+    ctx.stroke();
+    ctx.setLineDash([]);
+    noGlow(ctx);
+
+    // Sine dot on wave
+    const sinY = cy - sinA * amp;
+    glow(ctx, 'rgba(0,212,255,0.9)', 14);
+    ctx.fillStyle = '#00d4ff';
+    ctx.beginPath();
+    ctx.arc(markerX, sinY, 5, 0, Math.PI * 2);
+    ctx.fill();
+    noGlow(ctx);
+    ctx.fillStyle = '#fff';
+    ctx.beginPath();
+    ctx.arc(markerX, sinY, 2, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Cosine dot on wave
+    const cosY = cy - cosA * amp;
+    glow(ctx, 'rgba(255,107,214,0.9)', 14);
+    ctx.fillStyle = '#ff6bd6';
+    ctx.beginPath();
+    ctx.arc(markerX, cosY, 5, 0, Math.PI * 2);
+    ctx.fill();
+    noGlow(ctx);
+    ctx.fillStyle = '#fff';
+    ctx.beginPath();
+    ctx.arc(markerX, cosY, 2, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Spawn particles at wave dots
+    spawnParticles(markerX, sinY, '#00d4ff', 1);
+    spawnParticles(markerX, cosY, '#ff6bd6', 1);
+
+    // --- Phase shift annotation ---
+    const phaseShiftPx = w / 4; // π/2 in pixels (w = 2π)
+    const annotX = left + phaseShiftPx;
+    const annotY = cy - amp - 8;
+
+    // Show phase shift arrow between peaks
+    if (showGhost) {
+      // π/2 shift arrow at top
+      const sinPeakX = left + (Math.PI/2) / (2*Math.PI) * w; // sin peaks at π/2
+      const cosPeakX = left; // cos peaks at 0
+
+      ctx.fillStyle = 'rgba(0,212,255,0.6)';
+      ctx.font = 'italic 11px "PingFang SC","Microsoft YaHei",sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText('sin(θ+π/2) = cos(θ)', left + w * 0.5, cy - amp - 12);
+
+      // Curved arrow showing shift
+      const arrowY = cy - amp - 2;
+      ctx.strokeStyle = 'rgba(0,212,255,0.3)';
+      ctx.lineWidth = 1;
+      ctx.setLineDash([3, 4]);
+      ctx.beginPath();
+      ctx.moveTo(cosPeakX + 4, arrowY);
+      ctx.quadraticCurveTo(annotX, arrowY - 24, sinPeakX - 4, arrowY);
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      // Arrowhead
+      ctx.fillStyle = 'rgba(0,212,255,0.35)';
+      ctx.beginPath();
+      ctx.moveTo(sinPeakX - 4, arrowY);
+      ctx.lineTo(sinPeakX - 12, arrowY - 6);
+      ctx.lineTo(sinPeakX - 12, arrowY + 6);
+      ctx.closePath();
+      ctx.fill();
+    }
+
+    // --- Connection lines from circle to waveform ---
+    // Horizontal dashed line from circle point extending to waveform edge
+    ctx.strokeStyle = 'rgba(255,255,255,0.06)';
+    ctx.lineWidth = 0.8;
+    ctx.setLineDash([2, 8]);
+    ctx.beginPath();
+    ctx.moveTo(circleCX + circleR + 5, cy);
+    ctx.lineTo(left - 5, cy);
+    ctx.stroke();
+    ctx.setLineDash([]);
+
+    return { markerX, sinY, cosY };
+  }
+
+  function drawWaveCurve(ctx, left, right, cy, amp, fn, color, currentVal) {
+    const w = right - left;
+    const steps = Math.floor(w);
+
+    // Full curve
+    glow(ctx, color.replace(')', ',0.3)').replace('rgb', 'rgba'), 4);
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    let first = true;
+    for (let i = 0; i <= steps; i++) {
+      const frac = i / steps;
+      const t = frac * 2 * Math.PI;
+      const x = left + frac * w;
+      const y = cy - fn(t) * amp;
+      if (first) { ctx.moveTo(x, y); first = false; }
+      else ctx.lineTo(x, y);
+    }
+    ctx.stroke();
+    noGlow(ctx);
+  }
+
+  function drawWaveCurveGhost(ctx, left, right, cy, amp, fn, color, dash) {
+    const w = right - left;
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 2.5;
+    ctx.setLineDash(dash);
+    ctx.beginPath();
+    let first = true;
+    const steps = Math.floor(w);
+    for (let i = 0; i <= steps; i++) {
+      const frac = i / steps;
+      const t = frac * 2 * Math.PI;
+      const x = left + frac * w;
+      const y = cy - fn(t) * amp;
+      if (first) { ctx.moveTo(x, y); first = false; }
+      else ctx.lineTo(x, y);
+    }
+    ctx.stroke();
+    ctx.setLineDash([]);
+  }
+
+  // --- Connection beams: circle point → waveform ---
+  function drawConnections(ctx, circleData, waveData) {
+    const { px, py, cosA, sinA } = circleData;
+    const { markerX, sinY, cosY } = waveData;
+
+    // Pulsing connection: sin projection to sine wave dot
+    const pulse = 0.3 + 0.15 * Math.sin(performance.now() * 0.004);
+    ctx.strokeStyle = `rgba(0,212,255,${pulse})`;
+    ctx.lineWidth = 1;
+    ctx.setLineDash([3, 6]);
+    ctx.beginPath();
+    ctx.moveTo(circleCX, py);
+    ctx.lineTo(markerX, sinY);
+    ctx.stroke();
+    ctx.setLineDash([]);
+
+    // Pulsing connection: cos projection to cosine wave dot
+    ctx.strokeStyle = `rgba(255,107,214,${pulse})`;
+    ctx.lineWidth = 1;
+    ctx.setLineDash([3, 6]);
+    ctx.beginPath();
+    ctx.moveTo(px, circleCY);
+    ctx.lineTo(markerX, cosY);
+    ctx.stroke();
+    ctx.setLineDash([]);
+  }
+
+  // --- Principle explanation overlay ---
+  function drawLegend(ctx) {
+    const lx = circleCX - circleR - 30;
+    const ly = circleCY + circleR + 30;
+
+    ctx.fillStyle = 'rgba(13,16,37,0.85)';
+    ctx.strokeStyle = 'rgba(26,31,58,0.7)';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.roundRect(lx, ly, circleR * 2 + 60, 56, 8);
+    ctx.fill();
+    ctx.stroke();
+
+    ctx.fillStyle = '#e0e4f0';
+    ctx.font = '13px "PingFang SC","Microsoft YaHei",sans-serif';
+    ctx.textAlign = 'center';
+
+    const phaseDeg = Math.round((angle * 180 / Math.PI) % 360);
+    ctx.fillText(
+      `cos(θ) = sin(θ + 90°)    ·    余弦领先正弦 π/2    ·    当前 θ = ${phaseDeg}°`,
+      circleCX, ly + 26
+    );
+
+    // Color legend
+    const legY = ly + 46;
+    ctx.font = '11px "PingFang SC","Microsoft YaHei",sans-serif';
+
+    ctx.fillStyle = '#00d4ff';
+    ctx.fillText('■ sin — y轴投影', circleCX - 100, legY);
+    ctx.fillStyle = '#ff6bd6';
+    ctx.fillText('■ cos — x轴投影', circleCX + 20, legY);
+  }
+
+  // --- Main render ---
+
+  function render(timestamp) {
+    ctx.clearRect(0, 0, W, H);
+
+    // Draw grid background over entire canvas
+    drawGrid(ctx, 0, 0, W, H, 40);
+
+    // Draw dividing line between circle and waveform
+    const divX = (circleCX + circleR + waveLeft) / 2;
+    ctx.strokeStyle = 'rgba(26,31,58,0.3)';
+    ctx.lineWidth = 1;
+    ctx.setLineDash([]);
+    ctx.beginPath();
+    ctx.moveTo(divX, 20);
+    ctx.lineTo(divX, H - 20);
+    ctx.stroke();
+
+    // Draw panels
+    const circleData = drawCirclePanel(ctx);
+    const waveData = drawWaveformPanel(ctx, circleData.cosA, circleData.sinA);
+
+    // Draw connections
+    drawConnections(ctx, circleData, waveData);
+
+    // Draw legend
+    drawLegend(ctx);
+
+    // Particles
+    drawParticles(ctx);
+
+    // Section labels
+    ctx.fillStyle = 'rgba(200,205,220,0.25)';
+    ctx.font = '10px "PingFang SC","Microsoft YaHei",sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('单位圆 · 几何定义', circleCX, 22);
+    ctx.fillText('函数波形 · 代数图像', waveLeft + waveW / 2, 22);
+
+    // Update DOM displays
+    const aNorm = ((angle % (2 * Math.PI)) + 2 * Math.PI) % (2 * Math.PI);
+    const deg = Math.round(aNorm * 180 / Math.PI);
+    sinVal.textContent = circleData.sinA.toFixed(3);
+    cosVal.textContent = circleData.cosA.toFixed(3);
+    angleRad.textContent = aNorm.toFixed(2) + ' rad';
+    angleDegLabel.textContent = deg + '°';
+    angleSlider.value = deg;
+  }
+
+  // --- Animation loop ---
+
+  function animate(timestamp) {
+    if (!lastTime) lastTime = timestamp;
+    let dt = (timestamp - lastTime) / 1000;
+    if (dt <= 0) dt = 0.016;
+    if (dt > 0.1) dt = 0.1; // cap to avoid jumps
+    lastTime = timestamp;
+
+    // Update angle
+    if (isPlaying && dragAngle === null) {
+      angle += speed * dt * 1.2; // base speed ~1.2 rad/s
+    }
+
+    // Keep angle reasonable
+    if (angle > 100 * Math.PI) angle -= 2 * Math.PI;
+
+    // Update trail (last 2π radians)
+    const aNorm = ((angle % (2 * Math.PI)) + 2 * Math.PI) % (2 * Math.PI);
+    trail.push({ angle: aNorm, sin: Math.sin(angle), cos: Math.cos(angle) });
+    // Remove old entries (older than 2π behind)
+    while (trail.length > 1) {
+      const oldestA = trail[1].angle;
+      const newestA = trail[trail.length - 1].angle;
+      let diff = newestA - oldestA;
+      if (diff < 0) diff += 2 * Math.PI;
+      if (diff > 2 * Math.PI) trail.shift();
+      else break;
+    }
+    // Cap trail length
+    if (trail.length > 2000) trail.splice(0, trail.length - 2000);
+
+    // Update particles
+    updateParticles(dt * 60); // normalize dt
+
+    // Render
+    render(timestamp);
+
+    requestAnimationFrame(animate);
+  }
+
+  // --- Interaction handlers ---
+
+  btnPlay.addEventListener('click', () => {
+    isPlaying = !isPlaying;
+    btnPlay.textContent = isPlaying ? '⏸' : '▶';
+    btnPlay.classList.toggle('active', isPlaying);
+  });
+
+  speedSlider.addEventListener('input', () => {
+    speed = parseFloat(speedSlider.value);
+    speedLabel.textContent = speed.toFixed(1) + '×';
+  });
+
+  angleSlider.addEventListener('input', () => {
+    if (isPlaying) {
+      isPlaying = false;
+      btnPlay.textContent = '▶';
+      btnPlay.classList.remove('active');
+    }
+    const deg = parseFloat(angleSlider.value);
+    angle = deg * Math.PI / 180;
+    trail = [];
+  });
+
+  btnGhost.addEventListener('click', () => {
+    showGhost = !showGhost;
+    btnGhost.classList.toggle('active', showGhost);
+  });
+  btnGhost.classList.add('active');
+
+  btnReset.addEventListener('click', () => {
+    angle = 0;
+    trail = [];
+    particles = [];
+    isPlaying = true;
+    btnPlay.textContent = '⏸';
+    btnPlay.classList.add('active');
+    speed = 1;
+    speedSlider.value = 1;
+    speedLabel.textContent = '1.0×';
+  });
+
+  // Canvas mouse/touch drag to control angle
+  function getEventPos(e) {
+    const rect = canvas.getBoundingClientRect();
+    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+    const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+    return { x: clientX - rect.left, y: clientY - rect.top };
+  }
+
+  function isNearCirclePoint(mx, my) {
+    const cosA = Math.cos(angle);
+    const sinA = Math.sin(angle);
+    const px = circleCX + circleR * cosA;
+    const py = circleCY - circleR * sinA;
+    const dist = Math.sqrt((mx - px) ** 2 + (my - py) ** 2);
+    return dist < 25;
+  }
+
+  canvas.addEventListener('mousedown', (e) => {
+    const pos = getEventPos(e);
+    if (isNearCirclePoint(pos.x, pos.y)) {
+      dragAngle = angle;
+      if (isPlaying) {
+        isPlaying = false;
+        btnPlay.textContent = '▶';
+        btnPlay.classList.remove('active');
+      }
+    }
+  });
+
+  canvas.addEventListener('mousemove', (e) => {
+    const pos = getEventPos(e);
+    if (dragAngle !== null) {
+      const dx = pos.x - circleCX;
+      const dy = circleCY - pos.y;
+      angle = Math.atan2(dy, dx);
+      trail = [];
+    } else {
+      canvas.style.cursor = isNearCirclePoint(pos.x, pos.y) ? 'grab' : 'default';
+    }
+  });
+
+  canvas.addEventListener('mouseup', () => { dragAngle = null; });
+  canvas.addEventListener('mouseleave', () => { dragAngle = null; });
+
+  canvas.addEventListener('touchstart', (e) => {
+    const pos = getEventPos(e);
+    if (isNearCirclePoint(pos.x, pos.y)) {
+      e.preventDefault();
+      dragAngle = angle;
+      if (isPlaying) {
+        isPlaying = false;
+        btnPlay.textContent = '▶';
+        btnPlay.classList.remove('active');
+      }
+    }
+  }, { passive: false });
+
+  canvas.addEventListener('touchmove', (e) => {
+    if (dragAngle !== null) {
+      e.preventDefault();
+      const pos = getEventPos(e);
+      const dx = pos.x - circleCX;
+      const dy = circleCY - pos.y;
+      angle = Math.atan2(dy, dx);
+      trail = [];
+    }
+  }, { passive: false });
+
+  canvas.addEventListener('touchend', () => { dragAngle = null; });
+
+  // Keyboard shortcuts
+  document.addEventListener('keydown', (e) => {
+    switch (e.key.toLowerCase()) {
+      case ' ':
+        e.preventDefault();
+        isPlaying = !isPlaying;
+        btnPlay.textContent = isPlaying ? '⏸' : '▶';
+        btnPlay.classList.toggle('active', isPlaying);
+        break;
+      case 'arrowleft':
+        e.preventDefault();
+        angle -= 0.1;
+        trail = [];
+        break;
+      case 'arrowright':
+        e.preventDefault();
+        angle += 0.1;
+        trail = [];
+        break;
+      case 'g':
+        showGhost = !showGhost;
+        btnGhost.classList.toggle('active', showGhost);
+        break;
+      case 'r':
+        btnReset.click();
+        break;
+    }
+  });
+
+  // Resize handler
+  window.addEventListener('resize', () => {
+    resize();
+    trail = [];
+  });
+
+  // --- Init ---
+  resize();
+  btnPlay.textContent = '⏸';
+  requestAnimationFrame(animate);
+
+  console.log('正弦与余弦几何可视化课件已就绪');
+  console.log('操作提示: 空格=播放/暂停 | 左右箭头=微调角度 | G=切换叠加验证 | R=重置');
+  console.log('拖拽单位圆上的金色点来手动改变角度');
+})();
+</script>
+</body>
+</html>
