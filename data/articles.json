@@ -1,7 +1,19 @@
 {
-  "generated_at": "2026-06-22T17:19:03+08:00",
-  "latest_date": "2026-06-22",
+  "generated_at": "2026-06-23T08:20:13+08:00",
+  "latest_date": "2026-06-23",
   "articles": [
+    {
+      "date": "2026-06-23",
+      "session": "morning",
+      "edition_cn": "早报",
+      "icon": "🌅",
+      "title": "纳指跌超1%·费半逆势涨2.04%·美光+6.8%签Anthropic大单·SpaceX三日累跌31%·美伊谈判油价跳水3%·A股今日验证高低切换",
+      "url": "2026-06-23/wechat-publish/morning/article.html",
+      "has_audio": true,
+      "audio_size_bytes": 2023056,
+      "has_comic": true,
+      "comic_count": 2
+    },
     {
       "date": "2026-06-22",
       "session": "evening",
@@ -596,6 +608,20 @@
     }
   ],
   "by_date": {
+    "2026-06-23": {
+      "morning": {
+        "date": "2026-06-23",
+        "session": "morning",
+        "edition_cn": "早报",
+        "icon": "🌅",
+        "title": "纳指跌超1%·费半逆势涨2.04%·美光+6.8%签Anthropic大单·SpaceX三日累跌31%·美伊谈判油价跳水3%·A股今日验证高低切换",
+        "url": "2026-06-23/wechat-publish/morning/article.html",
+        "has_audio": true,
+        "audio_size_bytes": 2023056,
+        "has_comic": true,
+        "comic_count": 2
+      }
+    },
     "2026-06-22": {
       "evening": {
         "date": "2026-06-22",

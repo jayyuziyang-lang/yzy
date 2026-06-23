@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 768 512" width="768" height="512" font-family="Microsoft YaHei, SimHei, sans-serif">
+  <rect width="768" height="512" fill="#FAFBFC"/>
+
+  <!-- Title bar -->
+  <rect x="0" y="0" width="768" height="48" fill="#1A56DB"/>
+  <text x="384" y="31" text-anchor="middle" fill="white" font-size="18" font-weight="700">利率锚定效应：4.51% 如何重塑一切</text>
+
+  <!-- Center: The Anchor - 10Y Treasury -->
+  <rect x="284" y="62" width="200" height="65" rx="8" fill="#1A56DB"/>
+  <text x="384" y="86" text-anchor="middle" fill="white" font-size="13" font-weight="700">锚：10年美债</text>
+  <text x="384" y="110" text-anchor="middle" fill="white" font-size="18" font-weight="800">4.51%</text>
+  <text x="384" y="122" text-anchor="middle" fill="#BFDBFE" font-size="9">2025年2月以来最高</text>
+
+  <!-- Arrow down-left: Big Tech -->
+  <line x1="304" y1="127" x2="140" y2="195" stroke="#DC2626" stroke-width="2" marker-end="url(#arrowRed)"/>
+  <defs>
+    <marker id="arrowRed" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#DC2626"/>
+    </marker>
+    <marker id="arrowGreen" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#16A34A"/>
+    </marker>
+    <marker id="arrowGold" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#D4A017"/>
+    </marker>
+    <marker id="arrowBlue" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1A56DB"/>
+    </marker>
+  </defs>
+
+  <!-- Arrow down-center: Dollar -->
+  <line x1="384" y1="127" x2="384" y2="195" stroke="#1A56DB" stroke-width="2" marker-end="url(#arrowBlue)"/>
+
+  <!-- Arrow down-right: Hard Tech -->
+  <line x1="464" y1="127" x2="628" y2="195" stroke="#16A34A" stroke-width="2" marker-end="url(#arrowGreen)"/>
+
+  <!-- LEFT card: 大科技承压 (Red) -->
+  <rect x="20" y="200" width="240" height="150" rx="10" fill="#FEF2F2" stroke="#DC2626" stroke-width="1.5"/>
+  <text x="140" y="226" text-anchor="middle" fill="#DC2626" font-size="14" font-weight="700">大科技 · 估值承压</text>
+  <text x="140" y="250" text-anchor="middle" fill="#991B1B" font-size="11">高估值依赖低利率</text>
+  <text x="140" y="272" text-anchor="middle" fill="#991B1B" font-size="11">未来现金流折现变贵</text>
+  <text x="140" y="296" text-anchor="middle" fill="#DC2626" font-size="11" font-weight="600">纳指 -1.32%</text>
+  <text x="140" y="318" text-anchor="middle" fill="#DC2626" font-size="11" font-weight="600">SpaceX -16.43%</text>
+  <text x="140" y="340" text-anchor="middle" fill="#64748B" font-size="10">通信服务 -3.83%</text>
+
+  <!-- CENTER card: 美元/商品 (Gold) -->
+  <rect x="274" y="200" width="220" height="150" rx="10" fill="#FFFBEB" stroke="#D4A017" stroke-width="1.5"/>
+  <text x="384" y="226" text-anchor="middle" fill="#D4A017" font-size="14" font-weight="700">美元 · 商品</text>
+  <text x="384" y="250" text-anchor="middle" fill="#92400E" font-size="11">美元指数 100.8 高位</text>
+  <text x="384" y="272" text-anchor="middle" fill="#166534" font-size="11" font-weight="600">油价 -3% → $73.80</text>
+  <text x="384" y="296" text-anchor="middle" fill="#DC2626" font-size="11" font-weight="600">黄金 +0.9% → $4189</text>
+  <text x="384" y="318" text-anchor="middle" fill="#92400E" font-size="11">美伊协议→去地缘溢价</text>
+  <text x="384" y="340" text-anchor="middle" fill="#64748B" font-size="10">加息概率 83% · VIX 17.28</text>
+
+  <!-- RIGHT card: 硬科技受益 (Green) -->
+  <rect x="508" y="200" width="240" height="150" rx="10" fill="#F0FDF4" stroke="#16A34A" stroke-width="1.5"/>
+  <text x="628" y="226" text-anchor="middle" fill="#16A34A" font-size="14" font-weight="700">硬科技 · 独立行情</text>
+  <text x="628" y="250" text-anchor="middle" fill="#166534" font-size="11">真实订单vs利率无关</text>
+  <text x="628" y="272" text-anchor="middle" fill="#166534" font-size="11">AI基础设施真实需求</text>
+  <text x="628" y="296" text-anchor="middle" fill="#166534" font-size="11" font-weight="600">费半 +2.04%</text>
+  <text x="628" y="318" text-anchor="middle" fill="#166534" font-size="11" font-weight="600">美光 +6.82%</text>
+  <text x="628" y="340" text-anchor="middle" fill="#64748B" font-size="10">道指 +0.29% 七连阳</text>
+
+  <!-- Bottom: Summary and connection to A股 -->
+  <rect x="20" y="366" width="728" height="126" rx="10" fill="#EFF6FF" stroke="#1A56DB" stroke-width="1"/>
+  <text x="384" y="392" text-anchor="middle" fill="#1E40AF" font-size="14" font-weight="700">对A股的映射</text>
+  <text x="384" y="416" text-anchor="middle" fill="#1E3A7A" font-size="12">A股昨天也在走同一条路：科技获利了结 → 资金涌入金融周期 → 3.74万亿天量</text>
+  <text x="384" y="440" text-anchor="middle" fill="#1E3A7A" font-size="12">全球共振逻辑：利率越高 → "有真实现金流"的资产越受追捧 → 金融+硬科技 &gt; 讲故事</text>
+  <text x="384" y="464" text-anchor="middle" fill="#1E3A7A" font-size="12">今天A股验证三点：券商连板？半导体止跌？成交额守3万亿？</text>
+  <text x="384" y="486" text-anchor="middle" fill="#64748B" font-size="10">周五PCE数据是本周宏观方向的最终裁决</text>
+
+  <!-- Branding -->
+  <text x="384" y="504" text-anchor="middle" fill="#94A3B8" font-size="10">扬说财经 · 早报 · 2026.06.23 · 蓝色系</text>
+</svg>
