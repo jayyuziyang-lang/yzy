@@ -1,7 +1,19 @@
 {
-  "generated_at": "2026-06-23T08:20:13+08:00",
+  "generated_at": "2026-06-23T21:30:37+08:00",
   "latest_date": "2026-06-23",
   "articles": [
+    {
+      "date": "2026-06-23",
+      "session": "evening",
+      "edition_cn": "晚报",
+      "icon": "🌙",
+      "title": "韩国熔断暴跌9.99%·全球科技股踩踏·上证险守4100·金融医药护盘·美伊60天窗口·黄金4191",
+      "url": "2026-06-23/wechat-publish/evening/article.html",
+      "has_audio": true,
+      "audio_size_bytes": 3132432,
+      "has_comic": true,
+      "comic_count": 2
+    },
     {
       "date": "2026-06-23",
       "session": "morning",
@@ -609,6 +621,18 @@
   ],
   "by_date": {
     "2026-06-23": {
+      "evening": {
+        "date": "2026-06-23",
+        "session": "evening",
+        "edition_cn": "晚报",
+        "icon": "🌙",
+        "title": "韩国熔断暴跌9.99%·全球科技股踩踏·上证险守4100·金融医药护盘·美伊60天窗口·黄金4191",
+        "url": "2026-06-23/wechat-publish/evening/article.html",
+        "has_audio": true,
+        "audio_size_bytes": 3132432,
+        "has_comic": true,
+        "comic_count": 2
+      },
       "morning": {
         "date": "2026-06-23",
         "session": "morning",
