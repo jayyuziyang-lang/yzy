@@ -629,7 +629,12 @@
     currentAudio = null;
   }
 
-  // ========== 音频开关按钮（首次点击开始播放，之后暂停/恢复）==========
+  // ========== 音频开关按钮（暂停/恢复）==========
+  function tryAutoStart() {
+    if (audioPlaying || userPaused) return;
+    startChain();
+  }
+
   bgmToggle.addEventListener('click', function () {
     if (audioPlaying) {
       pauseChain();
@@ -639,6 +644,22 @@
       startChain();
     }
   });
+
+  // 自动播放：页面加载后立即尝试
+  tryAutoStart();
+
+  // 如果浏览器拦截自动播放，监听首次用户交互后启动
+  if (!audioPlaying) {
+    function onFirstInteraction() {
+      tryAutoStart();
+      if (audioPlaying) {
+        document.removeEventListener('click', onFirstInteraction);
+        document.removeEventListener('touchstart', onFirstInteraction);
+      }
+    }
+    document.addEventListener('click', onFirstInteraction);
+    document.addEventListener('touchstart', onFirstInteraction);
+  }
 
   // Bilibili 播放器开关时暂停/恢复音频
   var biliOrigOpen = openBiliPlayer;
