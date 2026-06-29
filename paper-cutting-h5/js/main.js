@@ -47,7 +47,7 @@ const App = (() => {
   /* 滚轮切换（桌面） */
   let wheelDebounce = 0;
   document.addEventListener('wheel', (e) => {
-    if (state.currentPage === 9) return; // 祝福卡页面不拦截滚动
+    if (state.currentPage === 9) return;
     e.preventDefault();
     const now = Date.now();
     if (now - wheelDebounce < 800) return;
@@ -63,7 +63,6 @@ const App = (() => {
   }, { passive: true });
 
   document.addEventListener('touchend', (e) => {
-    // 不让祝福卡输入区域触发页面切换
     if (e.target.closest('.cardgen-form') || e.target.closest('.quiz-container')) return;
     const dy = state.touchStartY - e.changedTouches[0].clientY;
     const dx = Math.abs(state.touchStartX - e.changedTouches[0].clientX);
@@ -111,48 +110,48 @@ const App = (() => {
   const MusicEngine = (() => {
     let ctx = null;
     let playing = false;
-    let gainNode = null;
-    let activeNodes = [];
+    let masterGain = null;
+    let melodyTimer = null;
 
-    // 五声音阶频率 (宫=C4, 商=D4, 角=E4, 徵=G4, 羽=A4)
     const pentatonic = [261.63, 293.66, 329.63, 392.00, 440.00,
                         523.25, 587.33, 659.25, 784.00, 880.00];
 
-    // 传统旋律片段 (索引, 时长秒)
     const melodies = [
-      [0,4,3,4, 1,0,4,3],  // 经典上行
-      [4,3,1,0, 4,3,0,4],  // 下行
-      [0,1,3,4, 3,1,0,4],  // 波浪
-      [3,4,1,0, 4,3,4,1],  // 变奏
+      [0,4,3,4, 1,0,4,3],
+      [4,3,1,0, 4,3,0,4],
+      [0,1,3,4, 3,1,0,4],
+      [3,4,1,0, 4,3,4,1],
+      [0,2,4,3, 1,0,2,4],
     ];
 
     function ensureCtx() {
       if (!ctx) {
         ctx = new (window.AudioContext || window.webkitAudioContext)();
-        gainNode = ctx.createGain();
-        gainNode.gain.value = 0.08;
-        gainNode.connect(ctx.destination);
+        masterGain = ctx.createGain();
+        masterGain.gain.value = 0.07;
+        masterGain.connect(ctx.destination);
       }
-      if (ctx.state === 'suspended') ctx.resume();
+      if (ctx.state === 'suspended') {
+        ctx.resume();
+      }
       return ctx;
     }
 
-    function playNote(freq, startTime, duration) {
+    function playNote(freq, startTime, duration, vol) {
       const c = ensureCtx();
-      // 主音色 — 三角波模拟古筝/琴
       const osc = c.createOscillator();
       osc.type = 'triangle';
       osc.frequency.value = freq;
       const noteGain = c.createGain();
+      const v = vol || 0.12;
       noteGain.gain.setValueAtTime(0, startTime);
-      noteGain.gain.linearRampToValueAtTime(0.15, startTime + 0.08);
-      noteGain.gain.linearRampToValueAtTime(0.06, startTime + duration * 0.7);
+      noteGain.gain.linearRampToValueAtTime(v, startTime + 0.05);
+      noteGain.gain.linearRampToValueAtTime(v * 0.5, startTime + duration * 0.7);
       noteGain.gain.linearRampToValueAtTime(0, startTime + duration);
       osc.connect(noteGain);
-      noteGain.connect(gainNode);
+      noteGain.connect(masterGain);
       osc.start(startTime);
-      osc.stop(startTime + duration);
-      activeNodes.push(osc, noteGain);
+      osc.stop(startTime + duration + 0.1);
     }
 
     function playMelody() {
@@ -160,41 +159,38 @@ const App = (() => {
       ensureCtx();
       const now = ctx.currentTime;
       const melody = melodies[Math.floor(Math.random() * melodies.length)];
-      const baseOctave = Math.random() > 0.5 ? 0 : 5; // 高低八度交替
+      const baseOctave = Math.random() > 0.5 ? 0 : 5;
       melody.forEach((idx, i) => {
         const freq = pentatonic[idx + baseOctave] || pentatonic[idx];
-        playNote(freq, now + i * 0.65, 1.2);
-        // 偶尔加泛音
-        if (Math.random() > 0.6) {
-          playNote(freq * 2, now + i * 0.65 + 0.05, 0.5);
+        playNote(freq, now + i * 0.7, 1.3, 0.1);
+        if (Math.random() > 0.5) {
+          playNote(freq * 2, now + i * 0.7 + 0.04, 0.4, 0.03);
         }
       });
-      // 清理旧节点
-      activeNodes = activeNodes.filter(n => {
-        try { return n.context && n.context.currentTime < (n.stopTime || 0); } catch(e) { return false; }
-      });
-
-      const nextDelay = melody.length * 0.65 + 1.5 + Math.random() * 2;
-      setTimeout(() => playMelody(), nextDelay * 1000);
+      const nextDelay = melody.length * 0.7 + 2 + Math.random() * 2.5;
+      melodyTimer = setTimeout(() => playMelody(), nextDelay * 1000);
     }
 
     function start() {
       if (playing) return;
       ensureCtx();
       playing = true;
-      // 起始环境音
       const now = ctx.currentTime;
-      for (let i = 0; i < 4; i++) {
+      for (let i = 0; i < 6; i++) {
         const freq = pentatonic[Math.floor(Math.random() * pentatonic.length)];
-        playNote(freq, now + i * 0.5, 2);
+        playNote(freq, now + i * 0.4, 2.5, 0.07);
       }
       playMelody();
     }
 
     function stop() {
       playing = false;
-      if (gainNode) {
-        gainNode.gain.linearRampToValueAtTime(0, ctx.currentTime + 0.3);
+      if (melodyTimer) {
+        clearTimeout(melodyTimer);
+        melodyTimer = null;
+      }
+      if (masterGain && ctx && ctx.state !== 'closed') {
+        masterGain.gain.linearRampToValueAtTime(0, ctx.currentTime + 0.5);
       }
     }
 
@@ -202,18 +198,37 @@ const App = (() => {
   })();
 
   /* ==========================================================
-     音乐开关
+     音乐开关 + 首次用户交互自动启动
      ========================================================== */
+  let _musicAutoStarted = false;
+  function tryAutoStartMusic() {
+    if (_musicAutoStarted) return;
+    _musicAutoStarted = true;
+    if (!MusicEngine.playing) {
+      MusicEngine.start();
+      if (musicToggle) {
+        musicToggle.classList.add('playing');
+        const icon = musicToggle.querySelector('.music-icon');
+        if (icon) icon.textContent = '\u266B';
+      }
+    }
+  }
+  ['click','touchstart','keydown'].forEach(evt => {
+    document.addEventListener(evt, tryAutoStartMusic, { once: true, passive: true });
+  });
+
   function initMusic() {
-    musicToggle.addEventListener('click', () => {
+    if (!musicToggle) return;
+    musicToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
       if (MusicEngine.playing) {
         MusicEngine.stop();
         musicToggle.classList.remove('playing');
-        musicToggle.querySelector('.music-icon').textContent = '♪';
+        musicToggle.querySelector('.music-icon').textContent = '\u266A';
       } else {
         MusicEngine.start();
         musicToggle.classList.add('playing');
-        musicToggle.querySelector('.music-icon').textContent = '♫';
+        musicToggle.querySelector('.music-icon').textContent = '\u266B';
       }
     });
   }
@@ -233,7 +248,6 @@ const App = (() => {
     }, { threshold: 0.2 });
     cards.forEach(card => observer.observe(card));
 
-    // 备用：直接显示（某些浏览器不支持 IntersectionObserver）
     setTimeout(() => {
       cards.forEach((card, i) => {
         setTimeout(() => card.classList.add('visible'), i * 200);
@@ -278,18 +292,20 @@ const App = (() => {
   }
 
   /* ==========================================================
-     第5页 — 拖拽拼窗花 (重新设计版)
+     第5页 — 拖拽拼窗花（统一坐标空间版）
+     碎片和目标区都在 puzzleBoard 内，共用同一父容器 coordinate space
      ========================================================== */
-  let puzzlePieceStart = []; // 记录每块碎片的初始位置
+  const PIECE_INITIAL = []; // 每块碎片的初始 {left,top}
 
   function initPuzzle() {
-    const pieces = $$('.puzzle-piece');
-    const zones = $$('.target-zone');
+    const board = $('#puzzleBoard');
+    if (!board) return;
+    const pieces = $$('.puzzle-piece', board);
+    const zones = $$('.target-zone', board);
 
-    // 记录初始位置
+    // 保存初始绝对定位
     pieces.forEach((piece, i) => {
-      const r = piece.getBoundingClientRect();
-      puzzlePieceStart[i] = {
+      PIECE_INITIAL[i] = {
         left: piece.style.left || '0px',
         top: piece.style.top || '0px',
       };
@@ -301,23 +317,21 @@ const App = (() => {
         piece.setPointerCapture(e.pointerId);
         piece.classList.add('dragging');
 
+        const boardRect = board.getBoundingClientRect();
         const pieceRect = piece.getBoundingClientRect();
         const offsetX = e.clientX - pieceRect.left;
         const offsetY = e.clientY - pieceRect.top;
-        const startLeft = piece.style.left || '0px';
-        const startTop = piece.style.top || '0px';
-        const parentEl = piece.parentElement;
-        const parentRect = parentEl.getBoundingClientRect();
+        const startLeft = piece.style.left;
+        const startTop = piece.style.top;
 
         function onMove(ev) {
-          const x = ev.clientX - parentRect.left - offsetX;
-          const y = ev.clientY - parentRect.top - offsetY;
-          piece.style.position = 'relative';
+          const x = ev.clientX - boardRect.left - offsetX;
+          const y = ev.clientY - boardRect.top - offsetY;
           piece.style.left = x + 'px';
           piece.style.top = y + 'px';
           piece.style.zIndex = '100';
 
-          // 检测是否靠近目标区域
+          // 检测悬停
           zones.forEach(z => z.classList.remove('hover'));
           const cx = ev.clientX;
           const cy = ev.clientY;
@@ -341,17 +355,16 @@ const App = (() => {
           for (const z of zones) {
             if (z.classList.contains('matched')) continue;
             const zr = z.getBoundingClientRect();
+            // 计算zone相对于board的偏移
+            const zLeft = zr.left - boardRect.left;
+            const zTop = zr.top - boardRect.top;
             const zcx = zr.left + zr.width / 2;
             const zcy = zr.top + zr.height / 2;
             const dist = Math.sqrt((ev.clientX - zcx) ** 2 + (ev.clientY - zcy) ** 2);
             if (dist < 55) {
-              // 吸附到目标区中心
-              const parentEl2 = piece.parentElement;
-              const pr2 = parentEl2.getBoundingClientRect();
-              piece.style.left = (zr.left - pr2.left + zr.width/2 - piece.getBoundingClientRect().width/2 + (ev.clientX - parseFloat(piece.style.left) - pr2.left - piece.getBoundingClientRect().width/2)) + 'px';
-              // 简化：直接计算
-              piece.style.left = (zr.left - pr2.left) + 'px';
-              piece.style.top = (zr.top - pr2.top) + 'px';
+              // 吸附：设置 piece 位置 = zone 在 board 内的位置
+              piece.style.left = zLeft + 'px';
+              piece.style.top = zTop + 'px';
               z.classList.add('matched');
               z.classList.remove('hover');
               piece.classList.add('placed');
@@ -360,7 +373,8 @@ const App = (() => {
 
               if (state.puzzlePiecesPlaced >= state.puzzleTotal) {
                 setTimeout(() => {
-                  $('#puzzleComplete').style.display = 'flex';
+                  const completeEl = $('#puzzleComplete');
+                  if (completeEl) completeEl.style.display = 'flex';
                 }, 400);
               }
               break;
@@ -369,7 +383,6 @@ const App = (() => {
 
           zones.forEach(z => z.classList.remove('hover'));
 
-          // 未匹配 -> 回弹到初始位置
           if (!matched) {
             piece.style.left = startLeft;
             piece.style.top = startTop;
@@ -384,6 +397,7 @@ const App = (() => {
         piece.addEventListener('pointercancel', onUp);
       });
 
+      // 阻止触摸冒泡导致页面切换
       piece.addEventListener('touchstart', (e) => {
         e.stopPropagation();
       });
@@ -394,13 +408,15 @@ const App = (() => {
     state.puzzlePiecesPlaced = 0;
     $$('.puzzle-piece').forEach((p, i) => {
       p.classList.remove('placed');
-      p.style.position = '';
-      p.style.left = '';
-      p.style.top = '';
+      if (PIECE_INITIAL[i]) {
+        p.style.left = PIECE_INITIAL[i].left;
+        p.style.top = PIECE_INITIAL[i].top;
+      }
       p.style.zIndex = '';
     });
     $$('.target-zone').forEach(z => z.classList.remove('matched'));
-    $('#puzzleComplete').style.display = 'none';
+    const completeEl = $('#puzzleComplete');
+    if (completeEl) completeEl.style.display = 'none';
   }
 
   /* ==========================================================
@@ -424,7 +440,6 @@ const App = (() => {
     scratchCtx.fillStyle = '#F8EED8';
     scratchCtx.fillRect(0, 0, rect.width, rect.height);
 
-    // 添加纹理线条模拟纸张
     scratchCtx.strokeStyle = 'rgba(200,180,150,0.3)';
     scratchCtx.lineWidth = 0.5;
     for (let i = 0; i < 20; i++) {
@@ -470,7 +485,6 @@ const App = (() => {
     scratchCanvas.addEventListener('pointerleave', () => { isScratching = false; });
     scratchCanvas.addEventListener('pointercancel', () => { isScratching = false; });
 
-    // 防止触摸事件冒泡导致页面切换
     scratchCanvas.addEventListener('touchstart', (e) => { e.stopPropagation(); });
     scratchCanvas.addEventListener('touchmove', (e) => { if (isScratching) e.stopPropagation(); });
   }
@@ -482,7 +496,6 @@ const App = (() => {
     const w = canvas.width / dpr;
     const h = canvas.height / dpr;
 
-    // 缩小采样以提高性能
     const scale = 4;
     const sw = Math.floor(w / scale);
     const sh = Math.floor(h / scale);
@@ -502,24 +515,20 @@ const App = (() => {
     }
 
     state.scratchPercent = Math.round((transparent / total) * 100);
-    $('#scratchPercent').textContent = state.scratchPercent;
-    const fillEl = $('#scratchFill');
-    if (fillEl) {
-      const afterEl = fillEl.querySelector('::after');
-      fillEl.style.setProperty('--pct', state.scratchPercent + '%');
-    }
-    // 更新进度条
+    const pctEl = $('#scratchPercent');
+    if (pctEl) pctEl.textContent = state.scratchPercent;
     const bar = $('#scratchFill');
     if (bar) bar.style.background = `linear-gradient(to right, var(--red) ${state.scratchPercent}%, rgba(177,18,38,0.15) ${state.scratchPercent}%)`;
 
     if (state.scratchPercent >= 50 && !state._scratchAutoRevealed) {
       state._scratchAutoRevealed = true;
       setTimeout(() => {
-        // 完全清除遮罩
         scratchCtx.globalCompositeOperation = 'destination-out';
         scratchCtx.fillRect(0, 0, w, h);
-        $('#scratchPercent').textContent = '100';
-        $('#scratchComplete').style.display = 'block';
+        const pctEl2 = $('#scratchPercent');
+        if (pctEl2) pctEl2.textContent = '100';
+        const completeEl = $('#scratchComplete');
+        if (completeEl) completeEl.style.display = 'block';
       }, 500);
     }
   }
@@ -541,7 +550,6 @@ const App = (() => {
   ];
 
   function initRegions() {
-    // 各地域SVG生成函数
     const regionSvgs = {
       0: `<svg viewBox="0 0 200 160" class="region-svg"><rect x="15" y="8" width="170" height="144" rx="8" fill="#B11226" opacity="0.9"/><polygon points="100,22 130,50 120,85 80,85 70,50" fill="none" stroke="#F8EED8" stroke-width="2.5"/><circle cx="100" cy="55" r="10" fill="#D8A24A" opacity="0.8"/><rect x="55" y="100" width="90" height="24" rx="12" fill="none" stroke="#D8A24A" stroke-width="1.5"/><text x="100" y="116" text-anchor="middle" fill="#D8A24A" font-size="11" font-family="serif">古朴粗犷</text></svg>`,
       1: `<svg viewBox="0 0 200 160" class="region-svg"><rect x="15" y="8" width="170" height="144" rx="8" fill="#C41E3A" opacity="0.9"/><circle cx="65" cy="55" r="20" fill="none" stroke="#F8EED8" stroke-width="2"/><circle cx="135" cy="55" r="20" fill="none" stroke="#F8EED8" stroke-width="2"/><circle cx="100" cy="80" r="20" fill="#D8A24A" opacity="0.7"/><circle cx="65" cy="55" r="6" fill="#F8EED8" opacity="0.8"/><circle cx="135" cy="55" r="6" fill="#F8EED8" opacity="0.8"/><rect x="55" y="108" width="90" height="24" rx="12" fill="none" stroke="#D8A24A" stroke-width="1.5"/><text x="100" y="124" text-anchor="middle" fill="#D8A24A" font-size="11" font-family="serif">色彩鲜艳 刻工精细</text></svg>`,
@@ -557,10 +565,14 @@ const App = (() => {
         tab.classList.add('active');
         const idx = parseInt(tab.dataset.region);
         const data = regionData[idx];
-        $('#regionSvg').outerHTML = regionSvgs[idx];
-        $('#regionName').textContent = data.name;
-        $('#regionTag').textContent = data.tag;
-        $('#regionDesc').textContent = data.desc;
+        const svgEl = $('#regionSvg');
+        if (svgEl) svgEl.outerHTML = regionSvgs[idx];
+        const nameEl = $('#regionName');
+        if (nameEl) nameEl.textContent = data.name;
+        const tagEl = $('#regionTag');
+        if (tagEl) tagEl.textContent = data.tag;
+        const descEl = $('#regionDesc');
+        if (descEl) descEl.textContent = data.desc;
       });
     });
   }
@@ -569,31 +581,11 @@ const App = (() => {
      第8页 — 知识问答
      ========================================================== */
   const quizData = [
-    {
-      q: '中国剪纸常见于哪些生活场景？',
-      options: ['A. 节庆装饰', 'B. 婚俗礼仪', 'C. 祈福纳祥', 'D. 以上都是'],
-      answer: 3,
-    },
-    {
-      q: '"鱼"纹样在剪纸中通常寓意什么？',
-      options: ['A. 风调雨顺', 'B. 年年有余', 'C. 步步高升', 'D. 长寿健康'],
-      answer: 1,
-    },
-    {
-      q: '中国剪纸被列入联合国教科文组织非遗代表作名录是哪一年？',
-      options: ['A. 2001', 'B. 2005', 'C. 2009', 'D. 2015'],
-      answer: 2,
-    },
-    {
-      q: '剪纸最常见的颜色为什么是红色？',
-      options: ['A. 象征喜庆吉祥', 'B. 因为价格便宜', 'C. 因为没有其他颜色', 'D. 因为不能染色'],
-      answer: 0,
-    },
-    {
-      q: '剪纸属于哪类艺术？',
-      options: ['A. 民间美术', 'B. 油画艺术', 'C. 西方雕塑', 'D. 现代摄影'],
-      answer: 0,
-    },
+    { q: '中国剪纸常见于哪些生活场景？', options: ['A. 节庆装饰', 'B. 婚俗礼仪', 'C. 祈福纳祥', 'D. 以上都是'], answer: 3 },
+    { q: '"鱼"纹样在剪纸中通常寓意什么？', options: ['A. 风调雨顺', 'B. 年年有余', 'C. 步步高升', 'D. 长寿健康'], answer: 1 },
+    { q: '中国剪纸被列入联合国教科文组织非遗代表作名录是哪一年？', options: ['A. 2001', 'B. 2005', 'C. 2009', 'D. 2015'], answer: 2 },
+    { q: '剪纸最常见的颜色为什么是红色？', options: ['A. 象征喜庆吉祥', 'B. 因为价格便宜', 'C. 因为没有其他颜色', 'D. 因为不能染色'], answer: 0 },
+    { q: '剪纸属于哪类艺术？', options: ['A. 民间美术', 'B. 油画艺术', 'C. 西方雕塑', 'D. 现代摄影'], answer: 0 },
   ];
 
   function initQuiz() { renderQuiz(); }
@@ -605,14 +597,18 @@ const App = (() => {
     }
     state.quizAnswered = false;
     const q = quizData[state.quizCurrent];
-    $('#quizQuestion').textContent = q.q;
-    $('#quizCurrent').textContent = state.quizCurrent + 1;
-    $('#quizScoreDisplay').textContent = state.quizScore;
+    const qEl = $('#quizQuestion');
+    if (qEl) qEl.textContent = q.q;
+    const curEl = $('#quizCurrent');
+    if (curEl) curEl.textContent = state.quizCurrent + 1;
+    const scoreEl = $('#quizScoreDisplay');
+    if (scoreEl) scoreEl.textContent = state.quizScore;
 
     const optionsHtml = q.options.map((opt, i) =>
       `<button class="quiz-option" data-idx="${i}">${opt}</button>`
     ).join('');
-    $('#quizOptions').innerHTML = optionsHtml;
+    const optsEl = $('#quizOptions');
+    if (optsEl) optsEl.innerHTML = optionsHtml;
 
     $$('.quiz-option').forEach(btn => {
       btn.addEventListener('click', () => {
@@ -620,19 +616,16 @@ const App = (() => {
         state.quizAnswered = true;
         const idx = parseInt(btn.dataset.idx);
         const correct = idx === q.answer;
-
-        // 高亮正确答案
         $$('.quiz-option').forEach((b, i) => {
           b.classList.add('disabled');
           if (i === q.answer) b.classList.add('correct');
         });
         if (!correct) btn.classList.add('wrong');
-
         if (correct) {
           state.quizScore++;
-          $('#quizScoreDisplay').textContent = state.quizScore;
+          const scoreEl2 = $('#quizScoreDisplay');
+          if (scoreEl2) scoreEl2.textContent = state.quizScore;
         }
-
         setTimeout(() => {
           state.quizCurrent++;
           renderQuiz();
@@ -642,29 +635,32 @@ const App = (() => {
   }
 
   function showQuizResult() {
-    $('#quizContainer').style.display = 'none';
+    const qc = $('#quizContainer');
+    if (qc) qc.style.display = 'none';
     const resultDiv = $('#quizResult');
-    resultDiv.style.display = 'block';
-
+    if (resultDiv) resultDiv.style.display = 'block';
     const total = quizData.length;
     const score = state.quizScore;
-
     let stamp, text;
     if (score === total) { stamp = '优'; text = '满分传承人！你对剪纸文化了如指掌。'; }
     else if (score >= 3) { stamp = '良'; text = `答对 ${score}/${total} 题，剪纸知识掌握得不错！`; }
     else { stamp = '学'; text = `答对 ${score}/${total} 题，再多了解一些剪纸文化吧～`; }
-
-    $('#resultStamp').textContent = stamp;
-    $('#resultText').textContent = text;
+    const stampEl = $('#resultStamp');
+    if (stampEl) stampEl.textContent = stamp;
+    const textEl = $('#resultText');
+    if (textEl) textEl.textContent = text;
   }
 
   function resetQuiz() {
     state.quizCurrent = 0;
     state.quizScore = 0;
     state.quizAnswered = false;
-    $('#quizContainer').style.display = 'block';
-    $('#quizResult').style.display = 'none';
-    $('#quizScoreDisplay').textContent = '0';
+    const qc = $('#quizContainer');
+    if (qc) qc.style.display = 'block';
+    const resultDiv = $('#quizResult');
+    if (resultDiv) resultDiv.style.display = 'none';
+    const scoreEl = $('#quizScoreDisplay');
+    if (scoreEl) scoreEl.textContent = '0';
     renderQuiz();
   }
 
@@ -672,7 +668,6 @@ const App = (() => {
      第9页 — 祝福卡生成
      ========================================================== */
   function initCardGen() {
-    // 主题按钮
     $$('#cardgenThemes .theme-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         $$('#cardgenThemes .theme-btn').forEach(b => b.classList.remove('active'));
@@ -680,32 +675,41 @@ const App = (() => {
       });
     });
 
-    // 实时预览
     const nameInput = $('#cardName');
     const msgInput = $('#cardMessage');
     const updatePreview = () => {
-      $('#cardTo').textContent = nameInput.value || '送给最好的朋友';
-      $('#cardGreeting').textContent = msgInput.value || '万事如意';
+      const toEl = $('#cardTo');
+      if (toEl) toEl.textContent = (nameInput && nameInput.value) || '送给最好的朋友';
+      const greetEl = $('#cardGreeting');
+      if (greetEl) greetEl.textContent = (msgInput && msgInput.value) || '万事如意';
       const activeTheme = $('.theme-btn.active');
-      if (activeTheme) $('#cardThemeSymbol').textContent = activeTheme.dataset.theme;
+      const symEl = $('#cardThemeSymbol');
+      if (activeTheme && symEl) symEl.textContent = activeTheme.dataset.theme;
     };
-    nameInput.addEventListener('input', updatePreview);
-    msgInput.addEventListener('input', updatePreview);
+    if (nameInput) nameInput.addEventListener('input', updatePreview);
+    if (msgInput) msgInput.addEventListener('input', updatePreview);
 
-    // 卡片日期
     const now = new Date();
-    $('#cardDate').textContent = `${now.getFullYear()}.${now.getMonth()+1}.${now.getDate()}`;
+    const dateEl = $('#cardDate');
+    if (dateEl) dateEl.textContent = `${now.getFullYear()}.${now.getMonth()+1}.${now.getDate()}`;
   }
 
   function generateCard() {
-    const name = $('#cardName').value || '送给最好的朋友';
-    const msg = $('#cardMessage').value || '万事如意';
-    const theme = ($('.theme-btn.active') || {}).dataset?.theme || '福';
+    const nameInput = $('#cardName');
+    const msgInput = $('#cardMessage');
+    const name = (nameInput && nameInput.value) || '送给最好的朋友';
+    const msg = (msgInput && msgInput.value) || '万事如意';
+    const activeBtn = $('.theme-btn.active');
+    const theme = (activeBtn && activeBtn.dataset) ? activeBtn.dataset.theme : '福';
 
-    $('#cardTo').textContent = name;
-    $('#cardGreeting').textContent = msg;
-    $('#cardThemeSymbol').textContent = theme;
-    $('#btnSaveCard').style.display = 'inline-block';
+    const toEl = $('#cardTo');
+    if (toEl) toEl.textContent = name;
+    const greetEl = $('#cardGreeting');
+    if (greetEl) greetEl.textContent = msg;
+    const symEl = $('#cardThemeSymbol');
+    if (symEl) symEl.textContent = theme;
+    const saveBtn = $('#btnSaveCard');
+    if (saveBtn) saveBtn.style.display = 'inline-block';
   }
 
   function saveCard() {
@@ -731,7 +735,7 @@ const App = (() => {
     $$('.keyword-header').forEach(header => {
       header.addEventListener('click', () => {
         const item = header.parentElement;
-        item.classList.toggle('open');
+        if (item) item.classList.toggle('open');
       });
     });
   }

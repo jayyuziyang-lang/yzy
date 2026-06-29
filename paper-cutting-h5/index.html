@@ -284,25 +284,21 @@
       <p class="page-subtitle">拖动四瓣剪纸碎片到圆形窗框中，拼出完整窗花</p>
     </div>
     <div class="puzzle-area">
-      <!-- 窗框（目标区域） -->
-      <div class="puzzle-frame" id="puzzleFrame">
-        <svg viewBox="0 0 240 240" class="frame-svg">
-          <!-- 外圆窗框 -->
-          <circle cx="120" cy="120" r="110" fill="#FFF8EC" stroke="#D8A24A" stroke-width="3"/>
-          <circle cx="120" cy="120" r="102" fill="none" stroke="rgba(177,18,38,0.2)" stroke-width="1.5" stroke-dasharray="6,4"/>
-          <circle cx="120" cy="120" r="10" fill="#D8A24A" opacity="0.5"/>
-          <!-- 十字参考线 -->
-          <line x1="120" y1="10" x2="120" y2="230" stroke="rgba(177,18,38,0.1)" stroke-width="1"/>
-          <line x1="10" y1="120" x2="230" y2="120" stroke="rgba(177,18,38,0.1)" stroke-width="1"/>
+      <!-- 碎片和目标区共享同一父容器，统一坐标空间 -->
+      <div class="puzzle-board" id="puzzleBoard">
+        <svg viewBox="0 0 280 280" class="puzzle-board-bg">
+          <circle cx="140" cy="140" r="130" fill="#FFF8EC" stroke="#D8A24A" stroke-width="3"/>
+          <circle cx="140" cy="140" r="120" fill="none" stroke="rgba(177,18,38,0.18)" stroke-width="1.5" stroke-dasharray="8,5"/>
+          <circle cx="140" cy="140" r="12" fill="#D8A24A" opacity="0.4"/>
+          <line x1="140" y1="8" x2="140" y2="272" stroke="rgba(177,18,38,0.08)" stroke-width="1"/>
+          <line x1="8" y1="140" x2="272" y2="140" stroke="rgba(177,18,38,0.08)" stroke-width="1"/>
         </svg>
-        <!-- 四个放置区 -->
-        <div class="target-zone" data-zone="0" style="position:absolute;left:9px;top:9px;width:111px;height:111px;"></div>
-        <div class="target-zone" data-zone="1" style="position:absolute;right:9px;top:9px;width:111px;height:111px;"></div>
-        <div class="target-zone" data-zone="2" style="position:absolute;left:9px;bottom:9px;width:111px;height:111px;"></div>
-        <div class="target-zone" data-zone="3" style="position:absolute;right:9px;bottom:9px;width:111px;height:111px;"></div>
-      </div>
-      <!-- 碎片区 -->
-      <div class="puzzle-pieces" id="puzzlePieces">
+        <!-- 四个目标放置区（中心圆形排列） -->
+        <div class="target-zone" data-zone="0" style="position:absolute;left:20px;top:20px;width:120px;height:120px;"></div>
+        <div class="target-zone" data-zone="1" style="position:absolute;right:20px;top:20px;width:120px;height:120px;"></div>
+        <div class="target-zone" data-zone="2" style="position:absolute;left:20px;bottom:20px;width:120px;height:120px;"></div>
+        <div class="target-zone" data-zone="3" style="position:absolute;right:20px;bottom:20px;width:120px;height:120px;"></div>
+        <!-- 四块拼图碎片（统一坐标空间，初始分布在外围） -->
         <div class="puzzle-piece" data-piece="0">
           <svg viewBox="0 0 120 120" class="piece-svg">
             <defs><clipPath id="pq0"><path d="M60,5 A55,55 0 0,1 115,60 L60,60Z"/></clipPath></defs>
