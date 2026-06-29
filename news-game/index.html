@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>信息侦探：真假新闻挑战</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- 全局粒子背景 -->
+  <div class="particles" id="particles"></div>
+
+  <!-- 撒花容器 -->
+  <div class="confetti-container" id="confetti"></div>
+
+  <div class="app-container">
+
+    <!-- ====== 第1页：首页 ====== -->
+    <section id="page-home" class="page active">
+      <div class="home-bg"></div>
+      <div class="page-inner">
+        <!-- 侦探角色 CSS 插图 -->
+        <div class="detective-figure">
+          <div class="detective-hat">
+            <div class="hat-brim"></div>
+            <div class="hat-top"></div>
+            <div class="hat-band"></div>
+          </div>
+          <div class="detective-face">
+            <div class="eye left"></div>
+            <div class="eye right"></div>
+            <div class="mouth"></div>
+          </div>
+          <div class="detective-coat"></div>
+          <div class="magnifier-float">
+            <div class="mag-circle"></div>
+            <div class="mag-handle"></div>
+          </div>
+        </div>
+
+        <div class="home-title-group">
+          <span class="home-badge">TOP SECRET</span>
+          <h1 class="home-title">信息侦探</h1>
+          <p class="home-subtitle">真假新闻挑战</p>
+        </div>
+
+        <div class="home-meta">
+          <div class="meta-item">
+            <span class="meta-icon">📰</span>
+            <span>10条真实案例</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-icon">⏱️</span>
+            <span>每题限时15秒</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-icon">🏆</span>
+            <span>冲击满分100</span>
+          </div>
+        </div>
+
+        <button class="btn btn-gold" onclick="goToPage('briefing')">
+          <span>开始挑战</span>
+          <span class="btn-glow"></span>
+        </button>
+
+        <p class="home-hint">案件档案已准备就绪 · 等待侦探入场</p>
+      </div>
+    </section>
+
+    <!-- ====== 第2页：案情简介 ====== -->
+    <section id="page-briefing" class="page">
+      <div class="page-inner">
+        <div class="briefing-stamp">CASE FILE</div>
+        <div class="card card-dark">
+          <div class="card-header">
+            <span class="case-num">案件编号 #2026-001</span>
+            <span class="case-level">级别：公开</span>
+          </div>
+          <h2 class="briefing-title">网络信息真伪调查</h2>
+          <div class="briefing-body">
+            <p>近期，网络上出现大量<span class="hl">未经证实的信息</span>，部分内容以夸张标题和模糊来源<span class="hl">误导公众判断</span>。</p>
+            <p>你的任务：以"信息侦探"身份，对<span class="hl">10条</span>网络流传的新闻线索逐一核查，判断其<span class="hl">可信度</span>。案例涵盖<span class="hl">食品安全、AI伪造、灾害谣言、政策曲解、伪科普</span>等真实类型。</p>
+            <p>每题<span class="hl">10分</span>基础分，连续答对触发<span class="hl">连击加分</span>，满分100分。</p>
+          </div>
+          <div class="briefing-footer">
+            <span class="stamp-text">—— 侦探局 · 信息核查科</span>
+          </div>
+        </div>
+        <button class="btn btn-gold" onclick="goToPage('instructions')">
+          <span>接受任务</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- ====== 第3页：玩法说明 ====== -->
+    <section id="page-instructions" class="page">
+      <div class="page-inner">
+        <div class="section-label">侦探手册</div>
+        <div class="card card-dark">
+          <h2 class="card-title-sm">行动守则</h2>
+          <div class="rule-cards">
+            <div class="rule-card">
+              <div class="rule-icon-wrap"><span class="rule-ico">🔍</span></div>
+              <div class="rule-text">
+                <strong>审查来源</strong>
+                <span>信息来自官方机构还是匿名渠道？</span>
+              </div>
+            </div>
+            <div class="rule-card">
+              <div class="rule-icon-wrap"><span class="rule-ico">⚖️</span></div>
+              <div class="rule-text">
+                <strong>做出判断</strong>
+                <span>选择"可信"或"存疑"，每题10分</span>
+              </div>
+            </div>
+            <div class="rule-card">
+              <div class="rule-icon-wrap"><span class="rule-ico">⏱️</span></div>
+              <div class="rule-text">
+                <strong>限时决策</strong>
+                <span>每题15秒，超时自动判错</span>
+              </div>
+            </div>
+            <div class="rule-card">
+              <div class="rule-icon-wrap"><span class="rule-ico">🔥</span></div>
+              <div class="rule-text">
+                <strong>连击加分</strong>
+                <span>连续答对+3~8分，最高连击奖励</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="btn btn-gold" onclick="startGame()">
+          <span>开始调查</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- ====== 第4-8页：答题页 ====== -->
+    <section id="page-question" class="page">
+      <div class="page-inner">
+        <!-- 顶部信息栏 -->
+        <div class="question-top-bar">
+          <div class="top-left">
+            <span class="q-progress" id="qProgress">1/5</span>
+          </div>
+          <div class="top-center">
+            <span class="streak-badge" id="streakBadge" style="display:none;">
+              🔥 <span id="streakCount">0</span>连击
+            </span>
+          </div>
+          <div class="top-right">
+            <span class="score-live">🕵️ <span id="liveScore">0</span>分</span>
+          </div>
+        </div>
+
+        <!-- 进度条 -->
+        <div class="progress-wrap">
+          <div class="progress-track">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+        </div>
+
+        <!-- 计时器 -->
+        <div class="timer-wrap" id="timerWrap">
+          <svg class="timer-ring" viewBox="0 0 60 60">
+            <circle class="timer-ring-bg" cx="30" cy="30" r="26"/>
+            <circle class="timer-ring-fg" cx="30" cy="30" r="26" id="timerRing"/>
+          </svg>
+          <span class="timer-text" id="timerText">15</span>
+        </div>
+
+        <!-- 题目卡片 -->
+        <div class="card card-question" id="questionCard">
+          <div class="q-category" id="qCategory"></div>
+          <h3 class="q-title" id="qTitle"></h3>
+          <div class="q-clue-box" id="qClueBox">
+            <span class="clue-label">线索</span>
+            <p class="q-clue" id="qClue"></p>
+          </div>
+
+          <!-- 选择按钮 -->
+          <div class="choice-row" id="choiceRow">
+            <button class="btn-choice btn-trust" onclick="submitAnswer('可信')">
+              <span class="choice-circle">✓</span>
+              <span class="choice-label">可信</span>
+              <span class="choice-desc">来源权威 · 信息完整</span>
+            </button>
+            <button class="btn-choice btn-doubt" onclick="submitAnswer('存疑')">
+              <span class="choice-circle">?</span>
+              <span class="choice-label">存疑</span>
+              <span class="choice-desc">来源不明 · 信息模糊</span>
+            </button>
+          </div>
+
+          <!-- 反馈区 -->
+          <div class="feedback-panel" id="feedbackPanel" style="display:none;">
+            <div class="fb-big-icon" id="fbIcon"></div>
+            <div class="fb-big-text" id="fbText"></div>
+            <div class="fb-analysis" id="fbAnalysis"></div>
+            <button class="btn btn-gold btn-next-q" id="btnNextQ" onclick="nextQuestion()">
+              <span id="btnNextLabel">下一线索</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== 第9页：结果页 ====== -->
+    <section id="page-result" class="page">
+      <div class="page-inner">
+        <div class="section-label">调查结论</div>
+        <div class="card card-dark result-main">
+          <!-- 分数环 -->
+          <div class="score-ring-wrap">
+            <svg class="score-ring" viewBox="0 0 160 160">
+              <defs>
+                <linearGradient id="scoreGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#4F46E5"/>
+                  <stop offset="100%" stop-color="#818CF8"/>
+                </linearGradient>
+              </defs>
+              <circle class="sr-bg" cx="80" cy="80" r="68"/>
+              <circle class="sr-fg" cx="80" cy="80" r="68" id="scoreRing"/>
+            </svg>
+            <div class="score-ring-inner">
+              <span class="sr-number" id="srNumber">0</span>
+              <span class="sr-unit">分</span>
+            </div>
+          </div>
+
+          <!-- 称号 -->
+          <div class="rank-badge" id="rankBadge">
+            <span class="rank-icon" id="rankIcon"></span>
+            <span class="rank-name" id="rankName"></span>
+          </div>
+          <p class="rank-eval" id="rankEval"></p>
+
+          <!-- 详细统计 -->
+          <div class="stats-row">
+            <div class="stat-item">
+              <span class="stat-val" id="statCorrect">0</span>
+              <span class="stat-lbl">正确</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-val" id="statWrong">0</span>
+              <span class="stat-lbl">错误</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-val" id="statMaxStreak">0</span>
+              <span class="stat-lbl">最高连击</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-val" id="statAvgTime">0s</span>
+              <span class="stat-lbl">平均用时</span>
+            </div>
+          </div>
+
+          <button class="btn btn-gold" onclick="restartGame()">
+            <span>重新调查</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== 第10页：分享页 ====== -->
+    <section id="page-share" class="page">
+      <div class="page-inner">
+        <div class="section-label">分享你的侦探战绩</div>
+        <div class="card card-dark share-card">
+          <p class="share-score-text">
+            我获得了 <strong id="shareScore">80分</strong><br>
+            称号：<strong id="shareRank">信息侦探</strong>
+          </p>
+
+          <!-- 二维码 -->
+          <div class="qr-wrap">
+            <img id="qrImage" class="qr-image" alt="扫码体验游戏" />
+            <p class="qr-hint">扫码即可体验</p>
+          </div>
+
+          <div class="share-actions">
+            <button class="btn btn-gold" onclick="copyLink()">
+              <span id="copyBtnLabel">复制作品链接</span>
+            </button>
+            <button class="btn btn-outline-light" onclick="restartGame()">
+              再玩一次
+            </button>
+          </div>
+          <p class="copy-feedback" id="copyFeedback"></p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
