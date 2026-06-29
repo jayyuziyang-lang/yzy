@@ -105,103 +105,24 @@ const App = (() => {
   }
 
   /* ==========================================================
-     音乐引擎 — 中国传统五声音阶 (宫商角徵羽)
+     音乐控制 — 周杰伦《兰亭序》背景音乐
      ========================================================== */
-  const MusicEngine = (() => {
-    let ctx = null;
-    let playing = false;
-    let masterGain = null;
-    let melodyTimer = null;
+  const bgMusic = document.getElementById('bgMusic');
 
-    const pentatonic = [261.63, 293.66, 329.63, 392.00, 440.00,
-                        523.25, 587.33, 659.25, 784.00, 880.00];
-
-    const melodies = [
-      [0,4,3,4, 1,0,4,3],
-      [4,3,1,0, 4,3,0,4],
-      [0,1,3,4, 3,1,0,4],
-      [3,4,1,0, 4,3,4,1],
-      [0,2,4,3, 1,0,2,4],
-    ];
-
-    async function ensureCtx() {
-      if (!ctx) {
-        ctx = new (window.AudioContext || window.webkitAudioContext)();
-        masterGain = ctx.createGain();
-        masterGain.gain.value = 0.12;
-        masterGain.connect(ctx.destination);
-      }
-      if (ctx.state === 'suspended') {
-        try { await ctx.resume(); } catch(e) { console.warn('AudioContext resume failed:', e); }
-      }
-      return ctx;
-    }
-
-    function playNote(freq, startTime, duration, vol) {
-      if (!ctx || ctx.state === 'closed') return;
-      const osc = ctx.createOscillator();
-      osc.type = 'triangle';
-      osc.frequency.value = freq;
-      const noteGain = ctx.createGain();
-      const v = vol || 0.15;
-      noteGain.gain.setValueAtTime(0, startTime);
-      noteGain.gain.linearRampToValueAtTime(v, startTime + 0.05);
-      noteGain.gain.linearRampToValueAtTime(v * 0.5, startTime + duration * 0.7);
-      noteGain.gain.linearRampToValueAtTime(0, startTime + duration);
-      osc.connect(noteGain);
-      noteGain.connect(masterGain);
-      osc.start(startTime);
-      osc.stop(startTime + duration + 0.1);
-    }
-
-    function playMelody() {
-      if (!playing || !ctx || ctx.state === 'closed') return;
-      const now = ctx.currentTime;
-      const melody = melodies[Math.floor(Math.random() * melodies.length)];
-      const baseOctave = Math.random() > 0.5 ? 0 : 5;
-      melody.forEach((idx, i) => {
-        const freq = pentatonic[idx + baseOctave] || pentatonic[idx];
-        playNote(freq, now + i * 0.7, 1.3, 0.12);
-        if (Math.random() > 0.5) {
-          playNote(freq * 2, now + i * 0.7 + 0.04, 0.4, 0.04);
-        }
-      });
-      const nextDelay = melody.length * 0.7 + 2 + Math.random() * 2.5;
-      melodyTimer = setTimeout(() => playMelody(), nextDelay * 1000);
-    }
-
-    async function start() {
-      if (playing) return;
-      await ensureCtx();
-      if (!ctx || ctx.state === 'closed') return;
-      playing = true;
-      const now = ctx.currentTime;
-      for (let i = 0; i < 6; i++) {
-        const freq = pentatonic[Math.floor(Math.random() * pentatonic.length)];
-        playNote(freq, now + i * 0.4, 2.5, 0.08);
-      }
-      playMelody();
-    }
-
-    function stop() {
-      playing = false;
-      if (melodyTimer) {
-        clearTimeout(melodyTimer);
-        melodyTimer = null;
-      }
-      if (masterGain && ctx && ctx.state !== 'closed') {
-        masterGain.gain.linearRampToValueAtTime(0, ctx.currentTime + 0.5);
-      }
-    }
-
-    return { start, stop, get playing() { return playing; } };
-  })();
-
-  /* ==========================================================
-     音乐开关 + 首次用户交互自动启动
-     ========================================================== */
+  /* 首次用户交互自动播放 */
   let _musicAutoStarted = false;
-  let _musicLoaded = false;
+  function tryAutoStartMusic() {
+    if (_musicAutoStarted || !bgMusic) return;
+    _musicAutoStarted = true;
+    bgMusic.play().then(() => {
+      updateMusicUI(true);
+    }).catch(() => {
+      _musicAutoStarted = false;
+    });
+  }
+  ['click','touchstart','keydown','wheel'].forEach(evt => {
+    document.addEventListener(evt, tryAutoStartMusic, { once: true, passive: true });
+  });
 
   function updateMusicUI(active) {
     if (!musicToggle) return;
@@ -216,41 +137,21 @@ const App = (() => {
     }
   }
 
-  async function tryAutoStartMusic() {
-    if (_musicAutoStarted) return;
-    _musicAutoStarted = true;
-    try {
-      await MusicEngine.start();
-      _musicLoaded = true;
-      updateMusicUI(true);
-    } catch(e) {
-      console.warn('Music auto-start failed:', e);
-      _musicAutoStarted = false;
-    }
-  }
-
-  // 注册所有可能的首次用户交互事件（包括滚轮）
-  ['click','touchstart','keydown','wheel'].forEach(evt => {
-    document.addEventListener(evt, tryAutoStartMusic, { once: true, passive: true });
-  });
-
   function initMusic() {
-    if (!musicToggle) return;
-    musicToggle.addEventListener('click', async (e) => {
+    if (!musicToggle || !bgMusic) return;
+    musicToggle.addEventListener('click', (e) => {
       e.stopPropagation();
-      if (MusicEngine.playing) {
-        MusicEngine.stop();
+      if (!bgMusic.paused) {
+        bgMusic.pause();
         updateMusicUI(false);
       } else {
-        try {
-          await MusicEngine.start();
-          _musicLoaded = true;
+        bgMusic.play().then(() => {
           updateMusicUI(true);
-        } catch(err) {
-          console.warn('Music toggle start failed:', err);
-        }
+        }).catch(() => {});
       }
     });
+    bgMusic.addEventListener('play', () => updateMusicUI(true));
+    bgMusic.addEventListener('pause', () => updateMusicUI(false));
   }
 
   /* ==========================================================
