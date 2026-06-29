@@ -124,26 +124,26 @@ const App = (() => {
       [0,2,4,3, 1,0,2,4],
     ];
 
-    function ensureCtx() {
+    async function ensureCtx() {
       if (!ctx) {
         ctx = new (window.AudioContext || window.webkitAudioContext)();
         masterGain = ctx.createGain();
-        masterGain.gain.value = 0.07;
+        masterGain.gain.value = 0.12;
         masterGain.connect(ctx.destination);
       }
       if (ctx.state === 'suspended') {
-        ctx.resume();
+        try { await ctx.resume(); } catch(e) { console.warn('AudioContext resume failed:', e); }
       }
       return ctx;
     }
 
     function playNote(freq, startTime, duration, vol) {
-      const c = ensureCtx();
-      const osc = c.createOscillator();
+      if (!ctx || ctx.state === 'closed') return;
+      const osc = ctx.createOscillator();
       osc.type = 'triangle';
       osc.frequency.value = freq;
-      const noteGain = c.createGain();
-      const v = vol || 0.12;
+      const noteGain = ctx.createGain();
+      const v = vol || 0.15;
       noteGain.gain.setValueAtTime(0, startTime);
       noteGain.gain.linearRampToValueAtTime(v, startTime + 0.05);
       noteGain.gain.linearRampToValueAtTime(v * 0.5, startTime + duration * 0.7);
@@ -155,30 +155,30 @@ const App = (() => {
     }
 
     function playMelody() {
-      if (!playing) return;
-      ensureCtx();
+      if (!playing || !ctx || ctx.state === 'closed') return;
       const now = ctx.currentTime;
       const melody = melodies[Math.floor(Math.random() * melodies.length)];
       const baseOctave = Math.random() > 0.5 ? 0 : 5;
       melody.forEach((idx, i) => {
         const freq = pentatonic[idx + baseOctave] || pentatonic[idx];
-        playNote(freq, now + i * 0.7, 1.3, 0.1);
+        playNote(freq, now + i * 0.7, 1.3, 0.12);
         if (Math.random() > 0.5) {
-          playNote(freq * 2, now + i * 0.7 + 0.04, 0.4, 0.03);
+          playNote(freq * 2, now + i * 0.7 + 0.04, 0.4, 0.04);
         }
       });
       const nextDelay = melody.length * 0.7 + 2 + Math.random() * 2.5;
       melodyTimer = setTimeout(() => playMelody(), nextDelay * 1000);
     }
 
-    function start() {
+    async function start() {
       if (playing) return;
-      ensureCtx();
+      await ensureCtx();
+      if (!ctx || ctx.state === 'closed') return;
       playing = true;
       const now = ctx.currentTime;
       for (let i = 0; i < 6; i++) {
         const freq = pentatonic[Math.floor(Math.random() * pentatonic.length)];
-        playNote(freq, now + i * 0.4, 2.5, 0.07);
+        playNote(freq, now + i * 0.4, 2.5, 0.08);
       }
       playMelody();
     }
@@ -201,34 +201,54 @@ const App = (() => {
      音乐开关 + 首次用户交互自动启动
      ========================================================== */
   let _musicAutoStarted = false;
-  function tryAutoStartMusic() {
-    if (_musicAutoStarted) return;
-    _musicAutoStarted = true;
-    if (!MusicEngine.playing) {
-      MusicEngine.start();
-      if (musicToggle) {
-        musicToggle.classList.add('playing');
-        const icon = musicToggle.querySelector('.music-icon');
-        if (icon) icon.textContent = '\u266B';
-      }
+  let _musicLoaded = false;
+
+  function updateMusicUI(active) {
+    if (!musicToggle) return;
+    if (active) {
+      musicToggle.classList.add('playing');
+      const icon = musicToggle.querySelector('.music-icon');
+      if (icon) icon.textContent = '\u266B';
+    } else {
+      musicToggle.classList.remove('playing');
+      const icon = musicToggle.querySelector('.music-icon');
+      if (icon) icon.textContent = '\u266A';
     }
   }
-  ['click','touchstart','keydown'].forEach(evt => {
+
+  async function tryAutoStartMusic() {
+    if (_musicAutoStarted) return;
+    _musicAutoStarted = true;
+    try {
+      await MusicEngine.start();
+      _musicLoaded = true;
+      updateMusicUI(true);
+    } catch(e) {
+      console.warn('Music auto-start failed:', e);
+      _musicAutoStarted = false;
+    }
+  }
+
+  // 注册所有可能的首次用户交互事件（包括滚轮）
+  ['click','touchstart','keydown','wheel'].forEach(evt => {
     document.addEventListener(evt, tryAutoStartMusic, { once: true, passive: true });
   });
 
   function initMusic() {
     if (!musicToggle) return;
-    musicToggle.addEventListener('click', (e) => {
+    musicToggle.addEventListener('click', async (e) => {
       e.stopPropagation();
       if (MusicEngine.playing) {
         MusicEngine.stop();
-        musicToggle.classList.remove('playing');
-        musicToggle.querySelector('.music-icon').textContent = '\u266A';
+        updateMusicUI(false);
       } else {
-        MusicEngine.start();
-        musicToggle.classList.add('playing');
-        musicToggle.querySelector('.music-icon').textContent = '\u266B';
+        try {
+          await MusicEngine.start();
+          _musicLoaded = true;
+          updateMusicUI(true);
+        } catch(err) {
+          console.warn('Music toggle start failed:', err);
+        }
       }
     });
   }

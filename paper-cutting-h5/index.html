@@ -298,8 +298,8 @@
         <div class="target-zone" data-zone="1" style="position:absolute;right:20px;top:20px;width:120px;height:120px;"></div>
         <div class="target-zone" data-zone="2" style="position:absolute;left:20px;bottom:20px;width:120px;height:120px;"></div>
         <div class="target-zone" data-zone="3" style="position:absolute;right:20px;bottom:20px;width:120px;height:120px;"></div>
-        <!-- 四块拼图碎片（统一坐标空间，初始分布在外围） -->
-        <div class="puzzle-piece" data-piece="0">
+        <!-- 四块拼图碎片（初始分散在四角，拖入中心目标区） -->
+        <div class="puzzle-piece" data-piece="0" style="left:5px;top:5px;">
           <svg viewBox="0 0 120 120" class="piece-svg">
             <defs><clipPath id="pq0"><path d="M60,5 A55,55 0 0,1 115,60 L60,60Z"/></clipPath></defs>
             <circle cx="60" cy="60" r="55" fill="#B11226" clip-path="url(#pq0)"/>
@@ -309,7 +309,7 @@
             <circle cx="80" cy="30" r="4" fill="#D8A24A" opacity="0.6"/>
           </svg>
         </div>
-        <div class="puzzle-piece" data-piece="1">
+        <div class="puzzle-piece" data-piece="1" style="left:175px;top:5px;">
           <svg viewBox="0 0 120 120" class="piece-svg">
             <defs><clipPath id="pq1"><path d="M60,5 A55,55 0 0,0 5,60 L60,60Z"/></clipPath></defs>
             <circle cx="60" cy="60" r="55" fill="#B11226" clip-path="url(#pq1)"/>
@@ -319,7 +319,7 @@
             <circle cx="40" cy="30" r="4" fill="#D8A24A" opacity="0.6"/>
           </svg>
         </div>
-        <div class="puzzle-piece" data-piece="2">
+        <div class="puzzle-piece" data-piece="2" style="left:5px;top:175px;">
           <svg viewBox="0 0 120 120" class="piece-svg">
             <defs><clipPath id="pq2"><path d="M115,60 A55,55 0 0,1 60,115 L60,60Z"/></clipPath></defs>
             <circle cx="60" cy="60" r="55" fill="#B11226" clip-path="url(#pq2)"/>
@@ -329,7 +329,7 @@
             <circle cx="80" cy="90" r="4" fill="#D8A24A" opacity="0.6"/>
           </svg>
         </div>
-        <div class="puzzle-piece" data-piece="3">
+        <div class="puzzle-piece" data-piece="3" style="left:175px;top:175px;">
           <svg viewBox="0 0 120 120" class="piece-svg">
             <defs><clipPath id="pq3"><path d="M5,60 A55,55 0 0,0 60,115 L60,60Z"/></clipPath></defs>
             <circle cx="60" cy="60" r="55" fill="#B11226" clip-path="url(#pq3)"/>
