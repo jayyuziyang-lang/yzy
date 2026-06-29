@@ -106,12 +106,115 @@ const App = (() => {
   }
 
   /* ==========================================================
+     音乐引擎 — 中国传统五声音阶 (宫商角徵羽)
+     ========================================================== */
+  const MusicEngine = (() => {
+    let ctx = null;
+    let playing = false;
+    let gainNode = null;
+    let activeNodes = [];
+
+    // 五声音阶频率 (宫=C4, 商=D4, 角=E4, 徵=G4, 羽=A4)
+    const pentatonic = [261.63, 293.66, 329.63, 392.00, 440.00,
+                        523.25, 587.33, 659.25, 784.00, 880.00];
+
+    // 传统旋律片段 (索引, 时长秒)
+    const melodies = [
+      [0,4,3,4, 1,0,4,3],  // 经典上行
+      [4,3,1,0, 4,3,0,4],  // 下行
+      [0,1,3,4, 3,1,0,4],  // 波浪
+      [3,4,1,0, 4,3,4,1],  // 变奏
+    ];
+
+    function ensureCtx() {
+      if (!ctx) {
+        ctx = new (window.AudioContext || window.webkitAudioContext)();
+        gainNode = ctx.createGain();
+        gainNode.gain.value = 0.08;
+        gainNode.connect(ctx.destination);
+      }
+      if (ctx.state === 'suspended') ctx.resume();
+      return ctx;
+    }
+
+    function playNote(freq, startTime, duration) {
+      const c = ensureCtx();
+      // 主音色 — 三角波模拟古筝/琴
+      const osc = c.createOscillator();
+      osc.type = 'triangle';
+      osc.frequency.value = freq;
+      const noteGain = c.createGain();
+      noteGain.gain.setValueAtTime(0, startTime);
+      noteGain.gain.linearRampToValueAtTime(0.15, startTime + 0.08);
+      noteGain.gain.linearRampToValueAtTime(0.06, startTime + duration * 0.7);
+      noteGain.gain.linearRampToValueAtTime(0, startTime + duration);
+      osc.connect(noteGain);
+      noteGain.connect(gainNode);
+      osc.start(startTime);
+      osc.stop(startTime + duration);
+      activeNodes.push(osc, noteGain);
+    }
+
+    function playMelody() {
+      if (!playing) return;
+      ensureCtx();
+      const now = ctx.currentTime;
+      const melody = melodies[Math.floor(Math.random() * melodies.length)];
+      const baseOctave = Math.random() > 0.5 ? 0 : 5; // 高低八度交替
+      melody.forEach((idx, i) => {
+        const freq = pentatonic[idx + baseOctave] || pentatonic[idx];
+        playNote(freq, now + i * 0.65, 1.2);
+        // 偶尔加泛音
+        if (Math.random() > 0.6) {
+          playNote(freq * 2, now + i * 0.65 + 0.05, 0.5);
+        }
+      });
+      // 清理旧节点
+      activeNodes = activeNodes.filter(n => {
+        try { return n.context && n.context.currentTime < (n.stopTime || 0); } catch(e) { return false; }
+      });
+
+      const nextDelay = melody.length * 0.65 + 1.5 + Math.random() * 2;
+      setTimeout(() => playMelody(), nextDelay * 1000);
+    }
+
+    function start() {
+      if (playing) return;
+      ensureCtx();
+      playing = true;
+      // 起始环境音
+      const now = ctx.currentTime;
+      for (let i = 0; i < 4; i++) {
+        const freq = pentatonic[Math.floor(Math.random() * pentatonic.length)];
+        playNote(freq, now + i * 0.5, 2);
+      }
+      playMelody();
+    }
+
+    function stop() {
+      playing = false;
+      if (gainNode) {
+        gainNode.gain.linearRampToValueAtTime(0, ctx.currentTime + 0.3);
+      }
+    }
+
+    return { start, stop, get playing() { return playing; } };
+  })();
+
+  /* ==========================================================
      音乐开关
      ========================================================== */
   function initMusic() {
     musicToggle.addEventListener('click', () => {
-      musicToggle.classList.toggle('playing');
-      // 音频占位 — 如需真实音频，替换为 Audio() 对象
+      if (MusicEngine.playing) {
+        MusicEngine.stop();
+        musicToggle.classList.remove('playing');
+        musicToggle.querySelector('.music-icon').textContent = '♪';
+      } else {
+        MusicEngine.start();
+        musicToggle.classList.add('playing');
+        musicToggle.querySelector('.music-icon').textContent = '♫';
+      }
     });
   }
 
@@ -175,40 +278,36 @@ const App = (() => {
   }
 
   /* ==========================================================
-     第5页 — 拖拽拼窗花
+     第5页 — 拖拽拼窗花 (重新设计版)
      ========================================================== */
+  let puzzlePieceStart = []; // 记录每块碎片的初始位置
+
   function initPuzzle() {
     const pieces = $$('.puzzle-piece');
     const zones = $$('.target-zone');
-    const zoneRects = [];
-    const puzzlePage = $('.page-puzzle');
 
-    // 缓存目标区域位置
-    function cacheZoneRects() {
-      zoneRects.length = 0;
-      zones.forEach((z, i) => {
-        const r = z.getBoundingClientRect();
-        zoneRects[i] = {
-          left: r.left + r.width / 2,
-          top: r.top + r.height / 2,
-          zone: parseInt(z.dataset.zone),
-        };
-      });
-    }
+    // 记录初始位置
+    pieces.forEach((piece, i) => {
+      const r = piece.getBoundingClientRect();
+      puzzlePieceStart[i] = {
+        left: piece.style.left || '0px',
+        top: piece.style.top || '0px',
+      };
+    });
 
     pieces.forEach(piece => {
       piece.addEventListener('pointerdown', (e) => {
         e.preventDefault();
         piece.setPointerCapture(e.pointerId);
         piece.classList.add('dragging');
-        cacheZoneRects();
 
-        const rect = piece.getBoundingClientRect();
-        const offsetX = e.clientX - rect.left;
-        const offsetY = e.clientY - rect.top;
+        const pieceRect = piece.getBoundingClientRect();
+        const offsetX = e.clientX - pieceRect.left;
+        const offsetY = e.clientY - pieceRect.top;
         const startLeft = piece.style.left || '0px';
         const startTop = piece.style.top || '0px';
-        const parentRect = piece.parentElement.getBoundingClientRect();
+        const parentEl = piece.parentElement;
+        const parentRect = parentEl.getBoundingClientRect();
 
         function onMove(ev) {
           const x = ev.clientX - parentRect.left - offsetX;
@@ -216,19 +315,20 @@ const App = (() => {
           piece.style.position = 'relative';
           piece.style.left = x + 'px';
           piece.style.top = y + 'px';
-          piece.style.zIndex = '10';
+          piece.style.zIndex = '100';
 
           // 检测是否靠近目标区域
           zones.forEach(z => z.classList.remove('hover'));
           const cx = ev.clientX;
           const cy = ev.clientY;
-          for (const zr of zoneRects) {
-            const dist = Math.sqrt((cx - zr.left) ** 2 + (cy - zr.top) ** 2);
-            if (dist < 50) {
-              const targetZone = zones[zr.zone];
-              if (!targetZone.classList.contains('matched')) {
-                targetZone.classList.add('hover');
-              }
+          for (const z of zones) {
+            if (z.classList.contains('matched')) continue;
+            const zr = z.getBoundingClientRect();
+            const zcx = zr.left + zr.width / 2;
+            const zcy = zr.top + zr.height / 2;
+            const dist = Math.sqrt((cx - zcx) ** 2 + (cy - zcy) ** 2);
+            if (dist < 55) {
+              z.classList.add('hover');
             }
           }
         }
@@ -236,40 +336,40 @@ const App = (() => {
         function onUp(ev) {
           piece.classList.remove('dragging');
           piece.style.zIndex = '';
-
-          const cx = ev.clientX;
-          const cy = ev.clientY;
           let matched = false;
 
-          for (const zr of zoneRects) {
-            const dist = Math.sqrt((cx - zr.left) ** 2 + (cy - zr.top) ** 2);
-            if (dist < 50) {
-              const targetZone = zones[zr.zone];
-              if (!targetZone.classList.contains('matched')) {
-                // 吸附
-                const zr2 = targetZone.getBoundingClientRect();
-                const pr2 = piece.parentElement.getBoundingClientRect();
-                piece.style.left = (zr2.left - pr2.left) + 'px';
-                piece.style.top = (zr2.top - pr2.top) + 'px';
-                targetZone.classList.add('matched');
-                targetZone.classList.remove('hover');
-                piece.classList.add('placed');
-                state.puzzlePiecesPlaced++;
-                matched = true;
+          for (const z of zones) {
+            if (z.classList.contains('matched')) continue;
+            const zr = z.getBoundingClientRect();
+            const zcx = zr.left + zr.width / 2;
+            const zcy = zr.top + zr.height / 2;
+            const dist = Math.sqrt((ev.clientX - zcx) ** 2 + (ev.clientY - zcy) ** 2);
+            if (dist < 55) {
+              // 吸附到目标区中心
+              const parentEl2 = piece.parentElement;
+              const pr2 = parentEl2.getBoundingClientRect();
+              piece.style.left = (zr.left - pr2.left + zr.width/2 - piece.getBoundingClientRect().width/2 + (ev.clientX - parseFloat(piece.style.left) - pr2.left - piece.getBoundingClientRect().width/2)) + 'px';
+              // 简化：直接计算
+              piece.style.left = (zr.left - pr2.left) + 'px';
+              piece.style.top = (zr.top - pr2.top) + 'px';
+              z.classList.add('matched');
+              z.classList.remove('hover');
+              piece.classList.add('placed');
+              state.puzzlePiecesPlaced++;
+              matched = true;
 
-                if (state.puzzlePiecesPlaced >= state.puzzleTotal) {
-                  setTimeout(() => {
-                    $('#puzzleComplete').style.display = 'flex';
-                  }, 400);
-                }
-                break;
+              if (state.puzzlePiecesPlaced >= state.puzzleTotal) {
+                setTimeout(() => {
+                  $('#puzzleComplete').style.display = 'flex';
+                }, 400);
               }
+              break;
             }
           }
 
           zones.forEach(z => z.classList.remove('hover'));
 
-          // 未匹配 -> 回弹
+          // 未匹配 -> 回弹到初始位置
           if (!matched) {
             piece.style.left = startLeft;
             piece.style.top = startTop;
@@ -284,7 +384,6 @@ const App = (() => {
         piece.addEventListener('pointercancel', onUp);
       });
 
-      // 防止触摸时页面切换
       piece.addEventListener('touchstart', (e) => {
         e.stopPropagation();
       });
@@ -293,10 +392,12 @@ const App = (() => {
 
   function resetPuzzle() {
     state.puzzlePiecesPlaced = 0;
-    $$('.puzzle-piece').forEach(p => {
+    $$('.puzzle-piece').forEach((p, i) => {
       p.classList.remove('placed');
+      p.style.position = '';
       p.style.left = '';
       p.style.top = '';
+      p.style.zIndex = '';
     });
     $$('.target-zone').forEach(z => z.classList.remove('matched'));
     $('#puzzleComplete').style.display = 'none';

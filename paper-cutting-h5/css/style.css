@@ -335,58 +335,87 @@ body::before{
 .craft-step:not(.active) .step-info p{display:none}
 
 /* ============================================================
-   第5页 — 拖拽拼窗花
+   第5页 — 拖拽拼窗花（重新设计版）
    ============================================================ */
 .page-puzzle{background:var(--paper);justify-content:center}
 .puzzle-area{
   width:100%;max-width:400px;z-index:1;
-  display:flex;flex-direction:column;align-items:center;gap:24px;
+  display:flex;flex-direction:column;align-items:center;gap:20px;
 }
-.puzzle-target{
-  width:220px;height:220px;
-  display:grid;grid-template-columns:1fr 1fr;
-  grid-template-rows:1fr 1fr;gap:6px;
-  position:relative;
-}
-.puzzle-target::after{
-  content:'?';position:absolute;inset:0;
-  display:flex;align-items:center;justify-content:center;
-  font-size:48px;color:rgba(177,18,38,0.15);
-  font-family:var(--font-title);
-}
-.target-zone{
-  border:2px dashed rgba(177,18,38,0.35);
-  border-radius:8px;transition:all 0.3s;
-  position:relative;z-index:1;
-}
-.target-zone.matched{border-color:var(--gold);background:rgba(216,162,74,0.1)}
-.target-zone.hover{border-color:var(--red);background:rgba(177,18,38,0.08)}
 
+/* 窗框（目标区） */
+.puzzle-frame{
+  position:relative;width:240px;height:240px;
+  flex-shrink:0;
+}
+.frame-svg{
+  width:100%;height:100%;display:block;
+}
+
+.target-zone{
+  border:2px dashed rgba(177,18,38,0.25);
+  border-radius:50%;
+  transition:all 0.3s ease;
+  z-index:2;
+}
+.target-zone.hover{
+  border-color:var(--red);
+  background:rgba(177,18,38,0.08);
+  border-style:solid;
+  box-shadow:inset 0 0 20px rgba(177,18,38,0.1);
+}
+.target-zone.matched{
+  border-color:var(--gold);
+  background:rgba(216,162,74,0.12);
+  border-style:solid;
+}
+
+/* 碎片区 */
 .puzzle-pieces{
-  display:flex;flex-wrap:wrap;gap:10px;justify-content:center;
+  display:flex;gap:12px;justify-content:center;
+  flex-wrap:wrap;min-height:110px;align-items:center;
 }
 .puzzle-piece{
-  width:70px;height:70px;cursor:grab;touch-action:none;
-  border-radius:8px;transition:box-shadow 0.2s;
+  width:100px;height:100px;
+  cursor:grab;touch-action:none;
+  border-radius:12px;
+  transition:box-shadow 0.2s, transform 0.2s;
   overflow:hidden;
+  background:var(--cream);
+  box-shadow:0 2px 8px rgba(0,0,0,0.1);
 }
+.puzzle-piece:hover{transform:scale(1.05)}
 .puzzle-piece:active{cursor:grabbing}
-.puzzle-piece.dragging{z-index:10;box-shadow:0 8px 24px rgba(0,0,0,0.25)}
-.puzzle-piece.placed{opacity:0;pointer-events:none;transition:opacity 0.3s}
+.puzzle-piece.dragging{
+  z-index:100;
+  box-shadow:0 12px 32px rgba(0,0,0,0.3);
+  transform:scale(1.1);
+  cursor:grabbing;
+}
+.puzzle-piece.placed{
+  opacity:0;pointer-events:none;
+  transition:opacity 0.35s ease, transform 0.35s ease;
+  transform:scale(0.8);
+}
 .piece-svg{width:100%;height:100%;display:block}
-.zone-svg{width:100%;height:100%;display:block}
 
+/* 完成弹窗 */
 .puzzle-complete{
   position:absolute;inset:0;z-index:20;
   display:flex;align-items:center;justify-content:center;
-  background:rgba(248,238,216,0.92);
+  background:rgba(248,238,216,0.94);
+  backdrop-filter:blur(4px);
 }
 .complete-inner{text-align:center}
-.complete-icon{
-  font-size:48px;color:var(--gold);margin-bottom:12px;
-  animation:complete-pop 0.5s ease;
+.complete-flower{
+  width:80px;height:80px;margin:0 auto 16px;
+  animation:flower-spin 1s ease-out;
 }
-@keyframes complete-pop{0%{transform:scale(0)}70%{transform:scale(1.2)}100%{transform:scale(1)}}
+@keyframes flower-spin{
+  0%{transform:scale(0) rotate(-30deg)}
+  60%{transform:scale(1.15) rotate(5deg)}
+  100%{transform:scale(1) rotate(0deg)}
+}
 .complete-inner h3{
   font-family:var(--font-title);font-size:22px;color:var(--dark-red);margin-bottom:16px;
 }
@@ -721,8 +750,8 @@ body::before{
   .page-title{font-size:22px}
   .patterns-grid{grid-template-columns:repeat(3,1fr);gap:8px}
   .pattern-shape{width:44px;height:44px;font-size:22px}
-  .puzzle-target{width:180px;height:180px}
-  .puzzle-piece{width:58px;height:58px}
+  .puzzle-frame{width:200px;height:200px}
+  .puzzle-piece{width:80px;height:80px}
   .blessing-card{width:240px;height:340px}
 }
 

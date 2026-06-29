@@ -281,42 +281,86 @@
     <div class="page-header">
       <span class="page-num">伍</span>
       <h2 class="page-title">拼一朵窗花</h2>
-      <p class="page-subtitle">拖动剪纸碎片到正确位置，拼出完整窗花</p>
+      <p class="page-subtitle">拖动四瓣剪纸碎片到圆形窗框中，拼出完整窗花</p>
     </div>
     <div class="puzzle-area">
-      <div class="puzzle-target" id="puzzleTarget">
-        <div class="target-zone" data-zone="0">
-          <svg viewBox="0 0 100 100" class="zone-svg"><path d="M50,5 L95,50 L50,95 L5,50Z" fill="none" stroke="rgba(177,18,38,0.2)" stroke-width="1.5" stroke-dasharray="4,3"/></svg>
-        </div>
-        <div class="target-zone" data-zone="1">
-          <svg viewBox="0 0 100 100" class="zone-svg"><path d="M50,5 L95,50 L50,95 L5,50Z" fill="none" stroke="rgba(177,18,38,0.2)" stroke-width="1.5" stroke-dasharray="4,3"/></svg>
-        </div>
-        <div class="target-zone" data-zone="2">
-          <svg viewBox="0 0 100 100" class="zone-svg"><path d="M50,5 L95,50 L50,95 L5,50Z" fill="none" stroke="rgba(177,18,38,0.2)" stroke-width="1.5" stroke-dasharray="4,3"/></svg>
-        </div>
-        <div class="target-zone" data-zone="3">
-          <svg viewBox="0 0 100 100" class="zone-svg"><path d="M50,5 L95,50 L50,95 L5,50Z" fill="none" stroke="rgba(177,18,38,0.2)" stroke-width="1.5" stroke-dasharray="4,3"/></svg>
-        </div>
+      <!-- 窗框（目标区域） -->
+      <div class="puzzle-frame" id="puzzleFrame">
+        <svg viewBox="0 0 240 240" class="frame-svg">
+          <!-- 外圆窗框 -->
+          <circle cx="120" cy="120" r="110" fill="#FFF8EC" stroke="#D8A24A" stroke-width="3"/>
+          <circle cx="120" cy="120" r="102" fill="none" stroke="rgba(177,18,38,0.2)" stroke-width="1.5" stroke-dasharray="6,4"/>
+          <circle cx="120" cy="120" r="10" fill="#D8A24A" opacity="0.5"/>
+          <!-- 十字参考线 -->
+          <line x1="120" y1="10" x2="120" y2="230" stroke="rgba(177,18,38,0.1)" stroke-width="1"/>
+          <line x1="10" y1="120" x2="230" y2="120" stroke="rgba(177,18,38,0.1)" stroke-width="1"/>
+        </svg>
+        <!-- 四个放置区 -->
+        <div class="target-zone" data-zone="0" style="position:absolute;left:9px;top:9px;width:111px;height:111px;"></div>
+        <div class="target-zone" data-zone="1" style="position:absolute;right:9px;top:9px;width:111px;height:111px;"></div>
+        <div class="target-zone" data-zone="2" style="position:absolute;left:9px;bottom:9px;width:111px;height:111px;"></div>
+        <div class="target-zone" data-zone="3" style="position:absolute;right:9px;bottom:9px;width:111px;height:111px;"></div>
       </div>
+      <!-- 碎片区 -->
       <div class="puzzle-pieces" id="puzzlePieces">
         <div class="puzzle-piece" data-piece="0">
-          <svg viewBox="0 0 100 100" class="piece-svg"><path d="M5,5 L95,5 L95,95 L50,50Z" fill="#B11226"/><circle cx="50" cy="20" r="4" fill="#F8EED8" opacity="0.6"/><path d="M15,30 Q30,15 45,30" fill="none" stroke="#F8EED8" stroke-width="1.5" opacity="0.5"/></svg>
+          <svg viewBox="0 0 120 120" class="piece-svg">
+            <defs><clipPath id="pq0"><path d="M60,5 A55,55 0 0,1 115,60 L60,60Z"/></clipPath></defs>
+            <circle cx="60" cy="60" r="55" fill="#B11226" clip-path="url(#pq0)"/>
+            <circle cx="35" cy="35" r="8" fill="none" stroke="#F8EED8" stroke-width="2" opacity="0.8"/>
+            <circle cx="35" cy="35" r="3" fill="#F8EED8" opacity="0.6"/>
+            <path d="M18,55 Q30,40 45,50" fill="none" stroke="#F8EED8" stroke-width="1.5" opacity="0.5"/>
+            <circle cx="80" cy="30" r="4" fill="#D8A24A" opacity="0.6"/>
+          </svg>
         </div>
         <div class="puzzle-piece" data-piece="1">
-          <svg viewBox="0 0 100 100" class="piece-svg"><path d="M5,5 L95,5 L50,50 L5,95Z" fill="#B11226"/><circle cx="70" cy="20" r="4" fill="#F8EED8" opacity="0.6"/><path d="M30,15 Q50,5 70,15" fill="none" stroke="#F8EED8" stroke-width="1.5" opacity="0.5"/></svg>
+          <svg viewBox="0 0 120 120" class="piece-svg">
+            <defs><clipPath id="pq1"><path d="M60,5 A55,55 0 0,0 5,60 L60,60Z"/></clipPath></defs>
+            <circle cx="60" cy="60" r="55" fill="#B11226" clip-path="url(#pq1)"/>
+            <circle cx="85" cy="35" r="8" fill="none" stroke="#F8EED8" stroke-width="2" opacity="0.8"/>
+            <circle cx="85" cy="35" r="3" fill="#F8EED8" opacity="0.6"/>
+            <path d="M75,50 Q90,40 100,55" fill="none" stroke="#F8EED8" stroke-width="1.5" opacity="0.5"/>
+            <circle cx="40" cy="30" r="4" fill="#D8A24A" opacity="0.6"/>
+          </svg>
         </div>
         <div class="puzzle-piece" data-piece="2">
-          <svg viewBox="0 0 100 100" class="piece-svg"><path d="M5,5 L50,50 L95,95 L5,95Z" fill="#B11226"/><circle cx="50" cy="80" r="4" fill="#F8EED8" opacity="0.6"/><path d="M30,60 Q45,75 55,60" fill="none" stroke="#F8EED8" stroke-width="1.5" opacity="0.5"/></svg>
+          <svg viewBox="0 0 120 120" class="piece-svg">
+            <defs><clipPath id="pq2"><path d="M115,60 A55,55 0 0,1 60,115 L60,60Z"/></clipPath></defs>
+            <circle cx="60" cy="60" r="55" fill="#B11226" clip-path="url(#pq2)"/>
+            <circle cx="35" cy="85" r="8" fill="none" stroke="#F8EED8" stroke-width="2" opacity="0.8"/>
+            <circle cx="35" cy="85" r="3" fill="#F8EED8" opacity="0.6"/>
+            <path d="M45,70 Q30,85 18,70" fill="none" stroke="#F8EED8" stroke-width="1.5" opacity="0.5"/>
+            <circle cx="80" cy="90" r="4" fill="#D8A24A" opacity="0.6"/>
+          </svg>
         </div>
         <div class="puzzle-piece" data-piece="3">
-          <svg viewBox="0 0 100 100" class="piece-svg"><path d="M95,5 L50,50 L5,95 L95,95Z" fill="#B11226"/><circle cx="70" cy="80" r="4" fill="#F8EED8" opacity="0.6"/><path d="M50,85 Q65,65 80,75" fill="none" stroke="#F8EED8" stroke-width="1.5" opacity="0.5"/></svg>
+          <svg viewBox="0 0 120 120" class="piece-svg">
+            <defs><clipPath id="pq3"><path d="M5,60 A55,55 0 0,0 60,115 L60,60Z"/></clipPath></defs>
+            <circle cx="60" cy="60" r="55" fill="#B11226" clip-path="url(#pq3)"/>
+            <circle cx="85" cy="85" r="8" fill="none" stroke="#F8EED8" stroke-width="2" opacity="0.8"/>
+            <circle cx="85" cy="85" r="3" fill="#F8EED8" opacity="0.6"/>
+            <path d="M75,90 Q90,85 100,70" fill="none" stroke="#F8EED8" stroke-width="1.5" opacity="0.5"/>
+            <circle cx="40" cy="90" r="4" fill="#D8A24A" opacity="0.6"/>
+          </svg>
         </div>
       </div>
     </div>
     <div class="puzzle-complete" id="puzzleComplete" style="display:none;">
       <div class="complete-inner">
-        <div class="complete-icon">✦</div>
-        <h3>窗花完成，福气临门！</h3>
+        <svg viewBox="0 0 80 80" class="complete-flower">
+          <circle cx="40" cy="40" r="36" fill="none" stroke="#D8A24A" stroke-width="2"/>
+          <circle cx="40" cy="40" r="28" fill="none" stroke="#B11226" stroke-width="1.5"/>
+          <circle cx="40" cy="12" r="7" fill="#B11226" opacity="0.7"/>
+          <circle cx="40" cy="68" r="7" fill="#B11226" opacity="0.7"/>
+          <circle cx="12" cy="40" r="7" fill="#B11226" opacity="0.7"/>
+          <circle cx="68" cy="40" r="7" fill="#B11226" opacity="0.7"/>
+          <circle cx="20" cy="20" r="5" fill="#B11226" opacity="0.5"/>
+          <circle cx="60" cy="20" r="5" fill="#B11226" opacity="0.5"/>
+          <circle cx="20" cy="60" r="5" fill="#B11226" opacity="0.5"/>
+          <circle cx="60" cy="60" r="5" fill="#B11226" opacity="0.5"/>
+          <circle cx="40" cy="40" r="6" fill="#D8A24A"/>
+        </svg>
+        <h3>窗花拼成，福气临门！</h3>
         <button class="btn btn-small" onclick="App.resetPuzzle()">再拼一次</button>
       </div>
     </div>
