@@ -1,7 +1,19 @@
 {
-  "generated_at": "2026-06-29T15:16:47+08:00",
+  "generated_at": "2026-06-29T19:35:14+08:00",
   "latest_date": "2026-06-29",
   "articles": [
+    {
+      "date": "2026-06-29",
+      "session": "evening",
+      "edition_cn": "晚报",
+      "icon": "🌙",
+      "title": "科创50暴涨4.61%创历史新高·创新药涨停潮·上证+1.16%收复4073·恒指连跌七周后反弹·美伊明日多哈谈判",
+      "url": "2026-06-29/wechat-publish/evening/article.html",
+      "has_audio": true,
+      "audio_size_bytes": 2190672,
+      "has_comic": true,
+      "comic_count": 1
+    },
     {
       "date": "2026-06-29",
       "session": "morning",
@@ -633,6 +645,18 @@
   ],
   "by_date": {
     "2026-06-29": {
+      "evening": {
+        "date": "2026-06-29",
+        "session": "evening",
+        "edition_cn": "晚报",
+        "icon": "🌙",
+        "title": "科创50暴涨4.61%创历史新高·创新药涨停潮·上证+1.16%收复4073·恒指连跌七周后反弹·美伊明日多哈谈判",
+        "url": "2026-06-29/wechat-publish/evening/article.html",
+        "has_audio": true,
+        "audio_size_bytes": 2190672,
+        "has_comic": true,
+        "comic_count": 1
+      },
       "morning": {
         "date": "2026-06-29",
         "session": "morning",
