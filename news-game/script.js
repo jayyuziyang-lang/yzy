@@ -461,41 +461,6 @@ function generateQRCode() {
   };
 }
 
-// --- 复制链接 ---
-function copyLink() {
-  const fb = document.getElementById('copyFeedback');
-  const url = window.location.href;
-  const showMsg = (msg, color) => {
-    fb.textContent = msg;
-    fb.style.color = color;
-    setTimeout(() => { fb.textContent = ''; }, 3000);
-  };
-  if (navigator.clipboard && window.isSecureContext) {
-    navigator.clipboard.writeText(url).then(
-      () => showMsg('链接已复制，可分享给朋友！', '#22C55E'),
-      () => fallbackCopy(url, showMsg)
-    );
-  } else {
-    fallbackCopy(url, showMsg);
-  }
-}
-
-function fallbackCopy(text, showMsg) {
-  const ta = document.createElement('textarea');
-  ta.value = text;
-  ta.style.position = 'fixed';
-  ta.style.left = '-9999px';
-  document.body.appendChild(ta);
-  ta.select();
-  try {
-    document.execCommand('copy');
-    showMsg('链接已复制，可分享给朋友！', '#22C55E');
-  } catch (e) {
-    showMsg('请手动复制浏览器地址栏链接', '#EF4444');
-  }
-  document.body.removeChild(ta);
-}
-
 // --- 重新开始 ---
 function restartGame() {
   currentIndex = 0;
