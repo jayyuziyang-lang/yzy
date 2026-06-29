@@ -1,7 +1,19 @@
 {
-  "generated_at": "2026-06-23T21:30:37+08:00",
-  "latest_date": "2026-06-23",
+  "generated_at": "2026-06-29T15:16:47+08:00",
+  "latest_date": "2026-06-29",
   "articles": [
+    {
+      "date": "2026-06-29",
+      "session": "morning",
+      "edition_cn": "早报",
+      "icon": "🌅",
+      "title": "PCE超预期·纳指五连跌·美伊周末剧震停火·黄金四周连跌·三星SK万亿投资·A股险守4000",
+      "url": "2026-06-29/wechat-publish/morning/article.html",
+      "has_audio": true,
+      "audio_size_bytes": 1969200,
+      "has_comic": true,
+      "comic_count": 2
+    },
     {
       "date": "2026-06-23",
       "session": "evening",
@@ -620,6 +632,20 @@
     }
   ],
   "by_date": {
+    "2026-06-29": {
+      "morning": {
+        "date": "2026-06-29",
+        "session": "morning",
+        "edition_cn": "早报",
+        "icon": "🌅",
+        "title": "PCE超预期·纳指五连跌·美伊周末剧震停火·黄金四周连跌·三星SK万亿投资·A股险守4000",
+        "url": "2026-06-29/wechat-publish/morning/article.html",
+        "has_audio": true,
+        "audio_size_bytes": 1969200,
+        "has_comic": true,
+        "comic_count": 2
+      }
+    },
     "2026-06-23": {
       "evening": {
         "date": "2026-06-23",

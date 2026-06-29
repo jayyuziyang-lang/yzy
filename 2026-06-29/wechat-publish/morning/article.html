@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>PCE超预期·纳指五连跌·美伊周末剧震停火·黄金四周连跌·三星SK万亿投资·A股险守4000</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system,"PingFang SC","Microsoft YaHei","Helvetica Neue",sans-serif; background: #F5F7FA; color: #1E293B; line-height: 1.8; font-size: 16px; }
+  .c { max-width: 640px; margin: 0 auto; background: #fff; padding: 44px 0 40px; }
+  .top-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; max-width: 640px; margin: 0 auto; background: rgba(255,255,255,0.95); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-bottom: 1px solid #E2E8F0; display: flex; align-items: center; padding: 0 16px; height: 44px; }
+  .top-nav .back { display: flex; align-items: center; gap: 4px; color: #1A56DB; text-decoration: none; font-size: 13px; font-weight: 600; }
+  .top-nav .back:active { opacity: 0.6; }
+  .top-nav .nav-date { flex: 1; text-align: center; font-size: 12px; color: #64748B; }
+  .top-nav .nav-edition { font-size: 11px; color: #1A56DB; background: #EFF6FF; padding: 2px 8px; border-radius: 8px; font-weight: 600; }
+  .header { background: linear-gradient(135deg,#1A56DB,#1E40AF); padding: 20px 20px 16px; color: white; }
+  .header h1 { font-size: 22px; font-weight: 700; line-height: 1.4; margin-bottom: 6px; }
+  .header .meta { font-size: 12px; opacity: 0.8; display: flex; gap: 12px; flex-wrap: wrap; }
+  .player { display: flex; align-items: center; gap: 12px; margin-top: 14px; }
+  .player-icon { width: 40px; height: 40px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 18px; }
+  .player-info { flex: 1; }
+  .player-title { font-size: 13px; font-weight: 600; }
+  .player-desc { font-size: 11px; opacity: 0.7; }
+  .player audio { width: 100%; margin-top: 4px; border-radius: 20px; }
+  .body { padding: 20px 20px 0; }
+  .layer1 { margin-bottom: 24px; }
+  .l1-title { font-size: 16px; font-weight: 700; color: #1A56DB; margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
+  .l1-comic { margin: 10px 0 0; }
+  .l1-comic img { width: 100%; border-radius: 10px; border: 1px solid #E2E8F0; }
+  .l1-divider { border: none; border-top: 2px dashed #1A56DB; margin: 16px 0; }
+  .layer2 { margin-bottom: 24px; }
+  .l2-title { font-size: 16px; font-weight: 700; color: #1A56DB; margin-bottom: 14px; display: flex; align-items: center; gap: 6px; }
+  .quote { background: #EFF6FF; border-left: 4px solid #1A56DB; padding: 12px 14px; margin: 14px 0; border-radius: 0 8px 8px 0; font-size: 14px; color: #1E3A7A; line-height: 1.7; }
+  p { margin-bottom: 12px; text-align: justify; font-size: 15px; text-indent: 2em; }
+  .story { margin: 22px 0; }
+  .story-head { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .story-num { width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; color: #fff; flex-shrink: 0; }
+  .story-num.s01 { background: #DC2626; } .story-num.s02 { background: #16A34A; } .story-num.s03 { background: #7C3AED; }
+  .story-num.s04 { background: #1A56DB; } .story-num.s05 { background: #D4A017; } .story-num.s06 { background: #EA580C; }
+  .story-tag { font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 3px; }
+  .story-tag.s01 { background: #FEF2F2; color: #DC2626; } .story-tag.s02 { background: #F0FDF4; color: #16A34A; }
+  .story-tag.s03 { background: #FAF5FF; color: #7C3AED; } .story-tag.s04 { background: #EFF6FF; color: #1A56DB; }
+  .story-tag.s05 { background: #FFFBEB; color: #D4A017; } .story-tag.s06 { background: #FFF7ED; color: #EA580C; }
+  .story-title { font-size: 16px; font-weight: 700; color: #1E293B; line-height: 1.4; }
+  .story-content { font-size: 14px; color: #334155; line-height: 1.8; margin-bottom: 8px; }
+  .story-content p { margin-bottom: 8px; font-size: 14px; text-indent: 2em; }
+  .story-img { margin: 10px 0 0; border-radius: 8px; border: 1px solid #E2E8F0; overflow: hidden; background: #FAFAFA; }
+  .story-img img { width: 100%; display: block; }
+  .story-divider { border: none; height: 1px; background: linear-gradient(to right, transparent, #E2E8F0, transparent); margin: 6px 0; }
+  .blue-box { background: linear-gradient(135deg,#EFF6FF,#DBEAFE); border: 1px solid #1A56DB; border-radius: 12px; padding: 18px 20px; margin: 22px 0; text-align: center; font-size: 16px; font-weight: 700; color: #1E40AF; line-height: 1.5; }
+  .layer3 { margin-bottom: 24px; }
+  .l3-title { font-size: 16px; font-weight: 700; color: #1A56DB; margin-bottom: 10px; }
+  .l3-highlight-box { background: #EFF6FF; border-radius: 10px; padding: 12px 14px; margin: 12px 0; font-size: 13px; color: #1E3A7A; line-height: 1.6; border: 1px solid #BFDBFE; }
+  table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 13px; }
+  th { background: #1A56DB; color: #fff; padding: 8px 10px; text-align: left; font-weight: 600; }
+  th:first-child { border-radius: 6px 0 0 0; }
+  th:last-child { border-radius: 0 6px 0 0; }
+  td { padding: 8px 10px; border-bottom: 1px solid #E2E8F0; }
+  tr:nth-child(even) { background: #F8F9FA; }
+  .up { color: #DC2626; font-weight: 600; }
+  .down { color: #16A34A; font-weight: 600; }
+  .highlight { background: #EFF6FF; padding: 1px 4px; border-radius: 2px; font-weight: 600; color: #1E40AF; }
+  .key-num { font-weight: 700; color: #1A56DB; }
+  .sources { background: #EFF6FF; border-radius: 10px; padding: 12px 14px; margin: 16px 0; font-size: 12px; color: #1E3A7A; line-height: 1.6; }
+  .sources h3 { font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+  .sources a { color: #1A56DB; text-decoration: none; }
+  .foot { background: linear-gradient(135deg,#1A56DB,#1E40AF); border-radius: 12px; padding: 18px 20px; margin: 22px 0; color: white; text-align: center; }
+  .foot .icon { font-size: 28px; margin-bottom: 4px; }
+  .foot .t { font-size: 16px; font-weight: 700; margin-bottom: 2px; }
+  .foot .d { font-size: 11px; opacity: 0.85; }
+  .logic-chain { background: #F0F4FF; border-left: 4px solid #1A56DB; border-radius: 0 8px 8px 0; padding: 10px 14px; margin: 10px 0 14px; font-size: 13.5px; color: #1E3A7A; line-height: 1.7; }
+  .logic-chain .lc-label { font-weight: 700; font-size: 12px; color: #1A56DB; margin-bottom: 2px; }
+  .invest-view { background: #F0FDF4; border-left: 4px solid #16A34A; border-radius: 0 8px 8px 0; padding: 10px 14px; margin: 10px 0 14px; font-size: 13.5px; color: #14532D; line-height: 1.7; }
+  .invest-view .iv-label { font-weight: 700; font-size: 12px; color: #16A34A; margin-bottom: 2px; }
+  .glossary { background: #EFF6FF; border: 1px solid #BFDBFE; border-radius: 10px; padding: 12px 14px; margin: 16px 0; font-size: 12px; line-height: 1.6; }
+  .glossary h4 { font-size: 13px; font-weight: 700; color: #1E40AF; margin-bottom: 8px; }
+  .glossary table { width: 100%; font-size: 12px; margin: 0; }
+  .glossary th { background: #1A56DB; color: #fff; padding: 5px 8px; font-size: 11px; text-align: left; }
+  .glossary td { padding: 5px 8px; font-size: 11px; }
+  .glossary .g-term { min-width: 140px; }
+  .warn { background: #FFF5F5; border: 1px solid #FECACA; border-radius: 10px; padding: 12px 14px; margin-top: 24px; font-size: 12px; color: #991B1B; line-height: 1.5; }
+  .rotation-box { background: linear-gradient(135deg,#FFF7ED,#FEF3C7); border: 1px solid #F59E0B; border-radius: 10px; padding: 14px 16px; margin: 14px 0; font-size: 13.5px; color: #92400E; line-height: 1.7; }
+  .rotation-box .rb-label { font-weight: 700; font-size: 12px; color: #D97706; margin-bottom: 4px; }
+  .hot-list { background: linear-gradient(135deg,#F0F4FF,#E8EEFF); border: 1px solid #BFDBFE; border-radius: 10px; padding: 14px 16px; margin: 14px 0; }
+  .hot-list .hl-label { font-size: 13px; font-weight: 700; color: #1E40AF; margin-bottom: 8px; }
+  .hot-list ol { margin: 0; padding-left: 20px; }
+  .hot-list li { font-size: 13px; margin-bottom: 6px; color: #1E293B; line-height: 1.6; }
+  .hot-list li strong { color: #1A56DB; }
+  .divergence-box { background: linear-gradient(135deg,#FFF5F5,#FFF7ED); border: 1px solid #FCA5A5; border-radius: 10px; padding: 14px 16px; margin: 14px 0; font-size: 13.5px; color: #991B1B; line-height: 1.7; }
+  .divergence-box .db-label { font-weight: 700; font-size: 12px; color: #DC2626; margin-bottom: 4px; }
+</style>
+</head>
+<body>
+<div class="c">
+
+  <div class="top-nav">
+    <a class="back" href="../../../index.html">&larr; 返回首页</a>
+    <span class="nav-date">2026.06.29 · 周一</span>
+    <span class="nav-edition">扬说·早报</span>
+  </div>
+
+  <div class="header">
+    <h1>PCE超预期·加息恐慌重燃·纳指五连跌费半暴跌·美伊周末剧震后停火·黄金四周连跌·三星SK万亿投资</h1>
+    <div class="meta">
+      <span>2026年6月29日 · 星期一</span>
+      <span>5月核心PCE 3.4%创20月新高 / 纳指单周-4.6%五连跌 / 美伊周末互袭后同意停火重谈 / 黄金跌破4100四周连跌 / 三星SK十年1.3万亿美元投资</span>
+    </div>
+    <div class="player">
+      <div class="player-icon">&#x1F3A7;</div>
+      <div class="player-info">
+        <div class="player-title">听全文 · 扬说财经</div>
+        <div class="player-desc">约5分半钟 · 隔夜速览</div>
+        <audio controls><source src="audio.mp3" type="audio/mpeg"></audio>
+      </div>
+    </div>
+  </div>
+
+  <div class="body">
+
+    <!-- ===== 今日热点速览 ===== -->
+    <div class="hot-list">
+      <div class="hl-label">&#x1F525; 今日热点速览</div>
+      <ol>
+        <li><strong>PCE通胀超预期，9月加息概率飙至75%+：</strong>5月核心PCE同比3.4%（预期3.3%），创2023年10月以来最高。市场首次定价年内两次加息的可能性。这是上周全球资产波动的"总开关"。</li>
+        <li><strong>纳指五连跌，单周蒸发4.6%，费半两次暴跌超5%：</strong>科技股遭遇2026年最惨烈一周。安森美暴跌23.66%、苹果全系提价最高25%引发AI成本传导恐慌。大科技与硬科技同步重挫，"讲故事"的和"有订单"的一起被卖。</li>
+        <li><strong>美伊周末剧震：美军空袭→伊朗报复→双方同意停火重启谈判：</strong>周六美军空袭伊朗军事目标，伊朗反击摧毁8个美军基地。周日双方突然同意停火，周二在多哈重谈。霍尔木兹海峡"一日三转"，油价跌破$70后强势反弹。</li>
+        <li><strong>三星+SK海力士今日官宣：10年1.3万亿美元投资计划：</strong>韩国存储双雄今日联合发布该国规模最大的企业投资计划（据韩联社报道）。但产业空前利好撞上了估值空前压缩——半导体板块当前核心矛盾是"基本面强"vs"利率高"。</li>
+      </ol>
+    </div>
+
+    <!-- ===== 本周主轴 ===== -->
+    <div class="logic-chain" style="margin-bottom:20px;">
+      <div class="lc-label">本周主轴传导链（6/29更新）</div>
+      PCE 3.4%超预期 <span style="color:#1A56DB;font-weight:700;">&#x2192;</span> 9月加息完全定价+年内二次加息概率升温 <span style="color:#1A56DB;font-weight:700;">&#x2192;</span> 纳指五连跌（单周-4.6%）+费半暴跌 <span style="color:#1A56DB;font-weight:700;">&#x2192;</span> 美伊周末互袭后停火（霍尔木兹一日三转） <span style="color:#1A56DB;font-weight:700;">&#x2192;</span> 黄金四周连跌（利率预期资产本质确认） <span style="color:#1A56DB;font-weight:700;">&#x2192;</span> 三星SK 1.3万亿投资（产业强vs利率高） <span style="color:#1A56DB;font-weight:700;">&#x2192;</span> 周四非农定调一切
+    </div>
+
+    <!-- ===== Layer 1 ===== -->
+    <div class="layer1">
+      <div class="l1-title">&#x1F305; 周末全球速览 · 美伊剧震与加息恐慌的双重夹击</div>
+      <p><strong>周末两天的全球市场幕后，发生了太多事。</strong> 最抓眼球的是美伊冲突——周六美军对伊朗境内军事目标实施报复性空袭，伊朗革命卫队随即宣称摧毁了科威特和巴林8个美军基地。周日剧情180度反转：双方突然同意停火，周二在多哈重启谈判，焦点从核计划转向霍尔木兹海峡管理。油价在"开火→停火"之间先飙后跌，WTI一度跌破$70后回到$69.97——2026年2月美以联手攻打伊朗以来的首次。</p>
+      <p><strong>但油价不是上周的主角。</strong> 真正的"总开关"是周四公布的5月核心PCE——同比3.4%，超预期0.1个百分点，创2023年10月以来最高。市场从"预期加息"进入了"定价加息"阶段——9月加息25bp已被完全定价，更重要的是，年内两次加息的概率正在快速升温。10年期美债收益率从一周前的4.51%回落至4.37%——这不是宽松信号，是市场在说"经济恐承受不了更多加息"。债市的担忧比股市更深层。</p>
+      <p><strong>纳指单周跌4.6%，五连跌——这是2026年科技股最惨烈的一周。</strong> 但注意一个关键的"劈叉"：这不是之前那种"大科技跌、硬科技涨"的结构性轮动，而是全面抛售。费城半导体指数周内两次单日暴跌超5%（安森美-23.66%、西部数据-13%+、希捷-12%+）。苹果宣布Mac/iPad全系提价最高25%，把AI成本向消费者传导——通胀叙事又多了一条证据链。现在市场的核心问题是：科技股的这一轮抛售，是"削去泡沫"的健康调整，还是AI估值逻辑的全面瓦解？</p>
+
+      <div class="l1-comic">
+        <img src="comic/panel-001.svg" alt="美伊周末剧震：霍尔木兹一日三转·开火→停火→油价跌破$70→反弹">
+      </div>
+    </div>
+    <hr class="l1-divider">
+
+    <!-- ===== Layer 2 ===== -->
+    <div class="layer2">
+      <div class="l2-title">&#x1F50D; 六大板块深度解析</div>
+
+      <!-- 01 美股 -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s02">01</div>
+          <span class="story-tag s02">美股</span>
+          <div class="story-title">纳指-0.24%五连跌·单周-4.6%·费半-5.29%·2026年科技股最惨一周·"讲故事"和"有订单"的一起被卖</div>
+        </div>
+        <div class="story-content">
+          <p>周五（6月26日）美股三大指数再次集体收跌——但跌幅不大，迷惑性极强。<span class="highlight">道指收51,876.11（-0.09%），标普500收7,354.02（-0.05%），纳指收25,297.62（-0.24%）。</span> 表面看只是"微跌"，但三组数据暴露了真实的惨烈程度：① 纳指已连续五个交易日下跌，这是2026年最长连跌纪录；② 纳指单周累计跌幅达4.6%，为2025年12月以来最大单周跌幅；③ 标普500单周跌1.95%，为近两个月最大。</p>
+          <p><strong>费城半导体指数才是真正的风暴眼。</strong> 周五单日暴跌5.29%，加上周三的7.87%暴跌，一周内出现两次5%+级别的重挫。安森美半导体暴跌23.66%——创2020年以来最大单日跌幅，触发因素是宣布以约70亿美元全股票收购Synaptics，市场担忧收购带来的财务压力和整合风险。西部数据跌超13%，希捷科技跌超12%。但微软大涨5%+、苹果涨3%+、亚马逊涨2%+——"大而不倒"的逻辑在起作用。大型科技平台的用户粘性和现金流让它们在恐慌中成为避风港。</p>
+
+          <table>
+            <tr><th>指数</th><th>收盘（6/26）</th><th>当日涨跌幅</th><th>本周累计</th></tr>
+            <tr><td>道琼斯</td><td>51,876.11</td><td class="down">-0.09%</td><td class="up">+0.6%</td></tr>
+            <tr><td>标普500</td><td>7,354.02</td><td class="down">-0.05%</td><td class="down">-1.95%</td></tr>
+            <tr><td>纳斯达克</td><td>25,297.62</td><td class="down">-0.24%</td><td class="down">-4.6%（五连跌）</td></tr>
+            <tr><td>费城半导体</td><td>—</td><td class="down">-5.29%</td><td class="down">周内两次-5%+暴跌</td></tr>
+          </table>
+
+          <div class="divergence-box">
+            <div class="db-label">&#x26A0;&#xFE0F; 与上周的"劈叉"不同：现在是全面抛售</div>
+            一周前（6/23早报）我们讲的是"大科技跌、硬科技涨"——纳指-1.32%但费半+2.04%。仅过了一周，逻辑彻底变了：<strong>安森美-23.66%不只是个股暴雷，是市场在说"AI硬件也会出事"。</strong> 苹果提价25%把AI成本向消费者传导——这确认了一条新的通胀证据链。当"有订单"的也在被卖，说明市场正在从"区别对待"走向"一刀切"——这是恐慌升级的标志。
+          </div>
+
+          <div class="invest-view">
+            <div class="iv-label">&#x1F4CC; 投资视角</div>
+            <p>高盛将此轮科技股暴跌定性为"削去泡沫"而非AI逻辑的根本性重估。这个判断有三层含义：① AI产业需求（HBM销量、晶圆代工涨价、资本开支）仍在加速——这不是2000年互联网泡沫；② 但估值（40倍+PE在4.37%的10年期收益率下）确实过高——泡沫成分在消退；③ 关键分歧在节奏：是"温和回调"还是"崩盘"取决于周四非农——弱非农=加息预期降温=科技修复；强非农=加息锁定=还有第二波。本周四之前，多看少动。</p>
+          </div>
+        </div>
+      </div>
+      <hr class="story-divider">
+
+      <!-- 02 A股 -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s01">02</div>
+          <span class="story-tag s01">A股</span>
+          <div class="story-title">上证-2.26%险守4000·深证-3.44%·创业板-4.07%·超4600只个股飘绿·公募定性"外部风险+内部兑现共振"</div>
+        </div>
+        <div class="story-content">
+          <p>上周A股经历了2026年以来最沉重的收官。<span class="highlight">周五（6月26日）上证指数收4,027.26（-2.26%），盘中一度触及4,007.86，距离4000整数关口仅一步之遥。深证成指收15,782.22（-3.44%），创业板指收4,194.21（-4.07%），创2026年3月24日以来最大单日跌幅。</span> 全市场超4,600只个股下跌，仅789只上涨。成交额3.58万亿，较周四缩量约436亿——缩量意味着没有恐慌盘蜂拥而出，但也意味着没有抄底盘敢入场。</p>
+          <p><strong>板块分化极度剧烈：</strong> 建筑材料+1.97%、农林牧渔+0.39%逆势飘红——这两个是典型的防御避险板块。而通信-6.48%是重灾区，计算机-4.33%、有色金属-4.28%紧随其后。上周最惨的是"CPO光通信"概念——Credo、Coherent的美股映射暴跌叠加国内获利了结，板块遭遇双杀。公募基金周末解读的共同口径是："外部风险偏好冲击（PCE+美伊冲突）+内部高位拥挤兑现"共振。但多数机构仍坚持A股在牛市区间——只是短期从"情绪炒作"进入"业绩验证"阶段。</p>
+
+          <table>
+            <tr><th>指数</th><th>收盘（6/26）</th><th>涨跌幅</th><th>特征</th></tr>
+            <tr><td>上证指数</td><td>4,027.26</td><td class="down">-2.26%</td><td>盘中触及4007，险守4000</td></tr>
+            <tr><td>深证成指</td><td>15,782.22</td><td class="down">-3.44%</td><td>科技+有色重挫</td></tr>
+            <tr><td>创业板指</td><td>4,194.21</td><td class="down">-4.07%</td><td>电力设备/光伏拖累</td></tr>
+            <tr><td>科创综指</td><td>2,343.66</td><td class="down">-2.02%</td><td>半导体内部分化</td></tr>
+            <tr><td>成交额</td><td>3.58万亿</td><td class="down">缩量436亿</td><td>指数级缩量但绝对量仍大</td></tr>
+          </table>
+
+          <div class="rotation-box">
+            <div class="rb-label">&#x1F504; A股上周经历了什么：从"科技独牛"到"双轮驱动"到"全线调整"</div>
+            回顾上周整条时间线：<br>
+            6/22周一：节后首日大金融涨停潮+成交3.74万亿，高低切换启动 →<br>
+            6/23周二：全球科技股踩踏（韩国熔断-9.99%），但金融护盘让上证仅-1.37% →<br>
+            6/24周三：科技企稳反弹，高低切换变成双轮驱动 →<br>
+            6/25周四：PCE数据公布（核心3.4%超预期），A股午后跳水 →<br>
+            6/26周五：全线调整，上证-2.26%，超4600只跌<br>
+            <strong>一周之内，A股从"牛市氛围"切换到"避险模式"。</strong>
+          </div>
+
+          <div class="invest-view">
+            <div class="iv-label">&#x1F4CC; 投资视角</div>
+            <p>本周A股面临三重考验：① 周二中国6月官方PMI（5月50.0，市场预计微升至50.2）——若低于50将触发衰退担忧；② 周四美国非农——直接决定全球紧缩交易的方向；③ 美伊多哈谈判（周二）——油价波动通过成本端传导至A股化工/航空板块。关键观察：上证能否守住4000（这是3月下旬的支撑位）？科创50能否在2,300附近企稳？如果两者都守住，本周可能是"利空出尽"的反弹窗口。</p>
+          </div>
+        </div>
+      </div>
+      <hr class="story-divider">
+
+      <!-- 03 科技/AI + PCE -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s03">03</div>
+          <span class="story-tag s03">科技/AI</span>
+          <div class="story-title">核心PCE 3.4%创20月新高·9月加息完全定价·三星SK十年1.3万亿美元投资·半导体涨价潮vs估值压缩</div>
+        </div>
+        <div class="story-content">
+          <p><strong>上周的"总开关"不是股市，是通胀数据。</strong> 周四（6月25日）美国商务部公布：<span class="highlight">5月核心PCE同比上涨3.4%，超出市场预期的3.3%，创2023年10月（20个月）以来最高。整体PCE同比4.1%，为2023年4月以来最高。</span> "超级核心通胀"（剔除住房的核心服务）升至3.9%——这是美联储最担忧的指标。数据公布后，CME FedWatch显示9月加息25bp的概率从约75%飙升至85%+，更重要的是，年内第二次加息（12月）的概率首次超过50%。</p>
+          <p><strong>PCE超预期对科技股的打击是双重的：</strong> 第一层——更高的利率=更高的折现率=更低的未来现金流现值=科技估值压缩（这是标准模型，大家都懂）。第二层——PCE超预期的主要原因之一是"AI驱动"而非传统需求过热：苹果Mac/iPad全系提价最高25%（"关税+AI芯片成本上升"），半导体涨价潮（台积电7nm及以下涨5-10%、村田MLCC涨10-40%、联发科调价）正在从企业端向消费者端传导。通胀的源头多了"AI"这个新变量——这让Fed的加息逻辑从"压需求"变成了"压科技"。</p>
+
+          <div class="logic-chain">
+            <div class="lc-label">PCE超预期 &#x2192; 加息定价 &#x2192; 科技股抛售的完整传导链</div>
+            关税+AI成本推升商品价格 <span style="color:#DC2626;font-weight:700;">&#x2192;</span> PCE 3.4%超预期<br>
+            <span style="color:#DC2626;font-weight:700;">&#x2192;</span> Fed加息预期升温（9月+12月两次）<br>
+            <span style="color:#DC2626;font-weight:700;">&#x2192;</span> 10年期美债4.37%（虽从4.51%回落但仍高位）<br>
+            <span style="color:#DC2626;font-weight:700;">&#x2192;</span> 科技股40倍PE重新定价 &#x2192; 纳指五连跌-4.6%<br>
+            <strong>核心问题：这次通胀的源头不一样——AI不只是"受益于低利率"，它在"制造通胀"。</strong>
+          </div>
+
+          <p><strong>与此同时，产业的另一端正在发生历史性事件。</strong> 今天（6月29日），三星电子会长李在镕和SK集团会长崔泰源在青瓦台联合宣布：未来十年总投资2000万亿韩元（约1.3万亿美元），在韩国光州建设半导体制造集群。具体布局：三星约600万亿韩元建4-5座晶圆厂，SK海力士约600万亿韩元建4-5座晶圆厂+扩建NAND工厂。SK海力士还计划赴美上市融资290亿美元。据韩联社报道，这是韩国规模最大的企业投资——相当于韩国年度GDP七成以上。</p>
+
+          <div class="divergence-box">
+            <div class="db-label">&#x26A0;&#xFE0F; 当前半导体板块的核心矛盾：产业强 vs 利率高</div>
+            一边是三星SK 1.3万亿美元投资（历史最大）、台积电5-10%涨价（7nm及以下）、HBM售价每年翻番、美光$250亿资本开支——<strong>产业基本面好到爆炸。</strong><br>
+            另一边是PCE 3.4%（20月高）、费半一周两次-5%+暴跌、安森美-23.66%——<strong>估值在全面压缩。</strong><br>
+            这不是2000年互联网泡沫（当时产业基本面无支撑），也不是2022年利率冲击（当时半导体处于去库存周期）。这是一个全新的组合：<strong>最强的产业基本面撞上最强的利率逆风。</strong> 答案只有一个：谁先松手。如果周四非农弱于预期，利率先松手，半导体将迎来暴力反弹。如果非农超预期，估值还有进一步压缩空间。
+          </div>
+
+          <div class="invest-view">
+            <div class="iv-label">&#x1F4CC; 投资视角</div>
+            <p>三星SK的1.3万亿美元投资对A股半导体设备/材料/封测板块构成直接映射——北方华创、中微公司、长电科技等将受益于全球半导体扩产周期。但短期内的核心矛盾不是"订单多不多"，而是"估值贵不贵"——A股半导体板块在周四非农落地前，大概率维持震荡格局。7月半导体涨价潮（周三生效）可能成为短期催化剂。</p>
+          </div>
+        </div>
+      </div>
+      <hr class="story-divider">
+
+      <!-- 04 国际/地缘 -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s04">04</div>
+          <span class="story-tag s04">国际/地缘</span>
+          <div class="story-title">美伊周末剧震：美军空袭&#x2192;伊朗报复&#x2192;双方同意停火·周二多哈重谈·霍尔木兹一日三转·油价$70攻防战</div>
+        </div>
+        <div class="story-content">
+          <p>刚过去的这个周末，中东地缘上演了一场"一日三转"的经典剧本。<span class="highlight">周五傍晚（美东时间6月26日）：美军以伊朗攻击霍尔木兹海峡附近商船为由，对伊朗境内多个军事目标实施精确打击。</span> 一艘载有约200万桶原油的超级油轮"Kiku号"在霍尔木兹海峡附近被袭，航行状态显示为"失控"。周六：伊朗革命卫队宣布已摧毁科威特和巴林8个美军基地作为报复，原定6月28日举行的技术性谈判被伊方单方面宣布取消。周日：据Axios报道，美伊双方突然同意停止互袭，计划于周二（6月30日）在卡塔尔多哈重启谈判——谈判重点从伊朗核计划转向霍尔木兹海峡管理。</p>
+          <p><strong>从"开火"到"停火"不到48小时。</strong> 这个反转速度说明了两件事：① 双方都没有全面战争的意愿——美军空袭是"象征性报复"而非大规模入侵，伊朗的反击也是"秀肌肉"而非升级；② 但霍尔木兹海峡的脆弱性没有改变——一艘被袭油轮就能让200万桶原油"失控"，海峡每天通行约2000万桶原油，全球五分之一供应流量的命脉依然悬在一条狭窄水道上。60天时间窗口（至8月21日）已经过半，最终的永久性协议仍然遥遥无期。</p>
+
+          <table>
+            <tr><th>品种</th><th>最新价</th><th>周末走势</th><th>核心驱动</th></tr>
+            <tr><td>WTI原油</td><td>$69.97/桶</td><td class="down">盘中跌破$70后反弹</td><td>开火急涨→停火回落</td></tr>
+            <tr><td>布伦特原油</td><td>$72.25/桶</td><td class="down">-0.85%</td><td>海峡通航预期恢复</td></tr>
+          </table>
+
+          <div class="invest-view">
+            <div class="iv-label">&#x1F4CC; 投资视角</div>
+            <p>WTI跌破$70是2026年2月美以联手攻打伊朗以来的首次——这是地缘溢价系统性消退的标志。但"停火≠和平"，周二多哈谈判如果再生变故，油价可能瞬间回到$72-75区间。对A股而言，油价中枢从$75-85下移到$68-73，为航空（燃油成本降低约6-8%）、化工（原料成本改善）、物流板块提供了成本端系统性利好。但对石油石化板块（中国石油、中国石化）构成持续压力。</p>
+          </div>
+        </div>
+      </div>
+      <hr class="story-divider">
+
+      <!-- 05 宏观 -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s05">05</div>
+          <span class="story-tag s05">宏观</span>
+          <div class="story-title">10年期美债4.37%从4.51%回落·美元101.27高位·本周四非农定调下半年·沃什将亮相欧央行论坛</div>
+        </div>
+        <div class="story-content">
+          <p>宏观叙事上周发生了一个微妙的转换。<span class="highlight">10年期美债收益率从一周前的4.51%（14个月新高）回落至4.37%，下降约14bp。2年期收益率从4.22%降至约4.09%。</span> 表面看是"债市松了"——但真正的原因不是通胀预期好转（PCE还在涨），而是"经济承受不了更多加息"的担忧。2s-10s利差维持在28bp左右，距离倒挂仍有一定距离——但债市已经在用"收益率曲线扁平化"表达对Fed继续加息的怀疑。</p>
+          <p><strong>美元指数周五收于101.27附近，创近一年最高水平。</strong> 美元走强背后是"美债高收益率+全球资金回流美元"的双重逻辑。日元逼近162（约40年低点），EUR/USD跌至1.14附近。新兴市场资金外流压力持续——韩国熔断-9.99%不只是AI估值问题，也是"强美元+资金回流"的受害者。本周四是独立日假期前最后一个完整交易日，非农提前一天至周四公布——市场预期新增11.3-12.3万人（5月为17.2万），失业率维持4.3%。</p>
+
+          <table>
+            <tr><th>指标</th><th>当前值</th><th>趋势</th><th>关键信号</th></tr>
+            <tr><td>10年期美债收益率</td><td>4.37%</td><td class="down">从4.51%回落14bp</td><td>经济担忧>通胀担忧</td></tr>
+            <tr><td>2年期美债收益率</td><td>4.09%</td><td class="down">从4.22%回落13bp</td><td>短端利率预期下行</td></tr>
+            <tr><td>9月加息概率</td><td>~85%+</td><td class="up">PCE后飙升</td><td>25bp加息完全定价</td></tr>
+            <tr><td>年内二次加息概率</td><td>>50%</td><td class="up">首次突破50%</td><td>市场首次定价两次加息</td></tr>
+            <tr><td>美元指数DXY</td><td>101.27</td><td class="up">近一年最高</td><td>全球资金回流美元</td></tr>
+            <tr><td>VIX恐慌指数</td><td>18.41</td><td class="down">-2.54%</td><td>恐慌可控，未到系统性风险</td></tr>
+          </table>
+
+          <div class="logic-chain">
+            <div class="lc-label">本周关注焦点（2026年以来信息密度最高的一周）</div>
+            <strong>周二（6/30）：</strong>中国6月PMI + 美伊多哈谈判 + JOLTS职位空缺<br>
+            <strong>周三（7/1）：</strong>ADP就业 + 沃什/拉加德/贝利欧央行论坛同台讲话 + 半导体7月涨价潮生效<br>
+            <strong>周四（7/2）：</strong><span style="color:#DC2626;font-weight:700;">美国6月非农（提前一天）——本周乃至下半年最重要的数据</span><br>
+            <strong>周五（7/3）：</strong>美股独立日休市
+          </div>
+
+          <div class="invest-view">
+            <div class="iv-label">&#x1F4CC; 投资视角</div>
+            <p>这是2026年以来最重要的一周。非农数据将决定"9月加息"的概率是冲向90%+还是回落到60-70%。更重要的是沃什周三在欧央行论坛上的讲话——这将是他就任美联储主席后的第二次公开亮相，市场将从中寻找下半年政策路径的线索。如果非农弱于预期+沃什态度软化，全球风险资产将迎来一波"松了一口气"的反弹。如果非农超预期+沃什继续鹰派，科技股可能还有第二波卖压。在周四之前，仓位管理优先于方向押注。</p>
+          </div>
+        </div>
+      </div>
+      <hr class="story-divider">
+
+      <!-- 06 商品/黄金 -->
+      <div class="story">
+        <div class="story-head">
+          <div class="story-num s06">06</div>
+          <span class="story-tag s06">商品/黄金</span>
+          <div class="story-title">黄金$4,088.87周五反弹1.56%·但四周连跌·白银周跌10.70%·"黄金是利率预期资产"再确认·WTI跌破$70</div>
+        </div>
+        <div class="story-content">
+          <p>周五（6月26日）黄金出现了"久违的"反弹——<span class="highlight">现货黄金收$4,088.87/盎司（+1.56%），白银收$59.14（+2.31%）。</span> 反弹的驱动力是油价暴跌（WTI跌破$70）减少了通胀上行压力→加息预期微幅降温→美元微跌→黄金获得喘息。但这个反弹不能掩盖一个残酷的事实：黄金已经连续四周下跌，从5月底的$4,483累计跌至约$4,088，跌幅接近9%。白银更惨——单周跌幅10.70%。</p>
+          <p><strong>黄金四周连跌是对"黄金=利率预期资产"这一核心判断的终极确认。</strong> 我们在v6.0的黄金三层分析中反复强调：黄金不是避险资产，是利率预期资产。美伊开火（地缘风险↑）→黄金没有暴涨；美伊停火（地缘风险↓）→黄金没有暴跌。真正驱动黄金的是：PCE 3.4%→加息概率↑→实际利率↑→黄金承压。油价跌→通胀预期↓→加息压力微减→黄金周五反弹。这条传导链清晰得不能再清晰。$4,200以上是利率高压区，$4,000是整数心理关口——本周黄金大概率在$4,000-4,200区间震荡等待非农裁决。</p>
+
+          <table>
+            <tr><th>品种</th><th>收盘（6/26）</th><th>当日涨跌幅</th><th>本周累计</th></tr>
+            <tr><td>现货黄金</td><td>$4,088.87/盎司</td><td class="up">+1.56%</td><td class="down">周跌3.52%（四周连跌）</td></tr>
+            <tr><td>现货白银</td><td>$59.14/盎司</td><td class="up">+2.31%</td><td class="down">周跌10.70%</td></tr>
+            <tr><td>WTI原油</td><td>$69.97/桶</td><td class="down">盘中跌破$70</td><td class="down">2026年2月以来首次</td></tr>
+            <tr><td>布伦特原油</td><td>$72.25/桶</td><td class="down">-0.85%</td><td class="down">地缘溢价消退</td></tr>
+          </table>
+
+          <div class="story-img">
+            <img src="comic/panel-002.svg" alt="黄金四周连跌的真相：黄金不是避险资产，是利率预期资产——天平两端的博弈">
+          </div>
+
+          <div class="invest-view">
+            <div class="iv-label">&#x1F4CC; 投资视角</div>
+            <p>黄金当前的核心矛盾仍然是"利率预期 vs 央行购金"。$4,088的金价中，包含约$100-150的央行购金溢价（支撑），但被实际利率上行和美元走强压制了约$200-300（压力）。如果周四非农弱于预期→加息预期降温→黄金可能回到$4,150-4,200区间。如果非农超预期→加息概率冲90%+→黄金可能跌破$4,000整数关口。WTI跌破$70后，如果多哈谈判顺利（霍尔木兹通航恢复），油价可能向$65-68区间下探——这将通过降低通胀预期间接利多黄金。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== Layer 3 ===== -->
+    <div class="layer3">
+      <div class="l3-title">&#x1F4CB; 数据速览 · 2026.06.29</div>
+
+      <p style="font-size:13px;font-weight:700;color:#1A56DB;margin-bottom:4px;">美股收盘（6月26日 · 周五）</p>
+      <table>
+        <tr><th>指数</th><th>收盘</th><th>涨跌幅</th><th>本周累计</th></tr>
+        <tr><td>道琼斯</td><td>51,876.11</td><td class="down">-0.09%</td><td class="up">+0.6%</td></tr>
+        <tr><td>标普500</td><td>7,354.02</td><td class="down">-0.05%</td><td class="down">-1.95%</td></tr>
+        <tr><td>纳斯达克</td><td>25,297.62</td><td class="down">-0.24%</td><td class="down">-4.6%（五连跌）</td></tr>
+        <tr><td>费城半导体</td><td>—</td><td class="down">-5.29%</td><td class="down">周内两次-5%+暴跌</td></tr>
+      </table>
+
+      <p style="font-size:13px;font-weight:700;color:#1A56DB;margin-bottom:4px;margin-top:10px;">核心个股涨跌（6月26日）</p>
+      <table>
+        <tr><th>个股</th><th>涨跌幅</th><th>催化</th></tr>
+        <tr><td>微软 (MSFT)</td><td class="up">+5%+</td><td>AI先发优势+现金流避风港</td></tr>
+        <tr><td>苹果 (AAPL)</td><td class="up">+3%+</td><td>提价25%锁定利润率</td></tr>
+        <tr><td>亚马逊 (AMZN)</td><td class="up">+2%+</td><td>云业务护城河</td></tr>
+        <tr><td>安森美 (ON)</td><td class="down">-23.66%</td><td>$70亿收购Synaptics</td></tr>
+        <tr><td>西部数据 (WDC)</td><td class="down">-13%+</td><td>存储芯片抛售潮</td></tr>
+        <tr><td>英伟达 (NVDA)</td><td class="down">-4%+（周）</td><td>AI估值重定价</td></tr>
+      </table>
+
+      <p style="font-size:13px;font-weight:700;color:#1A56DB;margin-bottom:4px;margin-top:10px;">A股收盘（6月26日 · 周五）</p>
+      <table>
+        <tr><th>指数</th><th>收盘</th><th>涨跌幅</th></tr>
+        <tr><td>上证指数</td><td>4,027.26</td><td class="down">-2.26%</td></tr>
+        <tr><td>深证成指</td><td>15,782.22</td><td class="down">-3.44%</td></tr>
+        <tr><td>创业板指</td><td>4,194.21</td><td class="down">-4.07%</td></tr>
+        <tr><td>科创综指</td><td>2,343.66</td><td class="down">-2.02%</td></tr>
+        <tr><td>成交额</td><td>3.58万亿</td><td>较周四缩量436亿</td></tr>
+      </table>
+
+      <p style="font-size:13px;font-weight:700;color:#1A56DB;margin-bottom:4px;margin-top:10px;">商品/外汇/债市（6月26日收盘）</p>
+      <table>
+        <tr><th>品种</th><th>价格</th><th>涨跌幅/趋势</th></tr>
+        <tr><td>WTI原油</td><td>$69.97/桶</td><td class="down">2026年2月以来首次跌破$70</td></tr>
+        <tr><td>布伦特原油</td><td>$72.25/桶</td><td class="down">地缘溢价持续消退</td></tr>
+        <tr><td>现货黄金</td><td>$4,088.87/盎司</td><td class="up">+1.56%（周跌3.52%四周连跌）</td></tr>
+        <tr><td>现货白银</td><td>$59.14/盎司</td><td class="up">+2.31%（周跌10.70%）</td></tr>
+        <tr><td>10年期美债</td><td>4.37%</td><td class="down">从4.51%回落</td></tr>
+        <tr><td>美元指数</td><td>101.27</td><td class="up">近一年最高</td></tr>
+        <tr><td>VIX恐慌指数</td><td>18.41</td><td class="down">-2.54%</td></tr>
+      </table>
+
+      <p style="font-size:13px;font-weight:700;color:#1A56DB;margin-bottom:4px;margin-top:10px;">本周关键事件</p>
+      <table>
+        <tr><th>事件</th><th>时间</th><th>重要性</th></tr>
+        <tr><td>中国6月官方制造业PMI</td><td>6月30日（周二）</td><td style="color:#D4A017;font-weight:700;">&#x1F7E1;重要</td></tr>
+        <tr><td>美伊多哈技术性谈判</td><td>6月30日（周二）</td><td style="color:#D4A017;font-weight:700;">&#x1F7E1;重要</td></tr>
+        <tr><td>美国6月ADP就业+沃什欧央行论坛讲话</td><td>7月1日（周三）</td><td style="color:#DC2626;font-weight:700;">&#x1F534;最高</td></tr>
+        <tr><td>半导体7月涨价潮生效（MLCC/晶圆代工/芯片）</td><td>7月1日（周三）</td><td style="color:#D4A017;font-weight:700;">&#x1F7E1;重要</td></tr>
+        <tr><td>美国6月非农就业报告（因独立日提前）</td><td>7月2日（周四）</td><td style="color:#DC2626;font-weight:700;">&#x1F534;最高</td></tr>
+        <tr><td>美股独立日休市</td><td>7月3日（周五）</td><td>短交易周</td></tr>
+      </table>
+
+      <div class="l3-highlight-box">
+        <strong>上周剧情演进（2026.06.22-06.28）：</strong> 周一（6/22）高低切换：大金融涨停潮 → 周二（6/23）韩国熔断-9.99%+全球科技股踩踏 → 周三（6/24）科技企稳反弹 → 周四（6/25）PCE 3.4%超预期，加息预期飙升 → 周五（6/26）A股上证-2.26%险守4000，纳指五连跌-4.6%，费半-5.29% → 周末：美伊互袭+停火（霍尔木兹一日三转），三星SK官宣1.3万亿投资。<br><br>
+        <strong>核心判断：</strong> 上周的主轴是"PCE超预期→加息定价→全球风险资产重定价"。纳指五连跌-4.6%和费半两次暴跌不是孤立事件——是全球"无风险利率上行"环境下的系统性估值压缩。但这一周的精彩之处在于两条矛盾同时运行：产业面（三星SK万亿投资、半导体涨价潮、AI需求加速）好得不像话，资金面（加息预期、美元走强、资金从科技轮出）紧张得不像话。<strong>本周是"见分晓"的一周。</strong>非农数据将决定哪条线胜出：产业逻辑赢→科技暴力反弹；利率逻辑赢→还有第二波压缩。在周四非农落地前，最佳策略是"保持仓位但不加仓，保持观察但不恐慌"。短交易周（仅4个交易日）叠加高信息密度，波动将非常剧烈。
+      </div>
+
+      <!-- 名词解释 -->
+      <div class="glossary">
+        <h4>&#x1F4D6; 名词解释 · 小白友好版</h4>
+        <table>
+          <tr><th>术语</th><th>大白话</th><th>为什么重要</th></tr>
+          <tr><td class="g-term">核心PCE</td><td>去掉食品和能源价格的通胀指标，美联储最看重的物价标尺</td><td>上周四公布3.4%超预期，创20个月新高——这是上周全球市场波动的"总开关"。PCE越高，加息概率越高，科技股估值压力越大。</td></tr>
+          <tr><td class="g-term">年内二次加息</td><td>市场预期美联储在今年9月加息后，12月再加一次</td><td>这是PCE公布后首次被市场定价——意味着市场从"加一次就够"转向"可能要加两次"。对科技股估值的压力翻倍。</td></tr>
+          <tr><td class="g-term">五连跌</td><td>纳斯达克指数连续五个交易日收跌</td><td>2026年最长连跌纪录。单周跌4.6%——这是AI科技股2026年以来最惨烈的一周。但不是崩盘（跌得有序而非恐慌），是"削去泡沫"。</td></tr>
+          <tr><td class="g-term">2s-10s利差</td><td>2年期和10年期美国国债收益率的差值——差值为正=经济正常，趋近零或倒挂=衰退预警</td><td>当前约28bp，在PCE超预期的背景下没有进一步压缩——债市在说"经济也许能扛住加息"。这是最被忽视的积极信号。</td></tr>
+          <tr><td class="g-term">HBM（高带宽内存）</td><td>垂直堆叠的DRAM芯片，专为AI加速器设计，带宽是传统内存的10倍以上</td><td>三星SK投资计划的核心——HBM4售价每年翻番，消耗晶圆产能是传统DRAM的3-4倍。这是AI存储需求仍在加速的铁证。</td></tr>
+          <tr><td class="g-term">2000万亿韩元投资</td><td>三星+SK海力士联合宣布的10年半导体投资总额，约1.3万亿美元</td><td>据韩联社报道的韩国规模最大企业投资，相当于GDP七成以上。4-5座晶圆厂+封装厂——全球半导体扩产周期进入新阶段。</td></tr>
+          <tr><td class="g-term">霍尔木兹一日三转</td><td>周末美伊从"空袭"到"停火"的48小时内三次反转</td><td>美军空袭→伊朗报复→同意停火。WTI因此一度跌破$70后反弹。但60天窗口过半，最终协议仍遥远。</td></tr>
+        </table>
+      </div>
+
+      <!-- 数据来源 -->
+      <div class="sources">
+        <h3>&#x1F4CE; 数据来源</h3>
+        <a href="https://www.cnfin.com/hs-lb/detail/20260627/4432596_1.html" target="_blank">新华社 · 美股三大股指26日均下跌</a> ·
+        <a href="https://hk.finance.yahoo.com/news/%E7%BE%8E%E8%82%A1%E7%9B%A4%E5%BE%8C-%E7%BE%8E%E8%BB%8D%E5%A0%B1%E5%BE%A9%E6%80%A7%E7%A9%BA%E8%A5%B2%E4%BC%8A%E6%9C%97-%E6%99%B6%E7%89%87%E8%82%A1%E9%87%8D%E6%91%94-%E9%82%A3%E6%8C%87%E9%80%A3%E4%BA%94%E9%BB%91%E5%91%A8%E7%B7%9A%E6%8C%AB%E9%80%BE4-221351839.html" target="_blank">Yahoo Finance · 美军空袭伊朗芯片股重摔</a> ·
+        <a href="https://finance.eastmoney.com/a/202606263784857775.html" target="_blank">东方财富 · A股三大指数集体调整</a> ·
+        <a href="https://news.qq.com/rain/a/20260625A0ASC900" target="_blank">腾讯新闻 · 美国关键通胀数据冲上近三年新高</a> ·
+        <a href="https://www.chnfund.com/article/AR95291013-621b-92db-9a85-3a22160803b5" target="_blank">中国基金报 · A股大跌公募解读</a> ·
+        <a href="https://finance.jrj.com.cn/2026/06/29100757611373.shtml" target="_blank">金融界 · 三星SK 1.3万亿美元AI豪赌</a> ·
+        <a href="https://fund.eastmoney.com/a/202606293785687948.html" target="_blank">东方财富 · 美伊同意停火周二继续谈判</a> ·
+        <a href="https://www.fxstreet.hk/news/wti-die-po-7000-mei-yuan-mei-guo-yu-yi-lang-tong-yi-ting-zhi-gong-ji-zhong-qi-tan-pan-202606290014" target="_blank">FXStreet · WTI跌破$70美伊同意停止攻击</a> ·
+        <a href="https://www.mrjjxw.com/articles/2026-06-27/4439431.html" target="_blank">每日经济 · 金价终于上涨</a> ·
+        <a href="https://fund.eastmoney.com/a/202606293785682634.html" target="_blank">东方财富 · AI通胀担忧撞上中东局势反复</a> ·
+        <a href="https://fund.eastmoney.com/a/202606293785663241.html" target="_blank">东方财富 · 一周前瞻非农周四重磅来袭</a>
+      </div>
+
+      <!-- Foot -->
+      <div class="foot">
+        <div class="icon">&#x1F4A1;</div>
+        <div class="t">今天最重要的一件事</div>
+        <div class="d">
+          理解"最强产业基本面"与"最强利率逆风"的同时存在——<br>
+          这不是2000年泡沫，也不是2022年去库存。<br>
+          三星SK投1.3万亿美元、半导体全面涨价，<br>
+          产业实打实在扩张。<br><br>
+          但PCE 3.4%创20个月新高，<br>
+          利率在重新为所有资产称重。<br>
+          纳指五连跌-4.6%是对"钱变贵了"的回答。<br><br>
+          本周四非农将裁决谁先松手。<br>
+          在此之前，保持仓位、保持观察、保持冷静。<br><br>
+          以上是扬说财经早报，祝您投资顺利。
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+</body>
+</html>
