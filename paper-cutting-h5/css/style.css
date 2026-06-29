@@ -1,0 +1,738 @@
+/* ============================================================
+   《一纸千年》全局样式表
+   非遗剪纸文化互动 H5 — 中国红 · 米白纸 · 金色 · 墨黑
+   ============================================================ */
+
+/* ---------- CSS 变量 ---------- */
+:root {
+  --red: #B11226;
+  --dark-red: #7A0E18;
+  --paper: #F8EED8;
+  --paper-dark: #E8DCC4;
+  --gold: #D8A24A;
+  --gold-light: #E8C97A;
+  --ink: #1E1A17;
+  --brown: #5B3924;
+  --cream: #FFF8EC;
+  --radius: 12px;
+  --shadow: 0 4px 20px rgba(30,26,23,0.12);
+  --font-title: "STZhongsong", "Noto Serif SC", "Source Han Serif SC", serif;
+  --font-body: "PingFang SC", "Microsoft YaHei", "Noto Serif SC", "SimSun", serif;
+}
+
+/* ---------- Reset ---------- */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px;-webkit-tap-highlight-color:transparent}
+body{
+  font-family:var(--font-body);
+  color:var(--ink);
+  background:var(--paper);
+  overflow:hidden;
+  -webkit-font-smoothing:antialiased;
+  -webkit-user-select:none;
+  user-select:none;
+  touch-action:pan-y;
+}
+
+/* ---------- 纸张纹理（增强版） ---------- */
+body::before{
+  content:'';
+  position:fixed;inset:0;
+  background-image:
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='paper'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.04 0.06' numOctaves='5' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeBlend in='SourceGraphic' mode='multiply'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paper)' opacity='0.12'/%3E%3C/svg%3E");
+  pointer-events:none;z-index:999;
+}
+
+/* ---------- 进度指示器 ---------- */
+.progress-bar{
+  position:fixed;right:12px;top:50%;transform:translateY(-50%);
+  z-index:1000;display:flex;flex-direction:column;gap:8px;
+}
+.progress-dots{display:flex;flex-direction:column;gap:8px}
+.progress-dot{
+  width:8px;height:8px;border-radius:50%;
+  background:rgba(177,18,38,0.3);
+  transition:all 0.3s ease;cursor:pointer;
+}
+.progress-dot.active{background:var(--red);transform:scale(1.5)}
+
+/* ---------- 音乐按钮 ---------- */
+.music-toggle{
+  position:fixed;top:16px;right:16px;z-index:1000;
+  width:40px;height:40px;border-radius:50%;
+  border:1.5px solid var(--red);background:rgba(248,238,216,0.9);
+  color:var(--red);font-size:18px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:all 0.3s;
+}
+.music-toggle:hover{background:var(--red);color:var(--paper)}
+.music-toggle.playing{background:var(--red);color:var(--paper);animation:pulse-music 2s infinite}
+@keyframes pulse-music{0%,100%{box-shadow:0 0 0 0 rgba(177,18,38,0.4)}50%{box-shadow:0 0 0 10px rgba(177,18,38,0)}}
+
+/* ---------- 页面容器 ---------- */
+.pages-container{
+  width:100vw;height:100vh;
+  transition:transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change:transform;
+}
+.page{
+  width:100vw;height:100vh;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+  padding:60px 24px 40px;
+}
+
+/* ---------- 通用页面头 ---------- */
+.page-header{text-align:center;margin-bottom:24px;z-index:1}
+.page-num{
+  display:inline-block;width:36px;height:36px;line-height:36px;
+  border-radius:50%;background:var(--red);color:var(--paper);
+  font-family:var(--font-title);font-size:18px;margin-bottom:8px;
+}
+.page-title{
+  font-family:var(--font-title);font-size:clamp(24px,5vw,32px);
+  color:var(--dark-red);letter-spacing:0.08em;
+}
+.page-subtitle{
+  margin-top:8px;font-size:14px;color:var(--brown);opacity:0.8;
+}
+
+/* ---------- 通用按钮 ---------- */
+.btn{
+  display:inline-block;padding:14px 40px;border-radius:30px;
+  font-family:var(--font-title);font-size:17px;letter-spacing:0.06em;
+  cursor:pointer;transition:all 0.3s;border:none;outline:none;
+}
+.btn-start{
+  background:var(--red);color:var(--paper);
+  box-shadow:0 4px 16px rgba(177,18,38,0.35);
+}
+.btn-start:hover{background:var(--dark-red);transform:translateY(-2px);box-shadow:0 6px 24px rgba(177,18,38,0.45)}
+.btn-start:active{transform:translateY(0)}
+.btn-small{
+  padding:10px 28px;font-size:14px;border-radius:24px;
+  background:var(--red);color:var(--paper);
+}
+.btn-ghost{
+  background:transparent;color:var(--red);border:1.5px solid var(--red);
+}
+.btn-ghost:hover{background:var(--red);color:var(--paper)}
+
+/* ---------- 滚动提示 ---------- */
+.scroll-hint{
+  position:absolute;bottom:24px;left:50%;transform:translateX(-50%);
+  font-size:12px;color:var(--brown);opacity:0.6;
+  animation:bounce-up 2s ease infinite;
+}
+@keyframes bounce-up{0%,100%{opacity:0.3;transform:translateX(-50%) translateY(0)}50%{opacity:1;transform:translateX(-50%) translateY(-6px)}}
+
+/* ============================================================
+   第0页 — 封面
+   ============================================================ */
+.page-cover{
+  background:#7A0E18;
+  justify-content:center;
+}
+.cover-bg-layer{
+  position:absolute;inset:0;
+  background:url('../images/cover-bg.jpg') center/cover no-repeat;
+  opacity:0.35;
+  z-index:0;
+}
+.cover-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(122,14,24,0.85) 0%,rgba(177,18,38,0.7) 40%,rgba(122,14,24,0.9) 100%);
+  z-index:0;
+}
+
+.cover-content{text-align:center;z-index:1;position:relative}
+.cover-decoration{
+  width:40px;height:3px;margin:0 auto 20px;
+  border-radius:2px;
+  background:linear-gradient(90deg, transparent, var(--gold-light), transparent);
+}
+.bottom-decor{margin-top:20px;margin-bottom:0}
+
+.cover-title{
+  font-family:var(--font-title);font-size:clamp(42px,8vw,60px);
+  color:var(--gold-light);letter-spacing:0.12em;
+  text-shadow:0 2px 8px rgba(0,0,0,0.3);
+}
+.cover-subtitle{
+  margin-top:12px;font-size:clamp(16px,3vw,20px);
+  color:rgba(255,255,255,0.85);letter-spacing:0.15em;
+}
+.cover-divider{
+  width:60px;height:2px;margin:20px auto;
+  background:rgba(255,255,255,0.4);
+  border-radius:1px;
+}
+.cover-desc{
+  font-size:15px;color:rgba(255,255,255,0.7);
+  letter-spacing:0.1em;margin-bottom:36px;
+}
+
+/* 入场动画 */
+.animate-fade-up{
+  opacity:0;transform:translateY(24px);
+  animation:fadeUp 0.7s ease forwards;
+}
+.delay-1{animation-delay:0.3s}
+.delay-2{animation-delay:0.6s}
+.delay-3{animation-delay:0.9s}
+@keyframes fadeUp{
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* ============================================================
+   第1页 — 文化引入
+   ============================================================ */
+.page-intro{background:var(--paper);justify-content:center}
+.intro-cards{
+  display:flex;flex-direction:column;gap:16px;
+  width:100%;max-width:400px;z-index:1;
+}
+.intro-card{
+  display:flex;align-items:center;gap:16px;
+  background:var(--cream);border-radius:var(--radius);
+  padding:20px;box-shadow:var(--shadow);
+  border-left:4px solid var(--red);
+  opacity:0;transform:translateY(30px);
+  transition:all 0.6s ease;
+}
+.intro-card.visible{opacity:1;transform:translateY(0)}
+.card-icon{
+  flex-shrink:0;width:52px;height:52px;border-radius:50%;
+  background:var(--red);display:flex;align-items:center;justify-content:center;
+  color:var(--paper);font-size:22px;
+}
+/* 卡片图标剪纸图案 */
+.cutout-butterfly::after{content:'蝶'}
+.cutout-lantern::after{content:'福'}
+.cutout-stamp::after{content:'遗'}
+.card-text h3{
+  font-family:var(--font-title);font-size:16px;color:var(--dark-red);margin-bottom:4px;
+}
+.card-text p{font-size:13px;color:var(--brown);line-height:1.6}
+
+/* ============================================================
+   第2页 — 历史时间轴
+   ============================================================ */
+.page-timeline{background:var(--paper);justify-content:flex-start;padding-top:60px}
+.timeline{
+  width:100%;max-width:400px;position:relative;
+  padding-left:32px;z-index:1;
+}
+.timeline-line{
+  position:absolute;left:11px;top:0;bottom:0;
+  width:2px;background:linear-gradient(180deg,var(--red),var(--gold),var(--red));
+}
+.timeline-nodes{display:flex;flex-direction:column;gap:0}
+.timeline-node{position:relative;padding:14px 0;cursor:pointer}
+.node-dot{
+  position:absolute;left:-32px;top:20px;
+  width:24px;height:24px;border-radius:50%;
+  background:var(--paper);border:3px solid var(--red);
+  transition:all 0.3s;
+  z-index:1;
+}
+.timeline-node.active .node-dot{
+  background:var(--red);box-shadow:0 0 0 6px rgba(177,18,38,0.15);
+}
+.node-content{
+  background:var(--cream);border-radius:var(--radius);
+  padding:14px 16px;border-left:3px solid var(--red);
+  transition:all 0.3s;opacity:0.65;
+}
+.timeline-node.active .node-content{opacity:1;border-left-color:var(--gold);box-shadow:var(--shadow)}
+.node-era{
+  font-family:var(--font-title);font-size:16px;color:var(--dark-red);font-weight:bold;
+}
+.node-content p{font-size:13px;color:var(--brown);margin-top:4px;line-height:1.5}
+
+/* ============================================================
+   第3页 — 纹样寓意
+   ============================================================ */
+.page-patterns{background:var(--paper);justify-content:center}
+.patterns-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:10px;width:100%;max-width:400px;z-index:1;
+}
+.pattern-card{
+  aspect-ratio:3/4;perspective:600px;cursor:pointer;
+}
+.card-inner{
+  position:relative;width:100%;height:100%;
+  transition:transform 0.6s ease;
+  transform-style:preserve-3d;
+}
+.pattern-card.flipped .card-inner{transform:rotateY(180deg)}
+.card-front,.card-back{
+  position:absolute;inset:0;backface-visibility:hidden;
+  border-radius:var(--radius);
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  padding:10px;
+}
+.card-front{
+  background:var(--cream);
+  border:2px solid rgba(177,18,38,0.2);
+  box-shadow:var(--shadow);
+  overflow:hidden;
+}
+.pattern-img{
+  width:100%;height:70%;
+  object-fit:cover;
+  border-radius:6px 6px 0 0;
+}
+.pattern-svg{
+  width:70%;height:60%;
+}
+.card-back{
+  background:var(--dark-red);color:var(--paper);
+  transform:rotateY(180deg);
+  font-size:12px;line-height:1.6;text-align:center;
+  padding:14px;
+}
+.pattern-name{
+  font-family:var(--font-title);font-size:13px;color:var(--dark-red);
+  margin-top:auto;padding-top:6px;
+}
+
+/* ============================================================
+   第4页 — 剪纸工艺
+   ============================================================ */
+.page-craft{background:var(--paper);justify-content:center}
+.craft-steps{
+  display:flex;flex-direction:column;gap:10px;
+  width:100%;max-width:400px;z-index:1;
+}
+.craft-step{
+  display:flex;align-items:center;gap:14px;
+  background:var(--cream);border-radius:var(--radius);
+  padding:14px;cursor:pointer;
+  transition:all 0.3s;border-left:3px solid transparent;
+}
+.craft-step:hover{background:#FFF0E8}
+.craft-step.active{
+  border-left-color:var(--red);background:#FFF0E8;
+  box-shadow:var(--shadow);
+}
+.step-number{
+  flex-shrink:0;width:32px;height:32px;line-height:32px;
+  text-align:center;
+  border-radius:50%;background:var(--paper);
+  border:2px solid var(--red);color:var(--red);
+  font-family:var(--font-title);font-size:15px;
+  transition:all 0.3s;
+}
+.craft-step.active .step-number{background:var(--red);color:var(--paper)}
+.step-info h4{
+  font-family:var(--font-title);font-size:15px;color:var(--dark-red);margin-bottom:2px;
+}
+.step-info p{font-size:12px;color:var(--brown);line-height:1.5}
+.craft-step:not(.active) .step-info p{display:none}
+
+/* ============================================================
+   第5页 — 拖拽拼窗花
+   ============================================================ */
+.page-puzzle{background:var(--paper);justify-content:center}
+.puzzle-area{
+  width:100%;max-width:400px;z-index:1;
+  display:flex;flex-direction:column;align-items:center;gap:24px;
+}
+.puzzle-target{
+  width:220px;height:220px;
+  display:grid;grid-template-columns:1fr 1fr;
+  grid-template-rows:1fr 1fr;gap:6px;
+  position:relative;
+}
+.puzzle-target::after{
+  content:'?';position:absolute;inset:0;
+  display:flex;align-items:center;justify-content:center;
+  font-size:48px;color:rgba(177,18,38,0.15);
+  font-family:var(--font-title);
+}
+.target-zone{
+  border:2px dashed rgba(177,18,38,0.35);
+  border-radius:8px;transition:all 0.3s;
+  position:relative;z-index:1;
+}
+.target-zone.matched{border-color:var(--gold);background:rgba(216,162,74,0.1)}
+.target-zone.hover{border-color:var(--red);background:rgba(177,18,38,0.08)}
+
+.puzzle-pieces{
+  display:flex;flex-wrap:wrap;gap:10px;justify-content:center;
+}
+.puzzle-piece{
+  width:70px;height:70px;cursor:grab;touch-action:none;
+  border-radius:8px;transition:box-shadow 0.2s;
+  overflow:hidden;
+}
+.puzzle-piece:active{cursor:grabbing}
+.puzzle-piece.dragging{z-index:10;box-shadow:0 8px 24px rgba(0,0,0,0.25)}
+.puzzle-piece.placed{opacity:0;pointer-events:none;transition:opacity 0.3s}
+.piece-svg{width:100%;height:100%;display:block}
+.zone-svg{width:100%;height:100%;display:block}
+
+.puzzle-complete{
+  position:absolute;inset:0;z-index:20;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(248,238,216,0.92);
+}
+.complete-inner{text-align:center}
+.complete-icon{
+  font-size:48px;color:var(--gold);margin-bottom:12px;
+  animation:complete-pop 0.5s ease;
+}
+@keyframes complete-pop{0%{transform:scale(0)}70%{transform:scale(1.2)}100%{transform:scale(1)}}
+.complete-inner h3{
+  font-family:var(--font-title);font-size:22px;color:var(--dark-red);margin-bottom:16px;
+}
+
+/* ============================================================
+   第6页 — Canvas 擦除显影
+   ============================================================ */
+.page-scratch{background:var(--paper);justify-content:center}
+.scratch-container{
+  position:relative;width:280px;height:280px;
+  border-radius:var(--radius);overflow:hidden;
+  box-shadow:var(--shadow);z-index:1;
+}
+.scratch-reveal{
+  position:absolute;inset:0;
+  display:flex;align-items:center;justify-content:center;
+}
+.scratch-bg-img{
+  width:100%;height:100%;object-fit:cover;
+}
+.scratch-canvas{
+  position:absolute;inset:0;
+  border-radius:var(--radius);cursor:pointer;
+  touch-action:none;
+}
+.scratch-progress{
+  width:280px;margin-top:16px;z-index:1;
+}
+.progress-text{font-size:12px;color:var(--brown);text-align:center;margin-bottom:6px}
+.progress-fill{
+  height:4px;background:rgba(177,18,38,0.15);border-radius:2px;overflow:hidden;
+}
+.progress-fill::after{
+  content:'';display:block;height:100%;
+  background:var(--red);border-radius:2px;
+  width:0%;transition:width 0.3s;
+}
+.scratch-complete{
+  z-index:1;margin-top:12px;text-align:center;
+  font-size:14px;color:var(--dark-red);
+}
+
+/* ============================================================
+   第7页 — 地域风格
+   ============================================================ */
+.page-regions{background:var(--paper);justify-content:center}
+.regions-tabs{
+  display:flex;gap:8px;margin-bottom:20px;z-index:1;
+  flex-wrap:wrap;justify-content:center;
+}
+.region-tab{
+  padding:8px 20px;border-radius:20px;border:1.5px solid var(--red);
+  background:transparent;color:var(--red);
+  font-family:var(--font-title);font-size:14px;cursor:pointer;
+  transition:all 0.3s;
+}
+.region-tab.active{background:var(--red);color:var(--paper)}
+.region-tab:hover:not(.active){background:rgba(177,18,38,0.08)}
+
+.region-display{
+  display:flex;flex-direction:column;align-items:center;
+  gap:16px;width:100%;max-width:400px;z-index:1;
+}
+.region-visual{
+  width:220px;height:180px;border-radius:var(--radius);
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;box-shadow:var(--shadow);
+}
+.region-card{
+  width:100%;height:100%;display:flex;align-items:center;justify-content:center;
+}
+.region-svg{
+  width:100%;height:100%;
+}
+
+.region-info{text-align:center}
+.region-info h3{
+  font-family:var(--font-title);font-size:20px;color:var(--dark-red);margin-bottom:6px;
+}
+.region-tag{
+  display:inline-block;padding:3px 14px;border-radius:12px;
+  background:rgba(177,18,38,0.1);color:var(--red);
+  font-size:12px;margin-bottom:8px;
+}
+.region-info p{font-size:13px;color:var(--brown);line-height:1.6;max-width:340px}
+
+/* ============================================================
+   第8页 — 知识问答
+   ============================================================ */
+.page-quiz{background:var(--paper);justify-content:center}
+.quiz-container{width:100%;max-width:400px;z-index:1}
+.quiz-progress{
+  display:flex;justify-content:space-between;
+  margin-bottom:16px;font-size:14px;color:var(--brown);
+}
+.quiz-progress em{color:var(--red);font-style:normal;font-weight:bold}
+.quiz-question{
+  background:var(--cream);border-radius:var(--radius);
+  padding:20px;box-shadow:var(--shadow);
+  font-family:var(--font-title);font-size:17px;color:var(--dark-red);
+  text-align:center;margin-bottom:16px;line-height:1.5;
+}
+.quiz-options{display:flex;flex-direction:column;gap:10px}
+.quiz-option{
+  padding:14px 18px;border-radius:var(--radius);
+  background:var(--cream);border:2px solid rgba(177,18,38,0.15);
+  font-size:14px;color:var(--ink);cursor:pointer;
+  transition:all 0.25s;text-align:center;
+}
+.quiz-option:hover{border-color:var(--red);background:#FFF0E8}
+.quiz-option.correct{background:#E8F5E9;border-color:#16A34A;color:#16A34A}
+.quiz-option.wrong{background:#FFEBEE;border-color:var(--red);color:var(--red)}
+.quiz-option.disabled{pointer-events:none}
+
+.quiz-result{text-align:center;z-index:1}
+.result-stamp{
+  width:80px;height:80px;line-height:80px;margin:0 auto 16px;
+  border-radius:50%;border:3px solid var(--gold);
+  font-family:var(--font-title);font-size:36px;color:var(--dark-red);
+  transform:rotate(-10deg);
+}
+.result-text{
+  font-family:var(--font-title);font-size:18px;color:var(--dark-red);margin-bottom:20px;
+}
+
+/* ============================================================
+   第9页 — 祝福卡生成
+   ============================================================ */
+.page-cardgen{background:var(--paper);justify-content:center}
+.cardgen-layout{
+  display:flex;gap:24px;width:100%;max-width:500px;
+  z-index:1;flex-direction:column;align-items:center;
+}
+.cardgen-form{
+  width:100%;display:flex;flex-direction:column;gap:12px;align-items:center;
+}
+.cardgen-input{
+  width:100%;max-width:320px;padding:12px 16px;
+  border-radius:var(--radius);border:2px solid rgba(177,18,38,0.2);
+  background:var(--cream);font-size:14px;color:var(--ink);
+  font-family:var(--font-body);outline:none;
+  transition:border-color 0.3s;
+}
+.cardgen-input:focus{border-color:var(--red)}
+.cardgen-textarea{resize:none}
+.cardgen-themes{display:flex;gap:8px}
+.theme-btn{
+  width:44px;height:44px;border-radius:50%;
+  border:2px solid rgba(177,18,38,0.2);background:var(--cream);
+  font-family:var(--font-title);font-size:16px;color:var(--red);
+  cursor:pointer;transition:all 0.3s;
+}
+.theme-btn.active{background:var(--red);color:var(--paper);border-color:var(--red)}
+.theme-btn:hover:not(.active){border-color:var(--red)}
+
+.cardgen-preview{display:flex;flex-direction:column;align-items:center;gap:12px}
+.blessing-card{
+  width:280px;height:380px;position:relative;
+  background:var(--red);border-radius:4px;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 8px 32px rgba(177,18,38,0.3);
+}
+.card-border-outer{
+  position:absolute;inset:8px;
+  border:2px solid rgba(255,255,255,0.5);
+  border-radius:2px;
+}
+.card-border-inner{
+  position:absolute;inset:16px;
+  border:1px solid rgba(255,255,255,0.3);
+  border-radius:2px;
+}
+.card-content{text-align:center;z-index:1}
+.card-theme-symbol{
+  font-family:var(--font-title);font-size:56px;color:var(--gold-light);
+  margin-bottom:12px;text-shadow:0 2px 4px rgba(0,0,0,0.2);
+}
+.card-greeting{
+  font-family:var(--font-title);font-size:18px;color:var(--paper);
+  letter-spacing:0.1em;margin-bottom:8px;
+}
+.card-to{font-size:13px;color:rgba(255,255,255,0.7)}
+.card-date{
+  font-size:11px;color:rgba(255,255,255,0.5);margin-top:12px;
+}
+.btn-save{margin-top:4px}
+
+/* ============================================================
+   第10页 — 传承保护
+   ============================================================ */
+.page-heritage{background:var(--paper);justify-content:center}
+.heritage-intro{
+  text-align:center;font-size:15px;color:var(--brown);
+  line-height:1.7;max-width:360px;margin-bottom:24px;z-index:1;
+}
+.heritage-keywords{
+  display:flex;flex-direction:column;gap:10px;
+  width:100%;max-width:400px;z-index:1;
+}
+.keyword-item{
+  background:var(--cream);border-radius:var(--radius);
+  overflow:hidden;border-left:3px solid var(--red);
+}
+.keyword-header{
+  display:flex;align-items:center;gap:12px;
+  padding:14px 16px;cursor:pointer;
+  transition:background 0.2s;
+}
+.keyword-header:hover{background:rgba(177,18,38,0.04)}
+.keyword-icon{
+  width:32px;height:32px;line-height:32px;text-align:center;
+  border-radius:50%;background:var(--red);
+  color:var(--paper);font-family:var(--font-title);font-size:16px;
+}
+.keyword-header h4{
+  flex:1;font-family:var(--font-title);font-size:16px;color:var(--dark-red);
+}
+.keyword-arrow{color:var(--brown);font-size:14px;transition:transform 0.3s}
+.keyword-item.open .keyword-arrow{transform:rotate(180deg)}
+.keyword-body{
+  max-height:0;overflow:hidden;transition:max-height 0.4s ease,padding 0.4s;
+  padding:0 16px;
+}
+.keyword-item.open .keyword-body{
+  max-height:150px;padding:0 16px 14px;
+}
+.keyword-body p{font-size:13px;color:var(--brown);line-height:1.6}
+
+/* ============================================================
+   第11页 — 结尾分享
+   ============================================================ */
+.page-ending{
+  background:linear-gradient(180deg,var(--dark-red),var(--red));
+  justify-content:center;overflow:hidden;
+}
+.ending-patterns{position:absolute;inset:0;pointer-events:none}
+.ending-flake{
+  position:absolute;top:-30px;width:16px;height:16px;
+  background:rgba(255,255,255,0.25);border-radius:2px;
+  animation:flake-fall 8s linear infinite;
+}
+@keyframes flake-fall{
+  0%{transform:translateY(0) rotate(0deg);opacity:0}
+  10%{opacity:1}
+  90%{opacity:1}
+  100%{transform:translateY(105vh) rotate(360deg);opacity:0}
+}
+
+.ending-content{text-align:center;z-index:1}
+.ending-cutout{
+  width:80px;height:80px;margin:0 auto 24px;
+  border-radius:50%;
+  border:3px solid rgba(255,255,255,0.4);
+  box-shadow:0 0 0 10px rgba(255,255,255,0.08);
+}
+.ending-title{
+  font-family:var(--font-title);font-size:clamp(30px,6vw,40px);
+  color:var(--gold-light);letter-spacing:0.1em;margin-bottom:20px;
+}
+.ending-text{
+  font-size:15px;color:rgba(255,255,255,0.8);
+  line-height:2.2;margin-bottom:28px;
+}
+.ending-actions{display:flex;flex-direction:column;gap:12px;align-items:center;margin-bottom:32px}
+.ending-actions .btn-ghost{color:rgba(255,255,255,0.8);border-color:rgba(255,255,255,0.4)}
+.ending-actions .btn-ghost:hover{background:rgba(255,255,255,0.15);color:#fff}
+.ending-info{font-size:12px;color:rgba(255,255,255,0.5)}
+.ending-credit{margin-top:4px;opacity:0.6}
+
+/* ---------- QR 码分享区 ---------- */
+.ending-qr-section{
+  background:rgba(255,255,255,0.12);
+  border-radius:var(--radius);
+  padding:16px 20px;margin-bottom:24px;
+  display:flex;flex-direction:column;
+  align-items:center;gap:10px;
+}
+.qr-label{
+  font-size:13px;color:rgba(255,255,255,0.85);
+  font-family:var(--font-title);letter-spacing:0.05em;
+}
+.qr-code{
+  width:140px;height:140px;
+  background:white;border-radius:8px;
+  padding:6px;
+}
+.qr-hint{
+  font-size:11px;color:rgba(255,255,255,0.55);
+}
+.btn-share{
+  background:rgba(255,255,255,0.2);color:#fff;
+  border:1px solid rgba(255,255,255,0.3);
+  font-size:13px;
+}
+.btn-share:hover{background:rgba(255,255,255,0.3)}
+
+/* ---------- 祝福卡 SVG 边框 ---------- */
+.blessing-card{
+  width:280px;height:380px;position:relative;
+  background:var(--red);border-radius:4px;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 8px 32px rgba(177,18,38,0.3);
+}
+.card-frame{position:absolute;inset:0;pointer-events:none}
+.card-frame-svg{width:100%;height:100%}
+.card-content{z-index:1;text-align:center}
+.card-theme-symbol{
+  font-family:var(--font-title);font-size:56px;color:var(--gold-light);
+  margin-bottom:12px;text-shadow:0 2px 4px rgba(0,0,0,0.2);
+}
+.card-greeting{
+  font-family:var(--font-title);font-size:18px;color:var(--paper);
+  letter-spacing:0.1em;margin-bottom:8px;
+}
+.card-to{font-size:13px;color:rgba(255,255,255,0.7)}
+.card-date{font-size:11px;color:rgba(255,255,255,0.5);margin-top:12px}
+
+/* ============================================================
+   响应式适配
+   ============================================================ */
+@media (min-width:768px){
+  .page{padding:60px 48px 40px}
+  .patterns-grid{grid-template-columns:repeat(3,1fr);max-width:500px}
+  .pattern-shape{width:64px;height:64px;font-size:32px}
+  .cardgen-layout{flex-direction:row;max-width:700px;align-items:flex-start}
+  .cardgen-form{flex:1}
+  .cardgen-preview{flex:1}
+}
+
+@media (max-width:374px){
+  .page{padding:50px 16px 36px}
+  .page-title{font-size:22px}
+  .patterns-grid{grid-template-columns:repeat(3,1fr);gap:8px}
+  .pattern-shape{width:44px;height:44px;font-size:22px}
+  .puzzle-target{width:180px;height:180px}
+  .puzzle-piece{width:58px;height:58px}
+  .blessing-card{width:240px;height:340px}
+}
+
+/* 横屏提示 */
+@media (max-height:500px){
+  .page-header{margin-bottom:12px}
+  .page-title{font-size:20px}
+}
+
+/* 高分辨率屏优化 */
+@media (-webkit-min-device-pixel-ratio:2),(min-resolution:192dpi){
+  body{-webkit-font-smoothing:antialiased}
+}

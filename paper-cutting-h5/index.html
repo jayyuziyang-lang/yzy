@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>一纸千年 · 非遗剪纸文化互动体验</title>
+<meta name="description" content="一把剪刀，一张红纸，剪出千年民俗记忆。沉浸式非遗剪纸文化互动H5体验。">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- 顶部进度指示器 -->
+<div class="progress-bar">
+  <div class="progress-dots" id="progressDots"></div>
+</div>
+
+<!-- 背景音乐按钮 -->
+<button class="music-toggle" id="musicToggle" title="背景音乐">
+  <span class="music-icon">♪</span>
+</button>
+
+<!-- ========== 页面容器 ========== -->
+<div class="pages-container" id="pagesContainer">
+
+  <!-- ===== 第0页：封面 ===== -->
+  <section class="page page-cover" data-page="0">
+    <div class="cover-bg-layer"></div>
+    <div class="cover-overlay"></div>
+    <div class="cover-content">
+      <div class="cover-decoration top-decor"></div>
+      <h1 class="cover-title animate-fade-up">一纸千年</h1>
+      <p class="cover-subtitle animate-fade-up delay-1">非遗剪纸文化互动体验</p>
+      <div class="cover-divider animate-fade-up delay-2"></div>
+      <p class="cover-desc animate-fade-up delay-2">一把剪刀&nbsp;&nbsp;一张红纸&nbsp;&nbsp;剪出千年民俗记忆</p>
+      <button class="btn btn-start animate-fade-up delay-3" onclick="App.goToPage(1)">
+        开始体验
+      </button>
+      <div class="cover-decoration bottom-decor"></div>
+    </div>
+    <div class="scroll-hint">向上滑动探索</div>
+  </section>
+
+  <!-- ===== 第1页：文化引入 ===== -->
+  <section class="page page-intro" data-page="1">
+    <div class="page-header">
+      <span class="page-num">壹</span>
+      <h2 class="page-title">何为剪纸</h2>
+    </div>
+    <div class="intro-cards">
+      <div class="intro-card fade-in">
+        <div class="card-icon">
+          <svg viewBox="0 0 60 60"><circle cx="30" cy="30" r="26" fill="none" stroke="#B11226" stroke-width="2"/><circle cx="30" cy="30" r="18" fill="none" stroke="#B11226" stroke-width="1.5"/><circle cx="30" cy="22" r="5" fill="#B11226"/><circle cx="30" cy="38" r="4" fill="#B11226"/></svg>
+        </div>
+        <div class="card-text">
+          <h3>民间艺术瑰宝</h3>
+          <p>剪纸是中国民间美术中最具代表性的艺术形式之一，用剪刀或刻刀在纸上剪刻花纹，用于装点生活、配合民俗活动。</p>
+        </div>
+      </div>
+      <div class="intro-card fade-in delay-1">
+        <div class="card-icon">
+          <svg viewBox="0 0 60 60"><rect x="15" y="10" width="30" height="40" rx="3" fill="none" stroke="#B11226" stroke-width="2"/><line x1="25" y1="22" x2="35" y2="22" stroke="#B11226" stroke-width="1.5"/><circle cx="30" cy="32" r="6" fill="none" stroke="#B11226" stroke-width="1.5"/></svg>
+        </div>
+        <div class="card-text">
+          <h3>融入日常生活</h3>
+          <p>逢年过节、婚丧嫁娶、生子祝寿，剪纸无处不在。窗花、门笺、灯花、喜花……一张红纸承载着对团圆、幸福与美好生活的祝愿。</p>
+        </div>
+      </div>
+      <div class="intro-card fade-in delay-2">
+        <div class="card-icon">
+          <svg viewBox="0 0 60 60"><polygon points="30,8 52,20 45,44 15,44 8,20" fill="none" stroke="#B11226" stroke-width="2"/><text x="30" y="33" text-anchor="middle" fill="#B11226" font-size="18">遗</text></svg>
+        </div>
+        <div class="card-text">
+          <h3>世界非遗</h3>
+          <p>2009年，中国剪纸被列入联合国教科文组织"人类非物质文化遗产代表作名录"，成为世界公认的文化瑰宝。</p>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-hint">继续探索</div>
+  </section>
+
+  <!-- ===== 第2页：历史时间轴 ===== -->
+  <section class="page page-timeline" data-page="2">
+    <div class="page-header">
+      <span class="page-num">贰</span>
+      <h2 class="page-title">一纸千年</h2>
+      <p class="page-subtitle">从民间节俗到非遗保护，剪纸穿越千年生活现场</p>
+    </div>
+    <div class="timeline">
+      <div class="timeline-line"></div>
+      <div class="timeline-nodes" id="timelineNodes">
+        <div class="timeline-node active" data-era="0">
+          <div class="node-dot"></div>
+          <div class="node-content">
+            <span class="node-era">汉唐</span>
+            <p>纸张普及，剪刻艺术萌芽。新疆吐鲁番出土的北朝团花剪纸，是现存最早的剪纸实物。</p>
+          </div>
+        </div>
+        <div class="timeline-node" data-era="1">
+          <div class="node-dot"></div>
+          <div class="node-content">
+            <span class="node-era">宋元</span>
+            <p>剪纸广泛用于节庆民俗。宋代已出现专业剪纸艺人，剪纸用于陶瓷贴花、蓝印花布等工艺。</p>
+          </div>
+        </div>
+        <div class="timeline-node" data-era="2">
+          <div class="node-dot"></div>
+          <div class="node-content">
+            <span class="node-era">明清</span>
+            <p>窗花、礼俗剪纸达到鼎盛。剪纸与刺绣、皮影、灯彩结合，形成丰富多样的民间艺术形态。</p>
+          </div>
+        </div>
+        <div class="timeline-node" data-era="3">
+          <div class="node-dot"></div>
+          <div class="node-content">
+            <span class="node-era">近现代</span>
+            <p>剪纸成为非遗保护对象。各地剪纸传承人被认定，剪纸艺术进入博物馆、美术馆和学术研究领域。</p>
+          </div>
+        </div>
+        <div class="timeline-node" data-era="4">
+          <div class="node-dot"></div>
+          <div class="node-content">
+            <span class="node-era">当代</span>
+            <p>剪纸进入文创设计、数字传播与时尚领域。传统技艺与当代审美融合，让非遗焕发新活力。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 第3页：纹样寓意 ===== -->
+  <section class="page page-patterns" data-page="3">
+    <div class="page-header">
+      <span class="page-num">叁</span>
+      <h2 class="page-title">纹样有语</h2>
+      <p class="page-subtitle">每一种纹样都有它的故事 · 点击卡片翻转查看寓意</p>
+    </div>
+    <div class="patterns-grid" id="patternsGrid">
+      <!-- 福字 - 真实图片 -->
+      <div class="pattern-card" data-pattern="fu">
+        <div class="card-inner">
+          <div class="card-front">
+            <img src="images/patterns/fu.jpg" alt="福字剪纸" class="pattern-img" loading="lazy">
+            <span class="pattern-name">福字纹</span>
+          </div>
+          <div class="card-back">
+            <p>福气临门、吉祥如意。春节贴"福"字是中国人最重要的年俗之一，寓意新的一年福运亨通。</p>
+          </div>
+        </div>
+      </div>
+      <!-- 莲花 - SVG -->
+      <div class="pattern-card" data-pattern="lotus">
+        <div class="card-inner">
+          <div class="card-front">
+            <svg viewBox="0 0 120 120" class="pattern-svg">
+              <g transform="translate(60,60)">
+                <ellipse cx="0" cy="-18" rx="10" ry="22" fill="#B11226" opacity="0.7"/>
+                <ellipse cx="0" cy="-18" rx="10" ry="22" fill="none" stroke="#7A0E18" stroke-width="1" transform="rotate(72)"/>
+                <ellipse cx="0" cy="-18" rx="10" ry="22" fill="#B11226" opacity="0.55" transform="rotate(144)"/>
+                <ellipse cx="0" cy="-18" rx="10" ry="22" fill="none" stroke="#7A0E18" stroke-width="1" transform="rotate(216)"/>
+                <ellipse cx="0" cy="-18" rx="10" ry="22" fill="#B11226" opacity="0.4" transform="rotate(288)"/>
+                <circle cx="0" cy="0" r="7" fill="#7A0E18"/>
+                <circle cx="0" cy="0" r="3" fill="#D8A24A"/>
+              </g>
+            </svg>
+            <span class="pattern-name">莲花纹</span>
+          </div>
+          <div class="card-back">
+            <p>清雅高洁、和美团圆。莲花出淤泥而不染，是纯洁与美好的象征，常见于婚庆剪纸。</p>
+          </div>
+        </div>
+      </div>
+      <!-- 鱼纹 - SVG -->
+      <div class="pattern-card" data-pattern="fish">
+        <div class="card-inner">
+          <div class="card-front">
+            <svg viewBox="0 0 120 120" class="pattern-svg">
+              <g transform="translate(60,55)">
+                <path d="M-30,0 Q-20,-20 10,-18 Q30,-10 35,0 Q30,10 10,18 Q-20,20 -30,0Z" fill="#B11226"/>
+                <path d="M35,0 L50,-12 L48,0 L50,12Z" fill="#B11226"/>
+                <circle cx="-12" cy="-4" r="3" fill="#F8EED8"/>
+                <path d="M-5,-8 Q5,-15 15,-8" fill="none" stroke="#F8EED8" stroke-width="1.5"/>
+                <path d="M-5,8 Q5,15 15,8" fill="none" stroke="#F8EED8" stroke-width="1.5"/>
+              </g>
+            </svg>
+            <span class="pattern-name">鱼纹</span>
+          </div>
+          <div class="card-back">
+            <p>"鱼"谐音"余"，寓意年年有余。鱼纹剪纸常用于春节和丰收庆典，表达对富足生活的期盼。</p>
+          </div>
+        </div>
+      </div>
+      <!-- 石榴 - SVG -->
+      <div class="pattern-card" data-pattern="pomegranate">
+        <div class="card-inner">
+          <div class="card-front">
+            <svg viewBox="0 0 120 120" class="pattern-svg">
+              <g transform="translate(60,55)">
+                <circle cx="0" cy="0" r="28" fill="#B11226"/>
+                <path d="M-10,-28 Q0,-40 10,-28" fill="#7A0E18"/>
+                <line x1="0" y1="-28" x2="0" y2="-38" stroke="#7A0E18" stroke-width="2"/>
+                <ellipse cx="-10" cy="-5" rx="7" ry="6" fill="#F8EED8" opacity="0.85"/>
+                <ellipse cx="12" cy="-8" rx="5" ry="4" fill="#F8EED8" opacity="0.7"/>
+                <ellipse cx="-4" cy="10" rx="6" ry="5" fill="#F8EED8" opacity="0.75"/>
+                <ellipse cx="14" cy="8" rx="4" ry="3.5" fill="#F8EED8" opacity="0.65"/>
+                <circle cx="-14" cy="6" r="2" fill="#F8EED8" opacity="0.6"/>
+                <circle cx="6" cy="-3" r="1.8" fill="#F8EED8" opacity="0.55"/>
+              </g>
+            </svg>
+            <span class="pattern-name">石榴纹</span>
+          </div>
+          <div class="card-back">
+            <p>石榴多籽，寓意多子多福、家族兴旺。常用于婚庆剪纸和生育礼俗，表达对家庭美满的祝福。</p>
+          </div>
+        </div>
+      </div>
+      <!-- 蝴蝶 - SVG -->
+      <div class="pattern-card" data-pattern="butterfly">
+        <div class="card-inner">
+          <div class="card-front">
+            <svg viewBox="0 0 120 120" class="pattern-svg">
+              <g transform="translate(60,60)">
+                <ellipse cx="-16" cy="-10" rx="18" ry="14" fill="#B11226" transform="rotate(-20,-16,-10)"/>
+                <ellipse cx="16" cy="-10" rx="18" ry="14" fill="#B11226" transform="rotate(20,16,-10)"/>
+                <ellipse cx="-10" cy="10" rx="10" ry="8" fill="#B11226" opacity="0.7" transform="rotate(15,-10,10)"/>
+                <ellipse cx="10" cy="10" rx="10" ry="8" fill="#B11226" opacity="0.7" transform="rotate(-15,10,10)"/>
+                <ellipse cx="0" cy="0" rx="3" ry="14" fill="#7A0E18"/>
+                <line x1="-12" y1="-18" x2="-2" y2="-14" stroke="#D8A24A" stroke-width="1"/>
+                <line x1="12" y1="-18" x2="2" y2="-14" stroke="#D8A24A" stroke-width="1"/>
+              </g>
+            </svg>
+            <span class="pattern-name">蝴蝶纹</span>
+          </div>
+          <div class="card-back">
+            <p>蝴蝶成双，象征美好爱情与婚姻美满。"蝶"谐音"耋"，也寓意长寿安康。</p>
+          </div>
+        </div>
+      </div>
+      <!-- 生肖 - SVG（龙） -->
+      <div class="pattern-card" data-pattern="zodiac">
+        <div class="card-inner">
+          <div class="card-front">
+            <svg viewBox="0 0 120 120" class="pattern-svg">
+              <g transform="translate(60,55)">
+                <path d="M-25,-15 Q-30,-5 -20,5 Q-15,0 -10,5 Q-5,10 0,5 Q8,15 15,10 Q22,5 18,-5 Q20,-15 28,-10 Q22,-22 10,-20 Q0,-25 -10,-20 Q-22,-22 -28,-10Z" fill="#B11226"/>
+                <circle cx="-18" cy="-10" r="2" fill="#F8EED8"/>
+                <circle cx="18" cy="-10" r="2" fill="#F8EED8"/>
+                <path d="M-8,-8 Q0,-12 8,-8" fill="none" stroke="#D8A24A" stroke-width="1.5"/>
+                <circle cx="-5" cy="5" r="1.5" fill="#F8EED8" opacity="0.7"/>
+                <circle cx="5" cy="5" r="1.5" fill="#F8EED8" opacity="0.7"/>
+              </g>
+            </svg>
+            <span class="pattern-name">生肖纹</span>
+          </div>
+          <div class="card-back">
+            <p>十二生肖是中国人纪岁的方式。生肖剪纸祈福纳祥，每年春节对应生肖的剪纸格外受欢迎。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 第4页：剪纸工艺 ===== -->
+  <section class="page page-craft" data-page="4">
+    <div class="page-header">
+      <span class="page-num">肆</span>
+      <h2 class="page-title">一剪一刻</h2>
+      <p class="page-subtitle">剪纸看似简单，却讲究构图、线条与节奏</p>
+    </div>
+    <div class="craft-steps">
+      <div class="craft-step active" data-step="0"><div class="step-number">1</div><div class="step-info"><h4>构思图案</h4><p>根据用途和寓意设计图案。窗花、喜花、礼花各有讲究，构图讲求饱满、对称与留白。</p></div></div>
+      <div class="craft-step" data-step="1"><div class="step-number">2</div><div class="step-info"><h4>折纸</h4><p>将纸张对折或多层折叠，不同的折叠方式产生不同的对称图案。对折得两面对称，多层折得出团花。</p></div></div>
+      <div class="craft-step" data-step="2"><div class="step-number">3</div><div class="step-info"><h4>描样</h4><p>在折叠好的纸上用铅笔描出图案轮廓。熟练艺人可直接下剪，初学者需先描样再剪。</p></div></div>
+      <div class="craft-step" data-step="3"><div class="step-number">4</div><div class="step-info"><h4>剪刻</h4><p>用剪刀或刻刀沿描线剪刻。阳刻保留线条、去空白；阴刻去线条、留块面。两种技法常结合使用。</p></div></div>
+      <div class="craft-step" data-step="4"><div class="step-number">5</div><div class="step-info"><h4>展开</h4><p>小心展开折叠的纸张，完整图案显现。这一刻最令人期待——一张纸的华丽变身。</p></div></div>
+      <div class="craft-step" data-step="5"><div class="step-number">6</div><div class="step-info"><h4>装裱</h4><p>将剪好的作品粘贴或装裱。窗花可直接贴于窗上，精品则装入镜框或册页长期保存。</p></div></div>
+    </div>
+  </section>
+
+  <!-- ===== 第5页：拖拽拼窗花 ===== -->
+  <section class="page page-puzzle" data-page="5">
+    <div class="page-header">
+      <span class="page-num">伍</span>
+      <h2 class="page-title">拼一朵窗花</h2>
+      <p class="page-subtitle">拖动剪纸碎片到正确位置，拼出完整窗花</p>
+    </div>
+    <div class="puzzle-area">
+      <div class="puzzle-target" id="puzzleTarget">
+        <div class="target-zone" data-zone="0">
+          <svg viewBox="0 0 100 100" class="zone-svg"><path d="M50,5 L95,50 L50,95 L5,50Z" fill="none" stroke="rgba(177,18,38,0.2)" stroke-width="1.5" stroke-dasharray="4,3"/></svg>
+        </div>
+        <div class="target-zone" data-zone="1">
+          <svg viewBox="0 0 100 100" class="zone-svg"><path d="M50,5 L95,50 L50,95 L5,50Z" fill="none" stroke="rgba(177,18,38,0.2)" stroke-width="1.5" stroke-dasharray="4,3"/></svg>
+        </div>
+        <div class="target-zone" data-zone="2">
+          <svg viewBox="0 0 100 100" class="zone-svg"><path d="M50,5 L95,50 L50,95 L5,50Z" fill="none" stroke="rgba(177,18,38,0.2)" stroke-width="1.5" stroke-dasharray="4,3"/></svg>
+        </div>
+        <div class="target-zone" data-zone="3">
+          <svg viewBox="0 0 100 100" class="zone-svg"><path d="M50,5 L95,50 L50,95 L5,50Z" fill="none" stroke="rgba(177,18,38,0.2)" stroke-width="1.5" stroke-dasharray="4,3"/></svg>
+        </div>
+      </div>
+      <div class="puzzle-pieces" id="puzzlePieces">
+        <div class="puzzle-piece" data-piece="0">
+          <svg viewBox="0 0 100 100" class="piece-svg"><path d="M5,5 L95,5 L95,95 L50,50Z" fill="#B11226"/><circle cx="50" cy="20" r="4" fill="#F8EED8" opacity="0.6"/><path d="M15,30 Q30,15 45,30" fill="none" stroke="#F8EED8" stroke-width="1.5" opacity="0.5"/></svg>
+        </div>
+        <div class="puzzle-piece" data-piece="1">
+          <svg viewBox="0 0 100 100" class="piece-svg"><path d="M5,5 L95,5 L50,50 L5,95Z" fill="#B11226"/><circle cx="70" cy="20" r="4" fill="#F8EED8" opacity="0.6"/><path d="M30,15 Q50,5 70,15" fill="none" stroke="#F8EED8" stroke-width="1.5" opacity="0.5"/></svg>
+        </div>
+        <div class="puzzle-piece" data-piece="2">
+          <svg viewBox="0 0 100 100" class="piece-svg"><path d="M5,5 L50,50 L95,95 L5,95Z" fill="#B11226"/><circle cx="50" cy="80" r="4" fill="#F8EED8" opacity="0.6"/><path d="M30,60 Q45,75 55,60" fill="none" stroke="#F8EED8" stroke-width="1.5" opacity="0.5"/></svg>
+        </div>
+        <div class="puzzle-piece" data-piece="3">
+          <svg viewBox="0 0 100 100" class="piece-svg"><path d="M95,5 L50,50 L5,95 L95,95Z" fill="#B11226"/><circle cx="70" cy="80" r="4" fill="#F8EED8" opacity="0.6"/><path d="M50,85 Q65,65 80,75" fill="none" stroke="#F8EED8" stroke-width="1.5" opacity="0.5"/></svg>
+        </div>
+      </div>
+    </div>
+    <div class="puzzle-complete" id="puzzleComplete" style="display:none;">
+      <div class="complete-inner">
+        <div class="complete-icon">✦</div>
+        <h3>窗花完成，福气临门！</h3>
+        <button class="btn btn-small" onclick="App.resetPuzzle()">再拼一次</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 第6页：Canvas擦除显影 ===== -->
+  <section class="page page-scratch" data-page="6">
+    <div class="page-header">
+      <span class="page-num">陆</span>
+      <h2 class="page-title">揭开纸上花</h2>
+      <p class="page-subtitle">用手指擦除遮罩，发现隐藏的剪纸图案</p>
+    </div>
+    <div class="scratch-container" id="scratchContainer">
+      <div class="scratch-reveal" id="scratchReveal">
+        <img src="images/scratch-reveal.jpg" alt="剪纸" class="scratch-bg-img">
+      </div>
+      <canvas class="scratch-canvas" id="scratchCanvas"></canvas>
+    </div>
+    <div class="scratch-progress" id="scratchProgress">
+      <div class="progress-text">已擦除 <span id="scratchPercent">0</span>%</div>
+      <div class="progress-fill" id="scratchFill"></div>
+    </div>
+    <div class="scratch-complete" id="scratchComplete" style="display:none;">
+      <p>纸上花开，福运自来 —— 这就是剪纸的魅力。</p>
+    </div>
+  </section>
+
+  <!-- ===== 第7页：地域风格 ===== -->
+  <section class="page page-regions" data-page="7">
+    <div class="page-header">
+      <span class="page-num">柒</span>
+      <h2 class="page-title">南北各有风骨</h2>
+      <p class="page-subtitle">一方水土养一方剪纸</p>
+    </div>
+    <div class="regions-tabs" id="regionsTabs">
+      <button class="region-tab active" data-region="0">陕西</button>
+      <button class="region-tab" data-region="1">蔚县</button>
+      <button class="region-tab" data-region="2">扬州</button>
+      <button class="region-tab" data-region="3">山西</button>
+      <button class="region-tab" data-region="4">山东</button>
+    </div>
+    <div class="region-display" id="regionDisplay">
+      <div class="region-visual">
+        <div class="region-card" id="regionCard">
+          <svg viewBox="0 0 200 160" class="region-svg" id="regionSvg">
+            <rect x="20" y="10" width="160" height="140" rx="8" fill="#B11226" opacity="0.9"/>
+            <circle cx="100" cy="55" r="28" fill="none" stroke="#F8EED8" stroke-width="2.5"/>
+            <circle cx="100" cy="55" r="18" fill="none" stroke="#F8EED8" stroke-width="1.5" stroke-dasharray="6,3"/>
+            <circle cx="100" cy="55" r="8" fill="#F8EED8" opacity="0.8"/>
+            <rect x="60" y="95" width="80" height="25" rx="12" fill="none" stroke="#D8A24A" stroke-width="1.5"/>
+            <text x="100" y="112" text-anchor="middle" fill="#D8A24A" font-size="11">古朴粗犷</text>
+          </svg>
+        </div>
+      </div>
+      <div class="region-info">
+        <h3 id="regionName">陕西剪纸</h3>
+        <span class="region-tag" id="regionTag">古朴粗犷</span>
+        <p id="regionDesc">陕西剪纸保留了汉唐雄风，造型古朴大气，线条粗犷有力。陕北剪纸以安塞、延川为代表，充满黄土高原的生活气息，题材多为农耕、放牧、节庆场景，是中国北方剪纸的典型代表。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 第8页：知识问答 ===== -->
+  <section class="page page-quiz" data-page="8">
+    <div class="page-header">
+      <span class="page-num">捌</span>
+      <h2 class="page-title">剪纸小考</h2>
+      <p class="page-subtitle">测测你对剪纸文化的了解</p>
+    </div>
+    <div class="quiz-container" id="quizContainer">
+      <div class="quiz-progress" id="quizProgress">
+        <span class="quiz-q-num">第 <em id="quizCurrent">1</em> / 5 题</span>
+        <span class="quiz-score">得分：<em id="quizScoreDisplay">0</em></span>
+      </div>
+      <div class="quiz-question" id="quizQuestion"></div>
+      <div class="quiz-options" id="quizOptions"></div>
+    </div>
+    <div class="quiz-result" id="quizResult" style="display:none;">
+      <div class="result-stamp" id="resultStamp"></div>
+      <p class="result-text" id="resultText"></p>
+      <button class="btn btn-small" onclick="App.resetQuiz()">重新答题</button>
+    </div>
+  </section>
+
+  <!-- ===== 第9页：祝福卡生成 ===== -->
+  <section class="page page-cardgen" data-page="9">
+    <div class="page-header">
+      <span class="page-num">玖</span>
+      <h2 class="page-title">剪出你的祝福</h2>
+      <p class="page-subtitle">输入祝福语，生成专属剪纸祝福卡</p>
+    </div>
+    <div class="cardgen-layout">
+      <div class="cardgen-form">
+        <input type="text" class="cardgen-input" id="cardName" placeholder="输入你的名字或祝福对象" maxlength="20">
+        <textarea class="cardgen-input cardgen-textarea" id="cardMessage" placeholder="写下你的祝福语……" maxlength="60" rows="2"></textarea>
+        <div class="cardgen-themes" id="cardgenThemes">
+          <button class="theme-btn active" data-theme="福">福</button>
+          <button class="theme-btn" data-theme="喜">喜</button>
+          <button class="theme-btn" data-theme="安康">安康</button>
+          <button class="theme-btn" data-theme="团圆">团圆</button>
+        </div>
+        <button class="btn btn-start" onclick="App.generateCard()">生成祝福卡</button>
+      </div>
+      <div class="cardgen-preview">
+        <div class="blessing-card" id="blessingCard">
+          <div class="card-frame">
+            <svg viewBox="0 0 280 380" class="card-frame-svg">
+              <rect x="2" y="2" width="276" height="376" rx="3" fill="none" stroke="#D8A24A" stroke-width="1.5"/>
+              <rect x="8" y="8" width="264" height="364" rx="2" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1"/>
+              <circle cx="140" cy="10" r="4" fill="#D8A24A"/>
+              <circle cx="140" cy="370" r="4" fill="#D8A24A"/>
+            </svg>
+          </div>
+          <div class="card-content">
+            <div class="card-theme-symbol" id="cardThemeSymbol">福</div>
+            <p class="card-greeting" id="cardGreeting">万事如意</p>
+            <p class="card-to" id="cardTo">送给最好的朋友</p>
+            <p class="card-date" id="cardDate"></p>
+          </div>
+        </div>
+        <button class="btn btn-small btn-save" id="btnSaveCard" style="display:none;" onclick="App.saveCard()">保存图片</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 第10页：传承保护 ===== -->
+  <section class="page page-heritage" data-page="10">
+    <div class="page-header">
+      <span class="page-num">拾</span>
+      <h2 class="page-title">让非遗走向未来</h2>
+    </div>
+    <div class="heritage-intro">
+      <p>剪纸不仅是装饰，更承载着民俗记忆。非遗保护需要传承人、学校、社区与数字技术共同参与。</p>
+    </div>
+    <div class="heritage-keywords">
+      <div class="keyword-item" data-keyword="0">
+        <div class="keyword-header"><span class="keyword-icon">传</span><h4>传承</h4><span class="keyword-arrow">▾</span></div>
+        <div class="keyword-body"><p>国家级非遗代表性传承人将技艺口传心授给下一代。各地设立剪纸传习所，让老手艺在年轻人手中延续。学习剪纸不仅学技法，更是学文化、学耐心、学审美。</p></div>
+      </div>
+      <div class="keyword-item" data-keyword="1">
+        <div class="keyword-header"><span class="keyword-icon">创</span><h4>创新</h4><span class="keyword-arrow">▾</span></div>
+        <div class="keyword-body"><p>当代设计师将剪纸元素融入时装、包装、文创产品。数字剪纸、动态剪纸让传统纹样以新的方式传播。创新不是抛弃传统，而是让传统活在当下。</p></div>
+      </div>
+      <div class="keyword-item" data-keyword="2">
+        <div class="keyword-header"><span class="keyword-icon">播</span><h4>传播</h4><span class="keyword-arrow">▾</span></div>
+        <div class="keyword-body"><p>短视频平台上剪纸教程广受欢迎，博物馆推出剪纸互动展览，年轻人用社交媒体分享自己的剪纸作品。每一次传播都是一次文化种子的播撒。</p></div>
+      </div>
+      <div class="keyword-item" data-keyword="3">
+        <div class="keyword-header"><span class="keyword-icon">护</span><h4>保护</h4><span class="keyword-arrow">▾</span></div>
+        <div class="keyword-body"><p>数字化存档让剪纸纹样永久保存，学术研究为剪纸艺术建立理论体系，法律法规为非遗传承提供制度保障。保护不是封存，而是让文化持续生长。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 第11页：结尾分享 ===== -->
+  <section class="page page-ending" data-page="11">
+    <div class="ending-patterns">
+      <div class="ending-flake" style="left:5%;animation-delay:0s;"></div>
+      <div class="ending-flake" style="left:20%;animation-delay:1.5s;"></div>
+      <div class="ending-flake" style="left:35%;animation-delay:0.8s;"></div>
+      <div class="ending-flake" style="left:50%;animation-delay:2.2s;"></div>
+      <div class="ending-flake" style="left:65%;animation-delay:1s;"></div>
+      <div class="ending-flake" style="left:80%;animation-delay:0.5s;"></div>
+      <div class="ending-flake" style="left:92%;animation-delay:1.8s;"></div>
+    </div>
+    <div class="ending-content">
+      <h2 class="ending-title">一纸传千年</h2>
+      <p class="ending-text">
+        一把剪刀，一张红纸，<br>
+        剪出的是窗前春意，也是千年民俗的温度。<br>
+        愿传统文化在每一次触摸、每一次分享中继续生长。
+      </p>
+
+      <!-- 二维码分享区 -->
+      <div class="ending-qr-section" id="qrSection">
+        <p class="qr-label">扫码体验完整作品</p>
+        <img class="qr-code" id="qrCode" src="" alt="扫码体验《一纸千年》" crossorigin="anonymous">
+        <p class="qr-hint">长按识别二维码，分享给朋友</p>
+        <button class="btn btn-small btn-share" onclick="App.sharePage()">分享给朋友</button>
+      </div>
+
+      <div class="ending-actions">
+        <button class="btn btn-start" onclick="App.goToPage(0)">再体验一次</button>
+        <button class="btn btn-ghost" onclick="App.goToPage(9)">查看我的祝福卡</button>
+      </div>
+      <div class="ending-info">
+        <p>《一纸千年》非遗剪纸文化互动 H5</p>
+        <p class="ending-credit">用代码传承文化之美</p>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /pages-container -->
+
+<!-- html2canvas CDN -->
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
