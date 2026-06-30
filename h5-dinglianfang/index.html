@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>老字号还年轻吗？在湖州丁莲芳寻找答案</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --cream:#F5F0E8;--warm-white:#FAF7F2;--light-brown:#C9A87C;
+  --mid-brown:#8B6914;--dark-brown:#5C3D2E;--warm-gold:#E8C97A;
+  --brick-red:#A0523C;--deep-green:#2E5C3E;--text-primary:#2C1810;
+  --text-secondary:#5C3D2E;--text-muted:#8B7355;--card-bg:#FFFFFF;
+  --shadow:0 2px 16px rgba(92,61,46,0.06);
+}
+html{scroll-behavior:smooth;-webkit-overflow-scrolling:touch}
+body{font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",sans-serif;background:var(--cream);color:var(--text-primary);line-height:1.9;font-size:15px;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.screen{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:44px 20px;position:relative;overflow:hidden}
+.img-attr{position:absolute;bottom:6px;right:8px;color:rgba(255,255,255,0.7);font-size:9px;background:rgba(0,0,0,0.3);padding:2px 6px;border-radius:2px;z-index:2}
+.source-note{font-size:10px;color:var(--text-muted);text-align:center;margin-top:6px;opacity:0.55}
+.section-num{font-size:11px;letter-spacing:3px;color:var(--brick-red);margin-bottom:10px;text-align:center}
+.scene-block{width:100%;max-width:330px;background:var(--card-bg);border-radius:8px;padding:18px 16px;box-shadow:var(--shadow);margin-top:6px}
+
+/* ===== P1 Cover ===== */
+.p1-cover{background:linear-gradient(180deg,#3C2415 0%,#5C3D2E 35%,#8B6914 100%);color:var(--cream);text-align:center;justify-content:center;gap:26px}
+.p1-cover::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 30% 20%,rgba(232,201,122,0.1) 0%,transparent 50%),radial-gradient(ellipse at 70% 80%,rgba(160,82,60,0.06) 0%,transparent 50%);pointer-events:none}
+.p1-cover::after{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:url('images/opt_xinhua-01-men-tou.jpg') center/cover no-repeat;opacity:0.12;pointer-events:none}
+.p1-label{font-size:11px;letter-spacing:5px;color:var(--warm-gold);opacity:0.7;border:1px solid rgba(232,201,122,0.2);padding:5px 16px;border-radius:2px;position:relative;z-index:1}
+.p1-main-title{font-size:36px;font-weight:700;letter-spacing:2px;line-height:1.3;font-family:"Noto Serif SC","STSong","SimSun",serif;position:relative;z-index:1;text-align:center}
+.p1-subtitle{font-size:14px;color:rgba(245,240,232,0.6);line-height:1.9;max-width:280px;position:relative;z-index:1;text-align:center}
+.p1-divider{width:40px;height:1px;background:var(--warm-gold);opacity:0.35}
+.p1-scroll-hint{position:absolute;bottom:32px;display:flex;flex-direction:column;align-items:center;gap:6px;color:rgba(245,240,232,0.25);font-size:11px;letter-spacing:2px;animation:bounce 2s infinite}
+.p1-scroll-hint::after{content:'';width:1px;height:18px;background:rgba(245,240,232,0.18)}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+
+/* Shared styles */
+.s-title{font-size:21px;font-weight:700;color:var(--dark-brown);text-align:center;line-height:1.45;font-family:"Noto Serif SC","STSong","SimSun",serif}
+.s-text{font-size:14px;color:var(--text-secondary);text-align:center;max-width:330px;line-height:1.95}
+.s-img{width:100%;max-width:330px;border-radius:8px;overflow:hidden;position:relative;box-shadow:var(--shadow)}
+.s-img img{width:100%;display:block}
+.s-quote{font-size:13px;color:var(--brick-red);text-align:center;max-width:300px;border-left:2px solid var(--brick-red);padding-left:12px;font-style:italic;line-height:1.8}
+.s-video-wrapper{width:100%;max-width:330px;border-radius:8px;overflow:hidden;box-shadow:var(--shadow);background:#1a1a1a}
+.s-video-wrapper video{width:100%;display:block}
+.s-video-label{font-size:11px;color:var(--text-muted);text-align:center;letter-spacing:1px;margin-top:3px}
+
+/* Page-specific styles */
+.p2-night{background:linear-gradient(180deg,#2C1810 0%,#4A3020 50%,#5C3D2E 100%);color:var(--cream);gap:22px}
+.p2-night .s-title{color:var(--warm-gold)}
+.p2-night .s-text{color:rgba(245,240,232,0.7)}
+.p2-night .section-num{color:var(--warm-gold)}
+.p2-night .s-quote{color:rgba(232,201,122,0.8);border-left-color:rgba(232,201,122,0.4)}
+.p2-night .section-num,.p2-night .s-title,.p2-night .s-text,.p2-night .s-quote{position:relative;z-index:1}
+
+.p2-dark{background:linear-gradient(180deg,#3C2415,#2C1810);color:var(--cream)}
+.p2-dark .s-title{color:var(--warm-gold)}
+.p2-dark .s-text{color:rgba(245,240,232,0.7)}
+
+.pg-light{background:var(--warm-white);gap:18px}
+.pg-cream{background:linear-gradient(180deg,#FAF7F2 0%,#F0E8D8 100%);gap:18px}
+.pg-warm{background:linear-gradient(180deg,#F5F0E8 0%,#FAF7F2 100%);gap:18px}
+
+.fact-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;width:100%;max-width:330px}
+.fact-item{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1);border-radius:6px;padding:14px 6px;text-align:center}
+.fact-num{font-size:20px;font-weight:700;color:var(--warm-gold);font-family:"Noto Serif SC",serif}
+.fact-label{font-size:10px;color:rgba(245,240,232,0.5);margin-top:4px;line-height:1.4}
+
+.fact-grid-light{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;width:100%;max-width:330px}
+.fact-item-light{background:linear-gradient(180deg,#FAF7F2,#F0E8D8);border-radius:6px;padding:14px 6px;text-align:center}
+.fact-num-light{font-size:20px;font-weight:700;color:var(--brick-red);font-family:"Noto Serif SC",serif}
+.fact-label-light{font-size:10px;color:var(--text-muted);margin-top:4px;line-height:1.4}
+
+.detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;width:100%;max-width:330px}
+.detail-card{background:var(--card-bg);border-radius:6px;padding:13px 10px;box-shadow:var(--shadow)}
+.detail-title{font-size:12px;font-weight:600;color:var(--dark-brown);margin-bottom:4px}
+.detail-text{font-size:11px;color:var(--text-muted);line-height:1.6}
+
+.timeline{width:100%;max-width:330px;display:flex;flex-direction:column;gap:7px}
+.tl-item{display:flex;gap:8px;align-items:baseline;font-size:12px;color:var(--text-secondary)}
+.tl-year{font-weight:700;color:var(--brick-red);min-width:40px;text-align:right;flex-shrink:0}
+.tl-text{line-height:1.6}
+
+.compare{display:flex;gap:10px;width:100%;max-width:330px}
+.compare-item{flex:1;border-radius:8px;overflow:hidden;position:relative}
+.compare-item img{width:100%;height:100%;object-fit:cover;display:block;aspect-ratio:4/5}
+.compare-label{position:absolute;bottom:10px;left:0;right:0;text-align:center;color:#fff;font-size:11px;letter-spacing:1px;background:linear-gradient(transparent,rgba(0,0,0,0.4));padding:14px 0 6px;text-shadow:0 1px 2px rgba(0,0,0,0.4)}
+
+.honor-row{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;width:100%;max-width:330px}
+.honor-tag{font-size:10px;letter-spacing:1px;padding:5px 10px;border:1px solid var(--light-brown);color:var(--mid-brown);border-radius:16px;background:rgba(255,255,255,0.5)}
+
+/* Decorative ornament divider */
+.section-ornament{display:flex;align-items:center;gap:8px;width:100%;max-width:330px;margin:2px 0}
+.section-ornament::before,.section-ornament::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--light-brown),transparent)}
+.section-ornament::before{background:linear-gradient(270deg,var(--light-brown),transparent)}
+.section-ornament::after{background:linear-gradient(90deg,var(--light-brown),transparent)}
+.section-ornament span{font-size:8px;color:var(--light-brown);letter-spacing:4px}
+
+/* Image gallery (2-col) */
+.img-gallery{display:grid;grid-template-columns:1fr 1fr;gap:8px;width:100%;max-width:330px}
+.img-gallery-item{border-radius:8px;overflow:hidden;position:relative;box-shadow:var(--shadow);aspect-ratio:4/3}
+.img-gallery-item img{width:100%;height:100%;object-fit:cover;display:block}
+.img-gallery-caption{position:absolute;bottom:0;left:0;right:0;text-align:center;color:#fff;font-size:10px;padding:12px 6px 4px;background:linear-gradient(transparent,rgba(0,0,0,0.5));letter-spacing:1px}
+
+/* Enhanced card with left accent */
+.card-accent{width:100%;max-width:330px;background:var(--card-bg);border-radius:6px;padding:14px 14px 14px 16px;box-shadow:var(--shadow);border-left:3px solid var(--light-brown);margin-top:4px}
+
+/* Enhanced section number */
+.section-num{font-size:10px;letter-spacing:4px;color:var(--brick-red);margin-bottom:8px;text-align:center;display:flex;align-items:center;gap:10px}
+.section-num::before,.section-num::after{content:'';width:16px;height:1px;background:var(--light-brown);opacity:0.5}
+
+/* Image + label combo */
+.img-with-label{width:100%;max-width:330px}
+.img-with-label .s-img{margin-bottom:0}
+.img-with-label .img-label{font-size:10px;color:var(--text-muted);text-align:center;margin-top:4px;letter-spacing:1px}
+
+/* Dark bg image overlay for P2 */
+.p2-night{background:linear-gradient(180deg,#2C1810 0%,#4A3020 50%,#5C3D2E 100%);color:var(--cream);gap:16px}
+.p2-night::after{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:url('images/opt_xinhua-06-customer-eat.jpg') center/cover no-repeat;opacity:0.08;pointer-events:none}
+
+/* P14 */
+.p14-close{background:linear-gradient(180deg,#3C2415 0%,#2C1810 100%);color:var(--cream);text-align:center;justify-content:center;gap:22px}
+.p14-close::after{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:url('images/opt_xinhua-01-men-tou.jpg') center/cover no-repeat;opacity:0.08;pointer-events:none}
+.p14-quote{font-size:15px;color:rgba(232,201,122,0.55);font-family:"Noto Serif SC","STSong","SimSun",serif;position:relative;z-index:1}
+.p14-text{font-size:13px;color:rgba(245,240,232,0.65);line-height:2.1;max-width:290px;font-family:"Noto Serif SC","STSong","SimSun",serif;position:relative;z-index:1;text-align:center}
+.p14-divider{width:25px;height:1px;background:rgba(232,201,122,0.25)}
+.p14-meta{font-size:10px;color:rgba(245,240,232,0.25);letter-spacing:2px;line-height:2;margin-top:12px;position:relative;z-index:1;text-align:center}
+
+/* Animations */
+.anim-fade-in{opacity:0;transform:translateY(22px);transition:opacity 0.7s ease,transform 0.7s ease}
+.anim-fade-in.visible{opacity:1;transform:translateY(0)}
+.anim-d1{transition-delay:0.08s}.anim-d2{transition-delay:0.16s}.anim-d3{transition-delay:0.28s}.anim-d4{transition-delay:0.42s}
+
+/* Nav */
+.nav-dots{position:fixed;right:12px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:6px;z-index:100}
+.nav-dot{width:4px;height:4px;border-radius:50%;background:rgba(92,61,46,0.18);transition:all 0.3s;cursor:pointer}
+.nav-dot.active{background:var(--brick-red);transform:scale(1.5)}
+
+/* Music Btn */
+#music-btn{position:fixed;bottom:24px;right:16px;width:40px;height:40px;border-radius:50%;background:rgba(0,0,0,0.45);display:flex;align-items:center;justify-content:center;z-index:200;cursor:pointer;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);transition:all 0.3s;font-size:18px;color:#fff;user-select:none}
+#music-btn:hover{background:rgba(0,0,0,0.6);transform:scale(1.1)}
+
+@media(min-width:768px){
+  .screen{padding:60px 40px}
+  .p1-main-title{font-size:46px}
+  .s-title{font-size:26px}
+  .s-text{font-size:15px;max-width:420px}
+  .s-img,.s-video-wrapper,.compare,.timeline,.detail-grid,.fact-grid,.fact-grid-light,.honor-row,.scene-block,.img-gallery,.img-with-label,.card-accent,.section-ornament{max-width:440px}
+}
+</style>
+</head>
+<body>
+
+<audio id="bgm" loop preload="auto"><source src="audio/bg-music.mp3" type="audio/mpeg"></audio>
+<nav class="nav-dots" id="navDots"></nav>
+
+<!-- ===== P1: 封面 ===== -->
+<section class="screen p1-cover" id="s1">
+  <div class="p1-label anim-fade-in">H5 · 本土文化观察</div>
+  <h1 class="p1-main-title anim-fade-in anim-d1">一碗千张包，<br>传了147年。</h1>
+  <div class="p1-divider anim-fade-in anim-d2"></div>
+  <p class="p1-subtitle anim-fade-in anim-d2">
+    清光绪四年，29岁的丁莲芳挑着扁担<br>在湖州骆驼桥叫卖第一碗千张包子丝粉头。<br>一百四十七年后，<br>这碗老味道还在被一口口吃下去。
+  </p>
+  <p class="p1-subtitle anim-fade-in anim-d3" style="font-size:13px;opacity:0.4;">老字号还年轻吗？在湖州丁莲芳寻找答案</p>
+  <p class="source-note anim-fade-in anim-d4" style="color:rgba(255,255,255,0.2);">背景图：新华社记者翁忻旸 摄</p>
+  <div class="p1-scroll-hint anim-fade-in anim-d4">下滑探索</div>
+</section>
+
+<!-- ===== P2: 骆驼桥的夜 ===== -->
+<section class="screen p2-night" id="s2">
+  <div class="section-num anim-fade-in">壹 · 起点</div>
+  <h2 class="s-title anim-fade-in anim-d1">每天晚上八点，<br>一副担子出现在骆驼桥。</h2>
+  <p class="s-text anim-fade-in anim-d2">
+    1878年。丁莲芳原本是湖州城里一个挑葱卖菜的小贩。<br>
+    风雪严冬，糊口艰难。29岁那年他下定决心改行——<br>
+    做"吃"这一行。本钱小，设摊挑担，翻身快。<br><br>
+    但烧饼、粽子、馄饨、豆浆……市面上什么都有了。<br>
+    他观察到街头已有牛肉丝粉汤、油豆腐丝粉头的摊子，<br>
+    灵机一动：把千张皮裹上肉馅做成包子，放进丝粉汤里卖。<br>
+    买了一口锅，做了一副担子——<br>
+    "千张包子丝粉头"，就这样诞生了。<br><br>
+    白天备料，晚上出摊。<br>
+    地点选在骆驼桥堍鱼行口——当时湖州最繁华的地段。<br>
+    每晚八点到子夜一点，看夜戏散场的市民、<br>
+    磨夜的游民，成了第一批顾客。一天卖出百来客。
+  </p>
+  <div class="s-quote anim-fade-in anim-d3">
+    "他选择了一个别人没做过的方式——<br>不是模仿，是创造。"
+  </div>
+</section>
+
+<!-- ===== P3: 三次改良 ===== -->
+<section class="screen pg-light" id="s3">
+  <div class="section-num anim-fade-in">贰 · 蜕变</div>
+  <h2 class="s-title anim-fade-in anim-d1">三年，三次改良。<br>从家常小吃变成湖州名点。</h2>
+  <p class="s-text anim-fade-in anim-d2">
+    卖了一年，老顾客越来越多。那些"懒做贪吃嘴独刁"的食客<br>
+    开始给丁莲芳提意见：<br><br>
+    第一，包子不能像家常包那样是长的，要改；<br>
+    第二，馅心还不够鲜，要加提鲜的料；<br>
+    第三，粉丝不要细的，要做粗的。<br><br>
+    丁莲芳虚心听取，一条一条改：<br>
+    形状从长方形改成方形，最终定型为<b>三角形——<br>
+    3厘米等边三角棱柱，每只精确到28克</b>。<br>
+    馅料中加入开洋（虾米）提鲜。<br>
+    细粉丝换成定制的绿豆粗丝粉——<br>
+    久煮不糊，柔软入味。<br><br>
+    三次改良之后，彻底摆脱家常色彩，<br>
+    日销量从一百多客涨到两百多客。
+  </p>
+  <div class="s-img anim-fade-in anim-d3">
+    <img src="images/opt_gov-04-making.jpg" alt="手工包制千张包" loading="lazy">
+    <span class="img-attr">手工包制 · 吴兴区政府网</span>
+  </div>
+  <div class="section-ornament anim-fade-in anim-d3"><span>◆</span></div>
+  <div class="img-gallery anim-fade-in anim-d3">
+    <div class="img-gallery-item">
+      <img src="images/opt_xinhua-03-steamed.jpg" alt="刚出笼的千张包子" loading="lazy">
+      <span class="img-attr" style="bottom:auto;top:4px;right:4px;">新华社 翁忻旸 摄</span>
+      <div class="img-gallery-caption">千张包子实拍</div>
+    </div>
+    <div class="img-gallery-item">
+      <img src="images/opt_gov-03-fensi-dish.jpg" alt="千张包子粉丝汤" loading="lazy">
+      <span class="img-attr" style="bottom:auto;top:4px;right:4px;">吴兴区政府网</span>
+      <div class="img-gallery-caption">粉丝汤实拍</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== P4: 从摊到店 ===== -->
+<section class="screen pg-cream" id="s4">
+  <div class="section-num anim-fade-in">叁 · 扎根</div>
+  <h2 class="s-title anim-fade-in anim-d1">1882年，<br>第一块"丁莲芳"招牌<br>挂上黄沙路。</h2>
+  <div class="s-img anim-fade-in anim-d1">
+    <img src="images/ctrip-01-shop.jpg" alt="丁莲芳门店" loading="lazy">
+    <span class="img-attr">丁莲芳门店 · 团队拍摄</span>
+  </div>
+  <div class="section-ornament anim-fade-in anim-d2"><span>◆</span></div>
+  <p class="s-text anim-fade-in anim-d2">
+    创业第三年（1881年），丁莲芳不再挑担流动，<br>
+    在骆驼桥上设了固定摊位——<br>
+    一块桌板、一个防蝇防尘玻璃罩，<br>
+    辣油、辣酱、白胡椒、大蒜叶一字排开。<br>
+    名气越传越远，口袋里的本钱也越积越多。<br><br>
+    <b>1882年，真正改变命运的一年。</b><br>
+    丁莲芳在黄沙路（今红旗路）找到店面，<br>
+    正式挂出"丁莲芳千张包子店"招牌——<br>
+    <b>用自己的名字做招牌</b>，这是那个年代少见的魄力。<br><br>
+    他定制了一个紫铜大暖锅放在柜台上，<br>
+    热气腾腾，香气四溢，边烧边卖——<br>
+    成了黄沙路上一道活的风景线。<br>
+    日销量猛增到三百多客。<br><br>
+    馅料再次升级：在开洋之外，加入<b>干贝</b>——<br>
+    鲜味又上了一个层次。
+  </p>
+  <div class="s-quote anim-fade-in anim-d3">
+    "不是等生意来找他，<br>是他让行人老远就闻到、看到、想尝。"
+  </div>
+</section>
+
+<!-- ===== P5: 两代人的接力 ===== -->
+<section class="screen pg-light" id="s5">
+  <div class="section-num anim-fade-in">肆 · 接棒</div>
+  <h2 class="s-title anim-fade-in anim-d1">父亲走了，<br>儿子把千张包做得更讲究了。</h2>
+  <div class="s-img anim-fade-in anim-d1">
+    <img src="images/opt_gov-02-steamed-buns.jpg" alt="出笼的千张包子" loading="lazy">
+    <span class="img-attr">刚出笼的千张包子 · 吴兴区政府网</span>
+  </div>
+  <div class="section-ornament anim-fade-in anim-d1"><span>◆</span></div>
+  <p class="s-text anim-fade-in anim-d2">
+    1928年，儿子丁焦生在外失业回到湖州，<br>
+    从此父子同店经营。三年后（1931年），丁莲芳病逝。<br>
+    丁焦生继承了父亲的全部手艺和招牌。<br><br>
+    1935年，他将店址迁到黄沙路口，<br>
+    座位从16个扩到34个，正式雇工收徒。<br><br>
+    1940年日伪时期，同行周济相见丁莲芳生意兴旺，<br>
+    在马路对面也开了一家千张包子店，正面竞争。<br>
+    <b>丁焦生的回应不是降价，而是做更好的包子：</b><br>
+    鲜腿肉去掉所有的筋、膜、肥膘，<br>
+    只用纯精腿肉；<br>
+    开洋进朝鲜的，干贝进日本的，<br>
+    笋衣只要孝丰蝴蝶片的。<br>
+    再加薄利多销——几个月后，周济相竞争失利，<br>
+    <b>转而经营馄饨，取名"周生记"</b>，<br>
+    后来也成了湖州响当当的名点。<br><br>
+    1956年公私合营，丁焦生夫妇亲自传授技艺，<br>
+    日产量从五六百只跃升到一千多只。
+  </p>
+  <div class="s-quote anim-fade-in anim-d3">
+    "丁焦生没有守成，他把父亲的基础做了加法。<br>竞争没能打败他，反而逼出了更极致的工艺。"
+  </div>
+</section>
+
+<!-- ===== P6: 绝境中的传承 ===== -->
+<section class="screen pg-cream" id="s6">
+  <div class="section-num anim-fade-in">伍 · 托付</div>
+  <h2 class="s-title anim-fade-in anim-d1">"一定要把丁莲芳<br>恢复往日辉煌。"</h2>
+  <div class="s-img anim-fade-in anim-d1">
+    <img src="images/opt_xinhua-03-steamed.jpg" alt="刚出笼的千张包子" loading="lazy">
+    <span class="img-attr">刚出笼的千张包 · 新华社</span>
+  </div>
+  <div class="section-ornament anim-fade-in anim-d1"><span>◆</span></div>
+  <p class="s-text anim-fade-in anim-d2">
+    1976年，文化大革命尚未完全结束。<br>
+    "丁莲芳"的招牌在那段岁月里早已被摘掉，<br>
+    改名为"立新千张包子店"。<br><br>
+    一个叫陈连江的人被调到立新店工作。<br>
+    他的真诚和执着打动了年迈的丁焦生——<br>
+    丁焦生把凝聚两代人心血的<br>
+    <b>丁莲芳千张包子全部配方和制作技艺</b>，<br>
+    毫无保留地传授给了陈连江。<br>
+    传完的那一天，老人含泪嘱托：<br>
+    <b>"一定要把'丁莲芳'三个字恢复回来。"</b><br><br>
+    1978年，陈连江担任经理。<br>
+    他没有辜负嘱托：设计制造了<br>
+    <b>"不锈钢包子定型蒸熟器"</b>——<br>
+    用蒸汽替代水煮。包子不再泡在沸水里翻滚，<br>
+    三角棱柱的造型更挺括，色香味全面稳定，<br>
+    产量和品控同步跃升。<br>
+    1989年，陈连江带队参加全国点心评选，<br>
+    <b>荣获商业部"金鼎奖"</b>，从此驰名海内外。
+  </p>
+</section>
+
+<!-- ===== P7: 千张包的秘密(上) ===== -->
+<section class="screen pg-light" id="s7">
+  <div class="section-num anim-fade-in">陆 · 食材</div>
+  <h2 class="s-title anim-fade-in anim-d1">一只千张包，<br>从选料开始就不将就。</h2>
+  <div class="s-img anim-fade-in anim-d1">
+    <img src="images/opt_gov-01-cooking.jpg" alt="手工制作千张包" loading="lazy">
+    <span class="img-attr">千张包制作过程 · 吴兴区政府网</span>
+  </div>
+  <p class="s-text anim-fade-in anim-d1">
+    不是随便一块豆腐皮裹点肉就叫千张包子。<br>
+    丁莲芳千张包子是浙江省非物质文化遗产——<br>
+    每一道工序都有严格标准。
+  </p>
+  <div class="section-ornament anim-fade-in anim-d1"><span>◆</span></div>
+  <div class="scene-block anim-fade-in anim-d2">
+    <p style="font-size:13px;font-weight:600;color:var(--dark-brown);margin-bottom:8px;">肉的讲究</p>
+    <p style="font-size:12px;color:var(--text-secondary);line-height:1.8;">
+    只用鲜猪后腿纯精肉。<br>
+    洗清沥干之后，要经过五道工序：<br>
+    去骨 → 去皮 → 去膈 → 去膜 → 去筋<br>
+    然后切片、切条，最终切成<b>1厘米见方</b>的肉粒。<br>
+    手工拌入上等黄酒、味精、白糖、食盐——<br>
+    一斤肉出一斤馅，没有水分。
+    </p>
+  </div>
+  <div class="scene-block anim-fade-in anim-d3">
+    <p style="font-size:13px;font-weight:600;color:var(--dark-brown);margin-bottom:8px;">皮的讲究</p>
+    <p style="font-size:12px;color:var(--text-secondary);line-height:1.8;">
+    取<b>26cm × 42cm</b>黄豆特制千张。<br>
+    26cm边切去5cm做垫头，对折成21cm×21cm，<br>
+    再对角切成两个三角形。<br>
+    千张皮薄如蝉翼，但久煮不破、韧而不烂——<br>
+    这是湖州黄豆和水的秘密。
+    </p>
+  </div>
+  <div class="scene-block anim-fade-in anim-d3">
+    <p style="font-size:13px;font-weight:600;color:var(--dark-brown);margin-bottom:8px;">三鲜的讲究</p>
+    <p style="font-size:12px;color:var(--text-secondary);line-height:1.8;">
+    <b>开洋</b>（虾米）：上等黄酒浸泡后入馅<br>
+    <b>干贝</b>：剔除杂质，黄酒浸泡蒸熟后入馅<br>
+    <b>笋衣</b>：孝丰蝴蝶片笋衣，取其嫩薄<br>
+    另加芝麻：剔除杂质，入锅炒熟捣碎<br>
+    这些辅料，每一样都经过单独处理后才进入包子。
+    </p>
+  </div>
+</section>
+
+<!-- ===== P8: 千张包的秘密(下) ===== -->
+<section class="screen pg-cream" id="s8">
+  <div class="section-num anim-fade-in">柒 · 手作</div>
+  <h2 class="s-title anim-fade-in anim-d1">纯手工。<br>每一只都包了147年。</h2>
+  <div class="s-img anim-fade-in anim-d1">
+    <img src="images/opt_gov-03-fensi-dish.jpg" alt="千张包子粉丝汤成品" loading="lazy">
+    <span class="img-attr">千张包子粉丝汤 · 吴兴区政府网</span>
+  </div>
+  <div class="section-ornament anim-fade-in anim-d1"><span>◆</span></div>
+  <div class="detail-grid anim-fade-in anim-d2">
+    <div class="detail-card">
+      <div class="detail-title">包制手法</div>
+      <div class="detail-text">三角形千张平铺→放垫头→取肉馅+干贝+开洋→手工卷裹成3cm三角棱柱状→五个一捆用笋壳丝扎好→入毛竹丝篮排好→毛竹片夹住固定</div>
+    </div>
+    <div class="detail-card">
+      <div class="detail-title">蒸制</div>
+      <div class="detail-text">不锈钢定型蒸熟器蒸汽蒸制（1978年前为沸水煮15分钟）。蒸汽法使包子外形更挺括、三角棱柱更明显</div>
+    </div>
+    <div class="detail-card">
+      <div class="detail-title">丝粉</div>
+      <div class="detail-text">纯绿豆丝粉，白而粗。久煮不糊，柔软入味，鲜中透香——这是从第三次改良起就定下的标准</div>
+    </div>
+    <div class="detail-card">
+      <div class="detail-title">吃法</div>
+      <div class="detail-text">千张包+粗粉丝入碗，浇汤。佐辣油、米醋、白胡椒粉、小葱。老食客说：加一勺红油辣酱才是正确的打开方式</div>
+    </div>
+  </div>
+  <p class="s-text anim-fade-in anim-d3" style="margin-top:8px;">
+    <b>成品标准：皮薄韧、馅鲜美、汁香浓、肉嫩不腻、色白汤青。</b>
+  </p>
+</section>
+
+<!-- ===== P9: 一探究竟 ===== -->
+<section class="screen pg-light" id="s9">
+  <div class="section-num anim-fade-in">捌 · 探访</div>
+  <h2 class="s-title anim-fade-in anim-d1">走，去衣裳街<br>吃一碗真的。</h2>
+  <p class="s-text anim-fade-in anim-d1">
+    说的再多，不如亲眼看看。<br>
+    从门头到后厨，从点单到上桌——<br>
+    跟镜头一起，探一探这碗147年的老味道。
+  </p>
+  <div class="img-gallery anim-fade-in anim-d1">
+    <div class="img-gallery-item">
+      <img src="images/opt_gov-03-fensi-dish.jpg" alt="千张包子粉丝汤" loading="lazy">
+      <span class="img-attr" style="bottom:auto;top:4px;right:4px;">吴兴区政府网</span>
+      <div class="img-gallery-caption">千张包子粉丝汤</div>
+    </div>
+    <div class="img-gallery-item">
+      <img src="images/opt_xinhua-06-customer-eat.jpg" alt="顾客品尝丁莲芳美食" loading="lazy">
+      <span class="img-attr" style="bottom:auto;top:4px;right:4px;">新华社 翁忻旸 摄</span>
+      <div class="img-gallery-caption">门店美食实拍</div>
+    </div>
+  </div>
+  <div class="section-ornament anim-fade-in anim-d1"><span>◆</span></div>
+  <div class="s-video-wrapper anim-fade-in anim-d2">
+    <video controls playsinline preload="metadata" poster="videos/interview-03-poster.jpg" style="width:100%;display:block;">
+      <source src="videos/interview-03-h264.mp4" type="video/mp4">
+    </video>
+  </div>
+  <p class="s-video-label">探店视频 · 丁莲芳实探（约6分钟）</p>
+</section>
+
+<!-- ===== P10: 他们为什么来 ===== -->
+<section class="screen pg-warm" id="s10">
+  <div class="section-num anim-fade-in">玖 · 声音</div>
+  <h2 class="s-title anim-fade-in anim-d1">同样一碗千张包，<br>不同的人怎么想？</h2>
+
+  <div class="s-video-wrapper anim-fade-in anim-d1">
+    <video controls playsinline preload="metadata" poster="videos/interview-02-poster.jpg" style="width:100%;display:block;">
+      <source src="videos/interview-02-h264.mp4" type="video/mp4">
+      <track src="videos/interview-02-subtitles.vtt" kind="subtitles" srclang="zh" label="中文" default>
+    </video>
+  </div>
+  <p class="s-video-label">本地老顾客 · 从小吃到大</p>
+  <div class="s-quote anim-fade-in anim-d2">"就吃这小时候的味道。"</div>
+
+  <div class="section-ornament anim-fade-in anim-d2"><span>◆</span></div>
+
+  <div class="s-img anim-fade-in anim-d3">
+    <img src="images/ctrip-03-interior.jpg" alt="丁莲芳店内环境" loading="lazy">
+    <span class="img-attr">丁莲芳店内 · 团队拍摄</span>
+  </div>
+
+  <div class="s-video-wrapper anim-fade-in anim-d3" style="margin-top:8px;">
+    <video controls playsinline preload="metadata" poster="videos/interview-01-poster.jpg" style="width:100%;display:block;">
+      <source src="videos/interview-01-h264.mp4" type="video/mp4">
+      <track src="videos/interview-01-subtitles.vtt" kind="subtitles" srclang="zh" label="中文" default>
+    </video>
+  </div>
+  <p class="s-video-label">外地游客 · 第一次来丁莲芳</p>
+  <div class="s-quote anim-fade-in anim-d4">"这个确实很好吃。之前没吃过，顺路过来看一看。"</div>
+
+  <p class="s-text anim-fade-in anim-d4" style="margin-top:6px;">
+    一位本地老客吃了十几年，就认这口小时候的味道。<br>
+    一位外地游客顺路探店，吃出了惊喜。<br>
+    老字号还年轻吗？答案就在这些真实的声音里。
+  </p>
+</section>
+
+<!-- ===== P11: 从扁担到电商 ===== -->
+<section class="screen pg-light" id="s11">
+  <div class="section-num anim-fade-in">拾 · 跨越</div>
+  <h2 class="s-title anim-fade-in anim-d1">147年，<br>哪些变了，哪些没变？</h2>
+  <div class="compare anim-fade-in anim-d1">
+    <div class="compare-item">
+      <img src="images/opt_xinhua-02-make.jpg" alt="手工包制千张包" loading="lazy">
+      <span class="img-attr" style="bottom:auto;top:6px;right:6px;">新华社</span>
+      <div class="compare-label">手工包制 · 五代未变</div>
+    </div>
+    <div class="compare-item">
+      <img src="images/opt_xinhua-04-packing.jpg" alt="电商打包" loading="lazy">
+      <span class="img-attr" style="bottom:auto;top:6px;right:6px;">新华社</span>
+      <div class="compare-label">电商发货 · 走向全国</div>
+    </div>
+  </div>
+  <div class="section-ornament anim-fade-in anim-d1"><span>◆</span></div>
+  <div class="timeline anim-fade-in anim-d2" style="margin-top:4px;">
+    <div class="tl-item"><span class="tl-year">1878</span><span class="tl-text">丁莲芳挑担叫卖，创制千张包子丝粉头</span></div>
+    <div class="tl-item"><span class="tl-year">1881</span><span class="tl-text">骆驼桥固定摊位，加调料、制玻璃罩</span></div>
+    <div class="tl-item"><span class="tl-year">1882</span><span class="tl-text">黄沙路第一家店，紫铜暖锅边烧边卖</span></div>
+    <div class="tl-item"><span class="tl-year">1931</span><span class="tl-text">丁莲芳逝世，丁焦生继承父业</span></div>
+    <div class="tl-item"><span class="tl-year">1935</span><span class="tl-text">迁黄沙路口，扩至34座，雇工收徒</span></div>
+    <div class="tl-item"><span class="tl-year">1940</span><span class="tl-text">竞争周济相，逼出更极致的纯精腿肉工艺</span></div>
+    <div class="tl-item"><span class="tl-year">1956</span><span class="tl-text">公私合营，日产量破1000只</span></div>
+    <div class="tl-item"><span class="tl-year">1976</span><span class="tl-text">陈连江受配方之托，第三代传承人接棒</span></div>
+    <div class="tl-item"><span class="tl-year">1978</span><span class="tl-text">蒸汽定型器诞生，水煮变蒸汽，品控升级</span></div>
+    <div class="tl-item"><span class="tl-year">1989</span><span class="tl-text">获商业部金鼎奖，驰名海内外</span></div>
+    <div class="tl-item"><span class="tl-year">2006</span><span class="tl-text">获评首批"中华老字号"</span></div>
+    <div class="tl-item"><span class="tl-year">2009</span><span class="tl-text">制作技艺列入浙江省非遗</span></div>
+    <div class="tl-item"><span class="tl-year">2010</span><span class="tl-text">进驻上海世博会</span></div>
+    <div class="tl-item"><span class="tl-year">至今</span><span class="tl-text">日产量逾7000只，天猫旗舰店在线，五代传承</span></div>
+  </div>
+</section>
+
+<!-- ===== P12: 荣誉与地位 ===== -->
+<section class="screen pg-cream" id="s12">
+  <div class="section-num anim-fade-in">拾壹 · 荣耀</div>
+  <h2 class="s-title anim-fade-in anim-d1">一碗千张包，<br>凭什么成为<br>湖州人的骄傲？</h2>
+  <div class="s-img anim-fade-in anim-d1">
+    <img src="images/opt_xinhua-05-customer-buy.jpg" alt="顾客在店内购买" loading="lazy">
+    <span class="img-attr">顾客在店内选购 · 新华社</span>
+  </div>
+  <div class="honor-row anim-fade-in anim-d2" style="margin-top:8px;">
+    <span class="honor-tag">中华老字号（2006首批）</span>
+    <span class="honor-tag">浙江省非遗（2009）</span>
+    <span class="honor-tag">金鼎奖（1989）</span>
+    <span class="honor-tag">上海世博会参展（2010）</span>
+    <span class="honor-tag">湖州四大小吃之首</span>
+    <span class="honor-tag">日产量逾7000只</span>
+  </div>
+  <div class="section-ornament anim-fade-in anim-d2"><span>◆</span></div>
+  <p class="s-text anim-fade-in anim-d2">
+    湖州籍著名书法家<b>费新我</b>品尝后，<br>
+    亲笔题写：<b>"鲜而精，名乃扬"</b>。<br><br>
+    丁莲芳千张包子与周生记馄饨、震远同酥糖、诸老大粽子<br>
+    并称"湖州四大小吃"，位列<b>四大之首</b>。<br><br>
+    对湖州人来说，它的意义超越了食物本身：<br>
+    · 是小时候考了好成绩被奖励的那一碗<br>
+    · 是在外多年的湖州人回来第一个要吃的味道<br>
+    · 是一代代人用筷子接住的、不会断掉的日常<br>
+    · 更是一种"湖州人知道什么东西是好的"的底气
+  </p>
+  <p class="s-quote anim-fade-in anim-d3">
+    "鲜而精，名乃扬"<br>
+    <small style="opacity:0.6;">— 费新我题赠丁莲芳</small>
+  </p>
+</section>
+
+<!-- ===== P13: 一碗人间烟火 ===== -->
+<section class="screen pg-light" id="s13">
+  <div class="section-num anim-fade-in">拾贰 · 根脉</div>
+  <h2 class="s-title anim-fade-in anim-d1">文化不一定以宏大方式存在。<br>它可能就藏在一只千张包里。</h2>
+  <div class="s-img anim-fade-in anim-d1">
+    <img src="images/opt_xinhua-07-street.jpg" alt="衣裳街历史文化街区" loading="lazy">
+    <span class="img-attr">衣裳街历史文化街区 · 新华社 翁忻旸 摄</span>
+  </div>
+  <div class="section-ornament anim-fade-in anim-d1"><span>◆</span></div>
+  <p class="s-text anim-fade-in anim-d2">
+    当游客不远百里专程来吃一碗，<br>
+    当本地人几十年不间断地走进同一家店，<br>
+    当三角棱柱的3厘米造型一百四十七年不走样——<br><br>
+    本土文化就没有停在被怀念的那一端。<br>
+    它正在被消费、被讨论、被拍进视频、<br>
+    被写进小红书攻略、被装进天猫快递箱里。<br><br>
+    <b>本土文化的年轻化突围，<br>
+    不需要口号，只需要有人还在继续做、继续吃。</b>
+  </p>
+</section>
+
+<!-- ===== P14: 结尾 ===== -->
+<section class="screen p14-close" id="s14">
+  <div class="p14-quote anim-fade-in">"鲜而精，名乃扬"</div>
+  <div class="p14-divider anim-fade-in"></div>
+  <p class="p14-text anim-fade-in anim-d1">
+    真正能留下来的老味道，从来不只靠"老"字活着。<br><br>
+    靠的是：<br>
+    每一只28克的千张包，<br>
+    皮还是26×42cm黄豆特制千张皮，<br>
+    馅还是去筋去膜去膈的纯精腿肉，<br>
+    形还是三厘米等边三角，147年不走样。<br><br>
+    更靠的是——<br>
+    今天仍有人愿意走进去、坐下来、<br>
+    夹起一只千张包，蘸上辣油，<br>
+    再把它讲给别人听。
+  </p>
+  <div class="p14-meta anim-fade-in anim-d2">
+    <p>《老字号还年轻吗？》</p>
+    <p>在湖州丁莲芳寻找答案</p>
+    <p style="margin-top:8px;">融媒体H5 · 课程融合作业 · 2026年6月</p>
+  </div>
+</section>
+
+<!-- Background Music -->
+<audio id="bgm" loop preload="auto"><source src="audio/bg-music.mp3" type="audio/mpeg"></audio>
+<div id="music-btn" title="音乐" onclick="toggleMusic()">
+  <span id="music-icon">&#9835;</span>
+</div>
+
+<script>
+// Dynamic nav dots
+const screens = document.querySelectorAll('.screen');
+const nav = document.getElementById('navDots');
+screens.forEach((s,i) => {
+  const dot = document.createElement('span');
+  dot.className = 'nav-dot' + (i===0?' active':'');
+  dot.dataset.screen = i;
+  dot.addEventListener('click', () => screens[i].scrollIntoView({behavior:'smooth'}));
+  nav.appendChild(dot);
+});
+const dots = document.querySelectorAll('.nav-dot');
+
+// Intersection Observer
+const animObs = new IntersectionObserver((es) => {
+  es.forEach(e => {
+    if(e.isIntersecting) e.target.querySelectorAll('.anim-fade-in').forEach(el => el.classList.add('visible'));
+  });
+}, {threshold:0.15});
+screens.forEach(s => animObs.observe(s));
+
+const navObs = new IntersectionObserver((es) => {
+  es.forEach(e => {
+    if(e.isIntersecting){
+      const idx = Array.from(screens).indexOf(e.target);
+      dots.forEach((d,i) => d.classList.toggle('active', i===idx));
+    }
+  });
+}, {threshold:0.4});
+screens.forEach(s => navObs.observe(s));
+
+// Trigger P1
+window.addEventListener('load', () => {
+  const s1 = document.getElementById('s1');
+  if(s1) s1.querySelectorAll('.anim-fade-in').forEach(el => el.classList.add('visible'));
+});
+
+// Background music toggle
+let musicOn = false;
+function toggleMusic() {
+  const bgm = document.getElementById('bgm');
+  const icon = document.getElementById('music-icon');
+  if (!musicOn) {
+    bgm.play().catch(() => {});
+    icon.innerHTML = '&#9835;';
+    document.getElementById('music-btn').style.background = 'rgba(160,82,60,0.7)';
+    musicOn = true;
+  } else {
+    bgm.pause();
+    icon.innerHTML = '&#9835;';
+    document.getElementById('music-btn').style.background = 'rgba(0,0,0,0.45)';
+    musicOn = false;
+  }
+}
+// Auto-play attempt on first user interaction
+document.addEventListener('click', function tryPlay() {
+  if (!musicOn) { toggleMusic(); }
+}, {once: true});
+</script>
+</body>
+</html>
