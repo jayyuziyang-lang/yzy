@@ -640,10 +640,6 @@ function toggleMusic() {
     musicOn = false;
   }
 }
-// Auto-play attempt on first user interaction
-document.addEventListener('click', function tryPlay() {
-  if (!musicOn) { toggleMusic(); }
-}, {once: true});
 </script>
 </body>
 </html>
