@@ -1006,47 +1006,45 @@ body { padding: 0; }
 .correct-tag .ct-x { color: var(--color-text-3); cursor: pointer; }
 .cp-source { margin: 0 20px 12px; font-size: var(--font-xs); color: var(--color-text-3); line-height: 1.6; }
 
-/* ---------- 刷方向页（Tab2） ---------- */
-.swipe-guide {
-  margin: 12px 20px 0;
-  padding: 10px 14px;
-  border-radius: var(--radius-card);
-  background: var(--tag-apricot);
-  font-size: var(--font-xs);
-  color: var(--color-text-2);
-  line-height: 1.6;
-}
-.swipe-guide b { color: var(--color-primary); font-weight: 600; }
-.swipe-guide .sg-link { color: var(--color-primary); font-weight: 600; cursor: pointer; }
-.swipe-list { padding: 12px 20px 20px; }
-.swipe-card {
+/* ---------- 刷方向页（Tab2：沉浸式单卡抽卡） ---------- */
+.sw-prog { display: flex; align-items: center; gap: 10px; padding: 14px 20px 0; }
+.sw-prog-track { flex: 1; height: 4px; background: var(--tag-empty); border-radius: 2px; }
+.sw-prog-bar { height: 100%; background: var(--color-primary); border-radius: 2px; transition: width .2s ease; }
+.sw-prog-t { font-size: var(--font-xs); color: var(--color-text-2); flex-shrink: 0; }
+.sw-pills { padding-top: 10px; padding-bottom: 10px; }
+.sw-stage { padding: 14px 20px 20px; }
+.sw-draw {
   background: var(--color-surface);
   border-radius: var(--radius-card);
-  margin-bottom: 12px;
-  overflow: hidden;
-}
-.swipe-card .sw-card-main {
+  padding: 30px 22px 26px;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 12px;
-  padding: 14px 14px 10px;
-  cursor: pointer;
+  text-align: center;
 }
-.swipe-card .sw-card-main .fc-cover {
-  width: 52px; height: 52px;
+.sw-draw.out { animation: swOut .17s ease forwards; }
+@keyframes swOut { to { opacity: 0; transform: translateY(-16px) scale(.98); } }
+.swd-cover {
+  width: 84px; height: 84px;
   border-radius: var(--radius-card);
   display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0;
 }
-.swipe-card .sw-body { flex: 1; min-width: 0; }
-.swipe-card .sw-name { font-size: var(--font-md); font-weight: 600; color: var(--color-text); }
-.swipe-card .sw-name .sw-star { color: var(--color-collect); }
-.swipe-card .sw-sub { font-size: var(--font-xs); color: var(--color-text-2); margin-top: 2px; }
-.swipe-card .sw-tags { margin-top: 6px; display: flex; gap: 6px; }
-.swipe-card .sw-match { flex-shrink: 0; }
-.swipe-card .sw-arrow { color: var(--color-text-3); flex-shrink: 0; }
-.swipe-card .sw-fb { display: flex; gap: 8px; padding: 0 14px 14px; }
-.swipe-card .sw-fb .fb-btn { height: 36px; font-size: var(--font-xs); }
+.swd-name { font-size: 22px; font-weight: 600; color: var(--color-text); margin-top: 18px; }
+.swd-sal { font-size: var(--font-md); font-weight: 600; color: var(--color-primary); margin-top: 6px; }
+.swd-ind { font-size: var(--font-xs); color: var(--color-text-2); margin-top: 6px; }
+.swd-star { margin-top: 10px; }
+.swd-tags { margin-top: 14px; display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; }
+.swd-desc { margin-top: 16px; font-size: var(--font-sm); color: var(--color-text-2); line-height: 1.7; }
+.sw-done { padding: 56px 24px; display: flex; flex-direction: column; align-items: center; text-align: center; }
+.swd-ok {
+  width: 72px; height: 72px;
+  border-radius: 50%;
+  background: var(--tag-apricot);
+  display: flex; align-items: center; justify-content: center;
+}
+.swd-ok-title { font-size: var(--font-lg); font-weight: 600; color: var(--color-text); margin-top: 16px; }
+.swd-ok-sub { font-size: var(--font-sm); color: var(--color-text-2); margin-top: 8px; line-height: 1.6; margin-bottom: 24px; }
+.sw-done .btn { width: 240px; margin-bottom: 12px; }
 
 /* ---------- 论坛分享页（Tab3） ---------- */
 .post-list { padding: 8px 20px 20px; }
@@ -1145,6 +1143,147 @@ body { padding: 0; }
   resize: vertical;
 }
 
+/* ---------- 问方向页（Tab1：咨询大窗口 + 测评入口） ---------- */
+.consult-card {
+  margin: 16px 20px 0;
+  background: var(--color-surface);
+  border-radius: var(--radius-card);
+  padding: 24px 20px 20px;
+}
+.consult-card .cc-icon {
+  width: 48px; height: 48px;
+  border-radius: var(--radius-card);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 14px;
+}
+.consult-card .cc-title { font-size: var(--font-lg); font-weight: 600; color: var(--color-text); line-height: 1.4; }
+.consult-card .cc-sub { font-size: var(--font-sm); color: var(--color-text-2); margin-top: 6px; line-height: 1.6; }
+.consult-card .cc-input {
+  width: 100%; min-height: 84px;
+  border: none; outline: none;
+  background: var(--color-bg);
+  border-radius: var(--radius-btn);
+  padding: 12px 14px;
+  margin-top: 16px;
+  font-size: var(--font-sm); font-family: inherit; line-height: 1.7;
+  color: var(--color-text);
+  resize: vertical;
+}
+.consult-card .cc-input::placeholder { color: var(--color-text-3); }
+.consult-card .cc-btn { margin-top: 12px; height: 44px; }
+.consult-card .cc-hint { margin-top: 12px; text-align: center; font-size: var(--font-xs); color: var(--color-text-3); }
+
+.ask-has-result {
+  margin: 12px 20px 0;
+  background: var(--color-surface);
+  border-radius: var(--radius-card);
+  padding: 14px 16px;
+  display: flex; align-items: center; justify-content: space-between;
+  font-size: var(--font-sm); color: var(--color-text);
+  cursor: pointer;
+}
+.ask-has-result span:last-child { color: var(--color-primary); font-weight: 600; }
+
+.entry-card {
+  margin: 12px 20px 0;
+  background: var(--color-primary);
+  color: #fff;
+  border-radius: var(--radius-card);
+  padding: 18px;
+  display: flex; align-items: center; gap: 14px;
+  cursor: pointer;
+}
+.entry-card .ec-left {
+  width: 48px; height: 48px;
+  border-radius: var(--radius-card);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.entry-card .ec-main { flex: 1; min-width: 0; }
+.entry-card .ec-title { font-size: var(--font-md); font-weight: 600; color: #fff; line-height: 1.4; }
+.entry-card .ec-sub { font-size: var(--font-xs); color: rgba(255,255,255,.72); margin-top: 4px; line-height: 1.5; }
+.entry-card .ec-go { font-size: var(--font-sm); color: #fff; font-weight: 600; flex-shrink: 0; }
+.ask-foot { margin: 24px 24px 0; text-align: center; font-size: var(--font-xs); color: var(--color-text-3); line-height: 1.8; }
+
+/* ---------- 结果页头部 ---------- */
+.res-head { padding: 20px 20px 6px; }
+.res-head .res-title { font-size: 22px; font-weight: 600; color: var(--color-text); }
+.res-head .res-sub { font-size: var(--font-xs); color: var(--color-text-2); margin-top: 6px; line-height: 1.6; }
+.res-head .res-stars { margin-top: 10px; }
+
+/* ---------- 叠放抽卡式 Deck（结果页 / 收藏夹） ---------- */
+.page.deck-page { display: flex; flex-direction: column; overflow: hidden; }
+.page.deck-page > div:not(.deck) { flex-shrink: 0; }
+.deck { flex: 1; min-height: 0; display: flex; flex-direction: column; }
+.deck-stack { flex: 1; min-height: 0; position: relative; }
+.deck-card {
+  position: absolute;
+  left: 20px; right: 20px;
+  background: var(--color-surface);
+  border-radius: var(--radius-card);
+  display: flex; flex-direction: column;
+  overflow: hidden;
+}
+.deck-card.lag2 { top: 0; height: 48px; z-index: 1; opacity: .85; }
+.deck-card.lag { top: 48px; height: 48px; z-index: 2; opacity: .92; cursor: pointer; }
+.deck-card.cur { top: 96px; bottom: 4px; z-index: 3; }
+.deck-card.cur.fly { animation: deckFly .19s ease forwards; }
+@keyframes deckFly {
+  from { transform: none; opacity: 1; }
+  to { transform: translateY(520px); opacity: 0; }
+}
+.deck-card .dc-head {
+  padding: 14px 16px;
+  display: flex; align-items: center; justify-content: space-between;
+  border-bottom: 1px solid var(--color-line);
+  flex-shrink: 0;
+  background: var(--color-surface);
+}
+.deck-card .dc-name {
+  font-size: var(--font-md); font-weight: 600; color: var(--color-text);
+  min-width: 0;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.deck-card .dc-name .dc-star-mark { color: var(--color-collect); }
+.deck-card .dc-sal {
+  font-size: var(--font-sm); font-weight: 600; color: var(--color-primary);
+  flex-shrink: 0;
+  max-width: 55%;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.deck-card .dc-body {
+  flex: 1; min-height: 0;
+  overflow-y: auto;
+  padding: 16px;
+  display: flex; flex-direction: column;
+}
+.deck-card .dc-top { display: flex; align-items: center; gap: 12px; }
+.deck-card .dc-cover {
+  width: 52px; height: 52px;
+  border-radius: var(--radius-card);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.deck-card .dc-info { flex: 1; min-width: 0; }
+.deck-card .dc-ind { font-size: var(--font-xs); color: var(--color-text-2); }
+.deck-card .dc-match { margin-top: 6px; display: flex; align-items: center; gap: 8px; }
+.deck-card .dc-match-t {
+  font-size: var(--font-xs); color: var(--color-text-2);
+  min-width: 0;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.deck-card .dc-desc { margin-top: 14px; font-size: var(--font-sm); color: var(--color-text-2); line-height: 1.7; }
+.deck-card .dc-tags { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 6px; }
+.deck-card .dc-actions { padding: 12px 16px 14px; flex-shrink: 0; }
+.deck-op-row { display: flex; gap: 8px; }
+.deck-op-row .deck-op { flex: 1; width: auto; height: 36px; font-size: var(--font-xs); }
+.deck-foot {
+  padding: 10px 20px;
+  display: flex; align-items: center; justify-content: space-between;
+  font-size: var(--font-xs); color: var(--color-text-3);
+}
+.deck-foot .df-next { color: var(--color-primary); font-weight: 600; cursor: pointer; }
+
 /* ---------- 小屏适配（当手机用） ---------- */
 @media (max-width: 430px) {
   body { background: var(--color-bg); }
@@ -1173,8 +1312,9 @@ body { padding: 0; }
   <div id="helpBox" style="display:none;">
     <b>怎么玩这个 Demo：</b><br>
     · 四个 Tab：<b>问方向 / 刷方向 / 论坛分享 / 我的</b><br>
-    · 完整链路：<b>问方向 → 测评（三选一）→ 卡片流反馈 → 测评结果</b> → 问方向页横幅收窄为画像摘要卡，推荐闭环生效<br>
-    · <b>刷方向</b>：上下滚动浏览全部职业，每张卡可即时标记「感兴趣 / 稍后再看 / 不考虑」，标记实时写入 <b>我的 → 收藏</b><br>
+    · <b>问方向</b>：在咨询窗口里说一句你的专业、技能和偏好，或点「测评入口」答题；咨询 / 测评完成后，匹配的职业卡片才会弹出<br>
+    · 结果页与收藏夹是<b>叠放抽卡</b>：每张卡顶部固定「岗位 + 薪资」，点「换一张」或<b>下拉</b>翻下一张；点卡片看详情，底部可随时三态标记<br>
+    · <b>刷方向</b>：沉浸式单卡抽卡，每张卡即时标记「感兴趣 / 稍后再看 / 不考虑」，实时写入 <b>我的 → 收藏</b>；刷完可换行业再来<br>
     · <b>论坛分享</b>：看帖子、发帖、点赞、评论，社区闭环可交互；「我的帖子」可删除<br>
     · <b>我的 → 择业画像</b>：画像是可纠正的，点 ✕ 去掉不准的标签，会同步影响推荐<br>
     · <b>个人画像</b>可编辑技能 / 偏好，保存后推荐同步更新<br>
@@ -1544,6 +1684,8 @@ window.DB = {
     posts: postSeed(),      // 帖子列表（种子 + 用户发布）
     postLikes: {},          // postId -> 是否点赞
     npCat: '求助',           // 发帖默认分类
+    swipe: null,            // 刷方向抽卡会话 { ids, index, industry }
+    lastSrc: null,          // lastResults 来源：consult | quiz
     ui: { editPersonal: false }
   };
 
@@ -1581,6 +1723,11 @@ window.DB = {
     return Object.values(state.collections).filter(v => v === st).length;
   }
   const collLabel = st => st === 'interested' ? '感兴趣' : st === 'later' ? '稍后再看' : st === 'rejected' ? '暂不考虑' : '';
+  // 从标签里提取薪资区间（如「入门 8-15K」→「8-15K」）
+  function salaryOf(d) {
+    const t = (d.tags || []).find(x => /K/.test(x.t) && /[0-9]/.test(x.t));
+    return t ? t.t.replace(/入门\s*/, '').replace(/\s*入行\s*/, '') : '';
+  }
 
   /* ================= v3.0 视觉辅助：线描图标 + 星级 ================= */
   const GLYPHS = {
@@ -1634,6 +1781,7 @@ window.DB = {
     if (!handler) { location.hash = '#/ask'; return; }
     const page = $('#page');
     page.scrollTop = 0;
+    page.classList.remove('deck-page');
     page.classList.remove('switching'); void page.offsetWidth; page.classList.add('switching');
     handler(r);
     // Tab 栏：仅 Tab 页显示
@@ -1786,6 +1934,7 @@ window.DB = {
     if (state.cardflow.index >= state.cardflow.list.length) {
       state.assessed = true;
       state.lastResults = state.cardflow.list;
+      state.lastSrc = 'quiz';
       saveState();
       toast('测评完成，已为你生成结果');
       setTimeout(() => go('/result'), 500);
@@ -1810,6 +1959,218 @@ window.DB = {
     toast('已移除');
     render();
   };
+
+  /* ================= 问方向 · 咨询 ================= */
+  window.consult = function () {
+    const v = ($('#cInput') ? $('#cInput').value : '').trim();
+    if (!v) { toast('先简单说一句你的情况吧'); return; }
+    const res = consultResults(v);
+    state.lastResults = res;
+    state.lastSrc = 'consult';
+    saveState();
+    toast('已为你匹配 ' + res.length + ' 个职业方向');
+    setTimeout(() => go('/result/consult'), 450);
+  };
+  function consultResults(text) {
+    const toks = text.split(/[\s,，。.!！?？;；、/\\\-]+/).filter(t => t && t.length >= 2);
+    const scored = DB.directions.map(d => {
+      let s = 0;
+      const hay = d.kw.concat(d.skills).join('|') + '|' + d.industry + '|' + d.desc + '|' + d.name + '|' + d.path.join('');
+      toks.forEach(t => { if (hay.includes(t)) s += t.length >= 4 ? 12 : 7; });
+      if (text.includes(d.name)) s += 20;
+      return { d, s };
+    });
+    scored.sort((a, b) => b.s - a.s || b.d.baseMatch - a.d.baseMatch);
+    return scored.slice(0, 8).map(x => ({ id: x.d.id, match: Math.max(48, Math.min(96, x.d.baseMatch + Math.min(x.s, 30))) }));
+  }
+
+  /* ================= 刷方向 · 沉浸式抽卡 ================= */
+  window.swFeedback = function (id, st) {
+    const cur = state.collections[id];
+    if (cur === st) delete state.collections[id]; else state.collections[id] = st;
+    state.feedbackCount++;
+    const el = $('#swDraw');
+    if (el) el.classList.add('out');
+    if (state.swipe) state.swipe.index++;
+    saveState();
+    toast(cur === st ? '已取消标记' : '已标记为「' + collLabel(st) + '」');
+    setTimeout(() => render(), 170);
+  };
+  window.swRestart = function () {
+    state.swipe = null;
+    state.industry = '全部';
+    saveState();
+    render();
+  };
+
+  /* ================= 叠放抽卡式 Deck（结果页 / 收藏夹共用） ================= */
+  let deckSess = null;   // { items: [{d, match}], ctx, idx }
+  function renderDeck(items, ctx, opts) {
+    const list = items.filter(x => x && x.d);
+    // 从详情页返回时，保留当前卡的位置
+    let idx = 0;
+    if (deckSess && deckSess.ctx === ctx && deckSess.items.length === list.length) idx = deckSess.idx;
+    deckSess = { items: list, ctx: ctx, idx: idx, opts: opts || {} };
+    navBack(opts.title || '职业卡片');
+    const page = $('#page');
+    page.classList.add('deck-page');
+    page.innerHTML = (opts.head || '') + deckAreaHTML();
+    bindDeck();
+    setSub(opts.sub || '');
+  }
+  function deckAreaHTML() {
+    const s = deckSess;
+    if (!s || !s.items.length) return '';
+    return `<div class="deck" id="deck">
+      <div class="deck-stack" id="deckStack">${deckStackHTML()}</div>
+      <div class="deck-foot">
+        <span class="df-prog" id="dfProg">第 ${s.idx + 1} / ${s.items.length} 张</span>
+        <span class="df-hint">下拉换卡 · 点卡片看详情</span>
+        <span class="df-next" onclick="deckNext()">换一张 ›</span>
+      </div>
+    </div>`;
+  }
+  function deckStackHTML() {
+    const s = deckSess;
+    if (!s || !s.items.length) return '<div class="empty"><div class="empty-title">这里还没有卡片</div></div>';
+    const cur = s.items[s.idx];
+    const n1 = s.items[s.idx + 1];
+    const n2 = s.items[s.idx + 2];
+    let html = '';
+    if (n2) html += deckCardHTML(n2.d, n2.match, 2);
+    if (n1) html += deckCardHTML(n1.d, n1.match, 1);
+    html += deckCardHTML(cur.d, cur.match, 0);
+    return html;
+  }
+  function deckCardHTML(d, m, lag) {
+    const st = state.collections[d.id];
+    const head = `<div class="dc-head">
+      <span class="dc-name">${d.name}${st === 'interested' ? ' <span class="dc-star-mark">★</span>' : ''}</span>
+      <span class="dc-sal">${salaryOf(d) || (d.tags[0] ? d.tags[0].t : '')}</span>
+    </div>`;
+    if (lag > 0) {
+      return `<div class="deck-card ${lag === 2 ? 'lag2' : 'lag'}" onclick="deckNext()">${head}</div>`;
+    }
+    return `<div class="deck-card cur" onclick="openDir('${d.id}')">
+      ${head}
+      <div class="dc-body">
+        <div class="dc-top"><div class="dc-cover c${d.c}">${gicon(d.g, 26)}</div>
+          <div class="dc-info">
+            <div class="dc-ind">${d.industry} · ${d.viewed}</div>
+            <div class="dc-match">${starRow(m)}<span class="dc-match-t">${d.tags[0] ? d.tags[0].t : ''}</span></div>
+          </div></div>
+        <div class="dc-desc">${d.desc}</div>
+        <div class="dc-tags">${d.tags.map(t => `<span class="tag ${t.accent ? 'tag-accent' : t.gray ? 'tag-gray' : ''}">${t.t}</span>`).join('')}</div>
+      </div>
+      <div class="dc-actions" onclick="event.stopPropagation()">${deckActionsHTML(d, st)}</div>
+    </div>`;
+  }
+  function deckActionsHTML(d, st) {
+    const ctx = deckSess ? deckSess.ctx : 'result';
+    if (ctx === 'result') {
+      return `<div class="fb-group">
+        <div class="fb-btn fb-btn-interest ${st === 'interested' ? 'active-interest' : ''}" onclick="deckSet('${d.id}','interested')">感兴趣</div>
+        <div class="fb-btn fb-btn-later ${st === 'later' ? 'active-later' : ''}" onclick="deckSet('${d.id}','later')">稍后再看</div>
+        <div class="fb-btn fb-btn-reject ${st === 'rejected' ? 'active-reject' : ''}" onclick="deckSet('${d.id}','rejected')">不考虑</div>
+      </div>`;
+    }
+    if (ctx === 'interested') {
+      return `<div class="deck-op-row">
+        <div class="btn btn-ghost deck-op" onclick="openDir('${d.id}')">查看详情</div>
+        <div class="btn btn-outline deck-op" onclick="deckSet('${d.id}','later')">降为稍后</div>
+        <div class="btn btn-outline deck-op" onclick="deckRemove('${d.id}')">移除</div>
+      </div>`;
+    }
+    if (ctx === 'rejected') {
+      return `<div class="deck-op-row">
+        <div class="btn btn-ghost deck-op" onclick="deckSet('${d.id}','interested')">改为感兴趣</div>
+        <div class="btn btn-outline deck-op" onclick="deckSet('${d.id}','later')">稍后再看</div>
+        <div class="btn btn-outline deck-op" onclick="deckRemove('${d.id}')">移除</div>
+      </div>`;
+    }
+    return `<div class="deck-op-row">
+      <div class="btn btn-ghost deck-op" onclick="deckSet('${d.id}','interested')">感兴趣</div>
+      <div class="btn btn-outline deck-op" onclick="deckSet('${d.id}','rejected')">不考虑</div>
+      <div class="btn btn-outline deck-op" onclick="deckRemove('${d.id}')">移除</div>
+    </div>`;
+  }
+  function renderDeckStack() {
+    const el = $('#deckStack');
+    if (!el || !deckSess) return;
+    el.innerHTML = deckStackHTML();
+    // 同步底部进度（换卡 / 移除后保持一致）
+    const prog = $('#dfProg');
+    if (prog) prog.textContent = '第 ' + (deckSess.idx + 1) + ' / ' + deckSess.items.length + ' 张';
+  }
+  window.deckSet = function (id, st) {
+    const cur = state.collections[id];
+    if (cur === st) delete state.collections[id]; else state.collections[id] = st;
+    state.feedbackCount++;
+    saveState();
+    toast(cur === st ? '已取消标记' : '已标记为「' + collLabel(st) + '」');
+    renderDeckStack();
+  };
+  window.deckRemove = function (id) {
+    delete state.collections[id];
+    state.feedbackCount++;
+    saveState();
+    toast('已移除');
+    if (deckSess) {
+      deckSess.items = deckSess.items.filter(x => x.d.id !== id);
+      deckSess.idx = Math.min(deckSess.idx, Math.max(0, deckSess.items.length - 1));
+    }
+    if (!deckSess || !deckSess.items.length) { render(); return; }
+    renderDeckStack();
+  };
+  window.deckNext = function () {
+    const s = deckSess;
+    if (!s || s.idx >= s.items.length - 1) { toast('已经是最后一张了'); return; }
+    const cur = document.querySelector('.deck-card.cur');
+    const go = () => { s.idx++; renderDeckStack(); };
+    if (cur) { cur.classList.add('fly'); setTimeout(go, 190); } else go();
+  };
+  function bindDeck() {
+    const d = $('#deck');
+    if (!d) return;
+    let startY = null;
+    let dragged = false;
+    d.addEventListener('pointerdown', e => {
+      if (e.target.closest('.fb-btn') || e.target.closest('.dc-actions') || e.target.closest('.deck-foot')) return;
+      startY = e.clientY;
+      dragged = false;
+    });
+    d.addEventListener('pointermove', e => {
+      if (startY === null) return;
+      const cur = d.querySelector('.deck-card.cur');
+      if (!cur) return;
+      const dy = e.clientY - startY;
+      if (dy > 0) {
+        cur.style.transform = 'translateY(' + dy + 'px)';
+        if (dy > 6) dragged = true;
+      }
+    });
+    d.addEventListener('pointerup', e => {
+      if (startY === null) return;
+      const dy = e.clientY - startY;
+      startY = null;
+      const cur = d.querySelector('.deck-card.cur');
+      if (!cur) return;
+      if (dy > 70) {
+        cur.style.transition = 'transform .22s ease, opacity .22s ease';
+        cur.style.transform = 'translateY(520px)';
+        cur.style.opacity = '0';
+        setTimeout(() => deckNext(), 200);
+      } else {
+        cur.style.transition = 'transform .2s ease';
+        cur.style.transform = '';
+        setTimeout(() => { cur.style.transition = ''; }, 220);
+      }
+    });
+    // 拖动过的点击不应触发展开详情
+    d.addEventListener('click', e => {
+      if (dragged) { e.stopPropagation(); e.preventDefault(); dragged = false; }
+    }, true);
+  }
 
   /* 择业画像标签纠正 */
   window.removeTag = function (i) {
@@ -1891,78 +2252,88 @@ window.DB = {
     later: () => renderFav('later')
   };
 
-  /* ---------- 问方向（Tab1：测评入口 + 推荐流） ---------- */
+  /* ---------- 问方向（Tab1：咨询大窗口 + 测评入口） ---------- */
   function renderAsk() {
     homeNav();
-    const assessed = state.assessed;
-    let top;
-    if (!assessed) {
-      top = `<div class="hero"><div class="hero-title">不知道自己适合什么工作？</div><div class="hero-sub">3 分钟测评，找到你的职业方向</div><div class="hero-btn" onclick="goPush('/assessment')">开始测评 →</div></div>`;
-    } else {
-      const topIds = (state.lastResults || []).slice(0, 3).map(x => x.id);
-      const names = topIds.map(id => dirById(id).name).join(' · ');
-      top = `<div class="summary-card"><div class="sc-head"><span class="sc-title">我的择业画像</span><span class="sc-link" onclick="goPush('/profile/career')">查看 ›</span></div><div class="sc-kw"><b>${names || '数据分析 · 运营'}</b> · ${state.profile.workMode}</div></div>`;
-    }
-    const tabs = `<div class="industry-tabs">${DB.industries.map(x => `<div class="industry-tab ${state.industry === x ? 'active' : ''}" onclick="setIndustry('${x}')">${x}</div>`).join('')}</div>`;
-
-    const feed = DB.directions.filter(d => state.industry === '全部' || d.industry === state.industry);
-    const cols = [[], []];
-    feed.forEach((d, i) => cols[i % 2].push(d));
-    const dirCard = d => {
-      const st = state.collections[d.id];
-      const m = matchOf(d.id);
-      return `<div class="feed-card" onclick="openDir('${d.id}')">
-        <div class="fc-cover c${d.c}">${gicon(d.g, 30)}</div>
-        <div class="fc-body">
-          <div class="fc-name">${d.name}${st === 'interested' ? ' <span style="color:#C47B6B;">★</span>' : ''}</div>
-          <div class="fc-sub">${d.industry} · ${d.viewed}</div>
-          <div class="fc-foot"><span class="tag">${d.skills.slice(0, 2).join(' / ')}</span>${starRow(m)}</div>
+    const hasResult = state.lastResults && state.lastResults.length;
+    const resultLink = hasResult
+      ? `<div class="ask-has-result" onclick="goPush('${state.lastSrc === 'consult' ? '/result/consult' : '/result'}')">
+          <span>上次生成的结果 · ${state.lastResults.length} 个方向</span><span>查看 ›</span>
+        </div>`
+      : '';
+    $('#page').innerHTML = `
+      <div class="consult-card">
+        <div class="cc-icon c1">${gicon('chat', 26)}</div>
+        <div class="cc-title">不知道自己适合什么工作？</div>
+        <div class="cc-sub">说一句你的专业、技能和偏好，帮你找到方向</div>
+        <textarea id="cInput" class="cc-input" placeholder="例如：我学信息管理，会用 Excel 和 Python，喜欢和数字打交道"></textarea>
+        <div class="btn btn-primary cc-btn" onclick="consult()">开始咨询 →</div>
+        <div class="cc-hint">咨询或测评完成后，匹配的职业卡片会自动弹出</div>
+      </div>
+      ${resultLink}
+      <div class="entry-card" onclick="goPush('/assessment')">
+        <div class="ec-left c3">${gicon('target', 24)}</div>
+        <div class="ec-main">
+          <div class="ec-title">3 分钟测评，找到你的职业方向</div>
+          <div class="ec-sub">通过答题和卡片反馈，建立你的择业画像</div>
         </div>
-      </div>`;
-    };
-    let colA = cols[0].map(dirCard).join('');
-    let colB = cols[1].map(dirCard).join('');
-    if (!assessed) {
-      colB = `<div class="guide-card"><div><div class="gc-title">不确定适合什么？</div><div class="gc-desc">3 分钟测评帮你发现方向</div></div><div class="gc-btn" onclick="goPush('/assessment')">去测评</div></div>` + colB;
-    }
-    const know = `<div class="section-title">职业知识</div>` +
-      DB.articles.slice(0, 2).map(a => `<div class="know-card" onclick="openArt('${a.id}')"><div class="kc-title">${a.title}</div><div class="kc-desc">${a.desc}</div><div class="kc-foot"><span class="tag">${a.cat}</span><span class="tag tag-accent">${a.industry}</span><span class="kc-meta">${a.read} 分钟阅读</span></div></div>`).join('');
-    $('#page').innerHTML = top + tabs + `<div class="waterfall"><div class="w-col">${colA}</div><div class="w-col">${colB}</div></div>` + know;
+        <div class="ec-go">去测评 ›</div>
+      </div>
+      <div class="ask-foot">数据保存在本机 · 页面右上角「清空数据重来」可重新演示冷启动</div>
+    `;
     setSub('');
   }
 
-  /* ---------- 刷方向（Tab2：上下滚动卡片 + 三态反馈） ---------- */
+  /* ---------- 刷方向（Tab2：沉浸式单卡抽卡 + 三态反馈） ---------- */
   function renderSwipe() {
-    $('#nav').innerHTML = `<div class="nav-bar"><div class="nav-title">刷方向</div><div class="nav-right" onclick="goPush('/search')">搜索</div></div>`;
-    const guide = state.assessed
-      ? `<div class="swipe-guide">已按你的画像<b>个性化排序</b> · 点下方按钮标记意向，推荐会更准</div>`
-      : `<div class="swipe-guide">还未测评，当前按<b>综合热度</b>排序。<span class="sg-link" onclick="goPush('/assessment')">先测一测 ›</span>刷起来更懂你</div>`;
-    const tabs = `<div class="industry-tabs">${DB.industries.map(x => `<div class="industry-tab ${state.industry === x ? 'active' : ''}" onclick="setIndustry('${x}')">${x}</div>`).join('')}</div>`;
-    const list = DB.directions
-      .filter(d => state.industry === '全部' || d.industry === state.industry)
-      .sort((a, b) => matchOf(b.id) - matchOf(a.id));
-    const card = d => {
-      const st = state.collections[d.id];
-      return `<div class="swipe-card">
-        <div class="sw-card-main" onclick="openDir('${d.id}')">
-          <div class="fc-cover c${d.c}">${gicon(d.g, 24)}</div>
-          <div class="sw-body">
-            <div class="sw-name">${d.name}${st === 'interested' ? ' <span class="sw-star">★</span>' : ''}</div>
-            <div class="sw-sub">${d.industry} · ${d.viewed}</div>
-            <div class="sw-tags">${d.tags.slice(0, 2).map(t => `<span class="tag ${t.accent ? 'tag-accent' : t.gray ? 'tag-gray' : ''}">${t.t}</span>`).join('')}</div>
-          </div>
-          <div class="sw-match">${starRow(matchOf(d.id))}</div>
-          <svg class="sw-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
-        </div>
-        <div class="sw-fb">
-          <div class="fb-btn fb-btn-interest ${st === 'interested' ? 'active-interest' : ''}" onclick="setColl('${d.id}','interested')">感兴趣</div>
-          <div class="fb-btn fb-btn-later ${st === 'later' ? 'active-later' : ''}" onclick="setColl('${d.id}','later')">稍后再看</div>
-          <div class="fb-btn fb-btn-reject ${st === 'rejected' ? 'active-reject' : ''}" onclick="setColl('${d.id}','rejected')">不考虑</div>
-        </div>
-      </div>`;
-    };
-    $('#page').innerHTML = guide + tabs + `<div class="swipe-list">${list.map(card).join('')}</div>`;
-    setSub('');
+    $('#nav').innerHTML = `<div class="nav-bar"><div class="nav-title">刷方向</div><div class="nav-right" onclick="goTab('mine')">我的意向</div></div>`;
+    // 会话按行业懒构建：行业变了就重建抽卡堆
+    if (!state.swipe || state.swipe.industry !== state.industry) {
+      state.swipe = {
+        ids: DB.directions
+          .filter(d => state.industry === '全部' || d.industry === state.industry)
+          .sort((a, b) => matchOf(b.id) - matchOf(a.id))
+          .map(d => d.id),
+        index: 0,
+        industry: state.industry
+      };
+      saveState();
+    }
+    const s = state.swipe;
+    const total = s.ids.length;
+    const done = s.index >= total;
+    const pct = total ? Math.round((Math.min(s.index, total) / total) * 100) : 0;
+    const pills = `<div class="industry-tabs sw-pills">${DB.industries.map(x => `<div class="industry-tab ${state.industry === x ? 'active' : ''}" onclick="setIndustry('${x}')">${x}</div>`).join('')}</div>`;
+    $('#page').innerHTML = `
+      <div class="sw-prog"><div class="sw-prog-track"><div class="sw-prog-bar" style="width:${pct}%"></div></div><span class="sw-prog-t">第 ${total ? Math.min(s.index + 1, total) : 0} / ${total} 张</span></div>
+      ${pills}
+      <div class="sw-stage">${done ? swDoneHTML(total) : swDrawCardHTML(dirById(s.ids[s.index]), matchOf(s.ids[s.index]))}</div>
+    `;
+    setSub(done ? '' : `<div class="bottom-bar"><div class="fb-group">
+      <div class="fb-btn fb-btn-interest" onclick="swFeedback('${s.ids[s.index]}','interested')">感兴趣</div>
+      <div class="fb-btn fb-btn-later" onclick="swFeedback('${s.ids[s.index]}','later')">稍后再看</div>
+      <div class="fb-btn fb-btn-reject" onclick="swFeedback('${s.ids[s.index]}','rejected')">不考虑</div>
+    </div></div>`);
+  }
+  function swDrawCardHTML(d, m) {
+    return `<div class="sw-draw" id="swDraw">
+      <div class="swd-cover c${d.c}">${gicon(d.g, 56)}</div>
+      <div class="swd-name">${d.name}</div>
+      <div class="swd-sal">${salaryOf(d) || (d.tags[0] ? d.tags[0].t : '')}</div>
+      <div class="swd-ind">${d.industry} · ${d.viewed}</div>
+      <div class="swd-star">${starRow(m)}</div>
+      <div class="swd-tags">${d.tags.map(t => `<span class="tag ${t.accent ? 'tag-accent' : t.gray ? 'tag-gray' : ''}">${t.t}</span>`).join('')}</div>
+      <div class="swd-desc">${d.desc}</div>
+    </div>`;
+  }
+  function swDoneHTML(total) {
+    return `<div class="sw-done">
+      <div class="swd-ok">${gicon('heart', 42, '#C47B6B')}</div>
+      <div class="swd-ok-title">已刷完 ${total} 张方向</div>
+      <div class="swd-ok-sub">意向已记入「我的 → 收藏」，推荐会越来越懂你</div>
+      <div class="btn btn-outline swd-again" onclick="swRestart()">换个行业再看看</div>
+      <div class="btn btn-primary" onclick="goTab('mine')">去「我的」看意向</div>
+    </div>`;
   }
 
   /* ---------- 论坛分享（Tab3：社区） ---------- */
@@ -2329,39 +2700,26 @@ window.DB = {
     </div></div>`);
   }
 
-  /* ---------- 测评结果 ---------- */
-  function renderResult() {
-    navBack('测评结果');
-    const list = state.lastResults || (state.cardflow && state.cardflow.list) || [];
-    if (!list.length) { go('/assessment'); return; }
-    const top = list.slice(0, 5);
-    const explore = list.slice(5, 8);
-    const row = (x, i) => {
-      const d = dirById(x.id);
-      const starred = state.collections[d.id] === 'interested';
-      return `<div class="match-item" onclick="openDir('${d.id}')">
-        <div class="mi-rank">${i + 1}</div>
-        <div class="mi-cover c${d.c}">${gicon(d.g, 22)}</div>
-        <div class="mi-main"><div class="mi-name">${d.name}</div><div class="mi-ind">${d.industry} · 与你的偏好匹配</div></div>
-        <div class="mi-stars">${starRow(x.match)}</div>
-        <div class="mi-star" style="color:${starred ? '#C47B6B' : '#E0DCD7'};cursor:pointer;font-size:16px;flex-shrink:0;padding-left:8px;" onclick="event.stopPropagation();setColl('${d.id}','interested')">${starred ? '★' : '☆'}</div>
-      </div>`;
-    };
-    $('#page').innerHTML = `
-      <div class="card" style="margin-top:12px;text-align:center;padding:24px 16px;">
-        <div style="font-size:20px;font-weight:600;">为你找到 ${list.length} 个职业方向</div>
-        <div style="font-size:13px;color:var(--color-text-2);margin-top:6px;">根据你的测评结果，以下职业匹配度较高</div>
-        <div style="margin-top:10px;">${starRow(list[0].match)}</div>
-      </div>
-      ${top.map((x, i) => row(x, i)).join('')}
-      ${explore.length ? `<div class="section-title">探索其他可能</div>` + explore.map((x, i) => row(x, i + 5)).join('') : ''}
-      <div style="text-align:center;font-size:12px;color:var(--color-primary);padding:6px 0 20px;cursor:pointer;" onclick="goPush('/assessment')">不明白这些职业？重新测评 ›</div>
-    `;
-    setSub(`<div class="bottom-bar"><div style="display:flex;gap:10px;">
-      <div class="btn btn-outline" style="flex:1;height:44px;font-size:14px;" onclick="goTab('ask')">返回首页</div>
-      <div class="btn btn-outline" style="flex:1;height:44px;font-size:14px;" onclick="go('/assessment')">重新测评</div>
-      <div class="btn btn-primary" style="flex:1.3;height:44px;font-size:14px;" onclick="toast('分享卡片已生成，可保存后发给朋友')">分享结果</div>
-    </div></div>`);
+  /* ---------- 结果页（叠放抽卡式 Deck） ---------- */
+  function renderResult(r) {
+    const consult = r.arg === 'consult' || state.lastSrc === 'consult';
+    const list = state.lastResults || [];
+    if (!list.length) { go(consult ? '/ask' : '/assessment'); return; }
+    const items = list.map(x => ({ d: dirById(x.id), match: x.match })).filter(x => x.d);
+    const head = `<div class="res-head">
+      <div class="res-title">${consult ? '为你找到的方向' : '反向择业结果'}</div>
+      <div class="res-sub">共 ${items.length} 个职业方向 · 每张卡顶部固定「岗位 + 薪资」，下拉换卡</div>
+      <div class="res-stars">${starRow(items[0].match)}</div>
+    </div>`;
+    renderDeck(items, 'result', {
+      title: consult ? '咨询结果' : '反向择业结果',
+      head: head,
+      sub: `<div class="bottom-bar"><div style="display:flex;gap:10px;">
+        <div class="btn btn-outline" style="flex:1;height:44px;font-size:14px;" onclick="goTab('ask')">返回问方向</div>
+        <div class="btn btn-outline" style="flex:1;height:44px;font-size:14px;" onclick="go('/assessment')">重新测评</div>
+        <div class="btn btn-primary" style="flex:1.3;height:44px;font-size:14px;" onclick="toast('分享卡片已生成，可保存后发给朋友')">分享结果</div>
+      </div></div>`
+    });
   }
 
   /* ---------- 个人画像 ---------- */
@@ -2447,47 +2805,29 @@ window.DB = {
     setSub(`<div class="bottom-bar"><div class="btn btn-ghost" onclick="goPush('/assessment')">重新测评，更新画像</div></div>`);
   }
 
-  /* ---------- 收藏三态列表 ---------- */
+  /* ---------- 收藏三态列表（叠放抽卡式 Deck） ---------- */
   function renderFav(st) {
     const titles = { interested: '感兴趣', rejected: '暂不考虑', later: '稍后再看' };
-    navBack(titles[st]);
-    const ids = Object.keys(state.collections).filter(id => state.collections[id] === st);
     const notes = {
       interested: '标记「感兴趣」的方向会优先出现在推荐里，随时可调整意愿或移除。',
       rejected: '这些方向已从推荐中排除，随时可以恢复或改为感兴趣。',
       later: '还没决定的方向先放这里，不影响推荐。有空时回来做个决定。'
     };
-    let list = '';
-    ids.forEach(id => {
-      const d = dirById(id);
-      if (!d) return;
-      const m = matchOf(id);
-      if (st === 'interested') {
-        list += `<div class="fav-item"><div class="fi-top"><div class="fi-cover c${d.c}">${gicon(d.g, 22)}</div>
-          <div class="fi-main"><div class="fi-name">${d.name} <span class="tag ${m >= 80 ? 'tag-accent' : ''}" style="padding:1px 10px;">意愿 ${m >= 80 ? '高' : '中'}</span></div><div class="fi-ind">${d.industry} · ${d.viewed}</div></div>
-          <div class="fi-x" onclick="removeColl('${d.id}')">✕</div></div>
-          <div class="fi-foot"><span class="fi-op primary" onclick="openDir('${d.id}')">查看详情</span><span class="fi-op" onclick="setColl('${d.id}','later')">降为稍后</span><span class="fi-match">${starRow(m)}</span></div></div>`;
-      } else if (st === 'rejected') {
-        list += `<div class="ni-item"><div class="ni-top"><div class="ni-cover c${d.c}">${gicon(d.g, 22)}</div>
-          <div class="ni-main"><div class="ni-name">${d.name}</div><div class="ni-ind">${d.industry} · ${d.viewed}</div></div></div>
-          <div class="ni-foot"><div class="ni-btn restore" onclick="removeColl('${d.id}')">恢复推荐</div><div class="ni-btn like" onclick="setColl('${d.id}','interested')">改为感兴趣</div></div></div>`;
-      } else {
-        list += `<div class="wl-item"><div class="wl-top"><div class="wl-cover c${d.c}">${gicon(d.g, 22)}</div>
-          <div class="wl-main"><div class="wl-name">${d.name}</div><div class="wl-ind">${d.industry} · ${d.viewed}</div></div>
-          <div class="wl-dot" onclick="openDir('${d.id}')">${gicon('clock', 18, '#C47B6B')}</div></div>
-          <div class="wl-foot"><div class="wl-btn like" onclick="setColl('${d.id}','interested')">感兴趣</div><div class="wl-btn reject" onclick="setColl('${d.id}','rejected')">暂不考虑</div><div class="wl-btn keep" onclick="removeColl('${d.id}')">继续保留</div></div></div>`;
-      }
+    const ids = Object.keys(state.collections).filter(id => state.collections[id] === st);
+    const items = ids.map(id => ({ d: dirById(id), match: matchOf(id) })).filter(x => x.d);
+    if (!items.length) {
+      navBack(titles[st]);
+      const glyphs = { interested: 'heart', rejected: 'xmark', later: 'clock' };
+      const eTitles = { interested: '还没有感兴趣的方向', rejected: '没有暂不考虑的方向', later: '暂无稍后再看' };
+      const empty = `<div class="empty"><div class="empty-icon">${gicon(glyphs[st], 40)}</div><div class="empty-title">${eTitles[st]}</div><div class="empty-desc">去刷方向或测评，把方向收进这里吧</div><div class="btn btn-primary" style="width:180px;margin:0 auto;" onclick="goTab('swipe')">去刷方向</div></div>`;
+      $('#page').innerHTML = `<div style="padding:16px 20px 12px;font-size:12px;color:var(--color-text-3);line-height:1.6;">${notes[st]}</div>${empty}`;
+      setSub('');
+      return;
+    }
+    renderDeck(items, st, {
+      title: titles[st],
+      head: `<div style="padding:16px 20px 12px;font-size:12px;color:var(--color-text-3);line-height:1.6;">${notes[st]}</div>`
     });
-    const emptyGlyphs = { interested: 'heart', rejected: 'xmark', later: 'clock' };
-    const emptyTitles = { interested: '还没有感兴趣的方向', rejected: '没有暂不考虑的方向', later: '暂无稍后再看' };
-    const emptyDescs = {
-      interested: '去测评或首页逛逛，把喜欢的方向标记为「感兴趣」吧',
-      rejected: '被排除的方向会出现在这里，方便你随时改回',
-      later: '测评和首页遇到犹豫的方向，可以先收进这里'
-    };
-    const empty = `<div class="empty"><div class="empty-icon">${gicon(emptyGlyphs[st], 40)}</div><div class="empty-title">${emptyTitles[st]}</div><div class="empty-desc">${emptyDescs[st]}</div><div class="btn btn-primary" style="width:180px;margin:0 auto;" onclick="goPush('/assessment')">去探索</div></div>`;
-    $('#page').innerHTML = `<div style="padding:16px 20px 12px;font-size:12px;color:var(--color-text-3);line-height:1.6;">${notes[st]}</div>${list || empty}`;
-    setSub('');
   }
 
   /* ================= 启动 ================= */
