@@ -811,12 +811,12 @@ html, body {
 .mt-16 { margin-top: 16px; }
 .mt-24 { margin-top: 24px; }
 /* ============================================================
-   甲方青年offer · 可交互 Demo 样式（v3.0 覆盖层）
+   甲方青年offer · 可交互 Demo 样式（v4.2 覆盖层）
    基准视觉复用 ../prototype/assets/design-system.css
-   克制体系：白底 #FFFFFF / 暖灰 #F5F4F1 / 深海蓝灰 #3B4F6B
+   雾蓝灰简约体系：白底为主 · 3-4 色 · 无深色 · 水彩浅色插画
    ============================================================ */
 
-html, body { background: #E7E3DE; }
+html, body { background: #ECEEF1; }
 body { padding: 0; }
 
 .stage {
@@ -837,7 +837,7 @@ body { padding: 0; }
   margin-bottom: 16px;
   gap: 12px;
 }
-.toolbar .tb-brand { font-size: 15px; font-weight: 600; color: #3B4F6B; }
+.toolbar .tb-brand { font-size: 15px; font-weight: 600; color: #7A93AC; }
 .toolbar .tb-brand span { color: #8C8C8C; font-weight: 400; font-size: 13px; }
 .tb-btns { display: flex; gap: 8px; }
 .tb-btn {
@@ -851,7 +851,7 @@ body { padding: 0; }
   background: #fff;
   color: #8C8C8C;
 }
-.tb-btn:hover { color: #3B4F6B; }
+.tb-btn:hover { color: #7A93AC; }
 .tb-btn.danger:hover { color: #C47B6B; }
 
 /* ---------- 使用说明框 ---------- */
@@ -866,7 +866,7 @@ body { padding: 0; }
   color: #1A1A1A;
   line-height: 2;
 }
-#helpBox b { color: #3B4F6B; }
+#helpBox b { color: #7A93AC; }
 
 /* ---------- 手机外框（demo 内自适应） ---------- */
 .phone {
@@ -886,8 +886,10 @@ body { padding: 0; }
   left: 50%;
   bottom: 110px;
   transform: translateX(-50%) translateY(10px);
-  background: rgba(26, 26, 26, 0.88);
-  color: #fff;
+  background: rgba(255, 255, 255, .97);
+  color: #1A1A1A;
+  border: 1px solid #E4EAF0;
+  box-shadow: 0 8px 22px rgba(31, 41, 55, .10);
   font-size: 13px;
   padding: 9px 18px;
   border-radius: 20px;
@@ -970,7 +972,7 @@ body { padding: 0; }
   line-height: 1.9;
   text-align: left;
 }
-.hint b { color: #3B4F6B; }
+.hint b { color: #7A93AC; }
 
 /* ---------- 个人画像头（demo 内 我的页 / 个人画像页） ---------- */
 .user-header {
@@ -1023,12 +1025,12 @@ body { padding: 0; }
   border: 2px solid var(--color-line);
   border-bottom: none;
   box-sizing: border-box;
-  background: #F6F4F0;
+  background: #F5F7F9;
 }
 .sww-arc::before {
   content: ''; position: absolute; inset: 2px 2px 0 2px;
   border-radius: 158px 158px 0 0;
-  background: rgba(59, 79, 107, .03);
+  background: rgba(122, 147, 172, .06);
 }
 .sww-card {
   position: absolute;
@@ -1071,9 +1073,9 @@ body { padding: 0; }
 }
 .sww-refresh {
   width: 54px; height: 54px; border-radius: 50%;
-  background: var(--color-primary);
+  background: var(--color-primary-strong);
   display: flex; align-items: center; justify-content: center;
-  box-shadow: 0 6px 14px rgba(59, 79, 107, .3);
+  box-shadow: 0 6px 14px rgba(122, 147, 172, .35);
   cursor: pointer;
 }
 .sww-refresh-t { font-size: 11px; color: var(--color-text-2); }
@@ -1341,7 +1343,7 @@ body { padding: 0; }
 /* 操作 toast 撤销按钮 */
 .toast-act {
   margin-left: 10px; padding: 0; border: none; background: none;
-  color: #E8B4A4; font-size: 13px; font-weight: 600; cursor: pointer; text-decoration: underline;
+  color: #5F7893; font-size: 13px; font-weight: 600; cursor: pointer; text-decoration: underline;
   pointer-events: auto;
 }
 
@@ -1358,6 +1360,53 @@ body { padding: 0; }
     margin: 0;
   }
 }
+
+/* ============================================================
+   v4.2 雾蓝灰简约体系（覆盖 design-system.css 的深海蓝灰）
+   决策：白底为主 · 3-4 色 · 无深色 · 水彩浅色插画 · 保留粉彩便签
+   ============================================================ */
+:root {
+  --color-primary: #7A93AC;          /* 雾蓝灰：图标 / 线条 / 进度 / 装饰 */
+  --color-primary-strong: #5F7893;   /* 雾蓝灰·深档：实底按钮+白字 / 文字链接 */
+  --color-primary-soft: #E4EBF3;     /* 雾蓝灰·浅档：浅底标签 / 胶囊 */
+  --color-bg: #F6F7F8;               /* 近白页面底色 */
+  --color-line: #EEF0F3;             /* 更淡分割线 */
+}
+
+/* 实底强调块：深档雾蓝 + 白字，保证对比清晰 */
+.btn-primary, .hero, .entry-card, .option-chip.selected, .quiz-opt.selected,
+.industry-tab.active, .fb-btn.active, .fb-btn.active-interest, .fb-btn.active-later,
+.fb-btn.active-reject, .pd-comment-bar button, .sww-refresh {
+  background: var(--color-primary-strong);
+}
+.btn-primary:active { background: #4E657D; }
+.hero .hero-btn { color: var(--color-primary-strong); }
+
+/* 浅底强调：浅雾蓝底 + 深档雾蓝字 */
+.btn-ghost { background: var(--color-primary-soft); color: var(--color-primary-strong); }
+
+/* 文字级强调：用深档雾蓝保证白底对比清晰
+   （选择器与 design-system.css 保持同特异性，且后写生效） */
+.tab-item.active, .steps .step.active .step-label, .dir-card .dc-share,
+.feed-card .fc-share, .summary-card .sc-link, .guide-card .gc-btn,
+.path-card .pc-start, .cardflow .cf-reason-title, .fav-item .fi-op.primary,
+.ni-item .ni-btn.restore, .wl-item .wl-btn.like,
+.search-input-row .si-cancel, .list-item .li-badge, .bento-cta,
+.nav-bar .nav-right, .st-sal, .ask-has-result span:last-child,
+.user-header .uh-btn, .swc-guide, .swc-sal {
+  color: var(--color-primary-strong);
+}
+
+/* 头像 / 图标类强调文字 */
+.bento .avatar, .user-header .avatar, .post-card .pc-avatar { color: var(--color-primary-strong); }
+
+/* 封面插画：水彩浅色（与粉彩便签同族，渐变模拟水彩浸染） */
+.c0 { background: linear-gradient(160deg, #F6E3BE 0%, #F9EBCB 100%); }
+.c1 { background: linear-gradient(160deg, #D6E6F5 0%, #E6EEF8 100%); }
+.c2 { background: linear-gradient(160deg, #D4EFDB 0%, #E4F4E9 100%); }
+.c3 { background: linear-gradient(160deg, #F7D9CF 0%, #F9E5DD 100%); }
+.c4 { background: linear-gradient(160deg, #DFD8F2 0%, #EDE7F8 100%); }
+.c5 { background: linear-gradient(160deg, #CCEBE1 0%, #E0F2EC 100%); }
 </style>
 </head>
 <body>
@@ -1814,7 +1863,7 @@ window.DB = {
     refresh: '<path d="M21 12a9 9 0 1 1-2.6-6.3"/><path d="M21 3v6h-6"/>'
   };
   function gicon(key, size, color) {
-    const st = color || '#3B4F6B';
+    const st = color || '#7A93AC';
     return `<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="${st}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">${GLYPHS[key] || GLYPHS.search}</svg>`;
   }
   function starRow(m) {
