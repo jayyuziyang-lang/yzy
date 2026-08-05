@@ -1259,7 +1259,7 @@ body { padding: 0; }
 .res-head .res-stars { margin-top: 10px; }
 
 /* ---------- 彩色便签堆叠（结果页 / 收藏夹 v4.1） ---------- */
-.st-list { padding: 14px 20px 28px; display: flex; flex-direction: column; }
+.st-list { padding: 16px 20px 30px; display: flex; flex-direction: column; }
 .st-card {
   position: relative;
   border-radius: 16px;
@@ -1268,10 +1268,10 @@ body { padding: 0; }
   margin-bottom: -12px;
   overflow: hidden;
   scroll-margin-top: 64px;
-  transition: box-shadow .25s ease;
+  transition: box-shadow .28s ease, transform .28s ease;
 }
 .st-card:last-child { margin-bottom: 0; }
-.st-card.st-open { z-index: 3; box-shadow: 0 10px 26px rgba(26, 26, 26, .13); }
+.st-card.st-open { z-index: 3; box-shadow: 0 14px 30px rgba(26, 26, 26, .16); transform: translateY(-4px); }
 .st-card.st-removing { animation: stOut .22s ease forwards; }
 @keyframes stOut {
   from { transform: none; opacity: 1; }
@@ -1284,7 +1284,9 @@ body { padding: 0; }
 .st-card.c3 .st-head { background: #F7D9CF; }
 .st-card.c4 .st-head { background: #DFD8F2; }
 .st-card.c5 .st-head { background: #CCEBE1; }
-.st-head { padding: 12px 16px 11px; cursor: pointer; }
+.st-head { padding: 13px 16px 12px; cursor: pointer; transition: filter .25s ease; }
+.st-card:hover .st-head { filter: saturate(1.06) brightness(.99); }
+.st-card.st-open .st-head { filter: saturate(1.14) brightness(.975); }
 .st-h1 { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
 .st-name {
   font-size: 17px; font-weight: 600; color: var(--color-text);
@@ -1302,9 +1304,31 @@ body { padding: 0; }
   display: flex; align-items: center; justify-content: space-between; gap: 8px;
   font-size: 12px; color: #5C5C5C;
 }
+.st-h2-r { display: flex; align-items: center; gap: 8px; }
 .st-h2 .st-stars .stars { font-size: 12px; }
 .st-h2 .st-stars .stars .off { color: rgba(26, 26, 26, .18); }
+/* 展开指示箭头：点击切换时旋转，暗示可展开/收起 */
+.st-caret {
+  font-size: 11px; line-height: 1;
+  color: rgba(26, 26, 26, .35);
+  transition: transform .25s ease, color .25s ease;
+}
+.st-card.st-open .st-caret { transform: rotate(180deg); color: var(--color-primary); }
+/* 详情区：grid 行高 0fr→1fr 过渡，实现展开/收起的平滑动画
+   注意：grid 折叠项自身不能带 padding/border（min-content 贡献会>0），
+   所以 padding 放在更内层的 .st-body-content 上 */
 .st-body {
+  display: grid;
+  grid-template-rows: 0fr;
+  overflow: hidden;
+  transition: grid-template-rows .32s ease;
+}
+.st-card.st-open .st-body { grid-template-rows: 1fr; }
+.st-body-inner {
+  min-height: 0;
+  overflow: hidden;
+}
+.st-body-content {
   padding: 14px 16px 16px;
   border-top: 1px solid rgba(26, 26, 26, .06);
   background: var(--color-surface);
@@ -2216,13 +2240,13 @@ window.DB = {
     const fav = st === 'interested' ? ' <span class="st-star-mark">★</span>' : '';
     const head = `<div class="st-head" onclick="stFocus(${i})">
       <div class="st-h1"><span class="st-name">${d.name}${fav}</span><span class="st-sal">${salaryOf(d) || (d.tags[0] ? d.tags[0].t : '')}</span></div>
-      <div class="st-h2"><span>${d.industry} · ${d.viewed}</span><span class="st-stars">${starRow(m)}</span></div>
+      <div class="st-h2"><span>${d.industry} · ${d.viewed}</span><span class="st-h2-r"><span class="st-stars">${starRow(m)}</span><span class="st-caret">▾</span></span></div>
     </div>`;
-    const body = open ? `<div class="st-body">
+    const body = `<div class="st-body"><div class="st-body-inner"><div class="st-body-content">
       <div class="st-desc">${d.desc}</div>
       <div class="st-tags">${d.tags.map(t => `<span class="tag ${t.accent ? 'tag-accent' : t.gray ? 'tag-gray' : ''}">${t.t}</span>`).join('')}</div>
       <div class="st-actions" onclick="event.stopPropagation()">${stackActionsHTML(d, st)}</div>
-    </div>` : '';
+    </div></div></div>`;
     return `<div class="st-card c${d.c} ${open ? 'st-open' : ''}" data-i="${i}" data-id="${d.id}">${head}${body}</div>`;
   }
   function stackActionsHTML(d, st) {
@@ -2264,11 +2288,21 @@ window.DB = {
   }
   window.stFocus = function (i) {
     const s = stackSess;
-    if (!s || i === s.idx) return;
+    if (!s) return;
+    // 再点一次已展开的卡 → 收起（全折叠）
+    if (i === s.idx) {
+      s.idx = -1;
+      document.querySelectorAll('.st-card').forEach(el => el.classList.remove('st-open'));
+      return;
+    }
     s.idx = i;
-    renderStackStack();
-    const el = document.querySelector('.st-card[data-i="' + i + '"]');
-    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    // 类切换而非重渲染：让 grid 高度过渡自然播放
+    document.querySelectorAll('.st-card').forEach((el, j) => el.classList.toggle('st-open', j === i));
+    // 等高度过渡结束后再把目标卡滚入视野，避免滚动定位偏差
+    setTimeout(() => {
+      const el = document.querySelector('.st-card[data-i="' + i + '"]');
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 330);
   };
   window.stSet = function (id, st) {
     const cur = state.collections[id];
