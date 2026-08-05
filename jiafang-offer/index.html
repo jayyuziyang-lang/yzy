@@ -1006,6 +1006,145 @@ body { padding: 0; }
 .correct-tag .ct-x { color: var(--color-text-3); cursor: pointer; }
 .cp-source { margin: 0 20px 12px; font-size: var(--font-xs); color: var(--color-text-3); line-height: 1.6; }
 
+/* ---------- 刷方向页（Tab2） ---------- */
+.swipe-guide {
+  margin: 12px 20px 0;
+  padding: 10px 14px;
+  border-radius: var(--radius-card);
+  background: var(--tag-apricot);
+  font-size: var(--font-xs);
+  color: var(--color-text-2);
+  line-height: 1.6;
+}
+.swipe-guide b { color: var(--color-primary); font-weight: 600; }
+.swipe-guide .sg-link { color: var(--color-primary); font-weight: 600; cursor: pointer; }
+.swipe-list { padding: 12px 20px 20px; }
+.swipe-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-card);
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+.swipe-card .sw-card-main {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 14px 10px;
+  cursor: pointer;
+}
+.swipe-card .sw-card-main .fc-cover {
+  width: 52px; height: 52px;
+  border-radius: var(--radius-card);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.swipe-card .sw-body { flex: 1; min-width: 0; }
+.swipe-card .sw-name { font-size: var(--font-md); font-weight: 600; color: var(--color-text); }
+.swipe-card .sw-name .sw-star { color: var(--color-collect); }
+.swipe-card .sw-sub { font-size: var(--font-xs); color: var(--color-text-2); margin-top: 2px; }
+.swipe-card .sw-tags { margin-top: 6px; display: flex; gap: 6px; }
+.swipe-card .sw-match { flex-shrink: 0; }
+.swipe-card .sw-arrow { color: var(--color-text-3); flex-shrink: 0; }
+.swipe-card .sw-fb { display: flex; gap: 8px; padding: 0 14px 14px; }
+.swipe-card .sw-fb .fb-btn { height: 36px; font-size: var(--font-xs); }
+
+/* ---------- 论坛分享页（Tab3） ---------- */
+.post-list { padding: 8px 20px 20px; }
+.post-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-card);
+  padding: 14px;
+  margin-bottom: 12px;
+  cursor: pointer;
+}
+.post-card .pc-head { display: flex; align-items: center; gap: 10px; }
+.post-card .pc-avatar {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: var(--tag-apricot);
+  color: var(--color-primary);
+  display: flex; align-items: center; justify-content: center;
+  font-size: var(--font-sm); font-weight: 600;
+  flex-shrink: 0;
+}
+.post-card .pc-avatar.sm { width: 28px; height: 28px; font-size: var(--font-xs); }
+.post-card .pc-meta { flex: 1; min-width: 0; }
+.post-card .pc-author { font-size: var(--font-xs); font-weight: 600; color: var(--color-text); }
+.post-card .pc-time { font-size: 11px; color: var(--color-text-3); margin-top: 1px; }
+.post-card .pc-del { font-size: var(--font-xs); color: var(--color-text-3); flex-shrink: 0; }
+.post-card .pc-title { font-size: var(--font-md); font-weight: 600; color: var(--color-text); margin-top: 10px; line-height: 1.4; }
+.post-card .pc-desc { font-size: var(--font-sm); color: var(--color-text-2); line-height: 1.6; margin-top: 6px; }
+.post-card .pc-stats { display: flex; gap: 16px; margin-top: 10px; font-size: var(--font-xs); color: var(--color-text-2); }
+.post-card .pc-stats span { display: inline-flex; align-items: center; gap: 4px; }
+.post-card .pc-stats .pc-like.on { color: var(--color-collect); }
+
+/* ---------- 帖子详情 ---------- */
+.post-detail { padding-bottom: 12px; }
+.post-detail .pd-head { display: flex; align-items: center; gap: 10px; padding: 16px 20px 0; }
+.post-detail .pd-title { font-size: 20px; font-weight: 600; line-height: 1.5; color: var(--color-text); padding: 14px 20px 0; }
+.post-detail .pd-body { padding: 14px 20px; font-size: var(--font-sm); line-height: 1.9; color: var(--color-text); }
+.post-detail .pd-body p { margin-bottom: 12px; }
+.post-detail .pd-like {
+  margin: 0 20px 16px;
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 8px 16px;
+  border-radius: var(--radius-pill);
+  background: var(--tag-mist);
+  color: var(--color-text-2);
+  font-size: var(--font-sm);
+  cursor: pointer;
+}
+.post-detail .pd-like.on { background: var(--tag-apricot); color: var(--color-collect); font-weight: 600; }
+.post-detail .pd-c-title { font-size: var(--font-sm); font-weight: 600; color: var(--color-text); padding: 4px 20px 8px; }
+.post-detail .pd-comment { display: flex; gap: 10px; padding: 12px 20px; }
+.post-detail .pd-c-body { flex: 1; min-width: 0; }
+.post-detail .pd-c-head { font-size: var(--font-xs); font-weight: 600; color: var(--color-text); }
+.post-detail .pd-c-head span { color: var(--color-text-3); font-weight: 400; margin-left: 6px; }
+.post-detail .pd-c-text { font-size: var(--font-sm); color: var(--color-text-2); line-height: 1.6; margin-top: 4px; }
+.pd-comment-bar {
+  background: var(--color-surface);
+  padding: 10px 20px calc(10px + var(--safe-bottom));
+  display: flex; gap: 10px;
+  flex-shrink: 0;
+}
+.pd-comment-bar input {
+  flex: 1;
+  height: 40px;
+  border: none;
+  background: var(--color-bg);
+  border-radius: var(--radius-pill);
+  padding: 0 16px;
+  font-size: var(--font-sm);
+  outline: none;
+}
+.pd-comment-bar button {
+  height: 40px;
+  padding: 0 20px;
+  border: none;
+  border-radius: var(--radius-pill);
+  background: var(--color-primary);
+  color: #fff;
+  font-size: var(--font-sm);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ---------- 发帖页 ---------- */
+.np-textarea {
+  width: 100%;
+  min-height: 120px;
+  border: none;
+  background: var(--color-bg);
+  border-radius: var(--radius-btn);
+  padding: 12px 14px;
+  font-size: var(--font-sm);
+  font-family: inherit;
+  line-height: 1.7;
+  color: var(--color-text);
+  outline: none;
+  resize: vertical;
+}
+
 /* ---------- 小屏适配（当手机用） ---------- */
 @media (max-width: 430px) {
   body { background: var(--color-bg); }
@@ -1033,8 +1172,10 @@ body { padding: 0; }
 
   <div id="helpBox" style="display:none;">
     <b>怎么玩这个 Demo：</b><br>
-    · 完整链路：<b>首页 → 测评（三选一）→ 卡片流反馈 → 测评结果</b> → 首页横幅收窄为画像摘要卡，推荐闭环生效<br>
-    · 卡片流的「感兴趣 / 稍后再看 / 不考虑」会实时写入 <b>我的 → 收藏</b>，也可在<b>职业详情页</b>三态标记<br>
+    · 四个 Tab：<b>问方向 / 刷方向 / 论坛分享 / 我的</b><br>
+    · 完整链路：<b>问方向 → 测评（三选一）→ 卡片流反馈 → 测评结果</b> → 问方向页横幅收窄为画像摘要卡，推荐闭环生效<br>
+    · <b>刷方向</b>：上下滚动浏览全部职业，每张卡可即时标记「感兴趣 / 稍后再看 / 不考虑」，标记实时写入 <b>我的 → 收藏</b><br>
+    · <b>论坛分享</b>：看帖子、发帖、点赞、评论，社区闭环可交互；「我的帖子」可删除<br>
     · <b>我的 → 择业画像</b>：画像是可纠正的，点 ✕ 去掉不准的标签，会同步影响推荐<br>
     · <b>个人画像</b>可编辑技能 / 偏好，保存后推荐同步更新<br>
     · 右上角「清空数据重来」回到冷启动状态，可反复演示
@@ -1282,6 +1423,44 @@ window.DB = {
         '第三类是和项目管理、数字化转型相关的工作：企业数字化是大趋势，而「既懂技术又懂管理」的人正是稀缺的。'] }
   ],
 
+  /* ---------- 论坛帖子 ---------- */
+  posts: [
+    { id: 'p1', cat: '经验分享', author: '桃桃乌龙', time: '2小时前', likes: 32,
+      title: '实习三个月，我确定了数据分析这条路',
+      body: ['刚来的时候我也是个「不知道自己适合什么」的人，误打误撞进了数据岗实习。',
+        '三个月下来最大的感受：数据分析师不是「算数的人」，是「帮团队把话说清楚的人」。老板问为什么涨为什么跌，你要能给出答案和依据。',
+        '如果你也是信息管理、统计这类专业，真的可以试试。Excel 和 SQL 是敲门砖，沟通才是天花板。'],
+      comments: [
+        { author: '上岸的柚子', time: '1小时前', text: '同感，SQL 是下限，业务理解才是上限。' },
+        { author: '卷不动了', time: '30分钟前', text: '请问实习是怎么找的？简历上最加分的是什么？' } ] },
+    { id: 'p2', cat: '求助', author: '迷茫的小林', time: '5小时前', likes: 12,
+      title: '信管专业，是走 ERP 实施还是转产品？求建议',
+      body: ['信息管理大三在读，实习眼看就要开始了。',
+        'ERP 实施岗和产品经理助理都拿到了 offer，前者对口但经常出差，后者看起来成长快但卷。',
+        '有没有前辈能讲讲这两个方向前五年的真实差别？纠结好几天了。'],
+      comments: [
+        { author: '桃桃乌龙', time: '3小时前', text: '实施顾问前期出差多，但能积累很强的业务能力；产品早期卷，后期天花板高。看你更能接受哪种「苦」。' } ] },
+    { id: 'p3', cat: '行业讨论', author: '上岸的柚子', time: '昨天', likes: 48,
+      title: '新能源行业今年秋招回暖了，聊聊真实情况',
+      body: ['不是贩卖焦虑，也不是泼冷水，就聊聊身边同学的真实秋招体验。',
+        '今年新能源车企和电池厂明显比去年敢开 HC 了，但门槛也水涨船高：核心研发岗基本硕士起步，本科生能进的多是营销、供应链、运营这类偏职能的岗。',
+        '想进这个行业的话，建议提前补一补行业知识，面试真的很爱问「你对产业链怎么看」。'],
+      comments: [
+        { author: '迷茫的小林', time: '20小时前', text: '感谢分享，正准备投新能源方向。' } ] },
+    { id: 'p4', cat: '经验分享', author: '卷不动了', time: '2天前', likes: 29,
+      title: '三线城市的体制内 vs 一线互联网，我选了前者',
+      body: ['当时手里有两个方向的 offer：一线互联网运营，和三线省会的事业单位。',
+        '最后选了后者，不是因为我怕卷，而是想清楚了：我要的是「工作之外的生活」，不是一个看似光鲜的工牌。',
+        '没有标准答案，只有适合自己的答案。想清楚你人生前五年最想要什么，这个选择就不难。'],
+      comments: [] },
+    { id: 'p5', cat: '求助', author: '设计小白', time: '3天前', likes: 8,
+      title: '作品集做到什么程度能找到 UI 实习？',
+      body: ['非科班转 UI，手上有两个课程作业和一个练习项目。',
+        '投了十几份实习都没有回音，是作品集太弱还是简历有问题？求各位设计前辈指点。'],
+      comments: [
+        { author: '上岸的柚子', time: '2天前', text: '非科班更看重逻辑：能讲清楚「为什么这么设计」比「图多好看」重要。建议选 1-2 个项目深挖。' } ] }
+  ],
+
   /* ---------- 场景题（完全不知道路径） ---------- */
   quiz: [
     { q: '你更喜欢和什么打交道？',
@@ -1338,6 +1517,13 @@ window.DB = {
   const $ = sel => document.querySelector(sel);
 
   /* ================= 默认状态 ================= */
+  // 论坛帖子种子（深拷贝，避免与 DB 共享引用）
+  function postSeed() {
+    return (window.DB.posts || []).map(p => ({
+      ...p,
+      comments: (p.comments || []).map(c => ({ ...c }))
+    }));
+  }
   const DEFAULTS = {
     profile: {
       nickname: '择业探索者', school: '某大学', major: '信息管理与信息系统',
@@ -1353,8 +1539,11 @@ window.DB = {
     cardflow: null,         // { list:[{id,match}], index }
     lastResults: null,
     industry: '全部',
-    exploreCat: '全部',
     searchQ: '', searchTab: '全部',
+    forumCat: '全部',
+    posts: postSeed(),      // 帖子列表（种子 + 用户发布）
+    postLikes: {},          // postId -> 是否点赞
+    npCat: '求助',           // 发帖默认分类
     ui: { editPersonal: false }
   };
 
@@ -1427,22 +1616,22 @@ window.DB = {
   /* ================= 路由与导航 ================= */
   const stack = [];
   const parseRoute = () => {
-    const h = (location.hash || '#/home').replace(/^#\/?/, '');
+    const h = (location.hash || '#/ask').replace(/^#\/?/, '');
     const p = h.split('/').filter(Boolean);
-    return { name: p[0] || 'home', arg: decodeURIComponent(p[1] || ''), arg2: decodeURIComponent(p[2] || '') };
+    return { name: p[0] || 'ask', arg: decodeURIComponent(p[1] || ''), arg2: decodeURIComponent(p[2] || '') };
   };
   function go(r) { location.hash = r; }
-  function back() { location.hash = stack.pop() || '#/home'; }
+  function back() { location.hash = stack.pop() || '#/ask'; }
   function goTab(t) { stack.length = 0; location.hash = '#/' + t; }
-  function pushCur() { stack.push(location.hash || '#/home'); }
+  function pushCur() { stack.push(location.hash || '#/ask'); }
   // 进入子页面：记录来源，保证返回箭头能回到上一屏
   function goPush(r) { pushCur(); go(r); }
 
   function render() {
     const r = parseRoute();
-    const tabNames = ['home', 'explore', 'mine'];
+    const tabNames = ['ask', 'swipe', 'forum', 'mine'];
     const handler = routes[r.name];
-    if (!handler) { location.hash = '#/home'; return; }
+    if (!handler) { location.hash = '#/ask'; return; }
     const page = $('#page');
     page.scrollTop = 0;
     page.classList.remove('switching'); void page.offsetWidth; page.classList.add('switching');
@@ -1474,7 +1663,7 @@ window.DB = {
   }
 
   function tabHTML(active) {
-    const defs = { home: ['home', '首页'], explore: ['explore', '探索'], mine: ['mine', '我的'] };
+    const defs = { ask: ['ask', '问方向'], swipe: ['swipe', '刷方向'], forum: ['forum', '论坛分享'], mine: ['mine', '我的'] };
     const items = Object.values(defs).map(([k, l]) =>
       `<div class="tab-item ${active === k ? 'active' : ''}" onclick="goTab('${k}')"><span>${l}</span></div>`
     ).join('');
@@ -1501,8 +1690,44 @@ window.DB = {
   window.openDir = id => { pushCur(); go('/direction/' + id); };
   window.openArt = id => { pushCur(); go('/article/' + id); };
   window.setIndustry = i => { state.industry = i; saveState(); render(); };
-  window.setExploreCat = c => { state.exploreCat = c; saveState(); render(); };
   window.setSearchTab = t => { state.searchTab = t; saveState(); refreshSearch(); };
+  /* 论坛动作 */
+  window.setForumCat = c => { state.forumCat = c; saveState(); render(); };
+  window.openPost = id => { pushCur(); go('/post/' + id); };
+  window.setNpCat = c => { state.npCat = c; saveState(); render(); };
+  window.togglePostLike = function (id) {
+    state.postLikes[id] = !state.postLikes[id];
+    saveState();
+    render();
+  };
+  window.removePost = function (id) {
+    state.posts = state.posts.filter(p => p.id !== id);
+    delete state.postLikes[id];
+    saveState();
+    toast('已删除');
+    render();
+  };
+  window.publishPost = function () {
+    const t = $('#npTitle').value.trim();
+    const b = $('#npBody').value.trim();
+    if (!t) { toast('请填写标题'); return; }
+    if (!b) { toast('请填写内容'); return; }
+    state.posts.unshift({ id: 'u' + Date.now(), cat: state.npCat, author: state.profile.nickname, time: '刚刚', title: t, body: [b], likes: 0, comments: [] });
+    saveState();
+    toast('发布成功');
+    go('/forum');
+  };
+  window.addComment = function (id) {
+    const t = $('#pdCmt').value.trim();
+    if (!t) { toast('评论不能为空'); return; }
+    const p = state.posts.find(x => x.id === id);
+    if (!p) return;
+    p.comments = p.comments || [];
+    p.comments.push({ author: state.profile.nickname, time: '刚刚', text: t });
+    saveState();
+    toast('评论已发布');
+    render();
+  };
 
   window.startAssessment = function (path) {
     state.assessment = { path: path, fields: {}, answers: path === 'quiz' ? {} : null, quizIndex: 0 };
@@ -1616,7 +1841,7 @@ window.DB = {
     if (confirm('清空 demo 全部数据，重新开始？')) {
       localStorage.removeItem(KEY);
       stack.length = 0;
-      location.hash = '#/home';
+      location.hash = '#/ask';
       location.reload();
     }
   };
@@ -1645,9 +1870,13 @@ window.DB = {
 
   /* ================= 页面渲染 ================= */
   const routes = {
-    home: renderHome,
-    explore: renderExplore,
+    ask: renderAsk,
+    swipe: renderSwipe,
+    forum: renderForum,
     mine: renderMine,
+    newpost: renderNewPost,
+    post: renderPost,
+    myposts: renderMyPosts,
     direction: renderDirection,
     article: renderArticle,
     search: renderSearch,
@@ -1662,8 +1891,8 @@ window.DB = {
     later: () => renderFav('later')
   };
 
-  /* ---------- 首页 ---------- */
-  function renderHome() {
+  /* ---------- 问方向（Tab1：测评入口 + 推荐流） ---------- */
+  function renderAsk() {
     homeNav();
     const assessed = state.assessed;
     let top;
@@ -1695,26 +1924,131 @@ window.DB = {
     let colB = cols[1].map(dirCard).join('');
     if (!assessed) {
       colB = `<div class="guide-card"><div><div class="gc-title">不确定适合什么？</div><div class="gc-desc">3 分钟测评帮你发现方向</div></div><div class="gc-btn" onclick="goPush('/assessment')">去测评</div></div>` + colB;
-    } else {
-      const a = DB.articles[0];
-      colA += `<div class="know-card" onclick="openArt('${a.id}')"><div class="kc-title">${a.title}</div><div class="kc-desc">${a.desc}</div><div class="kc-foot"><span class="tag tag-accent">科普</span><span class="kc-meta">${a.read} 分钟阅读</span></div></div>`;
     }
-    $('#page').innerHTML = top + tabs + `<div class="waterfall"><div class="w-col">${colA}</div><div class="w-col">${colB}</div></div>`;
+    const know = `<div class="section-title">职业知识</div>` +
+      DB.articles.slice(0, 2).map(a => `<div class="know-card" onclick="openArt('${a.id}')"><div class="kc-title">${a.title}</div><div class="kc-desc">${a.desc}</div><div class="kc-foot"><span class="tag">${a.cat}</span><span class="tag tag-accent">${a.industry}</span><span class="kc-meta">${a.read} 分钟阅读</span></div></div>`).join('');
+    $('#page').innerHTML = top + tabs + `<div class="waterfall"><div class="w-col">${colA}</div><div class="w-col">${colB}</div></div>` + know;
     setSub('');
   }
 
-  /* ---------- 探索 ---------- */
-  function renderExplore() {
-    $('#nav').innerHTML = `<div class="nav-bar"><div class="nav-title">探索</div><div class="nav-right" onclick="goPush('/search')">搜索</div></div>`;
-    const cats = ['全部', '职业百科', '经验分享'];
-    const tabs = `<div class="industry-tabs">${cats.map(c => `<div class="industry-tab ${state.exploreCat === c ? 'active' : ''}" onclick="setExploreCat('${c}')">${c}</div>`).join('')}</div>`;
-    const list = DB.articles.filter(a => state.exploreCat === '全部' || a.cat === state.exploreCat);
-    const cards = list.map(a => `<div class="know-card" onclick="openArt('${a.id}')">
-      <div class="kc-title">${a.title}</div><div class="kc-desc">${a.desc}</div>
-      <div class="kc-foot"><span class="tag">${a.cat}</span><span class="tag tag-accent">${a.industry}</span><span class="kc-meta">${a.read} 分钟阅读</span></div>
-    </div>`).join('');
-    const empty = `<div class="empty"><div class="empty-icon">${gicon('book', 40)}</div><div class="empty-title">这里还没有内容</div></div>`;
-    $('#page').innerHTML = tabs + `<div class="mt-16">${cards || empty}</div>`;
+  /* ---------- 刷方向（Tab2：上下滚动卡片 + 三态反馈） ---------- */
+  function renderSwipe() {
+    $('#nav').innerHTML = `<div class="nav-bar"><div class="nav-title">刷方向</div><div class="nav-right" onclick="goPush('/search')">搜索</div></div>`;
+    const guide = state.assessed
+      ? `<div class="swipe-guide">已按你的画像<b>个性化排序</b> · 点下方按钮标记意向，推荐会更准</div>`
+      : `<div class="swipe-guide">还未测评，当前按<b>综合热度</b>排序。<span class="sg-link" onclick="goPush('/assessment')">先测一测 ›</span>刷起来更懂你</div>`;
+    const tabs = `<div class="industry-tabs">${DB.industries.map(x => `<div class="industry-tab ${state.industry === x ? 'active' : ''}" onclick="setIndustry('${x}')">${x}</div>`).join('')}</div>`;
+    const list = DB.directions
+      .filter(d => state.industry === '全部' || d.industry === state.industry)
+      .sort((a, b) => matchOf(b.id) - matchOf(a.id));
+    const card = d => {
+      const st = state.collections[d.id];
+      return `<div class="swipe-card">
+        <div class="sw-card-main" onclick="openDir('${d.id}')">
+          <div class="fc-cover c${d.c}">${gicon(d.g, 24)}</div>
+          <div class="sw-body">
+            <div class="sw-name">${d.name}${st === 'interested' ? ' <span class="sw-star">★</span>' : ''}</div>
+            <div class="sw-sub">${d.industry} · ${d.viewed}</div>
+            <div class="sw-tags">${d.tags.slice(0, 2).map(t => `<span class="tag ${t.accent ? 'tag-accent' : t.gray ? 'tag-gray' : ''}">${t.t}</span>`).join('')}</div>
+          </div>
+          <div class="sw-match">${starRow(matchOf(d.id))}</div>
+          <svg class="sw-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+        </div>
+        <div class="sw-fb">
+          <div class="fb-btn fb-btn-interest ${st === 'interested' ? 'active-interest' : ''}" onclick="setColl('${d.id}','interested')">感兴趣</div>
+          <div class="fb-btn fb-btn-later ${st === 'later' ? 'active-later' : ''}" onclick="setColl('${d.id}','later')">稍后再看</div>
+          <div class="fb-btn fb-btn-reject ${st === 'rejected' ? 'active-reject' : ''}" onclick="setColl('${d.id}','rejected')">不考虑</div>
+        </div>
+      </div>`;
+    };
+    $('#page').innerHTML = guide + tabs + `<div class="swipe-list">${list.map(card).join('')}</div>`;
+    setSub('');
+  }
+
+  /* ---------- 论坛分享（Tab3：社区） ---------- */
+  function postCard(p, del) {
+    const liked = !!state.postLikes[p.id];
+    const likeCount = p.likes + (liked ? 1 : 0);
+    return `<div class="post-card" onclick="openPost('${p.id}')">
+      <div class="pc-head">
+        <div class="pc-avatar">${escapeHtml(p.author.charAt(0))}</div>
+        <div class="pc-meta"><div class="pc-author">${escapeHtml(p.author)}</div><div class="pc-time">${p.time}</div></div>
+        <span class="tag ${p.cat === '求助' ? 'tag-accent' : p.cat === '经验分享' ? 'tag-green' : ''}">${p.cat}</span>
+        ${del ? `<span class="pc-del" onclick="event.stopPropagation();removePost('${p.id}')">删除</span>` : ''}
+      </div>
+      <div class="pc-title">${escapeHtml(p.title)}</div>
+      <div class="pc-desc">${escapeHtml((p.body[0] || '').length > 64 ? p.body[0].slice(0, 64) + '…' : (p.body[0] || ''))}</div>
+      <div class="pc-stats">
+        <span class="pc-like ${liked ? 'on' : ''}">${gicon('heart', 13)} ${likeCount}</span>
+        <span>${gicon('chat', 13)} ${(p.comments || []).length}</span>
+      </div>
+    </div>`;
+  }
+  function renderForum() {
+    $('#nav').innerHTML = `<div class="nav-bar"><div class="nav-title">论坛分享</div><div class="nav-right" onclick="goPush('/myposts')">我的帖子</div></div>`;
+    const cats = ['全部', '求助', '经验分享', '行业讨论'];
+    const tabs = `<div class="industry-tabs">${cats.map(c => `<div class="industry-tab ${state.forumCat === c ? 'active' : ''}" onclick="setForumCat('${c}')">${c}</div>`).join('')}</div>`;
+    const list = state.posts.filter(p => state.forumCat === '全部' || p.cat === state.forumCat);
+    const empty = `<div class="empty"><div class="empty-icon">${gicon('chat', 40)}</div><div class="empty-title">这个分类还没有帖子</div><div class="empty-desc">来发第一帖，聊聊你的求职困惑或经验吧</div></div>`;
+    $('#page').innerHTML = tabs + `<div class="post-list">${list.map(p => postCard(p)).join('') || empty}</div>`;
+    setSub(`<div class="bottom-bar"><div class="btn btn-primary" onclick="goPush('/newpost')">${gicon('pen', 16, '#fff')} 发帖</div></div>`);
+  }
+
+  /* ---------- 发帖 ---------- */
+  function renderNewPost() {
+    navBack('发帖');
+    const cats = ['求助', '经验分享', '行业讨论'];
+    $('#page').innerHTML = `
+      <div class="card" style="margin-top:12px;">
+        <div class="form-group">
+          <div class="form-label">标题 <span class="req">*</span></div>
+          <div class="form-field"><input class="ff-select" id="npTitle" placeholder="一句话说清你的问题 / 分享" /></div>
+        </div>
+        <div class="form-group">
+          <div class="form-label">分类</div>
+          <div class="option-grid">${cats.map(c => `<span class="option-chip single ${state.npCat === c ? 'selected' : ''}" onclick="setNpCat('${c}')"><span class="dot"></span>${c}</span>`).join('')}</div>
+        </div>
+        <div class="form-group">
+          <div class="form-label">内容 <span class="req">*</span></div>
+          <textarea id="npBody" class="np-textarea" placeholder="展开说说你的困惑或经验…"></textarea>
+        </div>
+        <div style="font-size:12px;color:var(--color-text-3);padding:4px 20px;line-height:1.6;">发帖即代表同意社区规范：友善交流，不分享虚假求职信息。</div>
+      </div>`;
+    setSub(`<div class="bottom-bar"><div class="btn btn-primary" onclick="publishPost()">发布</div></div>`);
+  }
+
+  /* ---------- 帖子详情 ---------- */
+  function renderPost(r) {
+    const p = state.posts.find(x => x.id === r.arg);
+    if (!p) { back(); return; }
+    navBack('帖子详情');
+    const liked = !!state.postLikes[p.id];
+    const likeCount = p.likes + (liked ? 1 : 0);
+    const comments = p.comments || [];
+    $('#page').innerHTML = `
+      <div class="post-detail">
+        <div class="pd-head">
+          <div class="pc-avatar">${escapeHtml(p.author.charAt(0))}</div>
+          <div class="pc-meta"><div class="pc-author">${escapeHtml(p.author)}</div><div class="pc-time">${p.time} · ${p.cat}</div></div>
+        </div>
+        <div class="pd-title">${escapeHtml(p.title)}</div>
+        <div class="pd-body">${p.body.map(x => `<p>${escapeHtml(x)}</p>`).join('')}</div>
+        <div class="pd-like ${liked ? 'on' : ''}" onclick="togglePostLike('${p.id}')">${gicon('heart', 15)} ${likeCount} 人觉得有用</div>
+        <div class="pd-c-title">全部评论 ${comments.length}</div>
+        ${comments.length ? comments.map(c => `<div class="pd-comment"><div class="pc-avatar sm">${escapeHtml(c.author.charAt(0))}</div><div class="pd-c-body"><div class="pd-c-head">${escapeHtml(c.author)} <span>${c.time}</span></div><div class="pd-c-text">${escapeHtml(c.text)}</div></div></div>`).join('') : '<div style="padding:24px;text-align:center;font-size:12px;color:var(--color-text-3);">还没有评论，来说两句</div>'}
+      </div>`;
+    setSub(`<div class="pd-comment-bar">
+      <input id="pdCmt" placeholder="友善评论，说说你的看法…">
+      <button onclick="addComment('${p.id}')">发送</button>
+    </div>`);
+  }
+
+  /* ---------- 我的帖子 ---------- */
+  function renderMyPosts() {
+    navBack('我的帖子');
+    const mine = state.posts.filter(p => p.author === state.profile.nickname);
+    const empty = `<div class="empty"><div class="empty-icon">${gicon('pen', 40)}</div><div class="empty-title">还没有发过帖子</div><div class="empty-desc">去论坛分享你的第一帖吧</div><div class="btn btn-primary" style="width:180px;margin:0 auto;" onclick="goPush('/newpost')">去发帖</div></div>`;
+    $('#page').innerHTML = `<div style="padding:16px 20px 12px;font-size:12px;color:var(--color-text-3);line-height:1.6;">你发布的帖子都在这里，可随时删除。</div>` + (mine.map(p => postCard(p, true)).join('') || empty);
     setSub('');
   }
 
@@ -2024,7 +2358,7 @@ window.DB = {
       <div style="text-align:center;font-size:12px;color:var(--color-primary);padding:6px 0 20px;cursor:pointer;" onclick="goPush('/assessment')">不明白这些职业？重新测评 ›</div>
     `;
     setSub(`<div class="bottom-bar"><div style="display:flex;gap:10px;">
-      <div class="btn btn-outline" style="flex:1;height:44px;font-size:14px;" onclick="goTab('home')">返回首页</div>
+      <div class="btn btn-outline" style="flex:1;height:44px;font-size:14px;" onclick="goTab('ask')">返回首页</div>
       <div class="btn btn-outline" style="flex:1;height:44px;font-size:14px;" onclick="go('/assessment')">重新测评</div>
       <div class="btn btn-primary" style="flex:1.3;height:44px;font-size:14px;" onclick="toast('分享卡片已生成，可保存后发给朋友')">分享结果</div>
     </div></div>`);
@@ -2159,7 +2493,7 @@ window.DB = {
   /* ================= 启动 ================= */
   function escapeHtml(s) { return String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
   window.addEventListener('hashchange', render);
-  if (!location.hash) location.hash = '#/home';
+  if (!location.hash) location.hash = '#/ask';
   render();
 })();
 
