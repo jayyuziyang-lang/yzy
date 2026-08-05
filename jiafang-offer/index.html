@@ -1258,78 +1258,68 @@ body { padding: 0; }
 .res-head .res-sub { font-size: var(--font-xs); color: var(--color-text-2); margin-top: 6px; line-height: 1.6; }
 .res-head .res-stars { margin-top: 10px; }
 
-/* ---------- 叠放抽卡式 Deck（结果页 / 收藏夹） ---------- */
-.page.deck-page { display: flex; flex-direction: column; overflow: hidden; }
-.page.deck-page > div:not(.deck) { flex-shrink: 0; }
-.deck { flex: 1; min-height: 0; display: flex; flex-direction: column; }
-.deck-stack { flex: 1; min-height: 0; position: relative; }
-.deck-card {
-  position: absolute;
-  left: 20px; right: 20px;
+/* ---------- 彩色便签堆叠（结果页 / 收藏夹 v4.1） ---------- */
+.st-list { padding: 14px 20px 28px; display: flex; flex-direction: column; }
+.st-card {
+  position: relative;
+  border-radius: 16px;
   background: var(--color-surface);
-  border-radius: var(--radius-card);
-  display: flex; flex-direction: column;
+  box-shadow: 0 6px 16px rgba(26, 26, 26, .07);
+  margin-bottom: -12px;
   overflow: hidden;
+  scroll-margin-top: 64px;
+  transition: box-shadow .25s ease;
 }
-.deck-card.lag2 { top: 0; height: 48px; z-index: 1; opacity: .85; }
-.deck-card.lag { top: 48px; height: 48px; z-index: 2; opacity: .92; cursor: pointer; }
-.deck-card.cur { top: 96px; bottom: 4px; z-index: 3; }
-.deck-card.cur.fly { animation: deckFly .19s ease forwards; }
-@keyframes deckFly {
+.st-card:last-child { margin-bottom: 0; }
+.st-card.st-open { z-index: 3; box-shadow: 0 10px 26px rgba(26, 26, 26, .13); }
+.st-card.st-removing { animation: stOut .22s ease forwards; }
+@keyframes stOut {
   from { transform: none; opacity: 1; }
-  to { transform: translateY(520px); opacity: 0; }
+  to { transform: translateY(36px); opacity: 0; }
 }
-.deck-card .dc-head {
-  padding: 14px 16px;
-  display: flex; align-items: center; justify-content: space-between;
-  border-bottom: 1px solid var(--color-line);
-  flex-shrink: 0;
+/* 便签彩色板（低饱和粉彩，按职业 c 索引 0-5 取色） */
+.st-card.c0 .st-head { background: #F6E3BE; }
+.st-card.c1 .st-head { background: #D6E6F5; }
+.st-card.c2 .st-head { background: #D4EFDB; }
+.st-card.c3 .st-head { background: #F7D9CF; }
+.st-card.c4 .st-head { background: #DFD8F2; }
+.st-card.c5 .st-head { background: #CCEBE1; }
+.st-head { padding: 12px 16px 11px; cursor: pointer; }
+.st-h1 { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.st-name {
+  font-size: 17px; font-weight: 600; color: var(--color-text);
+  min-width: 0;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.st-name .st-star-mark { color: var(--color-collect); }
+.st-sal {
+  font-size: 15px; font-weight: 700; color: var(--color-primary);
+  flex-shrink: 0; max-width: 52%;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.st-h2 {
+  margin-top: 5px;
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
+  font-size: 12px; color: #5C5C5C;
+}
+.st-h2 .st-stars .stars { font-size: 12px; }
+.st-h2 .st-stars .stars .off { color: rgba(26, 26, 26, .18); }
+.st-body {
+  padding: 14px 16px 16px;
+  border-top: 1px solid rgba(26, 26, 26, .06);
   background: var(--color-surface);
 }
-.deck-card .dc-name {
-  font-size: var(--font-md); font-weight: 600; color: var(--color-text);
-  min-width: 0;
-  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+.st-desc { font-size: var(--font-sm); color: var(--color-text-2); line-height: 1.7; }
+.st-tags { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px; }
+.st-actions { margin-top: 14px; }
+.st-op-row { display: flex; gap: 8px; }
+.st-op-row .st-op { flex: 1; width: auto; height: 36px; font-size: var(--font-xs); }
+/* 操作 toast 撤销按钮 */
+.toast-act {
+  margin-left: 10px; padding: 0; border: none; background: none;
+  color: #E8B4A4; font-size: 13px; font-weight: 600; cursor: pointer; text-decoration: underline;
+  pointer-events: auto;
 }
-.deck-card .dc-name .dc-star-mark { color: var(--color-collect); }
-.deck-card .dc-sal {
-  font-size: var(--font-sm); font-weight: 600; color: var(--color-primary);
-  flex-shrink: 0;
-  max-width: 55%;
-  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
-}
-.deck-card .dc-body {
-  flex: 1; min-height: 0;
-  overflow-y: auto;
-  padding: 16px;
-  display: flex; flex-direction: column;
-}
-.deck-card .dc-top { display: flex; align-items: center; gap: 12px; }
-.deck-card .dc-cover {
-  width: 52px; height: 52px;
-  border-radius: var(--radius-card);
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0;
-}
-.deck-card .dc-info { flex: 1; min-width: 0; }
-.deck-card .dc-ind { font-size: var(--font-xs); color: var(--color-text-2); }
-.deck-card .dc-match { margin-top: 6px; display: flex; align-items: center; gap: 8px; }
-.deck-card .dc-match-t {
-  font-size: var(--font-xs); color: var(--color-text-2);
-  min-width: 0;
-  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
-}
-.deck-card .dc-desc { margin-top: 14px; font-size: var(--font-sm); color: var(--color-text-2); line-height: 1.7; }
-.deck-card .dc-tags { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 6px; }
-.deck-card .dc-actions { padding: 12px 16px 14px; flex-shrink: 0; }
-.deck-op-row { display: flex; gap: 8px; }
-.deck-op-row .deck-op { flex: 1; width: auto; height: 36px; font-size: var(--font-xs); }
-.deck-foot {
-  padding: 10px 20px;
-  display: flex; align-items: center; justify-content: space-between;
-  font-size: var(--font-xs); color: var(--color-text-3);
-}
-.deck-foot .df-next { color: var(--color-primary); font-weight: 600; cursor: pointer; }
 
 /* ---------- 小屏适配（当手机用） ---------- */
 @media (max-width: 430px) {
@@ -1360,7 +1350,7 @@ body { padding: 0; }
     <b>怎么玩这个 Demo：</b><br>
     · 四个 Tab：<b>问方向 / 刷方向 / 论坛分享 / 我的</b><br>
     · <b>问方向</b>：在咨询窗口里说一句你的专业、技能和偏好，或点「测评入口」答题；咨询 / 测评完成后，匹配的职业卡片才会弹出<br>
-    · 结果页与收藏夹是<b>叠放抽卡</b>：每张卡顶部固定「岗位 + 薪资」，点「换一张」或<b>下拉</b>翻下一张；点卡片看详情，底部可随时三态标记<br>
+    · 结果页与收藏夹是<b>彩色便签堆叠</b>：每张卡顶部固定「岗位 + 薪资」，<b>点击标题栏</b>展开详情；底部可随时三态标记，移除可撤销<br>
     · <b>刷方向</b>：半圆轮盘抽卡——三张卡沿同一圆弧轨道锚定、绕底部圆心径向转格；中央卡含「查看完整入行指南」与 ★ 收藏星标，盘内「换一批」可洗牌剩余卡堆；底部三态按钮标记即转一格，实时写入 <b>我的 → 收藏</b>，刷完出完成态<br>
     · <b>论坛分享</b>：看帖子、发帖、点赞、评论，社区闭环可交互；「我的帖子」可删除<br>
     · <b>我的 → 择业画像</b>：画像是可纠正的，点 ✕ 去掉不准的标签，会同步影响推荐<br>
@@ -1878,6 +1868,23 @@ window.DB = {
     clearTimeout(toastTimer);
     toastTimer = setTimeout(() => t.classList.remove('show'), 1900);
   }
+  // 带操作按钮的 toast（如「已取消收藏 · 撤销」）
+  let toastActFn = null;
+  function toastAct(msg, actLabel, fn) {
+    toastActFn = fn;
+    const t = $('#toast');
+    t.innerHTML = `<span>${msg}</span><button class="toast-act" onclick="runToastAct()">${actLabel}</button>`;
+    t.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => t.classList.remove('show'), 2600);
+  }
+  window.runToastAct = function () {
+    const f = toastActFn;
+    toastActFn = null;
+    const t = $('#toast');
+    t.classList.remove('show');
+    if (f) f();
+  };
 
   /* ================= 全局交互动作 ================= */
   window.go = go;
@@ -2175,173 +2182,142 @@ window.DB = {
     render();
   };
 
-  /* ================= 叠放抽卡式 Deck（结果页 / 收藏夹共用） ================= */
-  let deckSess = null;   // { items: [{d, match}], ctx, idx }
-  function renderDeck(items, ctx, opts) {
+  /* ================= 彩色便签堆叠（结果页 / 收藏夹 v4.1） ================= */
+  let stackSess = null;   // { items: [{d, match}], ctx, idx }
+  function buildStackItems(ctx) {
+    if (ctx === 'result') {
+      const list = state.lastResults || [];
+      return list.map(x => ({ d: dirById(x.id), match: x.match })).filter(x => x.d);
+    }
+    const ids = Object.keys(state.collections).filter(id => state.collections[id] === ctx);
+    return ids.map(id => ({ d: dirById(id), match: matchOf(id) })).filter(x => x.d);
+  }
+  function renderStack(items, ctx, opts) {
     const list = items.filter(x => x && x.d);
-    // 从详情页返回时，保留当前卡的位置
+    // 从详情页返回时，保留当前展开卡的位置
     let idx = 0;
-    if (deckSess && deckSess.ctx === ctx && deckSess.items.length === list.length) idx = deckSess.idx;
-    deckSess = { items: list, ctx: ctx, idx: idx, opts: opts || {} };
+    if (stackSess && stackSess.ctx === ctx && stackSess.items.length === list.length) idx = stackSess.idx;
+    stackSess = { items: list, ctx: ctx, idx: idx, opts: opts || {} };
     navBack(opts.title || '职业卡片');
     const page = $('#page');
-    page.classList.add('deck-page');
-    page.innerHTML = (opts.head || '') + deckAreaHTML();
-    bindDeck();
+    page.classList.remove('deck-page');
+    page.innerHTML = (opts.head || '') + stackListHTML();
     setSub(opts.sub || '');
   }
-  function deckAreaHTML() {
-    const s = deckSess;
-    if (!s || !s.items.length) return '';
-    return `<div class="deck" id="deck">
-      <div class="deck-stack" id="deckStack">${deckStackHTML()}</div>
-      <div class="deck-foot">
-        <span class="df-prog" id="dfProg">第 ${s.idx + 1} / ${s.items.length} 张</span>
-        <span class="df-hint">下拉换卡 · 点卡片看详情</span>
-        <span class="df-next" onclick="deckNext()">换一张 ›</span>
-      </div>
-    </div>`;
-  }
-  function deckStackHTML() {
-    const s = deckSess;
+  function stackListHTML() {
+    const s = stackSess;
     if (!s || !s.items.length) return '<div class="empty"><div class="empty-title">这里还没有卡片</div></div>';
-    const cur = s.items[s.idx];
-    const n1 = s.items[s.idx + 1];
-    const n2 = s.items[s.idx + 2];
-    let html = '';
-    if (n2) html += deckCardHTML(n2.d, n2.match, 2);
-    if (n1) html += deckCardHTML(n1.d, n1.match, 1);
-    html += deckCardHTML(cur.d, cur.match, 0);
-    return html;
+    return `<div class="st-list" id="stList">${s.items.map((x, i) => stackCardHTML(x.d, x.match, i)).join('')}</div>`;
   }
-  function deckCardHTML(d, m, lag) {
+  function stackCardHTML(d, m, i) {
+    const s = stackSess;
+    const open = i === s.idx;
     const st = state.collections[d.id];
-    const head = `<div class="dc-head">
-      <span class="dc-name">${d.name}${st === 'interested' ? ' <span class="dc-star-mark">★</span>' : ''}</span>
-      <span class="dc-sal">${salaryOf(d) || (d.tags[0] ? d.tags[0].t : '')}</span>
+    const fav = st === 'interested' ? ' <span class="st-star-mark">★</span>' : '';
+    const head = `<div class="st-head" onclick="stFocus(${i})">
+      <div class="st-h1"><span class="st-name">${d.name}${fav}</span><span class="st-sal">${salaryOf(d) || (d.tags[0] ? d.tags[0].t : '')}</span></div>
+      <div class="st-h2"><span>${d.industry} · ${d.viewed}</span><span class="st-stars">${starRow(m)}</span></div>
     </div>`;
-    if (lag > 0) {
-      return `<div class="deck-card ${lag === 2 ? 'lag2' : 'lag'}" onclick="deckNext()">${head}</div>`;
-    }
-    return `<div class="deck-card cur" onclick="openDir('${d.id}')">
-      ${head}
-      <div class="dc-body">
-        <div class="dc-top"><div class="dc-cover c${d.c}">${gicon(d.g, 26)}</div>
-          <div class="dc-info">
-            <div class="dc-ind">${d.industry} · ${d.viewed}</div>
-            <div class="dc-match">${starRow(m)}<span class="dc-match-t">${d.tags[0] ? d.tags[0].t : ''}</span></div>
-          </div></div>
-        <div class="dc-desc">${d.desc}</div>
-        <div class="dc-tags">${d.tags.map(t => `<span class="tag ${t.accent ? 'tag-accent' : t.gray ? 'tag-gray' : ''}">${t.t}</span>`).join('')}</div>
-      </div>
-      <div class="dc-actions" onclick="event.stopPropagation()">${deckActionsHTML(d, st)}</div>
-    </div>`;
+    const body = open ? `<div class="st-body">
+      <div class="st-desc">${d.desc}</div>
+      <div class="st-tags">${d.tags.map(t => `<span class="tag ${t.accent ? 'tag-accent' : t.gray ? 'tag-gray' : ''}">${t.t}</span>`).join('')}</div>
+      <div class="st-actions" onclick="event.stopPropagation()">${stackActionsHTML(d, st)}</div>
+    </div>` : '';
+    return `<div class="st-card c${d.c} ${open ? 'st-open' : ''}" data-i="${i}" data-id="${d.id}">${head}${body}</div>`;
   }
-  function deckActionsHTML(d, st) {
-    const ctx = deckSess ? deckSess.ctx : 'result';
+  function stackActionsHTML(d, st) {
+    const ctx = stackSess ? stackSess.ctx : 'result';
     if (ctx === 'result') {
       return `<div class="fb-group">
-        <div class="fb-btn fb-btn-interest ${st === 'interested' ? 'active-interest' : ''}" onclick="deckSet('${d.id}','interested')">感兴趣</div>
-        <div class="fb-btn fb-btn-later ${st === 'later' ? 'active-later' : ''}" onclick="deckSet('${d.id}','later')">稍后再看</div>
-        <div class="fb-btn fb-btn-reject ${st === 'rejected' ? 'active-reject' : ''}" onclick="deckSet('${d.id}','rejected')">不考虑</div>
+        <div class="fb-btn fb-btn-interest ${st === 'interested' ? 'active-interest' : ''}" onclick="stSet('${d.id}','interested')">感兴趣</div>
+        <div class="fb-btn fb-btn-later ${st === 'later' ? 'active-later' : ''}" onclick="stSet('${d.id}','later')">稍后再看</div>
+        <div class="fb-btn fb-btn-reject ${st === 'rejected' ? 'active-reject' : ''}" onclick="stReject('${d.id}')">暂不考虑</div>
       </div>`;
     }
     if (ctx === 'interested') {
-      return `<div class="deck-op-row">
-        <div class="btn btn-ghost deck-op" onclick="openDir('${d.id}')">查看详情</div>
-        <div class="btn btn-outline deck-op" onclick="deckSet('${d.id}','later')">降为稍后</div>
-        <div class="btn btn-outline deck-op" onclick="deckRemove('${d.id}')">移除</div>
+      return `<div class="st-op-row">
+        <div class="btn btn-ghost st-op" onclick="openDir('${d.id}')">查看详情</div>
+        <div class="btn btn-outline st-op" onclick="stSet('${d.id}','later')">降为稍后</div>
+        <div class="btn btn-outline st-op" onclick="stRemove('${d.id}')">移除</div>
       </div>`;
     }
     if (ctx === 'rejected') {
-      return `<div class="deck-op-row">
-        <div class="btn btn-ghost deck-op" onclick="deckSet('${d.id}','interested')">改为感兴趣</div>
-        <div class="btn btn-outline deck-op" onclick="deckSet('${d.id}','later')">稍后再看</div>
-        <div class="btn btn-outline deck-op" onclick="deckRemove('${d.id}')">移除</div>
+      return `<div class="st-op-row">
+        <div class="btn btn-ghost st-op" onclick="stSet('${d.id}','interested')">改为感兴趣</div>
+        <div class="btn btn-outline st-op" onclick="stSet('${d.id}','later')">稍后再看</div>
+        <div class="btn btn-outline st-op" onclick="stRemove('${d.id}')">移除</div>
       </div>`;
     }
-    return `<div class="deck-op-row">
-      <div class="btn btn-ghost deck-op" onclick="deckSet('${d.id}','interested')">感兴趣</div>
-      <div class="btn btn-outline deck-op" onclick="deckSet('${d.id}','rejected')">不考虑</div>
-      <div class="btn btn-outline deck-op" onclick="deckRemove('${d.id}')">移除</div>
+    return `<div class="st-op-row">
+      <div class="btn btn-ghost st-op" onclick="stSet('${d.id}','interested')">感兴趣</div>
+      <div class="btn btn-outline st-op" onclick="stSet('${d.id}','rejected')">暂不考虑</div>
+      <div class="btn btn-outline st-op" onclick="stRemove('${d.id}')">移除</div>
     </div>`;
   }
-  function renderDeckStack() {
-    const el = $('#deckStack');
-    if (!el || !deckSess) return;
-    el.innerHTML = deckStackHTML();
-    // 同步底部进度（换卡 / 移除后保持一致）
-    const prog = $('#dfProg');
-    if (prog) prog.textContent = '第 ' + (deckSess.idx + 1) + ' / ' + deckSess.items.length + ' 张';
+  function renderStackStack() {
+    const el = $('#stList');
+    if (!el || !stackSess) return;
+    const page = $('#page');
+    const scrollTop = page.scrollTop;
+    el.innerHTML = stackListHTML();
+    page.scrollTop = scrollTop;
   }
-  window.deckSet = function (id, st) {
+  window.stFocus = function (i) {
+    const s = stackSess;
+    if (!s || i === s.idx) return;
+    s.idx = i;
+    renderStackStack();
+    const el = document.querySelector('.st-card[data-i="' + i + '"]');
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+  window.stSet = function (id, st) {
     const cur = state.collections[id];
     if (cur === st) delete state.collections[id]; else state.collections[id] = st;
     state.feedbackCount++;
     saveState();
     toast(cur === st ? '已取消标记' : '已标记为「' + collLabel(st) + '」');
-    renderDeckStack();
+    renderStackStack();
   };
-  window.deckRemove = function (id) {
+  window.stReject = function (id) {
+    state.collections[id] = 'rejected';
+    state.feedbackCount++;
+    if (state.lastResults) state.lastResults = state.lastResults.filter(x => x.id !== id);
+    saveState();
+    toast('已减少推荐类似方向');
+    const s = stackSess;
+    const el = document.querySelector('.st-card[data-id="' + id + '"]');
+    if (el) el.classList.add('st-removing');
+    setTimeout(() => {
+      if (!s) return;
+      s.items = s.items.filter(x => x.d.id !== id);
+      s.idx = Math.min(s.idx, Math.max(0, s.items.length - 1));
+      if (!s.items.length) { render(); return; }
+      renderStackStack();
+    }, 210);
+  };
+  window.stRemove = function (id) {
+    const prev = state.collections[id];
     delete state.collections[id];
     state.feedbackCount++;
     saveState();
-    toast('已移除');
-    if (deckSess) {
-      deckSess.items = deckSess.items.filter(x => x.d.id !== id);
-      deckSess.idx = Math.min(deckSess.idx, Math.max(0, deckSess.items.length - 1));
-    }
-    if (!deckSess || !deckSess.items.length) { render(); return; }
-    renderDeckStack();
+    const el = document.querySelector('.st-card[data-id="' + id + '"]');
+    if (el) el.classList.add('st-removing');
+    toastAct('已取消收藏', '撤销', () => {
+      if (prev) state.collections[id] = prev;
+      saveState();
+      toast('已恢复收藏');
+      rebuildStack();
+    });
+    setTimeout(() => { if (!state.collections[id]) rebuildStack(); }, 220);
   };
-  window.deckNext = function () {
-    const s = deckSess;
-    if (!s || s.idx >= s.items.length - 1) { toast('已经是最后一张了'); return; }
-    const cur = document.querySelector('.deck-card.cur');
-    const go = () => { s.idx++; renderDeckStack(); };
-    if (cur) { cur.classList.add('fly'); setTimeout(go, 190); } else go();
-  };
-  function bindDeck() {
-    const d = $('#deck');
-    if (!d) return;
-    let startY = null;
-    let dragged = false;
-    d.addEventListener('pointerdown', e => {
-      if (e.target.closest('.fb-btn') || e.target.closest('.dc-actions') || e.target.closest('.deck-foot')) return;
-      startY = e.clientY;
-      dragged = false;
-    });
-    d.addEventListener('pointermove', e => {
-      if (startY === null) return;
-      const cur = d.querySelector('.deck-card.cur');
-      if (!cur) return;
-      const dy = e.clientY - startY;
-      if (dy > 0) {
-        cur.style.transform = 'translateY(' + dy + 'px)';
-        if (dy > 6) dragged = true;
-      }
-    });
-    d.addEventListener('pointerup', e => {
-      if (startY === null) return;
-      const dy = e.clientY - startY;
-      startY = null;
-      const cur = d.querySelector('.deck-card.cur');
-      if (!cur) return;
-      if (dy > 70) {
-        cur.style.transition = 'transform .22s ease, opacity .22s ease';
-        cur.style.transform = 'translateY(520px)';
-        cur.style.opacity = '0';
-        setTimeout(() => deckNext(), 200);
-      } else {
-        cur.style.transition = 'transform .2s ease';
-        cur.style.transform = '';
-        setTimeout(() => { cur.style.transition = ''; }, 220);
-      }
-    });
-    // 拖动过的点击不应触发展开详情
-    d.addEventListener('click', e => {
-      if (dragged) { e.stopPropagation(); e.preventDefault(); dragged = false; }
-    }, true);
+  function rebuildStack() {
+    const s = stackSess;
+    if (!s) return;
+    const items = buildStackItems(s.ctx);
+    s.items = items;
+    s.idx = Math.min(s.idx, Math.max(0, items.length - 1));
+    if (!items.length) { render(); return; }
+    renderStackStack();
   }
 
   /* 择业画像标签纠正 */
@@ -2862,18 +2838,18 @@ window.DB = {
     </div></div>`);
   }
 
-  /* ---------- 结果页（叠放抽卡式 Deck） ---------- */
+  /* ---------- 结果页（彩色便签堆叠式） ---------- */
   function renderResult(r) {
     const consult = r.arg === 'consult' || state.lastSrc === 'consult';
     const list = state.lastResults || [];
     if (!list.length) { go(consult ? '/ask' : '/assessment'); return; }
-    const items = list.map(x => ({ d: dirById(x.id), match: x.match })).filter(x => x.d);
+    const items = buildStackItems('result');
+    if (!items.length) { go(consult ? '/ask' : '/assessment'); return; }
     const head = `<div class="res-head">
       <div class="res-title">${consult ? '为你找到的方向' : '反向择业结果'}</div>
-      <div class="res-sub">共 ${items.length} 个职业方向 · 每张卡顶部固定「岗位 + 薪资」，下拉换卡</div>
-      <div class="res-stars">${starRow(items[0].match)}</div>
+      <div class="res-sub">共 ${items.length} 个职业方向 · 每张卡顶部固定「岗位 + 薪资」，点击标题栏展开详情</div>
     </div>`;
-    renderDeck(items, 'result', {
+    renderStack(items, 'result', {
       title: consult ? '咨询结果' : '反向择业结果',
       head: head,
       sub: `<div class="bottom-bar"><div style="display:flex;gap:10px;">
@@ -2967,7 +2943,7 @@ window.DB = {
     setSub(`<div class="bottom-bar"><div class="btn btn-ghost" onclick="goPush('/assessment')">重新测评，更新画像</div></div>`);
   }
 
-  /* ---------- 收藏三态列表（叠放抽卡式 Deck） ---------- */
+  /* ---------- 收藏三态列表（彩色便签堆叠式） ---------- */
   function renderFav(st) {
     const titles = { interested: '感兴趣', rejected: '暂不考虑', later: '稍后再看' };
     const notes = {
@@ -2975,8 +2951,7 @@ window.DB = {
       rejected: '这些方向已从推荐中排除，随时可以恢复或改为感兴趣。',
       later: '还没决定的方向先放这里，不影响推荐。有空时回来做个决定。'
     };
-    const ids = Object.keys(state.collections).filter(id => state.collections[id] === st);
-    const items = ids.map(id => ({ d: dirById(id), match: matchOf(id) })).filter(x => x.d);
+    const items = buildStackItems(st);
     if (!items.length) {
       navBack(titles[st]);
       const glyphs = { interested: 'heart', rejected: 'xmark', later: 'clock' };
@@ -2986,7 +2961,7 @@ window.DB = {
       setSub('');
       return;
     }
-    renderDeck(items, st, {
+    renderStack(items, st, {
       title: titles[st],
       head: `<div style="padding:16px 20px 12px;font-size:12px;color:var(--color-text-3);line-height:1.6;">${notes[st]}</div>`
     });
