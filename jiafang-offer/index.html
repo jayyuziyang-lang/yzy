@@ -1,0 +1,2168 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>甲方青年offer · 可交互 Demo（单文件版）</title>
+<style>
+/* ============================================================
+   甲方青年offer · 设计系统 v2.0
+   风格基准：喜茶GO 克制体系 + MUJI 留白哲学（v3.0 规范）
+   基准：390×844（iPhone 14/15），1px 对应 2rpx
+   ============================================================ */
+
+/* ---------- Design Tokens ---------- */
+:root {
+  /* 色彩体系（克制三色：底 / 承载 / 强调） */
+  --color-surface: #FFFFFF;   /* 纯白 · 卡片、内容区 ~75% */
+  --color-bg: #F5F4F1;        /* 极淡暖灰 · 页面底色 ~18% */
+  --color-primary: #3B4F6B;   /* 深海蓝灰 · 唯一强调色 ~5% */
+  --color-text: #1A1A1A;      /* 近黑 · 标题正文（不用纯黑） */
+  --color-text-2: #8C8C8C;    /* 中灰 · 辅助信息、标签、时间 */
+  --color-text-3: #BFBFBF;    /* 浅灰 · 占位符、弱提示 */
+  --color-collect: #C47B6B;   /* 赭石暖调 · 收藏心形、星级 ~2% */
+  --color-line: #EBE9E5;      /* 极淡分割线（仅高密度列表） */
+
+  /* 标签底色（低饱和暖调灰） */
+  --tag-apricot: #F5F0EB;     /* 杏灰 */
+  --tag-mist: #EEF0F2;        /* 雾蓝灰 */
+  --tag-mint: #F0F3EF;        /* 薄荷灰 */
+  --tag-empty: #E0DCD7;       /* 星级空心、圆点 */
+
+  /* 字号（严格四档） */
+  --font-xs: 12px;
+  --font-sm: 14px;
+  --font-md: 16px;
+  --font-lg: 20px;
+
+  /* 间距 */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 12px;
+  --space-lg: 16px;
+  --space-xl: 20px;
+  --space-xxl: 24px;
+
+  /* 圆角：大者近方，小者可圆 */
+  --radius-card: 4px;
+  --radius-btn: 8px;
+  --radius-pill: 20px;
+  --radius-search: 24px;
+
+  /* 布局 */
+  --status-bar-h: 24px;
+  --nav-h: 48px;
+  --tab-h: 48px;
+  --safe-bottom: 30px;
+}
+
+/* ---------- Reset & Base ---------- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  background: #EBE8E4;
+  font-family: 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  color: var(--color-text);
+}
+.num {
+  font-family: 'SF Pro Display', 'Helvetica Neue', -apple-system, sans-serif;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- 手机外框 ---------- */
+.phone {
+  width: 390px;
+  height: 844px;
+  margin: 20px auto;
+  background: var(--color-bg);
+  border-radius: 18px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid #E3DFDA;
+  box-shadow: 0 18px 48px rgba(31, 41, 55, 0.10);
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------- 状态栏 ---------- */
+.status-bar {
+  height: var(--status-bar-h);
+  background: var(--color-surface);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 22px;
+  flex-shrink: 0;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+.status-bar .sb-right { display: flex; align-items: center; gap: 5px; }
+.status-bar .sb-battery { width: 18px; height: 9px; border: 1px solid #B9B5AF; border-radius: 2px; position: relative; }
+.status-bar .sb-battery::after { content: ''; position: absolute; inset: 1px; width: 60%; background: #1A1A1A; border-radius: 1px; }
+
+/* ---------- 导航栏 ---------- */
+.nav-bar {
+  height: var(--nav-h);
+  background: var(--color-surface);
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  flex-shrink: 0;
+  position: relative;
+}
+.nav-bar .nav-back {
+  width: 40px; height: 40px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--color-text);
+  flex-shrink: 0;
+  margin-left: -8px;
+}
+.nav-bar .nav-title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+.nav-bar .nav-right {
+  margin-left: auto;
+  font-size: var(--font-sm);
+  color: var(--color-text-2);
+  padding: 0 12px;
+  flex-shrink: 0;
+}
+.nav-bar.nav-home {
+  justify-content: space-between;
+  gap: 12px;
+  padding: 0 20px;
+}
+.nav-bar .nav-brand {
+  font-size: var(--font-lg);
+  font-weight: 600;
+  color: var(--color-text);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+/* ---------- 搜索框（导航栏内） ---------- */
+.search-pill {
+  flex: 1;
+  max-width: 200px;
+  height: 34px;
+  background: var(--color-bg);
+  border-radius: var(--radius-search);
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  gap: 6px;
+  color: var(--color-text-3);
+  font-size: var(--font-xs);
+}
+
+/* ---------- TabBar（纯文字，选中态顶部短横线） ---------- */
+.tab-bar {
+  height: calc(var(--tab-h) + var(--safe-bottom));
+  padding-bottom: var(--safe-bottom);
+  background: var(--color-surface);
+  display: flex;
+  align-items: stretch;
+  flex-shrink: 0;
+}
+.tab-item {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-sm);
+  color: var(--color-text-2);
+  cursor: pointer;
+  position: relative;
+}
+.tab-item.active {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+.tab-item.active::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16px;
+  height: 2px;
+  background: var(--color-primary);
+}
+
+/* ---------- 页面滚动区 ---------- */
+.page {
+  flex: 1;
+  overflow-y: auto;
+  scrollbar-width: none;
+  position: relative;
+  background: var(--color-bg);
+}
+.page::-webkit-scrollbar { display: none; }
+
+/* ---------- 区块通用 ---------- */
+.section { padding: 0 20px; }
+.section-title {
+  font-size: var(--font-sm);
+  font-weight: 600;
+  color: var(--color-text);
+  padding: 24px 20px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.section-title .more { font-size: var(--font-xs); color: var(--color-text-2); font-weight: 400; }
+
+/* ---------- 卡片 ---------- */
+.card {
+  background: var(--color-surface);
+  border-radius: var(--radius-card);
+  padding: 20px;
+  margin: 0 20px 12px;
+}
+.card-title {
+  font-size: var(--font-sm);
+  font-weight: 600;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-text);
+}
+.card-title .title-bar {
+  width: 2px; height: 14px;
+  background: var(--color-primary);
+}
+.card-title .t-extra { margin-left: auto; font-size: var(--font-xs); color: var(--color-text-2); font-weight: 400; }
+
+/* ---------- 标签 tag ---------- */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 12px;
+  border-radius: var(--radius-pill);
+  font-size: var(--font-xs);
+  background: var(--tag-mist);
+  color: var(--color-text-2);
+}
+.tag.tag-gray { background: var(--tag-mist); color: var(--color-text-2); }
+.tag.tag-accent { background: var(--tag-apricot); color: var(--color-text-2); }
+.tag.tag-green { background: var(--tag-mint); color: var(--color-text-2); }
+.tag-row { display: flex; flex-wrap: wrap; gap: 8px; }
+
+/* ---------- 星级（替代百分比） ---------- */
+.stars {
+  display: inline-flex;
+  gap: 1px;
+  color: var(--color-collect);
+  font-size: 14px;
+  line-height: 1;
+}
+.stars .off { color: var(--tag-empty); }
+
+/* ---------- 按钮 ---------- */
+.btn {
+  height: 48px;
+  border-radius: var(--radius-btn);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-md);
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+.btn-primary { background: var(--color-primary); color: #fff; font-weight: 600; }
+.btn-primary:active { background: #31415A; }
+.btn-ghost { background: var(--tag-mist); color: var(--color-primary); font-weight: 600; }
+.btn-outline { background: var(--color-surface); color: var(--color-text-2); }
+.btn-lg { height: 52px; }
+
+/* 底部固定操作栏 */
+.bottom-bar {
+  background: var(--color-surface);
+  padding: 12px 20px calc(12px + var(--safe-bottom));
+  flex-shrink: 0;
+}
+
+/* ---------- 职业卡片（横向列表用） ---------- */
+.dir-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-card);
+  padding: 16px;
+  margin-bottom: 12px;
+}
+.dir-card .dc-head { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+.dir-card .dc-cover {
+  width: 48px; height: 48px;
+  border-radius: var(--radius-card);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.dir-card .dc-name { font-size: var(--font-md); font-weight: 600; color: var(--color-text); }
+.dir-card .dc-sub { font-size: var(--font-xs); color: var(--color-text-2); margin-top: 2px; }
+.dir-card .dc-desc { font-size: var(--font-sm); color: var(--color-text-2); line-height: 1.6; margin-bottom: 10px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.dir-card .dc-foot { display: flex; align-items: center; justify-content: space-between; }
+.dir-card .dc-share { font-size: var(--font-xs); color: var(--color-primary); }
+
+/* ---------- 首页瀑布流 Feed 卡（通栏封面色块 + 单色线描） ---------- */
+.feed-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+.feed-card .fc-cover {
+  height: 104px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.feed-card .fc-cover svg { opacity: 0.55; }
+.feed-card .fc-body { padding: 12px; }
+.feed-card .fc-name { font-size: var(--font-md); font-weight: 600; color: var(--color-text); line-height: 1.3; }
+.feed-card .fc-sub { font-size: var(--font-xs); color: var(--color-text-2); margin-top: 4px; }
+.feed-card .fc-foot { margin-top: 8px; display: flex; align-items: center; justify-content: space-between; }
+.feed-card .fc-share { font-size: var(--font-xs); color: var(--color-primary); }
+
+/* ---------- 测评横幅（冷启动大横幅 / 扁平） ---------- */
+.hero {
+  margin: 12px 20px;
+  border-radius: var(--radius-card);
+  padding: 20px;
+  background: var(--color-primary);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.hero .hero-title { font-size: var(--font-lg); font-weight: 600; }
+.hero .hero-sub { font-size: var(--font-sm); opacity: 0.85; }
+.hero .hero-btn {
+  margin-top: 12px;
+  align-self: flex-start;
+  height: 36px;
+  padding: 0 18px;
+  border-radius: var(--radius-pill);
+  background: #fff;
+  color: var(--color-primary);
+  font-size: var(--font-sm);
+  font-weight: 600;
+  display: inline-flex; align-items: center; justify-content: center;
+}
+
+/* 画像后横幅收窄为摘要卡 */
+.summary-card {
+  margin: 12px 20px;
+  border-radius: var(--radius-card);
+  padding: 16px 20px;
+  background: var(--color-surface);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.summary-card .sc-head { display: flex; align-items: center; justify-content: space-between; }
+.summary-card .sc-title { font-size: var(--font-sm); font-weight: 600; color: var(--color-text); }
+.summary-card .sc-link { font-size: var(--font-xs); color: var(--color-primary); }
+.summary-card .sc-kw { font-size: var(--font-sm); color: var(--color-text-2); line-height: 1.6; }
+
+/* ---------- 瀑布流双列 ---------- */
+.waterfall {
+  display: flex;
+  gap: 12px;
+  padding: 4px 20px 16px;
+}
+.waterfall .w-col { flex: 1; display: flex; flex-direction: column; }
+.waterfall .w-col .feed-card:last-child,
+.waterfall .w-col .dir-card:last-child,
+.waterfall .w-col .guide-card:last-child,
+.waterfall .w-col .know-card:last-child { margin-bottom: 0; }
+
+/* ---------- 知识卡片 ---------- */
+.know-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-card);
+  padding: 14px;
+  margin: 0 20px 12px;
+}
+.know-card .kc-title { font-size: var(--font-md); font-weight: 600; line-height: 1.4; margin-bottom: 6px; color: var(--color-text); }
+.know-card .kc-desc { font-size: var(--font-sm); color: var(--color-text-2); line-height: 1.5; margin-bottom: 10px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.know-card .kc-foot { display: flex; align-items: center; gap: 8px; }
+.know-card .kc-foot .kc-meta { margin-left: auto; font-size: var(--font-xs); color: var(--color-text-3); }
+
+/* ---------- 引导卡（便签式：灰底 + 左侧竖线锚点） ---------- */
+.guide-card {
+  margin: 0 20px 12px;
+  border-radius: var(--radius-card);
+  padding: 20px;
+  background: #EFEBE6;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+}
+.guide-card::before {
+  content: '';
+  width: 2px; height: 24px;
+  background: var(--color-primary);
+  flex-shrink: 0;
+}
+.guide-card .gc-icon { display: none; }
+.guide-card .gc-title { font-size: var(--font-sm); font-weight: 600; color: var(--color-text); line-height: 1.5; }
+.guide-card .gc-desc { font-size: var(--font-xs); color: var(--color-text-2); margin-top: 2px; }
+.guide-card .gc-btn {
+  margin-left: auto;
+  font-size: var(--font-sm);
+  color: var(--color-primary);
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+/* ---------- 列表行 ---------- */
+.list-item {
+  background: var(--color-surface);
+  border-radius: var(--radius-card);
+  padding: 16px;
+  margin: 0 20px 10px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.list-item .li-cover { width: 44px; height: 44px; border-radius: var(--radius-card); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.list-item .li-main { flex: 1; min-width: 0; }
+.list-item .li-title { font-size: var(--font-md); font-weight: 600; color: var(--color-text); }
+.list-item .li-sub { font-size: var(--font-xs); color: var(--color-text-2); margin-top: 2px; }
+.list-item .li-meta { text-align: right; flex-shrink: 0; }
+.list-item .li-num { font-size: var(--font-md); font-weight: 600; color: var(--color-text); }
+.list-item .li-arrow { color: var(--color-text-3); flex-shrink: 0; }
+.list-item .li-badge { font-size: var(--font-xs); color: var(--color-primary); }
+
+/* ---------- 我的页（BentoUI） ---------- */
+.bento {
+  margin: 0 20px;
+  background: var(--color-surface);
+  border-radius: var(--radius-card);
+  padding: 24px;
+}
+.bento-head { display: flex; align-items: center; gap: 14px; }
+.bento .avatar {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  background: var(--tag-apricot);
+  color: var(--color-primary);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px; font-weight: 600;
+  flex-shrink: 0;
+}
+.bento-main { flex: 1; min-width: 0; }
+.bento-title { font-size: var(--font-md); font-weight: 600; color: var(--color-text); }
+.bento-sub { font-size: var(--font-xs); color: var(--color-text-2); margin-top: 4px; }
+.bento-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.bento-cta { font-size: var(--font-sm); color: var(--color-primary); font-weight: 600; margin-top: 12px; }
+
+.col3 { display: flex; gap: 8px; margin: 16px 20px 0; }
+.col3 .c3-card {
+  flex: 1;
+  background: var(--color-surface);
+  border-radius: var(--radius-card);
+  padding: 16px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+}
+.col3 .c3-icon { width: 24px; height: 24px; color: var(--color-primary); }
+.col3 .c3-title { font-size: var(--font-xs); font-weight: 600; color: var(--color-text); }
+.col3 .c3-count { font-size: var(--font-xs); color: var(--color-text-2); }
+
+.foot-note { text-align: center; font-size: var(--font-xs); color: var(--color-text-3); margin: 56px 20px 0; line-height: 1.8; }
+
+/* 画像入口卡 */
+.profile-entry {
+  background: var(--color-surface);
+  border-radius: var(--radius-card);
+  margin: 0 20px 12px;
+  overflow: hidden;
+}
+.profile-entry .pe-row { padding: 16px; display: flex; align-items: center; gap: 12px; }
+.profile-entry .pe-row + .pe-row { border-top: 0; }
+.profile-entry .pe-icon { width: 40px; height: 40px; border-radius: var(--radius-card); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.profile-entry .pe-title { font-size: var(--font-md); font-weight: 600; color: var(--color-text); }
+.profile-entry .pe-sub { font-size: var(--font-xs); color: var(--color-text-2); margin-top: 2px; }
+.profile-entry .pe-arrow { margin-left: auto; color: var(--color-text-3); }
+
+/* ---------- 表单 ---------- */
+.form-card { margin: 0 20px 12px; }
+.form-group { padding: 20px; background: var(--color-surface); border-radius: var(--radius-card); }
+.form-group + .form-group { margin-top: 10px; }
+.form-label { font-size: var(--font-sm); font-weight: 600; margin-bottom: 12px; display: flex; align-items: center; color: var(--color-text); }
+.form-label .req { color: var(--color-text-3); margin-left: 2px; }
+.form-field { font-size: var(--font-sm); padding: 12px 0; display: flex; align-items: center; }
+.form-field .ff-placeholder { color: var(--color-text-3); }
+.form-field .ff-value { color: var(--color-text); }
+.form-field .ff-right { margin-left: auto; color: var(--color-text-3); font-size: var(--font-xs); }
+
+/* 选项选择 */
+.option-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+.option-chip {
+  padding: 10px 16px;
+  border-radius: var(--radius-pill);
+  background: var(--color-bg);
+  color: var(--color-text-2);
+  font-size: var(--font-sm);
+  cursor: pointer;
+}
+.option-chip.selected { background: var(--color-primary); color: #fff; font-weight: 600; }
+.option-chip.single { display: flex; align-items: center; gap: 8px; }
+.option-chip .dot { width: 14px; height: 14px; border-radius: 50%; border: 1.5px solid var(--tag-empty); display: inline-flex; align-items: center; justify-content: center; }
+.option-chip.selected .dot { border-color: #fff; }
+.option-chip.selected .dot::after { content: ''; width: 6px; height: 6px; border-radius: 50%; background: #fff; }
+
+/* 测评单题（全宽选项按钮） */
+.quiz-q { font-size: var(--font-lg); font-weight: 600; line-height: 1.5; margin-bottom: 20px; color: var(--color-text); }
+.quiz-opt {
+  width: 100%;
+  padding: 16px;
+  border-radius: var(--radius-btn);
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-size: var(--font-sm);
+  text-align: center;
+  cursor: pointer;
+}
+.quiz-opt.selected { background: var(--color-primary); color: #fff; font-weight: 600; }
+
+/* ---------- 测评进度（圆点） ---------- */
+.steps {
+  display: flex;
+  align-items: center;
+  padding: 16px 20px;
+  background: var(--color-surface);
+  margin-bottom: 12px;
+}
+.steps .step { flex: 1; display: flex; align-items: center; gap: 6px; }
+.steps .step-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--tag-empty); flex-shrink: 0; }
+.steps .step.active .step-dot { background: var(--color-primary); }
+.steps .step.done .step-dot { background: var(--color-primary); opacity: 0.5; }
+.steps .step-label { font-size: var(--font-xs); color: var(--color-text-2); }
+.steps .step.active .step-label { color: var(--color-primary); font-weight: 600; }
+.steps .step-line { display: none; }
+
+/* 题号圆点 */
+.quiz-progress { padding: 16px 20px 4px; display: flex; align-items: center; gap: 6px; }
+.quiz-progress .qp-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--tag-empty); }
+.quiz-progress .qp-dot.on { background: var(--color-primary); }
+.quiz-progress .qp-text { font-size: var(--font-xs); color: var(--color-text-2); margin-left: 8px; }
+
+/* ---------- 测评路径卡 ---------- */
+.path-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-card);
+  padding: 20px;
+  margin: 0 20px 12px;
+  cursor: pointer;
+}
+.path-card .pc-head { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+.path-card .pc-icon { width: 44px; height: 44px; border-radius: var(--radius-card); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.path-card .pc-title { font-size: var(--font-md); font-weight: 600; color: var(--color-text); }
+.path-card .pc-dur { font-size: var(--font-xs); color: var(--color-text-2); }
+.path-card .pc-desc { font-size: var(--font-sm); color: var(--color-text-2); line-height: 1.6; }
+.path-card .pc-foot { margin-top: 12px; display: flex; align-items: center; justify-content: space-between; }
+.path-card .pc-start { color: var(--color-primary); font-size: var(--font-sm); font-weight: 600; }
+
+/* ---------- 测评主卡片流 ---------- */
+.cardflow {
+  flex: 1;
+  overflow-y: auto;
+  padding: 4px 20px 12px;
+}
+.cardflow .cf-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-card);
+  padding: 24px 20px;
+  margin-top: 8px;
+}
+.cardflow .cf-top { display: flex; align-items: flex-start; gap: 14px; }
+.cardflow .cf-cover { width: 56px; height: 56px; border-radius: var(--radius-card); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.cardflow .cf-name { font-size: var(--font-lg); font-weight: 600; color: var(--color-text); line-height: 1.2; }
+.cardflow .cf-ind { font-size: var(--font-xs); color: var(--color-text-2); margin-top: 4px; }
+.cardflow .cf-match { margin-top: 8px; }
+.cardflow .cf-desc { font-size: var(--font-sm); color: var(--color-text-2); line-height: 1.7; margin-top: 16px; }
+.cardflow .cf-reason { margin-top: 16px; background: var(--color-bg); border-radius: var(--radius-card); padding: 14px; }
+.cardflow .cf-reason-title { font-size: var(--font-xs); color: var(--color-primary); font-weight: 600; margin-bottom: 6px; }
+.cardflow .cf-reason-list { font-size: var(--font-sm); color: var(--color-text-2); line-height: 1.7; }
+.cardflow .cf-tags { margin-top: 16px; }
+.cardflow .cf-hint { margin-top: 16px; text-align: center; font-size: var(--font-xs); color: var(--color-text-3); }
+
+/* ---------- 反馈按钮（三态） ---------- */
+.fb-group { display: flex; gap: 8px; }
+.fb-btn {
+  flex: 1;
+  height: 44px;
+  border-radius: var(--radius-card);
+  display: flex; align-items: center; justify-content: center;
+  gap: 4px;
+  font-size: var(--font-sm);
+  font-weight: 500;
+  cursor: pointer;
+  background: var(--tag-mist);
+  color: var(--color-text);
+}
+.fb-btn-interest { background: var(--tag-mint); color: var(--color-text); }
+.fb-btn-later { background: var(--tag-apricot); color: var(--color-text); }
+.fb-btn-reject { background: var(--color-bg); color: var(--color-text-2); }
+.fb-btn.active { background: var(--color-primary); color: #fff; font-weight: 600; }
+.feedback-bar { display: flex; gap: 8px; }
+.feedback-bar .fb-btn { flex: 1; }
+
+/* ---------- 结果页匹配项 ---------- */
+.match-item {
+  background: var(--color-surface);
+  border-radius: var(--radius-card);
+  padding: 16px;
+  margin: 0 20px 10px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.match-item .mi-rank { width: 20px; font-size: var(--font-xs); font-weight: 600; color: var(--color-text-3); flex-shrink: 0; }
+.match-item .mi-cover { width: 44px; height: 44px; border-radius: var(--radius-card); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.match-item .mi-main { flex: 1; min-width: 0; }
+.match-item .mi-name { font-size: var(--font-md); font-weight: 600; color: var(--color-text); }
+.match-item .mi-ind { font-size: var(--font-xs); color: var(--color-text-2); margin-top: 2px; }
+.match-item .mi-stars { flex-shrink: 0; }
+
+/* ---------- 三态列表项（感兴趣 / 暂不考虑 / 稍后再看） ---------- */
+.fav-item, .ni-item, .wl-item {
+  background: var(--color-surface);
+  border-radius: var(--radius-card);
+  padding: 16px;
+  margin: 0 20px 10px;
+}
+.fav-item .fi-top, .ni-item .ni-top, .wl-item .wl-top { display: flex; align-items: center; gap: 12px; }
+.fav-item .fi-cover, .ni-item .ni-cover, .wl-item .wl-cover {
+  width: 44px; height: 44px;
+  border-radius: var(--radius-card);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.fav-item .fi-main, .ni-item .ni-main, .wl-item .wl-main { flex: 1; min-width: 0; }
+.fav-item .fi-name, .ni-item .ni-name, .wl-item .wl-name {
+  font-size: var(--font-md); font-weight: 600; color: var(--color-text);
+  display: flex; align-items: center; gap: 8px;
+}
+.fav-item .fi-ind, .ni-item .ni-ind, .wl-item .wl-ind { font-size: var(--font-xs); color: var(--color-text-2); margin-top: 3px; }
+.fav-item .fi-x { color: var(--color-text-3); font-size: var(--font-sm); flex-shrink: 0; }
+.fav-item .fi-foot { display: flex; align-items: center; gap: 12px; margin-top: 12px; padding-top: 12px; }
+.fav-item .fi-op { font-size: var(--font-sm); color: var(--color-text-2); }
+.fav-item .fi-op.primary { color: var(--color-primary); font-weight: 600; }
+.fav-item .fi-match { margin-left: auto; font-size: var(--font-xs); color: var(--color-text-2); display: flex; align-items: center; }
+.ni-item .ni-foot, .wl-item .wl-foot { display: flex; gap: 8px; margin-top: 12px; }
+.ni-item .ni-btn, .wl-item .wl-btn {
+  flex: 1; height: 36px;
+  border-radius: var(--radius-btn);
+  display: flex; align-items: center; justify-content: center;
+  font-size: var(--font-sm); font-weight: 600; cursor: pointer;
+}
+.ni-item .ni-btn.restore { background: var(--tag-mist); color: var(--color-primary); }
+.ni-item .ni-btn.like, .wl-item .wl-btn.like { background: var(--tag-mint); color: var(--color-primary); }
+.wl-item .wl-btn.reject { background: var(--color-bg); color: var(--color-text-2); }
+.wl-item .wl-btn.keep { background: var(--tag-apricot); color: var(--color-text); }
+.wl-item .wl-dot { color: var(--color-collect); flex-shrink: 0; }
+
+/* ---------- 空状态 ---------- */
+.empty {
+  padding: 60px 40px;
+  text-align: center;
+}
+.empty .empty-icon {
+  width: 96px; height: 96px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  background: var(--tag-mist);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 40px;
+}
+.empty .empty-title { font-size: var(--font-md); font-weight: 600; margin-bottom: 8px; color: var(--color-text); }
+.empty .empty-desc { font-size: var(--font-sm); color: var(--color-text-2); margin-bottom: 20px; line-height: 1.6; }
+
+/* ---------- 详情页 ---------- */
+.detail-hero {
+  background: var(--color-surface);
+  padding: 20px 20px 16px;
+}
+.detail-hero .dh-name { font-size: 26px; font-weight: 600; color: var(--color-text); }
+.detail-hero .dh-ind { font-size: var(--font-sm); color: var(--color-text-2); margin-top: 4px; }
+.detail-hero .dh-desc {
+  font-size: var(--font-sm);
+  color: var(--color-text);
+  line-height: 1.7;
+  margin-top: 16px;
+  padding-left: 10px;
+  border-left: 3px solid var(--color-primary);
+}
+.detail-hero .dh-tags { margin-top: 14px; display: flex; gap: 6px; flex-wrap: wrap; }
+.detail-hero .dh-tag { background: var(--tag-mist); color: var(--color-text); padding: 3px 12px; border-radius: var(--radius-pill); font-size: var(--font-xs); }
+
+.info-row { display: flex; padding: 6px 0; }
+.info-row .ir-label { width: 88px; color: var(--color-text-2); font-size: var(--font-sm); flex-shrink: 0; }
+.info-row .ir-value { color: var(--color-text); font-size: var(--font-sm); flex: 1; line-height: 1.6; }
+
+/* 详情页正文段落 */
+.card-p { font-size: var(--font-sm); color: var(--color-text); line-height: 1.8; margin-bottom: 12px; }
+.card-p:last-child { margin-bottom: 0; }
+.cap { display: inline-flex; align-items: center; padding: 2px 10px; border-radius: var(--radius-pill); font-size: var(--font-xs); margin-right: 8px; vertical-align: 2px; }
+.cap-a { background: var(--tag-apricot); color: var(--color-text-2); }
+.cap-b { background: var(--tag-mint); color: var(--color-text-2); }
+
+/* ---------- 搜索页 ---------- */
+.search-input-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: var(--color-surface);
+}
+.search-input-row .si-box {
+  flex: 1;
+  height: 40px;
+  background: var(--color-bg);
+  border-radius: var(--radius-search);
+  display: flex;
+  align-items: center;
+  padding: 0 14px;
+  gap: 8px;
+  color: var(--color-text-3);
+  font-size: var(--font-sm);
+}
+.search-input-row .si-cancel { font-size: var(--font-sm); color: var(--color-primary); flex-shrink: 0; }
+
+.industry-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  padding: 0 20px;
+}
+.industry-grid .ig-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-card);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.industry-grid .ig-icon { width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; color: var(--color-primary); }
+.industry-grid .ig-name { font-size: var(--font-sm); font-weight: 600; color: var(--color-text); }
+.industry-grid .ig-count { font-size: var(--font-xs); color: var(--color-text-2); }
+
+/* ---------- 行业 Tab ---------- */
+.industry-tabs {
+  display: flex;
+  gap: 8px;
+  padding: 12px 20px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  flex-shrink: 0;
+  background: var(--color-surface);
+}
+.industry-tabs::-webkit-scrollbar { display: none; }
+.industry-tab {
+  padding: 7px 16px;
+  border-radius: var(--radius-pill);
+  background: var(--color-bg);
+  color: var(--color-text-2);
+  font-size: var(--font-sm);
+  white-space: nowrap;
+  cursor: pointer;
+}
+.industry-tab.active {
+  background: var(--color-primary);
+  color: #fff;
+  font-weight: 600;
+}
+
+/* ---------- 封面色块（低饱和暖调） ---------- */
+.c0 { background: var(--tag-apricot); }
+.c1 { background: var(--tag-mist); }
+.c2 { background: var(--tag-mint); }
+.c3 { background: #EFE7DE; }
+.c4 { background: #E7EBEE; }
+.c5 { background: #E9EEE8; }
+
+/* ---------- 通用工具 ---------- */
+.text-ellipsis { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.text-2 { color: var(--color-text-2); }
+.text-3 { color: var(--color-text-3); }
+.flex-center { display: flex; align-items: center; justify-content: center; }
+.mt-8 { margin-top: 8px; }
+.mt-16 { margin-top: 16px; }
+.mt-24 { margin-top: 24px; }
+/* ============================================================
+   甲方青年offer · 可交互 Demo 样式（v3.0 覆盖层）
+   基准视觉复用 ../prototype/assets/design-system.css
+   克制体系：白底 #FFFFFF / 暖灰 #F5F4F1 / 深海蓝灰 #3B4F6B
+   ============================================================ */
+
+html, body { background: #E7E3DE; }
+body { padding: 0; }
+
+.stage {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 16px 40px;
+}
+
+/* ---------- 顶部工具条 ---------- */
+.toolbar {
+  width: 100%;
+  max-width: 780px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  gap: 12px;
+}
+.toolbar .tb-brand { font-size: 15px; font-weight: 600; color: #3B4F6B; }
+.toolbar .tb-brand span { color: #8C8C8C; font-weight: 400; font-size: 13px; }
+.tb-btns { display: flex; gap: 8px; }
+.tb-btn {
+  border: none;
+  height: 32px;
+  padding: 0 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  background: #fff;
+  color: #8C8C8C;
+}
+.tb-btn:hover { color: #3B4F6B; }
+.tb-btn.danger:hover { color: #C47B6B; }
+
+/* ---------- 使用说明框 ---------- */
+#helpBox {
+  max-width: 780px;
+  width: 100%;
+  background: #fff;
+  border-radius: 4px;
+  padding: 16px 18px;
+  margin-bottom: 16px;
+  font-size: 13px;
+  color: #1A1A1A;
+  line-height: 2;
+}
+#helpBox b { color: #3B4F6B; }
+
+/* ---------- 手机外框（demo 内自适应） ---------- */
+.phone {
+  height: min(844px, calc(100vh - 150px));
+  min-height: 620px;
+  margin: 0 auto;
+}
+.phone .page { overflow-y: auto; }
+
+/* 页面对焦动画 */
+.page.switching { animation: pageIn .22s ease; }
+@keyframes pageIn { from { opacity: .4; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+/* ---------- Toast ---------- */
+#toast {
+  position: absolute;
+  left: 50%;
+  bottom: 110px;
+  transform: translateX(-50%) translateY(10px);
+  background: rgba(26, 26, 26, 0.88);
+  color: #fff;
+  font-size: 13px;
+  padding: 9px 18px;
+  border-radius: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s ease, transform .2s ease;
+  z-index: 99;
+  white-space: nowrap;
+  max-width: 90%;
+  text-align: center;
+}
+#toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+/* ---------- 表单 select ---------- */
+.ff-select {
+  appearance: none;
+  -webkit-appearance: none;
+  border: none;
+  background: transparent;
+  font-size: var(--font-md);
+  color: var(--color-text);
+  width: 100%;
+  outline: none;
+  cursor: pointer;
+}
+.form-field .ff-right { margin-left: auto; }
+
+/* ---------- 反馈按钮激活态（v3.0：统一主色） ---------- */
+.fb-btn.active-interest, .fb-btn.active-later, .fb-btn.active-reject {
+  background: var(--color-primary);
+  color: #fff;
+  font-weight: 600;
+}
+.fb-status { text-align: center; font-size: var(--font-xs); color: var(--color-text-3); padding: 8px 16px 0; }
+
+/* ---------- 卡片流顶部进度（圆点） ---------- */
+.cf-nav {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 16px;
+  background: var(--color-surface);
+  flex-shrink: 0;
+}
+.cf-nav .cf-prog { flex: 1; display: flex; align-items: center; gap: 10px; }
+.cf-nav .cf-dots { display: flex; gap: 4px; }
+.cf-nav .cf-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--tag-empty); }
+.cf-nav .cf-dot.on { background: var(--color-primary); }
+.cf-nav .cf-text { font-size: var(--font-xs); color: var(--color-text-3); }
+.cf-nav .cf-exit { font-size: var(--font-xs); color: var(--color-text-3); flex-shrink: 0; }
+
+/* ---------- 编辑态个人画像 ---------- */
+.pp-edit-row { display: flex; align-items: center; gap: 8px; margin-top: 12px; }
+.pp-edit-row .pp-label { width: 76px; font-size: var(--font-sm); color: var(--color-text-2); flex-shrink: 0; }
+.pp-edit-row .pp-val { flex: 1; }
+
+/* ---------- 首页画像摘要卡增强 ---------- */
+.summary-card .sc-kw b { color: var(--color-primary); font-weight: 600; }
+
+/* ---------- 搜索输入增强 ---------- */
+.si-box input {
+  border: none;
+  background: transparent;
+  outline: none;
+  flex: 1;
+  font-size: var(--font-sm);
+  color: var(--color-text);
+}
+
+/* ---------- 探索页文章卡 / 首页 Feed 卡 ---------- */
+.know-card { cursor: pointer; }
+.know-card:active { opacity: .7; }
+.feed-card { cursor: pointer; }
+.feed-card:active { opacity: .7; }
+
+/* ---------- 画布使用提示 ---------- */
+.hint {
+  max-width: 375px;
+  margin-top: 16px;
+  font-size: 12px;
+  color: #8C8C8C;
+  line-height: 1.9;
+  text-align: left;
+}
+.hint b { color: #3B4F6B; }
+
+/* ---------- 个人画像头（demo 内 我的页 / 个人画像页） ---------- */
+.user-header {
+  background: var(--color-surface);
+  padding: 20px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.user-header .avatar {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  background: var(--tag-apricot);
+  color: var(--color-primary);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px; font-weight: 600;
+  flex-shrink: 0;
+}
+.user-header .uh-name { font-size: var(--font-lg); font-weight: 600; color: var(--color-text); }
+.user-header .uh-sub { font-size: var(--font-xs); color: var(--color-text-2); margin-top: 4px; }
+.user-header .uh-btn { margin-left: auto; font-size: var(--font-sm); color: var(--color-primary); font-weight: 600; flex-shrink: 0; cursor: pointer; }
+
+/* ---------- 择业画像：可纠正标签 ---------- */
+.correct-tag {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 6px 12px 6px 14px;
+  border-radius: var(--radius-pill);
+  background: var(--tag-apricot);
+  color: var(--color-text);
+  font-size: var(--font-xs);
+}
+.correct-tag .ct-x { color: var(--color-text-3); cursor: pointer; }
+.cp-source { margin: 0 20px 12px; font-size: var(--font-xs); color: var(--color-text-3); line-height: 1.6; }
+
+/* ---------- 小屏适配（当手机用） ---------- */
+@media (max-width: 430px) {
+  body { background: var(--color-bg); }
+  .stage { padding: 0; min-height: 100dvh; }
+  .toolbar, .hint, #helpBox { display: none; }
+  .phone {
+    width: 100vw;
+    height: 100dvh;
+    min-height: 0;
+    border-radius: 0;
+    margin: 0;
+  }
+}
+</style>
+</head>
+<body>
+<div class="stage">
+  <div class="toolbar">
+    <div class="tb-brand">甲方青年offer <span>· 可交互 Demo</span></div>
+    <div class="tb-btns">
+      <button class="tb-btn" onclick="document.getElementById('helpBox').style.display=document.getElementById('helpBox').style.display==='none'?'block':'none'">使用说明</button>
+      <button class="tb-btn danger" onclick="resetDemo()">清空数据重来</button>
+    </div>
+  </div>
+
+  <div id="helpBox" style="display:none;">
+    <b>怎么玩这个 Demo：</b><br>
+    · 完整链路：<b>首页 → 测评（三选一）→ 卡片流反馈 → 测评结果</b> → 首页横幅收窄为画像摘要卡，推荐闭环生效<br>
+    · 卡片流的「感兴趣 / 稍后再看 / 不考虑」会实时写入 <b>我的 → 收藏</b>，也可在<b>职业详情页</b>三态标记<br>
+    · <b>我的 → 择业画像</b>：画像是可纠正的，点 ✕ 去掉不准的标签，会同步影响推荐<br>
+    · <b>个人画像</b>可编辑技能 / 偏好，保存后推荐同步更新<br>
+    · 右上角「清空数据重来」回到冷启动状态，可反复演示
+  </div>
+
+  <div class="phone">
+    <!-- 状态栏 -->
+    <div class="status-bar">
+      <span>9:41</span>
+      <div class="sb-right"><span>◍</span><span>▮▮▮</span><span class="sb-battery"></span></div>
+    </div>
+    <!-- 动态导航 / 页面 / 底部操作 / TabBar -->
+    <div id="nav"></div>
+    <div id="page" class="page"></div>
+    <div id="subbar"></div>
+    <div id="tabbar"></div>
+    <!-- Toast -->
+    <div id="toast"></div>
+  </div>
+
+  <div class="hint">
+    <b>提示：</b>在桌面浏览器中手机框内操作即可；把窗口缩窄到手机宽度（≤430px），它会变成真正的全屏小程序体验。<br>
+    数据存在浏览器本地，刷新页面不丢失；想重来点右上角「清空数据重来」。
+  </div>
+</div>
+
+<script>
+/* ============================================================
+   甲方青年offer · 可交互 Demo 数据层（v3.0 视觉）
+   g: 封面线描图标 key（GLYPHS） · c: 封面色块索引（c0-c5）
+   ============================================================ */
+window.DB = {
+  industries: ['全部', '互联网', '金融', '教育', '制造', '医疗健康', '传媒/内容', '消费品', '软件/科技'],
+
+  /* ---------- 职业方向 ---------- */
+  directions: [
+    { id: 'da', name: '数据分析师', g: 'chart', c: 0, industry: '互联网',
+      baseMatch: 85, kw: ['Excel', 'SQL', '数据分析', 'Python'], typeW: { digit: 2, people: 1, creative: 0, hands: 0 },
+      stable: false, salaryRank: 2, viewed: '3.2k 人看过',
+      tags: [{ t: '入门 8-15K' }, { t: '本科可入', accent: true }, { t: '中等难度', gray: true }],
+      desc: '用数据帮业务做决策：搭报表、跑分析、找增长点。让每一个判断都有依据，是连接「业务」和「数字」的桥梁。',
+      content: ['搭建业务报表和数据看板，让决策有据可依', '跑数、分析异常，回答「为什么涨 / 为什么跌」', '和业务方开会，把数据结论翻译成可执行的建议'],
+      skills: ['Excel', 'SQL', 'Python', '数据可视化'],
+      path: ['业务 / 运营岗转数据分析', '数据分析实习（6个月）', '数据分析师 → 数据产品 / BI'],
+      notFor: ['看到数字就头大', '不喜欢反复对需求', '想要完全按部就班的工作'],
+      reasons: ['与你的数据分析兴趣匹配', '用得到你掌握的 Excel 和 SQL', '属于你偏好的互联网行业'] },
+
+    { id: 'dy', name: '数据运营', g: 'trend', c: 1, industry: '互联网',
+      baseMatch: 78, kw: ['数据分析', 'Excel', '沟通协调'], typeW: { digit: 2, people: 1, creative: 1, hands: 0 },
+      stable: false, salaryRank: 2, viewed: '2.1k 人看过',
+      tags: [{ t: '入门 8-15K' }, { t: '本科可入', accent: true }],
+      desc: '数据 + 运营的复合方向：用分析找增长点，再把策略落地成业务动作。',
+      content: ['通过数据分析找增长点，做活动、上策略', '埋点看数、复盘活动效果', '协同产品和运营，让数据落地成业务动作'],
+      skills: ['Excel', '数据分析', 'SQL', '沟通协调'],
+      path: ['运营岗转入', '数据运营助理', '数据运营 → 运营经理 / 数据分析'],
+      notFor: ['讨厌盯指标', '不喜欢跨部门协调'],
+      reasons: ['数据+运营复合，适合你', '用得到你的 Excel 和沟通能力', '互联网行业契合你的偏好'] },
+
+    { id: 'nr', name: '内容运营', g: 'pen', c: 2, industry: '传媒/内容',
+      baseMatch: 71, kw: ['写作', '策划'], typeW: { digit: 0, people: 1, creative: 2, hands: 0 },
+      stable: false, salaryRank: 1, viewed: '2.4k 人看过',
+      tags: [{ t: '入门 6-10K' }, { t: '写作功底', accent: true }],
+      desc: '策划内容、写文案、追热点，让好内容被更多人看见。',
+      content: ['策划选题、撰写文案、把控内容质量', '追热点、做专题，让内容被更多人看到', '分析数据，持续优化选题方向'],
+      skills: ['写作', '策划', '排版工具', '数据分析'],
+      path: ['内容编辑助理', '内容运营', '内容运营 → 主编 / 内容策略'],
+      notFor: ['不爱写字', '无法接受「改到第 10 版」'],
+      reasons: ['你的内容能力可迁移', '写作是你的长板', '内容行业门槛友好'] },
+
+    { id: 'xmt', name: '新媒体运营', g: 'megaphone', c: 3, industry: '传媒/内容',
+      baseMatch: 64, kw: ['写作', '创意'], typeW: { digit: 0, people: 1, creative: 2, hands: 0 },
+      stable: false, salaryRank: 1, viewed: '1.7k 人看过',
+      tags: [{ t: '入门 6-10K' }, { t: '门槛较低', accent: true }],
+      desc: '运营公众号 / 小红书 / 抖音，做选题、追热点、养粉丝。',
+      content: ['运营各平台账号，做选题和内容', '跟进热点、互动评论、维护粉丝', '看数据复盘，找到爆款密码'],
+      skills: ['写作', '创意', '剪辑 / 排版', '热点敏感'],
+      path: ['新媒体小编', '账号负责人', '新媒体运营 → 内容策划'],
+      notFor: ['不刷社媒', '不想日夜追热点'],
+      reasons: ['入门门槛低，上手快', '发挥你的写作和创意'] },
+
+    { id: 'cp', name: '产品经理助理', g: 'target', c: 0, industry: '互联网',
+      baseMatch: 60, kw: ['沟通协调'], typeW: { digit: 1, people: 2, creative: 1, hands: 0 },
+      stable: false, salaryRank: 2, viewed: '2.8k 人看过',
+      tags: [{ t: '入门 8-15K' }, { t: '成长快', accent: true }],
+      desc: '不做执行细节，做「定义问题」的人：协调各方，把一个想法变成一个产品。',
+      content: ['收集需求、写需求文档（PRD）', '跟进开发排期，协调设计 / 开发 / 测试', '调研竞品，输出产品方案'],
+      skills: ['沟通协调', '文档能力', '逻辑思维', '数据分析'],
+      path: ['产品助理', '产品经理', '产品经理 → 产品负责人'],
+      notFor: ['只想做单一执行', '不擅长跨角色沟通'],
+      reasons: ['你的沟通协调是核心优势', '互联网产品岗发展路径清晰'] },
+
+    { id: 'yj', name: '用户研究', g: 'search', c: 1, industry: '互联网',
+      baseMatch: 62, kw: ['数据分析', '沟通协调'], typeW: { digit: 1, people: 2, creative: 1, hands: 0 },
+      stable: false, salaryRank: 2, viewed: '1.1k 人看过',
+      tags: [{ t: '入门 8-14K' }, { t: '小众岗位', gray: true }],
+      desc: '走进用户，搞清楚他们想要什么，再把洞察翻译给产品。',
+      content: ['设计问卷、做深访，收集真实用户反馈', '分析数据，产出洞察报告', '把「用户想要什么」翻译给产品和设计'],
+      skills: ['访谈', '问卷', '数据分析', '心理学常识'],
+      path: ['用户研究员助理', '用研专员', '用研 → 策略研究 / 产品'],
+      notFor: ['社恐不愿开口', '排斥大量访谈整理'],
+      reasons: ['你偏好和人打交道', '结合你的数据分析能力'] },
+
+    { id: 'erp', name: 'ERP 实施顾问', g: 'box', c: 2, industry: '软件/科技',
+      baseMatch: 62, kw: ['SQL', '沟通协调'], typeW: { digit: 2, people: 1, creative: 0, hands: 0 },
+      stable: true, salaryRank: 2, viewed: '980 人看过',
+      tags: [{ t: '入门 8-13K' }, { t: '信息管理经典', accent: true }],
+      desc: '信息管理专业的经典出路，数据库和管理都用得到。',
+      content: ['调研企业业务流程，梳理需求', '配置 ERP 系统、培训客户使用', '上线后持续运维和支持'],
+      skills: ['SQL', '数据库', '业务流程', '沟通协调'],
+      path: ['实施顾问实习', 'ERP 实施顾问', '实施顾问 → 项目经理 / 咨询'],
+      notFor: ['需要频繁出差', '不喜欢和客户打交道'],
+      reasons: ['信息管理专业的经典出路', '数据库和管理都用得到'] },
+
+    { id: 'gyl', name: '供应链管理', g: 'building', c: 3, industry: '制造',
+      baseMatch: 55, kw: ['Excel', '数据分析'], typeW: { digit: 2, people: 1, creative: 0, hands: 1 },
+      stable: true, salaryRank: 1, viewed: '860 人看过',
+      tags: [{ t: '入门 7-12K' }, { t: '行业广', gray: true }],
+      desc: '让货准时、成本可控地流转：采购、仓储、物流一条线。',
+      content: ['做需求计划，协调采购、仓储、物流', '管库存水位，控成本、保交付', '对接供应商和生产部门'],
+      skills: ['Excel', '计划能力', '物流', '数据分析'],
+      path: ['管培生 / 计划员', '供应链专员', '供应链 → 供应链经理'],
+      notFor: ['怕琐碎流程', '不想管多方协调'],
+      reasons: ['行业覆盖广，就业面大', '稳定且有晋升空间'] },
+
+    { id: 'jr', name: '金融分析师', g: 'pulse', c: 0, industry: '金融',
+      baseMatch: 59, kw: ['Excel', '数据分析'], typeW: { digit: 2, people: 0, creative: 1, hands: 0 },
+      stable: false, salaryRank: 3, viewed: '1.8k 人看过',
+      tags: [{ t: '入门 10-18K' }, { t: '门槛较高', gray: true }],
+      desc: '研究公司基本面，写出让钱更聪明的投资判断。',
+      content: ['研究公司和行业，写分析报告', '做财务模型，估算公司价值', '给出投资建议或研究观点'],
+      skills: ['财务', '建模', 'Excel', '行业研究'],
+      path: ['研究员助理', '金融分析师', '金融分析师 → 基金经理 / 投行'],
+      notFor: ['看不懂财报', '不喜欢高压长工时'],
+      reasons: ['薪资天花板高', '你的数据能力是基础'] },
+
+    { id: 'll', name: '量化研究员', g: 'cpu', c: 1, industry: '金融',
+      baseMatch: 40, kw: ['Python'], typeW: { digit: 2, people: 0, creative: 0, hands: 0 },
+      stable: false, salaryRank: 3, viewed: '620 人看过',
+      tags: [{ t: '薪资天花板高' }, { t: '门槛极高', gray: true }],
+      desc: '用模型和代码在市场中找规律，是离「高薪」最近的方向之一，也最卷学历。',
+      content: ['用 Python 回测交易策略', '研究因子、搭模型、控风险', '和开发一起把策略上线'],
+      skills: ['Python', '数学', '统计', '编程'],
+      path: ['量化实习（学历要求高）', '量化研究员', '量化研究员 → 投资经理'],
+      notFor: ['数学基础弱', '学历达不到要求（一般硕士起）'],
+      reasons: ['探索性推荐 · 挑战高、回报高'] },
+
+    { id: 'xs', name: '销售顾问', g: 'chat', c: 2, industry: '消费品',
+      baseMatch: 35, kw: ['沟通协调'], typeW: { digit: 0, people: 2, creative: 0, hands: 0 },
+      stable: true, salaryRank: 2, viewed: '1.3k 人看过',
+      tags: [{ t: '底薪+提成' }, { t: '业绩压力', gray: true }],
+      desc: '直面市场的人：把产品讲清楚，把客户谈下来。',
+      content: ['开拓客户、讲解产品、推进成交', '维护客户关系，完成业绩目标', '反馈市场声音给产品和公司'],
+      skills: ['沟通协调', '抗压', '客户敏感'],
+      path: ['销售助理', '销售顾问', '销售顾问 → 大客户 / 销售总监'],
+      notFor: ['抗拒业绩压力', '内向不想多说话'],
+      reasons: ['探索性推荐 · 你的沟通能力可复用'] },
+
+    { id: 'ss', name: '实施工程师', g: 'wrench', c: 3, industry: '软件/科技',
+      baseMatch: 33, kw: ['SQL', '沟通协调'], typeW: { digit: 2, people: 1, creative: 0, hands: 1 },
+      stable: true, salaryRank: 1, viewed: '540 人看过',
+      tags: [{ t: '入门 7-12K' }, { t: '出差较多', gray: true }],
+      desc: '软件落地的最后一公里：部署、调通、让客户真正用起来。',
+      content: ['部署软件、调试系统，保证上线', '处理客户问题和数据迁移', '写实施文档、做培训和交接'],
+      skills: ['数据库', '网络基础', 'SQL', '沟通协调'],
+      path: ['实施工程师', '实施工程师 → 项目经理'],
+      notFor: ['常出差', '不想直接对客户'],
+      reasons: ['探索性推荐 · 技术 + 沟通复合'] },
+
+    { id: 'ux', name: '交互/UI 设计', g: 'layers', c: 4, industry: '互联网',
+      baseMatch: 52, kw: ['设计', '创意'], typeW: { digit: 0, people: 1, creative: 2, hands: 0 },
+      stable: false, salaryRank: 2, viewed: '1.5k 人看过',
+      tags: [{ t: '入门 7-13K' }, { t: '重作品集', gray: true }],
+      desc: '用界面和交互解决用户问题：好看，且好用。',
+      content: ['画界面原型（交互流程）', '做视觉设计、定设计规范', '和产品开发协作，打磨体验细节'],
+      skills: ['设计', '创意', '原型工具', '审美'],
+      path: ['设计实习生', '交互/UI 设计师', '设计师 → 设计负责人'],
+      notFor: ['不擅长审美', '希望工作流程完全固定'],
+      reasons: ['你的创意和表达是长板', '互联网设计岗需求旺盛'] },
+
+    { id: 'js', name: '教师/助教', g: 'book', c: 2, industry: '教育',
+      baseMatch: 50, kw: ['沟通协调'], typeW: { digit: 1, people: 2, creative: 0, hands: 0 },
+      stable: true, salaryRank: 1, viewed: '1.2k 人看过',
+      tags: [{ t: '稳定假期' }, { t: '教育行业', accent: true }],
+      desc: '把知识讲清楚，把学生带明白，是一份有成就感的稳定工作。',
+      content: ['备课上课、设计课程环节', '带学生做练习，答疑反馈', '和教研团队迭代课程内容'],
+      skills: ['沟通', '耐心', '表达'],
+      path: ['助教', '教师', '教师 → 教研 / 管理'],
+      notFor: ['不愿意当众表达', '排斥重复授课'],
+      reasons: ['稳定有保障', '符合你的沟通优势'] },
+
+    { id: 'jk', name: '健康管理', g: 'heart', c: 3, industry: '医疗健康',
+      baseMatch: 48, kw: ['数据分析', '沟通协调'], typeW: { digit: 1, people: 2, creative: 0, hands: 0 },
+      stable: true, salaryRank: 1, viewed: '700 人看过',
+      tags: [{ t: '新兴行业' }, { t: '医疗健康', accent: true }],
+      desc: '用数据和运营把「健康」这件事服务好，是个越做越值钱的方向。',
+      content: ['做健康数据分析，出报告', '配合医生做慢病管理和随访', '运营健康科普内容、组织活动'],
+      skills: ['数据分析', '沟通协调', '科普写作'],
+      path: ['健康运营助理', '健康管理专员', '健康管理 → 医疗运营'],
+      notFor: ['对医疗话题不感兴趣', '排斥医院环境'],
+      reasons: ['探索性推荐 · 新兴且稳定'] }
+  ],
+
+  /* ---------- 科普/经验文章 ---------- */
+  articles: [
+    { id: 'a1', title: '「用户研究」到底是什么？不写代码也能进互联网', cat: '职业百科', industry: '互联网', read: 12,
+      desc: '很多人以为互联网只有程序员和运营，其实还有一个岗位，专门负责「搞清楚用户到底想要什么」。',
+      body: ['用户研究（User Research）是互联网里比较「幕后」的岗位：产品经理决定做什么，用户研究员负责搞清楚「用户真的需要什么、为什么需要」。',
+        '日常你可能要设计问卷、做一对一深访、整理用户反馈，最后把散乱的声音汇总成一份洞察报告，交给产品和设计团队。',
+        '它不要求你写代码，但要求三样东西：会问问题（深访是核心手艺）、会看数据（问卷和访谈结果要能落地）、会讲故事（把洞察讲得让团队愿意听）。',
+        '如果你喜欢观察人、喜欢琢磨「为什么大家会这么做」，这个岗位会很有成就感。'] },
+
+    { id: 'a2', title: '「数据分析师」一天的工作，长这样', cat: '职业百科', industry: '互联网', read: 8,
+      desc: '搭报表、跑数、找增长点——用 4 个真实场景拆解这个岗位的日常。',
+      body: ['早上 10 点，打开数据看板看昨天的核心指标。如果某项异常，你就成了「福尔摩斯」：是渠道投放变差了，还是产品改了逻辑？',
+        '上午可能要和业务方开会，把「最近转化为什么掉了」翻译成可执行的动作：改文案、调策略、换个活动思路。',
+        '下午基本在写 SQL 和搭报表。数据好不好看是其次，关键是「老板一眼能看懂，且愿意信任你的口径」。',
+        '它需要的硬技能是 Excel / SQL / 可视化，软技能是「把数字讲成人话」。入门门槛并不高，很多数据分析师是从运营或业务转岗的。'] },
+
+    { id: 'a3', title: '入职三个月，我讲讲「供应链」真实的样子', cat: '经验分享', industry: '制造', read: 6,
+      desc: '一位制造业管培生的口述：不是搬箱子，是一套精密的协同系统。',
+      body: ['入职前我以为供应链就是「管仓库、搬箱子」，入职后发现它是一张网：采购、仓储、物流、计划、销售，全都连在一起。',
+        '我现在的日常是排需求计划：市场要 5000 台，工厂产能不够，那就得协调什么时候补料、要不要外发、库存水位压到多少。',
+        '这份工作比想象中更「坐得住」也更有挑战——每天都在数学题和人际关系之间切换，但每个环节你都能看见自己的价值。',
+        '给学弟学妹的建议：供应链不怕你从零开始，怕的是你不想把细节做扎实。Excel 和沟通能力，是这里最值钱的两样东西。'] },
+
+    { id: 'a4', title: '学市场营销，除了销售还能做什么？', cat: '职业百科', industry: '消费品', read: 10,
+      desc: '品牌、公关、市场调研、增长黑客……一条专业背后有 7 种出路。',
+      body: ['很多同学一听到市场营销就以为是「做销售」，其实市场部的分工很细：品牌岗（管调性和形象）、公关岗（管媒体和口碑）、调研岗（管消费者洞察）、活动岗（管线下和线上 campaign）。',
+        '近年还多了两个新物种：增长黑客（Growth，用数据驱动用户增长）和内容营销（用内容和短视频做种草）。',
+        '共同点是都要求「懂人」——消费者为什么会买、为什么被某句话打动。差异化在于手段：有的靠数据，有的靠创意，有的靠资源整合。',
+        '建议先别急着定岗，去实习里把品牌、调研、内容、增长都摸一遍，找到自己最有感觉的那个方向。'] },
+
+    { id: 'a5', title: '「产品经理」需要会写代码吗？', cat: '职业百科', industry: '互联网', read: 9,
+      desc: '大多数不需要，但理解技术原理会很有帮助——一文说清能力要求。',
+      body: ['先说结论：绝大多数产品经理不需要写代码，但懂点技术原理会让你的沟通顺畅很多，也让开发更愿意配合你。',
+        '产品经理的核心工作不是「画原型」，而是「定义问题」：用户痛在哪？优先级怎么排？方案值不值得做？',
+        '硬技能上，文档（PRD）、原型（Axure/Figma）、数据分析是日常三件套；软技能上，沟通协调、逻辑思维、抗压是最重要的。',
+        '如果是应届生入门，更建议从产品助理或运营转产品起步，先把手上的项目做扎实，再谈「产品方法论」。'] },
+
+    { id: 'a6', title: '信息管理专业毕业，真的只能做「打杂」吗？', cat: '经验分享', industry: '软件/科技', read: 7,
+      desc: 'ERP 实施顾问、数据运营、项目管理……信息管理的出路比你想象的多。',
+      body: ['信息管理这个专业常常被戏称「什么都学，什么都不精」，但反过来看，它恰恰是「技术 + 管理」的复合背景。',
+        '最对口的出路之一就是 ERP 实施顾问：把企业的业务需求翻译成系统方案，上线后陪客户跑顺流程。它要求懂数据库、懂业务、会沟通——信息管理的课程几乎全覆盖。',
+        '另一条路是数据相关：数据运营、数据分析、BI 工程师。你的数据库和统计学基础，是很多纯文科背景的人要补很久的课。',
+        '第三类是和项目管理、数字化转型相关的工作：企业数字化是大趋势，而「既懂技术又懂管理」的人正是稀缺的。'] }
+  ],
+
+  /* ---------- 场景题（完全不知道路径） ---------- */
+  quiz: [
+    { q: '你更喜欢和什么打交道？',
+      options: [
+        { t: '数字、逻辑、规律', k: 'digit' },
+        { t: '人、沟通、文字', k: 'people' },
+        { t: '创意、想法、表达', k: 'creative' },
+        { t: '物件、动手、实操', k: 'hands' } ] },
+    { q: '遇到一个难题，你通常会先怎么做？',
+      options: [
+        { t: '先找数据看看规律', k: 'digit' },
+        { t: '先找人聊聊想法', k: 'people' },
+        { t: '先头脑风暴几种可能', k: 'creative' },
+        { t: '先动手试错再说', k: 'hands' } ] },
+    { q: '同学 / 朋友最常夸你什么？',
+      options: [
+        { t: '逻辑清楚、靠谱', k: 'digit' },
+        { t: '好相处、会来事', k: 'people' },
+        { t: '有想法、脑洞大', k: 'creative' },
+        { t: '动手能力强', k: 'hands' } ] },
+    { q: '空闲时间你更愿意？',
+      options: [
+        { t: '研究新工具、刷数据', k: 'digit' },
+        { t: '组织聚会、和大家聊天', k: 'people' },
+        { t: '写点东西、做点图', k: 'creative' },
+        { t: '运动、手工、做饭', k: 'hands' } ] },
+    { q: '理想工作最吸引你的是？',
+      options: [
+        { t: '清晰的成长路径和规则', k: 'digit' },
+        { t: '有趣合拍的团队氛围', k: 'people' },
+        { t: '发挥创意的空间', k: 'creative' },
+        { t: '安稳踏实的生活节奏', k: 'hands' } ] }
+  ],
+
+  /* ---------- 表单选项 ---------- */
+  majors: ['信息管理与信息系统', '计算机科学与技术', '软件工程', '市场营销', '会计学', '金融学', '新闻传播学', '工商管理', '电子商务', '心理学', '其他'],
+  degrees: ['专科', '本科', '硕士', '博士'],
+  workContents: ['数据分析', '写作', '设计', '编程', '沟通协调', '项目管理', '创意', '动手实操'],
+  workModes: ['和逻辑、数据打交道', '和人打交道', '创造性思考和表达', '清晰的规则和流程'],
+  values: ['稳定有保障', '快速成长', '高收入', '工作生活平衡'],
+  locations: ['不限（一线/新一线）', '北京', '上海', '深圳', '杭州', '广州', '成都', '其他']
+};
+
+</script>
+<script>
+/* ============================================================
+   甲方青年offer · 可交互 Demo 应用层（v3.0 视觉）
+   纯前端 SPA（file:// 可直接打开），模拟微信小程序完整交互闭环
+   ============================================================ */
+(function () {
+  'use strict';
+
+  const KEY = 'jyqn_demo_state_v1';
+  const $ = sel => document.querySelector(sel);
+
+  /* ================= 默认状态 ================= */
+  const DEFAULTS = {
+    profile: {
+      nickname: '择业探索者', school: '某大学', major: '信息管理与信息系统',
+      degree: '本科', gradYear: '2026', location: '不限（一线/新一线）',
+      workMode: '和人打交道', values: '快速成长', notAccept: '',
+      skills: ['Python', 'SQL', 'Excel', '数据分析', '写作', '沟通协调']
+    },
+    careerTags: ['喜欢和人打交道', '偏爱互联网行业', '可接受出差', '偏好双休'],
+    collections: {},        // directionId -> interested | later | rejected
+    feedbackCount: 0,
+    assessed: false,        // 是否完成过测评
+    assessment: { path: null, fields: {}, answers: null, quizIndex: 0 },
+    cardflow: null,         // { list:[{id,match}], index }
+    lastResults: null,
+    industry: '全部',
+    exploreCat: '全部',
+    searchQ: '', searchTab: '全部',
+    ui: { editPersonal: false }
+  };
+
+  let state = loadState();
+
+  function loadState() {
+    const def = JSON.parse(JSON.stringify(DEFAULTS));
+    try {
+      const s = JSON.parse(localStorage.getItem(KEY));
+      if (!s) return def;
+      return {
+        ...def,
+        ...s,
+        profile: { ...def.profile, ...(s.profile || {}) },
+        assessment: { ...def.assessment, ...(s.assessment || {}) },
+        ui: { ...def.ui, ...(s.ui || {}) }
+      };
+    } catch (e) { return def; }
+  }
+  function saveState() { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} }
+
+  /* ================= 工具 ================= */
+  const dirById = id => DB.directions.find(d => d.id === id);
+  const artById = id => DB.articles.find(a => a.id === id);
+
+  function matchOf(id) {
+    if (state.lastResults) {
+      const f = state.lastResults.find(x => x.id === id);
+      if (f) return f.match;
+    }
+    const d = dirById(id);
+    return d ? d.baseMatch : 50;
+  }
+  function countBy(st) {
+    return Object.values(state.collections).filter(v => v === st).length;
+  }
+  const collLabel = st => st === 'interested' ? '感兴趣' : st === 'later' ? '稍后再看' : st === 'rejected' ? '暂不考虑' : '';
+
+  /* ================= v3.0 视觉辅助：线描图标 + 星级 ================= */
+  const GLYPHS = {
+    chart: '<path d="M5 19v-8M10 19V6M15 19v-9M20 19V4"/><path d="M3 19h18"/>',
+    trend: '<path d="M3 17l6-6 4 4 8-8"/><path d="M16 7h5v5"/>',
+    pen: '<path d="M12 19l7-7-3-3-7 7-1 4z"/><path d="M17 5l-3 3"/>',
+    megaphone: '<path d="M3 11v2a1 1 0 0 0 1 1h3l5 4V6L7 10H4a1 1 0 0 0-1 1z"/><path d="M16 8a5 5 0 0 1 0 8"/>',
+    target: '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/>',
+    search: '<circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/>',
+    box: '<path d="M21 8l-9-5-9 5v8l9 5 9-5z"/><path d="M3 8l9 5 9-5"/><path d="M12 13v8"/>',
+    building: '<path d="M3 21h18"/><path d="M5 21V7l7-4v18"/><path d="M12 21V11l7-3v13"/><path d="M8 10h1M8 14h1M8 18h1"/>',
+    pulse: '<path d="M2 12h4l3-8 4 16 3-8h6"/>',
+    cpu: '<rect x="6" y="6" width="12" height="12" rx="1"/><rect x="10" y="10" width="4" height="4"/><path d="M9 2v2M15 2v2M9 20v2M15 20v2M2 9h2M2 15h2M20 9h2M20 15h2"/>',
+    chat: '<path d="M21 15a2 2 0 0 1-2 2H8l-5 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>',
+    wrench: '<path d="M14.7 6.3a4.5 4.5 0 0 0-6.1 6.1L3 18l3 3 5.6-5.6a4.5 4.5 0 0 0 6.1-6.1l-2.9 2.9-3-3z"/>',
+    layers: '<path d="M12 2L2 7l10 5 10-5z"/><path d="M2 12l10 5 10-5"/><path d="M2 17l10 5 10-5"/>',
+    book: '<path d="M4 5a2 2 0 0 1 2-2h14v18H6a2 2 0 0 0-2 2z"/><path d="M4 5v16"/>',
+    heart: '<path d="M12 21s-8-4.5-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 6.5-8 11-8 11z"/>',
+    clock: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+    xmark: '<path d="M6 6l12 12M18 6L6 18"/>',
+    star: '<path d="M12 3l2.7 5.5 6 .9-4.4 4.2 1 6-5.3-2.8-5.3 2.8 1-6L3.3 9.4l6-.9z"/>',
+    person: '<circle cx="12" cy="8" r="4"/><path d="M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1"/>'
+  };
+  function gicon(key, size, color) {
+    const st = color || '#3B4F6B';
+    return `<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="${st}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">${GLYPHS[key] || GLYPHS.search}</svg>`;
+  }
+  function starRow(m) {
+    const n = Math.max(1, Math.min(5, Math.round(m / 20)));
+    return `<span class="stars">${'★'.repeat(n)}<span class="off">${'☆'.repeat(5 - n)}</span></span>`;
+  }
+
+  /* ================= 路由与导航 ================= */
+  const stack = [];
+  const parseRoute = () => {
+    const h = (location.hash || '#/home').replace(/^#\/?/, '');
+    const p = h.split('/').filter(Boolean);
+    return { name: p[0] || 'home', arg: decodeURIComponent(p[1] || ''), arg2: decodeURIComponent(p[2] || '') };
+  };
+  function go(r) { location.hash = r; }
+  function back() { location.hash = stack.pop() || '#/home'; }
+  function goTab(t) { stack.length = 0; location.hash = '#/' + t; }
+  function pushCur() { stack.push(location.hash || '#/home'); }
+  // 进入子页面：记录来源，保证返回箭头能回到上一屏
+  function goPush(r) { pushCur(); go(r); }
+
+  function render() {
+    const r = parseRoute();
+    const tabNames = ['home', 'explore', 'mine'];
+    const handler = routes[r.name];
+    if (!handler) { location.hash = '#/home'; return; }
+    const page = $('#page');
+    page.scrollTop = 0;
+    page.classList.remove('switching'); void page.offsetWidth; page.classList.add('switching');
+    handler(r);
+    // Tab 栏：仅 Tab 页显示
+    const tabEl = $('#tabbar');
+    if (tabNames.includes(r.name)) {
+      tabEl.innerHTML = tabHTML(r.name);
+      tabEl.style.display = '';
+    } else {
+      tabEl.innerHTML = '';
+      tabEl.style.display = 'none';
+    }
+  }
+
+  /* ================= UI 基础片段 ================= */
+  const ICON_BACK = '<svg class="nav-back" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" onclick="back()"><path d="m15 18-6-6 6-6"/></svg>';
+
+  function navBack(title, right) {
+    $('#nav').innerHTML =
+      `<div class="nav-bar">${ICON_BACK}<div class="nav-title">${title}</div>${right ? `<div class="nav-right">${right}</div>` : ''}</div>`;
+  }
+  function homeNav() {
+    $('#nav').innerHTML =
+      `<div class="nav-bar nav-home">
+        <div class="nav-brand">甲方青年offer</div>
+        <div class="search-pill" onclick="goPush('/search')">${gicon('search', 14, 'currentColor')}<span>搜索职业 / 内容</span></div>
+      </div>`;
+  }
+
+  function tabHTML(active) {
+    const defs = { home: ['home', '首页'], explore: ['explore', '探索'], mine: ['mine', '我的'] };
+    const items = Object.values(defs).map(([k, l]) =>
+      `<div class="tab-item ${active === k ? 'active' : ''}" onclick="goTab('${k}')"><span>${l}</span></div>`
+    ).join('');
+    return `<div class="tab-bar">${items}</div>`;
+  }
+
+  function setSub(html) { $('#subbar').innerHTML = html || ''; }
+
+  /* Toast */
+  let toastTimer;
+  function toast(msg) {
+    const t = $('#toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => t.classList.remove('show'), 1900);
+  }
+
+  /* ================= 全局交互动作 ================= */
+  window.go = go;
+  window.goPush = goPush;
+  window.back = back;
+  window.goTab = goTab;
+  window.openDir = id => { pushCur(); go('/direction/' + id); };
+  window.openArt = id => { pushCur(); go('/article/' + id); };
+  window.setIndustry = i => { state.industry = i; saveState(); render(); };
+  window.setExploreCat = c => { state.exploreCat = c; saveState(); render(); };
+  window.setSearchTab = t => { state.searchTab = t; saveState(); refreshSearch(); };
+
+  window.startAssessment = function (path) {
+    state.assessment = { path: path, fields: {}, answers: path === 'quiz' ? {} : null, quizIndex: 0 };
+    state.cardflow = null; state.lastResults = null;
+    saveState();
+    goPush(path === 'quiz' ? '/quiz' : '/form/' + path);
+  };
+  window.setField = function (k, v) { state.assessment.fields[k] = v; saveState(); };
+  window.pickChip = function (group, key, multi) {
+    const f = state.assessment.fields;
+    if (!f[group]) f[group] = [];
+    if (multi) {
+      const i = f[group].indexOf(key);
+      if (i >= 0) f[group].splice(i, 1); else f[group].push(key);
+    } else {
+      f[group] = f[group] === key ? '' : key;
+    }
+    saveState(); render();
+  };
+  window.submitForm = function (path) {
+    const f = state.assessment.fields;
+    const req = path === 'targeted' ? ['major', 'degree', 'industries', 'workMode', 'values'] : ['workMode', 'values'];
+    const bad = req.some(r => !f[r] || (Array.isArray(f[r]) && f[r].length === 0));
+    if (bad) { toast('请完成必填项后再开始匹配'); return; }
+    state.cardflow = { list: computeResults(), index: 0 };
+    saveState();
+    go('/cardflow');
+  };
+
+  /* Quiz */
+  window.quizPick = function (idx, k) {
+    const q = state.assessment;
+    q.answers = q.answers || {};
+    q.answers[idx] = k;
+    if (idx < DB.quiz.length - 1) { q.quizIndex = idx + 1; saveState(); render(); }
+    else finishQuiz();
+  };
+  window.quizSkip = function () {
+    const q = state.assessment;
+    if (q.quizIndex < DB.quiz.length - 1) { q.quizIndex++; saveState(); render(); }
+    else finishQuiz();
+  };
+  window.quizJump = function (i) { state.assessment.quizIndex = i; saveState(); render(); };
+  function finishQuiz() {
+    state.cardflow = { list: computeResults(), index: 0 };
+    saveState();
+    go('/cardflow');
+  }
+
+  /* 卡片流反馈 → 推进 */
+  window.cfFeedback = function (id, st) {
+    state.collections[id] = st;
+    state.feedbackCount++;
+    state.cardflow.index++;
+    saveState();
+    if (state.cardflow.index >= state.cardflow.list.length) {
+      state.assessed = true;
+      state.lastResults = state.cardflow.list;
+      saveState();
+      toast('测评完成，已为你生成结果');
+      setTimeout(() => go('/result'), 500);
+    } else {
+      render();
+    }
+  };
+
+  /* 非卡片流三态设置（toggle） */
+  window.setColl = function (id, st) {
+    const cur = state.collections[id];
+    if (cur === st) delete state.collections[id]; else state.collections[id] = st;
+    state.feedbackCount++;
+    saveState();
+    toast(cur === st ? '已取消标记' : '已标记为「' + collLabel(st) + '」');
+    render();
+  };
+  window.removeColl = function (id) {
+    delete state.collections[id];
+    state.feedbackCount++;
+    saveState();
+    toast('已移除');
+    render();
+  };
+
+  /* 择业画像标签纠正 */
+  window.removeTag = function (i) {
+    state.careerTags.splice(i, 1);
+    saveState();
+    toast('已纠正，推荐已更新');
+    render();
+  };
+
+  /* 个人画像编辑 */
+  window.toggleEdit = function () { state.ui.editPersonal = !state.ui.editPersonal; saveState(); render(); };
+  window.pickPSkill = function (s) {
+    const p = state.profile;
+    const i = p.skills.indexOf(s);
+    if (i >= 0) p.skills.splice(i, 1); else p.skills.push(s);
+    saveState(); render();
+  };
+  window.setPField = function (k, v) { state.profile[k] = v; saveState(); render(); };
+  window.saveProfile = function () {
+    const na = $('#pNotAccept');
+    if (na) state.profile.notAccept = na.value;
+    state.ui.editPersonal = false;
+    if (state.assessed && state.cardflow) state.lastResults = computeResults();
+    saveState();
+    toast('已保存，推荐已同步更新');
+    render();
+  };
+  window.resetDemo = function () {
+    if (confirm('清空 demo 全部数据，重新开始？')) {
+      localStorage.removeItem(KEY);
+      stack.length = 0;
+      location.hash = '#/home';
+      location.reload();
+    }
+  };
+
+  /* ================= 匹配计算 ================= */
+  function computeResults() {
+    const f = state.assessment.fields || {};
+    const ans = state.assessment.answers || {};
+    const prof = state.profile;
+    return DB.directions.map(d => {
+      let m = d.baseMatch;
+      const hits = prof.skills.filter(s => d.kw.includes(s));
+      m += Math.min(hits.length * 5, 10);
+      if (Array.isArray(f.industries) && f.industries.includes(d.industry)) m += 6;
+      if (f.workMode) {
+        if (f.workMode === '和人打交道' && d.typeW.people >= 2) m += 4;
+        else if (f.workMode === '和逻辑、数据打交道' && d.typeW.digit >= 2) m += 4;
+        else if (f.workMode === '创造性思考和表达' && d.typeW.creative >= 2) m += 4;
+      }
+      if (f.values === '高收入' && d.salaryRank >= 2) m += 3;
+      if (f.values === '稳定有保障' && d.stable) m += 3;
+      Object.values(ans).forEach(k => { if (d.typeW[k]) m += 3; });
+      return { id: d.id, match: Math.max(48, Math.min(96, Math.round(m))) };
+    }).sort((a, b) => b.match - a.match);
+  }
+
+  /* ================= 页面渲染 ================= */
+  const routes = {
+    home: renderHome,
+    explore: renderExplore,
+    mine: renderMine,
+    direction: renderDirection,
+    article: renderArticle,
+    search: renderSearch,
+    assessment: renderAssessment,
+    form: renderForm,
+    quiz: renderQuiz,
+    cardflow: renderCardflow,
+    result: renderResult,
+    profile: r => (r.arg === 'career' ? renderCareer() : renderPersonal()),
+    interested: () => renderFav('interested'),
+    rejected: () => renderFav('rejected'),
+    later: () => renderFav('later')
+  };
+
+  /* ---------- 首页 ---------- */
+  function renderHome() {
+    homeNav();
+    const assessed = state.assessed;
+    let top;
+    if (!assessed) {
+      top = `<div class="hero"><div class="hero-title">不知道自己适合什么工作？</div><div class="hero-sub">3 分钟测评，找到你的职业方向</div><div class="hero-btn" onclick="goPush('/assessment')">开始测评 →</div></div>`;
+    } else {
+      const topIds = (state.lastResults || []).slice(0, 3).map(x => x.id);
+      const names = topIds.map(id => dirById(id).name).join(' · ');
+      top = `<div class="summary-card"><div class="sc-head"><span class="sc-title">我的择业画像</span><span class="sc-link" onclick="goPush('/profile/career')">查看 ›</span></div><div class="sc-kw"><b>${names || '数据分析 · 运营'}</b> · ${state.profile.workMode}</div></div>`;
+    }
+    const tabs = `<div class="industry-tabs">${DB.industries.map(x => `<div class="industry-tab ${state.industry === x ? 'active' : ''}" onclick="setIndustry('${x}')">${x}</div>`).join('')}</div>`;
+
+    const feed = DB.directions.filter(d => state.industry === '全部' || d.industry === state.industry);
+    const cols = [[], []];
+    feed.forEach((d, i) => cols[i % 2].push(d));
+    const dirCard = d => {
+      const st = state.collections[d.id];
+      const m = matchOf(d.id);
+      return `<div class="feed-card" onclick="openDir('${d.id}')">
+        <div class="fc-cover c${d.c}">${gicon(d.g, 30)}</div>
+        <div class="fc-body">
+          <div class="fc-name">${d.name}${st === 'interested' ? ' <span style="color:#C47B6B;">★</span>' : ''}</div>
+          <div class="fc-sub">${d.industry} · ${d.viewed}</div>
+          <div class="fc-foot"><span class="tag">${d.skills.slice(0, 2).join(' / ')}</span>${starRow(m)}</div>
+        </div>
+      </div>`;
+    };
+    let colA = cols[0].map(dirCard).join('');
+    let colB = cols[1].map(dirCard).join('');
+    if (!assessed) {
+      colB = `<div class="guide-card"><div><div class="gc-title">不确定适合什么？</div><div class="gc-desc">3 分钟测评帮你发现方向</div></div><div class="gc-btn" onclick="goPush('/assessment')">去测评</div></div>` + colB;
+    } else {
+      const a = DB.articles[0];
+      colA += `<div class="know-card" onclick="openArt('${a.id}')"><div class="kc-title">${a.title}</div><div class="kc-desc">${a.desc}</div><div class="kc-foot"><span class="tag tag-accent">科普</span><span class="kc-meta">${a.read} 分钟阅读</span></div></div>`;
+    }
+    $('#page').innerHTML = top + tabs + `<div class="waterfall"><div class="w-col">${colA}</div><div class="w-col">${colB}</div></div>`;
+    setSub('');
+  }
+
+  /* ---------- 探索 ---------- */
+  function renderExplore() {
+    $('#nav').innerHTML = `<div class="nav-bar"><div class="nav-title">探索</div><div class="nav-right" onclick="goPush('/search')">搜索</div></div>`;
+    const cats = ['全部', '职业百科', '经验分享'];
+    const tabs = `<div class="industry-tabs">${cats.map(c => `<div class="industry-tab ${state.exploreCat === c ? 'active' : ''}" onclick="setExploreCat('${c}')">${c}</div>`).join('')}</div>`;
+    const list = DB.articles.filter(a => state.exploreCat === '全部' || a.cat === state.exploreCat);
+    const cards = list.map(a => `<div class="know-card" onclick="openArt('${a.id}')">
+      <div class="kc-title">${a.title}</div><div class="kc-desc">${a.desc}</div>
+      <div class="kc-foot"><span class="tag">${a.cat}</span><span class="tag tag-accent">${a.industry}</span><span class="kc-meta">${a.read} 分钟阅读</span></div>
+    </div>`).join('');
+    const empty = `<div class="empty"><div class="empty-icon">${gicon('book', 40)}</div><div class="empty-title">这里还没有内容</div></div>`;
+    $('#page').innerHTML = tabs + `<div class="mt-16">${cards || empty}</div>`;
+    setSub('');
+  }
+
+  /* ---------- 我的（BentoUI） ---------- */
+  function renderMine() {
+    $('#nav').innerHTML = `<div class="nav-bar"><div class="nav-title">我的</div></div>`;
+    const p = state.profile;
+    const guide = state.assessed ? '' : `<div class="guide-card" style="margin-top:12px;"><div><div class="gc-title">完善你的择业画像</div><div class="gc-desc">告诉我们你的专业、技能和兴趣，推荐会更准</div></div><div class="gc-btn" onclick="goPush('/assessment')">去完善</div></div>`;
+    $('#page').innerHTML = `
+      <div class="bento" style="margin-top:12px;">
+        <div class="bento-head">
+          <div class="avatar">${p.nickname.charAt(0)}</div>
+          <div class="bento-main">
+            <div class="bento-title">${p.nickname}</div>
+            <div class="bento-sub">${p.major} · ${p.degree} · ${p.gradYear}届</div>
+          </div>
+        </div>
+        <div class="bento-tags">
+          <span class="tag ${state.assessed ? 'tag-green' : 'tag-gray'}">${state.assessed ? '择业画像 已生成' : '择业画像 待完善'}</span>
+          <span class="tag tag-accent">${p.workMode}</span>
+        </div>
+        <div class="bento-cta" onclick="goPush('/profile/personal')">${state.assessed ? '更新个人画像 ›' : '去完善画像 ›'}</div>
+      </div>
+      ${guide}
+      <div class="col3">
+        <div class="c3-card" onclick="goPush('/interested')"><div class="c3-icon">${gicon('heart', 24)}</div><div class="c3-title">感兴趣</div><div class="c3-count">${countBy('interested')} 个</div></div>
+        <div class="c3-card" onclick="goPush('/later')"><div class="c3-icon">${gicon('clock', 24)}</div><div class="c3-title">稍后再看</div><div class="c3-count">${countBy('later')} 个</div></div>
+        <div class="c3-card" onclick="goPush('/rejected')"><div class="c3-icon">${gicon('xmark', 24)}</div><div class="c3-title">暂不考虑</div><div class="c3-count">${countBy('rejected')} 个</div></div>
+      </div>
+      <div class="section-title">我的画像</div>
+      <div class="profile-entry">
+        <div class="pe-row" onclick="goPush('/profile/personal')"><div class="pe-icon c0">${gicon('person', 20)}</div><div><div class="pe-title">个人画像</div><div class="pe-sub">${p.major} · ${p.degree} · 期望${p.location.split('（')[0]}</div></div><svg class="pe-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></div>
+        <div class="pe-row" onclick="goPush('/profile/career')"><div class="pe-icon c1">${gicon('target', 20)}</div><div><div class="pe-title">择业画像</div><div class="pe-sub">偏好：${state.careerTags.slice(0, 2).join(' · ') || '待完善'}</div></div><svg class="pe-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></div>
+      </div>
+      <div class="foot-note">把工作选择权，握在自己手里</div>
+    `;
+    setSub('');
+  }
+
+  /* ---------- 职业详情 ---------- */
+  function renderDirection(r) {
+    const d = dirById(r.arg);
+    if (!d) { back(); return; }
+    navBack('职业详情', state.collections[d.id] ? '已' + collLabel(state.collections[d.id]) : '');
+    const st = state.collections[d.id];
+    const m = matchOf(d.id);
+    const fbCls = { interested: 'active-interest', later: 'active-later', rejected: 'active-reject' };
+    $('#page').innerHTML = `
+      <div class="detail-hero">
+        <div class="dh-name">${d.name}</div>
+        <div class="dh-ind">${d.industry} · ${d.viewed}</div>
+        <div class="stars" style="margin-top:10px;">${starRow(m)}</div>
+        <div class="dh-desc">${d.desc}</div>
+        <div class="dh-tags">${d.tags.map(t => `<span class="dh-tag">${t.t}</span>`).join('')}</div>
+      </div>
+      <div class="card"><div class="card-title"><span class="title-bar"></span>工作内容</div>${d.content.map(x => `<div class="info-row" style="align-items:flex-start;"><span class="ir-label" style="width:22px;">·</span><span class="ir-value">${x}</span></div>`).join('')}</div>
+      <div class="card"><div class="card-title"><span class="title-bar"></span>需要技能</div><div class="tag-row">${d.skills.map(s => `<span class="tag ${state.profile.skills.includes(s) ? 'tag-green' : ''}">${s}</span>`).join('')}</div><div style="font-size:11px;color:var(--color-text-3);margin-top:8px;">薄荷灰 = 你已掌握</div></div>
+      <div class="card"><div class="card-title"><span class="title-bar"></span>薪资与发展</div>${d.path.map((x, i) => `<div class="info-row"><span class="ir-label">${['起点', '下一步', '更远'][i] || '阶段'}</span><span class="ir-value">${x}</span></div>`).join('')}</div>
+      <div class="card"><div class="card-title"><span class="title-bar"></span>可能不适合你</div>${d.notFor.map(x => `<div class="info-row" style="align-items:flex-start;"><span class="ir-label" style="width:22px;">·</span><span class="ir-value">${x}</span></div>`).join('')}</div>
+      <div style="padding:0 20px 12px;font-size:12px;color:var(--color-text-3);line-height:1.7;">相关内容 · 探索 ${d.industry}：${DB.articles.filter(a => a.industry === d.industry).slice(0, 2).map(a => `<span class="text-2" style="color:var(--color-primary);cursor:pointer;" onclick="openArt('${a.id}')">《${a.title}》</span>`).join(' · ')}</div>
+    `;
+    setSub(`<div class="bottom-bar">
+      <div style="padding:0 0 10px;text-align:center;font-size:12px;color:var(--color-text-3);">${st ? '当前标记：' + collLabel(st) + '（再点一次可取消）' : '这个方向你感觉如何？'}</div>
+      <div class="fb-group">
+        <div class="fb-btn fb-btn-interest ${st === 'interested' ? fbCls.interested : ''}" onclick="setColl('${d.id}','interested')">感兴趣</div>
+        <div class="fb-btn fb-btn-later ${st === 'later' ? fbCls.later : ''}" onclick="setColl('${d.id}','later')">稍后再看</div>
+        <div class="fb-btn fb-btn-reject ${st === 'rejected' ? fbCls.reject : ''}" onclick="setColl('${d.id}','rejected')">暂不考虑</div>
+      </div>
+    </div>`);
+  }
+
+  /* ---------- 文章详情 ---------- */
+  function renderArticle(r) {
+    const a = artById(r.arg);
+    if (!a) { back(); return; }
+    navBack('文章详情');
+    const related = DB.articles.filter(x => x.id !== a.id && (x.industry === a.industry || x.cat === a.cat)).slice(0, 2);
+    $('#page').innerHTML = `
+      <div style="padding:20px 20px 12px;background:var(--color-surface);">
+        <div style="display:flex;gap:6px;margin-bottom:10px;"><span class="tag">${a.cat}</span><span class="tag tag-accent">${a.industry}</span></div>
+        <div style="font-size:22px;font-weight:600;line-height:1.5;color:var(--color-text);">${a.title}</div>
+        <div style="font-size:12px;color:var(--color-text-3);margin-top:10px;">甲方青年offer · ${a.read} 分钟阅读</div>
+      </div>
+      <div style="padding:16px 20px;">
+        ${a.body.map(p => `<p style="font-size:15px;line-height:1.85;color:var(--color-text);margin-bottom:14px;">${p}</p>`).join('')}
+      </div>
+      ${related.length ? `<div class="section-title">相关阅读</div>` + related.map(x => `<div class="know-card" onclick="openArt('${x.id}')"><div class="kc-title">${x.title}</div><div class="kc-foot"><span class="tag">${x.cat}</span><span class="kc-meta">${x.read} 分钟阅读</span></div></div>`).join('') : ''}
+    `;
+    setSub('');
+  }
+
+  /* ---------- 搜索 ---------- */
+  function renderSearch() {
+    $('#nav').innerHTML = `<div class="nav-bar"><div class="nav-title">搜索</div><div class="nav-right" onclick="back()">取消</div></div>`;
+    const tabs = ['全部', '职业', '文章'];
+    $('#page').innerHTML = `
+      <div class="search-input-row">
+        <div class="si-box">${gicon('search', 14, 'currentColor')}<input id="si" placeholder="搜索职业 / 文章" value="${escapeHtml(state.searchQ)}" oninput="doSearch(this.value)" /></div>
+        <div class="si-cancel" onclick="back()">取消</div>
+      </div>
+      <div class="industry-tabs">${tabs.map(t => `<div class="industry-tab ${state.searchTab === t ? 'active' : ''}" onclick="setSearchTab('${t}')">${t}</div>`).join('')}</div>
+      <div id="searchResults"></div>
+    `;
+    refreshSearch();
+    setTimeout(() => { const i = $('#si'); if (i) i.focus(); }, 30);
+  }
+  window.doSearch = function (v) {
+    state.searchQ = v; saveState(); refreshSearch();
+  };
+  function refreshSearch() {
+    const box = $('#searchResults');
+    if (!box) return;
+    box.innerHTML = searchResultsHTML();
+  }
+  function searchResultsHTML() {
+    const q = (state.searchQ || '').trim().toLowerCase();
+    const tab = state.searchTab;
+    if (!q) {
+      return `<div class="empty" style="padding:46px 30px;"><div class="empty-icon">${gicon('search', 40)}</div><div class="empty-title">搜点什么？</div><div class="empty-desc">可以搜职业名称、技能关键词，或科普文章标题</div></div>`;
+    }
+    let out = '';
+    if (tab !== '文章') {
+      const ds = DB.directions.filter(d => d.name.toLowerCase().includes(q) || d.industry.includes(q) || d.desc.includes(q) || d.kw.some(k => k.toLowerCase().includes(q)));
+      out += ds.map(d => `<div class="list-item" onclick="openDir('${d.id}')">
+        <div class="li-cover c${d.c}">${gicon(d.g, 20)}</div>
+        <div class="li-main"><div class="li-title">${d.name}</div><div class="li-sub">${d.industry} · ${d.desc.length > 22 ? d.desc.slice(0, 22) + '…' : d.desc}</div></div>
+        <div class="li-meta">${starRow(matchOf(d.id))}</div>
+        <svg class="li-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+      </div>`).join('');
+    }
+    if (tab !== '职业') {
+      const as = DB.articles.filter(a => a.title.toLowerCase().includes(q) || a.cat.includes(q) || a.industry.includes(q) || a.desc.includes(q));
+      out += as.map(a => `<div class="know-card" onclick="openArt('${a.id}')"><div class="kc-title">${a.title}</div><div class="kc-desc">${a.desc}</div><div class="kc-foot"><span class="tag">${a.cat}</span><span class="tag tag-accent">${a.industry}</span><span class="kc-meta">${a.read} 分钟阅读</span></div></div>`).join('');
+    }
+    if (!out) return `<div class="empty"><div class="empty-icon">${gicon('search', 40)}</div><div class="empty-title">没有找到相关结果</div><div class="empty-desc">试试搜「数据分析」「写作」或「运营」</div></div>`;
+    return out;
+  }
+
+  /* ---------- 测评入口 ---------- */
+  function renderAssessment() {
+    navBack('发现你的方向');
+    let last = '';
+    if (state.assessed && state.lastResults) {
+      const topNames = state.lastResults.slice(0, 3).map(x => dirById(x.id).name);
+      last = `<div class="card" style="margin-top:12px;cursor:pointer;" onclick="goPush('/result')">
+        <div class="card-title"><span class="title-bar"></span>上次测评结果<span class="t-extra">查看完整结果 ›</span></div>
+        <div class="tag-row">${topNames.map(n => `<span class="tag tag-accent">${n}</span>`).join('')}</div>
+      </div>`;
+    }
+    const paths = [
+      { p: 'targeted', g: 'target', c: 0, title: '我有目标', dur: '约 2 分钟', desc: '已经大概知道想做什么方向，填专业、技能和偏好，验证你的选择。' },
+      { p: 'exploring', g: 'search', c: 1, title: '我有偏好', dur: '约 1.5 分钟', desc: '说不清具体做什么，但知道自己喜欢什么，我来帮你推荐。' },
+      { p: 'quiz', g: 'star', c: 2, title: '我完全不知道', dur: '约 3 分钟 · 5 个问题', desc: '对职业世界还很陌生？回答几个简单问题，从零帮你找方向。' }
+    ];
+    $('#page').innerHTML = last + paths.map(x => `
+      <div class="path-card" style="cursor:pointer;" onclick="startAssessment('${x.p}')">
+        <div class="pc-head"><div class="pc-icon c${x.c}">${gicon(x.g, 22)}</div>
+          <div><div class="pc-title">${x.title}</div><div class="pc-dur">${x.dur}</div></div></div>
+        <div class="pc-desc">${x.desc}</div>
+        <div class="pc-foot"><span class="pc-start">开始测评 →</span></div>
+      </div>`).join('');
+    setSub('');
+  }
+
+  /* ---------- 表单 ---------- */
+  function renderForm(r) {
+    const path = r.arg === 'exploring' ? 'exploring' : 'targeted';
+    navBack(path === 'targeted' ? '我有目标' : '我有偏好');
+    const f = state.assessment.fields;
+    const steps = `<div class="steps">
+      <div class="step active"><span class="step-dot"></span><span class="step-label">填写信息</span></div>
+      <div class="step"><span class="step-dot"></span><span class="step-label">卡片推荐</span></div>
+      <div class="step"><span class="step-dot"></span><span class="step-label">查看结果</span></div>
+    </div>`;
+    const radio = (group, list) => list.map(x => `<span class="option-chip single ${f[group] === x ? 'selected' : ''}" onclick="pickChip('${group}','${x}',false)"><span class="dot"></span>${x}</span>`).join('');
+    const chips = (group, list) => list.map(x => `<span class="option-chip ${(f[group] || []).includes(x) ? 'selected' : ''}" onclick="pickChip('${group}','${x}',true)">${x}</span>`).join('');
+
+    let body;
+    if (path === 'targeted') {
+      body = `
+        <div class="form-group"><div class="form-label">你的专业 <span class="req">*</span></div>
+          <div class="form-field"><select class="ff-select" onchange="setField('major',this.value)">
+            <option value="">请选择专业</option>${DB.majors.map(m => `<option ${f.major === m ? 'selected' : ''}>${m}</option>`).join('')}
+          </select><span class="ff-right">⌄</span></div>
+        </div>
+        <div class="form-group"><div class="form-label">最高学历 <span class="req">*</span></div>
+          <div class="form-field"><select class="ff-select" onchange="setField('degree',this.value)">
+            <option value="">请选择学历</option>${DB.degrees.map(m => `<option ${f.degree === m ? 'selected' : ''}>${m}</option>`).join('')}
+          </select><span class="ff-right">⌄</span></div>
+        </div>
+        <div class="form-group"><div class="form-label">已有技能</div>
+          <div class="option-grid">${chips('skills', ['Python', 'SQL', 'Excel', '数据分析', '写作', '沟通协调', '海报设计', '编程', '项目管理'])}</div>
+        </div>
+        <div class="form-group"><div class="form-label">期望行业 <span class="req">*</span></div>
+          <div class="option-grid">${chips('industries', DB.industries.filter(x => x !== '全部'))}</div>
+        </div>
+        <div class="form-group"><div class="form-label">工作偏好 <span class="req">*</span></div>
+          <div class="option-grid">${radio('workMode', DB.workModes)}</div>
+        </div>
+        <div class="form-group"><div class="form-label">工作价值观 <span class="req">*</span></div>
+          <div class="option-grid">${radio('values', DB.values)}</div>
+        </div>
+        <div class="form-group"><div class="form-label">不能接受的事（选填）</div>
+          <div class="form-field"><input class="ff-select" placeholder="如：不想频繁出差" value="${escapeHtml(f.notAccept || '')}" oninput="setField('notAccept',this.value)" /></div>
+        </div>`;
+    } else {
+      body = `
+        <div class="form-group"><div class="form-label">你对哪些工作内容感兴趣？ <span class="req">*</span></div>
+          <div class="option-grid">${chips('contents', DB.workContents)}</div>
+        </div>
+        <div class="form-group"><div class="form-label">你喜欢怎样的工作方式？ <span class="req">*</span></div>
+          <div class="option-grid">${radio('workMode', DB.workModes)}</div>
+        </div>
+        <div class="form-group"><div class="form-label">工作对你最重要的是？ <span class="req">*</span></div>
+          <div class="option-grid">${radio('values', DB.values)}</div>
+        </div>`;
+    }
+    $('#page').innerHTML = steps + body + `<div style="text-align:center;font-size:12px;color:var(--color-text-3);padding:16px 32px 24px;line-height:1.6;">你的信息仅用于匹配推荐，不会对外展示</div>`;
+    setSub(`<div class="bottom-bar"><div class="btn btn-primary" onclick="submitForm('${path}')">开始匹配</div></div>`);
+  }
+
+  /* ---------- 场景题 ---------- */
+  function renderQuiz() {
+    navBack('发现你的方向');
+    const q = state.assessment;
+    const qi = Math.min(q.quizIndex || 0, DB.quiz.length - 1);
+    const quiz = DB.quiz[qi];
+    const answered = q.answers || {};
+    const isLast = qi === DB.quiz.length - 1;
+    const dots = Array.from({ length: DB.quiz.length }, (_, i) => `<span class="qp-dot ${i <= qi ? 'on' : ''}"></span>`).join('');
+    $('#page').innerHTML = `
+      <div class="quiz-progress">${dots}<span class="qp-text">第 ${qi + 1} / ${DB.quiz.length} 题</span></div>
+      <div class="card" style="margin-top:12px;">
+        <div class="quiz-q">${quiz.q}</div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          ${quiz.options.map((o, i) => `<div class="quiz-opt ${answered[qi] === o.k ? 'selected' : ''}" onclick="quizPick(${qi},'${o.k}')">${o.t}</div>`).join('')}
+        </div>
+        <div style="text-align:center;margin-top:16px;font-size:12px;color:var(--color-text-3);cursor:pointer;" onclick="quizSkip()">不确定？可以跳过</div>
+      </div>
+      <div style="padding:0 20px;"><div style="font-size:12px;color:var(--color-text-3);margin-bottom:8px;">已答题目（点击可修改）</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          ${DB.quiz.map((_, i) => answered[i] ? `<span class="tag tag-green" style="padding:6px 12px;cursor:pointer;" onclick="quizJump(${i})">第 ${i + 1} 题 ✓</span>` : '').join('') || '<span style="font-size:12px;color:var(--color-text-3);">还没有作答</span>'}
+        </div>
+      </div>`;
+    setSub(`<div class="bottom-bar"><div style="display:flex;gap:12px;">
+      <div class="btn btn-outline" style="width:120px;" onclick="quizJump(${Math.max(0, qi - 1)})">上一题</div>
+      <div class="btn btn-primary" onclick="quizSkip()">${isLast ? '完成测评' : '跳过 / 下一题'}</div>
+    </div></div>`);
+  }
+
+  /* ---------- 卡片流 ---------- */
+  function renderCardflow() {
+    const cf = state.cardflow;
+    if (!cf || !cf.list.length) { go('/assessment'); return; }
+    const cur = cf.list[cf.index];
+    const d = dirById(cur.id);
+    if (!d) { cf.index++; render(); return; }
+    const dots = Array.from({ length: cf.list.length }, (_, i) => `<span class="cf-dot ${i <= cf.index ? 'on' : ''}"></span>`).join('');
+    $('#nav').innerHTML = `<div class="cf-nav">
+      <div class="cf-prog"><div class="cf-dots">${dots}</div><span class="cf-text">第 ${cf.index + 1} / ${cf.list.length}</span></div>
+      <div class="cf-exit" onclick="go('/assessment')">退出</div>
+    </div>`;
+    $('#page').innerHTML = `<div class="cardflow">
+      <div class="cf-card">
+        <div class="cf-top"><div class="cf-cover c${d.c}">${gicon(d.g, 28)}</div>
+          <div style="flex:1;"><div class="cf-name">${d.name}</div><div class="cf-ind">${d.industry} · ${d.viewed}</div><div class="cf-match">${starRow(cur.match)}</div></div></div>
+        <div class="cf-desc">${d.desc}</div>
+        <div class="cf-reason"><div class="cf-reason-title">为什么推荐你？</div>
+          <div class="cf-reason-list">${d.reasons.map(x => x).join('<br>')}</div></div>
+        <div class="cf-tags tag-row">${d.tags.map(t => `<span class="tag ${t.accent ? 'tag-accent' : t.gray ? 'tag-gray' : ''}">${t.t}</span>`).join('')}</div>
+        <div class="cf-hint" onclick="openDir('${d.id}')">点击卡片查看详细介绍 ›</div>
+      </div>
+    </div>`;
+    setSub(`<div class="bottom-bar"><div class="fb-group">
+      <div class="fb-btn fb-btn-interest" onclick="cfFeedback('${d.id}','interested')">感兴趣</div>
+      <div class="fb-btn fb-btn-later" onclick="cfFeedback('${d.id}','later')">稍后再看</div>
+      <div class="fb-btn fb-btn-reject" onclick="cfFeedback('${d.id}','rejected')">暂不考虑</div>
+    </div></div>`);
+  }
+
+  /* ---------- 测评结果 ---------- */
+  function renderResult() {
+    navBack('测评结果');
+    const list = state.lastResults || (state.cardflow && state.cardflow.list) || [];
+    if (!list.length) { go('/assessment'); return; }
+    const top = list.slice(0, 5);
+    const explore = list.slice(5, 8);
+    const row = (x, i) => {
+      const d = dirById(x.id);
+      const starred = state.collections[d.id] === 'interested';
+      return `<div class="match-item" onclick="openDir('${d.id}')">
+        <div class="mi-rank">${i + 1}</div>
+        <div class="mi-cover c${d.c}">${gicon(d.g, 22)}</div>
+        <div class="mi-main"><div class="mi-name">${d.name}</div><div class="mi-ind">${d.industry} · 与你的偏好匹配</div></div>
+        <div class="mi-stars">${starRow(x.match)}</div>
+        <div class="mi-star" style="color:${starred ? '#C47B6B' : '#E0DCD7'};cursor:pointer;font-size:16px;flex-shrink:0;padding-left:8px;" onclick="event.stopPropagation();setColl('${d.id}','interested')">${starred ? '★' : '☆'}</div>
+      </div>`;
+    };
+    $('#page').innerHTML = `
+      <div class="card" style="margin-top:12px;text-align:center;padding:24px 16px;">
+        <div style="font-size:20px;font-weight:600;">为你找到 ${list.length} 个职业方向</div>
+        <div style="font-size:13px;color:var(--color-text-2);margin-top:6px;">根据你的测评结果，以下职业匹配度较高</div>
+        <div style="margin-top:10px;">${starRow(list[0].match)}</div>
+      </div>
+      ${top.map((x, i) => row(x, i)).join('')}
+      ${explore.length ? `<div class="section-title">探索其他可能</div>` + explore.map((x, i) => row(x, i + 5)).join('') : ''}
+      <div style="text-align:center;font-size:12px;color:var(--color-primary);padding:6px 0 20px;cursor:pointer;" onclick="goPush('/assessment')">不明白这些职业？重新测评 ›</div>
+    `;
+    setSub(`<div class="bottom-bar"><div style="display:flex;gap:10px;">
+      <div class="btn btn-outline" style="flex:1;height:44px;font-size:14px;" onclick="goTab('home')">返回首页</div>
+      <div class="btn btn-outline" style="flex:1;height:44px;font-size:14px;" onclick="go('/assessment')">重新测评</div>
+      <div class="btn btn-primary" style="flex:1.3;height:44px;font-size:14px;" onclick="toast('分享卡片已生成，可保存后发给朋友')">分享结果</div>
+    </div></div>`);
+  }
+
+  /* ---------- 个人画像 ---------- */
+  const EDIT_SKILLS = ['Python', 'SQL', 'Excel', '数据分析', '写作', '沟通协调', '海报设计', '编程', '项目管理', '设计'];
+  function renderPersonal() {
+    const p = state.profile;
+    const editing = state.ui.editPersonal;
+    navBack('个人画像', editing ? '' : `<span style="color:var(--color-primary);font-weight:600;" onclick="toggleEdit()">编辑</span>`);
+    let body;
+    if (!editing) {
+      body = `
+        <div class="user-header"><div class="avatar">${p.nickname.charAt(0)}</div>
+          <div><div class="uh-name">${p.nickname}</div><div class="uh-sub">${p.major} · ${p.degree} · ${p.gradYear}届</div></div></div>
+        <div class="card"><div class="card-title"><span class="title-bar"></span>教育背景</div>
+          <div class="info-row"><span class="ir-label">学校</span><span class="ir-value">${p.school}</span></div>
+          <div class="info-row"><span class="ir-label">专业</span><span class="ir-value">${p.major}</span></div>
+          <div class="info-row"><span class="ir-label">学历</span><span class="ir-value">${p.degree}</span></div>
+          <div class="info-row"><span class="ir-label">毕业年份</span><span class="ir-value">${p.gradYear}</span></div></div>
+        <div class="card"><div class="card-title"><span class="title-bar"></span>掌握技能</div><div class="tag-row">${p.skills.map(s => `<span class="tag">${s}</span>`).join('')}</div></div>
+        <div class="card"><div class="card-title"><span class="title-bar"></span>工作偏好</div>
+          <div class="info-row"><span class="ir-label">期望城市</span><span class="ir-value">${p.location}</span></div>
+          <div class="info-row"><span class="ir-label">工作方式</span><span class="ir-value">${p.workMode}</span></div>
+          <div class="info-row"><span class="ir-label">价值排序</span><span class="ir-value">${p.values}</span></div>
+          <div class="info-row"><span class="ir-label">不能接受</span><span class="ir-value">${p.notAccept || '—'}</span></div></div>
+        <div style="font-size:12px;color:var(--color-text-3);padding:4px 20px 12px;line-height:1.6;">以上信息仅用于匹配推荐，不会对外展示。修改后会同步更新推荐结果。</div>
+      `;
+      setSub('');
+    } else {
+      const chips = EDIT_SKILLS.map(s => `<span class="option-chip ${p.skills.includes(s) ? 'selected' : ''}" onclick="pickPSkill('${s}')">${s}</span>`).join('');
+      const radio = (k, list) => list.map(x => `<span class="option-chip single ${p[k] === x ? 'selected' : ''}" onclick="setPField('${k}','${x}')"><span class="dot"></span>${x}</span>`).join('');
+      body = `
+        <div class="card"><div class="card-title"><span class="title-bar"></span>教育背景</div>
+          <div class="form-field"><span class="ff-placeholder">${p.school}</span><span class="ff-right">不可修改</span></div>
+          <div class="form-field"><span class="ff-value">${p.major}</span><span class="ff-right">⌄</span></div>
+          <div class="form-field"><span class="ff-value">${p.degree}</span><span class="ff-right">⌄</span></div></div>
+        <div class="card"><div class="card-title"><span class="title-bar"></span>掌握技能（点选 / 取消）</div><div class="option-grid">${chips}</div></div>
+        <div class="card"><div class="card-title"><span class="title-bar"></span>工作方式</div><div class="option-grid">${radio('workMode', DB.workModes)}</div></div>
+        <div class="card"><div class="card-title"><span class="title-bar"></span>价值排序</div><div class="option-grid">${radio('values', DB.values)}</div></div>
+        <div class="card"><div class="card-title"><span class="title-bar"></span>期望城市</div>
+          <div class="form-field"><select class="ff-select" onchange="setPField('location',this.value)">${DB.locations.map(x => `<option ${p.location === x ? 'selected' : ''}>${x}</option>`).join('')}</select><span class="ff-right">⌄</span></div></div>
+        <div class="card"><div class="card-title"><span class="title-bar"></span>不能接受的事（选填）</div>
+          <div class="form-field"><input class="ff-select" id="pNotAccept" placeholder="如：不想频繁出差" value="${escapeHtml(p.notAccept || '')}" /></div></div>
+      `;
+      setSub(`<div class="bottom-bar"><div class="btn btn-primary" onclick="saveProfile()">保存并更新推荐</div></div>`);
+    }
+    $('#page').innerHTML = body;
+  }
+
+  /* ---------- 择业画像 ---------- */
+  function renderCareer() {
+    navBack('我的择业画像');
+    const p = state.profile;
+    const interestNames = Object.keys(state.collections)
+      .filter(id => state.collections[id] === 'interested')
+      .map(id => dirById(id).name);
+    const dims = [
+      { label: '兴趣方向', tags: (interestNames.length ? interestNames : p.skills.slice(0, 3)).map(x => ({ t: x })) },
+      { label: '技能特长', tags: p.skills.map(x => ({ t: x })) },
+      { label: '工作偏好', tags: [{ t: p.workMode, a: 1 }, ...state.careerTags.map(x => ({ t: x }))] },
+      { label: '价值排序', tags: DB.values.map(x => ({ t: x, g: x === p.values })) }
+    ];
+    const dimHtml = dims.map(d => `
+      <div class="card"><div class="card-title"><span class="title-bar"></span>${d.label}</div>
+        <div class="tag-row">${d.tags.map(t => `<span class="tag ${t.a ? 'tag-accent' : t.g ? 'tag-green' : ''}">${t.t}</span>`).join('')}</div>
+      </div>`).join('');
+    $('#page').innerHTML = `
+      <div class="hero">
+        <div class="hero-title">我的择业画像</div>
+        <div class="hero-sub">根据你的测评答题与卡片反馈持续更新，让推荐越来越懂你。</div>
+        <div style="display:flex;gap:24px;margin-top:14px;">
+          <div><div class="num" style="font-size:20px;font-weight:700;">${state.assessed ? 1 : 0}</div><div style="font-size:12px;opacity:.85;">完成测评</div></div>
+          <div><div class="num" style="font-size:20px;font-weight:700;">${state.feedbackCount}</div><div style="font-size:12px;opacity:.85;">卡片反馈</div></div>
+          <div><div class="num" style="font-size:20px;font-weight:700;">${interestNames.length}</div><div style="font-size:12px;opacity:.85;">意向方向</div></div>
+        </div>
+      </div>
+      ${dimHtml}
+      <div class="section-title">画得准吗？点 ✕ 纠正 <span class="more" onclick="toast('纠正会同步影响你的推荐结果')">说明 ›</span></div>
+      <div style="padding:0 20px 12px;display:flex;flex-wrap:wrap;gap:8px;">
+        ${state.careerTags.length ? state.careerTags.map((t, i) => `<span class="correct-tag">${t} <span class="ct-x" onclick="removeTag(${i})">✕</span></span>`).join('') : '<span style="font-size:12px;color:var(--color-text-3);">暂无待纠正标签</span>'}
+      </div>
+      <div class="cp-source">画像数据来自你填写的测评和职业卡片反馈，仅用于匹配推荐，不会对外展示。<span style="color:var(--color-primary);cursor:pointer;" onclick="goPush('/assessment')">重新测评</span>可刷新画像。</div>
+    `;
+    setSub(`<div class="bottom-bar"><div class="btn btn-ghost" onclick="goPush('/assessment')">重新测评，更新画像</div></div>`);
+  }
+
+  /* ---------- 收藏三态列表 ---------- */
+  function renderFav(st) {
+    const titles = { interested: '感兴趣', rejected: '暂不考虑', later: '稍后再看' };
+    navBack(titles[st]);
+    const ids = Object.keys(state.collections).filter(id => state.collections[id] === st);
+    const notes = {
+      interested: '标记「感兴趣」的方向会优先出现在推荐里，随时可调整意愿或移除。',
+      rejected: '这些方向已从推荐中排除，随时可以恢复或改为感兴趣。',
+      later: '还没决定的方向先放这里，不影响推荐。有空时回来做个决定。'
+    };
+    let list = '';
+    ids.forEach(id => {
+      const d = dirById(id);
+      if (!d) return;
+      const m = matchOf(id);
+      if (st === 'interested') {
+        list += `<div class="fav-item"><div class="fi-top"><div class="fi-cover c${d.c}">${gicon(d.g, 22)}</div>
+          <div class="fi-main"><div class="fi-name">${d.name} <span class="tag ${m >= 80 ? 'tag-accent' : ''}" style="padding:1px 10px;">意愿 ${m >= 80 ? '高' : '中'}</span></div><div class="fi-ind">${d.industry} · ${d.viewed}</div></div>
+          <div class="fi-x" onclick="removeColl('${d.id}')">✕</div></div>
+          <div class="fi-foot"><span class="fi-op primary" onclick="openDir('${d.id}')">查看详情</span><span class="fi-op" onclick="setColl('${d.id}','later')">降为稍后</span><span class="fi-match">${starRow(m)}</span></div></div>`;
+      } else if (st === 'rejected') {
+        list += `<div class="ni-item"><div class="ni-top"><div class="ni-cover c${d.c}">${gicon(d.g, 22)}</div>
+          <div class="ni-main"><div class="ni-name">${d.name}</div><div class="ni-ind">${d.industry} · ${d.viewed}</div></div></div>
+          <div class="ni-foot"><div class="ni-btn restore" onclick="removeColl('${d.id}')">恢复推荐</div><div class="ni-btn like" onclick="setColl('${d.id}','interested')">改为感兴趣</div></div></div>`;
+      } else {
+        list += `<div class="wl-item"><div class="wl-top"><div class="wl-cover c${d.c}">${gicon(d.g, 22)}</div>
+          <div class="wl-main"><div class="wl-name">${d.name}</div><div class="wl-ind">${d.industry} · ${d.viewed}</div></div>
+          <div class="wl-dot" onclick="openDir('${d.id}')">${gicon('clock', 18, '#C47B6B')}</div></div>
+          <div class="wl-foot"><div class="wl-btn like" onclick="setColl('${d.id}','interested')">感兴趣</div><div class="wl-btn reject" onclick="setColl('${d.id}','rejected')">暂不考虑</div><div class="wl-btn keep" onclick="removeColl('${d.id}')">继续保留</div></div></div>`;
+      }
+    });
+    const emptyGlyphs = { interested: 'heart', rejected: 'xmark', later: 'clock' };
+    const emptyTitles = { interested: '还没有感兴趣的方向', rejected: '没有暂不考虑的方向', later: '暂无稍后再看' };
+    const emptyDescs = {
+      interested: '去测评或首页逛逛，把喜欢的方向标记为「感兴趣」吧',
+      rejected: '被排除的方向会出现在这里，方便你随时改回',
+      later: '测评和首页遇到犹豫的方向，可以先收进这里'
+    };
+    const empty = `<div class="empty"><div class="empty-icon">${gicon(emptyGlyphs[st], 40)}</div><div class="empty-title">${emptyTitles[st]}</div><div class="empty-desc">${emptyDescs[st]}</div><div class="btn btn-primary" style="width:180px;margin:0 auto;" onclick="goPush('/assessment')">去探索</div></div>`;
+    $('#page').innerHTML = `<div style="padding:16px 20px 12px;font-size:12px;color:var(--color-text-3);line-height:1.6;">${notes[st]}</div>${list || empty}`;
+    setSub('');
+  }
+
+  /* ================= 启动 ================= */
+  function escapeHtml(s) { return String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+  window.addEventListener('hashchange', render);
+  if (!location.hash) location.hash = '#/home';
+  render();
+})();
+
+</script>
+</body>
+</html>
