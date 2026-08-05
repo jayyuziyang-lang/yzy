@@ -1012,29 +1012,76 @@ body { padding: 0; }
 .sw-prog-bar { height: 100%; background: var(--color-primary); border-radius: 2px; transition: width .2s ease; }
 .sw-prog-t { font-size: var(--font-xs); color: var(--color-text-2); flex-shrink: 0; }
 .sw-pills { padding-top: 10px; padding-bottom: 10px; }
-.sw-stage { padding: 14px 20px 20px; }
-.sw-draw {
+/* 半圆轮盘：三卡沿同一圆弧轨道锚定，绕底部圆心径向旋转 */
+.page.swipe-page { display: flex; flex-direction: column; overflow: hidden; }
+.sw-stage { flex: 1; min-height: 0; display: flex; flex-direction: column; padding: 6px 0 0; }
+.sww { position: relative; flex: 1; min-height: 0; overflow: hidden; }
+.sww-arc {
+  position: absolute; left: 50%; bottom: 0;
+  width: 320px; height: 160px; margin-left: -160px;
+  border-radius: 160px 160px 0 0;
+  border: 2px solid var(--color-line);
+  border-bottom: none;
+  box-sizing: border-box;
+  background: #F6F4F0;
+}
+.sww-arc::before {
+  content: ''; position: absolute; inset: 2px 2px 0 2px;
+  border-radius: 158px 158px 0 0;
+  background: rgba(59, 79, 107, .03);
+}
+.sww-card {
+  position: absolute;
+  transform-origin: 50% 100%;
   background: var(--color-surface);
   border-radius: var(--radius-card);
-  padding: 30px 22px 26px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+  overflow: hidden;
+  box-shadow: 0 6px 16px rgba(26, 26, 26, .06);
+  transition: left .38s cubic-bezier(.3, .7, .3, 1), bottom .38s cubic-bezier(.3, .7, .3, 1),
+    width .38s cubic-bezier(.3, .7, .3, 1), transform .38s cubic-bezier(.3, .7, .3, 1), opacity .3s ease;
 }
-.sw-draw.out { animation: swOut .17s ease forwards; }
-@keyframes swOut { to { opacity: 0; transform: translateY(-16px) scale(.98); } }
-.swd-cover {
-  width: 84px; height: 84px;
-  border-radius: var(--radius-card);
+.sww-card.out { animation: swOut .22s ease forwards; }
+@keyframes swOut { to { opacity: 0; transform: translateY(-14px) scale(.97); } }
+.swc-cover { height: 74px; display: flex; align-items: center; justify-content: center; }
+.swc-fav {
+  position: absolute; top: 8px; right: 10px; width: 26px; height: 26px;
   display: flex; align-items: center; justify-content: center;
+  font-size: 19px; line-height: 1; color: var(--color-text-3);
+  background: rgba(255, 255, 255, .9); border-radius: 50%;
 }
-.swd-name { font-size: 22px; font-weight: 600; color: var(--color-text); margin-top: 18px; }
-.swd-sal { font-size: var(--font-md); font-weight: 600; color: var(--color-primary); margin-top: 6px; }
-.swd-ind { font-size: var(--font-xs); color: var(--color-text-2); margin-top: 6px; }
-.swd-star { margin-top: 10px; }
-.swd-tags { margin-top: 14px; display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; }
-.swd-desc { margin-top: 16px; font-size: var(--font-sm); color: var(--color-text-2); line-height: 1.7; }
+.swc-fav.on { color: var(--color-collect); }
+.swc-body { padding: 12px 14px 14px; }
+.swc-name { font-size: 17px; font-weight: 600; color: var(--color-text); }
+.swc-star { color: var(--color-collect); }
+.swc-sal { font-size: 13px; font-weight: 600; color: var(--color-primary); margin-top: 5px; }
+.swc-tags { margin-top: 9px; display: flex; gap: 5px; flex-wrap: wrap; }
+.swc-tags .tag { font-size: 11px; }
+.swc-desc {
+  margin-top: 9px; font-size: 12px; color: var(--color-text-2); line-height: 1.6;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+}
+.swc-guide {
+  margin: 0 14px 14px; padding: 8px 0; text-align: center;
+  font-size: 12px; color: var(--color-primary);
+  border: 1px solid var(--color-primary); border-radius: var(--radius-btn);
+}
+.sww-refresh-wrap {
+  position: absolute; left: 50%; bottom: 70px; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+}
+.sww-refresh {
+  width: 54px; height: 54px; border-radius: 50%;
+  background: var(--color-primary);
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 6px 14px rgba(59, 79, 107, .3);
+  cursor: pointer;
+}
+.sww-refresh-t { font-size: 11px; color: var(--color-text-2); }
+.sww-dim {
+  position: absolute; font-size: 11px; color: var(--color-text-2);
+  background: var(--color-surface); border: 1px solid var(--color-line);
+  border-radius: 10px; padding: 2px 8px;
+}
 .sw-done { padding: 56px 24px; display: flex; flex-direction: column; align-items: center; text-align: center; }
 .swd-ok {
   width: 72px; height: 72px;
@@ -1314,7 +1361,7 @@ body { padding: 0; }
     · 四个 Tab：<b>问方向 / 刷方向 / 论坛分享 / 我的</b><br>
     · <b>问方向</b>：在咨询窗口里说一句你的专业、技能和偏好，或点「测评入口」答题；咨询 / 测评完成后，匹配的职业卡片才会弹出<br>
     · 结果页与收藏夹是<b>叠放抽卡</b>：每张卡顶部固定「岗位 + 薪资」，点「换一张」或<b>下拉</b>翻下一张；点卡片看详情，底部可随时三态标记<br>
-    · <b>刷方向</b>：沉浸式单卡抽卡，每张卡即时标记「感兴趣 / 稍后再看 / 不考虑」，实时写入 <b>我的 → 收藏</b>；刷完可换行业再来<br>
+    · <b>刷方向</b>：半圆轮盘抽卡——三张卡沿同一圆弧轨道锚定、绕底部圆心径向转格；中央卡含「查看完整入行指南」与 ★ 收藏星标，盘内「换一批」可洗牌剩余卡堆；底部三态按钮标记即转一格，实时写入 <b>我的 → 收藏</b>，刷完出完成态<br>
     · <b>论坛分享</b>：看帖子、发帖、点赞、评论，社区闭环可交互；「我的帖子」可删除<br>
     · <b>我的 → 择业画像</b>：画像是可纠正的，点 ✕ 去掉不准的标签，会同步影响推荐<br>
     · <b>个人画像</b>可编辑技能 / 偏好，保存后推荐同步更新<br>
@@ -1749,7 +1796,8 @@ window.DB = {
     clock: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
     xmark: '<path d="M6 6l12 12M18 6L6 18"/>',
     star: '<path d="M12 3l2.7 5.5 6 .9-4.4 4.2 1 6-5.3-2.8-5.3 2.8 1-6L3.3 9.4l6-.9z"/>',
-    person: '<circle cx="12" cy="8" r="4"/><path d="M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1"/>'
+    person: '<circle cx="12" cy="8" r="4"/><path d="M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1"/>',
+    refresh: '<path d="M21 12a9 9 0 1 1-2.6-6.3"/><path d="M21 3v6h-6"/>'
   };
   function gicon(key, size, color) {
     const st = color || '#3B4F6B';
@@ -1782,6 +1830,7 @@ window.DB = {
     const page = $('#page');
     page.scrollTop = 0;
     page.classList.remove('deck-page');
+    page.classList.remove('swipe-page');
     page.classList.remove('switching'); void page.offsetWidth; page.classList.add('switching');
     handler(r);
     // Tab 栏：仅 Tab 页显示
@@ -1984,17 +2033,140 @@ window.DB = {
     return scored.slice(0, 8).map(x => ({ id: x.d.id, match: Math.max(48, Math.min(96, x.d.baseMatch + Math.min(x.s, 30))) }));
   }
 
-  /* ================= 刷方向 · 沉浸式抽卡 ================= */
+  /* ================= 刷方向 · 半圆轮盘抽卡 ================= */
+  let swwAnimating = false;
+  const SWW_R = 160, SWW_W = 186, SWW_WS = 150;
+  // 半圆轮盘几何：O 位于轮盘底部中央，α=90° 为弧顶，卡片底部中心锚在圆弧上
+  function swwSlot(α) {
+    const a = α * Math.PI / 180;
+    return { x: Math.round(SWW_R * Math.cos(a)), y: Math.round(SWW_R * Math.sin(a)) };
+  }
+  function swwStyle(α, w, z, opacity) {
+    const { x, y } = swwSlot(α);
+    const rot = α < 90 ? 12 : α > 90 ? -12 : 0;
+    return `left:calc(50% + ${x}px - ${w / 2}px); bottom:${y + 6}px; width:${w}px; transform:rotate(${rot}deg); z-index:${z}; opacity:${opacity};`;
+  }
+  function swwCenterBody(d) {
+    const st = state.collections[d.id];
+    return `<div class="swc-cover c${d.c}">${gicon(d.g, 40)}</div>
+      <div class="swc-fav ${st === 'interested' ? 'on' : ''}" onclick="swFav('${d.id}')">${st === 'interested' ? '★' : '☆'}</div>
+      <div class="swc-body">
+        <div class="swc-name">${d.name}</div>
+        <div class="swc-sal">入门薪资 ${salaryOf(d) || (d.tags[0] ? d.tags[0].t : '')}</div>
+        <div class="swc-tags">${d.tags.slice(0, 3).map(t => `<span class="tag ${t.accent ? 'tag-accent' : t.gray ? 'tag-gray' : ''}">${t.t}</span>`).join('')}</div>
+        <div class="swc-desc">${d.desc}</div>
+      </div>
+      <div class="swc-guide" onclick="openDir('${d.id}')">查看完整入行指南 ›</div>`;
+  }
+  function swwSideBody(d) {
+    const st = state.collections[d.id];
+    return `<div class="swc-cover c${d.c}">${gicon(d.g, 28)}</div>
+      <div class="swc-body">
+        <div class="swc-name">${d.name}${st === 'interested' ? ' <span class="swc-star">★</span>' : ''}</div>
+        <div class="swc-sal">${salaryOf(d) || (d.tags[0] ? d.tags[0].t : '')}</div>
+      </div>`;
+  }
+  function swwWheelHTML() {
+    const s = state.swipe, ids = s.ids, i = s.index, total = ids.length;
+    let html = '<div class="sww-arc"></div>' + swwDecoHTML();
+    if (i > 0) html += `<div class="sww-card" data-id="${ids[i - 1]}" style="${swwStyle(135, SWW_WS, 2, 1)}">${swwSideBody(dirById(ids[i - 1]))}</div>`;
+    html += `<div class="sww-card" data-id="${ids[i]}" style="${swwStyle(90, SWW_W, 3, 1)}">${swwCenterBody(dirById(ids[i]))}</div>`;
+    if (i + 1 < total) html += `<div class="sww-card" data-id="${ids[i + 1]}" style="${swwStyle(45, SWW_WS, 2, 1)}">${swwSideBody(dirById(ids[i + 1]))}</div>`;
+    return html;
+  }
+  function swwDecoHTML() {
+    return `<div class="sww-refresh-wrap">
+      <div class="sww-refresh" onclick="swShuffle()">${gicon('refresh', 24, '#fff')}</div>
+      <div class="sww-refresh-t">换一批看看</div>
+    </div>
+    <div class="sww-dim" style="left:104px;bottom:108px">稳定成长</div>
+    <div class="sww-dim" style="right:104px;bottom:108px">兴趣驱动</div>
+    <div class="sww-dim" style="left:108px;bottom:40px">高薪发展</div>
+    <div class="sww-dim" style="right:108px;bottom:40px">技术前沿</div>`;
+  }
+  // 标记后轮盘绕底部圆心径向转一格：原中央→左槽、原右侧→中央、新卡从右下进入
+  function animateWheelAdvance() {
+    const s = state.swipe, i = s.index, ids = s.ids;
+    const box = $('#sww');
+    if (!box) return;
+    const find = id => box.querySelector('.sww-card[data-id="' + id + '"]');
+    const move = (n, α, w, z, opacity, body) => {
+      const node = find(n);
+      if (!node) return;
+      if (body !== undefined) node.innerHTML = body;
+      const { x, y } = swwSlot(α);
+      const rot = α < 90 ? 12 : α > 90 ? -12 : 0;
+      node.style.left = `calc(50% + ${x}px - ${w / 2}px)`;
+      node.style.bottom = (y + 6) + 'px';
+      node.style.width = w + 'px';
+      node.style.transform = `rotate(${rot}deg)`;
+      node.style.zIndex = z;
+      node.style.opacity = opacity;
+    };
+    // 上一张（old left）从左侧滑出圆弧
+    if (i - 2 >= 0) move(ids[i - 2], 200, SWW_WS, 1, 0);
+    // 原中央 → 左槽
+    if (i - 1 >= 0) move(ids[i - 1], 135, SWW_WS, 2, 1, swwSideBody(dirById(ids[i - 1])));
+    // 原右侧 → 中央
+    if (i < ids.length) move(ids[i], 90, SWW_W, 3, 1, swwCenterBody(dirById(ids[i])));
+    // 新卡从右下进入右槽
+    if (i + 1 < ids.length) {
+      const n = dirById(ids[i + 1]);
+      const node = document.createElement('div');
+      node.className = 'sww-card';
+      node.setAttribute('data-id', ids[i + 1]);
+      node.innerHTML = swwSideBody(n);
+      box.appendChild(node);
+      move(ids[i + 1], -18, SWW_WS, 1, 0);
+      requestAnimationFrame(() => requestAnimationFrame(() => move(ids[i + 1], 45, SWW_WS, 2, 1)));
+    }
+  }
   window.swFeedback = function (id, st) {
     const cur = state.collections[id];
     if (cur === st) delete state.collections[id]; else state.collections[id] = st;
     state.feedbackCount++;
-    const el = $('#swDraw');
-    if (el) el.classList.add('out');
-    if (state.swipe) state.swipe.index++;
     saveState();
     toast(cur === st ? '已取消标记' : '已标记为「' + collLabel(st) + '」');
-    setTimeout(() => render(), 170);
+    const s = state.swipe;
+    if (!s || s.index >= s.ids.length) return;
+    s.index++;
+    saveState();
+    if (s.index >= s.ids.length) {
+      // 最后一张：中央卡飞出后进完成态
+      const el = $('#sww .sww-card[data-id="' + id + '"]');
+      if (el) el.classList.add('out');
+      setTimeout(() => render(), 280);
+    } else {
+      if (swwAnimating) { render(); return; }
+      swwAnimating = true;
+      animateWheelAdvance();
+      setTimeout(() => { swwAnimating = false; render(); }, 450);
+    }
+  };
+  // 卡片右上角收藏星标：切换「感兴趣」但不翻卡
+  window.swFav = function (id) {
+    const st = state.collections[id] === 'interested' ? null : 'interested';
+    if (st) state.collections[id] = st; else delete state.collections[id];
+    state.feedbackCount++;
+    saveState();
+    toast(st ? '已加入意向' : '已取消意向');
+    render();
+  };
+  // 换一批看看：洗牌剩余卡堆，保留当前卡与进度
+  window.swShuffle = function () {
+    const s = state.swipe;
+    if (!s || s.index >= s.ids.length) return;
+    const i = s.index;
+    const cur = s.ids[i];
+    const rest = s.ids.slice(i + 1);
+    for (let k = rest.length - 1; k > 0; k--) {
+      const j = Math.floor(Math.random() * (k + 1));
+      [rest[k], rest[j]] = [rest[j], rest[k]];
+    }
+    s.ids = s.ids.slice(0, i).concat([cur], rest);
+    saveState();
+    toast('已换一批方向');
+    render();
   };
   window.swRestart = function () {
     state.swipe = null;
@@ -2304,27 +2476,17 @@ window.DB = {
     const done = s.index >= total;
     const pct = total ? Math.round((Math.min(s.index, total) / total) * 100) : 0;
     const pills = `<div class="industry-tabs sw-pills">${DB.industries.map(x => `<div class="industry-tab ${state.industry === x ? 'active' : ''}" onclick="setIndustry('${x}')">${x}</div>`).join('')}</div>`;
+    $('#page').classList.add('swipe-page');
     $('#page').innerHTML = `
       <div class="sw-prog"><div class="sw-prog-track"><div class="sw-prog-bar" style="width:${pct}%"></div></div><span class="sw-prog-t">第 ${total ? Math.min(s.index + 1, total) : 0} / ${total} 张</span></div>
       ${pills}
-      <div class="sw-stage">${done ? swDoneHTML(total) : swDrawCardHTML(dirById(s.ids[s.index]), matchOf(s.ids[s.index]))}</div>
+      <div class="sw-stage">${done ? swDoneHTML(total) : `<div class="sww" id="sww">${swwWheelHTML()}</div>`}</div>
     `;
     setSub(done ? '' : `<div class="bottom-bar"><div class="fb-group">
       <div class="fb-btn fb-btn-interest" onclick="swFeedback('${s.ids[s.index]}','interested')">感兴趣</div>
       <div class="fb-btn fb-btn-later" onclick="swFeedback('${s.ids[s.index]}','later')">稍后再看</div>
       <div class="fb-btn fb-btn-reject" onclick="swFeedback('${s.ids[s.index]}','rejected')">不考虑</div>
     </div></div>`);
-  }
-  function swDrawCardHTML(d, m) {
-    return `<div class="sw-draw" id="swDraw">
-      <div class="swd-cover c${d.c}">${gicon(d.g, 56)}</div>
-      <div class="swd-name">${d.name}</div>
-      <div class="swd-sal">${salaryOf(d) || (d.tags[0] ? d.tags[0].t : '')}</div>
-      <div class="swd-ind">${d.industry} · ${d.viewed}</div>
-      <div class="swd-star">${starRow(m)}</div>
-      <div class="swd-tags">${d.tags.map(t => `<span class="tag ${t.accent ? 'tag-accent' : t.gray ? 'tag-gray' : ''}">${t.t}</span>`).join('')}</div>
-      <div class="swd-desc">${d.desc}</div>
-    </div>`;
   }
   function swDoneHTML(total) {
     return `<div class="sw-done">
