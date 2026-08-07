@@ -1,0 +1,4463 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>甲方青年offer · 可交互 Demo（单文件版）</title>
+<style>
+/* ============================================================
+   甲方青年offer · 设计系统 v2.0
+   风格基准：喜茶GO 克制体系 + MUJI 留白哲学（v3.0 规范）
+   基准：390×844（iPhone 14/15），1px 对应 2rpx
+   ============================================================ */
+
+/* ---------- Design Tokens ---------- */
+:root {
+  /* 色彩体系（克制三色：底 / 承载 / 强调） */
+  --color-surface: #FFFFFF;   /* 纯白 · 卡片、内容区 ~75% */
+  --color-bg: #F5F4F1;        /* 极淡暖灰 · 页面底色 ~18% */
+  --color-primary: #3B4F6B;   /* 深海蓝灰 · 唯一强调色 ~5% */
+  --color-text: #1A1A1A;      /* 近黑 · 标题正文（不用纯黑） */
+  --color-text-2: #8C8C8C;    /* 中灰 · 辅助信息、标签、时间 */
+  --color-text-3: #BFBFBF;    /* 浅灰 · 占位符、弱提示 */
+  --color-collect: #C47B6B;   /* 赭石暖调 · 收藏心形、星级 ~2% */
+  --color-line: #EBE9E5;      /* 极淡分割线（仅高密度列表） */
+
+  /* 标签底色（低饱和暖调灰） */
+  --tag-apricot: #F5F0EB;     /* 杏灰 */
+  --tag-mist: #EEF0F2;        /* 雾蓝灰 */
+  --tag-mint: #F0F3EF;        /* 薄荷灰 */
+  --tag-empty: #E0DCD7;       /* 星级空心、圆点 */
+
+  /* 字号（严格四档） */
+  --font-xs: 12px;
+  --font-sm: 14px;
+  --font-md: 16px;
+  --font-lg: 20px;
+
+  /* 间距 */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 12px;
+  --space-lg: 16px;
+  --space-xl: 20px;
+  --space-xxl: 24px;
+
+  /* 圆角：大者近方，小者可圆 */
+  --radius-card: 4px;
+  --radius-btn: 8px;
+  --radius-pill: 20px;
+  --radius-search: 24px;
+
+  /* 布局 */
+  --status-bar-h: 24px;
+  --nav-h: 48px;
+  --tab-h: 48px;
+  --safe-bottom: 30px;
+}
+
+/* ---------- Reset & Base ---------- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  background: #EBE8E4;
+  font-family: 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  color: var(--color-text);
+}
+.num {
+  font-family: 'SF Pro Display', 'Helvetica Neue', -apple-system, sans-serif;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- 手机外框 ---------- */
+.phone {
+  width: 390px;
+  height: 844px;
+  margin: 20px auto;
+  background: var(--color-bg);
+  border-radius: 18px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid #E3DFDA;
+  box-shadow: 0 18px 48px rgba(31, 41, 55, 0.10);
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------- 状态栏 ---------- */
+.status-bar {
+  height: var(--status-bar-h);
+  background: var(--color-surface);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 22px;
+  flex-shrink: 0;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+.status-bar .sb-right { display: flex; align-items: center; gap: 5px; }
+.status-bar .sb-battery { width: 18px; height: 9px; border: 1px solid #B9B5AF; border-radius: 2px; position: relative; }
+.status-bar .sb-battery::after { content: ''; position: absolute; inset: 1px; width: 60%; background: #1A1A1A; border-radius: 1px; }
+
+/* ---------- 导航栏 ---------- */
+.nav-bar {
+  height: var(--nav-h);
+  background: var(--color-surface);
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  flex-shrink: 0;
+  position: relative;
+}
+.nav-bar .nav-back {
+  width: 40px; height: 40px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--color-text);
+  flex-shrink: 0;
+  margin-left: -8px;
+}
+.nav-bar .nav-title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+.nav-bar .nav-right {
+  margin-left: auto;
+  font-size: var(--font-sm);
+  color: var(--color-text-2);
+  padding: 0 12px;
+  flex-shrink: 0;
+}
+.nav-bar.nav-home {
+  justify-content: space-between;
+  gap: 12px;
+  padding: 0 20px;
+}
+.nav-bar .nav-brand {
+  font-size: var(--font-lg);
+  font-weight: 600;
+  color: var(--color-text);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+/* ---------- 搜索框（导航栏内） ---------- */
+.search-pill {
+  flex: 1;
+  max-width: 200px;
+  height: 34px;
+  background: var(--color-bg);
+  border-radius: var(--radius-search);
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  gap: 6px;
+  color: var(--color-text-3);
+  font-size: var(--font-xs);
+}
+
+/* ---------- TabBar（纯文字，选中态顶部短横线） ---------- */
+.tab-bar {
+  height: calc(var(--tab-h) + var(--safe-bottom));
+  padding-bottom: var(--safe-bottom);
+  background: var(--color-surface);
+  display: flex;
+  align-items: stretch;
+  flex-shrink: 0;
+}
+.tab-item {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-sm);
+  color: var(--color-text-2);
+  cursor: pointer;
+  position: relative;
+}
+.tab-item.active {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+.tab-item.active::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16px;
+  height: 2px;
+  background: var(--color-primary);
+}
+
+/* ---------- 页面滚动区 ---------- */
+.page {
+  flex: 1;
+  overflow-y: auto;
+  scrollbar-width: none;
+  position: relative;
+  background: var(--color-bg);
+}
+.page::-webkit-scrollbar { display: none; }
+
+/* ---------- 区块通用 ---------- */
+.section { padding: 0 20px; }
+.section-title {
+  font-size: var(--font-sm);
+  font-weight: 600;
+  color: var(--color-text);
+  padding: 24px 20px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.section-title .more { font-size: var(--font-xs); color: var(--color-text-2); font-weight: 400; }
+
+/* ---------- 卡片 ---------- */
+.card {
+  background: var(--color-surface);
+  border-radius: var(--radius-card);
+  padding: 20px;
+  margin: 0 20px 12px;
+}
+.card-title {
+  font-size: var(--font-sm);
+  font-weight: 600;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-text);
+}
+.card-title .title-bar {
+  width: 2px; height: 14px;
+  background: var(--color-primary);
+}
+.card-title .t-extra { margin-left: auto; font-size: var(--font-xs); color: var(--color-text-2); font-weight: 400; }
+
+/* ---------- 标签 tag ---------- */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 12px;
+  border-radius: var(--radius-pill);
+  font-size: var(--font-xs);
+  background: var(--tag-mist);
+  color: var(--color-text-2);
+}
+.tag.tag-gray { background: var(--tag-mist); color: var(--color-text-2); }
+.tag.tag-accent { background: var(--tag-apricot); color: var(--color-text-2); }
+.tag.tag-green { background: var(--tag-mint); color: var(--color-text-2); }
+.tag-row { display: flex; flex-wrap: wrap; gap: 8px; }
+
+/* ---------- 星级（替代百分比） ---------- */
+.stars {
+  display: inline-flex;
+  gap: 1px;
+  color: var(--color-collect);
+  font-size: 14px;
+  line-height: 1;
+}
+.stars .off { color: var(--tag-empty); }
+
+/* ---------- 按钮 ---------- */
+.btn {
+  height: 48px;
+  border-radius: var(--radius-btn);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-md);
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+.btn-primary { background: var(--color-primary); color: #fff; font-weight: 600; }
+.btn-primary:active { background: #31415A; }
+.btn-ghost { background: var(--tag-mist); color: var(--color-primary); font-weight: 600; }
+.btn-outline { background: var(--color-surface); color: var(--color-text-2); }
+.btn-lg { height: 52px; }
+
+/* 底部固定操作栏 */
+.bottom-bar {
+  background: var(--color-surface);
+  padding: 12px 20px calc(12px + var(--safe-bottom));
+  flex-shrink: 0;
+}
+
+/* ---------- 职业卡片（横向列表用） ---------- */
+.dir-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-card);
+  padding: 16px;
+  margin-bottom: 12px;
+}
+.dir-card .dc-head { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+.dir-card .dc-cover {
+  width: 48px; height: 48px;
+  border-radius: var(--radius-card);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.dir-card .dc-name { font-size: var(--font-md); font-weight: 600; color: var(--color-text); }
+.dir-card .dc-sub { font-size: var(--font-xs); color: var(--color-text-2); margin-top: 2px; }
+.dir-card .dc-desc { font-size: var(--font-sm); color: var(--color-text-2); line-height: 1.6; margin-bottom: 10px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.dir-card .dc-foot { display: flex; align-items: center; justify-content: space-between; }
+.dir-card .dc-share { font-size: var(--font-xs); color: var(--color-primary); }
+
+/* ---------- 首页瀑布流 Feed 卡（通栏封面色块 + 单色线描） ---------- */
+.feed-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+.feed-card .fc-cover {
+  height: 104px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.feed-card .fc-cover svg { opacity: 0.55; }
+.feed-card .fc-body { padding: 12px; }
+.feed-card .fc-name { font-size: var(--font-md); font-weight: 600; color: var(--color-text); line-height: 1.3; }
+.feed-card .fc-sub { font-size: var(--font-xs); color: var(--color-text-2); margin-top: 4px; }
+.feed-card .fc-foot { margin-top: 8px; display: flex; align-items: center; justify-content: space-between; }
+.feed-card .fc-share { font-size: var(--font-xs); color: var(--color-primary); }
+
+/* ---------- 测评横幅（冷启动大横幅 / 扁平） ---------- */
+.hero {
+  margin: 12px 20px;
+  border-radius: var(--radius-card);
+  padding: 20px;
+  background: var(--color-primary);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.hero .hero-title { font-size: var(--font-lg); font-weight: 600; }
+.hero .hero-sub { font-size: var(--font-sm); opacity: 0.85; }
+.hero .hero-btn {
+  margin-top: 12px;
+  align-self: flex-start;
+  height: 36px;
+  padding: 0 18px;
+  border-radius: var(--radius-pill);
+  background: #fff;
+  color: var(--color-primary);
+  font-size: var(--font-sm);
+  font-weight: 600;
+  display: inline-flex; align-items: center; justify-content: center;
+}
+
+/* 画像后横幅收窄为摘要卡 */
+.summary-card {
+  margin: 12px 20px;
+  border-radius: var(--radius-card);
+  padding: 16px 20px;
+  background: var(--color-surface);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.summary-card .sc-head { display: flex; align-items: center; justify-content: space-between; }
+.summary-card .sc-title { font-size: var(--font-sm); font-weight: 600; color: var(--color-text); }
+.summary-card .sc-link { font-size: var(--font-xs); color: var(--color-primary); }
+.summary-card .sc-kw { font-size: var(--font-sm); color: var(--color-text-2); line-height: 1.6; }
+
+/* ---------- 瀑布流双列 ---------- */
+.waterfall {
+  display: flex;
+  gap: 12px;
+  padding: 4px 20px 16px;
+}
+.waterfall .w-col { flex: 1; display: flex; flex-direction: column; }
+.waterfall .w-col .feed-card:last-child,
+.waterfall .w-col .dir-card:last-child,
+.waterfall .w-col .guide-card:last-child,
+.waterfall .w-col .know-card:last-child { margin-bottom: 0; }
+
+/* ---------- 知识卡片 ---------- */
+.know-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-card);
+  padding: 14px;
+  margin: 0 20px 12px;
+}
+.know-card .kc-title { font-size: var(--font-md); font-weight: 600; line-height: 1.4; margin-bottom: 6px; color: var(--color-text); }
+.know-card .kc-desc { font-size: var(--font-sm); color: var(--color-text-2); line-height: 1.5; margin-bottom: 10px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.know-card .kc-foot { display: flex; align-items: center; gap: 8px; }
+.know-card .kc-foot .kc-meta { margin-left: auto; font-size: var(--font-xs); color: var(--color-text-3); }
+
+/* ---------- 引导卡（便签式：灰底 + 左侧竖线锚点） ---------- */
+.guide-card {
+  margin: 0 20px 12px;
+  border-radius: var(--radius-card);
+  padding: 20px;
+  background: #EFEBE6;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+}
+.guide-card::before {
+  content: '';
+  width: 2px; height: 24px;
+  background: var(--color-primary);
+  flex-shrink: 0;
+}
+.guide-card .gc-icon { display: none; }
+.guide-card .gc-title { font-size: var(--font-sm); font-weight: 600; color: var(--color-text); line-height: 1.5; }
+.guide-card .gc-desc { font-size: var(--font-xs); color: var(--color-text-2); margin-top: 2px; }
+.guide-card .gc-btn {
+  margin-left: auto;
+  font-size: var(--font-sm);
+  color: var(--color-primary);
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+/* ---------- 列表行 ---------- */
+.list-item {
+  background: var(--color-surface);
+  border-radius: var(--radius-card);
+  padding: 16px;
+  margin: 0 20px 10px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.list-item .li-cover { width: 44px; height: 44px; border-radius: var(--radius-card); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.list-item .li-main { flex: 1; min-width: 0; }
+.list-item .li-title { font-size: var(--font-md); font-weight: 600; color: var(--color-text); }
+.list-item .li-sub { font-size: var(--font-xs); color: var(--color-text-2); margin-top: 2px; }
+.list-item .li-meta { text-align: right; flex-shrink: 0; }
+.list-item .li-num { font-size: var(--font-md); font-weight: 600; color: var(--color-text); }
+.list-item .li-arrow { color: var(--color-text-3); flex-shrink: 0; }
+.list-item .li-badge { font-size: var(--font-xs); color: var(--color-primary); }
+
+/* ---------- 我的页（BentoUI） ---------- */
+.bento {
+  margin: 0 20px;
+  background: var(--color-surface);
+  border-radius: var(--radius-card);
+  padding: 24px;
+}
+.bento-head { display: flex; align-items: center; gap: 14px; }
+.bento .avatar {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  background: var(--tag-apricot);
+  color: var(--color-primary);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px; font-weight: 600;
+  flex-shrink: 0;
+}
+.bento-main { flex: 1; min-width: 0; }
+.bento-title { font-size: var(--font-md); font-weight: 600; color: var(--color-text); }
+.bento-sub { font-size: var(--font-xs); color: var(--color-text-2); margin-top: 4px; }
+.bento-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.bento-cta { font-size: var(--font-sm); color: var(--color-primary); font-weight: 600; margin-top: 12px; }
+
+.col3 { display: flex; gap: 8px; margin: 16px 20px 0; }
+.col3 .c3-card {
+  flex: 1;
+  background: var(--color-surface);
+  border-radius: var(--radius-card);
+  padding: 16px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+}
+.col3 .c3-icon { width: 24px; height: 24px; color: var(--color-primary); }
+.col3 .c3-title { font-size: var(--font-xs); font-weight: 600; color: var(--color-text); }
+.col3 .c3-count { font-size: var(--font-xs); color: var(--color-text-2); }
+
+.foot-note { text-align: center; font-size: var(--font-xs); color: var(--color-text-3); margin: 56px 20px 0; line-height: 1.8; }
+
+/* 画像入口卡 */
+.profile-entry {
+  background: var(--color-surface);
+  border-radius: var(--radius-card);
+  margin: 0 20px 12px;
+  overflow: hidden;
+}
+.profile-entry .pe-row { padding: 16px; display: flex; align-items: center; gap: 12px; }
+.profile-entry .pe-row + .pe-row { border-top: 0; }
+.profile-entry .pe-icon { width: 40px; height: 40px; border-radius: var(--radius-card); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.profile-entry .pe-title { font-size: var(--font-md); font-weight: 600; color: var(--color-text); }
+.profile-entry .pe-sub { font-size: var(--font-xs); color: var(--color-text-2); margin-top: 2px; }
+.profile-entry .pe-arrow { margin-left: auto; color: var(--color-text-3); }
+
+/* ---------- 表单 ---------- */
+.form-card { margin: 0 20px 12px; }
+.form-group { padding: 20px; background: var(--color-surface); border-radius: var(--radius-card); }
+.form-group + .form-group { margin-top: 10px; }
+.form-label { font-size: var(--font-sm); font-weight: 600; margin-bottom: 12px; display: flex; align-items: center; color: var(--color-text); }
+.form-label .req { color: var(--color-text-3); margin-left: 2px; }
+.form-field { font-size: var(--font-sm); padding: 12px 0; display: flex; align-items: center; }
+.form-field .ff-placeholder { color: var(--color-text-3); }
+.form-field .ff-value { color: var(--color-text); }
+.form-field .ff-right { margin-left: auto; color: var(--color-text-3); font-size: var(--font-xs); }
+
+/* 选项选择 */
+.option-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+.option-chip {
+  padding: 10px 16px;
+  border-radius: var(--radius-pill);
+  background: var(--color-bg);
+  color: var(--color-text-2);
+  font-size: var(--font-sm);
+  cursor: pointer;
+}
+.option-chip.selected { background: var(--color-primary); color: #fff; font-weight: 600; }
+.option-chip.single { display: flex; align-items: center; gap: 8px; }
+.option-chip .dot { width: 14px; height: 14px; border-radius: 50%; border: 1.5px solid var(--tag-empty); display: inline-flex; align-items: center; justify-content: center; }
+.option-chip.selected .dot { border-color: #fff; }
+.option-chip.selected .dot::after { content: ''; width: 6px; height: 6px; border-radius: 50%; background: #fff; }
+
+/* 测评单题（全宽选项按钮） */
+.quiz-q { font-size: var(--font-lg); font-weight: 600; line-height: 1.5; margin-bottom: 20px; color: var(--color-text); }
+.quiz-opt {
+  width: 100%;
+  padding: 16px;
+  border-radius: var(--radius-btn);
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-size: var(--font-sm);
+  text-align: center;
+  cursor: pointer;
+}
+.quiz-opt.selected { background: var(--color-primary); color: #fff; font-weight: 600; }
+
+/* ---------- 测评进度（圆点） ---------- */
+.steps {
+  display: flex;
+  align-items: center;
+  padding: 16px 20px;
+  background: var(--color-surface);
+  margin-bottom: 12px;
+}
+.steps .step { flex: 1; display: flex; align-items: center; gap: 6px; }
+.steps .step-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--tag-empty); flex-shrink: 0; }
+.steps .step.active .step-dot { background: var(--color-primary); }
+.steps .step.done .step-dot { background: var(--color-primary); opacity: 0.5; }
+.steps .step-label { font-size: var(--font-xs); color: var(--color-text-2); }
+.steps .step.active .step-label { color: var(--color-primary); font-weight: 600; }
+.steps .step-line { display: none; }
+
+/* 题号圆点 */
+.quiz-progress { padding: 16px 20px 4px; display: flex; align-items: center; gap: 6px; }
+.quiz-progress .qp-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--tag-empty); }
+.quiz-progress .qp-dot.on { background: var(--color-primary); }
+.quiz-progress .qp-text { font-size: var(--font-xs); color: var(--color-text-2); margin-left: 8px; }
+
+/* ---------- 测评路径卡 ---------- */
+.path-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-card);
+  padding: 20px;
+  margin: 0 20px 12px;
+  cursor: pointer;
+}
+.path-card .pc-head { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+.path-card .pc-icon { width: 44px; height: 44px; border-radius: var(--radius-card); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.path-card .pc-title { font-size: var(--font-md); font-weight: 600; color: var(--color-text); }
+.path-card .pc-dur { font-size: var(--font-xs); color: var(--color-text-2); }
+.path-card .pc-desc { font-size: var(--font-sm); color: var(--color-text-2); line-height: 1.6; }
+.path-card .pc-foot { margin-top: 12px; display: flex; align-items: center; justify-content: space-between; }
+.path-card .pc-start { color: var(--color-primary); font-size: var(--font-sm); font-weight: 600; }
+
+/* ---------- 测评主卡片流 ---------- */
+.cardflow {
+  flex: 1;
+  overflow-y: auto;
+  padding: 4px 20px 12px;
+}
+.cardflow .cf-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-card);
+  padding: 24px 20px;
+  margin-top: 8px;
+}
+.cardflow .cf-top { display: flex; align-items: flex-start; gap: 14px; }
+.cardflow .cf-cover { width: 56px; height: 56px; border-radius: var(--radius-card); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.cardflow .cf-name { font-size: var(--font-lg); font-weight: 600; color: var(--color-text); line-height: 1.2; }
+.cardflow .cf-ind { font-size: var(--font-xs); color: var(--color-text-2); margin-top: 4px; }
+.cardflow .cf-match { margin-top: 8px; }
+.cardflow .cf-desc { font-size: var(--font-sm); color: var(--color-text-2); line-height: 1.7; margin-top: 16px; }
+.cardflow .cf-reason { margin-top: 16px; background: var(--color-bg); border-radius: var(--radius-card); padding: 14px; }
+.cardflow .cf-reason-title { font-size: var(--font-xs); color: var(--color-primary); font-weight: 600; margin-bottom: 6px; }
+.cardflow .cf-reason-list { font-size: var(--font-sm); color: var(--color-text-2); line-height: 1.7; }
+.cardflow .cf-tags { margin-top: 16px; }
+.cardflow .cf-hint { margin-top: 16px; text-align: center; font-size: var(--font-xs); color: var(--color-text-3); }
+
+/* ---------- 反馈按钮（三态） ---------- */
+.fb-group { display: flex; gap: 8px; }
+.fb-btn {
+  flex: 1;
+  height: 44px;
+  border-radius: var(--radius-card);
+  display: flex; align-items: center; justify-content: center;
+  gap: 4px;
+  font-size: var(--font-sm);
+  font-weight: 500;
+  cursor: pointer;
+  background: var(--tag-mist);
+  color: var(--color-text);
+}
+.fb-btn-interest { background: var(--tag-mint); color: var(--color-text); }
+.fb-btn-later { background: var(--tag-apricot); color: var(--color-text); }
+.fb-btn-reject { background: var(--color-bg); color: var(--color-text-2); }
+.fb-btn.active { background: var(--color-primary); color: #fff; font-weight: 600; }
+.feedback-bar { display: flex; gap: 8px; }
+.feedback-bar .fb-btn { flex: 1; }
+
+/* ---------- 结果页匹配项 ---------- */
+.match-item {
+  background: var(--color-surface);
+  border-radius: var(--radius-card);
+  padding: 16px;
+  margin: 0 20px 10px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.match-item .mi-rank { width: 20px; font-size: var(--font-xs); font-weight: 600; color: var(--color-text-3); flex-shrink: 0; }
+.match-item .mi-cover { width: 44px; height: 44px; border-radius: var(--radius-card); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.match-item .mi-main { flex: 1; min-width: 0; }
+.match-item .mi-name { font-size: var(--font-md); font-weight: 600; color: var(--color-text); }
+.match-item .mi-ind { font-size: var(--font-xs); color: var(--color-text-2); margin-top: 2px; }
+.match-item .mi-stars { flex-shrink: 0; }
+
+/* ---------- 三态列表项（感兴趣 / 暂不考虑 / 稍后再看） ---------- */
+.fav-item, .ni-item, .wl-item {
+  background: var(--color-surface);
+  border-radius: var(--radius-card);
+  padding: 16px;
+  margin: 0 20px 10px;
+}
+.fav-item .fi-top, .ni-item .ni-top, .wl-item .wl-top { display: flex; align-items: center; gap: 12px; }
+.fav-item .fi-cover, .ni-item .ni-cover, .wl-item .wl-cover {
+  width: 44px; height: 44px;
+  border-radius: var(--radius-card);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.fav-item .fi-main, .ni-item .ni-main, .wl-item .wl-main { flex: 1; min-width: 0; }
+.fav-item .fi-name, .ni-item .ni-name, .wl-item .wl-name {
+  font-size: var(--font-md); font-weight: 600; color: var(--color-text);
+  display: flex; align-items: center; gap: 8px;
+}
+.fav-item .fi-ind, .ni-item .ni-ind, .wl-item .wl-ind { font-size: var(--font-xs); color: var(--color-text-2); margin-top: 3px; }
+.fav-item .fi-x { color: var(--color-text-3); font-size: var(--font-sm); flex-shrink: 0; }
+.fav-item .fi-foot { display: flex; align-items: center; gap: 12px; margin-top: 12px; padding-top: 12px; }
+.fav-item .fi-op { font-size: var(--font-sm); color: var(--color-text-2); }
+.fav-item .fi-op.primary { color: var(--color-primary); font-weight: 600; }
+.fav-item .fi-match { margin-left: auto; font-size: var(--font-xs); color: var(--color-text-2); display: flex; align-items: center; }
+.ni-item .ni-foot, .wl-item .wl-foot { display: flex; gap: 8px; margin-top: 12px; }
+.ni-item .ni-btn, .wl-item .wl-btn {
+  flex: 1; height: 36px;
+  border-radius: var(--radius-btn);
+  display: flex; align-items: center; justify-content: center;
+  font-size: var(--font-sm); font-weight: 600; cursor: pointer;
+}
+.ni-item .ni-btn.restore { background: var(--tag-mist); color: var(--color-primary); }
+.ni-item .ni-btn.like, .wl-item .wl-btn.like { background: var(--tag-mint); color: var(--color-primary); }
+.wl-item .wl-btn.reject { background: var(--color-bg); color: var(--color-text-2); }
+.wl-item .wl-btn.keep { background: var(--tag-apricot); color: var(--color-text); }
+.wl-item .wl-dot { color: var(--color-collect); flex-shrink: 0; }
+
+/* ---------- 空状态 ---------- */
+.empty {
+  padding: 60px 40px;
+  text-align: center;
+}
+.empty .empty-icon {
+  width: 96px; height: 96px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  background: var(--tag-mist);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 40px;
+}
+.empty .empty-title { font-size: var(--font-md); font-weight: 600; margin-bottom: 8px; color: var(--color-text); }
+.empty .empty-desc { font-size: var(--font-sm); color: var(--color-text-2); margin-bottom: 20px; line-height: 1.6; }
+
+/* ---------- 详情页 ---------- */
+.detail-hero {
+  background: var(--color-surface);
+  padding: 20px 20px 16px;
+}
+.detail-hero .dh-name { font-size: 26px; font-weight: 600; color: var(--color-text); }
+.detail-hero .dh-ind { font-size: var(--font-sm); color: var(--color-text-2); margin-top: 4px; }
+.detail-hero .dh-desc {
+  font-size: var(--font-sm);
+  color: var(--color-text);
+  line-height: 1.7;
+  margin-top: 16px;
+  padding-left: 10px;
+  border-left: 3px solid var(--color-primary);
+}
+.detail-hero .dh-tags { margin-top: 14px; display: flex; gap: 6px; flex-wrap: wrap; }
+.detail-hero .dh-tag { background: var(--tag-mist); color: var(--color-text); padding: 3px 12px; border-radius: var(--radius-pill); font-size: var(--font-xs); }
+
+.info-row { display: flex; padding: 6px 0; }
+.info-row .ir-label { width: 88px; color: var(--color-text-2); font-size: var(--font-sm); flex-shrink: 0; }
+.info-row .ir-value { color: var(--color-text); font-size: var(--font-sm); flex: 1; line-height: 1.6; }
+
+/* 详情页正文段落 */
+.card-p { font-size: var(--font-sm); color: var(--color-text); line-height: 1.8; margin-bottom: 12px; }
+.card-p:last-child { margin-bottom: 0; }
+.cap { display: inline-flex; align-items: center; padding: 2px 10px; border-radius: var(--radius-pill); font-size: var(--font-xs); margin-right: 8px; vertical-align: 2px; }
+.cap-a { background: var(--tag-apricot); color: var(--color-text-2); }
+.cap-b { background: var(--tag-mint); color: var(--color-text-2); }
+
+/* ---------- 搜索页 ---------- */
+.search-input-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: var(--color-surface);
+}
+.search-input-row .si-box {
+  flex: 1;
+  height: 40px;
+  background: var(--color-bg);
+  border-radius: var(--radius-search);
+  display: flex;
+  align-items: center;
+  padding: 0 14px;
+  gap: 8px;
+  color: var(--color-text-3);
+  font-size: var(--font-sm);
+}
+.search-input-row .si-cancel { font-size: var(--font-sm); color: var(--color-primary); flex-shrink: 0; }
+
+.industry-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  padding: 0 20px;
+}
+.industry-grid .ig-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-card);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.industry-grid .ig-icon { width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; color: var(--color-primary); }
+.industry-grid .ig-name { font-size: var(--font-sm); font-weight: 600; color: var(--color-text); }
+.industry-grid .ig-count { font-size: var(--font-xs); color: var(--color-text-2); }
+
+/* ---------- 行业 Tab ---------- */
+.industry-tabs {
+  display: flex;
+  gap: 8px;
+  padding: 12px 20px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  flex-shrink: 0;
+  background: var(--color-surface);
+}
+.industry-tabs::-webkit-scrollbar { display: none; }
+.industry-tab {
+  padding: 7px 16px;
+  border-radius: var(--radius-pill);
+  background: var(--color-bg);
+  color: var(--color-text-2);
+  font-size: var(--font-sm);
+  white-space: nowrap;
+  cursor: pointer;
+}
+.industry-tab.active {
+  background: var(--color-primary);
+  color: #fff;
+  font-weight: 600;
+}
+
+/* ---------- 封面色块（低饱和暖调） ---------- */
+.c0 { background: var(--tag-apricot); }
+.c1 { background: var(--tag-mist); }
+.c2 { background: var(--tag-mint); }
+.c3 { background: #EFE7DE; }
+.c4 { background: #E7EBEE; }
+.c5 { background: #E9EEE8; }
+
+/* ---------- 通用工具 ---------- */
+.text-ellipsis { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.text-2 { color: var(--color-text-2); }
+.text-3 { color: var(--color-text-3); }
+.flex-center { display: flex; align-items: center; justify-content: center; }
+.mt-8 { margin-top: 8px; }
+.mt-16 { margin-top: 16px; }
+.mt-24 { margin-top: 24px; }
+/* ============================================================
+   甲方青年offer · 可交互 Demo 样式（v4.2 覆盖层）
+   基准视觉复用 ../prototype/assets/design-system.css
+   雾蓝灰简约体系：白底为主 · 3-4 色 · 无深色 · 水彩浅色插画
+   ============================================================ */
+
+html, body { background: #ECEEF1; }
+body { padding: 0; }
+
+.stage {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 16px 40px;
+}
+
+/* ---------- 顶部工具条 ---------- */
+.toolbar {
+  width: 100%;
+  max-width: 780px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  gap: 12px;
+}
+.toolbar .tb-brand { font-size: 15px; font-weight: 600; color: #7A93AC; }
+.toolbar .tb-brand span { color: #8C8C8C; font-weight: 400; font-size: 13px; }
+.tb-btns { display: flex; gap: 8px; }
+.tb-btn {
+  border: none;
+  height: 32px;
+  padding: 0 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  background: #fff;
+  color: #8C8C8C;
+}
+.tb-btn:hover { color: #7A93AC; }
+.tb-btn.danger:hover { color: #C47B6B; }
+
+/* ---------- 使用说明框 ---------- */
+#helpBox {
+  max-width: 780px;
+  width: 100%;
+  background: #fff;
+  border-radius: 4px;
+  padding: 16px 18px;
+  margin-bottom: 16px;
+  font-size: 13px;
+  color: #1A1A1A;
+  line-height: 2;
+}
+#helpBox b { color: #7A93AC; }
+
+/* ---------- 手机外框（demo 内自适应） ---------- */
+.phone {
+  height: min(844px, calc(100vh - 150px));
+  min-height: 620px;
+  margin: 0 auto;
+}
+.phone .page { overflow-y: auto; }
+
+/* 页面对焦动画 */
+.page.switching { animation: pageIn .22s ease; }
+@keyframes pageIn { from { opacity: .4; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+/* ---------- Toast ---------- */
+#toast {
+  position: absolute;
+  left: 50%;
+  bottom: 110px;
+  transform: translateX(-50%) translateY(10px);
+  background: rgba(255, 255, 255, .97);
+  color: #1A1A1A;
+  border: 1px solid #E4EAF0;
+  box-shadow: 0 8px 22px rgba(31, 41, 55, .10);
+  font-size: 13px;
+  padding: 9px 18px;
+  border-radius: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s ease, transform .2s ease;
+  z-index: 99;
+  white-space: nowrap;
+  max-width: 90%;
+  text-align: center;
+}
+#toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+/* ---------- 表单 select ---------- */
+.ff-select {
+  appearance: none;
+  -webkit-appearance: none;
+  border: none;
+  background: transparent;
+  font-size: var(--font-md);
+  color: var(--color-text);
+  width: 100%;
+  outline: none;
+  cursor: pointer;
+}
+.form-field .ff-right { margin-left: auto; }
+
+/* ---------- 反馈按钮激活态（v3.0：统一主色） ---------- */
+.fb-btn.active-interest, .fb-btn.active-later, .fb-btn.active-reject {
+  background: var(--color-primary);
+  color: #fff;
+  font-weight: 600;
+}
+.fb-status { text-align: center; font-size: var(--font-xs); color: var(--color-text-3); padding: 8px 16px 0; }
+
+/* ---------- 卡片流顶部进度（圆点） ---------- */
+.cf-nav {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 16px;
+  background: var(--color-surface);
+  flex-shrink: 0;
+}
+.cf-nav .cf-prog { flex: 1; display: flex; align-items: center; gap: 10px; }
+.cf-nav .cf-dots { display: flex; gap: 4px; }
+.cf-nav .cf-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--tag-empty); }
+.cf-nav .cf-dot.on { background: var(--color-primary); }
+.cf-nav .cf-text { font-size: var(--font-xs); color: var(--color-text-3); }
+.cf-nav .cf-exit { font-size: var(--font-xs); color: var(--color-text-3); flex-shrink: 0; }
+
+/* ---------- 编辑态个人画像 ---------- */
+.pp-edit-row { display: flex; align-items: center; gap: 8px; margin-top: 12px; }
+.pp-edit-row .pp-label { width: 76px; font-size: var(--font-sm); color: var(--color-text-2); flex-shrink: 0; }
+.pp-edit-row .pp-val { flex: 1; }
+
+/* ---------- 首页画像摘要卡增强 ---------- */
+.summary-card .sc-kw b { color: var(--color-primary); font-weight: 600; }
+
+/* ---------- 搜索输入增强 ---------- */
+.si-box input {
+  border: none;
+  background: transparent;
+  outline: none;
+  flex: 1;
+  font-size: var(--font-sm);
+  color: var(--color-text);
+}
+
+/* ---------- 探索页文章卡 / 首页 Feed 卡 ---------- */
+.know-card { cursor: pointer; }
+.know-card:active { opacity: .7; }
+.feed-card { cursor: pointer; }
+.feed-card:active { opacity: .7; }
+
+/* ---------- 画布使用提示 ---------- */
+.hint {
+  max-width: 375px;
+  margin-top: 16px;
+  font-size: 12px;
+  color: #8C8C8C;
+  line-height: 1.9;
+  text-align: left;
+}
+.hint b { color: #7A93AC; }
+
+/* ---------- 个人画像头（demo 内 我的页 / 个人画像页） ---------- */
+.user-header {
+  background: var(--color-surface);
+  padding: 20px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.user-header .avatar {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  background: var(--tag-apricot);
+  color: var(--color-primary);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px; font-weight: 600;
+  flex-shrink: 0;
+}
+.user-header .uh-name { font-size: var(--font-lg); font-weight: 600; color: var(--color-text); }
+.user-header .uh-sub { font-size: var(--font-xs); color: var(--color-text-2); margin-top: 4px; }
+.user-header .uh-btn { margin-left: auto; font-size: var(--font-sm); color: var(--color-primary); font-weight: 600; flex-shrink: 0; cursor: pointer; }
+
+/* ---------- 择业画像：可纠正标签 ---------- */
+.correct-tag {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 6px 12px 6px 14px;
+  border-radius: var(--radius-pill);
+  background: var(--tag-apricot);
+  color: var(--color-text);
+  font-size: var(--font-xs);
+}
+.correct-tag .ct-x { color: var(--color-text-3); cursor: pointer; }
+.cp-source { margin: 0 20px 12px; font-size: var(--font-xs); color: var(--color-text-3); line-height: 1.6; }
+
+/* ---------- 刷方向页（Tab2：沉浸式单卡抽卡） ---------- */
+.sw-prog { display: flex; align-items: center; gap: 10px; padding: 14px 20px 0; }
+.sw-prog-track { flex: 1; height: 4px; background: var(--tag-empty); border-radius: 2px; }
+.sw-prog-bar { height: 100%; background: var(--color-primary); border-radius: 2px; transition: width .2s ease; }
+.sw-prog-t { font-size: var(--font-xs); color: var(--color-text-2); flex-shrink: 0; }
+.sw-pills { padding-top: 10px; padding-bottom: 10px; }
+/* 半圆轮盘：三卡沿同一圆弧轨道锚定，绕底部圆心径向旋转 */
+.page.swipe-page { display: flex; flex-direction: column; overflow: hidden; }
+.sw-stage { flex: 1; min-height: 0; display: flex; flex-direction: column; padding: 6px 0 0; }
+.sww { position: relative; flex: 1; min-height: 0; overflow: hidden; }
+.sww-arc {
+  position: absolute; left: 50%; bottom: 0;
+  width: 300px; height: 150px; margin-left: -150px;
+  border-radius: 150px 150px 0 0;
+  border: 2px solid var(--color-line);
+  border-bottom: none;
+  box-sizing: border-box;
+  background: #F5F7F9;
+}
+.sww-arc::before {
+  content: ''; position: absolute; inset: 2px 2px 0 2px;
+  border-radius: 148px 148px 0 0;
+  background: rgba(122, 147, 172, .06);
+}
+.sww-card {
+  position: absolute;
+  transform-origin: 50% 100%;
+  background: var(--color-surface);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  box-shadow: 0 6px 16px rgba(26, 26, 26, .06);
+  transition: left .38s cubic-bezier(.3, .7, .3, 1), bottom .38s cubic-bezier(.3, .7, .3, 1),
+    width .38s cubic-bezier(.3, .7, .3, 1), transform .38s cubic-bezier(.3, .7, .3, 1), opacity .3s ease;
+}
+.sww-card.out { animation: swOut .22s ease forwards; }
+@keyframes swOut { to { opacity: 0; transform: translateY(-14px) scale(.97); } }
+.swc-cover { height: 34px; display: flex; align-items: center; justify-content: center; }
+.swc-fav {
+  position: absolute; top: 4px; right: 8px; width: 24px; height: 24px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 17px; line-height: 1; color: var(--color-text-3);
+  background: rgba(255, 255, 255, .9); border-radius: 50%;
+}
+.swc-fav.on { color: var(--color-collect); }
+.swc-body { padding: 6px 12px 7px; }
+.swc-name { font-size: 15px; font-weight: 600; color: var(--color-text); line-height: 1.35; }
+.swc-star { color: var(--color-collect); }
+.swc-sal { font-size: 13px; font-weight: 600; color: var(--color-primary); margin-top: 2px; }
+.swc-tags { margin-top: 4px; display: flex; gap: 4px; flex-wrap: wrap; }
+.swc-tags .tag { font-size: 10px; padding: 2px 7px; }
+.swc-desc {
+  margin-top: 4px; font-size: 11px; color: var(--color-text-2); line-height: 1.5;
+  display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden;
+}
+.swc-guide {
+  margin: 5px 12px 8px; padding: 5px 0; text-align: center;
+  font-size: 11px; color: var(--color-primary);
+  border: 1px solid var(--color-primary); border-radius: var(--radius-btn);
+}
+.sww-refresh-wrap {
+  position: absolute; left: 50%; bottom: 70px; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+}
+.sww-refresh {
+  width: 54px; height: 54px; border-radius: 50%;
+  background: var(--color-primary-strong);
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 6px 14px rgba(122, 147, 172, .35);
+  cursor: pointer;
+}
+.sww-refresh-t { font-size: 11px; color: var(--color-text-2); }
+.sww-dim {
+  position: absolute; font-size: 11px; color: var(--color-text-2);
+  background: var(--color-surface); border: 1px solid var(--color-line);
+  border-radius: 10px; padding: 2px 8px;
+}
+.sw-done { padding: 56px 24px; display: flex; flex-direction: column; align-items: center; text-align: center; }
+.swd-ok {
+  width: 72px; height: 72px;
+  border-radius: 50%;
+  background: var(--tag-apricot);
+  display: flex; align-items: center; justify-content: center;
+}
+.swd-ok-title { font-size: var(--font-lg); font-weight: 600; color: var(--color-text); margin-top: 16px; }
+.swd-ok-sub { font-size: var(--font-sm); color: var(--color-text-2); margin-top: 8px; line-height: 1.6; margin-bottom: 24px; }
+.sw-done .btn { width: 240px; margin-bottom: 12px; }
+
+/* ---------- 论坛分享页（Tab3） ---------- */
+.post-list { padding: 8px 20px 20px; }
+.post-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-card);
+  padding: 14px;
+  margin-bottom: 12px;
+  cursor: pointer;
+}
+.post-card .pc-head { display: flex; align-items: center; gap: 10px; }
+.post-card .pc-avatar {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: var(--tag-apricot);
+  color: var(--color-primary);
+  display: flex; align-items: center; justify-content: center;
+  font-size: var(--font-sm); font-weight: 600;
+  flex-shrink: 0;
+}
+.post-card .pc-avatar.sm { width: 28px; height: 28px; font-size: var(--font-xs); }
+.post-card .pc-meta { flex: 1; min-width: 0; }
+.post-card .pc-author { font-size: var(--font-xs); font-weight: 600; color: var(--color-text); }
+.post-card .pc-time { font-size: 11px; color: var(--color-text-3); margin-top: 1px; }
+.post-card .pc-del { font-size: var(--font-xs); color: var(--color-text-3); flex-shrink: 0; }
+.post-card .pc-title { font-size: var(--font-md); font-weight: 600; color: var(--color-text); margin-top: 10px; line-height: 1.4; }
+.post-card .pc-desc { font-size: var(--font-sm); color: var(--color-text-2); line-height: 1.6; margin-top: 6px; }
+.post-card .pc-stats { display: flex; gap: 16px; margin-top: 10px; font-size: var(--font-xs); color: var(--color-text-2); }
+.post-card .pc-stats span { display: inline-flex; align-items: center; gap: 4px; }
+.post-card .pc-stats .pc-like.on { color: var(--color-collect); }
+
+/* ---------- 帖子详情 ---------- */
+.post-detail { padding-bottom: 12px; }
+.post-detail .pd-head { display: flex; align-items: center; gap: 10px; padding: 16px 20px 0; }
+.post-detail .pd-title { font-size: 20px; font-weight: 600; line-height: 1.5; color: var(--color-text); padding: 14px 20px 0; }
+.post-detail .pd-body { padding: 14px 20px; font-size: var(--font-sm); line-height: 1.9; color: var(--color-text); }
+.post-detail .pd-body p { margin-bottom: 12px; }
+.post-detail .pd-like {
+  margin: 0 20px 16px;
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 8px 16px;
+  border-radius: var(--radius-pill);
+  background: var(--tag-mist);
+  color: var(--color-text-2);
+  font-size: var(--font-sm);
+  cursor: pointer;
+}
+.post-detail .pd-like.on { background: var(--tag-apricot); color: var(--color-collect); font-weight: 600; }
+.post-detail .pd-c-title { font-size: var(--font-sm); font-weight: 600; color: var(--color-text); padding: 4px 20px 8px; }
+.post-detail .pd-comment { display: flex; gap: 10px; padding: 12px 20px; }
+.post-detail .pd-c-body { flex: 1; min-width: 0; }
+.post-detail .pd-c-head { font-size: var(--font-xs); font-weight: 600; color: var(--color-text); }
+.post-detail .pd-c-head span { color: var(--color-text-3); font-weight: 400; margin-left: 6px; }
+.post-detail .pd-c-text { font-size: var(--font-sm); color: var(--color-text-2); line-height: 1.6; margin-top: 4px; }
+.pd-comment-bar {
+  background: var(--color-surface);
+  padding: 10px 20px calc(10px + var(--safe-bottom));
+  display: flex; gap: 10px;
+  flex-shrink: 0;
+}
+.pd-comment-bar input {
+  flex: 1;
+  height: 40px;
+  border: none;
+  background: var(--color-bg);
+  border-radius: var(--radius-pill);
+  padding: 0 16px;
+  font-size: var(--font-sm);
+  outline: none;
+}
+.pd-comment-bar button {
+  height: 40px;
+  padding: 0 20px;
+  border: none;
+  border-radius: var(--radius-pill);
+  background: var(--color-primary);
+  color: #fff;
+  font-size: var(--font-sm);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ---------- 发帖页 ---------- */
+.np-textarea {
+  width: 100%;
+  min-height: 120px;
+  border: none;
+  background: var(--color-bg);
+  border-radius: var(--radius-btn);
+  padding: 12px 14px;
+  font-size: var(--font-sm);
+  font-family: inherit;
+  line-height: 1.7;
+  color: var(--color-text);
+  outline: none;
+  resize: vertical;
+}
+
+/* ---------- 问方向页（Tab1：咨询大窗口 + 测评入口） ---------- */
+.consult-card {
+  margin: 16px 20px 0;
+  background: var(--color-surface);
+  border-radius: var(--radius-card);
+  padding: 24px 20px 20px;
+}
+.consult-card .cc-icon {
+  width: 48px; height: 48px;
+  border-radius: var(--radius-card);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 14px;
+}
+.consult-card .cc-title { font-size: var(--font-lg); font-weight: 600; color: var(--color-text); line-height: 1.4; }
+.consult-card .cc-sub { font-size: var(--font-sm); color: var(--color-text-2); margin-top: 6px; line-height: 1.6; }
+.consult-card .cc-input {
+  width: 100%; min-height: 84px;
+  border: none; outline: none;
+  background: var(--color-bg);
+  border-radius: var(--radius-btn);
+  padding: 12px 14px;
+  margin-top: 16px;
+  font-size: var(--font-sm); font-family: inherit; line-height: 1.7;
+  color: var(--color-text);
+  resize: vertical;
+}
+.consult-card .cc-input::placeholder { color: var(--color-text-3); }
+.consult-card .cc-btn { margin-top: 12px; height: 44px; }
+.consult-card .cc-hint { margin-top: 12px; text-align: center; font-size: var(--font-xs); color: var(--color-text-3); }
+
+.ask-has-result {
+  margin: 12px 20px 0;
+  background: var(--color-surface);
+  border-radius: var(--radius-card);
+  padding: 14px 16px;
+  display: flex; align-items: center; justify-content: space-between;
+  font-size: var(--font-sm); color: var(--color-text);
+  cursor: pointer;
+}
+.ask-has-result span:last-child { color: var(--color-primary); font-weight: 600; }
+
+.entry-card {
+  margin: 12px 20px 0;
+  background: var(--color-primary);
+  color: #fff;
+  border-radius: var(--radius-card);
+  padding: 18px;
+  display: flex; align-items: center; gap: 14px;
+  cursor: pointer;
+}
+.entry-card .ec-left {
+  width: 48px; height: 48px;
+  border-radius: var(--radius-card);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.entry-card .ec-main { flex: 1; min-width: 0; }
+.entry-card .ec-title { font-size: var(--font-md); font-weight: 600; color: #fff; line-height: 1.4; }
+.entry-card .ec-sub { font-size: var(--font-xs); color: rgba(255,255,255,.72); margin-top: 4px; line-height: 1.5; }
+.entry-card .ec-go { font-size: var(--font-sm); color: #fff; font-weight: 600; flex-shrink: 0; }
+.ask-foot { margin: 24px 24px 0; text-align: center; font-size: var(--font-xs); color: var(--color-text-3); line-height: 1.8; }
+
+/* ---------- 结果页头部 ---------- */
+.res-head { padding: 20px 20px 6px; }
+.res-head .res-title { font-size: 22px; font-weight: 600; color: var(--color-text); }
+.res-head .res-sub { font-size: var(--font-xs); color: var(--color-text-2); margin-top: 6px; line-height: 1.6; }
+.res-head .res-stars { margin-top: 10px; }
+
+/* ---------- 彩色便签堆叠（结果页 / 收藏夹 v4.1） ---------- */
+.st-list { padding: 16px 20px 30px; display: flex; flex-direction: column; }
+.st-card {
+  position: relative;
+  border-radius: 16px;
+  background: var(--color-surface);
+  box-shadow: 0 6px 16px rgba(26, 26, 26, .07);
+  margin-bottom: -12px;
+  overflow: hidden;
+  scroll-margin-top: 64px;
+  transition: box-shadow .28s ease, transform .28s ease;
+}
+.st-card:last-child { margin-bottom: 0; }
+.st-card.st-open { z-index: 3; box-shadow: 0 14px 30px rgba(26, 26, 26, .16); transform: translateY(-4px); }
+.st-card.st-removing { animation: stOut .22s ease forwards; }
+@keyframes stOut {
+  from { transform: none; opacity: 1; }
+  to { transform: translateY(36px); opacity: 0; }
+}
+/* 便签彩色板（低饱和粉彩，按职业 c 索引 0-5 取色） */
+.st-card.c0 .st-head { background: #F6E3BE; }
+.st-card.c1 .st-head { background: #D6E6F5; }
+.st-card.c2 .st-head { background: #D4EFDB; }
+.st-card.c3 .st-head { background: #F7D9CF; }
+.st-card.c4 .st-head { background: #DFD8F2; }
+.st-card.c5 .st-head { background: #CCEBE1; }
+.st-head { padding: 13px 16px 12px; cursor: pointer; transition: filter .25s ease; }
+.st-card:hover .st-head { filter: saturate(1.06) brightness(.99); }
+.st-card.st-open .st-head { filter: saturate(1.14) brightness(.975); }
+.st-h1 { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.st-name {
+  font-size: 17px; font-weight: 600; color: var(--color-text);
+  min-width: 0;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.st-name .st-star-mark { color: var(--color-collect); }
+.st-sal {
+  font-size: 15px; font-weight: 700; color: var(--color-primary);
+  flex-shrink: 0; max-width: 52%;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.st-h2 {
+  margin-top: 5px;
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
+  font-size: 12px; color: #5C5C5C;
+}
+.st-h2-r { display: flex; align-items: center; gap: 8px; }
+.st-h2 .st-stars .stars { font-size: 12px; }
+.st-h2 .st-stars .stars .off { color: rgba(26, 26, 26, .18); }
+/* 展开指示箭头：点击切换时旋转，暗示可展开/收起 */
+.st-caret {
+  font-size: 11px; line-height: 1;
+  color: rgba(26, 26, 26, .35);
+  transition: transform .25s ease, color .25s ease;
+}
+.st-card.st-open .st-caret { transform: rotate(180deg); color: var(--color-primary); }
+/* 详情区：grid 行高 0fr→1fr 过渡，实现展开/收起的平滑动画
+   注意：grid 折叠项自身不能带 padding/border（min-content 贡献会>0），
+   所以 padding 放在更内层的 .st-body-content 上 */
+.st-body {
+  display: grid;
+  grid-template-rows: 0fr;
+  overflow: hidden;
+  transition: grid-template-rows .32s ease;
+}
+.st-card.st-open .st-body { grid-template-rows: 1fr; }
+.st-body-inner {
+  min-height: 0;
+  overflow: hidden;
+}
+.st-body-content {
+  padding: 14px 16px 16px;
+  border-top: 1px solid rgba(26, 26, 26, .06);
+  background: var(--color-surface);
+}
+.st-desc { font-size: var(--font-sm); color: var(--color-text-2); line-height: 1.7; }
+.st-tags { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px; }
+.st-actions { margin-top: 14px; }
+.st-op-row { display: flex; gap: 8px; }
+.st-op-row .st-op { flex: 1; width: auto; height: 36px; font-size: var(--font-xs); }
+/* 操作 toast 撤销按钮 */
+.toast-act {
+  margin-left: 10px; padding: 0; border: none; background: none;
+  color: #5F7893; font-size: 13px; font-weight: 600; cursor: pointer; text-decoration: underline;
+  pointer-events: auto;
+}
+
+/* ---------- 小屏适配（当手机用） ---------- */
+@media (max-width: 430px) {
+  body { background: var(--color-bg); }
+  .stage { padding: 0; min-height: 100dvh; }
+  .toolbar, .hint, #helpBox { display: none; }
+  .phone {
+    width: 100vw;
+    height: 100dvh;
+    min-height: 0;
+    border-radius: 0;
+    margin: 0;
+  }
+}
+
+/* ============================================================
+   v4.2 雾蓝灰简约体系（覆盖 design-system.css 的深海蓝灰）
+   决策：白底为主 · 3-4 色 · 无深色 · 水彩浅色插画 · 保留粉彩便签
+   ============================================================ */
+:root {
+  --color-primary: #7A93AC;          /* 雾蓝灰：图标 / 线条 / 进度 / 装饰 */
+  --color-primary-strong: #5F7893;   /* 雾蓝灰·深档：实底按钮+白字 / 文字链接 */
+  --color-primary-soft: #E4EBF3;     /* 雾蓝灰·浅档：浅底标签 / 胶囊 */
+  --color-bg: #F6F7F8;               /* 近白页面底色 */
+  --color-line: #EEF0F3;             /* 更淡分割线 */
+}
+
+/* 实底强调块：深档雾蓝 + 白字，保证对比清晰 */
+.btn-primary, .hero, .entry-card, .option-chip.selected, .quiz-opt.selected,
+.industry-tab.active, .fb-btn.active, .fb-btn.active-interest, .fb-btn.active-later,
+.fb-btn.active-reject, .pd-comment-bar button, .sww-refresh {
+  background: var(--color-primary-strong);
+}
+.btn-primary:active { background: #4E657D; }
+.hero .hero-btn { color: var(--color-primary-strong); }
+
+/* 浅底强调：浅雾蓝底 + 深档雾蓝字 */
+.btn-ghost { background: var(--color-primary-soft); color: var(--color-primary-strong); }
+
+/* 文字级强调：用深档雾蓝保证白底对比清晰
+   （选择器与 design-system.css 保持同特异性，且后写生效） */
+.tab-item.active, .steps .step.active .step-label, .dir-card .dc-share,
+.feed-card .fc-share, .summary-card .sc-link, .guide-card .gc-btn,
+.path-card .pc-start, .cardflow .cf-reason-title, .fav-item .fi-op.primary,
+.ni-item .ni-btn.restore, .wl-item .wl-btn.like,
+.search-input-row .si-cancel, .list-item .li-badge, .bento-cta,
+.nav-bar .nav-right, .st-sal, .ask-has-result span:last-child,
+.user-header .uh-btn, .swc-guide, .swc-sal {
+  color: var(--color-primary-strong);
+}
+
+/* 头像 / 图标类强调文字 */
+.bento .avatar, .user-header .avatar, .post-card .pc-avatar { color: var(--color-primary-strong); }
+
+/* 封面插画：水彩浅色（与粉彩便签同族，渐变模拟水彩浸染） */
+.c0 { background: linear-gradient(160deg, #F6E3BE 0%, #F9EBCB 100%); }
+.c1 { background: linear-gradient(160deg, #D6E6F5 0%, #E6EEF8 100%); }
+.c2 { background: linear-gradient(160deg, #D4EFDB 0%, #E4F4E9 100%); }
+.c3 { background: linear-gradient(160deg, #F7D9CF 0%, #F9E5DD 100%); }
+.c4 { background: linear-gradient(160deg, #DFD8F2 0%, #EDE7F8 100%); }
+.c5 { background: linear-gradient(160deg, #CCEBE1 0%, #E0F2EC 100%); }
+
+/* ---------- 刷方向 · 跳过（v4.2.1：划走不记录） ---------- */
+/* 跳过按钮：浅底虚线，区别于三个反馈按钮（不写入数据库） */
+.fb-btn-skip {
+  background: var(--color-bg);
+  color: var(--color-text-2);
+  border: 1px dashed var(--color-line);
+}
+/* 轮盘卡片：允许垂直滚动页面，水平拖动交由手势接管 */
+.sww-card { touch-action: pan-y; }
+/* 拖拽跟手时禁用 transform 过渡 */
+.sww-card.dragging { transition: none; }
+
+/* ============================================================
+   v3.0 抽卡召唤 · 卡册 · 升星 · 私信 · 关注
+   （覆盖层，沿用雾蓝灰体系 + 星色：#8C9AA8 / #5F7893 / #C9A24B）
+   ============================================================ */
+
+/* ---------- 刷方向页 · 召唤入口条 ---------- */
+.sw-summon-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 12px 16px 4px;
+  padding: 11px 14px;
+  background: linear-gradient(120deg, var(--color-primary-soft) 0%, #F3F7FB 100%);
+  border: 1px solid #DCE6EF;
+  border-radius: 12px;
+  cursor: pointer;
+}
+.sw-summon-bar:active { background: #E0E9F2; }
+.sws-left { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.sws-title { font-size: 14px; font-weight: 700; color: var(--color-primary-strong); display: flex; align-items: center; gap: 6px; }
+.sws-sub { font-size: 11px; color: var(--color-text-2); }
+.sws-btn {
+  flex-shrink: 0;
+  padding: 8px 18px;
+  border-radius: var(--radius-pill);
+  background: var(--color-primary-strong);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* ---------- 召唤页 ---------- */
+.summon-hero {
+  margin: 12px 16px 0;
+  padding: 20px 18px;
+  border-radius: 14px;
+  background: linear-gradient(150deg, #E9F0F7 0%, #F4F8FC 100%);
+  border: 1px solid #E0E9F2;
+  text-align: center;
+}
+.summon-title { font-size: 20px; font-weight: 700; color: var(--color-text); }
+.summon-sub { font-size: 12px; color: var(--color-text-2); margin-top: 6px; line-height: 1.6; }
+.summon-tickets { font-size: 13px; color: var(--color-text-2); margin-top: 12px; }
+.summon-tickets b { font-size: 20px; color: var(--color-primary-strong); margin: 0 2px; }
+.summon-btns { display: flex; gap: 10px; margin: 14px 16px 0; }
+.summon-btns .sum-btn { flex: 1; height: 46px; }
+.summon-btns .sum-btn10 {
+  background: linear-gradient(135deg, var(--color-primary-strong) 0%, #6E88A3 100%);
+  box-shadow: 0 4px 12px rgba(95, 120, 147, .28);
+}
+.summon-get, .summon-rates {
+  margin: 14px 16px 0;
+  background: var(--color-surface);
+  border-radius: 12px;
+  padding: 14px 16px;
+}
+.sg-title { font-size: 12px; font-weight: 600; color: var(--color-text-2); margin-bottom: 8px; }
+.sg-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  font-size: 14px;
+  color: var(--color-text);
+  cursor: pointer;
+}
+.sg-row + .sg-row { border-top: 1px solid var(--color-line); }
+.sg-row b { color: var(--color-primary-strong); }
+.sum-rate { display: flex; align-items: center; gap: 8px; padding: 7px 0; font-size: 13px; color: var(--color-text-2); }
+.sum-rate b { margin-left: auto; color: var(--color-text); font-weight: 600; }
+.sum-rate-star { font-size: 15px; letter-spacing: 1px; }
+.sum-rate-note { font-size: 12px; color: var(--color-text-3); line-height: 1.7; margin-top: 6px; }
+
+/* ---------- 抽卡结果 ---------- */
+.sum-res-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 16px 16px 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+.sum-res-meta { font-size: 12px; font-weight: 400; color: var(--color-text-3); }
+.sum-grid {
+  display: grid;
+  gap: 8px;
+  padding: 0 16px 16px;
+  margin-bottom: 12px;
+}
+.sum-grid1 { grid-template-columns: 1fr; max-width: 220px; margin: 0 auto 12px; }
+.sum-grid10 { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.pull-card {
+  position: relative;
+  background: var(--color-surface);
+  border-radius: 10px;
+  padding: 12px 6px 10px;
+  text-align: center;
+  border: 1px solid var(--color-line);
+  cursor: pointer;
+  animation: pullIn .55s cubic-bezier(.2, .7, .3, 1) backwards;
+  transform-style: preserve-3d;
+}
+.pull-card .pc-cover {
+  width: 42px; height: 42px;
+  margin: 0 auto 6px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+}
+.pull-card .pc-name { font-size: 12px; font-weight: 600; color: var(--color-text); line-height: 1.3; }
+.pull-card .pc-star { font-size: 12px; letter-spacing: 1px; margin-top: 3px; }
+.pull-card.rare {
+  border-color: rgba(201, 162, 75, .6);
+  box-shadow: 0 0 16px rgba(201, 162, 75, .35);
+}
+.pull-card.rare .pc-cover { animation: rarePulse 1.2s ease-in-out infinite; }
+.pull-card.rare .pc-rare {
+  position: absolute;
+  top: 6px; right: 6px;
+  font-size: 9px;
+  color: #fff;
+  background: linear-gradient(135deg, #D4AF37, #C9A24B);
+  border-radius: 8px;
+  padding: 1px 5px;
+  font-weight: 600;
+}
+@keyframes pullIn {
+  from { transform: translateY(24px) rotateX(70deg) scale(.7); opacity: 0; }
+  to   { transform: none; opacity: 1; }
+}
+@keyframes rarePulse {
+  0%, 100% { box-shadow: 0 0 4px rgba(201, 162, 75, .2); }
+  50%      { box-shadow: 0 0 14px rgba(201, 162, 75, .55); }
+}
+
+/* ---------- 卡册 ---------- */
+.cards-head {
+  display: flex;
+  gap: 8px;
+  margin: 12px 16px 12px;
+}
+.cards-stat {
+  flex: 1;
+  background: var(--color-surface);
+  border-radius: 10px;
+  padding: 10px 0;
+  text-align: center;
+}
+.cards-stat b { display: block; font-size: 18px; color: var(--color-primary-strong); }
+.cards-stat span { font-size: 11px; color: var(--color-text-3); }
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  padding: 0 16px;
+}
+.card-tile {
+  background: var(--color-surface);
+  border-radius: 12px;
+  padding: 14px 10px 12px;
+  text-align: center;
+  border: 1px solid var(--color-line);
+  cursor: pointer;
+}
+.card-tile .ct-cover {
+  width: 48px; height: 48px;
+  margin: 0 auto 8px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+}
+.card-tile .ct-name { font-size: 13px; font-weight: 600; color: var(--color-text); }
+.card-tile .ct-level { font-size: 13px; letter-spacing: 1px; margin-top: 4px; }
+.card-tile .ct-count { font-size: 11px; color: var(--color-text-3); margin-top: 3px; }
+.ct-merge {
+  margin-top: 8px;
+  padding: 5px 0;
+  border-radius: var(--radius-pill);
+  background: var(--color-primary-strong);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  animation: mergeReady 1s ease-in-out infinite;
+}
+.ct-merge-off { margin-top: 8px; padding: 5px 0; border-radius: var(--radius-pill); font-size: 11px; color: var(--color-text-3); background: var(--color-bg); }
+.ct-merge-done { margin-top: 8px; padding: 5px 0; border-radius: var(--radius-pill); font-size: 11px; color: #C9A24B; background: #F7F1E0; font-weight: 600; }
+@keyframes mergeReady {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.04); }
+}
+
+/* ---------- 职业详情 · 星级内容分层 ---------- */
+.star-card { padding-bottom: 16px; }
+.sc-level {
+  background: var(--color-bg);
+  border-radius: 10px;
+  padding: 10px 12px;
+  margin-bottom: 12px;
+}
+.sc-lv { font-size: 14px; display: flex; align-items: center; gap: 8px; }
+.sc-lv b { font-size: 16px; }
+.sc-sub { font-size: 11px; color: var(--color-text-2); margin-top: 4px; }
+.text-primary { color: var(--color-primary-strong); font-weight: 600; }
+.sl-block { border: 1px solid var(--color-line); border-radius: 10px; padding: 10px 12px; margin-bottom: 10px; }
+.sl-block.open { border-color: #D9E5F0; background: #FBFCFE; }
+.sl-head { display: flex; align-items: center; gap: 8px; font-size: 13px; margin-bottom: 6px; }
+.sl-star { font-size: 13px; letter-spacing: 1px; }
+.sl-title { font-weight: 600; color: var(--color-text); flex: 1; }
+.sl-rows { padding-top: 2px; }
+.sl-lock {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 10px;
+  border: 1px dashed var(--color-line);
+  border-radius: 8px;
+  color: var(--color-text-3);
+  font-size: 12px;
+  cursor: pointer;
+}
+.sl-soon { text-align: center; font-size: 11px; color: var(--color-text-3); padding-top: 4px; }
+
+/* ---------- 私信 · 关注 ---------- */
+.unread-badge {
+  min-width: 18px; height: 18px;
+  border-radius: 9px;
+  background: #E86B5A;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  display: flex; align-items: center; justify-content: center;
+  padding: 0 5px;
+  margin-left: auto;
+}
+.dm-list { padding: 8px 16px 0; }
+.dm-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--color-surface);
+  border-radius: 12px;
+  padding: 12px 14px;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+.dm-item:active { background: #F0F3F6; }
+.dm-avatar {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: var(--color-primary-soft);
+  color: var(--color-primary-strong);
+  font-size: 16px;
+  font-weight: 600;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.dm-avatar.sm { width: 30px; height: 30px; font-size: 13px; }
+.dm-main { flex: 1; min-width: 0; }
+.dm-name { font-size: 14px; font-weight: 600; color: var(--color-text); }
+.dm-last { font-size: 12px; color: var(--color-text-3); margin-top: 2px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.dm-side { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; flex-shrink: 0; }
+.dm-time { font-size: 11px; color: var(--color-text-3); }
+.dm-unread {
+  min-width: 18px; height: 18px;
+  border-radius: 9px;
+  background: #E86B5A;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  display: flex; align-items: center; justify-content: center;
+  padding: 0 5px;
+}
+.dm-chat { padding: 16px 16px 8px; display: flex; flex-direction: column; gap: 10px; }
+.dm-msg { display: flex; gap: 8px; align-items: flex-end; }
+.dm-msg.mine { justify-content: flex-end; }
+.dm-bubble {
+  max-width: 76%;
+  padding: 9px 12px;
+  border-radius: 12px;
+  font-size: 14px;
+  line-height: 1.55;
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  color: var(--color-text);
+}
+.dm-msg.mine .dm-bubble {
+  background: var(--color-primary-strong);
+  color: #fff;
+  border-color: var(--color-primary-strong);
+  border-bottom-right-radius: 3px;
+}
+.dm-msg:not(.mine) .dm-bubble { border-bottom-left-radius: 3px; }
+.dm-risk-tip { font-size: 11px; color: #D9822B; margin-top: 5px; }
+.dm-empty { text-align: center; color: var(--color-text-3); font-size: 12px; padding: 60px 0; }
+.dm-input-bar {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.dm-input-bar input {
+  flex: 1;
+  height: 40px;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-btn);
+  padding: 0 14px;
+  font-size: 14px;
+  background: var(--color-surface);
+  color: var(--color-text);
+  outline: none;
+}
+.dm-input-bar button {
+  height: 40px;
+  padding: 0 18px;
+  border: none;
+  border-radius: var(--radius-btn);
+  background: var(--color-primary-strong);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ---------- 帖子卡片 / 详情 · 私信关注入口 ---------- */
+.pc-actions { display: flex; align-items: center; gap: 6px; margin-left: 2px; flex-shrink: 0; }
+.pc-dm, .pc-follow {
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  white-space: nowrap;
+}
+.pc-dm { background: var(--color-primary-soft); color: var(--color-primary-strong); }
+.pc-follow { background: #F7F1E0; color: #A8832E; }
+.pc-follow.on { background: var(--color-bg); color: var(--color-text-3); }
+.pd-acts { display: flex; gap: 8px; margin-left: auto; flex-shrink: 0; }
+.btn-sm { height: 32px; padding: 0 14px; font-size: 12px; width: auto; border-radius: var(--radius-pill); }
+.btn-outline.on { background: var(--color-primary-soft); color: var(--color-primary-strong); }
+
+/* ============================================================
+   v5.1 全屏抽卡 / 升星动画
+   设计来源（原神 / 恋与深空 / 明日方舟 / FGO / 王者荣耀）：
+   · 多巴胺三幕剧：线索 → 悬念(卡背) → 揭示(逐张翻牌+稀有反转)
+   · 十连逐张揭示：拉开悬念、制造多次小高潮
+   · 稀有卡金光爆发（对标原神「捕获明光」出金动画）
+   · 升星仪式感：震动 → 星星汇聚 → 升级光环 → 展示解锁内容
+   全程可跳过；白底浅色卡片沿用雾蓝灰 + 星色体系
+   ============================================================ */
+
+/* ---------- 全屏遮罩（body 级，最高层） ---------- */
+#pullOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 900;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+#pullOverlay.on { display: flex; }
+
+.po-backdrop, .mo-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(18, 24, 32, .62);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+  opacity: 0;
+  transition: opacity .28s ease;
+}
+#pullOverlay.on .po-backdrop,
+#pullOverlay.on .mo-backdrop { opacity: 1; }
+
+.po-stage {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 26px;
+  opacity: 0;
+  transform: scale(.96);
+  transition: opacity .3s ease, transform .3s ease;
+}
+#pullOverlay.on .po-stage { opacity: 1; transform: none; }
+
+.po-title { color: #fff; display: flex; flex-direction: column; align-items: center; gap: 5px; }
+.po-title b { font-size: 20px; letter-spacing: 4px; font-weight: 700; }
+.po-title-sub { font-size: 12px; opacity: .72; letter-spacing: 1px; }
+
+/* ---------- 抽卡网格 ---------- */
+.po-grid { display: grid; place-items: center; }
+.po-grid10 { grid-template-columns: repeat(5, 62px); gap: 12px; }
+.po-grid10 .po-card { width: 62px; height: 86px; }
+.po-grid1 { display: flex; }
+.po-grid1 .po-card { width: 118px; height: 158px; }
+
+/* ---------- 单卡：飞入 + 3D 翻牌揭示 ---------- */
+.po-card {
+  perspective: 620px;
+  opacity: 0;
+  transform: translateY(46px) scale(.86);
+  transition: opacity .16s ease, transform .36s cubic-bezier(.2, .9, .25, 1.08);
+  transition-delay: calc(var(--i, 0) * 24ms);
+}
+.po-card.reveal { opacity: 1; transform: none; }
+
+.po-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transition: transform .55s cubic-bezier(.32, .7, .3, 1);
+  transition-delay: calc(var(--i, 0) * 24ms + 90ms);
+  will-change: transform;
+}
+.po-card.reveal .po-inner { transform: rotateY(180deg); }
+
+.po-face {
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+}
+.po-front {
+  transform: rotateY(180deg);
+  box-shadow: 0 8px 18px rgba(26, 26, 26, .14);
+  padding: 6px;
+}
+.po-back {
+  background: linear-gradient(150deg, #5F7893 0%, #7A93AC 100%);
+  color: #fff;
+  box-shadow: 0 8px 18px rgba(26, 26, 26, .18);
+}
+.po-logo { font-size: 24px; line-height: 1; color: rgba(255, 255, 255, .9); }
+.po-back-t { font-size: 10px; letter-spacing: 3px; opacity: .75; }
+.po-icon { line-height: 0; }
+.po-fname { font-size: 11px; font-weight: 700; color: #1A1A1A; text-align: center; padding: 0 4px; line-height: 1.4; }
+
+/* ---------- 稀有（3星）金光 ---------- */
+.po-card.rare.reveal .po-inner { transition-duration: .78s; }
+.po-card.rare .po-front {
+  box-shadow: 0 0 0 2px rgba(201, 162, 75, .85), 0 0 24px rgba(201, 162, 75, .55), 0 8px 18px rgba(26, 26, 26, .16);
+}
+.po-card.rare.reveal { animation: poRarePulse 1.1s ease-out .55s; }
+@keyframes poRarePulse {
+  0% { filter: brightness(1); transform: scale(1); }
+  45% { filter: brightness(1.35); transform: scale(1.05); }
+  100% { filter: brightness(1); transform: scale(1); }
+}
+
+/* 出金光爆发（JS 追加到 .po-stage 内） */
+.po-flash {
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  background: radial-gradient(circle, rgba(255, 216, 110, .6) 0%, rgba(255, 216, 110, 0) 62%);
+  animation: poFlash 1.1s ease-out forwards;
+  pointer-events: none;
+}
+@keyframes poFlash {
+  0% { transform: scale(.35); opacity: 0; }
+  18% { opacity: 1; }
+  100% { transform: scale(1.7); opacity: 0; }
+}
+
+.po-skip {
+  position: absolute;
+  right: 18px;
+  bottom: 20px;
+  color: rgba(255, 255, 255, .8);
+  font-size: 13px;
+  padding: 8px 18px;
+  border: 1px solid rgba(255, 255, 255, .38);
+  border-radius: 20px;
+  cursor: pointer;
+  background: rgba(255, 255, 255, .06);
+  z-index: 3;
+}
+
+/* ============================================================
+   v5.2 升星动画（沉浸式）：旋转金光 → 卡面扫光 → 粒子爆发 → 三星汇聚 → 光环 → 解锁内容
+   ============================================================ */
+.mo-stage {
+  position: relative;
+  z-index: 2;
+  width: min(340px, 86vw);
+  text-align: center;
+  opacity: 0;
+  transform: scale(.96);
+  transition: opacity .3s ease, transform .3s ease;
+}
+#pullOverlay.on .mo-stage { opacity: 1; transform: none; }
+
+/* 旋转金光（太阳射线，径向遮罩只留环） */
+.mo-rays {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 640px;
+  height: 640px;
+  margin: -320px 0 0 -320px;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0;
+  background: repeating-conic-gradient(from 0deg, rgba(255, 214, 110, .16) 0deg 7deg, transparent 7deg 14deg);
+  -webkit-mask: radial-gradient(circle, transparent 30%, #000 32%, #000 74%, transparent 78%);
+  mask: radial-gradient(circle, transparent 30%, #000 32%, #000 74%, transparent 78%);
+  animation: moRays 26s linear infinite, moRaysIn .7s ease forwards;
+}
+@keyframes moRays { to { transform: rotate(360deg); } }
+@keyframes moRaysIn { to { opacity: 1; } }
+
+/* 卡组容器：卡 + 扫光 + 粒子 + 光环 同轴叠加 */
+.mo-card-wrap {
+  position: relative;
+  width: 148px;
+  height: 200px;
+  margin: 0 auto;
+}
+.mo-card {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 138px;
+  height: 186px;
+  border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 0 0 2px rgba(201, 162, 75, .9), 0 0 30px rgba(201, 162, 75, .5), 0 22px 40px rgba(26, 26, 26, .28);
+  transform: translate(-50%, -50%);
+  animation: moShake .55s ease-in-out 2;
+}
+.mo-icon { line-height: 0; }
+.mo-name { font-size: 14px; font-weight: 700; color: #1A1A1A; padding: 0 6px; text-align: center; line-height: 1.3; }
+@keyframes moShake {
+  0%, 100% { transform: translate(-50%, -50%) rotate(0) scale(1); }
+  25% { transform: translate(-50%, -50%) rotate(-4deg) scale(1.06); }
+  50% { transform: translate(-50%, -50%) rotate(4deg) scale(1.06); }
+  75% { transform: translate(-50%, -50%) rotate(-2deg) scale(1.03); }
+}
+
+/* 卡面扫光 */
+.mo-shine { position: absolute; inset: 0; border-radius: 18px; overflow: hidden; pointer-events: none; }
+.mo-shine::after {
+  content: '';
+  position: absolute;
+  top: -25%;
+  bottom: -25%;
+  left: 0;
+  width: 55%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .8), transparent);
+  transform: skewX(-22deg) translateX(-220%);
+  animation: moShine .9s ease forwards;
+  animation-delay: .22s;
+}
+@keyframes moShine { to { transform: skewX(-22deg) translateX(320%); } }
+
+/* 星粒四射（--x/--y/--d/--s 由 JS 预计算） */
+.mo-parts { position: absolute; inset: 0; pointer-events: none; }
+.mo-pt {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  font-size: var(--s, 14px);
+  opacity: 0;
+  animation: moPt var(--d, .5s) ease-out forwards;
+  animation-delay: .3s;
+}
+@keyframes moPt {
+  0% { transform: translate(calc(-50% + 0px), calc(-50% + 0px)) scale(.2); opacity: 0; }
+  12% { opacity: 1; }
+  100% { transform: translate(calc(-50% + var(--x)), calc(-50% + var(--y))) scale(1); opacity: 0; }
+}
+
+/* 升级光环 */
+.mo-halo { position: absolute; left: 50%; top: 50%; width: 0; height: 0; pointer-events: none; }
+.mo-halo::after {
+  content: '';
+  position: absolute;
+  left: -118px;
+  top: -118px;
+  width: 236px;
+  height: 236px;
+  border-radius: 50%;
+  border: 3px solid rgba(201, 162, 75, .85);
+  box-shadow: 0 0 0 20px rgba(201, 162, 75, .1), 0 0 46px rgba(201, 162, 75, .5);
+  opacity: 0;
+  animation: moHalo 1.5s ease-out forwards;
+  animation-delay: .95s;
+}
+@keyframes moHalo {
+  0% { transform: scale(.2); opacity: 0; }
+  22% { opacity: 1; }
+  100% { transform: scale(1.9); opacity: 0; }
+}
+
+/* 三颗星自卡面汇聚至结果 */
+.mo-fly { position: relative; height: 48px; }
+.mo-flystar {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  font-size: 26px;
+  color: #C9A24B;
+  text-shadow: 0 0 12px rgba(201, 162, 75, .85);
+  opacity: 0;
+  animation: moFlyUp .85s cubic-bezier(.22, .8, .3, 1) forwards;
+  animation-delay: calc(.42s + var(--k, 0) * .14s);
+}
+@keyframes moFlyUp {
+  0% { opacity: 0; transform: translate(calc(-50% + (var(--k, 0) - 1) * 40px), 4px) scale(.5); }
+  22% { opacity: 1; }
+  100% { opacity: 0; transform: translate(calc(-50% + (var(--k, 0) - 1) * 8px), 52px) scale(1.2); }
+}
+
+/* 升级结果 */
+.mo-result {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
+  opacity: 0;
+  transform: scale(.7);
+  animation: moPop .5s cubic-bezier(.2, .9, .3, 1.35) forwards;
+  animation-delay: 1.3s;
+}
+.mo-result b {
+  font-size: 42px;
+  line-height: 1;
+  letter-spacing: 6px;
+  text-shadow: 0 4px 16px rgba(201, 162, 75, .4);
+}
+.mo-result-t { font-size: 14px; font-weight: 700; color: #fff; text-shadow: 0 1px 6px rgba(0, 0, 0, .35); }
+@keyframes moPop { to { opacity: 1; transform: none; } }
+
+/* 新解锁内容预览（多职业逐条） */
+.mo-unlock {
+  margin: 16px auto 0;
+  width: 100%;
+  max-height: 148px;
+  overflow: auto;
+  background: rgba(255, 255, 255, .96);
+  border: 1px solid #E4EAF0;
+  border-radius: 14px;
+  padding: 10px 14px;
+  text-align: left;
+  opacity: 0;
+  transform: translateY(12px);
+  animation: moUnlock .45s ease forwards;
+  animation-delay: 1.7s;
+}
+.mo-u-label { font-size: 11px; color: #A8832E; font-weight: 600; margin-bottom: 2px; display: flex; align-items: center; gap: 4px; }
+.mo-u-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 0;
+  border-top: 1px dashed #E4EAF0;
+}
+.mo-u-row:first-of-type { border-top: none; }
+.mo-u-tag {
+  flex: none;
+  font-size: 11px;
+  font-weight: 700;
+  color: #1A1A1A;
+  padding: 3px 9px;
+  border-radius: 9px;
+  border: 1px solid rgba(26, 26, 26, .1);
+}
+.mo-u-t { font-size: 12px; color: #6B7A8C; line-height: 1.5; }
+@keyframes moUnlock { to { opacity: 1; transform: none; } }
+
+.mo-btn {
+  height: 40px;
+  width: auto;
+  padding: 0 34px;
+  margin-top: 18px;
+  border-radius: 20px;
+  opacity: 0;
+  animation: moBtn .3s ease forwards;
+  animation-delay: 2.2s;
+  position: relative;
+  z-index: 3;
+}
+@keyframes moBtn { to { opacity: 1; } }
+</style>
+</head>
+<body>
+<div class="stage">
+  <div class="toolbar">
+    <div class="tb-brand">甲方青年offer <span>· 可交互 Demo</span></div>
+    <div class="tb-btns">
+      <button class="tb-btn" onclick="document.getElementById('helpBox').style.display=document.getElementById('helpBox').style.display==='none'?'block':'none'">使用说明</button>
+      <button class="tb-btn danger" onclick="resetDemo()">清空数据重来</button>
+    </div>
+  </div>
+
+  <div id="helpBox" style="display:none;">
+    <b>怎么玩这个 Demo：</b><br>
+    · 四个 Tab：<b>问方向 / 刷方向 / 论坛分享 / 我的</b><br>
+    · <b>问方向</b>：在咨询窗口里说一句你的专业、技能和偏好，或点「测评入口」答题；咨询 / 测评完成后，匹配的职业卡片才会弹出<br>
+    · 结果页与收藏夹是<b>彩色便签堆叠</b>：每张卡顶部固定「岗位 + 薪资」，<b>点击标题栏</b>展开详情；底部可随时三态标记，移除可撤销<br>
+    · <b>刷方向</b>：半圆轮盘抽卡——三张卡沿同一圆弧轨道锚定、绕底部圆心径向转格；中央卡含「查看完整入行指南」与 ★ 收藏星标，盘内「换一批」可洗牌剩余卡堆；底部三态按钮标记即转一格，实时写入 <b>我的 → 收藏</b>，刷完出完成态<br>
+    · <b>论坛分享</b>：看帖子、发帖、点赞、评论，社区闭环可交互；「我的帖子」可删除<br>
+    · <b>我的 → 择业画像</b>：画像是可纠正的，点 ✕ 去掉不准的标签，会同步影响推荐<br>
+    · <b>个人画像</b>可编辑技能 / 偏好，保存后推荐同步更新<br>
+    · 右上角「清空数据重来」回到冷启动状态，可反复演示
+  </div>
+
+  <div class="phone">
+    <!-- 状态栏 -->
+    <div class="status-bar">
+      <span>9:41</span>
+      <div class="sb-right"><span>◍</span><span>▮▮▮</span><span class="sb-battery"></span></div>
+    </div>
+    <!-- 动态导航 / 页面 / 底部操作 / TabBar -->
+    <div id="nav"></div>
+    <div id="page" class="page"></div>
+    <div id="subbar"></div>
+    <div id="tabbar"></div>
+    <!-- Toast -->
+    <div id="toast"></div>
+  </div>
+
+  <div class="hint">
+    <b>提示：</b>在桌面浏览器中手机框内操作即可；把窗口缩窄到手机宽度（≤430px），它会变成真正的全屏小程序体验。<br>
+    数据存在浏览器本地，刷新页面不丢失；想重来点右上角「清空数据重来」。
+  </div>
+</div>
+
+<script>
+/* ============================================================
+   甲方青年offer · 可交互 Demo 数据层（v3.0 视觉）
+   g: 封面线描图标 key（GLYPHS） · c: 封面色块索引（c0-c5）
+   ============================================================ */
+window.DB = {
+  industries: ['全部', '互联网', '金融', '教育', '制造', '医疗健康', '传媒/内容', '消费品', '软件/科技'],
+
+  /* ---------- 职业方向 ---------- */
+  directions: [
+    { id: 'da', name: '数据分析师', g: 'chart', c: 0, industry: '互联网',
+      baseMatch: 85, kw: ['Excel', 'SQL', '数据分析', 'Python'], typeW: { digit: 2, people: 1, creative: 0, hands: 0 },
+      stable: false, salaryRank: 2, viewed: '3.2k 人看过',
+      tags: [{ t: '入门 8-15K' }, { t: '本科可入', accent: true }, { t: '中等难度', gray: true }],
+      desc: '用数据帮业务做决策：搭报表、跑分析、找增长点。让每一个判断都有依据，是连接「业务」和「数字」的桥梁。',
+      content: ['搭建业务报表和数据看板，让决策有据可依', '跑数、分析异常，回答「为什么涨 / 为什么跌」', '和业务方开会，把数据结论翻译成可执行的建议'],
+      skills: ['Excel', 'SQL', 'Python', '数据可视化'],
+      path: ['业务 / 运营岗转数据分析', '数据分析实习（6个月）', '数据分析师 → 数据产品 / BI'],
+      notFor: ['看到数字就头大', '不喜欢反复对需求', '想要完全按部就班的工作'],
+      reasons: ['与你的数据分析兴趣匹配', '用得到你掌握的 Excel 和 SQL', '属于你偏好的互联网行业'],
+      deep2: { title: '数据分析师的一天', items: [
+        '周一上午通常最忙：周会前要跑完上周核心指标，老板等着看数',
+        'SQL 是日常武器，一条取数需求来回改 3-4 遍口径很常见',
+        '真正的难点不是取数，是把「为什么涨 / 为什么跌」讲清楚——这才是你值钱的地方',
+        '会和不爱看数据的业务方打交道，比会写代码更重要' ] },
+      deep3: { title: '入行真相与进阶路径', items: [
+        '初级真实门槛：会 SQL + Excel 就能入门，Python 是加分项不是必需',
+        '最容易踩的坑：以为「会做图」就是数据分析，其实业务洞察才是核心',
+        '三五年后的分水岭：转向数据产品 / BI 工具建设，或往业务策略上靠',
+        '薪资参考：一线城市初级 8-15K，3 年经验 15-25K，头部大厂更高' ] } },
+
+    { id: 'dy', name: '数据运营', g: 'trend', c: 1, industry: '互联网',
+      baseMatch: 78, kw: ['数据分析', 'Excel', '沟通协调'], typeW: { digit: 2, people: 1, creative: 1, hands: 0 },
+      stable: false, salaryRank: 2, viewed: '2.1k 人看过',
+      tags: [{ t: '入门 8-15K' }, { t: '本科可入', accent: true }],
+      desc: '数据 + 运营的复合方向：用分析找增长点，再把策略落地成业务动作。',
+      content: ['通过数据分析找增长点，做活动、上策略', '埋点看数、复盘活动效果', '协同产品和运营，让数据落地成业务动作'],
+      skills: ['Excel', '数据分析', 'SQL', '沟通协调'],
+      path: ['运营岗转入', '数据运营助理', '数据运营 → 运营经理 / 数据分析'],
+      notFor: ['讨厌盯指标', '不喜欢跨部门协调'],
+      reasons: ['数据+运营复合，适合你', '用得到你的 Excel 和沟通能力', '互联网行业契合你的偏好'] },
+
+    { id: 'nr', name: '内容运营', g: 'pen', c: 2, industry: '传媒/内容',
+      baseMatch: 71, kw: ['写作', '策划'], typeW: { digit: 0, people: 1, creative: 2, hands: 0 },
+      stable: false, salaryRank: 1, viewed: '2.4k 人看过',
+      tags: [{ t: '入门 6-10K' }, { t: '写作功底', accent: true }],
+      desc: '策划内容、写文案、追热点，让好内容被更多人看见。',
+      content: ['策划选题、撰写文案、把控内容质量', '追热点、做专题，让内容被更多人看到', '分析数据，持续优化选题方向'],
+      skills: ['写作', '策划', '排版工具', '数据分析'],
+      path: ['内容编辑助理', '内容运营', '内容运营 → 主编 / 内容策略'],
+      notFor: ['不爱写字', '无法接受「改到第 10 版」'],
+      reasons: ['你的内容能力可迁移', '写作是你的长板', '内容行业门槛友好'],
+      deep2: { title: '内容运营的日常', items: [
+        '选题会是最头疼的会：每周要产出大量选题，还要说服主编',
+        '写稿只占 30% 的工作，剩下的是追热点、看数据、改标题',
+        '一个标题可能决定一篇内容的生死——标题 A/B 测试是基本功',
+        '被改稿改到怀疑人生是常态，但改完确实更好' ] },
+      deep3: { title: '入行真相与进阶路径', items: [
+        '避坑：以为自己爱写作就能干，其实「能稳定产出」比「灵感」重要',
+        '进阶方向：主编 / 内容策略 / 内容产品经理，越往上越偏「策划」而非「写」',
+        '冷知识：图文转短视频是行业趋势，会剪辑是加分项',
+        '薪资参考：初级 6-10K，3 年经验 10-18K' ] } },
+
+    { id: 'xmt', name: '新媒体运营', g: 'megaphone', c: 3, industry: '传媒/内容',
+      baseMatch: 64, kw: ['写作', '创意'], typeW: { digit: 0, people: 1, creative: 2, hands: 0 },
+      stable: false, salaryRank: 1, viewed: '1.7k 人看过',
+      tags: [{ t: '入门 6-10K' }, { t: '门槛较低', accent: true }],
+      desc: '运营公众号 / 小红书 / 抖音，做选题、追热点、养粉丝。',
+      content: ['运营各平台账号，做选题和内容', '跟进热点、互动评论、维护粉丝', '看数据复盘，找到爆款密码'],
+      skills: ['写作', '创意', '剪辑 / 排版', '热点敏感'],
+      path: ['新媒体小编', '账号负责人', '新媒体运营 → 内容策划'],
+      notFor: ['不刷社媒', '不想日夜追热点'],
+      reasons: ['入门门槛低，上手快', '发挥你的写作和创意'],
+      deep2: { title: '新媒体运营的日常', items: [
+        '每天第一件事是刷热搜，找今天能蹭的热点',
+        '一个平台一个玩法：小红书要种草感，公众号要深度，抖音要情绪',
+        '数据复盘是日常：阅读量、点赞率、涨粉数，天天看',
+        '最怕的不是没流量，是爆款之后不知道怎么复制' ] },
+      deep3: { title: '入行真相与进阶路径', items: [
+        '误区：以为新媒体运营就是「发朋友圈」，其实背后是内容策略和用户心理',
+        '进阶路径：小编 → 账号负责人 → 内容策略 / 增长',
+        '避坑：纯搬运、洗稿的岗位没有成长，一定要找能自己做选题的',
+        '薪资参考：初级 6-10K，能独立操盘账号后 12-20K' ] } },
+
+    { id: 'cp', name: '产品经理助理', g: 'target', c: 0, industry: '互联网',
+      baseMatch: 60, kw: ['沟通协调'], typeW: { digit: 1, people: 2, creative: 1, hands: 0 },
+      stable: false, salaryRank: 2, viewed: '2.8k 人看过',
+      tags: [{ t: '入门 8-15K' }, { t: '成长快', accent: true }],
+      desc: '不做执行细节，做「定义问题」的人：协调各方，把一个想法变成一个产品。',
+      content: ['收集需求、写需求文档（PRD）', '跟进开发排期，协调设计 / 开发 / 测试', '调研竞品，输出产品方案'],
+      skills: ['沟通协调', '文档能力', '逻辑思维', '数据分析'],
+      path: ['产品助理', '产品经理', '产品经理 → 产品负责人'],
+      notFor: ['只想做单一执行', '不擅长跨角色沟通'],
+      reasons: ['你的沟通协调是核心优势', '互联网产品岗发展路径清晰'],
+      deep2: { title: '产品助理的日常', items: [
+        '写 PRD 是最基础的工作，但真正花时间的是「确认需求」——一个需求要和业务方、开发反复对齐',
+        '开会是常态：需求评审会、排期会、周会，一天 3-5 个会很正常',
+        '小到改一个按钮文案，大到规划一个模块，都是你的战场',
+        '被开发追着问「这个需求真的要做吗」时，就是你开始思考了' ] },
+      deep3: { title: '入行真相与进阶路径', items: [
+        '最容易踩的坑：只会「传话」不懂「判断」——用户要的往往不是他说的',
+        '真正的核心竞争力是需求判断力：什么该做、什么不该做、优先级怎么排',
+        '进阶路径：产品助理 → 独立负责小功能 → 产品经理 → 产品负责人',
+        '薪资参考：一线城市产品助理 8-15K，独立 PM 后 15-30K，差距主要在判断力' ] } },
+
+    { id: 'yj', name: '用户研究', g: 'search', c: 1, industry: '互联网',
+      baseMatch: 62, kw: ['数据分析', '沟通协调'], typeW: { digit: 1, people: 2, creative: 1, hands: 0 },
+      stable: false, salaryRank: 2, viewed: '1.1k 人看过',
+      tags: [{ t: '入门 8-14K' }, { t: '小众岗位', gray: true }],
+      desc: '走进用户，搞清楚他们想要什么，再把洞察翻译给产品。',
+      content: ['设计问卷、做深访，收集真实用户反馈', '分析数据，产出洞察报告', '把「用户想要什么」翻译给产品和设计'],
+      skills: ['访谈', '问卷', '数据分析', '心理学常识'],
+      path: ['用户研究员助理', '用研专员', '用研 → 策略研究 / 产品'],
+      notFor: ['社恐不愿开口', '排斥大量访谈整理'],
+      reasons: ['你偏好和人打交道', '结合你的数据分析能力'],
+      deep2: { title: '用户研究的日常', items: [
+        '深访是最核心的技能：一场 1 小时的深访，背后是 3 小时的提纲准备',
+        '写访谈纪要是最枯燥但最关键的环节——洞察往往藏在细节里',
+        '很多时候你的结论产品不一定采纳，学会「把洞察讲动人」很重要',
+        '要和各种人打交道：用户、产品、设计、市场' ] },
+      deep3: { title: '入行真相与进阶路径', items: [
+        '小众但稀缺：会深度访谈 + 数据分析的用研，在互联网里很吃香',
+        '避坑：用研岗位数量少，很多公司的「用研」其实是兼职做问卷',
+        '进阶方向：策略研究 / 市场研究 / 产品研究，或转向产品经理',
+        '薪资参考：初级 8-14K，资深 20-30K' ] } },
+
+    { id: 'erp', name: 'ERP 实施顾问', g: 'box', c: 2, industry: '软件/科技',
+      baseMatch: 62, kw: ['SQL', '沟通协调'], typeW: { digit: 2, people: 1, creative: 0, hands: 0 },
+      stable: true, salaryRank: 2, viewed: '980 人看过',
+      tags: [{ t: '入门 8-13K' }, { t: '信息管理经典', accent: true }],
+      desc: '信息管理专业的经典出路，数据库和管理都用得到。',
+      content: ['调研企业业务流程，梳理需求', '配置 ERP 系统、培训客户使用', '上线后持续运维和支持'],
+      skills: ['SQL', '数据库', '业务流程', '沟通协调'],
+      path: ['实施顾问实习', 'ERP 实施顾问', '实施顾问 → 项目经理 / 咨询'],
+      notFor: ['需要频繁出差', '不喜欢和客户打交道'],
+      reasons: ['信息管理专业的经典出路', '数据库和管理都用得到'] },
+
+    { id: 'gyl', name: '供应链管理', g: 'building', c: 3, industry: '制造',
+      baseMatch: 55, kw: ['Excel', '数据分析'], typeW: { digit: 2, people: 1, creative: 0, hands: 1 },
+      stable: true, salaryRank: 1, viewed: '860 人看过',
+      tags: [{ t: '入门 7-12K' }, { t: '行业广', gray: true }],
+      desc: '让货准时、成本可控地流转：采购、仓储、物流一条线。',
+      content: ['做需求计划，协调采购、仓储、物流', '管库存水位，控成本、保交付', '对接供应商和生产部门'],
+      skills: ['Excel', '计划能力', '物流', '数据分析'],
+      path: ['管培生 / 计划员', '供应链专员', '供应链 → 供应链经理'],
+      notFor: ['怕琐碎流程', '不想管多方协调'],
+      reasons: ['行业覆盖广，就业面大', '稳定且有晋升空间'] },
+
+    { id: 'jr', name: '金融分析师', g: 'pulse', c: 0, industry: '金融',
+      baseMatch: 59, kw: ['Excel', '数据分析'], typeW: { digit: 2, people: 0, creative: 1, hands: 0 },
+      stable: false, salaryRank: 3, viewed: '1.8k 人看过',
+      tags: [{ t: '入门 10-18K' }, { t: '门槛较高', gray: true }],
+      desc: '研究公司基本面，写出让钱更聪明的投资判断。',
+      content: ['研究公司和行业，写分析报告', '做财务模型，估算公司价值', '给出投资建议或研究观点'],
+      skills: ['财务', '建模', 'Excel', '行业研究'],
+      path: ['研究员助理', '金融分析师', '金融分析师 → 基金经理 / 投行'],
+      notFor: ['看不懂财报', '不喜欢高压长工时'],
+      reasons: ['薪资天花板高', '你的数据能力是基础'] },
+
+    { id: 'll', name: '量化研究员', g: 'cpu', c: 1, industry: '金融',
+      baseMatch: 40, kw: ['Python'], typeW: { digit: 2, people: 0, creative: 0, hands: 0 },
+      stable: false, salaryRank: 3, viewed: '620 人看过',
+      tags: [{ t: '薪资天花板高' }, { t: '门槛极高', gray: true }],
+      desc: '用模型和代码在市场中找规律，是离「高薪」最近的方向之一，也最卷学历。',
+      content: ['用 Python 回测交易策略', '研究因子、搭模型、控风险', '和开发一起把策略上线'],
+      skills: ['Python', '数学', '统计', '编程'],
+      path: ['量化实习（学历要求高）', '量化研究员', '量化研究员 → 投资经理'],
+      notFor: ['数学基础弱', '学历达不到要求（一般硕士起）'],
+      reasons: ['探索性推荐 · 挑战高、回报高'] },
+
+    { id: 'xs', name: '销售顾问', g: 'chat', c: 2, industry: '消费品',
+      baseMatch: 35, kw: ['沟通协调'], typeW: { digit: 0, people: 2, creative: 0, hands: 0 },
+      stable: true, salaryRank: 2, viewed: '1.3k 人看过',
+      tags: [{ t: '底薪+提成' }, { t: '业绩压力', gray: true }],
+      desc: '直面市场的人：把产品讲清楚，把客户谈下来。',
+      content: ['开拓客户、讲解产品、推进成交', '维护客户关系，完成业绩目标', '反馈市场声音给产品和公司'],
+      skills: ['沟通协调', '抗压', '客户敏感'],
+      path: ['销售助理', '销售顾问', '销售顾问 → 大客户 / 销售总监'],
+      notFor: ['抗拒业绩压力', '内向不想多说话'],
+      reasons: ['探索性推荐 · 你的沟通能力可复用'] },
+
+    { id: 'ss', name: '实施工程师', g: 'wrench', c: 3, industry: '软件/科技',
+      baseMatch: 33, kw: ['SQL', '沟通协调'], typeW: { digit: 2, people: 1, creative: 0, hands: 1 },
+      stable: true, salaryRank: 1, viewed: '540 人看过',
+      tags: [{ t: '入门 7-12K' }, { t: '出差较多', gray: true }],
+      desc: '软件落地的最后一公里：部署、调通、让客户真正用起来。',
+      content: ['部署软件、调试系统，保证上线', '处理客户问题和数据迁移', '写实施文档、做培训和交接'],
+      skills: ['数据库', '网络基础', 'SQL', '沟通协调'],
+      path: ['实施工程师', '实施工程师 → 项目经理'],
+      notFor: ['常出差', '不想直接对客户'],
+      reasons: ['探索性推荐 · 技术 + 沟通复合'] },
+
+    { id: 'ux', name: '交互/UI 设计', g: 'layers', c: 4, industry: '互联网',
+      baseMatch: 52, kw: ['设计', '创意'], typeW: { digit: 0, people: 1, creative: 2, hands: 0 },
+      stable: false, salaryRank: 2, viewed: '1.5k 人看过',
+      tags: [{ t: '入门 7-13K' }, { t: '重作品集', gray: true }],
+      desc: '用界面和交互解决用户问题：好看，且好用。',
+      content: ['画界面原型（交互流程）', '做视觉设计、定设计规范', '和产品开发协作，打磨体验细节'],
+      skills: ['设计', '创意', '原型工具', '审美'],
+      path: ['设计实习生', '交互/UI 设计师', '设计师 → 设计负责人'],
+      notFor: ['不擅长审美', '希望工作流程完全固定'],
+      reasons: ['你的创意和表达是长板', '互联网设计岗需求旺盛'] },
+
+    { id: 'js', name: '教师/助教', g: 'book', c: 2, industry: '教育',
+      baseMatch: 50, kw: ['沟通协调'], typeW: { digit: 1, people: 2, creative: 0, hands: 0 },
+      stable: true, salaryRank: 1, viewed: '1.2k 人看过',
+      tags: [{ t: '稳定假期' }, { t: '教育行业', accent: true }],
+      desc: '把知识讲清楚，把学生带明白，是一份有成就感的稳定工作。',
+      content: ['备课上课、设计课程环节', '带学生做练习，答疑反馈', '和教研团队迭代课程内容'],
+      skills: ['沟通', '耐心', '表达'],
+      path: ['助教', '教师', '教师 → 教研 / 管理'],
+      notFor: ['不愿意当众表达', '排斥重复授课'],
+      reasons: ['稳定有保障', '符合你的沟通优势'] },
+
+    { id: 'jk', name: '健康管理', g: 'heart', c: 3, industry: '医疗健康',
+      baseMatch: 48, kw: ['数据分析', '沟通协调'], typeW: { digit: 1, people: 2, creative: 0, hands: 0 },
+      stable: true, salaryRank: 1, viewed: '700 人看过',
+      tags: [{ t: '新兴行业' }, { t: '医疗健康', accent: true }],
+      desc: '用数据和运营把「健康」这件事服务好，是个越做越值钱的方向。',
+      content: ['做健康数据分析，出报告', '配合医生做慢病管理和随访', '运营健康科普内容、组织活动'],
+      skills: ['数据分析', '沟通协调', '科普写作'],
+      path: ['健康运营助理', '健康管理专员', '健康管理 → 医疗运营'],
+      notFor: ['对医疗话题不感兴趣', '排斥医院环境'],
+      reasons: ['探索性推荐 · 新兴且稳定'] }
+  ],
+
+  /* ---------- 科普/经验文章 ---------- */
+  articles: [
+    { id: 'a1', title: '「用户研究」到底是什么？不写代码也能进互联网', cat: '职业百科', industry: '互联网', read: 12,
+      desc: '很多人以为互联网只有程序员和运营，其实还有一个岗位，专门负责「搞清楚用户到底想要什么」。',
+      body: ['用户研究（User Research）是互联网里比较「幕后」的岗位：产品经理决定做什么，用户研究员负责搞清楚「用户真的需要什么、为什么需要」。',
+        '日常你可能要设计问卷、做一对一深访、整理用户反馈，最后把散乱的声音汇总成一份洞察报告，交给产品和设计团队。',
+        '它不要求你写代码，但要求三样东西：会问问题（深访是核心手艺）、会看数据（问卷和访谈结果要能落地）、会讲故事（把洞察讲得让团队愿意听）。',
+        '如果你喜欢观察人、喜欢琢磨「为什么大家会这么做」，这个岗位会很有成就感。'] },
+
+    { id: 'a2', title: '「数据分析师」一天的工作，长这样', cat: '职业百科', industry: '互联网', read: 8,
+      desc: '搭报表、跑数、找增长点——用 4 个真实场景拆解这个岗位的日常。',
+      body: ['早上 10 点，打开数据看板看昨天的核心指标。如果某项异常，你就成了「福尔摩斯」：是渠道投放变差了，还是产品改了逻辑？',
+        '上午可能要和业务方开会，把「最近转化为什么掉了」翻译成可执行的动作：改文案、调策略、换个活动思路。',
+        '下午基本在写 SQL 和搭报表。数据好不好看是其次，关键是「老板一眼能看懂，且愿意信任你的口径」。',
+        '它需要的硬技能是 Excel / SQL / 可视化，软技能是「把数字讲成人话」。入门门槛并不高，很多数据分析师是从运营或业务转岗的。'] },
+
+    { id: 'a3', title: '入职三个月，我讲讲「供应链」真实的样子', cat: '经验分享', industry: '制造', read: 6,
+      desc: '一位制造业管培生的口述：不是搬箱子，是一套精密的协同系统。',
+      body: ['入职前我以为供应链就是「管仓库、搬箱子」，入职后发现它是一张网：采购、仓储、物流、计划、销售，全都连在一起。',
+        '我现在的日常是排需求计划：市场要 5000 台，工厂产能不够，那就得协调什么时候补料、要不要外发、库存水位压到多少。',
+        '这份工作比想象中更「坐得住」也更有挑战——每天都在数学题和人际关系之间切换，但每个环节你都能看见自己的价值。',
+        '给学弟学妹的建议：供应链不怕你从零开始，怕的是你不想把细节做扎实。Excel 和沟通能力，是这里最值钱的两样东西。'] },
+
+    { id: 'a4', title: '学市场营销，除了销售还能做什么？', cat: '职业百科', industry: '消费品', read: 10,
+      desc: '品牌、公关、市场调研、增长黑客……一条专业背后有 7 种出路。',
+      body: ['很多同学一听到市场营销就以为是「做销售」，其实市场部的分工很细：品牌岗（管调性和形象）、公关岗（管媒体和口碑）、调研岗（管消费者洞察）、活动岗（管线下和线上 campaign）。',
+        '近年还多了两个新物种：增长黑客（Growth，用数据驱动用户增长）和内容营销（用内容和短视频做种草）。',
+        '共同点是都要求「懂人」——消费者为什么会买、为什么被某句话打动。差异化在于手段：有的靠数据，有的靠创意，有的靠资源整合。',
+        '建议先别急着定岗，去实习里把品牌、调研、内容、增长都摸一遍，找到自己最有感觉的那个方向。'] },
+
+    { id: 'a5', title: '「产品经理」需要会写代码吗？', cat: '职业百科', industry: '互联网', read: 9,
+      desc: '大多数不需要，但理解技术原理会很有帮助——一文说清能力要求。',
+      body: ['先说结论：绝大多数产品经理不需要写代码，但懂点技术原理会让你的沟通顺畅很多，也让开发更愿意配合你。',
+        '产品经理的核心工作不是「画原型」，而是「定义问题」：用户痛在哪？优先级怎么排？方案值不值得做？',
+        '硬技能上，文档（PRD）、原型（Axure/Figma）、数据分析是日常三件套；软技能上，沟通协调、逻辑思维、抗压是最重要的。',
+        '如果是应届生入门，更建议从产品助理或运营转产品起步，先把手上的项目做扎实，再谈「产品方法论」。'] },
+
+    { id: 'a6', title: '信息管理专业毕业，真的只能做「打杂」吗？', cat: '经验分享', industry: '软件/科技', read: 7,
+      desc: 'ERP 实施顾问、数据运营、项目管理……信息管理的出路比你想象的多。',
+      body: ['信息管理这个专业常常被戏称「什么都学，什么都不精」，但反过来看，它恰恰是「技术 + 管理」的复合背景。',
+        '最对口的出路之一就是 ERP 实施顾问：把企业的业务需求翻译成系统方案，上线后陪客户跑顺流程。它要求懂数据库、懂业务、会沟通——信息管理的课程几乎全覆盖。',
+        '另一条路是数据相关：数据运营、数据分析、BI 工程师。你的数据库和统计学基础，是很多纯文科背景的人要补很久的课。',
+        '第三类是和项目管理、数字化转型相关的工作：企业数字化是大趋势，而「既懂技术又懂管理」的人正是稀缺的。'] }
+  ],
+
+  /* ---------- 论坛帖子 ---------- */
+  posts: [
+    { id: 'p1', cat: '经验分享', author: '桃桃乌龙', time: '2小时前', likes: 32,
+      title: '实习三个月，我确定了数据分析这条路',
+      body: ['刚来的时候我也是个「不知道自己适合什么」的人，误打误撞进了数据岗实习。',
+        '三个月下来最大的感受：数据分析师不是「算数的人」，是「帮团队把话说清楚的人」。老板问为什么涨为什么跌，你要能给出答案和依据。',
+        '如果你也是信息管理、统计这类专业，真的可以试试。Excel 和 SQL 是敲门砖，沟通才是天花板。'],
+      comments: [
+        { author: '上岸的柚子', time: '1小时前', text: '同感，SQL 是下限，业务理解才是上限。' },
+        { author: '卷不动了', time: '30分钟前', text: '请问实习是怎么找的？简历上最加分的是什么？' } ] },
+    { id: 'p2', cat: '求助', author: '迷茫的小林', time: '5小时前', likes: 12,
+      title: '信管专业，是走 ERP 实施还是转产品？求建议',
+      body: ['信息管理大三在读，实习眼看就要开始了。',
+        'ERP 实施岗和产品经理助理都拿到了 offer，前者对口但经常出差，后者看起来成长快但卷。',
+        '有没有前辈能讲讲这两个方向前五年的真实差别？纠结好几天了。'],
+      comments: [
+        { author: '桃桃乌龙', time: '3小时前', text: '实施顾问前期出差多，但能积累很强的业务能力；产品早期卷，后期天花板高。看你更能接受哪种「苦」。' } ] },
+    { id: 'p3', cat: '行业讨论', author: '上岸的柚子', time: '昨天', likes: 48,
+      title: '新能源行业今年秋招回暖了，聊聊真实情况',
+      body: ['不是贩卖焦虑，也不是泼冷水，就聊聊身边同学的真实秋招体验。',
+        '今年新能源车企和电池厂明显比去年敢开 HC 了，但门槛也水涨船高：核心研发岗基本硕士起步，本科生能进的多是营销、供应链、运营这类偏职能的岗。',
+        '想进这个行业的话，建议提前补一补行业知识，面试真的很爱问「你对产业链怎么看」。'],
+      comments: [
+        { author: '迷茫的小林', time: '20小时前', text: '感谢分享，正准备投新能源方向。' } ] },
+    { id: 'p4', cat: '经验分享', author: '卷不动了', time: '2天前', likes: 29,
+      title: '三线城市的体制内 vs 一线互联网，我选了前者',
+      body: ['当时手里有两个方向的 offer：一线互联网运营，和三线省会的事业单位。',
+        '最后选了后者，不是因为我怕卷，而是想清楚了：我要的是「工作之外的生活」，不是一个看似光鲜的工牌。',
+        '没有标准答案，只有适合自己的答案。想清楚你人生前五年最想要什么，这个选择就不难。'],
+      comments: [] },
+    { id: 'p5', cat: '求助', author: '设计小白', time: '3天前', likes: 8,
+      title: '作品集做到什么程度能找到 UI 实习？',
+      body: ['非科班转 UI，手上有两个课程作业和一个练习项目。',
+        '投了十几份实习都没有回音，是作品集太弱还是简历有问题？求各位设计前辈指点。'],
+      comments: [
+        { author: '上岸的柚子', time: '2天前', text: '非科班更看重逻辑：能讲清楚「为什么这么设计」比「图多好看」重要。建议选 1-2 个项目深挖。' } ] }
+  ],
+
+  /* ---------- 场景题（完全不知道路径） ---------- */
+  quiz: [
+    { q: '你更喜欢和什么打交道？',
+      options: [
+        { t: '数字、逻辑、规律', k: 'digit' },
+        { t: '人、沟通、文字', k: 'people' },
+        { t: '创意、想法、表达', k: 'creative' },
+        { t: '物件、动手、实操', k: 'hands' } ] },
+    { q: '遇到一个难题，你通常会先怎么做？',
+      options: [
+        { t: '先找数据看看规律', k: 'digit' },
+        { t: '先找人聊聊想法', k: 'people' },
+        { t: '先头脑风暴几种可能', k: 'creative' },
+        { t: '先动手试错再说', k: 'hands' } ] },
+    { q: '同学 / 朋友最常夸你什么？',
+      options: [
+        { t: '逻辑清楚、靠谱', k: 'digit' },
+        { t: '好相处、会来事', k: 'people' },
+        { t: '有想法、脑洞大', k: 'creative' },
+        { t: '动手能力强', k: 'hands' } ] },
+    { q: '空闲时间你更愿意？',
+      options: [
+        { t: '研究新工具、刷数据', k: 'digit' },
+        { t: '组织聚会、和大家聊天', k: 'people' },
+        { t: '写点东西、做点图', k: 'creative' },
+        { t: '运动、手工、做饭', k: 'hands' } ] },
+    { q: '理想工作最吸引你的是？',
+      options: [
+        { t: '清晰的成长路径和规则', k: 'digit' },
+        { t: '有趣合拍的团队氛围', k: 'people' },
+        { t: '发挥创意的空间', k: 'creative' },
+        { t: '安稳踏实的生活节奏', k: 'hands' } ] }
+  ],
+
+  /* ---------- 表单选项 ---------- */
+  majors: ['信息管理与信息系统', '计算机科学与技术', '软件工程', '市场营销', '会计学', '金融学', '新闻传播学', '工商管理', '电子商务', '心理学', '其他'],
+  degrees: ['专科', '本科', '硕士', '博士'],
+  workContents: ['数据分析', '写作', '设计', '编程', '沟通协调', '项目管理', '创意', '动手实操'],
+  workModes: ['和逻辑、数据打交道', '和人打交道', '创造性思考和表达', '清晰的规则和流程'],
+  values: ['稳定有保障', '快速成长', '高收入', '工作生活平衡'],
+  locations: ['不限（一线/新一线）', '北京', '上海', '深圳', '杭州', '广州', '成都', '其他'],
+
+  /* ---------- 抽卡（召唤）配置 ---------- */
+  summon: {
+    rates: [
+      { star: 1, label: '1星 · 基础', pct: 50 },
+      { star: 2, label: '2星 · 进阶', pct: 35 },
+      { star: 3, label: '3星 · 深度', pct: 15 }
+    ],
+    pity10: '十连第 10 抽必出 2 星及以上',
+    first10: '首次召唤定向推荐高契合职业，且必含 1 张 3 星卡',
+    starColors: ['#8C9AA8', '#5F7893', '#C9A24B']   // 1/2/3 星卡边框/星标色（金=稀有）
+  },
+
+  /* ---------- 未写真实深度内容的职业，使用此模板占位 ---------- */
+  templateDeep: {
+    deep2: { title: '{name}的日常 · 进阶视角', items: [
+      '这是 2 星内容示例：升星后可以看到这个岗位更真实的工作日常',
+      '比如真实的一天时间线、遇到的挑战、和谁打交道',
+      '这里后续会替换成经过事实核查的真实内容，demo 先演示解锁交互' ] },
+    deep3: { title: '入行真相与进阶路径', items: [
+      '这是 3 星内容示例：升星后解锁更深的入行数据和避坑指南',
+      '真实的薪资区间、门槛真相、容易被误解的点',
+      '这条职业路径三五年后会走向哪里、该补什么技能' ] }
+  }
+};
+
+</script>
+<script>
+/* ============================================================
+   甲方青年offer · 可交互 Demo 应用层（v3.0 视觉）
+   纯前端 SPA（file:// 可直接打开），模拟微信小程序完整交互闭环
+   ============================================================ */
+(function () {
+  'use strict';
+
+  const KEY = 'jyqn_demo_state_v1';
+  const $ = sel => document.querySelector(sel);
+
+  /* ================= 默认状态 ================= */
+  // 论坛帖子种子（深拷贝，避免与 DB 共享引用）
+  function postSeed() {
+    return (window.DB.posts || []).map(p => ({
+      ...p,
+      comments: (p.comments || []).map(c => ({ ...c }))
+    }));
+  }
+  const DEFAULTS = {
+    profile: {
+      nickname: '择业探索者', school: '某大学', major: '信息管理与信息系统',
+      degree: '本科', gradYear: '2026', location: '不限（一线/新一线）',
+      workMode: '和人打交道', values: '快速成长', notAccept: '',
+      skills: ['Python', 'SQL', 'Excel', '数据分析', '写作', '沟通协调']
+    },
+    careerTags: ['喜欢和人打交道', '偏爱互联网行业', '可接受出差', '偏好双休'],
+    collections: {},        // directionId -> interested | later | rejected
+    feedbackCount: 0,
+    assessed: false,        // 是否完成过测评
+    assessment: { path: null, fields: {}, answers: null, quizIndex: 0 },
+    cardflow: null,         // { list:[{id,match}], index }
+    lastResults: null,
+    industry: '全部',
+    searchQ: '', searchTab: '全部',
+    forumCat: '全部',
+    posts: postSeed(),      // 帖子列表（种子 + 用户发布）
+    postLikes: {},          // postId -> 是否点赞
+    npCat: '求助',           // 发帖默认分类
+    swipe: null,            // 刷方向抽卡会话 { ids, index, industry }
+    lastSrc: null,          // lastResults 来源：consult | quiz
+    ui: { editPersonal: false },
+    // v3.0 抽卡升星
+    summon: { tickets: 10, dailyClaimed: false, firstDone: false, totalPulls: 0, last: null },
+    cards: {},              // directionId -> { count: 拥有张数, level: 职业等级 1-3 }
+    dms: { threads: [], unread: 0 },   // 私信 { threads:[{peer,avatar,lastMsg,time,unread,messages}], unread }
+    follows: []             // 关注的作者昵称
+  };
+
+  let state = loadState();
+
+  function loadState() {
+    const def = JSON.parse(JSON.stringify(DEFAULTS));
+    try {
+      const s = JSON.parse(localStorage.getItem(KEY));
+      if (!s) return def;
+      return {
+        ...def,
+        ...s,
+        profile: { ...def.profile, ...(s.profile || {}) },
+        assessment: { ...def.assessment, ...(s.assessment || {}) },
+        ui: { ...def.ui, ...(s.ui || {}) }
+      };
+    } catch (e) { return def; }
+  }
+  function saveState() { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} }
+
+  /* ================= 工具 ================= */
+  const dirById = id => DB.directions.find(d => d.id === id);
+  const artById = id => DB.articles.find(a => a.id === id);
+
+  function matchOf(id) {
+    if (state.lastResults) {
+      const f = state.lastResults.find(x => x.id === id);
+      if (f) return f.match;
+    }
+    const d = dirById(id);
+    return d ? d.baseMatch : 50;
+  }
+  function countBy(st) {
+    return Object.values(state.collections).filter(v => v === st).length;
+  }
+  const collLabel = st => st === 'interested' ? '感兴趣' : st === 'later' ? '稍后再看' : st === 'rejected' ? '暂不考虑' : '';
+  // 从标签里提取薪资区间（如「入门 8-15K」→「8-15K」）
+  function salaryOf(d) {
+    const t = (d.tags || []).find(x => /K/.test(x.t) && /[0-9]/.test(x.t));
+    return t ? t.t.replace(/入门\s*/, '').replace(/\s*入行\s*/, '') : '';
+  }
+
+  /* ================= v3.0 抽卡升星辅助 ================= */
+  const cardLevel = id => (state.cards[id] && state.cards[id].level) || 1;
+  const cardCount = id => (state.cards[id] && state.cards[id].count) || 0;
+  const totalCards = () => Object.values(state.cards).reduce((a, c) => a + (c.count || 0), 0);
+  // 读取某职业某星级（2/3）的深度内容；未写真实内容的职业用模板占位（注入职业名）
+  function deepContent(d, level) {
+    const t = (level === 3 ? (d.deep3 || DB.templateDeep.deep3) : (d.deep2 || DB.templateDeep.deep2)) || {};
+    return { title: (t.title || '').replace('{name}', d.name), items: t.items || [] };
+  }
+  function cardStarsHTML(level) {
+    const on = '★'.repeat(Math.max(1, Math.min(5, level)));
+    const off = '☆'.repeat(Math.max(0, 5 - level));
+    return `<span class="stars">${on}<span class="off">${off}</span></span>`;
+  }
+
+  /* ================= v3.0 视觉辅助：线描图标 + 星级 ================= */
+  const GLYPHS = {
+    chart: '<path d="M5 19v-8M10 19V6M15 19v-9M20 19V4"/><path d="M3 19h18"/>',
+    trend: '<path d="M3 17l6-6 4 4 8-8"/><path d="M16 7h5v5"/>',
+    pen: '<path d="M12 19l7-7-3-3-7 7-1 4z"/><path d="M17 5l-3 3"/>',
+    megaphone: '<path d="M3 11v2a1 1 0 0 0 1 1h3l5 4V6L7 10H4a1 1 0 0 0-1 1z"/><path d="M16 8a5 5 0 0 1 0 8"/>',
+    target: '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/>',
+    search: '<circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/>',
+    box: '<path d="M21 8l-9-5-9 5v8l9 5 9-5z"/><path d="M3 8l9 5 9-5"/><path d="M12 13v8"/>',
+    building: '<path d="M3 21h18"/><path d="M5 21V7l7-4v18"/><path d="M12 21V11l7-3v13"/><path d="M8 10h1M8 14h1M8 18h1"/>',
+    pulse: '<path d="M2 12h4l3-8 4 16 3-8h6"/>',
+    cpu: '<rect x="6" y="6" width="12" height="12" rx="1"/><rect x="10" y="10" width="4" height="4"/><path d="M9 2v2M15 2v2M9 20v2M15 20v2M2 9h2M2 15h2M20 9h2M20 15h2"/>',
+    chat: '<path d="M21 15a2 2 0 0 1-2 2H8l-5 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>',
+    wrench: '<path d="M14.7 6.3a4.5 4.5 0 0 0-6.1 6.1L3 18l3 3 5.6-5.6a4.5 4.5 0 0 0 6.1-6.1l-2.9 2.9-3-3z"/>',
+    layers: '<path d="M12 2L2 7l10 5 10-5z"/><path d="M2 12l10 5 10-5"/><path d="M2 17l10 5 10-5"/>',
+    book: '<path d="M4 5a2 2 0 0 1 2-2h14v18H6a2 2 0 0 0-2 2z"/><path d="M4 5v16"/>',
+    heart: '<path d="M12 21s-8-4.5-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 6.5-8 11-8 11z"/>',
+    clock: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+    xmark: '<path d="M6 6l12 12M18 6L6 18"/>',
+    star: '<path d="M12 3l2.7 5.5 6 .9-4.4 4.2 1 6-5.3-2.8-5.3 2.8 1-6L3.3 9.4l6-.9z"/>',
+    person: '<circle cx="12" cy="8" r="4"/><path d="M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1"/>',
+    refresh: '<path d="M21 12a9 9 0 1 1-2.6-6.3"/><path d="M21 3v6h-6"/>',
+    skip: '<path d="M4 12h14"/><path d="M13 6l6 6-6 6"/>',
+    mail: '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/>',
+    gift: '<rect x="3" y="9" width="18" height="11" rx="1"/><path d="M3 13h18"/><path d="M12 9v11"/><path d="M12 9c-2 0-4-1-4-3a2 2 0 0 1 4-1c0-2 2-3 4-1a2 2 0 0 1-1 4"/>',
+    lock: '<rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/>'
+  };
+  function gicon(key, size, color) {
+    const st = color || '#7A93AC';
+    return `<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="${st}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">${GLYPHS[key] || GLYPHS.search}</svg>`;
+  }
+  function starRow(m) {
+    const n = Math.max(1, Math.min(5, Math.round(m / 20)));
+    return `<span class="stars">${'★'.repeat(n)}<span class="off">${'☆'.repeat(5 - n)}</span></span>`;
+  }
+
+  /* ================= v3.0 音效（Web Audio 合成，自包含无需音频文件） ================= */
+  let audioCtx = null;
+  function ac() {
+    if (!audioCtx) { try { audioCtx = new (window.AudioContext || window.webkitAudioContext)(); } catch (e) {} }
+    if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
+    return audioCtx;
+  }
+  function tone(freq, dur, type, gain, when) {
+    const ctx = ac(); if (!ctx) return;
+    const t = ctx.currentTime + (when || 0);
+    const o = ctx.createOscillator(), g = ctx.createGain();
+    o.type = type || 'sine'; o.frequency.setValueAtTime(freq, t);
+    g.gain.setValueAtTime(0.0001, t);
+    g.gain.exponentialRampToValueAtTime(gain || 0.15, t + 0.01);
+    g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+    o.connect(g); g.connect(ctx.destination);
+    o.start(t); o.stop(t + dur + 0.02);
+  }
+  function noiseHit(dur, gain, when) {
+    const ctx = ac(); if (!ctx) return;
+    const t = ctx.currentTime + (when || 0);
+    const len = Math.floor(ctx.sampleRate * dur);
+    const buf = ctx.createBuffer(1, len, ctx.sampleRate);
+    const data = buf.getChannelData(0);
+    for (let i = 0; i < len; i++) data[i] = (Math.random() * 2 - 1) * (1 - i / len);
+    const src = ctx.createBufferSource(); src.buffer = buf;
+    const g = ctx.createGain(); g.gain.value = gain || 0.08;
+    src.connect(g); g.connect(ctx.destination);
+    src.start(t);
+  }
+  const Sfx = {
+    click() { tone(520, 0.08, 'triangle', 0.07); },
+    flip() { noiseHit(0.1, 0.1); tone(380, 0.09, 'sine', 0.05); },
+    card1() { tone(392, 0.18, 'triangle', 0.12); },
+    card2() { tone(392, 0.15, 'triangle', 0.11); tone(523, 0.2, 'triangle', 0.11, 0.1); },
+    card3() { [523, 659, 784, 1046].forEach((f, i) => tone(f, 0.28, 'triangle', 0.13, i * 0.09)); },
+    merge() { [392, 523, 659, 784].forEach((f, i) => tone(f, 0.3, 'sine', 0.11, i * 0.11)); },
+    err() { tone(220, 0.2, 'square', 0.05); }
+  };
+
+  /* ================= 路由与导航 ================= */
+  const stack = [];
+  const parseRoute = () => {
+    const h = (location.hash || '#/ask').replace(/^#\/?/, '');
+    const p = h.split('/').filter(Boolean);
+    return { name: p[0] || 'ask', arg: decodeURIComponent(p[1] || ''), arg2: decodeURIComponent(p[2] || '') };
+  };
+  function go(r) { location.hash = r; }
+  function back() { location.hash = stack.pop() || '#/ask'; }
+  function goTab(t) { stack.length = 0; location.hash = '#/' + t; }
+  function pushCur() { stack.push(location.hash || '#/ask'); }
+  // 进入子页面：记录来源，保证返回箭头能回到上一屏
+  function goPush(r) { pushCur(); go(r); }
+
+  function render() {
+    const r = parseRoute();
+    const tabNames = ['ask', 'swipe', 'forum', 'mine'];
+    const handler = routes[r.name];
+    if (!handler) { location.hash = '#/ask'; return; }
+    const page = $('#page');
+    page.scrollTop = 0;
+    page.classList.remove('deck-page');
+    page.classList.remove('swipe-page');
+    page.classList.remove('switching'); void page.offsetWidth; page.classList.add('switching');
+    handler(r);
+    // Tab 栏：仅 Tab 页显示
+    const tabEl = $('#tabbar');
+    if (tabNames.includes(r.name)) {
+      tabEl.innerHTML = tabHTML(r.name);
+      tabEl.style.display = '';
+    } else {
+      tabEl.innerHTML = '';
+      tabEl.style.display = 'none';
+    }
+  }
+
+  /* ================= UI 基础片段 ================= */
+  const ICON_BACK = '<svg class="nav-back" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" onclick="back()"><path d="m15 18-6-6 6-6"/></svg>';
+
+  function navBack(title, right) {
+    $('#nav').innerHTML =
+      `<div class="nav-bar">${ICON_BACK}<div class="nav-title">${title}</div>${right ? `<div class="nav-right">${right}</div>` : ''}</div>`;
+  }
+  function homeNav() {
+    $('#nav').innerHTML =
+      `<div class="nav-bar nav-home">
+        <div class="nav-brand">甲方青年offer</div>
+        <div class="search-pill" onclick="goPush('/search')">${gicon('search', 14, 'currentColor')}<span>搜索职业 / 内容</span></div>
+      </div>`;
+  }
+
+  function tabHTML(active) {
+    const defs = { ask: ['ask', '问方向'], swipe: ['swipe', '刷方向'], forum: ['forum', '论坛分享'], mine: ['mine', '我的'] };
+    const items = Object.values(defs).map(([k, l]) =>
+      `<div class="tab-item ${active === k ? 'active' : ''}" onclick="goTab('${k}')"><span>${l}</span></div>`
+    ).join('');
+    return `<div class="tab-bar">${items}</div>`;
+  }
+
+  function setSub(html) { $('#subbar').innerHTML = html || ''; }
+
+  /* Toast */
+  let toastTimer;
+  function toast(msg) {
+    const t = $('#toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => t.classList.remove('show'), 1900);
+  }
+  // 带操作按钮的 toast（如「已取消收藏 · 撤销」）
+  let toastActFn = null;
+  function toastAct(msg, actLabel, fn) {
+    toastActFn = fn;
+    const t = $('#toast');
+    t.innerHTML = `<span>${msg}</span><button class="toast-act" onclick="runToastAct()">${actLabel}</button>`;
+    t.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => t.classList.remove('show'), 2600);
+  }
+  window.runToastAct = function () {
+    const f = toastActFn;
+    toastActFn = null;
+    const t = $('#toast');
+    t.classList.remove('show');
+    if (f) f();
+  };
+
+  /* ================= 全局交互动作 ================= */
+  window.go = go;
+  window.goPush = goPush;
+  window.back = back;
+  window.goTab = goTab;
+  window.openDir = id => { pushCur(); go('/direction/' + id); };
+  window.openArt = id => { pushCur(); go('/article/' + id); };
+  window.setIndustry = i => { state.industry = i; saveState(); render(); };
+  window.setSearchTab = t => { state.searchTab = t; saveState(); refreshSearch(); };
+  /* 论坛动作 */
+  window.setForumCat = c => { state.forumCat = c; saveState(); render(); };
+  window.openPost = id => { pushCur(); go('/post/' + id); };
+  window.setNpCat = c => { state.npCat = c; saveState(); render(); };
+  window.togglePostLike = function (id) {
+    state.postLikes[id] = !state.postLikes[id];
+    saveState();
+    render();
+  };
+  window.removePost = function (id) {
+    state.posts = state.posts.filter(p => p.id !== id);
+    delete state.postLikes[id];
+    saveState();
+    toast('已删除');
+    render();
+  };
+  window.publishPost = function () {
+    const t = $('#npTitle').value.trim();
+    const b = $('#npBody').value.trim();
+    if (!t) { toast('请填写标题'); return; }
+    if (!b) { toast('请填写内容'); return; }
+    state.posts.unshift({ id: 'u' + Date.now(), cat: state.npCat, author: state.profile.nickname, time: '刚刚', title: t, body: [b], likes: 0, comments: [] });
+    saveState();
+    toast('发布成功');
+    go('/forum');
+  };
+  window.addComment = function (id) {
+    const t = $('#pdCmt').value.trim();
+    if (!t) { toast('评论不能为空'); return; }
+    const p = state.posts.find(x => x.id === id);
+    if (!p) return;
+    p.comments = p.comments || [];
+    p.comments.push({ author: state.profile.nickname, time: '刚刚', text: t });
+    saveState();
+    toast('评论已发布');
+    render();
+  };
+
+  window.startAssessment = function (path) {
+    state.assessment = { path: path, fields: {}, answers: path === 'quiz' ? {} : null, quizIndex: 0 };
+    state.cardflow = null; state.lastResults = null;
+    saveState();
+    goPush(path === 'quiz' ? '/quiz' : '/form/' + path);
+  };
+  window.setField = function (k, v) { state.assessment.fields[k] = v; saveState(); };
+  window.pickChip = function (group, key, multi) {
+    const f = state.assessment.fields;
+    if (!f[group]) f[group] = [];
+    if (multi) {
+      const i = f[group].indexOf(key);
+      if (i >= 0) f[group].splice(i, 1); else f[group].push(key);
+    } else {
+      f[group] = f[group] === key ? '' : key;
+    }
+    saveState(); render();
+  };
+  window.submitForm = function (path) {
+    const f = state.assessment.fields;
+    const req = path === 'targeted' ? ['major', 'degree', 'industries', 'workMode', 'values'] : ['workMode', 'values'];
+    const bad = req.some(r => !f[r] || (Array.isArray(f[r]) && f[r].length === 0));
+    if (bad) { toast('请完成必填项后再开始匹配'); return; }
+    state.cardflow = { list: computeResults(), index: 0 };
+    saveState();
+    go('/cardflow');
+  };
+
+  /* Quiz */
+  window.quizPick = function (idx, k) {
+    const q = state.assessment;
+    q.answers = q.answers || {};
+    q.answers[idx] = k;
+    if (idx < DB.quiz.length - 1) { q.quizIndex = idx + 1; saveState(); render(); }
+    else finishQuiz();
+  };
+  window.quizSkip = function () {
+    const q = state.assessment;
+    if (q.quizIndex < DB.quiz.length - 1) { q.quizIndex++; saveState(); render(); }
+    else finishQuiz();
+  };
+  window.quizJump = function (i) { state.assessment.quizIndex = i; saveState(); render(); };
+  function finishQuiz() {
+    state.cardflow = { list: computeResults(), index: 0 };
+    saveState();
+    go('/cardflow');
+  }
+
+  /* 卡片流反馈 → 推进 */
+  window.cfFeedback = function (id, st) {
+    state.collections[id] = st;
+    state.feedbackCount++;
+    state.cardflow.index++;
+    saveState();
+    if (state.cardflow.index >= state.cardflow.list.length) {
+      state.assessed = true;
+      state.lastResults = state.cardflow.list;
+      state.lastSrc = 'quiz';
+      saveState();
+      toast('测评完成，已为你生成结果');
+      setTimeout(() => go('/result'), 500);
+    } else {
+      render();
+    }
+  };
+
+  /* 非卡片流三态设置（toggle） */
+  window.setColl = function (id, st) {
+    const cur = state.collections[id];
+    if (cur === st) delete state.collections[id]; else state.collections[id] = st;
+    state.feedbackCount++;
+    saveState();
+    toast(cur === st ? '已取消标记' : '已标记为「' + collLabel(st) + '」');
+    render();
+  };
+  window.removeColl = function (id) {
+    delete state.collections[id];
+    state.feedbackCount++;
+    saveState();
+    toast('已移除');
+    render();
+  };
+
+  /* ================= 问方向 · 咨询 ================= */
+  window.consult = function () {
+    const v = ($('#cInput') ? $('#cInput').value : '').trim();
+    if (!v) { toast('先简单说一句你的情况吧'); return; }
+    const res = consultResults(v);
+    state.lastResults = res;
+    state.lastSrc = 'consult';
+    saveState();
+    toast('已为你匹配 ' + res.length + ' 个职业方向');
+    setTimeout(() => go('/result/consult'), 450);
+  };
+  function consultResults(text) {
+    const toks = text.split(/[\s,，。.!！?？;；、/\\\-]+/).filter(t => t && t.length >= 2);
+    const scored = DB.directions.map(d => {
+      let s = 0;
+      const hay = d.kw.concat(d.skills).join('|') + '|' + d.industry + '|' + d.desc + '|' + d.name + '|' + d.path.join('');
+      toks.forEach(t => { if (hay.includes(t)) s += t.length >= 4 ? 12 : 7; });
+      if (text.includes(d.name)) s += 20;
+      return { d, s };
+    });
+    scored.sort((a, b) => b.s - a.s || b.d.baseMatch - a.d.baseMatch);
+    return scored.slice(0, 8).map(x => ({ id: x.d.id, match: Math.max(48, Math.min(96, x.d.baseMatch + Math.min(x.s, 30))) }));
+  }
+
+  /* ================= 刷方向 · 半圆轮盘抽卡 ================= */
+  let swwAnimating = false;
+  const SWW_R = 150, SWW_W = 186, SWW_WS = 150;
+  // 半圆轮盘几何：O 位于轮盘底部中央，α=90° 为弧顶，卡片底部中心锚在圆弧上
+  function swwSlot(α) {
+    const a = α * Math.PI / 180;
+    return { x: Math.round(SWW_R * Math.cos(a)), y: Math.round(SWW_R * Math.sin(a)) };
+  }
+  function swwStyle(α, w, z, opacity) {
+    const { x, y } = swwSlot(α);
+    const rot = α < 90 ? 12 : α > 90 ? -12 : 0;
+    return `left:calc(50% + ${x}px - ${w / 2}px); bottom:${y + 6}px; width:${w}px; transform:rotate(${rot}deg); z-index:${z}; opacity:${opacity};`;
+  }
+  function swwCenterBody(d) {
+    const st = state.collections[d.id];
+    return `<div class="swc-cover c${d.c}">${gicon(d.g, 28)}</div>
+      <div class="swc-fav ${st === 'interested' ? 'on' : ''}" onclick="swFav('${d.id}')">${st === 'interested' ? '★' : '☆'}</div>
+      <div class="swc-body">
+        <div class="swc-name">${d.name}</div>
+        <div class="swc-sal">入门薪资 ${salaryOf(d) || (d.tags[0] ? d.tags[0].t : '')}</div>
+        <div class="swc-tags">${d.tags.slice(0, 3).map(t => `<span class="tag ${t.accent ? 'tag-accent' : t.gray ? 'tag-gray' : ''}">${t.t}</span>`).join('')}</div>
+        <div class="swc-desc">${d.desc}</div>
+      </div>
+      <div class="swc-guide" onclick="openDir('${d.id}')">查看完整入行指南 ›</div>`;
+  }
+  function swwSideBody(d) {
+    const st = state.collections[d.id];
+    return `<div class="swc-cover c${d.c}">${gicon(d.g, 28)}</div>
+      <div class="swc-body">
+        <div class="swc-name">${d.name}${st === 'interested' ? ' <span class="swc-star">★</span>' : ''}</div>
+        <div class="swc-sal">${salaryOf(d) || (d.tags[0] ? d.tags[0].t : '')}</div>
+      </div>`;
+  }
+  function swwWheelHTML() {
+    const s = state.swipe, ids = s.ids, i = s.index, total = ids.length;
+    let html = '<div class="sww-arc"></div>' + swwDecoHTML();
+    if (i > 0) html += `<div class="sww-card" data-id="${ids[i - 1]}" style="${swwStyle(135, SWW_WS, 2, 1)}">${swwSideBody(dirById(ids[i - 1]))}</div>`;
+    html += `<div class="sww-card" data-id="${ids[i]}" style="${swwStyle(90, SWW_W, 3, 1)}">${swwCenterBody(dirById(ids[i]))}</div>`;
+    if (i + 1 < total) html += `<div class="sww-card" data-id="${ids[i + 1]}" style="${swwStyle(45, SWW_WS, 2, 1)}">${swwSideBody(dirById(ids[i + 1]))}</div>`;
+    return html;
+  }
+  function swwDecoHTML() {
+    return `<div class="sww-refresh-wrap">
+      <div class="sww-refresh" onclick="swShuffle()">${gicon('refresh', 24, '#fff')}</div>
+      <div class="sww-refresh-t">换一批看看</div>
+    </div>
+    <div class="sww-dim" style="left:104px;bottom:108px">稳定成长</div>
+    <div class="sww-dim" style="right:104px;bottom:108px">兴趣驱动</div>
+    <div class="sww-dim" style="left:108px;bottom:40px">高薪发展</div>
+    <div class="sww-dim" style="right:108px;bottom:40px">技术前沿</div>`;
+  }
+  // 标记后轮盘绕底部圆心径向转一格：原中央→左槽、原右侧→中央、新卡从右下进入
+  function animateWheelAdvance() {
+    const s = state.swipe, i = s.index, ids = s.ids;
+    const box = $('#sww');
+    if (!box) return;
+    const find = id => box.querySelector('.sww-card[data-id="' + id + '"]');
+    const move = (n, α, w, z, opacity, body) => {
+      const node = find(n);
+      if (!node) return;
+      if (body !== undefined) node.innerHTML = body;
+      const { x, y } = swwSlot(α);
+      const rot = α < 90 ? 12 : α > 90 ? -12 : 0;
+      node.style.left = `calc(50% + ${x}px - ${w / 2}px)`;
+      node.style.bottom = (y + 6) + 'px';
+      node.style.width = w + 'px';
+      node.style.transform = `rotate(${rot}deg)`;
+      node.style.zIndex = z;
+      node.style.opacity = opacity;
+    };
+    // 上一张（old left）从左侧滑出圆弧
+    if (i - 2 >= 0) move(ids[i - 2], 200, SWW_WS, 1, 0);
+    // 原中央 → 左槽
+    if (i - 1 >= 0) move(ids[i - 1], 135, SWW_WS, 2, 1, swwSideBody(dirById(ids[i - 1])));
+    // 原右侧 → 中央
+    if (i < ids.length) move(ids[i], 90, SWW_W, 3, 1, swwCenterBody(dirById(ids[i])));
+    // 新卡从右下进入右槽
+    if (i + 1 < ids.length) {
+      const n = dirById(ids[i + 1]);
+      const node = document.createElement('div');
+      node.className = 'sww-card';
+      node.setAttribute('data-id', ids[i + 1]);
+      node.innerHTML = swwSideBody(n);
+      box.appendChild(node);
+      move(ids[i + 1], -18, SWW_WS, 1, 0);
+      requestAnimationFrame(() => requestAnimationFrame(() => move(ids[i + 1], 45, SWW_WS, 2, 1)));
+    }
+  }
+  window.swFeedback = function (id, st) {
+    const cur = state.collections[id];
+    if (cur === st) delete state.collections[id]; else state.collections[id] = st;
+    state.feedbackCount++;
+    saveState();
+    toast(cur === st ? '已取消标记' : '已标记为「' + collLabel(st) + '」');
+    const s = state.swipe;
+    if (!s || s.index >= s.ids.length) return;
+    s.index++;
+    saveState();
+    if (s.index >= s.ids.length) {
+      // 最后一张：中央卡飞出后进完成态
+      const el = $('#sww .sww-card[data-id="' + id + '"]');
+      if (el) el.classList.add('out');
+      setTimeout(() => render(), 280);
+    } else {
+      if (swwAnimating) { render(); return; }
+      swwAnimating = true;
+      animateWheelAdvance();
+      setTimeout(() => { swwAnimating = false; render(); }, 450);
+    }
+  };
+  // 跳过：不写数据库（不进收藏/反馈），直接翻到下一张
+  // 动画复用 animateWheelAdvance —— 被跳过的中央卡顺势滑入左槽（侧卡上下文），与反馈翻卡一致
+  window.swSkip = function () {
+    const s = state.swipe;
+    if (!s || s.index >= s.ids.length) return;
+    s.index++;
+    saveState();
+    if (s.index >= s.ids.length) {
+      // 最后一张：中央卡飞出后进完成态
+      const el = $('#sww .sww-card[data-id="' + s.ids[s.index - 1] + '"]');
+      if (el) el.classList.add('out');
+      setTimeout(() => render(), 260);
+      return;
+    }
+    if (swwAnimating) { setTimeout(() => render(), 260); return; }
+    swwAnimating = true;
+    animateWheelAdvance();
+    setTimeout(() => { swwAnimating = false; render(); }, 450);
+  };
+  // 划走手势：拖拽中央卡左/右滑出即跳过（不进数据库），松手未过阈值则回弹
+  let swwDrag = null;
+  function swwDragStart(e) {
+    if (swwAnimating) return;
+    const s = state.swipe;
+    if (!s || s.index >= s.ids.length) return;
+    const card = e.target.closest('.sww-card');
+    if (!card || card.dataset.id !== s.ids[s.index]) return;
+    // 星标 / 入行指南等可点击元素不拦截，交还给 click
+    if (e.target.closest('.swc-fav, .swc-guide')) return;
+    swwDrag = { el: card, sx: e.clientX, sy: e.clientY, dx: 0, dy: 0, moved: false };
+    try { card.setPointerCapture(e.pointerId); } catch (err) {}
+    card.classList.add('dragging');
+  }
+  function swwDragMove(e) {
+    if (!swwDrag) return;
+    const d = swwDrag;
+    d.dx = e.clientX - d.sx;
+    d.dy = e.clientY - d.sy;
+    if (!d.moved && Math.abs(d.dx) < 6 && Math.abs(d.dy) < 6) return;
+    d.moved = true;
+    d.el.style.transform = `translate(${d.dx}px, ${d.dy}px) rotate(${d.dx * .05}deg)`;
+  }
+  function swwDragEnd(e) {
+    if (!swwDrag) return;
+    const d = swwDrag, card = d.el;
+    swwDrag = null;
+    card.classList.remove('dragging');
+    if (!d.moved || Math.abs(d.dx) < 60) {
+      // 回弹复位
+      card.style.transition = 'transform .3s ease';
+      card.style.transform = '';
+      setTimeout(() => { card.style.transition = ''; }, 320);
+      return;
+    }
+    // 拖拽成滑出后，吞掉可能落到星标/指南上的 click
+    card.addEventListener('click', function guard(ev) { ev.preventDefault(); ev.stopPropagation(); card.removeEventListener('click', guard); });
+    // 沿拖拽方向飞出圆弧
+    const dir = d.dx > 0 ? 1 : -1;
+    card.style.transition = 'transform .22s ease, opacity .22s ease';
+    card.style.transform = `translate(${dir * 240}px, ${d.dy - 50}px) rotate(${dir * 18}deg)`;
+    card.style.opacity = '0';
+    setTimeout(() => { card.style.transition = ''; }, 220);
+    setTimeout(() => swSkip(), 240);
+  }
+  // 卡片右上角收藏星标：切换「感兴趣」但不翻卡
+  window.swFav = function (id) {
+    const st = state.collections[id] === 'interested' ? null : 'interested';
+    if (st) state.collections[id] = st; else delete state.collections[id];
+    state.feedbackCount++;
+    saveState();
+    toast(st ? '已加入意向' : '已取消意向');
+    render();
+  };
+  // 换一批看看：洗牌剩余卡堆，保留当前卡与进度
+  window.swShuffle = function () {
+    const s = state.swipe;
+    if (!s || s.index >= s.ids.length) return;
+    const i = s.index;
+    const cur = s.ids[i];
+    const rest = s.ids.slice(i + 1);
+    for (let k = rest.length - 1; k > 0; k--) {
+      const j = Math.floor(Math.random() * (k + 1));
+      [rest[k], rest[j]] = [rest[j], rest[k]];
+    }
+    s.ids = s.ids.slice(0, i).concat([cur], rest);
+    saveState();
+    toast('已换一批方向');
+    render();
+  };
+  window.swRestart = function () {
+    state.swipe = null;
+    state.industry = '全部';
+    saveState();
+    render();
+  };
+
+  /* ================= v3.0 召唤抽卡 · 核心逻辑 ================= */
+  // 星级概率（公示：1星 50% / 2星 35% / 3星 15%）
+  function starRoll() {
+    const r = Math.random() * 100;
+    if (r < 15) return 3;
+    if (r < 50) return 2;
+    return 1;
+  }
+  function pickDirection(preferIds) {
+    if (preferIds && preferIds.length) return preferIds[Math.floor(Math.random() * preferIds.length)];
+    return DB.directions[Math.floor(Math.random() * DB.directions.length)].id;
+  }
+  // 入册 + 升星规则：抽到即入册计数；2/3星稀有卡直接提升等级；同职业满3张合成升1星
+  function addCard(id, star) {
+    if (!state.cards[id]) state.cards[id] = { count: 0, level: 1 };
+    const c = state.cards[id];
+    c.count++;
+    if (star >= 3) c.level = Math.max(c.level, 3);
+    else if (star >= 2) c.level = Math.max(c.level, 2);
+    const before = c.level;
+    while (c.count >= 3 && c.level < 3) { c.count -= 3; c.level++; }
+    if (c.level > before) {
+      state.summon.autoUpgrade = state.summon.autoUpgrade || [];
+      if (!state.summon.autoUpgrade.includes(id)) state.summon.autoUpgrade.push(id);
+    }
+    state.summon.totalPulls++;
+  }
+  function doPullOnce() {
+    const star = starRoll();
+    const id = pickDirection();
+    addCard(id, star);
+    return { id, star };
+  }
+  // 十连：普通十连第 10 抽保底 2 星+；首次召唤定向高契合职业且保底 1 张 3 星
+  function doPull10() {
+    const results = [];
+    if (!state.summon.firstDone) {
+      state.summon.firstDone = true;
+      const pref = DB.directions
+        .map(d => ({ id: d.id, m: matchOf(d.id) }))
+        .sort((a, b) => b.m - a.m).slice(0, 8).map(x => x.id);
+      const s3 = pickDirection(pref);
+      addCard(s3, 3); results.push({ id: s3, star: 3 });
+      for (let i = 0; i < 9; i++) {
+        const id = Math.random() < 0.6 ? pickDirection(pref) : pickDirection();
+        const star = starRoll();
+        addCard(id, star); results.push({ id, star });
+      }
+    } else {
+      for (let i = 0; i < 10; i++) {
+        let star = starRoll();
+        if (i === 9 && star < 2) star = 2;
+        const id = pickDirection();
+        addCard(id, star); results.push({ id, star });
+      }
+    }
+    return results;
+  }
+  function canPull(n) { return state.summon.tickets >= n; }
+  window.doPull = function () {
+    if (!canPull(1)) { Sfx.err(); toast('次数不足：完成今日任务或分享可获次数'); return; }
+    state.summon.tickets -= 1;
+    const r = doPullOnce();
+    state.summon.last = [r];
+    saveState();
+    startPullAnim([r], () => renderSummonResults([r]));
+  };
+  window.doPull10 = function () {
+    if (!canPull(10)) { Sfx.err(); toast('十连需 10 次抽卡，先去完成任务或分享吧'); return; }
+    state.summon.tickets -= 10;
+    const rs = doPull10();
+    state.summon.last = rs;
+    saveState();
+    startPullAnim(rs, () => renderSummonResults(rs));
+  };
+  // 次数获取（无广告阶段，合规：任务 / 分享，非纯登录奖励）
+  window.claimDaily = function () {
+    if (state.summon.dailyClaimed) { Sfx.err(); toast('今日次数已领取，明天再来'); return; }
+    state.summon.dailyClaimed = true;
+    state.summon.tickets += 3;
+    saveState(); Sfx.merge(); toast('已完成今日刷方向任务，+3 次抽卡');
+    render();
+  };
+  window.shareForTickets = function () {
+    state.summon.tickets += 2;
+    saveState(); Sfx.merge(); toast('分享卡片已生成，+2 次抽卡');
+    render();
+  };
+  // 合成升星：消耗 3 张同职业卡，职业等级 +1（含升星音效）
+  window.mergeCard = function (id) {
+    const c = state.cards[id];
+    const d = dirById(id);
+    if (!c || !d) return;
+    if (c.count < 3) { Sfx.err(); toast('还需 ' + (3 - c.count) + ' 张「' + d.name + '」卡才能合成'); return; }
+    if (c.level >= 3) { Sfx.err(); toast('「' + d.name + '」已达最高等级'); return; }
+    c.count -= 3; c.level++;
+    saveState();
+    startMergeAnim([id], {});
+  };
+  window.goCards = function () { pushCur(); go('/cards'); };
+
+  /* ================= v5.1 抽卡 / 升星动画编排 =================
+     设计来源调研（原神 / 恋与深空 / 明日方舟 / FGO / 王者荣耀）：
+     · 多巴胺三幕剧：线索出现 → 悬念(卡背) → 揭示(逐张翻牌 + 稀有反转)，不能直接跳结果
+     · 稀有卡专属揭示：3 星翻牌瞬间金光爆发（对标原神「捕获明光」特殊出金动画）
+     · 十连逐张揭示：拉开悬念、制造多次小高潮（对标 FGO 多层揭示点）
+     · 升星仪式感：卡牌震动 → 星星汇聚 → 升级光环 → 展示新解锁内容（对标恋与深空叠花升星）
+     · 全程可跳过
+  ========================================================================== */
+  let animTimers = [];
+  let pullDone = null;
+  function clearAnimTimers() { animTimers.forEach(clearTimeout); animTimers = []; }
+  function getOverlay() {
+    let ov = document.getElementById('pullOverlay');
+    if (!ov) { ov = document.createElement('div'); ov.id = 'pullOverlay'; document.body.appendChild(ov); }
+    return ov;
+  }
+  // ---------- 抽卡动画：卡牌飞入 → 逐张翻牌揭示 ----------
+  function startPullAnim(rs, done) {
+    clearAnimTimers(); pullDone = done || null;
+    const ten = rs.length > 1;
+    const ov = getOverlay();
+    ov.innerHTML = `
+      <div class="po-backdrop"></div>
+      <div class="po-stage">
+        <div class="po-title"><b>召唤中</b><span class="po-title-sub">${ten ? '十连 · 逐张揭示' : '职业卡揭示'}</span></div>
+        <div class="po-grid ${ten ? 'po-grid10' : 'po-grid1'}"></div>
+        <div class="po-skip" onclick="skipPullAnim()">跳过 ›</div>
+      </div>`;
+    ov.style.display = 'flex';
+    requestAnimationFrame(() => requestAnimationFrame(() => ov.classList.add('on')));
+    const grid = ov.querySelector('.po-grid');
+    rs.forEach((r, i) => {
+      const d = dirById(r.id);
+      const card = document.createElement('div');
+      card.className = 'po-card';
+      card.style.setProperty('--i', i);
+      card.innerHTML = `
+        <div class="po-inner">
+          <div class="po-face po-front c${d.c}"><div class="po-icon">${gicon(d.g, 30)}</div><div class="po-fname">${d.name}</div></div>
+          <div class="po-face po-back"><div class="po-logo">★</div><div class="po-back-t">职业卡</div></div>
+        </div>`;
+      grid.appendChild(card);
+    });
+    // 逐张翻牌：先见卡背（悬念），翻开的瞬间揭示品质（稀有 = 金光反转）
+    const gap = ten ? 260 : 420;
+    const start = 560;
+    rs.forEach((r, i) => {
+      animTimers.push(setTimeout(() => {
+        const card = grid.children[i];
+        card.classList.add('reveal');
+        if (r.star === 3) { card.classList.add('rare'); Sfx.card3(); glowBurst(card); }
+        else if (r.star === 2) Sfx.card2();
+        else Sfx.card1();
+      }, start + i * gap));
+    });
+    animTimers.push(setTimeout(finishPullAnim, start + (rs.length - 1) * gap + 1500));
+  }
+  window.skipPullAnim = function () {
+    const ov = getOverlay();
+    if (ov.style.display === 'none') return;
+    ov.querySelectorAll('.po-card').forEach(c => c.classList.add('reveal'));
+    clearAnimTimers();
+    finishPullAnim();
+  };
+  function finishPullAnim() {
+    clearAnimTimers();
+    const ov = getOverlay();
+    ov.classList.remove('on');
+    animTimers.push(setTimeout(() => { ov.style.display = 'none'; ov.innerHTML = ''; }, 320));
+    const done = pullDone; pullDone = null;
+    if (done) done();
+  }
+  // 稀有金光：背景一次金色光闪 + 卡片后光柱
+  function glowBurst(card) {
+    const stage = card.closest('.po-stage');
+    if (!stage) return;
+    const flash = document.createElement('div');
+    flash.className = 'po-flash';
+    stage.appendChild(flash);
+    animTimers.push(setTimeout(() => flash.remove(), 1100));
+  }
+  // ---------- 合成升星动画（沉浸式 v5.2）：旋转金光 → 震动 → 卡面扫光 → 星粒四射 → 三星汇聚 → 光环 → 解锁内容 ----------
+  function mergeParticlesHTML(n) {
+    let h = '';
+    const glyphs = ['★', '✦', '✧', '◆', '·'];
+    const colors = ['#C9A24B', '#E4B84F', '#F0D37A', '#A8832E'];
+    for (let i = 0; i < n; i++) {
+      const a = Math.random() * Math.PI * 2;
+      const r = 70 + Math.random() * 110;
+      const x = Math.round(Math.cos(a) * r);
+      const y = Math.round(Math.sin(a) * r);
+      const d = (.28 + Math.random() * .5).toFixed(2);
+      const s = (10 + Math.random() * 14).toFixed(0);
+      const c = colors[i % colors.length];
+      h += `<span class="mo-pt" style="--x:${x}px;--y:${y}px;--d:${d}s;--s:${s}px;color:${c}">${glyphs[i % glyphs.length]}</span>`;
+    }
+    return h;
+  }
+  // ids: 升级职业数组（可多个）；opts.auto=抽卡中自动合成，opts.done=结束后回调
+  function startMergeAnim(ids, opts) {
+    clearAnimTimers(); pullDone = null;
+    opts = opts || {};
+    const list = (Array.isArray(ids) ? ids : [ids]).map(id => dirById(id)).filter(Boolean);
+    if (!list.length) { if (opts.done) opts.done(); else render(); return; }
+    const d = list[0];
+    const lv = cardLevel(d.id);
+    const starColor = ['', '#8C9AA8', '#5F7893', '#C9A24B'][Math.min(3, lv)];
+    // 多职业升级：主卡展示 + 解锁区逐条列出（含其余职业）
+    const unlockRows = list.map(dd => {
+      const dl = cardLevel(dd.id);
+      const cont = deepContent(dd, dl);
+      return `<div class="mo-u-row"><span class="mo-u-tag c${dd.c}">${dd.name}</span><span class="mo-u-t">${escapeHtml(cont.title)}</span></div>`;
+    }).join('');
+    const label = opts.auto ? '集卡合成 · 自动升星' : '合成成功 · 升至 ' + lv + ' 星';
+    const ov = getOverlay();
+    ov.innerHTML = `
+      <div class="mo-backdrop"></div>
+      <div class="mo-rays"></div>
+      <div class="mo-stage">
+        <div class="mo-card-wrap">
+          <div class="mo-card c${d.c}"><div class="mo-icon">${gicon(d.g, 46)}</div><div class="mo-name">${d.name}</div></div>
+          <div class="mo-shine"></div>
+          <div class="mo-parts">${mergeParticlesHTML(14)}</div>
+          <div class="mo-halo"></div>
+        </div>
+        <div class="mo-fly"><span class="mo-flystar" style="--k:0">★</span><span class="mo-flystar" style="--k:1">★</span><span class="mo-flystar" style="--k:2">★</span></div>
+        <div class="mo-result"><b style="color:${starColor}">${'★'.repeat(lv)}</b><span class="mo-result-t">${label}</span></div>
+        <div class="mo-unlock">
+          <div class="mo-u-label">${gicon('lock', 13, '#A8832E')} 已解锁深度内容</div>
+          ${unlockRows}
+        </div>
+        <div class="mo-btn btn btn-primary" onclick="finishMergeAnim()">知道了</div>
+      </div>`;
+    ov.style.display = 'flex';
+    requestAnimationFrame(() => requestAnimationFrame(() => ov.classList.add('on')));
+    Sfx.merge();
+    animTimers.push(setTimeout(() => { if (ov.classList.contains('on')) finishMergeAnim(opts.done); }, 5800));
+  }
+  window.finishMergeAnim = function (done) {
+    clearAnimTimers();
+    const ov = getOverlay();
+    ov.classList.remove('on');
+    animTimers.push(setTimeout(() => { ov.style.display = 'none'; ov.innerHTML = ''; }, 320));
+    if (typeof done === 'function') done(); else render();
+  };
+
+  /* ================= 彩色便签堆叠（结果页 / 收藏夹 v4.1） ================= */
+  let stackSess = null;   // { items: [{d, match}], ctx, idx }
+  function buildStackItems(ctx) {
+    if (ctx === 'result') {
+      const list = state.lastResults || [];
+      return list.map(x => ({ d: dirById(x.id), match: x.match })).filter(x => x.d);
+    }
+    const ids = Object.keys(state.collections).filter(id => state.collections[id] === ctx);
+    return ids.map(id => ({ d: dirById(id), match: matchOf(id) })).filter(x => x.d);
+  }
+  function renderStack(items, ctx, opts) {
+    const list = items.filter(x => x && x.d);
+    // 从详情页返回时，保留当前展开卡的位置
+    let idx = 0;
+    if (stackSess && stackSess.ctx === ctx && stackSess.items.length === list.length) idx = stackSess.idx;
+    stackSess = { items: list, ctx: ctx, idx: idx, opts: opts || {} };
+    navBack(opts.title || '职业卡片');
+    const page = $('#page');
+    page.classList.remove('deck-page');
+    page.innerHTML = (opts.head || '') + stackListHTML();
+    setSub(opts.sub || '');
+  }
+  function stackListHTML() {
+    const s = stackSess;
+    if (!s || !s.items.length) return '<div class="empty"><div class="empty-title">这里还没有卡片</div></div>';
+    return `<div class="st-list" id="stList">${s.items.map((x, i) => stackCardHTML(x.d, x.match, i)).join('')}</div>`;
+  }
+  function stackCardHTML(d, m, i) {
+    const s = stackSess;
+    const open = i === s.idx;
+    const st = state.collections[d.id];
+    const fav = st === 'interested' ? ' <span class="st-star-mark">★</span>' : '';
+    const head = `<div class="st-head" onclick="stFocus(${i})">
+      <div class="st-h1"><span class="st-name">${d.name}${fav}</span><span class="st-sal">${salaryOf(d) || (d.tags[0] ? d.tags[0].t : '')}</span></div>
+      <div class="st-h2"><span>${d.industry} · ${d.viewed}</span><span class="st-h2-r"><span class="st-stars">${starRow(m)}</span><span class="st-caret">▾</span></span></div>
+    </div>`;
+    const body = `<div class="st-body"><div class="st-body-inner"><div class="st-body-content">
+      <div class="st-desc">${d.desc}</div>
+      <div class="st-tags">${d.tags.map(t => `<span class="tag ${t.accent ? 'tag-accent' : t.gray ? 'tag-gray' : ''}">${t.t}</span>`).join('')}</div>
+      <div class="st-actions" onclick="event.stopPropagation()">${stackActionsHTML(d, st)}</div>
+    </div></div></div>`;
+    return `<div class="st-card c${d.c} ${open ? 'st-open' : ''}" data-i="${i}" data-id="${d.id}">${head}${body}</div>`;
+  }
+  function stackActionsHTML(d, st) {
+    const ctx = stackSess ? stackSess.ctx : 'result';
+    if (ctx === 'result') {
+      return `<div class="fb-group">
+        <div class="fb-btn fb-btn-interest ${st === 'interested' ? 'active-interest' : ''}" onclick="stSet('${d.id}','interested')">感兴趣</div>
+        <div class="fb-btn fb-btn-later ${st === 'later' ? 'active-later' : ''}" onclick="stSet('${d.id}','later')">稍后再看</div>
+        <div class="fb-btn fb-btn-reject ${st === 'rejected' ? 'active-reject' : ''}" onclick="stReject('${d.id}')">暂不考虑</div>
+      </div>`;
+    }
+    if (ctx === 'interested') {
+      return `<div class="st-op-row">
+        <div class="btn btn-ghost st-op" onclick="openDir('${d.id}')">查看详情</div>
+        <div class="btn btn-outline st-op" onclick="stSet('${d.id}','later')">降为稍后</div>
+        <div class="btn btn-outline st-op" onclick="stRemove('${d.id}')">移除</div>
+      </div>`;
+    }
+    if (ctx === 'rejected') {
+      return `<div class="st-op-row">
+        <div class="btn btn-ghost st-op" onclick="stSet('${d.id}','interested')">改为感兴趣</div>
+        <div class="btn btn-outline st-op" onclick="stSet('${d.id}','later')">稍后再看</div>
+        <div class="btn btn-outline st-op" onclick="stRemove('${d.id}')">移除</div>
+      </div>`;
+    }
+    return `<div class="st-op-row">
+      <div class="btn btn-ghost st-op" onclick="stSet('${d.id}','interested')">感兴趣</div>
+      <div class="btn btn-outline st-op" onclick="stSet('${d.id}','rejected')">暂不考虑</div>
+      <div class="btn btn-outline st-op" onclick="stRemove('${d.id}')">移除</div>
+    </div>`;
+  }
+  function renderStackStack() {
+    const el = $('#stList');
+    if (!el || !stackSess) return;
+    const page = $('#page');
+    const scrollTop = page.scrollTop;
+    el.innerHTML = stackListHTML();
+    page.scrollTop = scrollTop;
+  }
+  window.stFocus = function (i) {
+    const s = stackSess;
+    if (!s) return;
+    // 再点一次已展开的卡 → 收起（全折叠）
+    if (i === s.idx) {
+      s.idx = -1;
+      document.querySelectorAll('.st-card').forEach(el => el.classList.remove('st-open'));
+      return;
+    }
+    s.idx = i;
+    // 类切换而非重渲染：让 grid 高度过渡自然播放
+    document.querySelectorAll('.st-card').forEach((el, j) => el.classList.toggle('st-open', j === i));
+    // 等高度过渡结束后再把目标卡滚入视野，避免滚动定位偏差
+    setTimeout(() => {
+      const el = document.querySelector('.st-card[data-i="' + i + '"]');
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 330);
+  };
+  window.stSet = function (id, st) {
+    const cur = state.collections[id];
+    if (cur === st) delete state.collections[id]; else state.collections[id] = st;
+    state.feedbackCount++;
+    saveState();
+    toast(cur === st ? '已取消标记' : '已标记为「' + collLabel(st) + '」');
+    renderStackStack();
+  };
+  window.stReject = function (id) {
+    state.collections[id] = 'rejected';
+    state.feedbackCount++;
+    if (state.lastResults) state.lastResults = state.lastResults.filter(x => x.id !== id);
+    saveState();
+    toast('已减少推荐类似方向');
+    const s = stackSess;
+    const el = document.querySelector('.st-card[data-id="' + id + '"]');
+    if (el) el.classList.add('st-removing');
+    setTimeout(() => {
+      if (!s) return;
+      s.items = s.items.filter(x => x.d.id !== id);
+      s.idx = Math.min(s.idx, Math.max(0, s.items.length - 1));
+      if (!s.items.length) { render(); return; }
+      renderStackStack();
+    }, 210);
+  };
+  window.stRemove = function (id) {
+    const prev = state.collections[id];
+    delete state.collections[id];
+    state.feedbackCount++;
+    saveState();
+    const el = document.querySelector('.st-card[data-id="' + id + '"]');
+    if (el) el.classList.add('st-removing');
+    toastAct('已取消收藏', '撤销', () => {
+      if (prev) state.collections[id] = prev;
+      saveState();
+      toast('已恢复收藏');
+      rebuildStack();
+    });
+    setTimeout(() => { if (!state.collections[id]) rebuildStack(); }, 220);
+  };
+  function rebuildStack() {
+    const s = stackSess;
+    if (!s) return;
+    const items = buildStackItems(s.ctx);
+    s.items = items;
+    s.idx = Math.min(s.idx, Math.max(0, items.length - 1));
+    if (!items.length) { render(); return; }
+    renderStackStack();
+  }
+
+  /* 择业画像标签纠正 */
+  window.removeTag = function (i) {
+    state.careerTags.splice(i, 1);
+    saveState();
+    toast('已纠正，推荐已更新');
+    render();
+  };
+
+  /* 个人画像编辑 */
+  window.toggleEdit = function () { state.ui.editPersonal = !state.ui.editPersonal; saveState(); render(); };
+  window.pickPSkill = function (s) {
+    const p = state.profile;
+    const i = p.skills.indexOf(s);
+    if (i >= 0) p.skills.splice(i, 1); else p.skills.push(s);
+    saveState(); render();
+  };
+  window.setPField = function (k, v) { state.profile[k] = v; saveState(); render(); };
+  window.saveProfile = function () {
+    const na = $('#pNotAccept');
+    if (na) state.profile.notAccept = na.value;
+    state.ui.editPersonal = false;
+    if (state.assessed && state.cardflow) state.lastResults = computeResults();
+    saveState();
+    toast('已保存，推荐已同步更新');
+    render();
+  };
+  window.resetDemo = function () {
+    if (confirm('清空 demo 全部数据，重新开始？')) {
+      localStorage.removeItem(KEY);
+      stack.length = 0;
+      location.hash = '#/ask';
+      location.reload();
+    }
+  };
+
+  /* ================= 匹配计算 ================= */
+  function computeResults() {
+    const f = state.assessment.fields || {};
+    const ans = state.assessment.answers || {};
+    const prof = state.profile;
+    return DB.directions.map(d => {
+      let m = d.baseMatch;
+      const hits = prof.skills.filter(s => d.kw.includes(s));
+      m += Math.min(hits.length * 5, 10);
+      if (Array.isArray(f.industries) && f.industries.includes(d.industry)) m += 6;
+      if (f.workMode) {
+        if (f.workMode === '和人打交道' && d.typeW.people >= 2) m += 4;
+        else if (f.workMode === '和逻辑、数据打交道' && d.typeW.digit >= 2) m += 4;
+        else if (f.workMode === '创造性思考和表达' && d.typeW.creative >= 2) m += 4;
+      }
+      if (f.values === '高收入' && d.salaryRank >= 2) m += 3;
+      if (f.values === '稳定有保障' && d.stable) m += 3;
+      Object.values(ans).forEach(k => { if (d.typeW[k]) m += 3; });
+      return { id: d.id, match: Math.max(48, Math.min(96, Math.round(m))) };
+    }).sort((a, b) => b.match - a.match);
+  }
+
+  /* ================= 页面渲染 ================= */
+  const routes = {
+    ask: renderAsk,
+    swipe: renderSwipe,
+    forum: renderForum,
+    mine: renderMine,
+    newpost: renderNewPost,
+    post: renderPost,
+    myposts: renderMyPosts,
+    direction: renderDirection,
+    article: renderArticle,
+    search: renderSearch,
+    assessment: renderAssessment,
+    form: renderForm,
+    quiz: renderQuiz,
+    cardflow: renderCardflow,
+    result: renderResult,
+    profile: r => (r.arg === 'career' ? renderCareer() : renderPersonal()),
+    interested: () => renderFav('interested'),
+    rejected: () => renderFav('rejected'),
+    later: () => renderFav('later'),
+    summon: renderSummon,
+    cards: renderCards,
+    dms: renderDms,
+    dm: renderDm
+  };
+
+  /* ---------- 问方向（Tab1：咨询大窗口 + 测评入口） ---------- */
+  function renderAsk() {
+    homeNav();
+    const hasResult = state.lastResults && state.lastResults.length;
+    const resultLink = hasResult
+      ? `<div class="ask-has-result" onclick="goPush('${state.lastSrc === 'consult' ? '/result/consult' : '/result'}')">
+          <span>上次生成的结果 · ${state.lastResults.length} 个方向</span><span>查看 ›</span>
+        </div>`
+      : '';
+    $('#page').innerHTML = `
+      <div class="consult-card">
+        <div class="cc-icon c1">${gicon('chat', 26)}</div>
+        <div class="cc-title">不知道自己适合什么工作？</div>
+        <div class="cc-sub">说一句你的专业、技能和偏好，帮你找到方向</div>
+        <textarea id="cInput" class="cc-input" placeholder="例如：我学信息管理，会用 Excel 和 Python，喜欢和数字打交道"></textarea>
+        <div class="btn btn-primary cc-btn" onclick="consult()">开始咨询 →</div>
+        <div class="cc-hint">咨询或测评完成后，匹配的职业卡片会自动弹出</div>
+      </div>
+      ${resultLink}
+      <div class="entry-card" onclick="goPush('/assessment')">
+        <div class="ec-left c3">${gicon('target', 24)}</div>
+        <div class="ec-main">
+          <div class="ec-title">3 分钟测评，找到你的职业方向</div>
+          <div class="ec-sub">通过答题和卡片反馈，建立你的择业画像</div>
+        </div>
+        <div class="ec-go">去测评 ›</div>
+      </div>
+      <div class="ask-foot">数据保存在本机 · 页面右上角「清空数据重来」可重新演示冷启动</div>
+    `;
+    setSub('');
+  }
+
+  /* ---------- 刷方向（Tab2：沉浸式单卡抽卡 + 三态反馈） ---------- */
+  function renderSwipe() {
+    $('#nav').innerHTML = `<div class="nav-bar"><div class="nav-title">刷方向</div><div class="nav-right" onclick="goTab('mine')">我的意向</div></div>`;
+    // 会话按行业懒构建：行业变了就重建抽卡堆
+    if (!state.swipe || state.swipe.industry !== state.industry) {
+      state.swipe = {
+        ids: DB.directions
+          .filter(d => state.industry === '全部' || d.industry === state.industry)
+          .sort((a, b) => matchOf(b.id) - matchOf(a.id))
+          .map(d => d.id),
+        index: 0,
+        industry: state.industry
+      };
+      saveState();
+    }
+    const s = state.swipe;
+    const total = s.ids.length;
+    const done = s.index >= total;
+    const pct = total ? Math.round((Math.min(s.index, total) / total) * 100) : 0;
+    const pills = `<div class="industry-tabs sw-pills">${DB.industries.map(x => `<div class="industry-tab ${state.industry === x ? 'active' : ''}" onclick="setIndustry('${x}')">${x}</div>`).join('')}</div>`;
+    const summonBar = `<div class="sw-summon-bar" onclick="goPush('/summon')">
+      <div class="sws-left">
+        <div class="sws-title">${gicon('gift', 15, 'var(--color-primary)')} 召唤职业卡</div>
+        <div class="sws-sub">剩余 <b>${state.summon.tickets}</b> 次 · 十连保底 · 集卡升星解锁深度信息</div>
+      </div>
+      <div class="sws-btn">召唤</div>
+    </div>`;
+    $('#page').classList.add('swipe-page');
+    $('#page').innerHTML = `
+      ${summonBar}
+      <div class="sw-prog"><div class="sw-prog-track"><div class="sw-prog-bar" style="width:${pct}%"></div></div><span class="sw-prog-t">第 ${total ? Math.min(s.index + 1, total) : 0} / ${total} 张</span></div>
+      ${pills}
+      <div class="sw-stage">${done ? swDoneHTML(total) : `<div class="sww" id="sww">${swwWheelHTML()}</div>`}</div>
+    `;
+    setSub(done ? '' : `<div class="bottom-bar"><div class="fb-group">
+      <div class="fb-btn fb-btn-skip" onclick="swSkip()">${gicon('skip', 15, 'var(--color-text-2)')}跳过</div>
+      <div class="fb-btn fb-btn-interest" onclick="swFeedback('${s.ids[s.index]}','interested')">感兴趣</div>
+      <div class="fb-btn fb-btn-later" onclick="swFeedback('${s.ids[s.index]}','later')">稍后再看</div>
+      <div class="fb-btn fb-btn-reject" onclick="swFeedback('${s.ids[s.index]}','rejected')">不考虑</div>
+    </div></div>`);
+  }
+  function swDoneHTML(total) {
+    return `<div class="sw-done">
+      <div class="swd-ok">${gicon('heart', 42, '#C47B6B')}</div>
+      <div class="swd-ok-title">已刷完 ${total} 张方向</div>
+      <div class="swd-ok-sub">意向已记入「我的 → 收藏」，推荐会越来越懂你</div>
+      <div class="btn btn-outline swd-again" onclick="swRestart()">换个行业再看看</div>
+      <div class="btn btn-primary" onclick="goTab('mine')">去「我的」看意向</div>
+    </div>`;
+  }
+
+  /* ---------- 论坛分享（Tab3：社区） ---------- */
+  function postCard(p, del) {
+    const liked = !!state.postLikes[p.id];
+    const likeCount = p.likes + (liked ? 1 : 0);
+    const mine = p.author === state.profile.nickname;
+    const followed = state.follows.includes(p.author);
+    const act = mine ? '' : `<span class="pc-actions">
+      <span class="pc-dm" onclick="event.stopPropagation();openDm('${escapeHtml(p.author)}')">${gicon('mail', 12)} 私信</span>
+      ${followed ? `<span class="pc-follow on" onclick="event.stopPropagation();toggleFollow('${escapeHtml(p.author)}')">已关注</span>` : `<span class="pc-follow" onclick="event.stopPropagation();toggleFollow('${escapeHtml(p.author)}')">+ 关注</span>`}
+    </span>`;
+    return `<div class="post-card" onclick="openPost('${p.id}')">
+      <div class="pc-head">
+        <div class="pc-avatar">${escapeHtml(p.author.charAt(0))}</div>
+        <div class="pc-meta"><div class="pc-author">${escapeHtml(p.author)}</div><div class="pc-time">${p.time}</div></div>
+        <span class="tag ${p.cat === '求助' ? 'tag-accent' : p.cat === '经验分享' ? 'tag-green' : ''}">${p.cat}</span>
+        ${act}
+        ${del ? `<span class="pc-del" onclick="event.stopPropagation();removePost('${p.id}')">删除</span>` : ''}
+      </div>
+      <div class="pc-title">${escapeHtml(p.title)}</div>
+      <div class="pc-desc">${escapeHtml((p.body[0] || '').length > 64 ? p.body[0].slice(0, 64) + '…' : (p.body[0] || ''))}</div>
+      <div class="pc-stats">
+        <span class="pc-like ${liked ? 'on' : ''}">${gicon('heart', 13)} ${likeCount}</span>
+        <span>${gicon('chat', 13)} ${(p.comments || []).length}</span>
+      </div>
+    </div>`;
+  }
+  function renderForum() {
+    $('#nav').innerHTML = `<div class="nav-bar"><div class="nav-title">论坛分享</div><div class="nav-right" onclick="goPush('/myposts')">我的帖子</div></div>`;
+    const cats = ['全部', '求助', '经验分享', '行业讨论'];
+    const tabs = `<div class="industry-tabs">${cats.map(c => `<div class="industry-tab ${state.forumCat === c ? 'active' : ''}" onclick="setForumCat('${c}')">${c}</div>`).join('')}</div>`;
+    const list = state.posts.filter(p => state.forumCat === '全部' || p.cat === state.forumCat);
+    const empty = `<div class="empty"><div class="empty-icon">${gicon('chat', 40)}</div><div class="empty-title">这个分类还没有帖子</div><div class="empty-desc">来发第一帖，聊聊你的求职困惑或经验吧</div></div>`;
+    $('#page').innerHTML = tabs + `<div class="post-list">${list.map(p => postCard(p)).join('') || empty}</div>`;
+    setSub(`<div class="bottom-bar"><div class="btn btn-primary" onclick="goPush('/newpost')">${gicon('pen', 16, '#fff')} 发帖</div></div>`);
+  }
+
+  /* ---------- 发帖 ---------- */
+  function renderNewPost() {
+    navBack('发帖');
+    const cats = ['求助', '经验分享', '行业讨论'];
+    $('#page').innerHTML = `
+      <div class="card" style="margin-top:12px;">
+        <div class="form-group">
+          <div class="form-label">标题 <span class="req">*</span></div>
+          <div class="form-field"><input class="ff-select" id="npTitle" placeholder="一句话说清你的问题 / 分享" /></div>
+        </div>
+        <div class="form-group">
+          <div class="form-label">分类</div>
+          <div class="option-grid">${cats.map(c => `<span class="option-chip single ${state.npCat === c ? 'selected' : ''}" onclick="setNpCat('${c}')"><span class="dot"></span>${c}</span>`).join('')}</div>
+        </div>
+        <div class="form-group">
+          <div class="form-label">内容 <span class="req">*</span></div>
+          <textarea id="npBody" class="np-textarea" placeholder="展开说说你的困惑或经验…"></textarea>
+        </div>
+        <div style="font-size:12px;color:var(--color-text-3);padding:4px 20px;line-height:1.6;">发帖即代表同意社区规范：友善交流，不分享虚假求职信息。</div>
+      </div>`;
+    setSub(`<div class="bottom-bar"><div class="btn btn-primary" onclick="publishPost()">发布</div></div>`);
+  }
+
+  /* ---------- 帖子详情 ---------- */
+  function renderPost(r) {
+    const p = state.posts.find(x => x.id === r.arg);
+    if (!p) { back(); return; }
+    navBack('帖子详情');
+    const liked = !!state.postLikes[p.id];
+    const likeCount = p.likes + (liked ? 1 : 0);
+    const comments = p.comments || [];
+    const mine = p.author === state.profile.nickname;
+    const followed = state.follows.includes(p.author);
+    const pdActs = mine ? '' : `<div class="pd-acts">
+      <div class="btn btn-sm btn-outline" onclick="openDm('${escapeHtml(p.author)}')">${gicon('mail', 13)} 私信</div>
+      <div class="btn btn-sm ${followed ? 'btn-outline on' : 'btn-primary'}" onclick="toggleFollow('${escapeHtml(p.author)}')">${followed ? '已关注' : '+ 关注'}</div>
+    </div>`;
+    $('#page').innerHTML = `
+      <div class="post-detail">
+        <div class="pd-head">
+          <div class="pc-avatar">${escapeHtml(p.author.charAt(0))}</div>
+          <div class="pc-meta"><div class="pc-author">${escapeHtml(p.author)}</div><div class="pc-time">${p.time} · ${p.cat}</div></div>
+          ${pdActs}
+        </div>
+        <div class="pd-title">${escapeHtml(p.title)}</div>
+        <div class="pd-body">${p.body.map(x => `<p>${escapeHtml(x)}</p>`).join('')}</div>
+        <div class="pd-like ${liked ? 'on' : ''}" onclick="togglePostLike('${p.id}')">${gicon('heart', 15)} ${likeCount} 人觉得有用</div>
+        <div class="pd-c-title">全部评论 ${comments.length}</div>
+        ${comments.length ? comments.map(c => `<div class="pd-comment"><div class="pc-avatar sm">${escapeHtml(c.author.charAt(0))}</div><div class="pd-c-body"><div class="pd-c-head">${escapeHtml(c.author)} <span>${c.time}</span></div><div class="pd-c-text">${escapeHtml(c.text)}</div></div></div>`).join('') : '<div style="padding:24px;text-align:center;font-size:12px;color:var(--color-text-3);">还没有评论，来说两句</div>'}
+      </div>`;
+    setSub(`<div class="pd-comment-bar">
+      <input id="pdCmt" placeholder="友善评论，说说你的看法…">
+      <button onclick="addComment('${p.id}')">发送</button>
+    </div>`);
+  }
+
+  /* ---------- 我的帖子 ---------- */
+  function renderMyPosts() {
+    navBack('我的帖子');
+    const mine = state.posts.filter(p => p.author === state.profile.nickname);
+    const empty = `<div class="empty"><div class="empty-icon">${gicon('pen', 40)}</div><div class="empty-title">还没有发过帖子</div><div class="empty-desc">去论坛分享你的第一帖吧</div><div class="btn btn-primary" style="width:180px;margin:0 auto;" onclick="goPush('/newpost')">去发帖</div></div>`;
+    $('#page').innerHTML = `<div style="padding:16px 20px 12px;font-size:12px;color:var(--color-text-3);line-height:1.6;">你发布的帖子都在这里，可随时删除。</div>` + (mine.map(p => postCard(p, true)).join('') || empty);
+    setSub('');
+  }
+
+  /* ---------- 我的（BentoUI） ---------- */
+  function renderMine() {
+    $('#nav').innerHTML = `<div class="nav-bar"><div class="nav-title">我的</div></div>`;
+    const p = state.profile;
+    const guide = state.assessed ? '' : `<div class="guide-card" style="margin-top:12px;"><div><div class="gc-title">完善你的择业画像</div><div class="gc-desc">告诉我们你的专业、技能和兴趣，推荐会更准</div></div><div class="gc-btn" onclick="goPush('/assessment')">去完善</div></div>`;
+    $('#page').innerHTML = `
+      <div class="bento" style="margin-top:12px;">
+        <div class="bento-head">
+          <div class="avatar">${p.nickname.charAt(0)}</div>
+          <div class="bento-main">
+            <div class="bento-title">${p.nickname}</div>
+            <div class="bento-sub">${p.major} · ${p.degree} · ${p.gradYear}届</div>
+          </div>
+        </div>
+        <div class="bento-tags">
+          <span class="tag ${state.assessed ? 'tag-green' : 'tag-gray'}">${state.assessed ? '择业画像 已生成' : '择业画像 待完善'}</span>
+          <span class="tag tag-accent">${p.workMode}</span>
+        </div>
+        <div class="bento-cta" onclick="goPush('/profile/personal')">${state.assessed ? '更新个人画像 ›' : '去完善画像 ›'}</div>
+      </div>
+      ${guide}
+      <div class="col3">
+        <div class="c3-card" onclick="goPush('/interested')"><div class="c3-icon">${gicon('heart', 24)}</div><div class="c3-title">感兴趣</div><div class="c3-count">${countBy('interested')} 个</div></div>
+        <div class="c3-card" onclick="goPush('/later')"><div class="c3-icon">${gicon('clock', 24)}</div><div class="c3-title">稍后再看</div><div class="c3-count">${countBy('later')} 个</div></div>
+        <div class="c3-card" onclick="goPush('/rejected')"><div class="c3-icon">${gicon('xmark', 24)}</div><div class="c3-title">暂不考虑</div><div class="c3-count">${countBy('rejected')} 个</div></div>
+      </div>
+      <div class="section-title">我的画像</div>
+      <div class="profile-entry">
+        <div class="pe-row" onclick="goPush('/profile/personal')"><div class="pe-icon c0">${gicon('person', 20)}</div><div><div class="pe-title">个人画像</div><div class="pe-sub">${p.major} · ${p.degree} · 期望${p.location.split('（')[0]}</div></div><svg class="pe-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></div>
+        <div class="pe-row" onclick="goPush('/profile/career')"><div class="pe-icon c1">${gicon('target', 20)}</div><div><div class="pe-title">择业画像</div><div class="pe-sub">偏好：${state.careerTags.slice(0, 2).join(' · ') || '待完善'}</div></div><svg class="pe-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></div>
+      </div>
+      <div class="section-title">抽卡 · 社区</div>
+      <div class="profile-entry">
+        <div class="pe-row" onclick="goPush('/cards')"><div class="pe-icon c2">${gicon('layers', 20)}</div><div><div class="pe-title">我的卡册</div><div class="pe-sub">${totalCards()} 张职业卡 · 已点亮 ${Object.keys(state.cards).length} 个方向</div></div><svg class="pe-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></div>
+        <div class="pe-row" onclick="goPush('/dms')"><div class="pe-icon c3">${gicon('mail', 20)}</div><div><div class="pe-title">私信</div><div class="pe-sub">${state.dms.unread ? `${state.dms.unread} 条未读` : '暂无未读消息'}</div></div>${state.dms.unread ? `<span class="unread-badge">${state.dms.unread}</span>` : ''}<svg class="pe-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></div>
+        <div class="pe-row" onclick="goPush('/dms')"><div class="pe-icon c4">${gicon('heart', 20)}</div><div><div class="pe-title">我的关注</div><div class="pe-sub">${state.follows.length ? state.follows.slice(0, 2).join(' · ') + (state.follows.length > 2 ? ` 等 ${state.follows.length} 人` : '') : '关注感兴趣的求职搭子'}</div></div><svg class="pe-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></div>
+      </div>
+      <div class="foot-note">把工作选择权，握在自己手里</div>
+    `;
+    setSub('');
+  }
+
+  /* ---------- 职业详情 ---------- */
+  function renderDirection(r) {
+    const d = dirById(r.arg);
+    if (!d) { back(); return; }
+    navBack('职业详情', state.collections[d.id] ? '已' + collLabel(state.collections[d.id]) : '');
+    const st = state.collections[d.id];
+    const m = matchOf(d.id);
+    const fbCls = { interested: 'active-interest', later: 'active-later', rejected: 'active-reject' };
+    $('#page').innerHTML = `
+      <div class="detail-hero">
+        <div class="dh-name">${d.name}</div>
+        <div class="dh-ind">${d.industry} · ${d.viewed}</div>
+        <div class="stars" style="margin-top:10px;">${starRow(m)}</div>
+        <div class="dh-desc">${d.desc}</div>
+        <div class="dh-tags">${d.tags.map(t => `<span class="dh-tag">${t.t}</span>`).join('')}</div>
+      </div>
+      <div class="card"><div class="card-title"><span class="title-bar"></span>工作内容</div>${d.content.map(x => `<div class="info-row" style="align-items:flex-start;"><span class="ir-label" style="width:22px;">·</span><span class="ir-value">${x}</span></div>`).join('')}</div>
+      <div class="card"><div class="card-title"><span class="title-bar"></span>需要技能</div><div class="tag-row">${d.skills.map(s => `<span class="tag ${state.profile.skills.includes(s) ? 'tag-green' : ''}">${s}</span>`).join('')}</div><div style="font-size:11px;color:var(--color-text-3);margin-top:8px;">薄荷灰 = 你已掌握</div></div>
+      <div class="card"><div class="card-title"><span class="title-bar"></span>薪资与发展</div>${d.path.map((x, i) => `<div class="info-row"><span class="ir-label">${['起点', '下一步', '更远'][i] || '阶段'}</span><span class="ir-value">${x}</span></div>`).join('')}</div>
+      <div class="card"><div class="card-title"><span class="title-bar"></span>可能不适合你</div>${d.notFor.map(x => `<div class="info-row" style="align-items:flex-start;"><span class="ir-label" style="width:22px;">·</span><span class="ir-value">${x}</span></div>`).join('')}</div>
+      ${renderStarBlock(d)}
+      <div style="padding:0 20px 12px;font-size:12px;color:var(--color-text-3);line-height:1.7;">相关内容 · 探索 ${d.industry}：${DB.articles.filter(a => a.industry === d.industry).slice(0, 2).map(a => `<span class="text-2" style="color:var(--color-primary);cursor:pointer;" onclick="openArt('${a.id}')">《${a.title}》</span>`).join(' · ')}</div>
+    `;
+    setSub(`<div class="bottom-bar">
+      <div style="padding:0 0 10px;text-align:center;font-size:12px;color:var(--color-text-3);">${st ? '当前标记：' + collLabel(st) + '（再点一次可取消）' : '这个方向你感觉如何？'}</div>
+      <div class="fb-group">
+        <div class="fb-btn fb-btn-interest ${st === 'interested' ? fbCls.interested : ''}" onclick="setColl('${d.id}','interested')">感兴趣</div>
+        <div class="fb-btn fb-btn-later ${st === 'later' ? fbCls.later : ''}" onclick="setColl('${d.id}','later')">稍后再看</div>
+        <div class="fb-btn fb-btn-reject ${st === 'rejected' ? fbCls.reject : ''}" onclick="setColl('${d.id}','rejected')">暂不考虑</div>
+      </div>
+    </div>`);
+  }
+
+  /* ---------- 职业详情：星级内容分层 ---------- */
+  function renderStarBlock(d) {
+    const level = cardLevel(d.id);
+    const count = cardCount(d.id);
+    const canMerge = count >= 3 && level < 3;
+    const starColor = ['', '', '#8C9AA8', '#5F7893', '#C9A24B'][Math.min(3, level)];
+    const d2 = deepContent(d, 2);
+    const d3 = deepContent(d, 3);
+    const unlock2 = `<div class="sl-rows">${d2.items.map(x => `<div class="info-row" style="align-items:flex-start;"><span class="ir-label" style="width:22px;">·</span><span class="ir-value">${x}</span></div>`).join('')}</div>`;
+    const unlock3 = `<div class="sl-rows">${d3.items.map(x => `<div class="info-row" style="align-items:flex-start;"><span class="ir-label" style="width:22px;">·</span><span class="ir-value">${x}</span></div>`).join('')}</div>`;
+    const lock = `<div class="sl-lock" onclick="goPush('/summon')">${gicon('lock', 16, 'var(--color-text-3)')}<span>抽卡升星解锁</span></div>`;
+    return `
+      <div class="card star-card">
+        <div class="card-title"><span class="title-bar"></span>职业等级 · 深度信息</div>
+        <div class="sc-level">
+          <div class="sc-lv"><b style="color:${starColor};">${level} 星</b> ${cardStarsHTML(level)}</div>
+          <div class="sc-sub">拥有卡牌 <b>${count}</b> 张${canMerge ? ` · <span class="text-primary" onclick="event.stopPropagation();mergeCard('${d.id}')">可合成升星 ›</span>` : (count >= 3 ? '（等级已满）' : ` · 再抽 <b>${3 - count}</b> 张可合成升星`)}</div>
+        </div>
+        <div class="sl-block ${level >= 2 ? 'open' : ''}">
+          <div class="sl-head"><span class="sl-star" style="color:${level >= 2 ? '#5F7893' : 'var(--color-text-3)'};">★★</span><span class="sl-title">${escapeHtml(d2.title)}</span>${level >= 2 ? '<span class="tag tag-green">已解锁</span>' : ''}</div>
+          ${level >= 2 ? unlock2 : lock}
+        </div>
+        <div class="sl-block ${level >= 3 ? 'open' : ''}">
+          <div class="sl-head"><span class="sl-star" style="color:${level >= 3 ? '#C9A24B' : 'var(--color-text-3)'};">★★★</span><span class="sl-title">${escapeHtml(d3.title)}</span>${level >= 3 ? '<span class="tag tag-accent">已解锁</span>' : ''}</div>
+          ${level >= 3 ? unlock3 : lock}
+        </div>
+        ${level < 5 ? `<div class="sl-soon">4-5 星尊享信息 · 即将解锁</div>` : ''}
+      </div>
+    `;
+  }
+
+  /* ---------- 文章详情 ---------- */
+  function renderArticle(r) {
+    const a = artById(r.arg);
+    if (!a) { back(); return; }
+    navBack('文章详情');
+    const related = DB.articles.filter(x => x.id !== a.id && (x.industry === a.industry || x.cat === a.cat)).slice(0, 2);
+    $('#page').innerHTML = `
+      <div style="padding:20px 20px 12px;background:var(--color-surface);">
+        <div style="display:flex;gap:6px;margin-bottom:10px;"><span class="tag">${a.cat}</span><span class="tag tag-accent">${a.industry}</span></div>
+        <div style="font-size:22px;font-weight:600;line-height:1.5;color:var(--color-text);">${a.title}</div>
+        <div style="font-size:12px;color:var(--color-text-3);margin-top:10px;">甲方青年offer · ${a.read} 分钟阅读</div>
+      </div>
+      <div style="padding:16px 20px;">
+        ${a.body.map(p => `<p style="font-size:15px;line-height:1.85;color:var(--color-text);margin-bottom:14px;">${p}</p>`).join('')}
+      </div>
+      ${related.length ? `<div class="section-title">相关阅读</div>` + related.map(x => `<div class="know-card" onclick="openArt('${x.id}')"><div class="kc-title">${x.title}</div><div class="kc-foot"><span class="tag">${x.cat}</span><span class="kc-meta">${x.read} 分钟阅读</span></div></div>`).join('') : ''}
+    `;
+    setSub('');
+  }
+
+  /* ---------- 搜索 ---------- */
+  function renderSearch() {
+    $('#nav').innerHTML = `<div class="nav-bar"><div class="nav-title">搜索</div><div class="nav-right" onclick="back()">取消</div></div>`;
+    const tabs = ['全部', '职业', '文章'];
+    $('#page').innerHTML = `
+      <div class="search-input-row">
+        <div class="si-box">${gicon('search', 14, 'currentColor')}<input id="si" placeholder="搜索职业 / 文章" value="${escapeHtml(state.searchQ)}" oninput="doSearch(this.value)" /></div>
+        <div class="si-cancel" onclick="back()">取消</div>
+      </div>
+      <div class="industry-tabs">${tabs.map(t => `<div class="industry-tab ${state.searchTab === t ? 'active' : ''}" onclick="setSearchTab('${t}')">${t}</div>`).join('')}</div>
+      <div id="searchResults"></div>
+    `;
+    refreshSearch();
+    setTimeout(() => { const i = $('#si'); if (i) i.focus(); }, 30);
+  }
+  window.doSearch = function (v) {
+    state.searchQ = v; saveState(); refreshSearch();
+  };
+  function refreshSearch() {
+    const box = $('#searchResults');
+    if (!box) return;
+    box.innerHTML = searchResultsHTML();
+  }
+  function searchResultsHTML() {
+    const q = (state.searchQ || '').trim().toLowerCase();
+    const tab = state.searchTab;
+    if (!q) {
+      return `<div class="empty" style="padding:46px 30px;"><div class="empty-icon">${gicon('search', 40)}</div><div class="empty-title">搜点什么？</div><div class="empty-desc">可以搜职业名称、技能关键词，或科普文章标题</div></div>`;
+    }
+    let out = '';
+    if (tab !== '文章') {
+      const ds = DB.directions.filter(d => d.name.toLowerCase().includes(q) || d.industry.includes(q) || d.desc.includes(q) || d.kw.some(k => k.toLowerCase().includes(q)));
+      out += ds.map(d => `<div class="list-item" onclick="openDir('${d.id}')">
+        <div class="li-cover c${d.c}">${gicon(d.g, 20)}</div>
+        <div class="li-main"><div class="li-title">${d.name}</div><div class="li-sub">${d.industry} · ${d.desc.length > 22 ? d.desc.slice(0, 22) + '…' : d.desc}</div></div>
+        <div class="li-meta">${starRow(matchOf(d.id))}</div>
+        <svg class="li-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+      </div>`).join('');
+    }
+    if (tab !== '职业') {
+      const as = DB.articles.filter(a => a.title.toLowerCase().includes(q) || a.cat.includes(q) || a.industry.includes(q) || a.desc.includes(q));
+      out += as.map(a => `<div class="know-card" onclick="openArt('${a.id}')"><div class="kc-title">${a.title}</div><div class="kc-desc">${a.desc}</div><div class="kc-foot"><span class="tag">${a.cat}</span><span class="tag tag-accent">${a.industry}</span><span class="kc-meta">${a.read} 分钟阅读</span></div></div>`).join('');
+    }
+    if (!out) return `<div class="empty"><div class="empty-icon">${gicon('search', 40)}</div><div class="empty-title">没有找到相关结果</div><div class="empty-desc">试试搜「数据分析」「写作」或「运营」</div></div>`;
+    return out;
+  }
+
+  /* ---------- 测评入口 ---------- */
+  function renderAssessment() {
+    navBack('发现你的方向');
+    let last = '';
+    if (state.assessed && state.lastResults) {
+      const topNames = state.lastResults.slice(0, 3).map(x => dirById(x.id).name);
+      last = `<div class="card" style="margin-top:12px;cursor:pointer;" onclick="goPush('/result')">
+        <div class="card-title"><span class="title-bar"></span>上次测评结果<span class="t-extra">查看完整结果 ›</span></div>
+        <div class="tag-row">${topNames.map(n => `<span class="tag tag-accent">${n}</span>`).join('')}</div>
+      </div>`;
+    }
+    const paths = [
+      { p: 'targeted', g: 'target', c: 0, title: '我有目标', dur: '约 2 分钟', desc: '已经大概知道想做什么方向，填专业、技能和偏好，验证你的选择。' },
+      { p: 'exploring', g: 'search', c: 1, title: '我有偏好', dur: '约 1.5 分钟', desc: '说不清具体做什么，但知道自己喜欢什么，我来帮你推荐。' },
+      { p: 'quiz', g: 'star', c: 2, title: '我完全不知道', dur: '约 3 分钟 · 5 个问题', desc: '对职业世界还很陌生？回答几个简单问题，从零帮你找方向。' }
+    ];
+    $('#page').innerHTML = last + paths.map(x => `
+      <div class="path-card" style="cursor:pointer;" onclick="startAssessment('${x.p}')">
+        <div class="pc-head"><div class="pc-icon c${x.c}">${gicon(x.g, 22)}</div>
+          <div><div class="pc-title">${x.title}</div><div class="pc-dur">${x.dur}</div></div></div>
+        <div class="pc-desc">${x.desc}</div>
+        <div class="pc-foot"><span class="pc-start">开始测评 →</span></div>
+      </div>`).join('');
+    setSub('');
+  }
+
+  /* ---------- 表单 ---------- */
+  function renderForm(r) {
+    const path = r.arg === 'exploring' ? 'exploring' : 'targeted';
+    navBack(path === 'targeted' ? '我有目标' : '我有偏好');
+    const f = state.assessment.fields;
+    const steps = `<div class="steps">
+      <div class="step active"><span class="step-dot"></span><span class="step-label">填写信息</span></div>
+      <div class="step"><span class="step-dot"></span><span class="step-label">卡片推荐</span></div>
+      <div class="step"><span class="step-dot"></span><span class="step-label">查看结果</span></div>
+    </div>`;
+    const radio = (group, list) => list.map(x => `<span class="option-chip single ${f[group] === x ? 'selected' : ''}" onclick="pickChip('${group}','${x}',false)"><span class="dot"></span>${x}</span>`).join('');
+    const chips = (group, list) => list.map(x => `<span class="option-chip ${(f[group] || []).includes(x) ? 'selected' : ''}" onclick="pickChip('${group}','${x}',true)">${x}</span>`).join('');
+
+    let body;
+    if (path === 'targeted') {
+      body = `
+        <div class="form-group"><div class="form-label">你的专业 <span class="req">*</span></div>
+          <div class="form-field"><select class="ff-select" onchange="setField('major',this.value)">
+            <option value="">请选择专业</option>${DB.majors.map(m => `<option ${f.major === m ? 'selected' : ''}>${m}</option>`).join('')}
+          </select><span class="ff-right">⌄</span></div>
+        </div>
+        <div class="form-group"><div class="form-label">最高学历 <span class="req">*</span></div>
+          <div class="form-field"><select class="ff-select" onchange="setField('degree',this.value)">
+            <option value="">请选择学历</option>${DB.degrees.map(m => `<option ${f.degree === m ? 'selected' : ''}>${m}</option>`).join('')}
+          </select><span class="ff-right">⌄</span></div>
+        </div>
+        <div class="form-group"><div class="form-label">已有技能</div>
+          <div class="option-grid">${chips('skills', ['Python', 'SQL', 'Excel', '数据分析', '写作', '沟通协调', '海报设计', '编程', '项目管理'])}</div>
+        </div>
+        <div class="form-group"><div class="form-label">期望行业 <span class="req">*</span></div>
+          <div class="option-grid">${chips('industries', DB.industries.filter(x => x !== '全部'))}</div>
+        </div>
+        <div class="form-group"><div class="form-label">工作偏好 <span class="req">*</span></div>
+          <div class="option-grid">${radio('workMode', DB.workModes)}</div>
+        </div>
+        <div class="form-group"><div class="form-label">工作价值观 <span class="req">*</span></div>
+          <div class="option-grid">${radio('values', DB.values)}</div>
+        </div>
+        <div class="form-group"><div class="form-label">不能接受的事（选填）</div>
+          <div class="form-field"><input class="ff-select" placeholder="如：不想频繁出差" value="${escapeHtml(f.notAccept || '')}" oninput="setField('notAccept',this.value)" /></div>
+        </div>`;
+    } else {
+      body = `
+        <div class="form-group"><div class="form-label">你对哪些工作内容感兴趣？ <span class="req">*</span></div>
+          <div class="option-grid">${chips('contents', DB.workContents)}</div>
+        </div>
+        <div class="form-group"><div class="form-label">你喜欢怎样的工作方式？ <span class="req">*</span></div>
+          <div class="option-grid">${radio('workMode', DB.workModes)}</div>
+        </div>
+        <div class="form-group"><div class="form-label">工作对你最重要的是？ <span class="req">*</span></div>
+          <div class="option-grid">${radio('values', DB.values)}</div>
+        </div>`;
+    }
+    $('#page').innerHTML = steps + body + `<div style="text-align:center;font-size:12px;color:var(--color-text-3);padding:16px 32px 24px;line-height:1.6;">你的信息仅用于匹配推荐，不会对外展示</div>`;
+    setSub(`<div class="bottom-bar"><div class="btn btn-primary" onclick="submitForm('${path}')">开始匹配</div></div>`);
+  }
+
+  /* ---------- 场景题 ---------- */
+  function renderQuiz() {
+    navBack('发现你的方向');
+    const q = state.assessment;
+    const qi = Math.min(q.quizIndex || 0, DB.quiz.length - 1);
+    const quiz = DB.quiz[qi];
+    const answered = q.answers || {};
+    const isLast = qi === DB.quiz.length - 1;
+    const dots = Array.from({ length: DB.quiz.length }, (_, i) => `<span class="qp-dot ${i <= qi ? 'on' : ''}"></span>`).join('');
+    $('#page').innerHTML = `
+      <div class="quiz-progress">${dots}<span class="qp-text">第 ${qi + 1} / ${DB.quiz.length} 题</span></div>
+      <div class="card" style="margin-top:12px;">
+        <div class="quiz-q">${quiz.q}</div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          ${quiz.options.map((o, i) => `<div class="quiz-opt ${answered[qi] === o.k ? 'selected' : ''}" onclick="quizPick(${qi},'${o.k}')">${o.t}</div>`).join('')}
+        </div>
+        <div style="text-align:center;margin-top:16px;font-size:12px;color:var(--color-text-3);cursor:pointer;" onclick="quizSkip()">不确定？可以跳过</div>
+      </div>
+      <div style="padding:0 20px;"><div style="font-size:12px;color:var(--color-text-3);margin-bottom:8px;">已答题目（点击可修改）</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          ${DB.quiz.map((_, i) => answered[i] ? `<span class="tag tag-green" style="padding:6px 12px;cursor:pointer;" onclick="quizJump(${i})">第 ${i + 1} 题 ✓</span>` : '').join('') || '<span style="font-size:12px;color:var(--color-text-3);">还没有作答</span>'}
+        </div>
+      </div>`;
+    setSub(`<div class="bottom-bar"><div style="display:flex;gap:12px;">
+      <div class="btn btn-outline" style="width:120px;" onclick="quizJump(${Math.max(0, qi - 1)})">上一题</div>
+      <div class="btn btn-primary" onclick="quizSkip()">${isLast ? '完成测评' : '跳过 / 下一题'}</div>
+    </div></div>`);
+  }
+
+  /* ---------- 卡片流 ---------- */
+  function renderCardflow() {
+    const cf = state.cardflow;
+    if (!cf || !cf.list.length) { go('/assessment'); return; }
+    const cur = cf.list[cf.index];
+    const d = dirById(cur.id);
+    if (!d) { cf.index++; render(); return; }
+    const dots = Array.from({ length: cf.list.length }, (_, i) => `<span class="cf-dot ${i <= cf.index ? 'on' : ''}"></span>`).join('');
+    $('#nav').innerHTML = `<div class="cf-nav">
+      <div class="cf-prog"><div class="cf-dots">${dots}</div><span class="cf-text">第 ${cf.index + 1} / ${cf.list.length}</span></div>
+      <div class="cf-exit" onclick="go('/assessment')">退出</div>
+    </div>`;
+    $('#page').innerHTML = `<div class="cardflow">
+      <div class="cf-card">
+        <div class="cf-top"><div class="cf-cover c${d.c}">${gicon(d.g, 28)}</div>
+          <div style="flex:1;"><div class="cf-name">${d.name}</div><div class="cf-ind">${d.industry} · ${d.viewed}</div><div class="cf-match">${starRow(cur.match)}</div></div></div>
+        <div class="cf-desc">${d.desc}</div>
+        <div class="cf-reason"><div class="cf-reason-title">为什么推荐你？</div>
+          <div class="cf-reason-list">${d.reasons.map(x => x).join('<br>')}</div></div>
+        <div class="cf-tags tag-row">${d.tags.map(t => `<span class="tag ${t.accent ? 'tag-accent' : t.gray ? 'tag-gray' : ''}">${t.t}</span>`).join('')}</div>
+        <div class="cf-hint" onclick="openDir('${d.id}')">点击卡片查看详细介绍 ›</div>
+      </div>
+    </div>`;
+    setSub(`<div class="bottom-bar"><div class="fb-group">
+      <div class="fb-btn fb-btn-interest" onclick="cfFeedback('${d.id}','interested')">感兴趣</div>
+      <div class="fb-btn fb-btn-later" onclick="cfFeedback('${d.id}','later')">稍后再看</div>
+      <div class="fb-btn fb-btn-reject" onclick="cfFeedback('${d.id}','rejected')">暂不考虑</div>
+    </div></div>`);
+  }
+
+  /* ---------- 结果页（彩色便签堆叠式） ---------- */
+  function renderResult(r) {
+    const consult = r.arg === 'consult' || state.lastSrc === 'consult';
+    const list = state.lastResults || [];
+    if (!list.length) { go(consult ? '/ask' : '/assessment'); return; }
+    const items = buildStackItems('result');
+    if (!items.length) { go(consult ? '/ask' : '/assessment'); return; }
+    const head = `<div class="res-head">
+      <div class="res-title">${consult ? '为你找到的方向' : '反向择业结果'}</div>
+      <div class="res-sub">共 ${items.length} 个职业方向 · 每张卡顶部固定「岗位 + 薪资」，点击标题栏展开详情</div>
+    </div>`;
+    renderStack(items, 'result', {
+      title: consult ? '咨询结果' : '反向择业结果',
+      head: head,
+      sub: `<div class="bottom-bar"><div style="display:flex;gap:10px;">
+        <div class="btn btn-outline" style="flex:1;height:44px;font-size:14px;" onclick="goTab('ask')">返回问方向</div>
+        <div class="btn btn-outline" style="flex:1;height:44px;font-size:14px;" onclick="go('/assessment')">重新测评</div>
+        <div class="btn btn-primary" style="flex:1.3;height:44px;font-size:14px;" onclick="toast('分享卡片已生成，可保存后发给朋友')">分享结果</div>
+      </div></div>`
+    });
+  }
+
+  /* ---------- 个人画像 ---------- */
+  const EDIT_SKILLS = ['Python', 'SQL', 'Excel', '数据分析', '写作', '沟通协调', '海报设计', '编程', '项目管理', '设计'];
+  function renderPersonal() {
+    const p = state.profile;
+    const editing = state.ui.editPersonal;
+    navBack('个人画像', editing ? '' : `<span style="color:var(--color-primary);font-weight:600;" onclick="toggleEdit()">编辑</span>`);
+    let body;
+    if (!editing) {
+      body = `
+        <div class="user-header"><div class="avatar">${p.nickname.charAt(0)}</div>
+          <div><div class="uh-name">${p.nickname}</div><div class="uh-sub">${p.major} · ${p.degree} · ${p.gradYear}届</div></div></div>
+        <div class="card"><div class="card-title"><span class="title-bar"></span>教育背景</div>
+          <div class="info-row"><span class="ir-label">学校</span><span class="ir-value">${p.school}</span></div>
+          <div class="info-row"><span class="ir-label">专业</span><span class="ir-value">${p.major}</span></div>
+          <div class="info-row"><span class="ir-label">学历</span><span class="ir-value">${p.degree}</span></div>
+          <div class="info-row"><span class="ir-label">毕业年份</span><span class="ir-value">${p.gradYear}</span></div></div>
+        <div class="card"><div class="card-title"><span class="title-bar"></span>掌握技能</div><div class="tag-row">${p.skills.map(s => `<span class="tag">${s}</span>`).join('')}</div></div>
+        <div class="card"><div class="card-title"><span class="title-bar"></span>工作偏好</div>
+          <div class="info-row"><span class="ir-label">期望城市</span><span class="ir-value">${p.location}</span></div>
+          <div class="info-row"><span class="ir-label">工作方式</span><span class="ir-value">${p.workMode}</span></div>
+          <div class="info-row"><span class="ir-label">价值排序</span><span class="ir-value">${p.values}</span></div>
+          <div class="info-row"><span class="ir-label">不能接受</span><span class="ir-value">${p.notAccept || '—'}</span></div></div>
+        <div style="font-size:12px;color:var(--color-text-3);padding:4px 20px 12px;line-height:1.6;">以上信息仅用于匹配推荐，不会对外展示。修改后会同步更新推荐结果。</div>
+      `;
+      setSub('');
+    } else {
+      const chips = EDIT_SKILLS.map(s => `<span class="option-chip ${p.skills.includes(s) ? 'selected' : ''}" onclick="pickPSkill('${s}')">${s}</span>`).join('');
+      const radio = (k, list) => list.map(x => `<span class="option-chip single ${p[k] === x ? 'selected' : ''}" onclick="setPField('${k}','${x}')"><span class="dot"></span>${x}</span>`).join('');
+      body = `
+        <div class="card"><div class="card-title"><span class="title-bar"></span>教育背景</div>
+          <div class="form-field"><span class="ff-placeholder">${p.school}</span><span class="ff-right">不可修改</span></div>
+          <div class="form-field"><span class="ff-value">${p.major}</span><span class="ff-right">⌄</span></div>
+          <div class="form-field"><span class="ff-value">${p.degree}</span><span class="ff-right">⌄</span></div></div>
+        <div class="card"><div class="card-title"><span class="title-bar"></span>掌握技能（点选 / 取消）</div><div class="option-grid">${chips}</div></div>
+        <div class="card"><div class="card-title"><span class="title-bar"></span>工作方式</div><div class="option-grid">${radio('workMode', DB.workModes)}</div></div>
+        <div class="card"><div class="card-title"><span class="title-bar"></span>价值排序</div><div class="option-grid">${radio('values', DB.values)}</div></div>
+        <div class="card"><div class="card-title"><span class="title-bar"></span>期望城市</div>
+          <div class="form-field"><select class="ff-select" onchange="setPField('location',this.value)">${DB.locations.map(x => `<option ${p.location === x ? 'selected' : ''}>${x}</option>`).join('')}</select><span class="ff-right">⌄</span></div></div>
+        <div class="card"><div class="card-title"><span class="title-bar"></span>不能接受的事（选填）</div>
+          <div class="form-field"><input class="ff-select" id="pNotAccept" placeholder="如：不想频繁出差" value="${escapeHtml(p.notAccept || '')}" /></div></div>
+      `;
+      setSub(`<div class="bottom-bar"><div class="btn btn-primary" onclick="saveProfile()">保存并更新推荐</div></div>`);
+    }
+    $('#page').innerHTML = body;
+  }
+
+  /* ---------- 择业画像 ---------- */
+  function renderCareer() {
+    navBack('我的择业画像');
+    const p = state.profile;
+    const interestNames = Object.keys(state.collections)
+      .filter(id => state.collections[id] === 'interested')
+      .map(id => dirById(id).name);
+    const dims = [
+      { label: '兴趣方向', tags: (interestNames.length ? interestNames : p.skills.slice(0, 3)).map(x => ({ t: x })) },
+      { label: '技能特长', tags: p.skills.map(x => ({ t: x })) },
+      { label: '工作偏好', tags: [{ t: p.workMode, a: 1 }, ...state.careerTags.map(x => ({ t: x }))] },
+      { label: '价值排序', tags: DB.values.map(x => ({ t: x, g: x === p.values })) }
+    ];
+    const dimHtml = dims.map(d => `
+      <div class="card"><div class="card-title"><span class="title-bar"></span>${d.label}</div>
+        <div class="tag-row">${d.tags.map(t => `<span class="tag ${t.a ? 'tag-accent' : t.g ? 'tag-green' : ''}">${t.t}</span>`).join('')}</div>
+      </div>`).join('');
+    $('#page').innerHTML = `
+      <div class="hero">
+        <div class="hero-title">我的择业画像</div>
+        <div class="hero-sub">根据你的测评答题与卡片反馈持续更新，让推荐越来越懂你。</div>
+        <div style="display:flex;gap:24px;margin-top:14px;">
+          <div><div class="num" style="font-size:20px;font-weight:700;">${state.assessed ? 1 : 0}</div><div style="font-size:12px;opacity:.85;">完成测评</div></div>
+          <div><div class="num" style="font-size:20px;font-weight:700;">${state.feedbackCount}</div><div style="font-size:12px;opacity:.85;">卡片反馈</div></div>
+          <div><div class="num" style="font-size:20px;font-weight:700;">${interestNames.length}</div><div style="font-size:12px;opacity:.85;">意向方向</div></div>
+        </div>
+      </div>
+      ${dimHtml}
+      <div class="section-title">画得准吗？点 ✕ 纠正 <span class="more" onclick="toast('纠正会同步影响你的推荐结果')">说明 ›</span></div>
+      <div style="padding:0 20px 12px;display:flex;flex-wrap:wrap;gap:8px;">
+        ${state.careerTags.length ? state.careerTags.map((t, i) => `<span class="correct-tag">${t} <span class="ct-x" onclick="removeTag(${i})">✕</span></span>`).join('') : '<span style="font-size:12px;color:var(--color-text-3);">暂无待纠正标签</span>'}
+      </div>
+      <div class="cp-source">画像数据来自你填写的测评和职业卡片反馈，仅用于匹配推荐，不会对外展示。<span style="color:var(--color-primary);cursor:pointer;" onclick="goPush('/assessment')">重新测评</span>可刷新画像。</div>
+    `;
+    setSub(`<div class="bottom-bar"><div class="btn btn-ghost" onclick="goPush('/assessment')">重新测评，更新画像</div></div>`);
+  }
+
+  /* ---------- 收藏三态列表（彩色便签堆叠式） ---------- */
+  function renderFav(st) {
+    const titles = { interested: '感兴趣', rejected: '暂不考虑', later: '稍后再看' };
+    const notes = {
+      interested: '标记「感兴趣」的方向会优先出现在推荐里，随时可调整意愿或移除。',
+      rejected: '这些方向已从推荐中排除，随时可以恢复或改为感兴趣。',
+      later: '还没决定的方向先放这里，不影响推荐。有空时回来做个决定。'
+    };
+    const items = buildStackItems(st);
+    if (!items.length) {
+      navBack(titles[st]);
+      const glyphs = { interested: 'heart', rejected: 'xmark', later: 'clock' };
+      const eTitles = { interested: '还没有感兴趣的方向', rejected: '没有暂不考虑的方向', later: '暂无稍后再看' };
+      const empty = `<div class="empty"><div class="empty-icon">${gicon(glyphs[st], 40)}</div><div class="empty-title">${eTitles[st]}</div><div class="empty-desc">去刷方向或测评，把方向收进这里吧</div><div class="btn btn-primary" style="width:180px;margin:0 auto;" onclick="goTab('swipe')">去刷方向</div></div>`;
+      $('#page').innerHTML = `<div style="padding:16px 20px 12px;font-size:12px;color:var(--color-text-3);line-height:1.6;">${notes[st]}</div>${empty}`;
+      setSub('');
+      return;
+    }
+    renderStack(items, st, {
+      title: titles[st],
+      head: `<div style="padding:16px 20px 12px;font-size:12px;color:var(--color-text-3);line-height:1.6;">${notes[st]}</div>`
+    });
+  }
+
+  /* ================= v3.0 召唤页 ================= */
+  function renderSummon() {
+    navBack('召唤', `<span style="color:var(--color-primary);font-weight:600;" onclick="goCards()">我的卡册</span>`);
+    const s = state.summon;
+    const first = !s.firstDone;
+    const ratesHTML = DB.summon.rates.map(r =>
+      `<div class="sum-rate"><span class="sum-rate-star" style="color:${DB.summon.starColors[r.star - 1]}">${'★'.repeat(r.star)}</span><span>${r.label}</span><b>${r.pct}%</b></div>`).join('');
+    $('#page').innerHTML = `
+      <div class="summon-hero">
+        <div class="summon-title">召唤职业卡</div>
+        <div class="summon-sub">${first ? '首次召唤：定向推荐高契合职业 + 保底 1 张 3 星卡' : '抽卡获得职业卡，集卡升星解锁深度职业信息'}</div>
+        <div class="summon-tickets">剩余抽卡次数 <b>${s.tickets}</b></div>
+      </div>
+      <div class="summon-btns">
+        <div class="btn btn-outline sum-btn" style="opacity:${canPull(1) ? 1 : .45}" onclick="doPull()">单抽 · 1次</div>
+        <div class="btn btn-primary sum-btn sum-btn10" style="opacity:${canPull(10) ? 1 : .45}" onclick="doPull10()">十连召唤 · 10次</div>
+      </div>
+      <div class="summon-get">
+        <div class="sg-title">获得次数（任务 / 分享）</div>
+        <div class="sg-row" onclick="claimDaily()"><span>今日任务 · 刷 1 张方向卡</span><b>${s.dailyClaimed ? '已领取 ✓' : '+3'}</b></div>
+        <div class="sg-row" onclick="shareForTickets()"><span>分享给朋友</span><b>+2</b></div>
+      </div>
+      <div class="summon-rates">
+        <div class="sg-title">卡池概率（公示）</div>
+        ${ratesHTML}
+        <div class="sum-rate-note">· ${DB.summon.pity10}<br>· ${DB.summon.first10}</div>
+      </div>
+      <div id="summonResult"></div>
+    `;
+    setSub('');
+  }
+  // 抽卡结果渲染到召唤页（带逐张翻转动画）
+  function renderSummonResults(rs) {
+    const box = $('#summonResult');
+    if (!box) return;
+    // 抽卡过程中触发的自动合成升星：走沉浸式升星动画，完成后展示本次结果
+    const up = state.summon.autoUpgrade || [];
+    if (up.length) {
+      state.summon.autoUpgrade = [];
+      saveState();
+      startMergeAnim(up, { auto: true, done: () => renderSummonResults(rs) });
+      return;
+    }
+    // 同步刷新剩余次数与按钮可用态
+    const tk = document.querySelector('.summon-tickets b');
+    if (tk) tk.textContent = state.summon.tickets;
+    const can10 = canPull(10), can1 = canPull(1);
+    const b10 = document.querySelector('.sum-btn10');
+    const b1 = document.querySelector('.sum-btn');
+    if (b10) b10.style.opacity = can10 ? 1 : .45;
+    if (b1) b1.style.opacity = can1 ? 1 : .45;
+    const ten = rs.length > 1;
+    box.innerHTML = `
+      <div class="sum-res-head"><span>本次召唤结果</span><span class="sum-res-meta">${rs.length} 张 · <a style="color:var(--color-primary);cursor:pointer;font-weight:600;" onclick="goCards()">查看卡册 ›</a></span></div>
+      <div class="sum-grid ${ten ? 'sum-grid10' : 'sum-grid1'}">${rs.map((r, i) => pullCardHTML(r, i)).join('')}</div>`;
+    rs.forEach((r, i) => setTimeout(() => Sfx.flip(), i * (ten ? 150 : 40)));
+  }
+  function pullCardHTML(r, i) {
+    const d = dirById(r.id);
+    const border = DB.summon.starColors[r.star - 1];
+    const s3 = r.star === 3;
+    return `<div class="pull-card ${s3 ? 'rare' : ''}" style="animation-delay:${i * 120}ms" onclick="openDir('${d.id}')">
+      <div class="pc-cover c${d.c}">${gicon(d.g, 30)}</div>
+      <div class="pc-name">${d.name}</div>
+      <div class="pc-star" style="color:${border}">${'★'.repeat(r.star)}<span class="off">${'☆'.repeat(5 - r.star)}</span></div>
+      ${s3 ? '<div class="pc-rare">稀有</div>' : ''}
+    </div>`;
+  }
+
+  /* ================= v3.0 卡册 ================= */
+  function renderCards() {
+    navBack('我的卡册', `<span style="color:var(--color-primary);font-weight:600;" onclick="goPush('/summon')">去召唤</span>`);
+    const entries = Object.entries(state.cards).filter(([, c]) => c.count > 0 || c.level > 1);
+    const empty = `<div class="empty"><div class="empty-icon">${gicon('star', 40)}</div><div class="empty-title">还没有抽到卡</div><div class="empty-desc">去「召唤」抽卡，收集职业卡并升星解锁深度信息</div><div class="btn btn-primary" style="width:180px;margin:0 auto;" onclick="goPush('/summon')">去召唤</div></div>`;
+    $('#page').innerHTML = `
+      <div class="cards-head">
+        <div class="cards-stat"><b>${entries.length}</b><span>收集职业</span></div>
+        <div class="cards-stat"><b>${Object.values(state.cards).filter(c => c.level >= 3).length}</b><span>3星职业</span></div>
+        <div class="cards-stat"><b>${state.summon.totalPulls}</b><span>累计召唤</span></div>
+      </div>
+      ${entries.length ? `<div class="cards-grid">${entries.map(([id, c]) => cardTileHTML(id, c)).join('')}</div>` : empty}
+      <div style="padding:4px 20px 14px;font-size:12px;color:var(--color-text-3);line-height:1.7;">抽到 2/3 星稀有卡直接提升职业等级；同职业满 3 张可合成升 1 星。</div>
+    `;
+    setSub('');
+  }
+  function cardTileHTML(id, c) {
+    const d = dirById(id);
+    const canMerge = c.count >= 3 && c.level < 3;
+    return `<div class="card-tile" onclick="openDir('${id}')">
+      <div class="ct-cover c${d.c}">${gicon(d.g, 26)}</div>
+      <div class="ct-name">${d.name}</div>
+      <div class="ct-level" style="color:${DB.summon.starColors[c.level - 1]}">${cardStarsHTML(c.level)}</div>
+      <div class="ct-count">持有 ${c.count} 张</div>
+      ${canMerge
+        ? `<div class="ct-merge" onclick="event.stopPropagation();mergeCard('${id}')">合成升星</div>`
+        : c.level < 3
+          ? `<div class="ct-merge-off">再 ${Math.max(0, 3 - c.count)} 张升星</div>`
+          : `<div class="ct-merge-done">已满级</div>`}
+    </div>`;
+  }
+
+  /* ================= v3.0 私信 + 关注 ================= */
+  const DM_RISK = ['微信', 'wx', 'vx', 'WX', 'VX', '转账', '打款', '加好友', '进群', '刷单', '兼职', '手续费', '保证金'];
+  function getThread(peer) {
+    let t = state.dms.threads.find(x => x.peer === peer);
+    if (!t) {
+      t = { peer: peer, avatar: (peer || '?').charAt(0), lastMsg: '', time: '', unread: 0, messages: [] };
+      state.dms.threads.push(t);
+    }
+    return t;
+  }
+  function recalcUnread() {
+    state.dms.unread = state.dms.threads.reduce((a, t) => a + (t.unread || 0), 0);
+  }
+  window.openDm = function (peer) {
+    const t = getThread(peer);
+    t.unread = 0; recalcUnread();
+    saveState();
+    pushCur(); go('/dm/' + encodeURIComponent(peer));
+  };
+  window.sendDm = function (peer) {
+    const inp = $('#dmInput'); if (!inp) return;
+    const text = inp.value.trim();
+    if (!text) { toast('说点什么再发送'); return; }
+    const t = getThread(peer);
+    const hit = DM_RISK.find(k => text.toLowerCase().includes(k.toLowerCase()));
+    t.messages.push({ from: 'me', text: text, time: '刚刚', risk: !!hit });
+    t.lastMsg = text.length > 26 ? text.slice(0, 26) + '…' : text;
+    t.time = '刚刚';
+    inp.value = '';
+    saveState();
+    if (hit) toast('⚠️ 消息含「' + hit + '」，谨防网络诈骗');
+    render();
+  };
+  window.toggleFollow = function (name) {
+    const i = state.follows.indexOf(name);
+    if (i >= 0) { state.follows.splice(i, 1); toast('已取消关注'); }
+    else { state.follows.push(name); Sfx.click(); toast('已关注 ' + name); }
+    saveState(); render();
+  };
+  function renderDms() {
+    navBack('私信');
+    const ts = state.dms.threads;
+    const empty = `<div class="empty"><div class="empty-icon">${gicon('chat', 40)}</div><div class="empty-title">还没有会话</div><div class="empty-desc">去论坛找感兴趣的人聊聊，帖子作者都能私信</div><div class="btn btn-primary" style="width:180px;margin:0 auto;" onclick="goTab('forum')">去论坛</div></div>`;
+    $('#page').innerHTML = ts.length
+      ? `<div class="dm-list">${ts.map(t => `
+          <div class="dm-item" onclick="openDm('${t.peer}')">
+            <div class="dm-avatar">${escapeHtml(t.avatar)}</div>
+            <div class="dm-main"><div class="dm-name">${escapeHtml(t.peer)}</div><div class="dm-last">${escapeHtml(t.lastMsg || '打个招呼吧')}</div></div>
+            <div class="dm-side"><div class="dm-time">${t.time || ''}</div>${t.unread ? `<div class="dm-unread">${t.unread}</div>` : ''}</div>
+          </div>`).join('')}</div>`
+      : empty;
+    setSub('');
+  }
+  function renderDm(r) {
+    const peer = r.arg;
+    const t = getThread(peer);
+    t.unread = 0; recalcUnread(); saveState();
+    navBack(escapeHtml(peer));
+    const msgs = t.messages.length
+      ? t.messages.map(m => `
+          <div class="dm-msg ${m.from === 'me' ? 'mine' : ''}">
+            ${m.from !== 'me' ? `<div class="dm-avatar sm">${escapeHtml(t.avatar)}</div>` : ''}
+            <div class="dm-bubble">${escapeHtml(m.text)}${m.risk ? `<div class="dm-risk-tip">⚠️ 涉及联系方式/资金，谨防诈骗</div>` : ''}</div>
+          </div>`).join('')
+      : `<div class="dm-empty">打个招呼，聊聊求职吧</div>`;
+    $('#page').innerHTML = `<div class="dm-chat">${msgs}</div>`;
+    setSub(`<div class="dm-input-bar"><input id="dmInput" placeholder="友善交流…" onkeydown="if(event.key==='Enter')sendDm('${peer}')"><button onclick="sendDm('${peer}')">发送</button></div>`);
+    setTimeout(() => { const el = $('#page'); if (el) el.scrollTop = el.scrollHeight; }, 30);
+  }
+
+  /* ================= 启动 ================= */
+  function escapeHtml(s) { return String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+  window.addEventListener('hashchange', render);
+  // 轮盘划走手势（事件委托，render 重建 DOM 无需重新绑定）
+  document.addEventListener('pointerdown', swwDragStart);
+  document.addEventListener('pointermove', swwDragMove);
+  document.addEventListener('pointerup', swwDragEnd);
+  document.addEventListener('pointercancel', () => { swwDrag = null; });
+  if (!location.hash) location.hash = '#/ask';
+  render();
+})();
+
+</script>
+</body>
+</html>
