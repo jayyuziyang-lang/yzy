@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 768 512" width="768" height="512" font-family="Microsoft YaHei, SimHei, sans-serif">
+<rect width="768" height="512" fill="#FAFBFC"/>
+<text x="384" y="36" text-anchor="middle" font-size="18" font-weight="700" fill="#D4A017">钱换桌子：从拥挤的AI硬件，到超跌的创新药</text>
+<text x="384" y="56" text-anchor="middle" font-size="11" fill="#94A3B8">2026年8月7日 · 周五 · 扬说晚报</text>
+<polygon points="384,298 344,412 424,412" fill="#FFF7E6" stroke="#D4A017" stroke-width="3" stroke-linejoin="round"/>
+<line x1="150" y1="362" x2="618" y2="238" stroke="#D4A017" stroke-width="11" stroke-linecap="round"/>
+<line x1="150" y1="362" x2="618" y2="238" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" opacity="0.5"/>
+<circle cx="384" cy="300" r="8" fill="#D4A017"/>
+<rect x="125" y="282" width="150" height="63" rx="10" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2.5"/>
+<text x="200" y="312" text-anchor="middle" font-size="16" font-weight="700" fill="#7C3AED">光模块</text>
+<text x="200" y="332" text-anchor="middle" font-size="10" fill="#64748B">AI硬件 · 拥挤</text>
+<circle cx="158" cy="256" r="7" fill="#7C3AED"/><polygon points="150,264 166,264 169,278 147,278" fill="#7C3AED"/><line x1="154" y1="278" x2="152" y2="282" stroke="#7C3AED" stroke-width="3" stroke-linecap="round"/><line x1="162" y1="278" x2="164" y2="282" stroke="#7C3AED" stroke-width="3" stroke-linecap="round"/><line x1="151" y1="268" x2="146" y2="276" stroke="#7C3AED" stroke-width="3" stroke-linecap="round"/><line x1="165" y1="268" x2="170" y2="276" stroke="#7C3AED" stroke-width="3" stroke-linecap="round"/>
+<circle cx="188" cy="256" r="7" fill="#7C3AED"/><polygon points="180,264 196,264 199,278 177,278" fill="#7C3AED"/><line x1="184" y1="278" x2="182" y2="282" stroke="#7C3AED" stroke-width="3" stroke-linecap="round"/><line x1="192" y1="278" x2="194" y2="282" stroke="#7C3AED" stroke-width="3" stroke-linecap="round"/><line x1="181" y1="268" x2="176" y2="276" stroke="#7C3AED" stroke-width="3" stroke-linecap="round"/><line x1="195" y1="268" x2="200" y2="276" stroke="#7C3AED" stroke-width="3" stroke-linecap="round"/>
+<circle cx="218" cy="256" r="7" fill="#7C3AED"/><polygon points="210,264 226,264 229,278 207,278" fill="#7C3AED"/><line x1="214" y1="278" x2="212" y2="282" stroke="#7C3AED" stroke-width="3" stroke-linecap="round"/><line x1="222" y1="278" x2="224" y2="282" stroke="#7C3AED" stroke-width="3" stroke-linecap="round"/><line x1="211" y1="268" x2="206" y2="276" stroke="#7C3AED" stroke-width="3" stroke-linecap="round"/><line x1="225" y1="268" x2="230" y2="276" stroke="#7C3AED" stroke-width="3" stroke-linecap="round"/>
+<rect x="576" y="156" width="60" height="84" rx="26" fill="#FEF2F2" stroke="#DC2626" stroke-width="2.5"/>
+<text x="606" y="192" text-anchor="middle" font-size="14" font-weight="700" fill="#DC2626">创新药</text>
+<text x="606" y="212" text-anchor="middle" font-size="10" fill="#64748B">超跌反弹</text>
+<circle cx="658" cy="213" r="7" fill="#DC2626"/><polygon points="650,221 666,221 669,236 647,236" fill="#DC2626"/><line x1="654" y1="236" x2="652" y2="240" stroke="#DC2626" stroke-width="3" stroke-linecap="round"/><line x1="662" y1="236" x2="664" y2="240" stroke="#DC2626" stroke-width="3" stroke-linecap="round"/><line x1="651" y1="225" x2="645" y2="210" stroke="#DC2626" stroke-width="3" stroke-linecap="round"/><line x1="665" y1="225" x2="671" y2="210" stroke="#DC2626" stroke-width="3" stroke-linecap="round"/>
+<path d="M 280,290 Q 380,120 545,165" fill="none" stroke="#D4A017" stroke-width="3" stroke-dasharray="7 6" opacity="0.7"/>
+<circle cx="505" cy="152" r="17" fill="#D4A017"/>
+<text x="505" y="158" text-anchor="middle" font-size="16" font-weight="800" fill="#FFFFFF">￥</text>
+<polygon points="562,156 574,143 552,138" fill="#D4A017"/>
+<text x="430" y="120" text-anchor="middle" font-size="13" font-weight="700" fill="#D4A017">资金搬家 →</text>
+<line x1="24" y1="466" x2="744" y2="466" stroke="#D4A017" stroke-width="2" opacity="0.3"/>
+<text x="384" y="492" text-anchor="middle" font-size="11" fill="#334155">CRO<tspan fill="#DC2626" font-weight="700">+10.63%</tspan>创新药涨停潮 · 中际旭创<tspan fill="#16A34A" font-weight="700">-3.68%</tspan>尾盘跳水 · A股四连涨重上年线</text>
+</svg>

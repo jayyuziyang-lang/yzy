@@ -1,7 +1,19 @@
 {
-  "generated_at": "2026-08-07T11:01:20+08:00",
+  "generated_at": "2026-08-07T19:05:37+08:00",
   "latest_date": "2026-08-07",
   "articles": [
+    {
+      "date": "2026-08-07",
+      "session": "evening",
+      "edition_cn": "晚报",
+      "icon": "🌙",
+      "title": "沪指+1.02%下半年首次四连涨·CRO暴涨10.63%创新药涨停潮·中际旭创尾盘跳水·隔夜油价急涨3.8%·今夜非农定调",
+      "url": "2026-08-07/wechat-publish/evening/article.html",
+      "has_audio": true,
+      "audio_size_bytes": 2270592,
+      "has_comic": true,
+      "comic_count": 1
+    },
     {
       "date": "2026-08-07",
       "session": "morning",
@@ -657,6 +669,18 @@
   ],
   "by_date": {
     "2026-08-07": {
+      "evening": {
+        "date": "2026-08-07",
+        "session": "evening",
+        "edition_cn": "晚报",
+        "icon": "🌙",
+        "title": "沪指+1.02%下半年首次四连涨·CRO暴涨10.63%创新药涨停潮·中际旭创尾盘跳水·隔夜油价急涨3.8%·今夜非农定调",
+        "url": "2026-08-07/wechat-publish/evening/article.html",
+        "has_audio": true,
+        "audio_size_bytes": 2270592,
+        "has_comic": true,
+        "comic_count": 1
+      },
       "morning": {
         "date": "2026-08-07",
         "session": "morning",
