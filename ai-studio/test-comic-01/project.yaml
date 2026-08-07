@@ -1,0 +1,24 @@
+# test-comic-01 — 项目配置
+# 由 AI Studio 自动生成于 2026-07-22
+
+name: "test-comic-01"
+type: comic       # comic | film
+created: "2026-07-22"
+
+# 内容设置
+genre: ""
+target_duration: 60
+language: zh
+
+# 视觉设置
+style: manga
+aspect_ratio: "3:4"
+
+# 音频设置
+voice: "YunyangNeural"
+voice_rate: "-5%"
+bgm_style: ""
+
+# 输出设置
+output_formats:
+  - "3:4"

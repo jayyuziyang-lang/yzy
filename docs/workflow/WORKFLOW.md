@@ -1,6 +1,7 @@
 # 扬说财经 · 生产工作流程 v5.0
 
-> 版本: v7.0 | 更新: 2026-06-17
+> 版本: v8.0 | 更新: 2026-07-24
+> v8.0核心变更: **微信公众号半自动发布流程** — 个人订阅号走「脚本转换 + 人工粘贴发布」，publish-to-wechat.py 自动完成 CSS内联、SVG渲染、微信CDN图片上传、剪贴板复制、后台打开
 > v7.0核心变更: **漫画全面切换 Dalio 简笔科普 SVG** — 对标《经济机器是如何运行的》· Python SVG生成替代 SD 生成 · 简笔画小人+具体物件+白底+清晰标注 · 新标准执行书: docs/team/DALIO_SVG_COMIC_STANDARD.md
 > v6.2核心变更: 事件时间线核查(禁止前瞻写成复盘) + 浅色配色规范(禁止#1E3A5F/#DC2626) + Python图表强制(数据展示类不得用手写SVG) + 术语表min-width:140px + 音频时长校准<2min + AI导航hash验证(#ai)
 > v6.1核心变更: 名词解释强制嵌入文章(9项铁律) + VIX更新扩展到早报前置 + deploy.sh自动rebase防冲突
@@ -408,7 +409,9 @@ python scripts/audit-article.py --date YYYY-MM-DD --edition evening
 
 **任何一条不通过 → 不发布，先修复。**
 
-### Phase 7: 部署
+### Phase 7: 部署 + 微信公众号发布
+
+**7A: GitHub Pages 部署（原有流程）：**
 
 ```
 1. python scripts/audit-article.py（综合审核 — 阻塞检查）
@@ -436,6 +439,34 @@ python scripts/audit-article.py --date YYYY-MM-DD --edition evening
 - ❌ 禁止运行 update-index.py 前不读代码（理解输入输出）
 - ❌ 禁止移除任何函数/代码行除非100%确认其无用
 - ❌ 禁止推送后不等待部署就断言"没更新"
+
+**7B: 微信公众号发布（v8.0 新增 — 半自动方案A）：**
+
+```
+1. python scripts/publish-to-wechat.py --date YYYY-MM-DD --edition morning
+2. 等待图片全部上传到微信 CDN（进度条 100%）
+3. 浏览器自动打开 mp.weixin.qq.com
+4. 点击「新建图文消息」→ Ctrl+V 粘贴 HTML → 设封面/摘要 → 发布
+```
+
+**微信公众号发布自检清单：**
+```
+□ 所有图片上传成功（进度条 100%，无 FAIL）
+□ article-wechat.html 中 img src 均为 mmbiz.qpic.cn 域名
+□ PUBLISH_BRIEF.md 已生成
+□ HTML 已复制到剪贴板（Ctrl+V 可粘贴）
+□ 微信后台「新建图文消息」已打开
+□ 封面图已手动上传（comic/panel-001.svg 转为 PNG 后上传）
+□ 摘要已填写
+□ 作者设置为「小财」
+□ 预览通过 → 发布
+```
+
+**注意事项：**
+- 个人订阅号无法通过 API 创建草稿/发布，只能走半自动方案
+- SVG 漫画/图表会自动用 Playwright 渲染为 JPEG 后上传
+- 图片上传到微信 CDN 后长期有效，无需重复上传
+- 剪贴板复制依赖 PowerShell（Windows），如失败请从 article-wechat.html 手动复制
 
 ### Phase 8: 复盘
 
@@ -578,6 +609,8 @@ python scripts/audit-article.py --date YYYY-MM-DD --edition evening
 | 音频合成（深度专题） | `python -m edge_tts --voice zh-CN-YunyangNeural --rate=-5% -f script.txt --write-media audio.mp3` |
 | 音频合成（早报） | `python -m edge_tts --voice zh-CN-YunyangNeural --rate=-5% -f script.txt --write-media audio.mp3` |
 | 音频合成（晚报） | `python -m edge_tts --voice zh-CN-YunyangNeural --rate=-5% -f script.txt --write-media audio.mp3` |
+| 微信发布准备 | `python scripts/publish-to-wechat.py --date YYYY-MM-DD --edition morning` |
+| 微信发布（静默） | `python scripts/publish-to-wechat.py --date YYYY-MM-DD --edition morning --no-browser --no-clipboard` |
 
 ---
 

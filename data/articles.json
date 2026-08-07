@@ -1,7 +1,19 @@
 {
-  "generated_at": "2026-06-29T19:35:14+08:00",
-  "latest_date": "2026-06-29",
+  "generated_at": "2026-08-07T09:57:44+08:00",
+  "latest_date": "2026-08-07",
   "articles": [
+    {
+      "date": "2026-08-07",
+      "session": "morning",
+      "edition_cn": "早报",
+      "icon": "🌅",
+      "title": "黄金四连涨破4300·小非农爆冷·霍尔木兹谈判破冰·油价一周跌10%·道指终结五连涨·煤炭领涨A股",
+      "url": "2026-08-07/wechat-publish/morning/article.html",
+      "has_audio": true,
+      "audio_size_bytes": 2292768,
+      "has_comic": true,
+      "comic_count": 2
+    },
     {
       "date": "2026-06-29",
       "session": "evening",
@@ -644,6 +656,20 @@
     }
   ],
   "by_date": {
+    "2026-08-07": {
+      "morning": {
+        "date": "2026-08-07",
+        "session": "morning",
+        "edition_cn": "早报",
+        "icon": "🌅",
+        "title": "黄金四连涨破4300·小非农爆冷·霍尔木兹谈判破冰·油价一周跌10%·道指终结五连涨·煤炭领涨A股",
+        "url": "2026-08-07/wechat-publish/morning/article.html",
+        "has_audio": true,
+        "audio_size_bytes": 2292768,
+        "has_comic": true,
+        "comic_count": 2
+      }
+    },
     "2026-06-29": {
       "evening": {
         "date": "2026-06-29",
